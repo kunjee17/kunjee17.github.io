@@ -1,0 +1,559 @@
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2013/12/functional-programming-need-in-web-development/</guid><link>http://kunjan.in/2013/12/functional-programming-need-in-web-development/</link><title>Functional Programming Need in Web Development</title><description>&lt;p&gt;Whenever I talk about Functional Programming people with experience in web make faces. And seriously don't blame them. &lt;/p&gt;
+
+&lt;p&gt;Issue is mainly Functional Programming stays in back ground only. If you see any starting example of any functional language is mainly some machine learning example or some complicated algorithm example. And that may effect normal people to getting started with Functional Programming. &lt;/p&gt;
+
+&lt;p&gt;But functional programming can do far more than that. And that include simple things too. And I means it can make thing simpler or I can say it can make easy thing simple. &lt;/p&gt;
+
+&lt;p&gt;Here, if I say have to put web case here. May be web is right now most appropriate place where functional programming can be used. And reason is damn simple, current web projects are getting bigger and bigger and user base is also getting even larger. Now, to support that hardware is also getting better and better. &lt;/p&gt;
+
+&lt;p&gt;Now, the only thing is there is a need of programming language that can use this kind of hardware. And this case Functional Programming comes in picture or I must say it is most suitable.&lt;/p&gt;
+
+&lt;p&gt;Because there are many things that are backed into the language that help with the situation. If I take one thing is immutability. As there are grid of processors, there is a need of multiple objects using the resource parallel and there will be need to manage state of the objects. With immutability there will be no state that can be mutated. So, it is very much easy to reason with.&lt;/p&gt;
+
+&lt;p&gt;But unfortunately we don't utilize functional programming that much. And may be that is the reason we don't know how easy and beautiful things code can be with the use of functional programming. &lt;/p&gt;
+
+&lt;p&gt;So, here I will be writing couple of articles or may be series to make a case how useful functional programming can be in the case of web development. &lt;/p&gt;
+
+&lt;p&gt;As, I am mainly from the .Net background I ll be talking about F# mostly. But the thing is, functional programming is not limited to that. If anyone is coming from the Java land, &lt;a href="http://www.playframework.com/"&gt;Scala&lt;/a&gt; is the language for you. And if anyone wants something dynamic and very near to LISP, &lt;a href="http://clojure.org/"&gt;clojure&lt;/a&gt; is for you. &lt;/p&gt;
+
+&lt;p&gt;I try to get taste of every possible language, few sample here and there. But things mainly will be for Functional programming and Web.&lt;/p&gt;
+
+&lt;p&gt;Hope that effort count.&lt;/p&gt;
+</description><pubDate>Mon, 16 Dec 2013 18:30:00 Z</pubDate><a10:updated>2013-12-16T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;Whenever I talk about Functional Programming people with experience in web make faces. And seriously don't blame them. &lt;/p&gt;
+
+&lt;p&gt;Issue is mainly Functional Programming stays in back ground only. If you see any starting example of any functional language is mainly some machine learning example or some complicated algorithm example. And that may effect normal people to getting started with Functional Programming. &lt;/p&gt;
+
+&lt;p&gt;But functional programming can do far more than that. And that include simple things too. And I means it can make thing simpler or I can say it can make easy thing simple. &lt;/p&gt;
+
+&lt;p&gt;Here, if I say have to put web case here. May be web is right now most appropriate place where functional programming can be used. And reason is damn simple, current web projects are getting bigger and bigger and user base is also getting even larger. Now, to support that hardware is also getting better and better. &lt;/p&gt;
+
+&lt;p&gt;Now, the only thing is there is a need of programming language that can use this kind of hardware. And this case Functional Programming comes in picture or I must say it is most suitable.&lt;/p&gt;
+
+&lt;p&gt;Because there are many things that are backed into the language that help with the situation. If I take one thing is immutability. As there are grid of processors, there is a need of multiple objects using the resource parallel and there will be need to manage state of the objects. With immutability there will be no state that can be mutated. So, it is very much easy to reason with.&lt;/p&gt;
+
+&lt;p&gt;But unfortunately we don't utilize functional programming that much. And may be that is the reason we don't know how easy and beautiful things code can be with the use of functional programming. &lt;/p&gt;
+
+&lt;p&gt;So, here I will be writing couple of articles or may be series to make a case how useful functional programming can be in the case of web development. &lt;/p&gt;
+
+&lt;p&gt;As, I am mainly from the .Net background I ll be talking about F# mostly. But the thing is, functional programming is not limited to that. If anyone is coming from the Java land, &lt;a href="http://www.playframework.com/"&gt;Scala&lt;/a&gt; is the language for you. And if anyone wants something dynamic and very near to LISP, &lt;a href="http://clojure.org/"&gt;clojure&lt;/a&gt; is for you. &lt;/p&gt;
+
+&lt;p&gt;I try to get taste of every possible language, few sample here and there. But things mainly will be for Functional programming and Web.&lt;/p&gt;
+
+&lt;p&gt;Hope that effort count.&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/11/a-developer-without-programming-language/</guid><link>http://kunjan.in/2013/11/a-developer-without-programming-language/</link><title>A Developer without Programming Language</title><description>&lt;p&gt;Now a days I am little bit more involved in History lessons. And those also from Computer Science only. Specifically from programming language's perspective.  Why on the earth I am doing this, I guess answer is given by  &lt;a href="http://www.crockford.com/"&gt;Duglas Cockford&lt;/a&gt; over the &lt;a href="http://hanselminutes.com/396/bugs-considered-harmful-with-douglas-crockford"&gt;Hanselminutes&lt;/a&gt;.  And personally I love this part of learning. It is so delightful to know different language and why languages emerge the way it is.&lt;/p&gt;
+
+&lt;p&gt;That is one part of story. Now, I was talking with my friend about different ways of rapid game development, as we both like playing and making games. (Nothing reached to the release level yet though :P). It is fun always. Now, he is working with C++ and I am .Net guy until now. Recently I become web guy on paper with Java Script skills again on paper :P. But as I mentioned I have special love for languages. &lt;/p&gt;
+
+&lt;p&gt;Here comes the twist, as I have tried my hand on functional programming language, there is one sentence for functional languages stuck with me, "it is useful to develop algorithm". And it is like that only, it is very easy to develop algorithm with functional programming language because of features like pattern matching, pipe lining functions, higher order functions and other function oriented facility that is normally only possible with functional languages. So, I suggested that normally game should be done is some functional languages only, as it will be lot easier. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;But he is like NOPE!!! &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;No matter how many frameworks he need to throw to make task easier, but it should be there in C++ only. The only reason is he is so involved or I must say in love with C++ that he can't just leave it off. And I am just putting his example here but I have seen this a lot. Not only C or C++ people but also with C#, JAVA people. And there are other people who said that they are using open source but basically they are just using free stuff nothing else. People working with Linux based technology and advocating free stuff. I am not saying just like that because every argument end with sentence "And finally its free.".  But normally C and C++ people are so tightly attached with language that normally no one else do. &lt;/p&gt;
+
+&lt;p&gt;Even on twitter there is one highly respected person who moved away from C# and Microsoft stack to Ruby. And I also like the Ruby there is no doubt in that. But then there is no need to bash C# or Microsoft stack. But he never misses chance. Technically speaking compiled language is better in performance then transpiled languages. But does it matter??? It is just like what is good for at that specific point of time. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If I am loving something, does not give me any right to bash the other thing.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And more importantly we are developer, we develop things and languages are just part of tool we are using. And tool must be chosen as per problem. We are in industry where there is not liberty to choose problem as per our tools. And the rigidity and reluctance about choice of language, IDE or even OS make things more miserable while solving real problems. &lt;/p&gt;
+
+&lt;p&gt;This lesson I learned from people like &lt;a href="https://twitter.com/demisbellot"&gt;Demis Bellot&lt;/a&gt;, &lt;a href="https://twitter.com/amirrajan"&gt;Amir Rajan&lt;/a&gt; who always give priority to problem over language. You think Demis will stop working with &lt;a href="http://servicestack.net/"&gt;ServiceStack&lt;/a&gt; as he also like &lt;a href="https://www.dartlang.org/"&gt;Dart&lt;/a&gt;, or as Amir is more and more working with Nodejs he will not love &lt;a href="http://amirrajan.net/Oak/"&gt;Oak&lt;/a&gt; as he normally do. I don't think so. Every thing is design with some problem in mind. There is nothing that is just like that. &lt;/p&gt;
+
+&lt;p&gt;I am lucky enough to have friends who always there crash my reluctance and push me hard to make me more flexible and that helps to make right decision for right problem. And now I am also trying same with others.&lt;/p&gt;
+
+&lt;p&gt;I am trying hard to become polyglot developer, but I guess I have become a developer without any programming language. Just, pure developer. &lt;/p&gt;
+
+&lt;p&gt;Today's article is inspired by wonderful write up by &lt;a href="http://haacked.com/archive/2013/11/08/death-to-the-if-statement.aspx"&gt;Phil Haacked&lt;/a&gt; and today's conversation with Jessica Kerr&lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet"&gt;&lt;p&gt;&lt;a href="https://twitter.com/kunjee"&gt;@kunjee&lt;/a&gt; They have their identity tied up with &amp;quot;I&amp;#39;m a C# developer.&amp;quot; To switch languages would be to change their self-image.&lt;/p&gt;&amp;mdash; Jessica Kerr (@jessitron) &lt;a href="https://twitter.com/jessitron/statuses/400455908724994048"&gt;November 13, 2013&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+</description><pubDate>Tue, 12 Nov 2013 18:30:00 Z</pubDate><a10:updated>2013-11-12T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;Now a days I am little bit more involved in History lessons. And those also from Computer Science only. Specifically from programming language's perspective.  Why on the earth I am doing this, I guess answer is given by  &lt;a href="http://www.crockford.com/"&gt;Duglas Cockford&lt;/a&gt; over the &lt;a href="http://hanselminutes.com/396/bugs-considered-harmful-with-douglas-crockford"&gt;Hanselminutes&lt;/a&gt;.  And personally I love this part of learning. It is so delightful to know different language and why languages emerge the way it is.&lt;/p&gt;
+
+&lt;p&gt;That is one part of story. Now, I was talking with my friend about different ways of rapid game development, as we both like playing and making games. (Nothing reached to the release level yet though :P). It is fun always. Now, he is working with C++ and I am .Net guy until now. Recently I become web guy on paper with Java Script skills again on paper :P. But as I mentioned I have special love for languages. &lt;/p&gt;
+
+&lt;p&gt;Here comes the twist, as I have tried my hand on functional programming language, there is one sentence for functional languages stuck with me, "it is useful to develop algorithm". And it is like that only, it is very easy to develop algorithm with functional programming language because of features like pattern matching, pipe lining functions, higher order functions and other function oriented facility that is normally only possible with functional languages. So, I suggested that normally game should be done is some functional languages only, as it will be lot easier. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;But he is like NOPE!!! &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;No matter how many frameworks he need to throw to make task easier, but it should be there in C++ only. The only reason is he is so involved or I must say in love with C++ that he can't just leave it off. And I am just putting his example here but I have seen this a lot. Not only C or C++ people but also with C#, JAVA people. And there are other people who said that they are using open source but basically they are just using free stuff nothing else. People working with Linux based technology and advocating free stuff. I am not saying just like that because every argument end with sentence "And finally its free.".  But normally C and C++ people are so tightly attached with language that normally no one else do. &lt;/p&gt;
+
+&lt;p&gt;Even on twitter there is one highly respected person who moved away from C# and Microsoft stack to Ruby. And I also like the Ruby there is no doubt in that. But then there is no need to bash C# or Microsoft stack. But he never misses chance. Technically speaking compiled language is better in performance then transpiled languages. But does it matter??? It is just like what is good for at that specific point of time. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If I am loving something, does not give me any right to bash the other thing.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And more importantly we are developer, we develop things and languages are just part of tool we are using. And tool must be chosen as per problem. We are in industry where there is not liberty to choose problem as per our tools. And the rigidity and reluctance about choice of language, IDE or even OS make things more miserable while solving real problems. &lt;/p&gt;
+
+&lt;p&gt;This lesson I learned from people like &lt;a href="https://twitter.com/demisbellot"&gt;Demis Bellot&lt;/a&gt;, &lt;a href="https://twitter.com/amirrajan"&gt;Amir Rajan&lt;/a&gt; who always give priority to problem over language. You think Demis will stop working with &lt;a href="http://servicestack.net/"&gt;ServiceStack&lt;/a&gt; as he also like &lt;a href="https://www.dartlang.org/"&gt;Dart&lt;/a&gt;, or as Amir is more and more working with Nodejs he will not love &lt;a href="http://amirrajan.net/Oak/"&gt;Oak&lt;/a&gt; as he normally do. I don't think so. Every thing is design with some problem in mind. There is nothing that is just like that. &lt;/p&gt;
+
+&lt;p&gt;I am lucky enough to have friends who always there crash my reluctance and push me hard to make me more flexible and that helps to make right decision for right problem. And now I am also trying same with others.&lt;/p&gt;
+
+&lt;p&gt;I am trying hard to become polyglot developer, but I guess I have become a developer without any programming language. Just, pure developer. &lt;/p&gt;
+
+&lt;p&gt;Today's article is inspired by wonderful write up by &lt;a href="http://haacked.com/archive/2013/11/08/death-to-the-if-statement.aspx"&gt;Phil Haacked&lt;/a&gt; and today's conversation with Jessica Kerr&lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet"&gt;&lt;p&gt;&lt;a href="https://twitter.com/kunjee"&gt;@kunjee&lt;/a&gt; They have their identity tied up with &amp;quot;I&amp;#39;m a C# developer.&amp;quot; To switch languages would be to change their self-image.&lt;/p&gt;&amp;mdash; Jessica Kerr (@jessitron) &lt;a href="https://twitter.com/jessitron/statuses/400455908724994048"&gt;November 13, 2013&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/10/functional-programming-how-i-started/</guid><link>http://kunjan.in/2013/10/functional-programming-how-i-started/</link><title>Functional Programming, How I started and Why?</title><description>&lt;p&gt;I am not kind of Technical person who started hacking / coding in very early age. But I have special love / affection towards numbers. I don't know why but it always fascinate me.&lt;/p&gt;
+
+&lt;p&gt;And this was the starting point or I can say reason I started baby steps in functional programming. I like DI, not in term of Dependency Injection but in case of Data Interpretation. Those tabular data and all the graphs and details that data can produce is awesome. It simply blow away my mind. &lt;/p&gt;
+
+&lt;p&gt;It is possible to do analysis in almost any language, but as I have heard it will be fairly easy with functional languages. As, I was coming from .Net background (Its just I am / was using as my day job.) I checked out F#. &lt;/p&gt;
+
+&lt;p&gt;I know about F# even 2 years back, when it was picking up the ground, but I thought I am no where near good with C# and one more language will just add more confusion. But now things are different. I am good with C# and love LINQ. And so, I gave shot to &lt;a href="http://tryfsharp.org"&gt;F#&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;And trust me, it blows my mind. It was awesome. I never know that programming can be this much fun. It is like that whatever should be there is there. If I elaborate my last sentence then I can say that, normally I / we need to train our brain to learn any kind of language but in case of Functional Programming, language learn to think like me. I don't have to put special effort for that. And this is the fun part. &lt;/p&gt;
+
+&lt;p&gt;Even if I copy - paste things I wrote on paper as part of pseudo code or algorithm in most of the cases it will work. There is no conversion from pseudo code to code. And that is power of language or I must say that is language. I don't know why any functional languages is not getting taught in colleges. Even before C, there should be a lecture on &lt;a href="http://www.haskell.org/haskellwiki/Haskell"&gt;Haskell&lt;/a&gt;, &lt;a href="http://www.lisp.org/index.html"&gt;LISP&lt;/a&gt; or any other functional language. &lt;/p&gt;
+
+&lt;p&gt;My choose for this kind of language is entirely for wrong reason. I like mathematics and I don't mind if someone throw some complicated theory on me. But for languages like this  I choose just because of things like I can save my key strokes by not writing semi colons, functional composition is fun and easy and I can save lot and lots of time and efforts because of this feature. And more over writing code in functional language is fun. &lt;/p&gt;
+
+&lt;p&gt;There will be more detailed articles are coming, specifically for web and game. Two of areas I know one because of day job and one because of love, but till than here are some video's you can enjoy. &lt;/p&gt;
+
+&lt;p&gt;I like this &lt;a href="http://channel9.msdn.com/Series/C9-Lectures-Erik-Meijer-Functional-Programming-Fundamentals/Lecture-Series-Erik-Meijer-Functional-Programming-Fundamentals-Chapter-1"&gt;series&lt;/a&gt; so much, that I am still half way but I am felling blessed. It gives every possible in and out of functional programming with wonderful explanation. &lt;/p&gt;
+
+&lt;p&gt;Here is video for people like me who sometime can't leave object oriented language and still like to use functional programming concepts. &lt;a href="https://twitter.com/jessitron"&gt;Jessica Kerr&lt;/a&gt; is sweetest speaker I have ever seen. If she explain in morning that there is moon out there, I think people even buy that too.&lt;/p&gt;
+
+&lt;iframe width="560" height="315" src="//www.youtube.com/embed/pMGY9ViIGNU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;And how can I forget wonder woman &lt;a href="https://twitter.com/rachelreese"&gt;Rachel Reese&lt;/a&gt;. After her explanation I now can claim that I know actors. I am not expert but still I am also not dumb now. All thanks to her. 
+&lt;iframe src="//player.vimeo.com/video/74996999" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="http://vimeo.com/74996999"&gt;[nyc-fsharp] Rachel Reese on FSharp Agents&lt;/a&gt; from &lt;a href="http://vimeo.com/rickasaurus"&gt;Richard Minerich&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+</description><pubDate>Wed, 23 Oct 2013 18:30:00 Z</pubDate><a10:updated>2013-10-23T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;I am not kind of Technical person who started hacking / coding in very early age. But I have special love / affection towards numbers. I don't know why but it always fascinate me.&lt;/p&gt;
+
+&lt;p&gt;And this was the starting point or I can say reason I started baby steps in functional programming. I like DI, not in term of Dependency Injection but in case of Data Interpretation. Those tabular data and all the graphs and details that data can produce is awesome. It simply blow away my mind. &lt;/p&gt;
+
+&lt;p&gt;It is possible to do analysis in almost any language, but as I have heard it will be fairly easy with functional languages. As, I was coming from .Net background (Its just I am / was using as my day job.) I checked out F#. &lt;/p&gt;
+
+&lt;p&gt;I know about F# even 2 years back, when it was picking up the ground, but I thought I am no where near good with C# and one more language will just add more confusion. But now things are different. I am good with C# and love LINQ. And so, I gave shot to &lt;a href="http://tryfsharp.org"&gt;F#&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;And trust me, it blows my mind. It was awesome. I never know that programming can be this much fun. It is like that whatever should be there is there. If I elaborate my last sentence then I can say that, normally I / we need to train our brain to learn any kind of language but in case of Functional Programming, language learn to think like me. I don't have to put special effort for that. And this is the fun part. &lt;/p&gt;
+
+&lt;p&gt;Even if I copy - paste things I wrote on paper as part of pseudo code or algorithm in most of the cases it will work. There is no conversion from pseudo code to code. And that is power of language or I must say that is language. I don't know why any functional languages is not getting taught in colleges. Even before C, there should be a lecture on &lt;a href="http://www.haskell.org/haskellwiki/Haskell"&gt;Haskell&lt;/a&gt;, &lt;a href="http://www.lisp.org/index.html"&gt;LISP&lt;/a&gt; or any other functional language. &lt;/p&gt;
+
+&lt;p&gt;My choose for this kind of language is entirely for wrong reason. I like mathematics and I don't mind if someone throw some complicated theory on me. But for languages like this  I choose just because of things like I can save my key strokes by not writing semi colons, functional composition is fun and easy and I can save lot and lots of time and efforts because of this feature. And more over writing code in functional language is fun. &lt;/p&gt;
+
+&lt;p&gt;There will be more detailed articles are coming, specifically for web and game. Two of areas I know one because of day job and one because of love, but till than here are some video's you can enjoy. &lt;/p&gt;
+
+&lt;p&gt;I like this &lt;a href="http://channel9.msdn.com/Series/C9-Lectures-Erik-Meijer-Functional-Programming-Fundamentals/Lecture-Series-Erik-Meijer-Functional-Programming-Fundamentals-Chapter-1"&gt;series&lt;/a&gt; so much, that I am still half way but I am felling blessed. It gives every possible in and out of functional programming with wonderful explanation. &lt;/p&gt;
+
+&lt;p&gt;Here is video for people like me who sometime can't leave object oriented language and still like to use functional programming concepts. &lt;a href="https://twitter.com/jessitron"&gt;Jessica Kerr&lt;/a&gt; is sweetest speaker I have ever seen. If she explain in morning that there is moon out there, I think people even buy that too.&lt;/p&gt;
+
+&lt;iframe width="560" height="315" src="//www.youtube.com/embed/pMGY9ViIGNU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;And how can I forget wonder woman &lt;a href="https://twitter.com/rachelreese"&gt;Rachel Reese&lt;/a&gt;. After her explanation I now can claim that I know actors. I am not expert but still I am also not dumb now. All thanks to her. 
+&lt;iframe src="//player.vimeo.com/video/74996999" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="http://vimeo.com/74996999"&gt;[nyc-fsharp] Rachel Reese on FSharp Agents&lt;/a&gt; from &lt;a href="http://vimeo.com/rickasaurus"&gt;Richard Minerich&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/08/i-like-functional-programming/</guid><link>http://kunjan.in/2013/08/i-like-functional-programming/</link><title>Yes, I like functional programming</title><description>&lt;p&gt;Because it is good. It is fun to write code in functional language. It takes away unnecessary complexity from my way. It do as problem needed I don't need to act as computer to give instruction to computer for how to do computing.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;And just like this specific blog, it is concise, crisp and like haiku short and sweet. &lt;/p&gt;
+&lt;/blockquote&gt;
+</description><pubDate>Wed, 28 Aug 2013 18:30:00 Z</pubDate><a10:updated>2013-08-28T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;Because it is good. It is fun to write code in functional language. It takes away unnecessary complexity from my way. It do as problem needed I don't need to act as computer to give instruction to computer for how to do computing.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;And just like this specific blog, it is concise, crisp and like haiku short and sweet. &lt;/p&gt;
+&lt;/blockquote&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/08/why-ror-is-necessity/</guid><link>http://kunjan.in/2013/08/why-ror-is-necessity/</link><title>Why Ruby on Rails in not only for Ruby on Rails Developers?!</title><description>&lt;p&gt;If you ever involved in web development, then you must be knowing the history of it. Once upon a time there is something called &lt;a href="https://en.wikipedia.org/wiki/CGI_script"&gt;CGI&lt;/a&gt;. And at that moment there are static html pages. &lt;/p&gt;
+
+&lt;p&gt;Only few part of page is dynamic. Then things changed, &lt;a href="https://en.wikipedia.org/wiki/Active_server_pages"&gt;ASP&lt;/a&gt; came. Server access become so normal and easy. But still there is a lot more work to do. And main issue with them is code is not arranged and coding style is not suitable for big projects. &lt;/p&gt;
+
+&lt;p&gt;One can create dirty few pages but creating sophisticated big project is almost big no no. Same is true with other part of languages too. Languages like &lt;a href="https://en.wikipedia.org/wiki/Php"&gt;Php&lt;/a&gt; , &lt;a href="https://en.wikipedia.org/wiki/Java_Server_Pages"&gt;JSP&lt;/a&gt; etc.&lt;/p&gt;
+
+&lt;p&gt;At that moment, something called &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt; took birth. It was extracted from &lt;a href="https://basecamp.com/"&gt;Basecamp&lt;/a&gt;. And then it took the world like anything. Even today it is so popular. &lt;/p&gt;
+
+&lt;p&gt;I am proper Microsoft Developer. And I know Asp.Net MVC(at least my &lt;a href="http://kunjan.in/pages/resume"&gt;Resume&lt;/a&gt; says so.). I never felt I should learn any other thing than MVC. It is good, better than Web Forms (at least for me). And I know how to do data in and data out. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;What else can be needed??? &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The answer is many things. My views are hammered by &lt;a href="http://wekeroad.com/"&gt;Rob Conery&lt;/a&gt; with one of his video at &lt;a href="http://www.ndcoslo.com/"&gt;NDC&lt;/a&gt;. Then I thought there is no harm in learning new thing. &lt;/p&gt;
+
+&lt;p&gt;First I start with MVC thing. What things it claims to solve? It provides &lt;a href="https://en.wikipedia.org/wiki/Separation_of_concerns"&gt;Separation of Concern&lt;/a&gt; in your code. But in any framework it is not strictly imposed. Specially in Asp.Net MVC. Means there is no proper guideline on how things should be. And you can find hell lot of opinion for that. I don't mind any of them but one thing I mind that culture is missing there. Culture that provides starting point. For the new user it will be damn tough to start things. &lt;/p&gt;
+
+&lt;p&gt;If I give a example, in Ruby On Rails things with 7 operation will stay in one controller but in MVC I can do it more than that. I can put every  JSON operation in one controller. One may argue that it is issue on my side but I will say it is issue on our culture side. No one forcing me to do it right things first. Obviously I need freedom to do things in my way but first I like to learn right way of doing things. &lt;/p&gt;
+
+&lt;p&gt;Even though there are many copy of ROR, but culture is not copied properly. And that makes issue sometimes. And that even not allowed to rip the benefit of using MVC. So, it will be like that I am creating controller and writing code in View. Or model is there but I still don't know why? &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Or I can say I don't know how many models are there??? My MVC then became (M^n)VC. And then all that mapping and stuff. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Am I using MVC to make things easy for me or make things even worst for me? This question always bugs me till I learn (I still not no where near good user of ROR) ROR. That helps me a lot to cultured my MVC code. At the end of day ROR is father of all the MVC framework out there. &lt;/p&gt;
+
+&lt;p&gt;You take it .Net, Java, Node or even &lt;a href="http://www.codinghorror.com/blog/2012/06/the-php-singularity.html"&gt;sucky Php&lt;/a&gt; every damn technology have their version of rails. If you have that much things from rails, then there is no need to shy away from learning it. &lt;/p&gt;
+
+&lt;p&gt;I learned from &lt;a href="http://tekpub.com/collections/ruby-rails/products/rails3"&gt;Tekpub&lt;/a&gt;, you can also try it. Or you can try &lt;a href="https://peepcode.com/"&gt;Peepcode&lt;/a&gt; too. Both are quite good at teaching specially rails. &lt;/p&gt;
+
+&lt;p&gt;I am still a .Net developer at least as of now, but still it clears out many things. And with that it is also true that rails is not a silver bullet. If you are creating back end architecture to provide service you can try out different things. Even though rails way works but still you are not bounded. &lt;/p&gt;
+
+&lt;p&gt;But learning is not option I guess. If anyone related to web development must learn or at least once give it shot for &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt;.&lt;/p&gt;
+</description><pubDate>Mon, 26 Aug 2013 18:30:00 Z</pubDate><a10:updated>2013-08-26T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;If you ever involved in web development, then you must be knowing the history of it. Once upon a time there is something called &lt;a href="https://en.wikipedia.org/wiki/CGI_script"&gt;CGI&lt;/a&gt;. And at that moment there are static html pages. &lt;/p&gt;
+
+&lt;p&gt;Only few part of page is dynamic. Then things changed, &lt;a href="https://en.wikipedia.org/wiki/Active_server_pages"&gt;ASP&lt;/a&gt; came. Server access become so normal and easy. But still there is a lot more work to do. And main issue with them is code is not arranged and coding style is not suitable for big projects. &lt;/p&gt;
+
+&lt;p&gt;One can create dirty few pages but creating sophisticated big project is almost big no no. Same is true with other part of languages too. Languages like &lt;a href="https://en.wikipedia.org/wiki/Php"&gt;Php&lt;/a&gt; , &lt;a href="https://en.wikipedia.org/wiki/Java_Server_Pages"&gt;JSP&lt;/a&gt; etc.&lt;/p&gt;
+
+&lt;p&gt;At that moment, something called &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt; took birth. It was extracted from &lt;a href="https://basecamp.com/"&gt;Basecamp&lt;/a&gt;. And then it took the world like anything. Even today it is so popular. &lt;/p&gt;
+
+&lt;p&gt;I am proper Microsoft Developer. And I know Asp.Net MVC(at least my &lt;a href="http://kunjan.in/pages/resume"&gt;Resume&lt;/a&gt; says so.). I never felt I should learn any other thing than MVC. It is good, better than Web Forms (at least for me). And I know how to do data in and data out. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;What else can be needed??? &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The answer is many things. My views are hammered by &lt;a href="http://wekeroad.com/"&gt;Rob Conery&lt;/a&gt; with one of his video at &lt;a href="http://www.ndcoslo.com/"&gt;NDC&lt;/a&gt;. Then I thought there is no harm in learning new thing. &lt;/p&gt;
+
+&lt;p&gt;First I start with MVC thing. What things it claims to solve? It provides &lt;a href="https://en.wikipedia.org/wiki/Separation_of_concerns"&gt;Separation of Concern&lt;/a&gt; in your code. But in any framework it is not strictly imposed. Specially in Asp.Net MVC. Means there is no proper guideline on how things should be. And you can find hell lot of opinion for that. I don't mind any of them but one thing I mind that culture is missing there. Culture that provides starting point. For the new user it will be damn tough to start things. &lt;/p&gt;
+
+&lt;p&gt;If I give a example, in Ruby On Rails things with 7 operation will stay in one controller but in MVC I can do it more than that. I can put every  JSON operation in one controller. One may argue that it is issue on my side but I will say it is issue on our culture side. No one forcing me to do it right things first. Obviously I need freedom to do things in my way but first I like to learn right way of doing things. &lt;/p&gt;
+
+&lt;p&gt;Even though there are many copy of ROR, but culture is not copied properly. And that makes issue sometimes. And that even not allowed to rip the benefit of using MVC. So, it will be like that I am creating controller and writing code in View. Or model is there but I still don't know why? &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Or I can say I don't know how many models are there??? My MVC then became (M^n)VC. And then all that mapping and stuff. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Am I using MVC to make things easy for me or make things even worst for me? This question always bugs me till I learn (I still not no where near good user of ROR) ROR. That helps me a lot to cultured my MVC code. At the end of day ROR is father of all the MVC framework out there. &lt;/p&gt;
+
+&lt;p&gt;You take it .Net, Java, Node or even &lt;a href="http://www.codinghorror.com/blog/2012/06/the-php-singularity.html"&gt;sucky Php&lt;/a&gt; every damn technology have their version of rails. If you have that much things from rails, then there is no need to shy away from learning it. &lt;/p&gt;
+
+&lt;p&gt;I learned from &lt;a href="http://tekpub.com/collections/ruby-rails/products/rails3"&gt;Tekpub&lt;/a&gt;, you can also try it. Or you can try &lt;a href="https://peepcode.com/"&gt;Peepcode&lt;/a&gt; too. Both are quite good at teaching specially rails. &lt;/p&gt;
+
+&lt;p&gt;I am still a .Net developer at least as of now, but still it clears out many things. And with that it is also true that rails is not a silver bullet. If you are creating back end architecture to provide service you can try out different things. Even though rails way works but still you are not bounded. &lt;/p&gt;
+
+&lt;p&gt;But learning is not option I guess. If anyone related to web development must learn or at least once give it shot for &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt;.&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/08/vim-for-me/</guid><link>http://kunjan.in/2013/08/vim-for-me/</link><title>VIM for me?</title><description>&lt;p&gt;I want confess that, my whole career I was and I am working with Visual Studio. Not a big fan, but it was good or I must say it is good. I don't think any other IDE is doing as much thing as visual studio is doing. &lt;/p&gt;
+
+&lt;p&gt;And with few add-ons (even if you exclude &lt;a href="https://www.jetbrains.com/resharper/"&gt;ReSharper&lt;/a&gt;) it is like wow. As full time web developer I like the tools, that always there to solve my issue. &lt;/p&gt;
+
+&lt;p&gt;But my love for languages like C# is far more than that. Give me my language and I can do wonders. And I also love OSS work and people doing OSS work in .net. One of my favourite project is &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, here is the point, when a conversation with &lt;a href="https://twitter.com/demisbellot"&gt;Demis&lt;/a&gt;, creator of  &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; made me thinking. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Am I going to far with my affection for tools? Am I doing it &lt;em&gt;wrong&lt;/em&gt;? Am I going in &lt;em&gt;wrong&lt;/em&gt; direction?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Here is the &lt;a href="https://twitter.com/kunjee/status/344894343066296321"&gt;twitter conversation&lt;/a&gt;. And I agreed if I don' learn new things I am not doing justification to my old tools. How can I say that Visual Studio is good if I haven't tried &lt;a href="http://www.sublimetext.com/"&gt;Sublimetext&lt;/a&gt; or &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have tried &lt;a href="http://www.sublimetext.com/"&gt;Sublimetext&lt;/a&gt; and pretty much impressed. It is my basic tools to edit web stuff or I am doing something with my blog. It is fast, light weigh with awesome plug ins; almost for every language. &lt;/p&gt;
+
+&lt;p&gt;Now, I am trying for &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;, I am starting with &lt;a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/"&gt;tutorial&lt;/a&gt; suggested by &lt;a href="https://twitter.com/amirrajan"&gt;Amir Rajan&lt;/a&gt;. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Even if there is a slightest chance that your daily work is C# and you are thinking what you are doing with &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;; think &lt;strong&gt;again&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://twitter.com/amirrajan"&gt;Amir Rajan&lt;/a&gt; did wonderful &lt;a href="http://vimeo.com/72745278"&gt;video&lt;/a&gt;, how things work with C#.&lt;/p&gt;
+
+&lt;p&gt;Have a look at it&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src="http://player.vimeo.com/video/72745278" width="500" height="313" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="http://vimeo.com/72745278"&gt;Coding out loud: C#, TDD, NSpec and VIM&lt;/a&gt; from &lt;a href="http://vimeo.com/user19333001"&gt;Amir Rajan&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;It is like learning new thing. Lets see how far it will go. Will check it out and write about my experience in follow up post.&lt;/p&gt;
+</description><pubDate>Wed, 21 Aug 2013 18:30:00 Z</pubDate><a10:updated>2013-08-21T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;I want confess that, my whole career I was and I am working with Visual Studio. Not a big fan, but it was good or I must say it is good. I don't think any other IDE is doing as much thing as visual studio is doing. &lt;/p&gt;
+
+&lt;p&gt;And with few add-ons (even if you exclude &lt;a href="https://www.jetbrains.com/resharper/"&gt;ReSharper&lt;/a&gt;) it is like wow. As full time web developer I like the tools, that always there to solve my issue. &lt;/p&gt;
+
+&lt;p&gt;But my love for languages like C# is far more than that. Give me my language and I can do wonders. And I also love OSS work and people doing OSS work in .net. One of my favourite project is &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, here is the point, when a conversation with &lt;a href="https://twitter.com/demisbellot"&gt;Demis&lt;/a&gt;, creator of  &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; made me thinking. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Am I going to far with my affection for tools? Am I doing it &lt;em&gt;wrong&lt;/em&gt;? Am I going in &lt;em&gt;wrong&lt;/em&gt; direction?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Here is the &lt;a href="https://twitter.com/kunjee/status/344894343066296321"&gt;twitter conversation&lt;/a&gt;. And I agreed if I don' learn new things I am not doing justification to my old tools. How can I say that Visual Studio is good if I haven't tried &lt;a href="http://www.sublimetext.com/"&gt;Sublimetext&lt;/a&gt; or &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have tried &lt;a href="http://www.sublimetext.com/"&gt;Sublimetext&lt;/a&gt; and pretty much impressed. It is my basic tools to edit web stuff or I am doing something with my blog. It is fast, light weigh with awesome plug ins; almost for every language. &lt;/p&gt;
+
+&lt;p&gt;Now, I am trying for &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;, I am starting with &lt;a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/"&gt;tutorial&lt;/a&gt; suggested by &lt;a href="https://twitter.com/amirrajan"&gt;Amir Rajan&lt;/a&gt;. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Even if there is a slightest chance that your daily work is C# and you are thinking what you are doing with &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;; think &lt;strong&gt;again&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://twitter.com/amirrajan"&gt;Amir Rajan&lt;/a&gt; did wonderful &lt;a href="http://vimeo.com/72745278"&gt;video&lt;/a&gt;, how things work with C#.&lt;/p&gt;
+
+&lt;p&gt;Have a look at it&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src="http://player.vimeo.com/video/72745278" width="500" height="313" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="http://vimeo.com/72745278"&gt;Coding out loud: C#, TDD, NSpec and VIM&lt;/a&gt; from &lt;a href="http://vimeo.com/user19333001"&gt;Amir Rajan&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;It is like learning new thing. Lets see how far it will go. Will check it out and write about my experience in follow up post.&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/08/back-to-business/</guid><link>http://kunjan.in/2013/08/back-to-business/</link><title>Back to Business</title><description>&lt;p&gt;It have been long that I was doing active blogging. There are multiple reason for that, and on of them is being a lazy ass. &lt;/p&gt;
+
+&lt;p&gt;I changed my blog from &lt;a href="http://www.orchardproject.net"&gt;Orchard&lt;/a&gt; to &lt;a href="http://docpad.org/"&gt;Docpad&lt;/a&gt; for almost no reason. I just wanted my few page look different then other pages. And that will little bit more effort if I am going to do it with &lt;a href="http://www.orchardproject.net"&gt;Orchard&lt;/a&gt;.  So, I check out on net how to do it. I know Rob was using &lt;a href="http://nestacms.com/"&gt;Nesta&lt;/a&gt; but I am not good with Ruby, at least that much and more over ruby was giving issue on my windows machine. And switching on my VM just to write blog... Naaaahhh!!!!&lt;/p&gt;
+
+&lt;p&gt;Then I moved to Docpad. I have to loose some of my comments, which was there as part of Orchard system. But it was fine. Only painful thing is I have to do lot more work to just get it up as I wanted. It was not like set up and go using &lt;a href="http://windows.microsoft.com/en-us/windows-live/essentials"&gt;Windows Essentials' Live Writer&lt;/a&gt;. But it is giving me flexibility. &lt;/p&gt;
+
+&lt;p&gt;And in other reason, work load at day job. Things are moving faster then I can plan for. I was trying to learn other languages and tools. Moving out of my comfort zone. So, number of posts are less. Sadly!!!&lt;/p&gt;
+
+&lt;p&gt;I also changed my job and my city, so that transaction do take time, specially leaving city like Bangalore was a bit of a pain on my side. Now, I am out shock, almost!&lt;/p&gt;
+
+&lt;p&gt;But biggest lost I think, is my google juice. My site is not coming on front page if someone  search my name. Luckily I am and I was active on my &lt;a href="https://twitter.com/kunjee"&gt;twitter&lt;/a&gt; and it point to my site. So, still some juice stays there. &lt;/p&gt;
+
+&lt;p&gt;And I also owe apology to any readers who come to my site while I was modifying details, site was in bad state and I pushed on &lt;a href="https://www.heroku.com/"&gt;Heroku&lt;/a&gt;, that was total uncool of me. But there were some issue related to domain and I am to lazy to maintain production and master branch at least for my blog. I am the only one using it and I am not so popular; at least as of now. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;But now things are far better than it was before. Site CSS is quite good and contents seems more readable. You can check it  out, comment and share. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Check out blog entries. I am still changing things as I go but there will be no major changes. But do give me your suggestions if any regarding site. &lt;/p&gt;
+
+&lt;p&gt;Things are still come even after this blog&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;New home page design&lt;/li&gt;
+&lt;li&gt;Tags for all blogs&lt;/li&gt;
+&lt;li&gt;Tags/Category pages to jump around &lt;/li&gt;
+&lt;li&gt;search page (damn simple google search, what else?!)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Stay tuned... &lt;/p&gt;
+</description><pubDate>Tue, 20 Aug 2013 18:30:00 Z</pubDate><a10:updated>2013-08-20T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;It have been long that I was doing active blogging. There are multiple reason for that, and on of them is being a lazy ass. &lt;/p&gt;
+
+&lt;p&gt;I changed my blog from &lt;a href="http://www.orchardproject.net"&gt;Orchard&lt;/a&gt; to &lt;a href="http://docpad.org/"&gt;Docpad&lt;/a&gt; for almost no reason. I just wanted my few page look different then other pages. And that will little bit more effort if I am going to do it with &lt;a href="http://www.orchardproject.net"&gt;Orchard&lt;/a&gt;.  So, I check out on net how to do it. I know Rob was using &lt;a href="http://nestacms.com/"&gt;Nesta&lt;/a&gt; but I am not good with Ruby, at least that much and more over ruby was giving issue on my windows machine. And switching on my VM just to write blog... Naaaahhh!!!!&lt;/p&gt;
+
+&lt;p&gt;Then I moved to Docpad. I have to loose some of my comments, which was there as part of Orchard system. But it was fine. Only painful thing is I have to do lot more work to just get it up as I wanted. It was not like set up and go using &lt;a href="http://windows.microsoft.com/en-us/windows-live/essentials"&gt;Windows Essentials' Live Writer&lt;/a&gt;. But it is giving me flexibility. &lt;/p&gt;
+
+&lt;p&gt;And in other reason, work load at day job. Things are moving faster then I can plan for. I was trying to learn other languages and tools. Moving out of my comfort zone. So, number of posts are less. Sadly!!!&lt;/p&gt;
+
+&lt;p&gt;I also changed my job and my city, so that transaction do take time, specially leaving city like Bangalore was a bit of a pain on my side. Now, I am out shock, almost!&lt;/p&gt;
+
+&lt;p&gt;But biggest lost I think, is my google juice. My site is not coming on front page if someone  search my name. Luckily I am and I was active on my &lt;a href="https://twitter.com/kunjee"&gt;twitter&lt;/a&gt; and it point to my site. So, still some juice stays there. &lt;/p&gt;
+
+&lt;p&gt;And I also owe apology to any readers who come to my site while I was modifying details, site was in bad state and I pushed on &lt;a href="https://www.heroku.com/"&gt;Heroku&lt;/a&gt;, that was total uncool of me. But there were some issue related to domain and I am to lazy to maintain production and master branch at least for my blog. I am the only one using it and I am not so popular; at least as of now. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;But now things are far better than it was before. Site CSS is quite good and contents seems more readable. You can check it  out, comment and share. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Check out blog entries. I am still changing things as I go but there will be no major changes. But do give me your suggestions if any regarding site. &lt;/p&gt;
+
+&lt;p&gt;Things are still come even after this blog&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;New home page design&lt;/li&gt;
+&lt;li&gt;Tags for all blogs&lt;/li&gt;
+&lt;li&gt;Tags/Category pages to jump around &lt;/li&gt;
+&lt;li&gt;search page (damn simple google search, what else?!)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Stay tuned... &lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/01/hello-docpad/</guid><link>http://kunjan.in/2013/01/hello-docpad/</link><title>Hello Doc Pad</title><description>&lt;p&gt;I have recently moved my blog to docpad. Reason, I want to move to heroku and I want static files to be hosted.&lt;/p&gt;
+
+&lt;p&gt;I do have checked out project like &lt;a href="http://jekyllrb.com/"&gt;jekyll&lt;/a&gt; and &lt;a href="http://octopress.org/"&gt;octapress&lt;/a&gt;. They are good but ruby was giving me issue on my windows machine with no reason. And in any case I am better with JavaScript then what I can do with ruby. &lt;/p&gt;
+
+&lt;p&gt;And also &lt;a href="http://docpad.org/"&gt;docpad&lt;/a&gt; is having wonderful plugins system and easy to start skeleton. I was able to get up and started in just no time. &lt;/p&gt;
+
+&lt;p&gt;I was hosting my blog with &lt;a href="http://www.orchardproject.net/"&gt;Orchard&lt;/a&gt; a wonderful .net CMS system. But the thing is it very big for my need. And to edit them I have to write lot more code just to move few parts here and there&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://docpad.org/"&gt;docpad&lt;/a&gt; on other hand make it very easy to move things as at the end it is just a static html files. So, if I like give somewhat different touch to my any specific page I can give them specifically. I don't need to change complete theme for that. Which is there in other kinda blog engines. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Yes, and I don't like php. At all. Giving me feeling of old ASP pages. I never worked on that and never want to work on that... &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So, as of now. I happy with my static file generator that is doing much more than needed, with light weight node back end and static file as front end. &lt;/p&gt;
+
+&lt;p&gt;Hopefully my blog get massive hit, as I already have set virtually infinite scalability with my static html pages ;).&lt;/p&gt;
+
+&lt;p&gt;Till now experience with &lt;a href="http://docpad.org"&gt;Docpad&lt;/a&gt; is wonderful. There are few hiccups here and there but overall it is nice and with lots of plugins to make life even more easier. &lt;/p&gt;
+</description><pubDate>Tue, 29 Jan 2013 18:30:00 Z</pubDate><a10:updated>2013-01-29T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;I have recently moved my blog to docpad. Reason, I want to move to heroku and I want static files to be hosted.&lt;/p&gt;
+
+&lt;p&gt;I do have checked out project like &lt;a href="http://jekyllrb.com/"&gt;jekyll&lt;/a&gt; and &lt;a href="http://octopress.org/"&gt;octapress&lt;/a&gt;. They are good but ruby was giving me issue on my windows machine with no reason. And in any case I am better with JavaScript then what I can do with ruby. &lt;/p&gt;
+
+&lt;p&gt;And also &lt;a href="http://docpad.org/"&gt;docpad&lt;/a&gt; is having wonderful plugins system and easy to start skeleton. I was able to get up and started in just no time. &lt;/p&gt;
+
+&lt;p&gt;I was hosting my blog with &lt;a href="http://www.orchardproject.net/"&gt;Orchard&lt;/a&gt; a wonderful .net CMS system. But the thing is it very big for my need. And to edit them I have to write lot more code just to move few parts here and there&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://docpad.org/"&gt;docpad&lt;/a&gt; on other hand make it very easy to move things as at the end it is just a static html files. So, if I like give somewhat different touch to my any specific page I can give them specifically. I don't need to change complete theme for that. Which is there in other kinda blog engines. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Yes, and I don't like php. At all. Giving me feeling of old ASP pages. I never worked on that and never want to work on that... &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So, as of now. I happy with my static file generator that is doing much more than needed, with light weight node back end and static file as front end. &lt;/p&gt;
+
+&lt;p&gt;Hopefully my blog get massive hit, as I already have set virtually infinite scalability with my static html pages ;).&lt;/p&gt;
+
+&lt;p&gt;Till now experience with &lt;a href="http://docpad.org"&gt;Docpad&lt;/a&gt; is wonderful. There are few hiccups here and there but overall it is nice and with lots of plugins to make life even more easier. &lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2012/12/entity-framework-upside-down/</guid><link>http://kunjan.in/2012/12/entity-framework-upside-down/</link><title>Entity Framework Upside Down</title><description>&lt;p&gt;If you have read my previous articles you must be knowing that I don’t like ORMs that much and also I am pretty lazy person. I don’t like to repeat stuff again and again. If I can find the solution than I will automate it or I just change from very root. Same thing is true with Entity Framework. It comes after LINQ to SQL as an improved ORM. And it proved to be lousy. But here is the catch if we are not using it with all its functionality it is lousy.&lt;/p&gt;
+
+&lt;p&gt;Now, it provides proper name at entity level and also inheritance like stuff. Its really a cool and neat feature about Entity Framework to abstract away the complexity of database with ‘_’ name. I never understand this type of names and I don’t know if ever I will be understanding this type of name. But if you are just updating from database and using it, than there is no use of EF at all. Or there is no need of EF. If I will become little bit harsh, then I can say &lt;strong&gt;“WE ARE DOING IT WRONG”&lt;/strong&gt; .&lt;/p&gt;
+
+&lt;p&gt;And after EF evolved to further version it is providing more features, but still we are stick to the feature which is shown in &lt;a href="https://channel9.msdn.com/"&gt;Channel9&lt;/a&gt; . We must understand here that there is difference between demo and production. In demo we have pizza factory in production we never have at least in most of the cases. So, things are far different in production environment. If we are just deleting and adding entities then obviously again &lt;strong&gt;“WE ARE DOING IT WRONG”&lt;/strong&gt; . If any one think who the hell I am to tell that ??? I am just nothing and no one, but I am open minded to ideas and new things. Just think how much more overhead you are having for pushing EF in production. It is there to help you out not to make things worst.&lt;/p&gt;
+
+&lt;p&gt;I tweeted about it and also got reply from Rob Conery of &lt;a href="http://tekpub.com"&gt;Tekpub&lt;/a&gt; . I insist to check that out. I must say EF is a tool if we are not careful it will surely hit our own ass very bad. Here is the &lt;a href="https://twitter.com/robconery/status/270700961109004288"&gt;link&lt;/a&gt; for tweet. So, I am not providing any right way as there are many and you will found out over google, but I am just saying to think twice before come to a conclusion or before porting demo to production environment.&lt;/p&gt;
+</description><pubDate>Tue, 04 Dec 2012 18:30:00 Z</pubDate><a10:updated>2012-12-04T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;If you have read my previous articles you must be knowing that I don’t like ORMs that much and also I am pretty lazy person. I don’t like to repeat stuff again and again. If I can find the solution than I will automate it or I just change from very root. Same thing is true with Entity Framework. It comes after LINQ to SQL as an improved ORM. And it proved to be lousy. But here is the catch if we are not using it with all its functionality it is lousy.&lt;/p&gt;
+
+&lt;p&gt;Now, it provides proper name at entity level and also inheritance like stuff. Its really a cool and neat feature about Entity Framework to abstract away the complexity of database with ‘_’ name. I never understand this type of names and I don’t know if ever I will be understanding this type of name. But if you are just updating from database and using it, than there is no use of EF at all. Or there is no need of EF. If I will become little bit harsh, then I can say &lt;strong&gt;“WE ARE DOING IT WRONG”&lt;/strong&gt; .&lt;/p&gt;
+
+&lt;p&gt;And after EF evolved to further version it is providing more features, but still we are stick to the feature which is shown in &lt;a href="https://channel9.msdn.com/"&gt;Channel9&lt;/a&gt; . We must understand here that there is difference between demo and production. In demo we have pizza factory in production we never have at least in most of the cases. So, things are far different in production environment. If we are just deleting and adding entities then obviously again &lt;strong&gt;“WE ARE DOING IT WRONG”&lt;/strong&gt; . If any one think who the hell I am to tell that ??? I am just nothing and no one, but I am open minded to ideas and new things. Just think how much more overhead you are having for pushing EF in production. It is there to help you out not to make things worst.&lt;/p&gt;
+
+&lt;p&gt;I tweeted about it and also got reply from Rob Conery of &lt;a href="http://tekpub.com"&gt;Tekpub&lt;/a&gt; . I insist to check that out. I must say EF is a tool if we are not careful it will surely hit our own ass very bad. Here is the &lt;a href="https://twitter.com/robconery/status/270700961109004288"&gt;link&lt;/a&gt; for tweet. So, I am not providing any right way as there are many and you will found out over google, but I am just saying to think twice before come to a conclusion or before porting demo to production environment.&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2012/11/something-never-changed-hellip-guiding-principal-to-software-development/</guid><link>http://kunjan.in/2012/11/something-never-changed-hellip-guiding-principal-to-software-development/</link><title>Something Never Changed!!! Guiding Principles to Software Development</title><description>&lt;p&gt;I am particularly a lazy guy. I don’t work hard, stay back and never show sad face to issue or bug. Obviously many don’t like me for this. But again “who cares?”. But one thing is sure for me, I always ready to learn new things and obviously always work for better code. At the end of day it is just a code, bugs will be there and me too , to solve the issue.&lt;/p&gt;
+
+&lt;p&gt;Here, I mentions new things, but in reality it is not possible all the time that I will get new things. Some time I will get old things to take care off. Or something that never changed. I was reading old articles from &lt;a href="http://www.hanselman.com"&gt;Hanselman&lt;/a&gt; , now a days he is putting more preference over high quality article. So, his articles are not coming daily basis. So, one day I was wondering towards the &lt;a href="http://www.hanselman.com/blog/GreatestHits.aspx"&gt;hit series of articles&lt;/a&gt; and I found “ &lt;a href="http://www.hanselman.com/blog/SomeGuidingPrinciplesForSoftwareDevelopment.aspx"&gt;some guiding principles for software development&lt;/a&gt; ”. And again as per suggestion again from &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; I &lt;a href="http://www.hanselman.com/blog/InstapaperDeliveredToYourKindleChangesHowYouConsumeWebContentPlusIFTTTBlogsAndMore.aspx"&gt;read later&lt;/a&gt; it.&lt;/p&gt;
+
+&lt;p&gt;Now, I was working on something and just to get refreshed I was checking my &lt;a href="http://www.instapaper.com"&gt;Instapaper&lt;/a&gt; and found this one. I was reading it. First thing I noticed is that it was written in 2007; even before I was a certified software engineer. As, I normally don’t read historical article that much but I read this. And that surprised me!!! Nothing is changed at all. Principles are same even after 5 years of this articles. And when they written it was there only. And also one thing is not changed too, we are not following most of them… (saying from the personal experience). For a change now a days I tried to follow them…&lt;/p&gt;
+
+&lt;p&gt;So, I thought I should re-write this article in context of current technology. I am also going to put links of tools but this is my personal preference obviously in context of Dot Net only. I start learning &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt; but again I am not that good in that.&lt;/p&gt;
+
+&lt;p&gt;A original posts are from &lt;a href="http://www.cauldwell.net/patrick/blog/ThisIBelieveTheDeveloperEdition.aspx"&gt;Patrick Cauldwell&lt;/a&gt; and &lt;a href="http://www.hanselman.com/blog/SomeGuidingPrinciplesForSoftwareDevelopment.aspx"&gt;Scott Hanselman&lt;/a&gt; . Be sure to visit the original work.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Our “Guiding Principles”&lt;/strong&gt; &lt;/li&gt;
+&lt;li&gt;Test Driven Development&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;TDD / BDD always give confidence for our own written code. Couple of frameworks available for that. For TDD &lt;a href="http://www.nunit.org/"&gt;NUnit&lt;/a&gt; and &lt;a href="http://xunit.codeplex.com/"&gt;XUnit&lt;/a&gt; are there. And for two types of BDD &lt;a href="http://specflow.org"&gt;Specflow&lt;/a&gt; and &lt;a href="http://nspec.org/"&gt;NSpec&lt;/a&gt; are there. &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Continues Integration&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;This includes testing for complete application and also UI automation using framework like &lt;a href="http://seleniumhq.org/"&gt;Selenium&lt;/a&gt; (Visit &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; to check out wonderful video of UI automation) &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;I prefer to checkout blog from &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; and podcast from &lt;a href="http://www.hanselminutes.com/339/continuous-delivery-with-jez-humble-and-martin-fowler"&gt;hanselminutes&lt;/a&gt; to check this topic. &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Unit Tests&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Two kinds of tests&lt;/li&gt;
+&lt;li&gt;Unit test is what that test code written by &lt;strong&gt;us,&lt;/strong&gt; so it is not dependent over external entities like SQL or Web Service etc &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Integration test, it dependent on SQL and Web Service like external entities and check our code in reference to over logic&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Automation is equally possible for both type of test&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Again I like to mention post by &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; which show how to do automation. &lt;/li&gt;
+&lt;li&gt;As a thumb rule said by &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; whenever we need to repeat things or even have to do copy paste we should automate things. &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;There are many tools available for Visual Studio to automate testing (you need to hack little bit for Express Edition)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;All UI development should follow MVC/ MVP pattern for ease of testing&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://asp.net/mvc"&gt;MVC&lt;/a&gt; is specifically design for better testing support &lt;/li&gt;
+&lt;li&gt;Even if you are using Asp.Net Web Forms I strongly recommended &lt;a href="http://webformsmvp.com/"&gt;MVP&lt;/a&gt; framework to implement to support more code coverage for testing &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Even for &lt;a href="http://vanilla-js.com/"&gt;Javascript&lt;/a&gt; this is true as many client side frameworks are available like &lt;a href="http://pivotal.github.com/jasmine/"&gt;Jasmine&lt;/a&gt; and &lt;a href="http://qunitjs.com/"&gt;Qunit&lt;/a&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Test Coverage&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;90% %2B should be the goal including UI logic written in JavaScript&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Again many tools are available for code coverage so not listing here. NCover is there by Default in Visual Studio higher version&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Buy, Not Build&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Take full advantage of the platform, even if only solves the 80% case (Most of the time we don’t know library functions available that leads to copy of code and rewriting functionalities )&lt;/li&gt;
+&lt;li&gt;Don’t write single line of code that you don’t have to (in software engineering one has to be lazy, if you are staying back working you’re a** of, then definitely you are not writing good code)&lt;/li&gt;
+&lt;li&gt;Take full advantage of .Net 4.0 / .Net 4.5 and also plan – test for Windows 8 (we are working for the future so, it must work on future/current releases of platforms )&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Don’t invent new solution for solved problems (in case of Dot Net &lt;a href="http://nuget.org/"&gt;nuget&lt;/a&gt; is there, just checkout that your problem is solved by community members, if yes use them and if no solve and share with community… these OSS libraries increase productivity like anything) &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Limit compile time dependencies on code you don’t own&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Everything that is now owned by &lt;strong&gt;us&lt;/strong&gt; should be behind interface and a factory method (I also like to mention a wonderful &lt;a href="http://simpleprogrammer.com/back-to-basics-series/"&gt;article series&lt;/a&gt; to understand concepts like interface) &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Define your data contracts in C# (think ‘active records’)&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;All persistence storage should be abstracted using logical interfaces&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Here we can use ORM like &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;Ormlite&lt;/a&gt; , &lt;a href="https://github.com/SamSaffron/dapper-dot-net"&gt;Dapper&lt;/a&gt; , &lt;a href="http://msdn.microsoft.com/en-us/data/ef.aspx"&gt;EF&lt;/a&gt; and few others to achieve this &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Fewer assemblies are better&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;There should be very good reason for creating a new assembly&lt;/li&gt;
+&lt;li&gt;The assembly is a smallest deployable unit, so it’s not only worth creating a new assembly if it means NOT shipping something else&lt;/li&gt;
+&lt;li&gt;Namespace != assembly name. Roll up many namespaces into one physical assembly if they all must be deployed together&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;As a thumb rule again said by &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; , domain driven and / or isolated design is only useful when we have a &lt;strong&gt;VERY&lt;/strong&gt; good knowledge of domains else it just increase number of assemblies to manage &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Only the public interface should be public&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Only make classes and interface public if absolutely necessary&lt;/li&gt;
+&lt;li&gt;Testing can be done by using internal visible to attribute&lt;/li&gt;
+&lt;li&gt;Good use of internal can avoid public issue for classes and functions&lt;/li&gt;
+&lt;li&gt;If its public, need to provide support for life time&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Also like to mentions a line from &lt;a href="https://twitter.com/jonskeet"&gt;Jon Skeet&lt;/a&gt; , “Any software/application should be code as we are coding API” &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Authentication&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Authentication should be abstracted from the application.&lt;/li&gt;
+&lt;li&gt;We can use &lt;a href="http://msdn.microsoft.com/en-in/security/aa570351.aspx"&gt;WIF&lt;/a&gt; , and token should be used to talk with other entities like Web Service &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;4.5 version framework (Asp.Net Framework) provides many options for Authentication/ Authorization that can be used here.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tracing&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Think long and hard about trace level&lt;/li&gt;
+&lt;li&gt;Use formatted resource strings everywhere for localization (Now a days localization is must for any commercial application, abstraction of that always help in long run)&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;For critical, error or warning , your audience is not a developer&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Error Handling&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Error handling is not just putting try / catch everywhere or anywhere that I called error hiding&lt;/li&gt;
+&lt;li&gt;Method names are verbs&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If anything breaks the contract, throw an exception&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;The definition of “Done”(or how do I know when a task is ready for QA?)&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Any significant design decisions have been discussed and approved by &lt;strong&gt;team&lt;/strong&gt; (In agile team takes the decisions, so there is always a scope for saying &lt;strong&gt;NO&lt;/strong&gt; to business guys for new functionalities to implement runtime) &lt;/li&gt;
+&lt;li&gt;For each MyClass, there is a corresponding MyClassFixture in the corresponding test assembly, it also includes same for UI part using java script framework&lt;/li&gt;
+&lt;li&gt;MyClassFixture exercise all the functionality of MyClass nothing else, single responsibility is true ever for test classes&lt;/li&gt;
+&lt;li&gt;Code coverage of MyClass is =&amp;gt;90% , excluding only lines you are confident are unreasonable to test&lt;/li&gt;
+&lt;li&gt;No compiler &lt;strong&gt;warning&lt;/strong&gt; are generated by new code (warnings are equally important like error, you can ignore if you are doing POC or college project. In Visual Studio warnings are generated after completing code analysis. It should be on all the time and personally I prefer to set not to allow ‘run’ if warning is there) &lt;/li&gt;
+&lt;li&gt;Before committing anything to source control, update to get all recent changes, and make sure all unit and integration tests pass&lt;/li&gt;
+&lt;li&gt;Compiling with warnings as errors will flush out any place you forgot documentation comments, which must be included for any new code&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is just a try to list our frameworks and new technology with this g/old guiding principals. Do let me know if anything is there to CRUD for this list.&lt;/p&gt;
+
+&lt;p&gt;This list in my &lt;strong&gt;learn by heart&lt;/strong&gt; part. Basically these points force to do good software practice.&lt;/p&gt;
+</description><pubDate>Thu, 01 Nov 2012 18:30:00 Z</pubDate><a10:updated>2012-11-01T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;I am particularly a lazy guy. I don’t work hard, stay back and never show sad face to issue or bug. Obviously many don’t like me for this. But again “who cares?”. But one thing is sure for me, I always ready to learn new things and obviously always work for better code. At the end of day it is just a code, bugs will be there and me too , to solve the issue.&lt;/p&gt;
+
+&lt;p&gt;Here, I mentions new things, but in reality it is not possible all the time that I will get new things. Some time I will get old things to take care off. Or something that never changed. I was reading old articles from &lt;a href="http://www.hanselman.com"&gt;Hanselman&lt;/a&gt; , now a days he is putting more preference over high quality article. So, his articles are not coming daily basis. So, one day I was wondering towards the &lt;a href="http://www.hanselman.com/blog/GreatestHits.aspx"&gt;hit series of articles&lt;/a&gt; and I found “ &lt;a href="http://www.hanselman.com/blog/SomeGuidingPrinciplesForSoftwareDevelopment.aspx"&gt;some guiding principles for software development&lt;/a&gt; ”. And again as per suggestion again from &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; I &lt;a href="http://www.hanselman.com/blog/InstapaperDeliveredToYourKindleChangesHowYouConsumeWebContentPlusIFTTTBlogsAndMore.aspx"&gt;read later&lt;/a&gt; it.&lt;/p&gt;
+
+&lt;p&gt;Now, I was working on something and just to get refreshed I was checking my &lt;a href="http://www.instapaper.com"&gt;Instapaper&lt;/a&gt; and found this one. I was reading it. First thing I noticed is that it was written in 2007; even before I was a certified software engineer. As, I normally don’t read historical article that much but I read this. And that surprised me!!! Nothing is changed at all. Principles are same even after 5 years of this articles. And when they written it was there only. And also one thing is not changed too, we are not following most of them… (saying from the personal experience). For a change now a days I tried to follow them…&lt;/p&gt;
+
+&lt;p&gt;So, I thought I should re-write this article in context of current technology. I am also going to put links of tools but this is my personal preference obviously in context of Dot Net only. I start learning &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt; but again I am not that good in that.&lt;/p&gt;
+
+&lt;p&gt;A original posts are from &lt;a href="http://www.cauldwell.net/patrick/blog/ThisIBelieveTheDeveloperEdition.aspx"&gt;Patrick Cauldwell&lt;/a&gt; and &lt;a href="http://www.hanselman.com/blog/SomeGuidingPrinciplesForSoftwareDevelopment.aspx"&gt;Scott Hanselman&lt;/a&gt; . Be sure to visit the original work.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Our “Guiding Principles”&lt;/strong&gt; &lt;/li&gt;
+&lt;li&gt;Test Driven Development&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;TDD / BDD always give confidence for our own written code. Couple of frameworks available for that. For TDD &lt;a href="http://www.nunit.org/"&gt;NUnit&lt;/a&gt; and &lt;a href="http://xunit.codeplex.com/"&gt;XUnit&lt;/a&gt; are there. And for two types of BDD &lt;a href="http://specflow.org"&gt;Specflow&lt;/a&gt; and &lt;a href="http://nspec.org/"&gt;NSpec&lt;/a&gt; are there. &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Continues Integration&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;This includes testing for complete application and also UI automation using framework like &lt;a href="http://seleniumhq.org/"&gt;Selenium&lt;/a&gt; (Visit &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; to check out wonderful video of UI automation) &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;I prefer to checkout blog from &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; and podcast from &lt;a href="http://www.hanselminutes.com/339/continuous-delivery-with-jez-humble-and-martin-fowler"&gt;hanselminutes&lt;/a&gt; to check this topic. &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Unit Tests&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Two kinds of tests&lt;/li&gt;
+&lt;li&gt;Unit test is what that test code written by &lt;strong&gt;us,&lt;/strong&gt; so it is not dependent over external entities like SQL or Web Service etc &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Integration test, it dependent on SQL and Web Service like external entities and check our code in reference to over logic&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Automation is equally possible for both type of test&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Again I like to mention post by &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; which show how to do automation. &lt;/li&gt;
+&lt;li&gt;As a thumb rule said by &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; whenever we need to repeat things or even have to do copy paste we should automate things. &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;There are many tools available for Visual Studio to automate testing (you need to hack little bit for Express Edition)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;All UI development should follow MVC/ MVP pattern for ease of testing&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://asp.net/mvc"&gt;MVC&lt;/a&gt; is specifically design for better testing support &lt;/li&gt;
+&lt;li&gt;Even if you are using Asp.Net Web Forms I strongly recommended &lt;a href="http://webformsmvp.com/"&gt;MVP&lt;/a&gt; framework to implement to support more code coverage for testing &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Even for &lt;a href="http://vanilla-js.com/"&gt;Javascript&lt;/a&gt; this is true as many client side frameworks are available like &lt;a href="http://pivotal.github.com/jasmine/"&gt;Jasmine&lt;/a&gt; and &lt;a href="http://qunitjs.com/"&gt;Qunit&lt;/a&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Test Coverage&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;90% %2B should be the goal including UI logic written in JavaScript&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Again many tools are available for code coverage so not listing here. NCover is there by Default in Visual Studio higher version&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Buy, Not Build&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Take full advantage of the platform, even if only solves the 80% case (Most of the time we don’t know library functions available that leads to copy of code and rewriting functionalities )&lt;/li&gt;
+&lt;li&gt;Don’t write single line of code that you don’t have to (in software engineering one has to be lazy, if you are staying back working you’re a** of, then definitely you are not writing good code)&lt;/li&gt;
+&lt;li&gt;Take full advantage of .Net 4.0 / .Net 4.5 and also plan – test for Windows 8 (we are working for the future so, it must work on future/current releases of platforms )&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Don’t invent new solution for solved problems (in case of Dot Net &lt;a href="http://nuget.org/"&gt;nuget&lt;/a&gt; is there, just checkout that your problem is solved by community members, if yes use them and if no solve and share with community… these OSS libraries increase productivity like anything) &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Limit compile time dependencies on code you don’t own&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Everything that is now owned by &lt;strong&gt;us&lt;/strong&gt; should be behind interface and a factory method (I also like to mention a wonderful &lt;a href="http://simpleprogrammer.com/back-to-basics-series/"&gt;article series&lt;/a&gt; to understand concepts like interface) &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Define your data contracts in C# (think ‘active records’)&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;All persistence storage should be abstracted using logical interfaces&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Here we can use ORM like &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;Ormlite&lt;/a&gt; , &lt;a href="https://github.com/SamSaffron/dapper-dot-net"&gt;Dapper&lt;/a&gt; , &lt;a href="http://msdn.microsoft.com/en-us/data/ef.aspx"&gt;EF&lt;/a&gt; and few others to achieve this &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Fewer assemblies are better&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;There should be very good reason for creating a new assembly&lt;/li&gt;
+&lt;li&gt;The assembly is a smallest deployable unit, so it’s not only worth creating a new assembly if it means NOT shipping something else&lt;/li&gt;
+&lt;li&gt;Namespace != assembly name. Roll up many namespaces into one physical assembly if they all must be deployed together&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;As a thumb rule again said by &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; , domain driven and / or isolated design is only useful when we have a &lt;strong&gt;VERY&lt;/strong&gt; good knowledge of domains else it just increase number of assemblies to manage &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Only the public interface should be public&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Only make classes and interface public if absolutely necessary&lt;/li&gt;
+&lt;li&gt;Testing can be done by using internal visible to attribute&lt;/li&gt;
+&lt;li&gt;Good use of internal can avoid public issue for classes and functions&lt;/li&gt;
+&lt;li&gt;If its public, need to provide support for life time&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Also like to mentions a line from &lt;a href="https://twitter.com/jonskeet"&gt;Jon Skeet&lt;/a&gt; , “Any software/application should be code as we are coding API” &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Authentication&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Authentication should be abstracted from the application.&lt;/li&gt;
+&lt;li&gt;We can use &lt;a href="http://msdn.microsoft.com/en-in/security/aa570351.aspx"&gt;WIF&lt;/a&gt; , and token should be used to talk with other entities like Web Service &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;4.5 version framework (Asp.Net Framework) provides many options for Authentication/ Authorization that can be used here.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tracing&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Think long and hard about trace level&lt;/li&gt;
+&lt;li&gt;Use formatted resource strings everywhere for localization (Now a days localization is must for any commercial application, abstraction of that always help in long run)&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;For critical, error or warning , your audience is not a developer&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Error Handling&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Error handling is not just putting try / catch everywhere or anywhere that I called error hiding&lt;/li&gt;
+&lt;li&gt;Method names are verbs&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If anything breaks the contract, throw an exception&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;The definition of “Done”(or how do I know when a task is ready for QA?)&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Any significant design decisions have been discussed and approved by &lt;strong&gt;team&lt;/strong&gt; (In agile team takes the decisions, so there is always a scope for saying &lt;strong&gt;NO&lt;/strong&gt; to business guys for new functionalities to implement runtime) &lt;/li&gt;
+&lt;li&gt;For each MyClass, there is a corresponding MyClassFixture in the corresponding test assembly, it also includes same for UI part using java script framework&lt;/li&gt;
+&lt;li&gt;MyClassFixture exercise all the functionality of MyClass nothing else, single responsibility is true ever for test classes&lt;/li&gt;
+&lt;li&gt;Code coverage of MyClass is =&amp;gt;90% , excluding only lines you are confident are unreasonable to test&lt;/li&gt;
+&lt;li&gt;No compiler &lt;strong&gt;warning&lt;/strong&gt; are generated by new code (warnings are equally important like error, you can ignore if you are doing POC or college project. In Visual Studio warnings are generated after completing code analysis. It should be on all the time and personally I prefer to set not to allow ‘run’ if warning is there) &lt;/li&gt;
+&lt;li&gt;Before committing anything to source control, update to get all recent changes, and make sure all unit and integration tests pass&lt;/li&gt;
+&lt;li&gt;Compiling with warnings as errors will flush out any place you forgot documentation comments, which must be included for any new code&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is just a try to list our frameworks and new technology with this g/old guiding principals. Do let me know if anything is there to CRUD for this list.&lt;/p&gt;
+
+&lt;p&gt;This list in my &lt;strong&gt;learn by heart&lt;/strong&gt; part. Basically these points force to do good software practice.&lt;/p&gt;
+</a10:content></item></channel></rss>
