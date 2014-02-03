@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="last-modified" content="2014-02-03T21:04:58.1993624+05:30" />
+    <meta http-equiv="last-modified" content="2014-02-03T21:33:52.5075546+05:30" />
     <title>Kunjan a.k.a. Kunjee's blog</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="canonical" href="http://kunjan.in/about/" />
@@ -42,12 +42,33 @@
   </header>
 
   <div class="fancy-container lightblue">
+    <!-- http://www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968.jpg?s=300&d=monsterid -->
 
-    <p>I'm just a pleb, currently living in Singapore and visiting neighbouring countries primarily to eat all the amazing food on offer.</p>
+    <div class="row-fluid">
+      <img class="span3" src="http://www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968.jpg?s=300&d=monsterid" title="Kunjan" />
+      <p>
+      I am Kunjan a.k.a. Kunjee. Failed poet, mathematics enthusiastic, functional programming evangelist and the last person standing in queue of alpha nerds. 
 
-    <p>Not that I'm interesting or anything, but I'll try and write something more in the future.</p>
+      <br/> 
+    
+      Software Engineer as per Day job description.  Blogger, coder, foodie, marathon runner, occasionally MMA practitioner or whatever after that.  
+      <br/> 
 
+      Partially natural ambidextrous, a proper south paw and a true Sagittarius.  
+      <br/> 
+      
+    </p>
+    
   </div>
+
+    <br/>
+    <br/>
+    <div class="row-fluid">
+    <p>Yes, I am fan of <a href="http://xkcd.com/">XKCD</a></p>
+    <p>A XKCD <i>Byte</i> </p>
+    <div id="xkcdcontent"></div> 
+  </div>
+</div>
 
                 </div>
                 <!-- #content -->
@@ -119,7 +140,7 @@
         <!-- #colophon .site-footer -->
     </div>
     <!-- #page .hfeed .site -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src='/javascripts/prettify.js' type='text/javascript'></script>
     
     <script type="text/javascript">
@@ -149,6 +170,25 @@ _gaq.push(['_trackPageview']);
 
         prettyPrint();
       });
+
+
+        $(function(){
+            $.ajax({
+                url: "http://dynamic.xkcd.com/api-0/jsonp/comic?callback=?",
+                dataType: "json",
+                jsonpCallback: "xkcddata",
+                success: function(data) {
+                    $("#xkcdcontent").append(
+                        $("<h1/>").text(data.title),
+                        $("<img/>").attr({
+                            src: data.img,
+                            title: data.alt,
+                            alt: data.title
+                        })
+                    );
+                }
+            });
+        });
     </script>
 </body>
 </html>
