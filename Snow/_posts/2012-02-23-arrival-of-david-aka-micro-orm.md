@@ -1,7 +1,7 @@
 ---
 title: Arrival of David aka Micro Orm
 metadescription: Micro Orm is new good. And here complete article about ormlite, a wonderful poco based Micro Orm.
-tags: Technical,DotNet,OSS
+category: Technical,DotNet,OSS
 layout: post
 ---
 

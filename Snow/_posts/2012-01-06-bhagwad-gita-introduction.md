@@ -1,7 +1,7 @@
 ---
 title: Bhagwad Gita Introduction
 metadescription: Bhagwad Gita Introduction
-tags: Non-Technical,Gita
+category: Non-Technical,Gita
 layout: post
 ---
 Who ever know something about Indian culture must have know about Gita. As per religion or history whatever you prefer, it is a compilation of words, a message given to Arjuna by Krishna. It is not only for him but for whole world. And trust me this book do have answer of almost any things.

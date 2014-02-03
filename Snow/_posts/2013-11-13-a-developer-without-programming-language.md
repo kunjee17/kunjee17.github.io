@@ -1,7 +1,7 @@
 ---
 title: A Developer without Programming Language
 medadescription: Developer is not who creates programming languages not programming languages creates developers. 
-tags: Technical
+category: Technical
 layout: post
 ---
 

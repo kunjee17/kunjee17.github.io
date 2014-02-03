@@ -1,7 +1,7 @@
 ---
 title: Back to Business
 metadescription: Back to Blogging
-tags: Non-Technical
+category: Non-Technical
 layout: post
 ---
 It have been long that I was doing active blogging. There are multiple reason for that, and on of them is being a lazy ass. 

@@ -1,7 +1,7 @@
 ---
 title: Coffee with CoffeeScript
 metadescription: A brief introduction of CoffeeScript language. A wonderful wrapper around JavaScript.
-tags: Technical,Web
+category: Technical,Web
 layout: post
 ---
 

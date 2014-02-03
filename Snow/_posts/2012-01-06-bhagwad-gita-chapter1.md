@@ -1,7 +1,7 @@
 ---
 title: Bhagwad Gita Chapter 1
 metadescription: Bhagwad Gita Chapter 1
-tags: Non-Technical,Gita
+Categories: Non-Technical,Gita
 layout: post
 ---
 
