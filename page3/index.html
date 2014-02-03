@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="last-modified" content="2014-02-03T15:17:59.8259180+05:30" />
+    <title>Kunjan a.k.a. Kunjee's blog</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <link rel="canonical" href="http://kunjan.in/page3/" />
+</head>
+<body class="home blog">
+    <div id="page" class="hfeed site">
+        <header id="masthead" class="site-header fancy-container lightgreen" role="banner">
+            <hgroup>
+                <h1 class="site-title"><a href="/" title="philliphaydon.com" rel="home">philliphaydon.com</a></h1>
+                <h2><small>Works on my PC...</small></h2>
+                <p class="site-description">Pleb from New Zealand who was banished overseas and currently resides in Singapore.</p>
+            </hgroup>
+            <nav role="navigation" class="site-navigation main-navigation">
+                <h1 class="assistive-text">Menu</h1>
+                <div class="assistive-text skip-link"><a href="#content" title="Skip to content">Skip to content</a></div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/category">Categories</a></li>
+                        <li><a href="/archive">Archive</a></li>
+                        <li><a href="/rss">RSS</a> / <a href="/feed">Atom</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div id="main">
+            <div id="primary" class="site-content">
+                <div id="content" role="main">
+                  
+
+  <ul class="posts">
+    <li class="fancy-container lightblue">
+      <h1>
+        <a href="/2012/02/going-to-vietnam-because-of-orm/">Going to Vietnam Because of ORM</a> 
+        <span>posted on 19 Feb 2012</span>
+      </h1> 
+      
+      <p>In my previous <a href="http://kunjan.in/archives/map-lsquo-your-self-rsquo-using-orm">post</a> I have talk about <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> . But believe if you don’t use thing wisely you are going to fall like anything. In this article I am not going to write any code but still it is a pure technical article. I will talk about enterprise application and how quickly love for <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> will drag you to the black hole.</p>
+
+<p>Around two years back, at the time when .Net 3.5 arrived, I was reading a chapter from a book. It is from <a href="http://oreilly.com/">Oreilly</a> in that author states that your DBA’s job is in danger we have LINQ to SQL a easy way to do the task. And trust me I just like this statement. I am not DB guy, and don’t like much to mess with database. But as I learn more, I understand the importance of Database guys and database. And personally I found person like <a href="http://beyondrelational.com/blogs/chintak/">Chintak Chappia</a> who is not only good with database but also as friend, philosopher and guide. I definitely don’t want to piss him off by my simple LINQ queries which eventually generates complex SQL queries. Don’t trust me here is the <a href="http://datachomp.com/archives/getting-started-with-massive-in-mvc3/">example</a> .</p>
+
+<p>Now, take a hypothetical example very big application. Now, this application has around 1000+ tables and 35+ modules to handle. Ya, very big application it is. And first and foremost mistake done by programmer is to add edmx file for all database. (Here I am taking example of EF only, but this is true for all other ORMs too. )</p>
+
+<p>It may seems lame but it is true. A single file which has all the details of database and relationship. And first effect of this is that file’s designer view will crash. Now, every now and then you have to open XML file and edit it, manually. And single change in database will cause 2 to 3 hours to get effect in that file. And every time you invoke that file in program it will take that much load to compile and run.</p>
+
+<p>There are few work around to this. Use multiple edmx file. May be one file per module. Pros is that you have mighty designer of edmx file and it is light weighted. Cons is database guy have to manage more than one edmx file. But I don’t think that will be a big problem as it saves much of the time.</p>
+
+<p>Other common mistake is using default option. Big <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> s comes with multiple options. Entity Framework and <a href="http://nhforge.org/Default.aspx">NHibernate</a> are two of big and classic ORMs. They have plenty of option to load and save data. Like <a href="http://nhforge.org/Default.aspx">NHibernate</a> has save all type option. This allows you to save data as specific point of time. This will increase performance as you don’t have to go now and then to database.</p>
+
+<p>Ohk, if I am taking care of number of tables per edmx file and also takes care for saving and loading option my life will be saved. Answer is Yes and No.</p>
+
+<p>Yes, if your application is single user oriented application. Like some application like news site. Where few person are adding data and many are reading data. Now, with due course of time data start coming from cache, and it will use caching mechanism of your application. Because of this application runs like charm. In this type of application you can use <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> , this will increase the productivity without hurting you much.</p>
+
+<p>No, now if you are making next <a href="http://www.facebook.com/">Facebook</a> or my favorite site <a href="http://stackoverflow.com/">Stackoverflow</a> . Where there are tons who are reading data and tons who are adding data. There you will face problem with <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> .</p>
+
+<p>Why???</p>
+
+<p>Answer lies just front of you. Computer is basically a duffer machine. It do what exactly you tell it to do. It don’t know where and when it should change the behavior. Now, any <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> generate SQL query based on some logic. And trust me this queries are weird like anything. If you add few joins to entity, it will add few more joins to query and that makes query more complex not only to debug but also for database server to process. And this will effect performance of database server as well as your application.</p>
+
+<p>And the best thing is whatever time you have saved by using ORM, you will have to give more than double of time to just fine tuning it and also to find while you queries burning the database sever. If you have a dedicated database engineer than he definitely going to kill for burning its server.</p>
+
+<p>So, I can say this is like nuclear missile which everyone should use it wisely. One mistake CAN make big hole in your application. I am fan of <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> as a concept and as tool I like to use. But, I am so rigid when it comes to performance of application or code developed by me. I don’t like to compromise with performance and scalability of my code and may be that’s why most of the time <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> stays in some of the demo application I developed just to experiment other things other than <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> and my resume. I know Entity Framework, <a href="http://nhforge.org/Default.aspx">NHibernate</a> , a little bit of <a href="http://subsonicproject.com/">Sub Sonic</a> and few others but I don’t like to use it.</p>
+
+<blockquote>
+  <p>I CAN but I avoid!!!</p>
+</blockquote>
+
+      <p><a href="/2012/02/going-to-vietnam-because-of-orm/">Read more...</a></p>
+    </li>
+    <li class="fancy-container lightblue">
+      <h1>
+        <a href="/2012/02/map-your-self-using-orm/">Map your self using ORM</a> 
+        <span>posted on 14 Feb 2012</span>
+      </h1> 
+      
+      <p>Many of you must know this word, “ORM”. Then why this post. But trust, even after we have a lots and lots of ORMs in market and some company still using age old technology. Just few days back in one company again I had to face same old question about connection class and command class. Why?????????? It is so true that one must know that things, but this question is always be a nightmare to me.</p>
+
+<p>When I have a java advanced as a subject, I use to do all things other than JDBC connection. I had never completed a single database connection using JDBC. And may be that is the reason why I haven’t choose career with Java. I am not Ninja anymore. It is my unfulfilled dream!!!</p>
+
+<p>Let’s come back to .net. We used to have connection and command class rule the arena in .net. Every interview starts with that and blast because of that. Question starts with</p>
+
+<blockquote>
+  <p>What is connection class? And what are the uses of it?</p>
+  
+  <p>What is command class?</p>
+  
+  <p>Difference between data set and data reader?</p>
+</blockquote>
+
+<p>Some, time I do wonder I was going to be selected for making application or “<strong>connection to</strong>” database class. And then we had few more option to connect to database. Few other question which are still unanswered, like</p>
+
+<blockquote>
+  <p>Where I should put connection string? In web config or in single class?</p>
+  
+  <p>How much time I should allow to connection be open?</p>
+  
+  <p>How can I use connection pulling?</p>
+</blockquote>
+
+<p>I still don’t know answer of last question. And problem not ends there. We need to implement <a href="http://en.wikipedia.org/wiki/Software_design_pattern">design pattern</a> , had to implement interface to follow <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a> . And what actually happened that we became DRY to do all this stuff. At least I do become DRY, pushing my self more for technical stuff rather then concentrating on giving output. Microsoft try to help us by pushing library like <a href="http://msdn.microsoft.com/en-us/library/ff649538.aspx">DAAB</a> . But still open source community is far ahead of this. Java had <a href="http://en.wikipedia.org/wiki/Hibernate_%28Java%29">Hibernate</a> And also then comes hibernate port of .net <a href="http://en.wikipedia.org/wiki/NHibernate">nHibernate</a> . And then Microsoft comes with <a href="http://en.wikipedia.org/wiki/LINQ_to_SQL#LINQ_to_SQL_.28formerly_called_DLINQ.29">Linq to SQL</a> .</p>
+
+<p>All these are <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> s. Full form of ORM is object relational mapping. What it does that it mapped the database table with equivalent object. This make CRUD operation easy like anything. And internally it takes care of every thing starting from connection life cycle to generating equivalent query for that.</p>
+
+<p>So, now I don’t worry about connection and commands but work more on business logic. Yes, of course I am saving name <a href="http://en.wikipedia.org/wiki/Entity_Framework">Entity Framework</a> for my example of ORM. It is final blow from Microsoft. And to do <a href="http://en.wikipedia.org/wiki/Rapid_application_development">RAD</a> type development it is best product till now from Microsoft, even better than <a href="http://www.asp.net/web-forms">web forms</a> .</p>
+
+<p>Now, the example. I am using age old North-wind database. Also using <a href="http://en.wikipedia.org/wiki/SQL_CE">SQL CE</a> . Now, what you need to do is add new file and chose data option, find Entity file and add it. Choose northwind file and “next next next”. Just don’t forget to choose all database. That’s it its done.</p>
+
+<p>I am so lazy person by default. So, I am using <a href="http://nuget.org/packages/MvcScaffolding">MVCScaffolding</a> to generate classes. You can do as your wish.</p>
+
+<p>So, what I have done here is add Entity Framework file (dbml) file. Which is xml file which shows mapping between database and object. Than fired a scaffold command. That it. After this I got the error.</p>
+
+<p>Basically Scaffold command is designed for EF Code First by default and I haven’t customized for simple Entity Framework. So, I do have to modified some of the code and that is it. It is done and working perfectly. Here is the code snippet with details.</p>
+
+<p>I have taken customer table for example.</p>
+
+<p>Created <a href="http://en.wikipedia.org/wiki/Interface">interface</a> for basic <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> operations.</p>
+
+<pre><code>public interface ICustomerRepository { 
+IQueryableCustomer All { get ; } 
+IQueryableCustomer AllIncluding( params ExpressionFuncCustomer , object[] includeProperties); 
+Customer Find( string id); 
+void InsertOrUpdate( Customer customer); 
+void Delete( string id); 
+void Save(); 
+</code></pre>
+
+<p>} </p>
+
+<p>and then create the repository class to do the task.</p>
+
+<pre><code>public class CustomerRepository : ICustomerRepository { 
+NorthwindEntities context = new NorthwindEntities (); 
+public IQueryableCustomer All { get { return context.Customers; } } 
+public IQueryableCustomer AllIncluding( params ExpressionFuncCustomer , object [] includeProperties) 
+  { 
+    IQueryableCustomer query = context.Customers; 
+    foreach ( var includeProperty in includeProperties) 
+      { query = query.Include(includeProperty); } 
+    return query; 
+  } 
+public Customer Find( string id) { 
+  return context.Customers.Where(c =&gt; c.Customer_ID == id).FirstOrDefault(); 
+} 
+public void InsertOrUpdate( Customer customer) { 
+  var _customer = Find(customer.Customer_ID); 
+  if (_customer != null ) { 
+    _customer.Address = customer.Address; 
+    _customer.City = customer.City;   
+    _customer.Company_Name = customer.Company_Name; 
+    _customer.Contact_Name = customer.Contact_Name; 
+    _customer.Contact_Title = customer.Contact_Title; 
+    _customer.Country = customer.Contact_Title; 
+    _customer.Fax = customer.Fax; 
+    _customer.Phone = customer.Phone; 
+    _customer.Postal_Code = customer.Postal_Code; 
+    _customer.Region = customer.Region; 
+    // Haven't taken orders in update just for demo purpose only 
+  } else { 
+    context.Customers.AddObject(customer); 
+  } 
+} 
+public void Delete( string id) { 
+  var customer = Find(id); 
+  context.Customers.DeleteObject(customer); 
+} 
+public void Save() { 
+  context.SaveChanges(); 
+} 
+</code></pre>
+
+<p>} 
+we add one line to application start to solve dependency. kernel.Bind</p>
+
+<pre><code>ICustomerRepository().ToCustomerRepository(); 
+</code></pre>
+
+<p>Now, we have basic methods in our customer’s controller to do all the basic operations.</p>
+
+<pre><code>public class CustomersController : Controller { 
+private readonly ICustomerRepository customerRepository; 
+public CustomersController( ICustomerRepository customerRepository) { 
+  this .customerRepository = customerRepository; 
+} 
+
+// GET: Customers 
+public ViewResult Index() { 
+  return View(customerRepository.AllIncluding(customer.Orders)); 
+} 
+
+// GET: /Customers/Details/5 
+public ViewResult Details( string id) { 
+  return View(customerRepository.Find(id)); } 
+
+// GET: /Customers/Create 
+public ActionResult Create() { 
+  return View(); 
+} 
+
+// POST: /Customers/Create 
+[ HttpPost ] 
+public ActionResult Create( Customer customer) { 
+  if (ModelState.IsValid) { 
+    customerRepository.InsertOrUpdate(customer); customerRepository.Save(); 
+    return RedirectToAction( "Index" ); 
+    } else { 
+      return View(); 
+    } 
+  } 
+
+  // GET: /Customers/Edit/5 
+public ActionResult Edit( string id) { 
+  return View(customerRepository.Find(id)); 
+} 
+
+// POST: /Customers/Edit/5 
+[ HttpPost ] 
+public ActionResult Edit( Customer customer) { 
+  if (ModelState.IsValid) { 
+    customerRepository.InsertOrUpdate(customer); customerRepository.Save(); 
+    return RedirectToAction( "Index" ); 
+  } else { 
+    return View(); 
+  } 
+} 
+
+// GET: /Customers/Delete/5 
+public ActionResult Delete( string id) { 
+  return View(customerRepository.Find(id)); } 
+
+// POST: /Customers/Delete/5  
+[HttpPost ActionName ( "Delete" )] 
+public ActionResult DeleteConfirmed( string id){ 
+  customerRepository.Delete(id); 
+  customerRepository.Save(); 
+  return RedirectToAction( "Index" ); 
+} 
+</code></pre>
+
+<p>} </p>
+
+<p>now, just you need views according to Action Results.</p>
+
+<p>I have shared project on <a href="https://github.com/">Github</a> at <a href="https://github.com/kunjee17/kunjan-web-space">my repository</a> . So, do check out for any missing code. You can check out for Demo Application there.</p>
+
+<p>See, no connection, no command just a clean beautiful code and work is done. Entity Framework will take care about every thing else.</p>
+
+<p>We can use any other <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> s too. One of my favorite <a href="http://orchardproject.net/">Orchard</a> is using <a href="http://nhforge.org/Default.aspx">NHibernate</a> . It is far mature than any other ORM in .Net. And lots and lots of features to work on. I will work on it in my next articles.</p>
+
+<p>One more thing to add. It takes more time to copy paste the code than creating it. So, you can imagine how fast it is!!!</p>
+
+      <p><a href="/2012/02/map-your-self-using-orm/">Read more...</a></p>
+    </li>
+    <li class="fancy-container lightblue">
+      <h1>
+        <a href="/2012/02/nuget-mall-of-oss/">Nuget mall of OSS</a> 
+        <span>posted on 13 Feb 2012</span>
+      </h1> 
+      
+      <p>OSS, stands for Open Source Software. If you are a .net developer, most of the time you don’t care much of OSS. But trust me, OSS are far better than pure solution provided by MS.</p>
+
+<p>And now MS is pushing for OSS, via <a href="http://nuget.org">nuget</a> . It’s a wonderful site providing base for OSS technologies. If you have experienced development in Ruby, you must have known this. Ruby has gems, which pushed by open source community. And now .net developer has <a href="http://nuget.org">nuget</a> .</p>
+
+<p>Its so difficult to follow day to day open source work. Trust I don’t know much more than JQuery. But now I am just a click away of whole new world of Open Source Framework and Technology.</p>
+
+<p>It also has few more benefits like updating packages, power shell command prompt etc. It just speed up the development like anything. Now, I know about knowckoutJs, Ninject, MEF, JQGrid and few others just because of <a href="http://nuget.org">nuget</a> .</p>
+
+<p>So, specially in this article I haven’t provide any other link then <a href="http://nuget.org">nuget</a> . So, no more hazels to go to source code provider site download and update just fire few commands and its done. That’s it.</p>
+
+      <p><a href="/2012/02/nuget-mall-of-oss/">Read more...</a></p>
+    </li>
+    <li class="fancy-container lightblue">
+      <h1>
+        <a href="/2012/01/bhagwad-gita-chapter1/">Bhagwad Gita Chapter 1</a> 
+        <span>posted on 06 Jan 2012</span>
+      </h1> 
+      
+      <p>कुर्क्षेत्र की युद्ध भूमि पर सैन्य निरिक्षण </p>
+
+<p>Its all started when war of Mahabharata is about to begin. Both army stand against each other. And at the time of war, <a href="http://en.wikipedia.org/wiki/Arjuna">Arjuna</a> told <a href="http://en.wikipedia.org/wiki/Krishna">Krishna</a> to take his chariot to the middle of battle field. When they reach there, <a href="http://en.wikipedia.org/wiki/Arjuna">Arjuna</a> observed both side of army.</p>
+
+<p>At this time he found only relatives on the both side. And he just collapsed. He don’t want to fight. He don’t want to win at the cost of killing his own relatives. He asked <a href="http://en.wikipedia.org/wiki/Krishna">Krishna</a> </p>
+
+<blockquote>
+  <p>What is significant of this type of win? Why should I win? Why should I do the war?</p>
+</blockquote>
+
+<p>At that time Krishna recite Gita. Other than <a href="http://en.wikipedia.org/wiki/Arjuna">Arjuna</a> there are few others who heard Gita, one is <a href="http://en.wikipedia.org/wiki/Hanuman">Hanuman</a> who is there in the flag of <a href="http://en.wikipedia.org/wiki/Arjuna">Arjuna’s</a> chariot. And other is <a href="http://en.wikipedia.org/wiki/Sanjaya">Sanjay</a> who has “divya drashti”.</p>
+
+<p>So, here by I try to explain every “slok” of Gita.</p>
+
+<p>I pray to <a href="http://en.wikipedia.org/wiki/Ganesha">Shree Ganesh</a> as there is a tradition that every good thing start with the name of <a href="http://en.wikipedia.org/wiki/Ganesha">Shree Ganesh</a> .</p>
+
+      <p><a href="/2012/01/bhagwad-gita-chapter1/">Read more...</a></p>
+    </li>
+    <li class="fancy-container lightblue">
+      <h1>
+        <a href="/2012/01/bhagwad-gita-introduction/">Bhagwad Gita Introduction</a> 
+        <span>posted on 06 Jan 2012</span>
+      </h1> 
+      
+      <p>Who ever know something about Indian culture must have know about Gita. As per religion or history whatever you prefer, it is a compilation of words, a message given to Arjuna by Krishna. It is not only for him but for whole world. And trust me this book do have answer of almost any things.</p>
+
+<p>First I brief about this compilation. At the time of Mahabharata war, when Arjuna has to face his own family at war place, kurukshetra. He did not want to fight, he did not want to win at a price of killing his own loved once. At that time Shree Krishna, told him that it is his work, he is not responsible of it. He had to do what is necessary. He didn’t have any right to claim on result of his work. And then whatever communication is done between them is called Bhagwad Gita. Other than Arjuna there were few other who witnesses this communication, one is Ved Vyas who written Mahabharat, one is Sajay a Charioteer of King Dhitrashtra and Hanuman who was there in the flag of Chariot of Arjuna.</p>
+
+<p>I am not a big philosopher or spiritual guru, but I love this book. And trying to explain each and every “slok”, sentence in detail. Please bare with me, if there is any mistake in understanding or explaining this .</p>
+
+<p>I don’t say I am a great believer of God, but I am believer of this book. It do has solution of every problem, and do support to over come any obstacle of life. Gita was told by Shree Krishna around 5000 years back and even now every word of it, is so true and real.</p>
+
+<p>There are few, who still believe the Shree Krishna is Myth, for them here I am sharing a video, just have a look at it. And I don’t mind any opinion but whats wrong in trying new things, and a thing which already had more than enough followers.</p>
+
+<p>Video about Krishna is here.</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/dalNJ4luBws" frameborder="0" allowfullscreen></iframe>
+
+      <p><a href="/2012/01/bhagwad-gita-introduction/">Read more...</a></p>
+    </li>
+    <li class="fancy-container lightblue">
+      <h1>
+        <a href="/2011/12/i-miss-you/">I Miss You</a> 
+        <span>posted on 19 Dec 2011</span>
+      </h1> 
+      
+      <p>When sun starts to rise<br />
+When sun shine enlightens me<br />
+I miss your shining smile<br />
+I miss you</p>
+
+<p>Journey of life just restarted<br />
+Roads just started to shine<br />
+But I miss your hand in my hand<br />
+I miss you</p>
+
+<p>With every rhythm of song<br />
+With every strum of guitar<br />
+I miss your words<br />
+I miss you</p>
+
+<p>Started to write poem<br />
+But lines just started crying<br />
+Words are missing letters<br />
+And I miss you</p>
+
+<p>I just want to move on<br />
+But heart still waiting for you<br />
+My heart missing beats for you<br />
+I miss you</p>
+
+<p>Noise of crowd surrounds me<br />
+But your silence still hurts me<br />
+Break the silence, spark the words<br />
+I miss you, I miss your voice</p>
+
+<p>Feeling emptiness in middle of life<br />
+Either come and meet me<br />
+Or gift me death<br />
+I miss you, I miss you so much</p>
+
+<p>My words are not enough for you<br />
+<a href="http://kunjan.in/posts/you-never-understand">You still don’t understand</a> a bit<br />
+But still I will write for you<br />
+Because I miss you… I miss you so much…;</p>
+
+      <p><a href="/2011/12/i-miss-you/">Read more...</a></p>
+    </li>
+    <li class="fancy-container lightblue">
+      <h1>
+        <a href="/2011/12/test-your-self-before-test-your-code/">Test your self before test your code</a> 
+        <span>posted on 19 Dec 2011</span>
+      </h1> 
+      
+      <p>Few days back I had written a <a href="http://kunjan.in/index.php/technical/14-net--c-c-sharp/12-ddt-oops-tdd-its-test-driven-development">post</a> , on <a href="http://en.wikipedia.org/wiki/Test_Driven_Development">Test Driven Development</a> . And many of my friends raise question, why should I test and is there anything there in built in Visual Studio. And also more explanation on Test Driven Design. So, Here again I will some what more deeper in testing. Ok, its just a little bit deeper.</p>
+
+<p>First thing, as per title, you should test your self before test your code. It is not philosophical but it is pure technical. If I am writing test for my code, I should know why I am writing? How I am going to write? These few question must be answered before writing test. Now, we are normal kind of coders. I can’t say that whatever code I am writing is going to execute perfectly. In a contrary in most of the cases reverse is true. Every damn time I forgot something to consider and that crash my code. If you are like my friend <a href="https://twitter.com/#%21/shahaalap">Aalap</a> then you can go on and on, without writing test. He is damn good with windows technology and write code like anything. And a bit lucky because whenever he writes code, and that piece of shit executes perfectly. But I am not genius like him, so I need to test it.</p>
+
+<p>Again we go with my <a href="http://en.wikipedia.org/wiki/Mathematics_Functions">mathematical functions</a> . Because I just loved <a href="http://en.wikipedia.org/wiki/Mathematics">mathematics</a> . And this time we are using <a href="http://en.wikipedia.org/wiki/Visual_Studio_">Visual Studio</a> Testing facility. You can go with <a href="http://en.wikipedia.org/wiki/Nunit">NUnit</a> , it almost same, just few syntax changed here and there. But it is not a big deal. Start with new console application. Add new class MathUtil to it. And make is <a href="http://en.wikipedia.org/wiki/Static_Class">static class</a> for the simplicity. Now, I am not putting screen shot for “how to use visual studio???”, if you don’t know, this article is not for you better you go and study some basics before jump to this. Sorry…</p>
+
+<p>Again we have static function to add something. Let’s start with <a href="http://en.wikipedia.org/wiki/Integer">integer</a> . So, here is a add method for adding integer.</p>
+
+<pre><code>public static class MathUtil { 
+public static dynamic AddData( int a, int b) { 
+  return a + b; 
+} 
+</code></pre>
+
+<p>} </p>
+
+<p>damn sweet. A simple method to add two integer. Now, time for testing. Add another project to solution, that project will be test project. You will find test project if you are running visual studio pro or greater. After adding project, we just have to remember <a href="http://en.wikipedia.org/wiki/Paul_Allen">Paul Allen</a> and click right mouse button in Add data method. Then just click create unit test and mighty visual studio create test for us. Here, we get code like this</p>
+
+<pre><code>  ///A test for AddData /// 
+</code></pre>
+
+<p>[TestMethod()] 
+  public void AddDataTest() { 
+    int a = 0; // TODO: Initialize to an appropriate value 
+    int b = 0; // TODO: Initialize to an appropriate value 
+    object expected = null ; // TODO: Initialize to an appropriate value 
+    object actual; 
+    actual = MathUtil.AddData(a, b); 
+    Assert.AreEqual(expected, actual); 
+    Assert.Inconclusive( "Verify the correctness of this test method." ); 
+  } 
+Now, we need modify to run the test. And code will look something like this
+  [TestMethod()] 
+  public void AddDataTest() { 
+    int a = 10; // TODO: Initialize to an appropriate value 
+    int b = 10; // TODO: Initialize to an appropriate value 
+    object expected = 20; // TODO: Initialize to an appropriate value 
+    object actual; 
+    actual = MathUtil.AddData(a, b); 
+    Assert.AreEqual(expected, actual); 
+  } </p>
+
+<p>This test works perfectly. Ya, we do have written a correct function. Now, client come and tell that he need the same for float. Why not??? We have <a href="http://en.wikipedia.org/wiki/Overriding">overriding</a> thing in software Engineering.We will use it. And Ta da… We have another function like this </p>
+
+<pre><code>public static dynamic AddData( float a, float b) { 
+  return a + b; 
+</code></pre>
+
+<p>} </p>
+
+<p>This will work for float. Same thing we will do for testing now. Right click and create unit test. We have our method here like this. </p>
+
+<pre><code>[TestMethod()] 
+public void AddDataTest1() { 
+float a = 0F; // TODO: Initialize to an appropriate value 
+float b = 0F; // TODO: Initialize to an appropriate value 
+object expected = null ; // TODO: Initialize to an appropriate value object actual; 
+actual = MathUtil.AddData(a, b); 
+Assert.AreEqual(expected, actual); 
+Assert.Inconclusive( "Verify the correctness of this test method." ); } 
+</code></pre>
+
+<p>If you have noticed, this is not overriding in test. It just add “1” after test name. Who cares, test project is not going to client side. Ya, true. But I may not be the only one who is working on the project. There are many who are working and using my methods, testing them. This name will confuse them. So what I should do, Add definition to name it self. Then method looks like </p>
+
+<pre><code>[TestMethod()] 
+public void AddDataTest_Float() { 
+float a = 10F; // TODO: Initialize to an appropriate value 
+float b = 10F; // TODO: Initialize to an appropriate value 
+object expected = 20; // TODO: Initialize to an appropriate value 
+object actual; 
+actual = MathUtil.AddData(a, b); 
+Assert.AreEqual(expected, actual); 
+</code></pre>
+
+<p>} </p>
+
+<p>Ok, this test is for float data. We will change previous method integer data. And once again client comes for double. How can I say no??? He is my client. No, problem sir we go for double too. Here is the method I write, I made some what generic method so I don’t have write again and again.</p>
+
+<pre><code>public static dynamic AddData( object [] data) { 
+dynamic result = data[0]; for ( int i = 1; i return result; 
+</code></pre>
+
+<p>} </p>
+
+<p>now this will add almost anything. And also any amount of data . Now, create test for it. Test method some what looks like this. </p>
+
+<pre><code>[TestMethod()] 
+public void AddDataTest_ObjectArray() { object [] data = new object [] { 10, 10, 10 }; // TODO: Initialize to an appropriate value 
+object expected = 30; // TODO: Initialize to an appropriate value 
+object actual; 
+actual = MathUtil.AddData(data); 
+Assert.AreEqual(expected, actual); 
+</code></pre>
+
+<p>} </p>
+
+<p>Here, I just like to say that, you just don’t start testing because someone says so. Or just you love me so much that can’t ignore my request to make application in way it should be made. Just know where you need testing, and also for testing you should know what you want to test. There are may methods available to check null, inequality, exception. Use appropriate method for that. There are many books available just to explain how to test.</p>
+
+<p>Book I recently come across <a href="http://artofunittesting.com/">The Art of Unit Testing</a> . It’s a wonderful book explaining every minor details for testing. Just don’t waste your time and energy on clicking buttons in your own application. It is a work of testing department. But unit testing comes in our part, it is a job of coder to test his functionality before adding to system. Do the unit test and become confident about your work. There is no need to add unnecessary bugs in bug tracker.</p>
+
+<p>Please let me know if any further explanation is needed.</p>
+
+      <p><a href="/2011/12/test-your-self-before-test-your-code/">Read more...</a></p>
+    </li>
+    <li class="fancy-container lightblue">
+      <h1>
+        <a href="/2011/12/di-data-interpretation-of-fdi-foreign-direct-investment/">DI of FDI (Foreign direct investment)</a> 
+        <span>posted on 04 Dec 2011</span>
+      </h1> 
+      
+      <p>It has been a week or so, every day news paper and news channel are full with news of <a href="http://bit.ly/s18yeT">FDI in India</a> . Even Facebook is not taking a step back and speak in favor of both side. <a href="http://en.wikipedia.org/wiki/Foreign_direct_investment">FDI</a> in retails should be allowed or not.</p>
+
+<p>I am not a politician, so as engineer I will do data analysis of FDI in India. now, for the sake of example we consider that FDI is allowed in retail market (PS : I personally think that it is going to be allowed) . And great retail players welcomed, in India. Just like east India company. Now, dollars come in and they directly go to farmers to take products. Ohk… now here framers get a BIT more price as they skip mediators. Now, they are the immediate victims of FDI.</p>
+
+<p>We have around 125 corers people and also have internal dependencies in chain management system. Now, for the sake of two end users, big brother will element man small chains and put one big heavy chain. Here, we can advocate that even a one big chain need many persons to work properly. So, we can say that it will generate more employment. We WILL discuss this specific topic afterwards, service v/s self employment.</p>
+
+<p>Now, after first victim is down. We have a classis competition of dollars v/s rupees, its just like <a href="http://en.wikipedia.org/wiki/Goliath">David v/s Goliath</a> .</p>
+
+<p><img src="https://lh5.googleusercontent.com/-UOYX0j4d74Y/URHJr5nw2nI/AAAAAAAAAqg/bmKB4tSWmoY/s144/david-and-goliath-sumo-version_thumb_2456faf3-4b48-4d31-8a4d-440692818ef1.jpg" alt="" /></p>
+
+<p>They come with dollar back up, give best employment. Buy land at high price. Market go boom. And smile on the face of everyone, at least for a while. Yeah, some brokers and <strong>independent</strong> businessmen, who were there in chain will not be happy. But who cares. Even from the era of non-violence and <a href="http://en.wikipedia.org/wiki/Mohandas_Karamchand_Gandhi">Gandhiji</a> we also learn one more thing to serve others. Specially <a href="http://en.wikipedia.org/wiki/Culture_of_the_United_Kingdom">British Culture</a> and Foreigners. Sorry to some die hard fan of <a href="http://en.wikipedia.org/wiki/Mohandas_Karamchand_Gandhi">Gandhiji</a> but its true. He is there in direct or indirect reason of our slavery even after our so called freedom.</p>
+
+<p>Now back to FDI.</p>
+
+<p>We are getting things at low price. But missing one basic element of our shopping. Relationship with our merchant. So, here we are loosing personal guarantee of shop keeper. We have professional warranty of brand but what on grains???!!!! No one is saving seasonal vegetables for you. If you are lucky you get your favorite vegetables or if not you have to go with whatever is left there. But who cares !!! you are getting vegetables at lower prize.</p>
+
+<p>So, As an engineer and a little bit selfish person I should be happy???????</p>
+
+<p>Nope!!!</p>
+
+<p>Why??? Now, consider a case of my favorite fruit Mango. And I love specific type of <a href="http://en.wikipedia.org/wiki/Mango">Mango called Kesar</a> ** and that also specifically from <a href="http://meet-kesarmango.blogspot.com/">Talala Gir area</a> . Now, big brother is going to buy bulk from farmers. And going to sell at lower price. I don’t think so. They sell poor and small pieces of Mangos in India and better will go out side to be sold in foreign currency. I don’t think problem in this too, as we also get used to that. Just like we get used to poor quality of every international brand. We are so good and non-violent people at the end. We are from the country of Great Mahatma Gandhiji. (PS: yes, we are from the country of Gandhiji, but still Gujarat is the only dry state ???!!!! why don’t other states are following our great leader ???!!!)</p>
+
+<p>So, now its time for us to suffer. Poor quality food, grains and vegetables. …. No problem at all, most of the metros are not getting good quality food even now.</p>
+
+<p>So, time passes and we survived and life go on. All the small business men are vanished, cleared, wiped out. No competition at all. Now, big brother can increase price. And yet again we don’t mind. Yaar, we are good people na, at the max we will do some rally and that also non-violently. And our minister comment that “ <a href="http://www.dnaindia.com/india/report_i-m-no-astrologer-can-t-predict-fall-in-prices-says-sharad-pawar_1333724">I am not astrologer, how can I say what will going to happen in future</a> .” And some remember <a href="http://en.wikipedia.org/wiki/Bhagat_Singh">Bhagat Singh</a> and <a href="http://articles.timesofindia.indiatimes.com/2011-11-25/india/30440409_1_anti-graft-protester-sharad-pawar">hit a slap</a> . But that also ended with <strong>BANDH</strong> in oppose of that slap. It is fine we are in India…</p>
+
+<p>Now, only one person is laughing and laughing laud our own the big brother. But still we will going to celebrate, as big brother will be in the list of Forbes richest person, give lecture at IIMs and comment that India is his favorite market. Why not??? he is selling every good product at high rate in foreign country and getting price of garbage in India. Double profit.</p>
+
+<p>Next big step, investment in farming. If everything is his, then why not farms. And government also welcome that, as they bring new technology to India (PS: what the hell, as don’t know anything about farming ???!!!!) . Obviously this will increase more employment , now farmers are employees too. And banned chemicals are welcomed to India, which increase growth for at least two years. So, time for some smiles now. But then farms are gone, quality goods are gone. And we left with dry land.</p>
+
+<p>No problem, we will <strong>Import</strong> . And government will give subsidy in that. So, now India back to square one. Just it were at the time of 1857 (PS: Many so called urban and modern public don’t know this number, please <a href="http://bit.ly/vhOUwG">google</a> it.)</p>
+
+<p>Still we have one smiling face of big brother. And books of him “How to Become a Millionaire” for future management students.</p>
+
+<p>Now, one topic I have left in the starting service v/s self employment. Now, first thing I am doing job and I am not opposing it. But self employment is also just like that. You are employed if you are earning enough as per your requirement and caliber. Serving some big brother will never make you jolly good fellow. In simple situation if some person is earning 3Rs as profit, he will give 1Rs as salary. Now, this 2Rs will made him more rich every time he earns.</p>
+
+<p>If we take retail sector as per example, a person of transport is earning 12,000Rs per month. Now, there are 10 persons for specific city. So, total earning goes to 1,20,000. Now, big brother hire some around 5 persons and give 15,000Rs salary. So, total earning goes to 75,000Rs. Now, salary is higher for whom, those got the job. But for 5 persons, 10 persons loses their job and employment. And there is movement of only 75,000Rs instead of 1,20,000Rs. Now, a person from commerce background can explain the importance of the “movement of money”.</p>
+
+<p>And one more thing is here to consider. If you or me go to some other country and earn some money, first thing we will do is to send money to our country. Same will be done by the big brother. Profit will be sent to his country. In history we were not poor, but now we are still a developing country. Even at this stage can we afford to send profit to some other country ???? I don’t think so. I guess.</p>
+
+<p>At the end still we have some happiness left. Big Brother is smiling and yes we have few more to join party. Our minister, AKA, sultan, Prince of country and his mom… Who are getting money for welcoming big brother and also take a part of profit as tax. And every one knows now in which country our tax is going ???!!!! (PS: As per <a href="http://en.wikipedia.org/wiki/Chanakya">Chankya</a> tax should be taken in a way honey bee take honey from flowers)</p>
+
+<p>I was so proud for my analytical and mathematical skills, but don’t have answer to this. If you have, please share… Do comment.</p>
+
+<p>(PS Are we going to be slaved again??? Is this the time where we should start asking question to us, our belief ??? Is this the time for change from the root, from the start???!!!!)</p>
+
+<p>[]: https://lh5.googleusercontent.com/-UOYX0j4d74Y/URHJr5nw2nI/AAAAAAAAAqg/bmKB4tSWmoY/s144/david-and-goliath-sumo-version<em>thumb</em>2456faf3-4b48-4d31-8a4d-440692818ef1.jpg</p>
+
+      <p><a href="/2011/12/di-data-interpretation-of-fdi-foreign-direct-investment/">Read more...</a></p>
+    </li>
+    <li class="fancy-container lightblue">
+      <h1>
+        <a href="/2011/11/journey-of-coder-to-developer/">Journey of Coder to Developer</a> 
+        <span>posted on 29 Nov 2011</span>
+      </h1> 
+      
+      <p>I had seen one T-shirt where developer and programmer are erased coder is written below it. I just remember that and was thinking, why so.</p>
+
+<p>Answer is just with me. Every time we start work, and first thing we do is to hit Google. Copy and paste code and make things work. Never bother our self why code is working like that only and why I am copying this only. 60 people out of 100 are doing the same. If you are in India, number may increase to very dangerous level. The person who are doing this, are coders. We are all coders. The first and for most target is to complete task, no matter how, but it should be completed as client’s requirement. We break all software engineering rule, all coding standards and with use of 0.01% of our brain we complete the task. Is this means we are not doing hard work? Nope. We are doing hard work, but only hard work. Just like person working in diamond mine. He is with diamond, he is doing hard work but can’t get benefit of it.</p>
+
+<p>What if we like to take a shift. What if we want to call our selves Programmers? I personally prefer some approaches. First and for most thing stop taking help from God Google. Practice on basic languages like C, C++, Perl etc. Avoid using language with heavy library support and classic GUI like C#, Java and please NO VB. I am big fan of Microsoft, currently using Windows Live Writer for writing this blog, using Visual Studio for all my development but still believe if you ever dream of joining Microsoft, don’t use Microsoft tools, at least in learning phase. And still if anyone want to check his/her talent, go for GCC compiler of Linux. (Note : Use of Linux in command mode is mandatory) . May be there will be a question, even though higher level language available why go for basics. Answer is available in question only, for the need of basics. It provide platform to you, to explorer your creativity. Its all about logic, not language. If one can win race with Ambassador, one surely going to win race with Ferrari. Truly speaking C++ still have that power and charm.</p>
+
+<p>What about next step. Becoming Mr.Developer. If one is programmer of at least 3 to 4 years, there will be no need for any special things to become Developer. Its all about feeling code. Feeling software, need of it. Giving the best crafted work. I can’t provide much detail about it as I am still in phase Programmer. But I have seen Developers working, they don’t just write code, but craft code. Taking every possibility in consideration and giving more agile solution. Its all about understanding the terminology of software.</p>
+
+<p>If I compare all these in the context of automobile than coder is just a driver, don’t know anything about car still driving car, programmer is like mechanic who can repair car but can’t create it. While Developer is just like automobile engineer who create cars.</p>
+
+<p>I am running like any thing, because my beautiful, sexy, stunning and gorgeous Car is waiting for me.</p>
+
+      <p><a href="/2011/11/journey-of-coder-to-developer/">Read more...</a></p>
+    </li>
+    <li class="fancy-container lightblue">
+      <h1>
+        <a href="/2011/11/waiting-for-your-smile/">Waiting for your Smile</a> 
+        <span>posted on 01 Nov 2011</span>
+      </h1> 
+      
+      <p>Its wonderful morning<br />
+Sun is waiting to rise<br />
+It’s waiting for you sun shine<br />
+Waiting for your wonderful smile  </p>
+
+<p>Birds wake up<br />
+Songs are waiting to be sung<br />
+Beats are waiting for you sun shine<br />
+Waiting for your dazzling smile  </p>
+
+<p>Air just started moving<br />
+Breeze just wanted to spread<br />
+Fragrance is waiting for you sun shine<br />
+Waiting for your mesmerizing smile   </p>
+
+<p>Pen is ready to write<br />
+Ink is desperate to draw<br />
+Poem is waiting for you sun shine<br />
+Waiting for your poetic smile  </p>
+
+<p>My heart just wants to beat<br />
+Breath is waiting for you sun shine<br />
+Waiting for your lovely smile  </p>
+
+<p>It’s not that<br />
+World is not having it all<br />
+But nature is waiting for you sun shine<br />
+Waiting for your beautiful smile  </p>
+
+<p>Violin is with me<br />
+I start playing<br />
+But music is waiting for you sun shine<br />
+Waiting for your musical smile  </p>
+
+<p>Just break the ice<br />
+Bind a spell<br />
+Ohhh sun shine<br />
+Waiting for your magical smile  </p>
+
+<p>Just waiting for your smile<br />
+Hey sun shine<br />
+Waiting for your smile<br />
+Ohhh sun shine<br />
+Waiting for your smile  </p>
+
+      <p><a href="/2011/11/waiting-for-your-smile/">Read more...</a></p>
+    </li>
+  </ul> 
+
+  <!-- Pagination links -->
+  <div id="post-pagination" class="pagination">
+
+   
+      <p class="previous">
+        <a href="/page2">Previous Page</a>
+        </p>
+
+
+    <p class="previous">
+      <a href="/page4">Next Page</a>
+    </p>
+
+  </div>
+
+
+                </div>
+                <!-- #content -->
+            </div>
+            <!-- #primary .site-content -->
+
+            <div id="secondary" class="widget-area fancy-container lightred" role="complementary">
+                <aside id="text-5" class="widget widget_text">
+                    <h1 class="widget-title">Follow</h1>
+                    <div class="textwidget logos">
+                        <a href="https://twitter.com/philliphaydon" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://twitter.com']);"><img src="/stylesheets/images/twitter.png"></a>
+                        <a href="http://stackoverflow.com/users/456813/phill" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://stackoverflow.com']);"><img src="/stylesheets/images/stackoverflow.png"></a>
+                        <a href="http://www.linkedin.com/in/philliphaydon" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://www.linkedin.com']);"><img src="/stylesheets/images/linkedin.png"></a>
+                        <a href="https://plus.google.com/u/0/111751877537461442095" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://plus.google.com']);"><img src="/stylesheets/images/googleplus.png"></a>
+                        <a href="https://coderbits.com/philliphaydon" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','https://coderbits.com/philliphaydon']);"><img src="/stylesheets/images/codebits.png"></a>
+                        <a href="https://github.com/phillip-haydon" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://github.com']);"><img src="/stylesheets/images/github.png"></a>
+                        <a href="http://www.codeschool.com/users/philliphaydon" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://codeschool.com']);"><img src="/stylesheets/images/codeschool.png"></a>
+                        <a href="http://www.kickstarter.com/profile/phillip-haydon" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://kickstarter.com']);"><img src="/stylesheets/images/kickstarter.png"></a>
+                    </div>
+                    <a href="http://stackoverflow.com/users/456813/phill">
+                      <img src="http://stackoverflow.com/users/flair/456813.png" width="208" height="58" alt="profile for Phill at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Phill at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+                    </a>
+                    
+                    <a href="http://nancyfx.org/mvm.html"><img src="/stylesheets/images/mvm.png"></a>
+                    
+                    <div id = "clustrback" style="width:162px; height:133px;  background:#f7f7f7 url(http://clustrmaps.com/admin/3d/images/st4_grey.png)  center no-repeat; text-align:center;">
+                      <a href="http://www2.clustrmaps.com/counter/maps.php?url=http://www.philliphaydon.com/" style="width:160px; display:block; margin:0 auto;" id="clustrMapsLink">
+                        <img src="http://www2.clustrmaps.com/counter/index2.php?url=http://www.philliphaydon.com/" style="border:0px; margin:15px auto;margin:15px auto;" alt="Locations of visitors to this page" title="Locations of visitors to this page" id="clustrMapsImg" />
+                      </a>
+                    </div>
+                </aside>
+                <!--aside id="text-8" class="widget widget_text">
+                    <h1 class="widget-title">Other sites</h1>
+                    <div class="textwidget">
+                        <a href="http://csharptube.com/" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://csharptube.com']);">csharptube.com</a><br />
+                        <a href="http://thisisparrot.com/" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://thisisparrot.com']);">Parrot</a><br />
+                        <a href="http://shitprogrammerswrite.com/" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://shitprogrammerswrite.com']);">Shit programmers write</a><br />
+                    </div>
+                </aside-->
+                
+                <aside id="linkcat-6" class="widget widget_links">
+                    <h1 class="widget-title">Other Blogs</h1>
+                    <ul class='xoxo blogroll'>
+                        <li><a href="http://www.nickharris.net/" target="_top" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://nickharris.net/']);">Nick Harris</a></li>
+                        <li><a href="http://www.mindscapehq.com/blog/" target="_top" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://www.mindscapehq.com/blog/']);">Mindscape</a></li>
+                        <li><a href="http://blog.orangelightning.co.uk/" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://blog.orangelightning.co.uk/']);">Phil Jones</a></li>
+                        <li><a href="http://buildstarted.com/" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://buildstarted.com']);">Ben Dornis</a></li>
+                        <li><a href="http://jflood.net/" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://jflood.net/']);">Jospeh Flood</a></li>
+                    </ul>
+                    
+                </aside>
+                <aside id="archives-4" class="widget widget_archive">
+                    <h1 class="widget-title">Archive</h1>
+                    <ul class="posts">
+                          <li><a href="/archive#2013December">December, 2013</a></li>
+                          <li><a href="/archive#2013November">November, 2013</a></li>
+                          <li><a href="/archive#2013October">October, 2013</a></li>
+                          <li><a href="/archive#2013August">August, 2013</a></li>
+                          <li><a href="/archive#2013January">January, 2013</a></li>
+                          <li><a href="/archive#2012December">December, 2012</a></li>
+                          <li><a href="/archive#2012November">November, 2012</a></li>
+                          <li><a href="/archive#2012October">October, 2012</a></li>
+                          <li><a href="/archive#2012September">September, 2012</a></li>
+                          <li><a href="/archive#2012April">April, 2012</a></li>
+                          <li><a href="/archive#2012March">March, 2012</a></li>
+                          <li><a href="/archive#2012February">February, 2012</a></li>
+                          <li><a href="/archive#2012January">January, 2012</a></li>
+                          <li><a href="/archive#2011December">December, 2011</a></li>
+                          <li><a href="/archive#2011November">November, 2011</a></li>
+                          <li><a href="/archive#2011October">October, 2011</a></li>
+                    </ul>
+                </aside>
+            </div>
+            <!-- #secondary .widget-area -->
+
+
+        </div>
+        <!-- #main -->
+
+        <footer id="colophon" class="site-footer" role="contentinfo">
+            <div class="site-info">
+                Powered by <a href="https://github.com/Sandra/Sandra.Snow" rel="generator">Sandra.Snow</a>.	
+            </div>
+            <!-- .site-info -->
+        </footer>
+        <!-- #colophon .site-footer -->
+    </div>
+    <!-- #page .hfeed .site -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src='/javascripts/prettify.js' type='text/javascript'></script>
+    
+    <script type="text/javascript">
+var _gaq = _gaq || [];
+
+_gaq.push(['_setAccount', 'UA-37975068-1']);
+_gaq.push(['_trackPageview']);
+        
+(function () {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+})();
+</script>
+    
+    <script type='text/javascript'>
+      $(function () {
+        $("pre code").parent().each(function () {
+          if (!$(this).hasClass("prettyprint")) {
+            $(this).addClass("prettyprint");
+            a = true
+          }
+        });
+
+        prettyPrint();
+      });
+    </script>
+</body>
+</html>

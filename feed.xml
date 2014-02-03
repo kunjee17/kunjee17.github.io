@@ -1,4 +1,46 @@
-<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/feed.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2013/11/a-developer-without-programming-language/</guid><link>http://kunjan.in/2013/11/a-developer-without-programming-language/</link><title>A Developer without Programming Language</title><description>&lt;p&gt;Now a days I am little bit more involved in History lessons. And those also from Computer Science only. Specifically from programming language's perspective.  Why on the earth I am doing this, I guess answer is given by  &lt;a href="http://www.crockford.com/"&gt;Duglas Cockford&lt;/a&gt; over the &lt;a href="http://hanselminutes.com/396/bugs-considered-harmful-with-douglas-crockford"&gt;Hanselminutes&lt;/a&gt;.  And personally I love this part of learning. It is so delightful to know different language and why languages emerge the way it is.&lt;/p&gt;
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/feed.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2013/12/functional-programming-need-in-web-development/</guid><link>http://kunjan.in/2013/12/functional-programming-need-in-web-development/</link><title>Functional Programming Need in Web Development</title><description>&lt;p&gt;Whenever I talk about Functional Programming people with experience in web make faces. And seriously don't blame them. &lt;/p&gt;
+
+&lt;p&gt;Issue is mainly Functional Programming stays in back ground only. If you see any starting example of any functional language is mainly some machine learning example or some complicated algorithm example. And that may effect normal people to getting started with Functional Programming. &lt;/p&gt;
+
+&lt;p&gt;But functional programming can do far more than that. And that include simple things too. And I means it can make thing simpler or I can say it can make easy thing simple. &lt;/p&gt;
+
+&lt;p&gt;Here, if I say have to put web case here. May be web is right now most appropriate place where functional programming can be used. And reason is damn simple, current web projects are getting bigger and bigger and user base is also getting even larger. Now, to support that hardware is also getting better and better. &lt;/p&gt;
+
+&lt;p&gt;Now, the only thing is there is a need of programming language that can use this kind of hardware. And this case Functional Programming comes in picture or I must say it is most suitable.&lt;/p&gt;
+
+&lt;p&gt;Because there are many things that are backed into the language that help with the situation. If I take one thing is immutability. As there are grid of processors, there is a need of multiple objects using the resource parallel and there will be need to manage state of the objects. With immutability there will be no state that can be mutated. So, it is very much easy to reason with.&lt;/p&gt;
+
+&lt;p&gt;But unfortunately we don't utilize functional programming that much. And may be that is the reason we don't know how easy and beautiful things code can be with the use of functional programming. &lt;/p&gt;
+
+&lt;p&gt;So, here I will be writing couple of articles or may be series to make a case how useful functional programming can be in the case of web development. &lt;/p&gt;
+
+&lt;p&gt;As, I am mainly from the .Net background I ll be talking about F# mostly. But the thing is, functional programming is not limited to that. If anyone is coming from the Java land, &lt;a href="http://www.playframework.com/"&gt;Scala&lt;/a&gt; is the language for you. And if anyone wants something dynamic and very near to LISP, &lt;a href="http://clojure.org/"&gt;clojure&lt;/a&gt; is for you. &lt;/p&gt;
+
+&lt;p&gt;I try to get taste of every possible language, few sample here and there. But things mainly will be for Functional programming and Web.&lt;/p&gt;
+
+&lt;p&gt;Hope that effort count.&lt;/p&gt;
+</description><pubDate>Mon, 16 Dec 2013 18:30:00 Z</pubDate><a10:updated>2013-12-16T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;Whenever I talk about Functional Programming people with experience in web make faces. And seriously don't blame them. &lt;/p&gt;
+
+&lt;p&gt;Issue is mainly Functional Programming stays in back ground only. If you see any starting example of any functional language is mainly some machine learning example or some complicated algorithm example. And that may effect normal people to getting started with Functional Programming. &lt;/p&gt;
+
+&lt;p&gt;But functional programming can do far more than that. And that include simple things too. And I means it can make thing simpler or I can say it can make easy thing simple. &lt;/p&gt;
+
+&lt;p&gt;Here, if I say have to put web case here. May be web is right now most appropriate place where functional programming can be used. And reason is damn simple, current web projects are getting bigger and bigger and user base is also getting even larger. Now, to support that hardware is also getting better and better. &lt;/p&gt;
+
+&lt;p&gt;Now, the only thing is there is a need of programming language that can use this kind of hardware. And this case Functional Programming comes in picture or I must say it is most suitable.&lt;/p&gt;
+
+&lt;p&gt;Because there are many things that are backed into the language that help with the situation. If I take one thing is immutability. As there are grid of processors, there is a need of multiple objects using the resource parallel and there will be need to manage state of the objects. With immutability there will be no state that can be mutated. So, it is very much easy to reason with.&lt;/p&gt;
+
+&lt;p&gt;But unfortunately we don't utilize functional programming that much. And may be that is the reason we don't know how easy and beautiful things code can be with the use of functional programming. &lt;/p&gt;
+
+&lt;p&gt;So, here I will be writing couple of articles or may be series to make a case how useful functional programming can be in the case of web development. &lt;/p&gt;
+
+&lt;p&gt;As, I am mainly from the .Net background I ll be talking about F# mostly. But the thing is, functional programming is not limited to that. If anyone is coming from the Java land, &lt;a href="http://www.playframework.com/"&gt;Scala&lt;/a&gt; is the language for you. And if anyone wants something dynamic and very near to LISP, &lt;a href="http://clojure.org/"&gt;clojure&lt;/a&gt; is for you. &lt;/p&gt;
+
+&lt;p&gt;I try to get taste of every possible language, few sample here and there. But things mainly will be for Functional programming and Web.&lt;/p&gt;
+
+&lt;p&gt;Hope that effort count.&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/11/a-developer-without-programming-language/</guid><link>http://kunjan.in/2013/11/a-developer-without-programming-language/</link><title>A Developer without Programming Language</title><description>&lt;p&gt;Now a days I am little bit more involved in History lessons. And those also from Computer Science only. Specifically from programming language's perspective.  Why on the earth I am doing this, I guess answer is given by  &lt;a href="http://www.crockford.com/"&gt;Duglas Cockford&lt;/a&gt; over the &lt;a href="http://hanselminutes.com/396/bugs-considered-harmful-with-douglas-crockford"&gt;Hanselminutes&lt;/a&gt;.  And personally I love this part of learning. It is so delightful to know different language and why languages emerge the way it is.&lt;/p&gt;
 
 &lt;p&gt;That is one part of story. Now, I was talking with my friend about different ways of rapid game development, as we both like playing and making games. (Nothing reached to the release level yet though :P). It is fun always. Now, he is working with C++ and I am .Net guy until now. Recently I become web guy on paper with Java Script skills again on paper :P. But as I mentioned I have special love for languages. &lt;/p&gt;
 
@@ -60,6 +102,192 @@
 &lt;blockquote class="twitter-tweet"&gt;&lt;p&gt;&lt;a href="https://twitter.com/kunjee"&gt;@kunjee&lt;/a&gt; They have their identity tied up with &amp;quot;I&amp;#39;m a C# developer.&amp;quot; To switch languages would be to change their self-image.&lt;/p&gt;&amp;mdash; Jessica Kerr (@jessitron) &lt;a href="https://twitter.com/jessitron/statuses/400455908724994048"&gt;November 13, 2013&lt;/a&gt;&lt;/blockquote&gt;
 
 &lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/10/functional-programming-how-i-started/</guid><link>http://kunjan.in/2013/10/functional-programming-how-i-started/</link><title>Functional Programming, How I started and Why?</title><description>&lt;p&gt;I am not kind of Technical person who started hacking / coding in very early age. But I have special love / affection towards numbers. I don't know why but it always fascinate me.&lt;/p&gt;
+
+&lt;p&gt;And this was the starting point or I can say reason I started baby steps in functional programming. I like DI, not in term of Dependency Injection but in case of Data Interpretation. Those tabular data and all the graphs and details that data can produce is awesome. It simply blow away my mind. &lt;/p&gt;
+
+&lt;p&gt;It is possible to do analysis in almost any language, but as I have heard it will be fairly easy with functional languages. As, I was coming from .Net background (Its just I am / was using as my day job.) I checked out F#. &lt;/p&gt;
+
+&lt;p&gt;I know about F# even 2 years back, when it was picking up the ground, but I thought I am no where near good with C# and one more language will just add more confusion. But now things are different. I am good with C# and love LINQ. And so, I gave shot to &lt;a href="http://tryfsharp.org"&gt;F#&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;And trust me, it blows my mind. It was awesome. I never know that programming can be this much fun. It is like that whatever should be there is there. If I elaborate my last sentence then I can say that, normally I / we need to train our brain to learn any kind of language but in case of Functional Programming, language learn to think like me. I don't have to put special effort for that. And this is the fun part. &lt;/p&gt;
+
+&lt;p&gt;Even if I copy - paste things I wrote on paper as part of pseudo code or algorithm in most of the cases it will work. There is no conversion from pseudo code to code. And that is power of language or I must say that is language. I don't know why any functional languages is not getting taught in colleges. Even before C, there should be a lecture on &lt;a href="http://www.haskell.org/haskellwiki/Haskell"&gt;Haskell&lt;/a&gt;, &lt;a href="http://www.lisp.org/index.html"&gt;LISP&lt;/a&gt; or any other functional language. &lt;/p&gt;
+
+&lt;p&gt;My choose for this kind of language is entirely for wrong reason. I like mathematics and I don't mind if someone throw some complicated theory on me. But for languages like this  I choose just because of things like I can save my key strokes by not writing semi colons, functional composition is fun and easy and I can save lot and lots of time and efforts because of this feature. And more over writing code in functional language is fun. &lt;/p&gt;
+
+&lt;p&gt;There will be more detailed articles are coming, specifically for web and game. Two of areas I know one because of day job and one because of love, but till than here are some video's you can enjoy. &lt;/p&gt;
+
+&lt;p&gt;I like this &lt;a href="http://channel9.msdn.com/Series/C9-Lectures-Erik-Meijer-Functional-Programming-Fundamentals/Lecture-Series-Erik-Meijer-Functional-Programming-Fundamentals-Chapter-1"&gt;series&lt;/a&gt; so much, that I am still half way but I am felling blessed. It gives every possible in and out of functional programming with wonderful explanation. &lt;/p&gt;
+
+&lt;p&gt;Here is video for people like me who sometime can't leave object oriented language and still like to use functional programming concepts. &lt;a href="https://twitter.com/jessitron"&gt;Jessica Kerr&lt;/a&gt; is sweetest speaker I have ever seen. If she explain in morning that there is moon out there, I think people even buy that too.&lt;/p&gt;
+
+&lt;iframe width="560" height="315" src="//www.youtube.com/embed/pMGY9ViIGNU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;And how can I forget wonder woman &lt;a href="https://twitter.com/rachelreese"&gt;Rachel Reese&lt;/a&gt;. After her explanation I now can claim that I know actors. I am not expert but still I am also not dumb now. All thanks to her. 
+&lt;iframe src="//player.vimeo.com/video/74996999" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="http://vimeo.com/74996999"&gt;[nyc-fsharp] Rachel Reese on FSharp Agents&lt;/a&gt; from &lt;a href="http://vimeo.com/rickasaurus"&gt;Richard Minerich&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+</description><pubDate>Wed, 23 Oct 2013 18:30:00 Z</pubDate><a10:updated>2013-10-23T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;I am not kind of Technical person who started hacking / coding in very early age. But I have special love / affection towards numbers. I don't know why but it always fascinate me.&lt;/p&gt;
+
+&lt;p&gt;And this was the starting point or I can say reason I started baby steps in functional programming. I like DI, not in term of Dependency Injection but in case of Data Interpretation. Those tabular data and all the graphs and details that data can produce is awesome. It simply blow away my mind. &lt;/p&gt;
+
+&lt;p&gt;It is possible to do analysis in almost any language, but as I have heard it will be fairly easy with functional languages. As, I was coming from .Net background (Its just I am / was using as my day job.) I checked out F#. &lt;/p&gt;
+
+&lt;p&gt;I know about F# even 2 years back, when it was picking up the ground, but I thought I am no where near good with C# and one more language will just add more confusion. But now things are different. I am good with C# and love LINQ. And so, I gave shot to &lt;a href="http://tryfsharp.org"&gt;F#&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;And trust me, it blows my mind. It was awesome. I never know that programming can be this much fun. It is like that whatever should be there is there. If I elaborate my last sentence then I can say that, normally I / we need to train our brain to learn any kind of language but in case of Functional Programming, language learn to think like me. I don't have to put special effort for that. And this is the fun part. &lt;/p&gt;
+
+&lt;p&gt;Even if I copy - paste things I wrote on paper as part of pseudo code or algorithm in most of the cases it will work. There is no conversion from pseudo code to code. And that is power of language or I must say that is language. I don't know why any functional languages is not getting taught in colleges. Even before C, there should be a lecture on &lt;a href="http://www.haskell.org/haskellwiki/Haskell"&gt;Haskell&lt;/a&gt;, &lt;a href="http://www.lisp.org/index.html"&gt;LISP&lt;/a&gt; or any other functional language. &lt;/p&gt;
+
+&lt;p&gt;My choose for this kind of language is entirely for wrong reason. I like mathematics and I don't mind if someone throw some complicated theory on me. But for languages like this  I choose just because of things like I can save my key strokes by not writing semi colons, functional composition is fun and easy and I can save lot and lots of time and efforts because of this feature. And more over writing code in functional language is fun. &lt;/p&gt;
+
+&lt;p&gt;There will be more detailed articles are coming, specifically for web and game. Two of areas I know one because of day job and one because of love, but till than here are some video's you can enjoy. &lt;/p&gt;
+
+&lt;p&gt;I like this &lt;a href="http://channel9.msdn.com/Series/C9-Lectures-Erik-Meijer-Functional-Programming-Fundamentals/Lecture-Series-Erik-Meijer-Functional-Programming-Fundamentals-Chapter-1"&gt;series&lt;/a&gt; so much, that I am still half way but I am felling blessed. It gives every possible in and out of functional programming with wonderful explanation. &lt;/p&gt;
+
+&lt;p&gt;Here is video for people like me who sometime can't leave object oriented language and still like to use functional programming concepts. &lt;a href="https://twitter.com/jessitron"&gt;Jessica Kerr&lt;/a&gt; is sweetest speaker I have ever seen. If she explain in morning that there is moon out there, I think people even buy that too.&lt;/p&gt;
+
+&lt;iframe width="560" height="315" src="//www.youtube.com/embed/pMGY9ViIGNU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;And how can I forget wonder woman &lt;a href="https://twitter.com/rachelreese"&gt;Rachel Reese&lt;/a&gt;. After her explanation I now can claim that I know actors. I am not expert but still I am also not dumb now. All thanks to her. 
+&lt;iframe src="//player.vimeo.com/video/74996999" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="http://vimeo.com/74996999"&gt;[nyc-fsharp] Rachel Reese on FSharp Agents&lt;/a&gt; from &lt;a href="http://vimeo.com/rickasaurus"&gt;Richard Minerich&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/08/i-like-functional-programming/</guid><link>http://kunjan.in/2013/08/i-like-functional-programming/</link><title>Yes, I like functional programming</title><description>&lt;p&gt;Because it is good. It is fun to write code in functional language. It takes away unnecessary complexity from my way. It do as problem needed I don't need to act as computer to give instruction to computer for how to do computing.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;And just like this specific blog, it is concise, crisp and like haiku short and sweet. &lt;/p&gt;
+&lt;/blockquote&gt;
+</description><pubDate>Wed, 28 Aug 2013 18:30:00 Z</pubDate><a10:updated>2013-08-28T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;Because it is good. It is fun to write code in functional language. It takes away unnecessary complexity from my way. It do as problem needed I don't need to act as computer to give instruction to computer for how to do computing.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;And just like this specific blog, it is concise, crisp and like haiku short and sweet. &lt;/p&gt;
+&lt;/blockquote&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/08/why-ror-is-necessity/</guid><link>http://kunjan.in/2013/08/why-ror-is-necessity/</link><title>Why Ruby on Rails in not only for Ruby on Rails Developers?!</title><description>&lt;p&gt;If you ever involved in web development, then you must be knowing the history of it. Once upon a time there is something called &lt;a href="https://en.wikipedia.org/wiki/CGI_script"&gt;CGI&lt;/a&gt;. And at that moment there are static html pages. &lt;/p&gt;
+
+&lt;p&gt;Only few part of page is dynamic. Then things changed, &lt;a href="https://en.wikipedia.org/wiki/Active_server_pages"&gt;ASP&lt;/a&gt; came. Server access become so normal and easy. But still there is a lot more work to do. And main issue with them is code is not arranged and coding style is not suitable for big projects. &lt;/p&gt;
+
+&lt;p&gt;One can create dirty few pages but creating sophisticated big project is almost big no no. Same is true with other part of languages too. Languages like &lt;a href="https://en.wikipedia.org/wiki/Php"&gt;Php&lt;/a&gt; , &lt;a href="https://en.wikipedia.org/wiki/Java_Server_Pages"&gt;JSP&lt;/a&gt; etc.&lt;/p&gt;
+
+&lt;p&gt;At that moment, something called &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt; took birth. It was extracted from &lt;a href="https://basecamp.com/"&gt;Basecamp&lt;/a&gt;. And then it took the world like anything. Even today it is so popular. &lt;/p&gt;
+
+&lt;p&gt;I am proper Microsoft Developer. And I know Asp.Net MVC(at least my &lt;a href="http://kunjan.in/pages/resume"&gt;Resume&lt;/a&gt; says so.). I never felt I should learn any other thing than MVC. It is good, better than Web Forms (at least for me). And I know how to do data in and data out. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;What else can be needed??? &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The answer is many things. My views are hammered by &lt;a href="http://wekeroad.com/"&gt;Rob Conery&lt;/a&gt; with one of his video at &lt;a href="http://www.ndcoslo.com/"&gt;NDC&lt;/a&gt;. Then I thought there is no harm in learning new thing. &lt;/p&gt;
+
+&lt;p&gt;First I start with MVC thing. What things it claims to solve? It provides &lt;a href="https://en.wikipedia.org/wiki/Separation_of_concerns"&gt;Separation of Concern&lt;/a&gt; in your code. But in any framework it is not strictly imposed. Specially in Asp.Net MVC. Means there is no proper guideline on how things should be. And you can find hell lot of opinion for that. I don't mind any of them but one thing I mind that culture is missing there. Culture that provides starting point. For the new user it will be damn tough to start things. &lt;/p&gt;
+
+&lt;p&gt;If I give a example, in Ruby On Rails things with 7 operation will stay in one controller but in MVC I can do it more than that. I can put every  JSON operation in one controller. One may argue that it is issue on my side but I will say it is issue on our culture side. No one forcing me to do it right things first. Obviously I need freedom to do things in my way but first I like to learn right way of doing things. &lt;/p&gt;
+
+&lt;p&gt;Even though there are many copy of ROR, but culture is not copied properly. And that makes issue sometimes. And that even not allowed to rip the benefit of using MVC. So, it will be like that I am creating controller and writing code in View. Or model is there but I still don't know why? &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Or I can say I don't know how many models are there??? My MVC then became (M^n)VC. And then all that mapping and stuff. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Am I using MVC to make things easy for me or make things even worst for me? This question always bugs me till I learn (I still not no where near good user of ROR) ROR. That helps me a lot to cultured my MVC code. At the end of day ROR is father of all the MVC framework out there. &lt;/p&gt;
+
+&lt;p&gt;You take it .Net, Java, Node or even &lt;a href="http://www.codinghorror.com/blog/2012/06/the-php-singularity.html"&gt;sucky Php&lt;/a&gt; every damn technology have their version of rails. If you have that much things from rails, then there is no need to shy away from learning it. &lt;/p&gt;
+
+&lt;p&gt;I learned from &lt;a href="http://tekpub.com/collections/ruby-rails/products/rails3"&gt;Tekpub&lt;/a&gt;, you can also try it. Or you can try &lt;a href="https://peepcode.com/"&gt;Peepcode&lt;/a&gt; too. Both are quite good at teaching specially rails. &lt;/p&gt;
+
+&lt;p&gt;I am still a .Net developer at least as of now, but still it clears out many things. And with that it is also true that rails is not a silver bullet. If you are creating back end architecture to provide service you can try out different things. Even though rails way works but still you are not bounded. &lt;/p&gt;
+
+&lt;p&gt;But learning is not option I guess. If anyone related to web development must learn or at least once give it shot for &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt;.&lt;/p&gt;
+</description><pubDate>Mon, 26 Aug 2013 18:30:00 Z</pubDate><a10:updated>2013-08-26T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;If you ever involved in web development, then you must be knowing the history of it. Once upon a time there is something called &lt;a href="https://en.wikipedia.org/wiki/CGI_script"&gt;CGI&lt;/a&gt;. And at that moment there are static html pages. &lt;/p&gt;
+
+&lt;p&gt;Only few part of page is dynamic. Then things changed, &lt;a href="https://en.wikipedia.org/wiki/Active_server_pages"&gt;ASP&lt;/a&gt; came. Server access become so normal and easy. But still there is a lot more work to do. And main issue with them is code is not arranged and coding style is not suitable for big projects. &lt;/p&gt;
+
+&lt;p&gt;One can create dirty few pages but creating sophisticated big project is almost big no no. Same is true with other part of languages too. Languages like &lt;a href="https://en.wikipedia.org/wiki/Php"&gt;Php&lt;/a&gt; , &lt;a href="https://en.wikipedia.org/wiki/Java_Server_Pages"&gt;JSP&lt;/a&gt; etc.&lt;/p&gt;
+
+&lt;p&gt;At that moment, something called &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt; took birth. It was extracted from &lt;a href="https://basecamp.com/"&gt;Basecamp&lt;/a&gt;. And then it took the world like anything. Even today it is so popular. &lt;/p&gt;
+
+&lt;p&gt;I am proper Microsoft Developer. And I know Asp.Net MVC(at least my &lt;a href="http://kunjan.in/pages/resume"&gt;Resume&lt;/a&gt; says so.). I never felt I should learn any other thing than MVC. It is good, better than Web Forms (at least for me). And I know how to do data in and data out. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;What else can be needed??? &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The answer is many things. My views are hammered by &lt;a href="http://wekeroad.com/"&gt;Rob Conery&lt;/a&gt; with one of his video at &lt;a href="http://www.ndcoslo.com/"&gt;NDC&lt;/a&gt;. Then I thought there is no harm in learning new thing. &lt;/p&gt;
+
+&lt;p&gt;First I start with MVC thing. What things it claims to solve? It provides &lt;a href="https://en.wikipedia.org/wiki/Separation_of_concerns"&gt;Separation of Concern&lt;/a&gt; in your code. But in any framework it is not strictly imposed. Specially in Asp.Net MVC. Means there is no proper guideline on how things should be. And you can find hell lot of opinion for that. I don't mind any of them but one thing I mind that culture is missing there. Culture that provides starting point. For the new user it will be damn tough to start things. &lt;/p&gt;
+
+&lt;p&gt;If I give a example, in Ruby On Rails things with 7 operation will stay in one controller but in MVC I can do it more than that. I can put every  JSON operation in one controller. One may argue that it is issue on my side but I will say it is issue on our culture side. No one forcing me to do it right things first. Obviously I need freedom to do things in my way but first I like to learn right way of doing things. &lt;/p&gt;
+
+&lt;p&gt;Even though there are many copy of ROR, but culture is not copied properly. And that makes issue sometimes. And that even not allowed to rip the benefit of using MVC. So, it will be like that I am creating controller and writing code in View. Or model is there but I still don't know why? &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Or I can say I don't know how many models are there??? My MVC then became (M^n)VC. And then all that mapping and stuff. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Am I using MVC to make things easy for me or make things even worst for me? This question always bugs me till I learn (I still not no where near good user of ROR) ROR. That helps me a lot to cultured my MVC code. At the end of day ROR is father of all the MVC framework out there. &lt;/p&gt;
+
+&lt;p&gt;You take it .Net, Java, Node or even &lt;a href="http://www.codinghorror.com/blog/2012/06/the-php-singularity.html"&gt;sucky Php&lt;/a&gt; every damn technology have their version of rails. If you have that much things from rails, then there is no need to shy away from learning it. &lt;/p&gt;
+
+&lt;p&gt;I learned from &lt;a href="http://tekpub.com/collections/ruby-rails/products/rails3"&gt;Tekpub&lt;/a&gt;, you can also try it. Or you can try &lt;a href="https://peepcode.com/"&gt;Peepcode&lt;/a&gt; too. Both are quite good at teaching specially rails. &lt;/p&gt;
+
+&lt;p&gt;I am still a .Net developer at least as of now, but still it clears out many things. And with that it is also true that rails is not a silver bullet. If you are creating back end architecture to provide service you can try out different things. Even though rails way works but still you are not bounded. &lt;/p&gt;
+
+&lt;p&gt;But learning is not option I guess. If anyone related to web development must learn or at least once give it shot for &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt;.&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/08/vim-for-me/</guid><link>http://kunjan.in/2013/08/vim-for-me/</link><title>VIM for me?</title><description>&lt;p&gt;I want confess that, my whole career I was and I am working with Visual Studio. Not a big fan, but it was good or I must say it is good. I don't think any other IDE is doing as much thing as visual studio is doing. &lt;/p&gt;
+
+&lt;p&gt;And with few add-ons (even if you exclude &lt;a href="https://www.jetbrains.com/resharper/"&gt;ReSharper&lt;/a&gt;) it is like wow. As full time web developer I like the tools, that always there to solve my issue. &lt;/p&gt;
+
+&lt;p&gt;But my love for languages like C# is far more than that. Give me my language and I can do wonders. And I also love OSS work and people doing OSS work in .net. One of my favourite project is &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, here is the point, when a conversation with &lt;a href="https://twitter.com/demisbellot"&gt;Demis&lt;/a&gt;, creator of  &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; made me thinking. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Am I going to far with my affection for tools? Am I doing it &lt;em&gt;wrong&lt;/em&gt;? Am I going in &lt;em&gt;wrong&lt;/em&gt; direction?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Here is the &lt;a href="https://twitter.com/kunjee/status/344894343066296321"&gt;twitter conversation&lt;/a&gt;. And I agreed if I don' learn new things I am not doing justification to my old tools. How can I say that Visual Studio is good if I haven't tried &lt;a href="http://www.sublimetext.com/"&gt;Sublimetext&lt;/a&gt; or &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have tried &lt;a href="http://www.sublimetext.com/"&gt;Sublimetext&lt;/a&gt; and pretty much impressed. It is my basic tools to edit web stuff or I am doing something with my blog. It is fast, light weigh with awesome plug ins; almost for every language. &lt;/p&gt;
+
+&lt;p&gt;Now, I am trying for &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;, I am starting with &lt;a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/"&gt;tutorial&lt;/a&gt; suggested by &lt;a href="https://twitter.com/amirrajan"&gt;Amir Rajan&lt;/a&gt;. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Even if there is a slightest chance that your daily work is C# and you are thinking what you are doing with &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;; think &lt;strong&gt;again&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://twitter.com/amirrajan"&gt;Amir Rajan&lt;/a&gt; did wonderful &lt;a href="http://vimeo.com/72745278"&gt;video&lt;/a&gt;, how things work with C#.&lt;/p&gt;
+
+&lt;p&gt;Have a look at it&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src="http://player.vimeo.com/video/72745278" width="500" height="313" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="http://vimeo.com/72745278"&gt;Coding out loud: C#, TDD, NSpec and VIM&lt;/a&gt; from &lt;a href="http://vimeo.com/user19333001"&gt;Amir Rajan&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;It is like learning new thing. Lets see how far it will go. Will check it out and write about my experience in follow up post.&lt;/p&gt;
+</description><pubDate>Wed, 21 Aug 2013 18:30:00 Z</pubDate><a10:updated>2013-08-21T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;I want confess that, my whole career I was and I am working with Visual Studio. Not a big fan, but it was good or I must say it is good. I don't think any other IDE is doing as much thing as visual studio is doing. &lt;/p&gt;
+
+&lt;p&gt;And with few add-ons (even if you exclude &lt;a href="https://www.jetbrains.com/resharper/"&gt;ReSharper&lt;/a&gt;) it is like wow. As full time web developer I like the tools, that always there to solve my issue. &lt;/p&gt;
+
+&lt;p&gt;But my love for languages like C# is far more than that. Give me my language and I can do wonders. And I also love OSS work and people doing OSS work in .net. One of my favourite project is &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, here is the point, when a conversation with &lt;a href="https://twitter.com/demisbellot"&gt;Demis&lt;/a&gt;, creator of  &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; made me thinking. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Am I going to far with my affection for tools? Am I doing it &lt;em&gt;wrong&lt;/em&gt;? Am I going in &lt;em&gt;wrong&lt;/em&gt; direction?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Here is the &lt;a href="https://twitter.com/kunjee/status/344894343066296321"&gt;twitter conversation&lt;/a&gt;. And I agreed if I don' learn new things I am not doing justification to my old tools. How can I say that Visual Studio is good if I haven't tried &lt;a href="http://www.sublimetext.com/"&gt;Sublimetext&lt;/a&gt; or &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have tried &lt;a href="http://www.sublimetext.com/"&gt;Sublimetext&lt;/a&gt; and pretty much impressed. It is my basic tools to edit web stuff or I am doing something with my blog. It is fast, light weigh with awesome plug ins; almost for every language. &lt;/p&gt;
+
+&lt;p&gt;Now, I am trying for &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;, I am starting with &lt;a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/"&gt;tutorial&lt;/a&gt; suggested by &lt;a href="https://twitter.com/amirrajan"&gt;Amir Rajan&lt;/a&gt;. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Even if there is a slightest chance that your daily work is C# and you are thinking what you are doing with &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;; think &lt;strong&gt;again&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://twitter.com/amirrajan"&gt;Amir Rajan&lt;/a&gt; did wonderful &lt;a href="http://vimeo.com/72745278"&gt;video&lt;/a&gt;, how things work with C#.&lt;/p&gt;
+
+&lt;p&gt;Have a look at it&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src="http://player.vimeo.com/video/72745278" width="500" height="313" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="http://vimeo.com/72745278"&gt;Coding out loud: C#, TDD, NSpec and VIM&lt;/a&gt; from &lt;a href="http://vimeo.com/user19333001"&gt;Amir Rajan&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;It is like learning new thing. Lets see how far it will go. Will check it out and write about my experience in follow up post.&lt;/p&gt;
 </a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/08/back-to-business/</guid><link>http://kunjan.in/2013/08/back-to-business/</link><title>Back to Business</title><description>&lt;p&gt;It have been long that I was doing active blogging. There are multiple reason for that, and on of them is being a lazy ass. &lt;/p&gt;
 
 &lt;p&gt;I changed my blog from &lt;a href="http://www.orchardproject.net"&gt;Orchard&lt;/a&gt; to &lt;a href="http://docpad.org/"&gt;Docpad&lt;/a&gt; for almost no reason. I just wanted my few page look different then other pages. And that will little bit more effort if I am going to do it with &lt;a href="http://www.orchardproject.net"&gt;Orchard&lt;/a&gt;.  So, I check out on net how to do it. I know Rob was using &lt;a href="http://nestacms.com/"&gt;Nesta&lt;/a&gt; but I am not good with Ruby, at least that much and more over ruby was giving issue on my windows machine. And switching on my VM just to write blog... Naaaahhh!!!!&lt;/p&gt;
@@ -120,1069 +348,212 @@
 &lt;/ul&gt;
 
 &lt;p&gt;Stay tuned... &lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/02/test-post-one/</guid><link>http://kunjan.in/2013/02/test-post-one/</link><title>RSS/Atom spam :( Sorry...</title><description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ligula tortor, interdum sit amet mattis vel, aliquet vitae sapien. Sed fermentum, massa ac aliquet ornare, arcu sem imperdiet libero, eget mattis urna sem in risus. Phasellus vehicula interdum ornare. Duis pellentesque, ante fringilla mattis fringilla, leo ligula imperdiet nisi, vitae tincidunt nisl urna vitae metus. Fusce quis malesuada urna, vitae ultricies nunc. Nullam lectus elit, sollicitudin ac imperdiet sit amet, dignissim at lorem. Mauris luctus erat dui, non suscipit est convallis quis. Praesent dictum velit sit amet feugiat elementum.&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/01/hello-docpad/</guid><link>http://kunjan.in/2013/01/hello-docpad/</link><title>Hello Doc Pad</title><description>&lt;p&gt;I have recently moved my blog to docpad. Reason, I want to move to heroku and I want static files to be hosted.&lt;/p&gt;
 
-&lt;p&gt;Quisque semper vitae nisl ac viverra. Etiam fermentum turpis sit amet ornare malesuada. Aliquam lectus velit, aliquam quis adipiscing eu, tristique vel dolor. Nam dui lorem, tempor eget nisi ut, rhoncus dignissim felis. Aliquam sodales enim et dictum placerat. Sed nisl nisi, tempus quis erat gravida, euismod scelerisque massa. Ut adipiscing arcu felis, in ornare quam tincidunt vitae. Suspendisse id augue sed purus hendrerit mattis id faucibus felis. Curabitur ornare sem sed nibh varius porta. Etiam imperdiet augue et nulla consectetur, ut placerat sapien mattis. Mauris consectetur, lectus a tempor tincidunt, eros mauris sagittis lorem, at vulputate libero nibh id risus. Cras vitae consequat leo. Cras ut lacus eget dui posuere vestibulum. Vivamus vel cursus ipsum, id accumsan erat. Integer posuere mauris mauris, ut iaculis ante luctus in. Mauris eget leo sit amet metus iaculis elementum ut id tortor.&lt;/p&gt;
+&lt;p&gt;I do have checked out project like &lt;a href="http://jekyllrb.com/"&gt;jekyll&lt;/a&gt; and &lt;a href="http://octopress.org/"&gt;octapress&lt;/a&gt;. They are good but ruby was giving me issue on my windows machine with no reason. And in any case I am better with JavaScript then what I can do with ruby. &lt;/p&gt;
 
-</description><pubDate>Wed, 06 Feb 2013 18:30:00 Z</pubDate><a10:updated>2013-02-06T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ligula tortor, interdum sit amet mattis vel, aliquet vitae sapien. Sed fermentum, massa ac aliquet ornare, arcu sem imperdiet libero, eget mattis urna sem in risus. Phasellus vehicula interdum ornare. Duis pellentesque, ante fringilla mattis fringilla, leo ligula imperdiet nisi, vitae tincidunt nisl urna vitae metus. Fusce quis malesuada urna, vitae ultricies nunc. Nullam lectus elit, sollicitudin ac imperdiet sit amet, dignissim at lorem. Mauris luctus erat dui, non suscipit est convallis quis. Praesent dictum velit sit amet feugiat elementum.&lt;/p&gt;
+&lt;p&gt;And also &lt;a href="http://docpad.org/"&gt;docpad&lt;/a&gt; is having wonderful plugins system and easy to start skeleton. I was able to get up and started in just no time. &lt;/p&gt;
 
-&lt;p&gt;Quisque semper vitae nisl ac viverra. Etiam fermentum turpis sit amet ornare malesuada. Aliquam lectus velit, aliquam quis adipiscing eu, tristique vel dolor. Nam dui lorem, tempor eget nisi ut, rhoncus dignissim felis. Aliquam sodales enim et dictum placerat. Sed nisl nisi, tempus quis erat gravida, euismod scelerisque massa. Ut adipiscing arcu felis, in ornare quam tincidunt vitae. Suspendisse id augue sed purus hendrerit mattis id faucibus felis. Curabitur ornare sem sed nibh varius porta. Etiam imperdiet augue et nulla consectetur, ut placerat sapien mattis. Mauris consectetur, lectus a tempor tincidunt, eros mauris sagittis lorem, at vulputate libero nibh id risus. Cras vitae consequat leo. Cras ut lacus eget dui posuere vestibulum. Vivamus vel cursus ipsum, id accumsan erat. Integer posuere mauris mauris, ut iaculis ante luctus in. Mauris eget leo sit amet metus iaculis elementum ut id tortor.&lt;/p&gt;
+&lt;p&gt;I was hosting my blog with &lt;a href="http://www.orchardproject.net/"&gt;Orchard&lt;/a&gt; a wonderful .net CMS system. But the thing is it very big for my need. And to edit them I have to write lot more code just to move few parts here and there&lt;/p&gt;
 
-&lt;!--excerpt--&gt;
-
-&lt;p&gt;Donec sodales enim ultricies magna facilisis sodales. Cras suscipit massa ac nisi mattis, a sodales orci tincidunt. Vivamus non nulla gravida, dignissim justo eu, rhoncus augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed enim ante, vulputate eu blandit non, dictum a urna. Sed non mi nec arcu porttitor molestie. Donec vitae interdum lacus. Morbi a tempor metus, dictum imperdiet eros. Mauris ullamcorper neque et facilisis euismod. Vestibulum vitae dictum urna, ac condimentum nunc. Quisque in sagittis sapien. Sed venenatis nisi erat, in tristique felis vestibulum id.&lt;/p&gt;
-
-&lt;p&gt;Nullam consequat suscipit dictum. Quisque blandit blandit nunc quis tristique. Duis feugiat sem eu sapien iaculis, vel varius odio faucibus. Aliquam mattis pellentesque placerat. Phasellus tristique felis libero, in aliquet mi facilisis non. Maecenas vel dignissim ipsum. Integer dignissim nisl in sodales tempor. Aliquam erat volutpat. Nulla lobortis lorem at justo pellentesque, a elementum massa ornare. Nam risus felis, aliquet a dui eget, molestie varius turpis. Pellentesque interdum vitae nisi ut tempor.&lt;/p&gt;
-
-&lt;p&gt;Fusce rhoncus purus at justo viverra venenatis. Curabitur quis nisi pulvinar, varius felis non, volutpat odio. Etiam sed condimentum velit, a dapibus odio. Vivamus gravida eleifend ligula, quis feugiat metus sagittis non. Donec consectetur commodo porta. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris adipiscing velit et tempor vestibulum. Vivamus tincidunt, sapien et sagittis commodo, enim purus malesuada sem, id pretium nibh purus in arcu. Aliquam euismod erat dui, nec imperdiet erat condimentum at. Integer vel lorem congue, dictum nulla vitae, sodales eros. Praesent ultrices leo id egestas rutrum. Nunc fringilla tortor mi, non ultricies enim tempor id. In nulla neque, rutrum at libero id, aliquam varius mauris. Maecenas arcu lorem, dapibus quis mi ut, viverra semper risus. Curabitur purus sapien, posuere sed purus id, pretium hendrerit lacus. Nam et ipsum nisi.&lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2012/04/coffee-with-coffeescript/</guid><link>http://kunjan.in/2012/04/coffee-with-coffeescript/</link><title>Coffee with CoffeeScript</title><description>&lt;p&gt;I am in Bangalore, and first thing I found here classically well is &lt;a href="https://en.wikipedia.org/wiki/Coffee"&gt;coffee&lt;/a&gt;. Obviously I will not going to talk about coffee here. But about &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; which is as good as &lt;a href="https://en.wikipedia.org/wiki/Coffee"&gt;coffee&lt;/a&gt; . I come to know about &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; from the &lt;a href="http://www.hanselman.com/blog/CoffeeScriptSassAndLESSSupportForVisualStudioAndASPNETWithTheMindscapeWebWorkbench.aspx"&gt;article&lt;/a&gt; written by &lt;a href="http://www.hanselman.com"&gt;Scott Hanselman&lt;/a&gt; . And I become addicted to it. I am not much a web guy. I like coding but mostly on server end. And Visual Studio is always there to save me. But when it comes to Java Script, I just crash land any time. I always try to go back to server as soon as possible. Obviously &lt;a href="http://jquery.com/"&gt;JQuery&lt;/a&gt; is there to bail me out. But still it is only for DOM, but for other things, you have to be expert. Now, here expert means whose written &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; pass the &lt;a href="http://www.jslint.com/"&gt;JSLint&lt;/a&gt; with minimum errors. Simple functions and doing some addition is not a big deal but making a library for web application is do a big deal. At least for me. I am so rigid about my code quality and &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; is a damn flexible scripting language which easy become a sloppy for me. I always try to follow architecture define by &lt;a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742?tag=duckduckgo-d-20"&gt;Java Script Good Parts&lt;/a&gt; . But at the end following some rules in &lt;a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)"&gt;C Sharp&lt;/a&gt; is easy than follow in &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt;. But God is with me. I found a friend who is damn powerful in &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;She is princess of &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . She write JS like any thing. And standards are not violated at all. I don’t know how someone can write code like that. She is like &lt;a href="http://www.cynthiarothrock.org/"&gt;Cynthia Rothrock&lt;/a&gt; of Web. &lt;img src="https://lh4.googleusercontent.com/-Dw-LumABw0Q/URHJoqyQPlI/AAAAAAAAApY/hnY4qIE8wAE/s800/CR_2.jpg" alt="" /&gt; &lt;/p&gt;
-
-&lt;p&gt;Yeah, she is like her only. Just like photo. A girl you don’t want to mess with.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://docpad.org/"&gt;docpad&lt;/a&gt; on other hand make it very easy to move things as at the end it is just a static html files. So, if I like give somewhat different touch to my any specific page I can give them specifically. I don't need to change complete theme for that. Which is there in other kinda blog engines. &lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;I am not that another person in picture. It just a FYI.&lt;/em&gt; &lt;/p&gt;
+  &lt;p&gt;Yes, and I don't like php. At all. Giving me feeling of old ASP pages. I never worked on that and never want to work on that... &lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Like &lt;a href="http://www.cynthiarothrock.org/"&gt;Cynthia Rothrock&lt;/a&gt; she is also a black belt but in &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . Always kicking around in web arena. Whenever I stuck somewhere she comes laugh at me and solve the problem. And what I am in compare to her, like kid shown here. &lt;img src="http://www.cynthiarothrock.org/" alt="](https://lh6.googleusercontent.com/-TwrCb&lt;em&gt;2KLk0/URHJyRifiTI/AAAAAAAAAsk/V7mr0dHwQ3o/s800/kids-gi&lt;/em&gt;thumb.jpg)  A white belt kid. Now what I can do to match the standards with her. Technically I can’t. As she is black belt and I am just a kid. But I am a smart kid. I drink some [coffee" /&gt; and write &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; . Yeah, you have black belt and I have &lt;a href="http://www.cynthiarothrock.org/"&gt;coffee&lt;/a&gt; . Now, I come to point. There is always a need of writing good code, weather it is compiled language or a scripting language.&lt;/p&gt;
+&lt;p&gt;So, as of now. I happy with my static file generator that is doing much more than needed, with light weight node back end and static file as front end. &lt;/p&gt;
 
-&lt;p&gt;And good code has two main quality as per me. One is its readability and another is extendibility. If I am writing code, other should read it and also able to extend it. Now, if you are writing &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; like her, others don’t find any problem to read or extend it but else that will be a problem specifically with scripting languages. It prone to get dirty soon.&lt;/p&gt;
+&lt;p&gt;Hopefully my blog get massive hit, as I already have set virtually infinite scalability with my static html pages ;).&lt;/p&gt;
 
-&lt;p&gt;Here, &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; has major advantage. First thing its readability, and second thing it is just a &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . Here, I am going to use few example from &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; site only. So, if you like to try it out, site have try &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; option, I encouraged you to do that.&lt;/p&gt;
+&lt;p&gt;Till now experience with &lt;a href="http://docpad.org"&gt;Docpad&lt;/a&gt; is wonderful. There are few hiccups here and there but overall it is nice and with lots of plugins to make life even more easier. &lt;/p&gt;
+</description><pubDate>Tue, 29 Jan 2013 18:30:00 Z</pubDate><a10:updated>2013-01-29T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;I have recently moved my blog to docpad. Reason, I want to move to heroku and I want static files to be hosted.&lt;/p&gt;
 
-&lt;p&gt;To try &lt;a href="http://coffeescript.org/"&gt;coffeeScript&lt;/a&gt; on local machine there are few options to go with. Today most of the IDE supports add on for &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; . But I prefer the &lt;a href="http://nodejs.org/"&gt;Node&lt;/a&gt; way. Just install it and start firing commands. You can check out home site for &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; to starts with. I am now starting with example.&lt;/p&gt;
+&lt;p&gt;I do have checked out project like &lt;a href="http://jekyllrb.com/"&gt;jekyll&lt;/a&gt; and &lt;a href="http://octopress.org/"&gt;octapress&lt;/a&gt;. They are good but ruby was giving me issue on my windows machine with no reason. And in any case I am better with JavaScript then what I can do with ruby. &lt;/p&gt;
 
-&lt;p&gt;First thing I love about CoffeeScript is call back function. It wrapper your code around &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; callback function by default. Here is Hello World example of it. I first go with Java Script&lt;/p&gt;
+&lt;p&gt;And also &lt;a href="http://docpad.org/"&gt;docpad&lt;/a&gt; is having wonderful plugins system and easy to start skeleton. I was able to get up and started in just no time. &lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;(function () { 
-  alert( "this is coffee Script" ); 
-}).call( this );
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I was hosting my blog with &lt;a href="http://www.orchardproject.net/"&gt;Orchard&lt;/a&gt; a wonderful .net CMS system. But the thing is it very big for my need. And to edit them I have to write lot more code just to move few parts here and there&lt;/p&gt;
 
-&lt;p&gt;This is pretty small things. But I forget many times. This will call anonymous function to self so it will not mess with other libraries around. And what I wrote in &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; file. Just one line &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;alert "this is coffee Script" 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;That’s it. That all I wanted to do. No more function and all that, no more brackets; nothing. Just like any other &lt;a href="https://en.wikipedia.org/wiki/Domain_specific_language"&gt;DSL&lt;/a&gt; , just write what I like to do. It is pretty basic example but even from start, it is showing the power of &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;Another thing I like is working with arrays. After having list and collection in new languages, working with array is little bit difficult sometime. My friend mention above wrote complete library to get functionality like List in &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . But it is fun to write array in &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;Normally we do things in &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; like shown here &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(function() {
-  var food, foods, _i, _len;
-
-  foods = ['broccoli', 'spinach', 'chocolate'];
-
-  for (_i = 0, _len = foods.length; _i &amp;lt; _len; _i++) {
-  food = foods[_i];
-  if (food !== 'chocolate') {
-      eat(food);
-  }
-  }
-
-}).call(this); 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;But in &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt;  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;foods = ['broccoli', 'spinach', 'chocolate']
-eat food for food in foods when food isnt 'chocolate'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Its just pure fun. Here there are few things I like to mentions specifically. First thing I have already mentioned is how to do array thing in fun way. Other thing if you have noticed is a loop with “_” variables. &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; takes care of everything starting from scoping of variable by it self. If you need to mentions at top or take care that it will not go out of scope. That will be taken care, even simple thing like loop is written in way it should be written.&lt;/p&gt;
-
-&lt;p&gt;Another example for looping&lt;/p&gt;
-
-&lt;p&gt;In &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; it is like &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(function() {
-  var countdown, num;
-
-  countdown = (function() {
-  var _i, _results;
-  _results = [];
-  for (num = _i = 10; _i &amp;gt;= 1; num = --_i) {
-      _results.push(num);
-  }
-  return _results;
-  })();
-
-}).call(this);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And in &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; it is like a one line, giving For Each loop feeling in &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . &lt;/p&gt;
-
-&lt;p&gt;countdown = (num for num in [10..1])&lt;/p&gt;
-
-&lt;p&gt;So, Here there is one another benefit. If I am insisting for &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; , it is not against the &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; but in favor of learning it. One will know the right way of writing &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . As per site of &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; , &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; generated by it passed the &lt;a href="http://www.jslint.com/"&gt;JSLint&lt;/a&gt; without a single error. So, it is good to learn &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; using &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;Now, if any one is fan of &lt;a href="http://www.ruby-lang.org/en/"&gt;Ruby&lt;/a&gt; , it supports &lt;a href="http://www.ruby-lang.org/en/"&gt;Ruby&lt;/a&gt; like syntax in few cases. Obviously web club will like this. You can pass inline variable with “#” and it will work. Let me show you the example.&lt;/p&gt;
-
-&lt;p&gt;This time I will go with &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; first &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;yearsOld = max: 10, ida: 9, tim: 11
-
-ages = for child, age of yearsOld
-  "#{child} is #{age}"
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And here is &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; for it &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(function() {
-  var age, ages, child, yearsOld;
-
-    yearsOld = {
-    max: 10,
-    ida: 9,
-    tim: 11
-    };
-
-    ages = (function() {
-    var _results;
-    _results = [];
-    for (child in yearsOld) {
-        age = yearsOld[child];
-        _results.push("" + child + " is " + age);
-    }
-return _results;
-  })();
-
-}).call(this);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;See it take pretty good care of every damn thing. I just fall in love of this. Pushing everything over the top and returning result, changing things with appropriate variables. Every damn thing. Isn’t it good ???&lt;/p&gt;
-
-&lt;p&gt;There are few more things for conditional operators and looping. But I like to move on to little bit complex example. If I want to create library like &lt;a href="http://jquery.com/"&gt;JQuery&lt;/a&gt; , few more things must be there. Now, &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; doesn’t have private , public things or classes by default. In &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; functions are the classes it self. And there is a trick to do private public thing in &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . Most of &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; programmer must have known this. But this thing is fairly easy in &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; . It has its own class syntax and there you go. Code like any other higher level language. Just check it out.&lt;/p&gt;
-
-&lt;p&gt;CoffeeScript Code&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class Animal
-  constructor: (@name) -&amp;gt;
-
-  move: (meters) -&amp;gt;
-  alert @name + " moved #{meters}m."
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;class Snake extends Animal
-      move: -&gt;
-      alert "Slithering..."
-    super 5&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class Horse extends Animal
-  move: -&amp;gt;
-  alert "Galloping..."
-  super 45
-
-sam = new Snake "Sammy the Python"
-tom = new Horse "Tommy the Palomino"
-
-sam.move()
-tom.move()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And here is Java Script code ( &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(function() {
-  var Animal, Horse, Snake, sam, tom,
-__hasProp = {}.hasOwnProperty,
-__extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  Animal = (function() {
-
-  function Animal(name) {
-    this.name = name;
-  }
-
-  Animal.prototype.move = function(meters) {
-    return alert(this.name + (" moved " + meters + "m."));
-  };
-
-  return Animal;
-
-  })();
-
-  Snake = (function(_super) {
-
-__extends(Snake, _super);
-
-function Snake() {
-  return Snake.__super__.constructor.apply(this, arguments);
-}
-
-Snake.prototype.move = function() {
-  alert("Slithering...");
-  return Snake.__super__.move.call(this, 5);
-};
-
-return Snake;
-
-  })(Animal);
-
-  Horse = (function(_super) {
-
-__extends(Horse, _super);
-
-function Horse() {
-  return Horse.__super__.constructor.apply(this, arguments);
-}
-
-Horse.prototype.move = function() {
-  alert("Galloping...");
-  return Horse.__super__.move.call(this, 45);
-};
-
-return Horse;
-
-  })(Animal);
-
-  sam = new Snake("Sammy the Python");
-
-  tom = new Horse("Tommy the Palomino");
-
-  sam.move();
-
-  tom.move();
-
-}).call(this);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Isn’t it cool ?? I guess it is. Making library becomes so easy with this kind of syntax. Obviously for the person like me who is from another language background.&lt;/p&gt;
-
-&lt;p&gt;Let us see some more complex example. Of function binding. It is easy to bind function. No, extra code at all. &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Account = (customer, cart) -&amp;gt;
-  @customer = customer
-  @cart = cart
-
-  $('.shopping_cart').bind 'click', (event) =&amp;gt;
-  @customer.purchase @cart
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And it will generate appropriate Java Script&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(function() {
-  var Account;
-
-  Account = function(customer, cart) {
-  var _this = this;
-  this.customer = customer;
-  this.cart = cart;
-  return $('.shopping_cart').bind('click', function(event) {
-    return _this.customer.purchase(_this.cart);
-  });
-  };
-
-}).call(this);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;See. It is fun. If you are thinking that what if you are &lt;a href="http://jquery.com/"&gt;JQuery&lt;/a&gt; fan like me. Again I like to repeat word from &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; only&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://docpad.org/"&gt;docpad&lt;/a&gt; on other hand make it very easy to move things as at the end it is just a static html files. So, if I like give somewhat different touch to my any specific page I can give them specifically. I don't need to change complete theme for that. Which is there in other kinda blog engines. &lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;It's just JavaScript&lt;/p&gt;
+  &lt;p&gt;Yes, and I don't like php. At all. Giving me feeling of old ASP pages. I never worked on that and never want to work on that... &lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;You can use any library with &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; . Let’s check out one of the example of it.&lt;/p&gt;
-
-&lt;p&gt;A &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; code &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;show_message = (msg) -&amp;gt; 
-  $('#message').hide().text(msg).fadeIn(2222, -&amp;gt; $('#message').append('!'))
-
-$ -&amp;gt; 
-  show_message "world"
-  $('#message').click -&amp;gt; show_message "you"
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And here we go with &lt;a href="http://jquery.com/"&gt;JQuery&lt;/a&gt; code &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(function() {
-  var show_message;
-
-    show_message = function(msg) {
-    return $('#message').hide().text(msg).fadeIn(2222, function() {
-    return $('#message').append('!');
-  });
-  };
-
-  $(function() {
-  show_message("world");
-  return $('#message').click(function() {
-    return show_message("you");
-  });
-  });
-
-}).call(this);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It becomes more powerful when it joins hands with &lt;a href="http://jquery.com/"&gt;JQuery&lt;/a&gt; or other libraries.&lt;/p&gt;
-
-&lt;p&gt;Now, for whom this is ??? This is for person like me. Or even black belt like my friend. It just fun to write &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . I don’t insist to use it but I surely insist to give it a try. It is worth investing time in it. Again if you are die hard &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; developer, I don’t think you need this. But again there is no loss in learning new thing. I am just enjoying &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; like anything.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="http://www.w3schools.com/js/default.asp" alt="](https://lh6.googleusercontent.com/-x7ptaCkB7bA/URHJvRJbFMI/AAAAAAAAArw/dvsN8HvY0I4/s800/iStock&lt;em&gt;000005133061XSmall&lt;/em&gt;2.jpg) So, here there are clearly two options for most of the developers including me. Either I can have coffee with [Java Script" /&gt; , doing over time and solving errors. Or I can use &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; and have fun time with my (Black belt) friend. I prefer later one. And trust me this is one the most fun writing article just like &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;Taste a coffee and have fun. Coding is seriously enjoyable with friends like her and technology like &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; . Special thanks to Jeremy Ashkenas for giving &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;Enjoy Coffee!!!&lt;/p&gt;
-</description><pubDate>Sat, 31 Mar 2012 18:30:00 Z</pubDate><a10:updated>2012-03-31T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;I am in Bangalore, and first thing I found here classically well is &lt;a href="https://en.wikipedia.org/wiki/Coffee"&gt;coffee&lt;/a&gt;. Obviously I will not going to talk about coffee here. But about &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; which is as good as &lt;a href="https://en.wikipedia.org/wiki/Coffee"&gt;coffee&lt;/a&gt; . I come to know about &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; from the &lt;a href="http://www.hanselman.com/blog/CoffeeScriptSassAndLESSSupportForVisualStudioAndASPNETWithTheMindscapeWebWorkbench.aspx"&gt;article&lt;/a&gt; written by &lt;a href="http://www.hanselman.com"&gt;Scott Hanselman&lt;/a&gt; . And I become addicted to it. I am not much a web guy. I like coding but mostly on server end. And Visual Studio is always there to save me. But when it comes to Java Script, I just crash land any time. I always try to go back to server as soon as possible. Obviously &lt;a href="http://jquery.com/"&gt;JQuery&lt;/a&gt; is there to bail me out. But still it is only for DOM, but for other things, you have to be expert. Now, here expert means whose written &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; pass the &lt;a href="http://www.jslint.com/"&gt;JSLint&lt;/a&gt; with minimum errors. Simple functions and doing some addition is not a big deal but making a library for web application is do a big deal. At least for me. I am so rigid about my code quality and &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; is a damn flexible scripting language which easy become a sloppy for me. I always try to follow architecture define by &lt;a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742?tag=duckduckgo-d-20"&gt;Java Script Good Parts&lt;/a&gt; . But at the end following some rules in &lt;a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)"&gt;C Sharp&lt;/a&gt; is easy than follow in &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt;. But God is with me. I found a friend who is damn powerful in &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;She is princess of &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . She write JS like any thing. And standards are not violated at all. I don’t know how someone can write code like that. She is like &lt;a href="http://www.cynthiarothrock.org/"&gt;Cynthia Rothrock&lt;/a&gt; of Web. &lt;img src="https://lh4.googleusercontent.com/-Dw-LumABw0Q/URHJoqyQPlI/AAAAAAAAApY/hnY4qIE8wAE/s800/CR_2.jpg" alt="" /&gt; &lt;/p&gt;
-
-&lt;p&gt;Yeah, she is like her only. Just like photo. A girl you don’t want to mess with.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;I am not that another person in picture. It just a FYI.&lt;/em&gt; &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Like &lt;a href="http://www.cynthiarothrock.org/"&gt;Cynthia Rothrock&lt;/a&gt; she is also a black belt but in &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . Always kicking around in web arena. Whenever I stuck somewhere she comes laugh at me and solve the problem. And what I am in compare to her, like kid shown here. &lt;img src="http://www.cynthiarothrock.org/" alt="](https://lh6.googleusercontent.com/-TwrCb&lt;em&gt;2KLk0/URHJyRifiTI/AAAAAAAAAsk/V7mr0dHwQ3o/s800/kids-gi&lt;/em&gt;thumb.jpg)  A white belt kid. Now what I can do to match the standards with her. Technically I can’t. As she is black belt and I am just a kid. But I am a smart kid. I drink some [coffee" /&gt; and write &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; . Yeah, you have black belt and I have &lt;a href="http://www.cynthiarothrock.org/"&gt;coffee&lt;/a&gt; . Now, I come to point. There is always a need of writing good code, weather it is compiled language or a scripting language.&lt;/p&gt;
-
-&lt;p&gt;And good code has two main quality as per me. One is its readability and another is extendibility. If I am writing code, other should read it and also able to extend it. Now, if you are writing &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; like her, others don’t find any problem to read or extend it but else that will be a problem specifically with scripting languages. It prone to get dirty soon.&lt;/p&gt;
-
-&lt;p&gt;Here, &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; has major advantage. First thing its readability, and second thing it is just a &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . Here, I am going to use few example from &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; site only. So, if you like to try it out, site have try &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; option, I encouraged you to do that.&lt;/p&gt;
-
-&lt;p&gt;To try &lt;a href="http://coffeescript.org/"&gt;coffeeScript&lt;/a&gt; on local machine there are few options to go with. Today most of the IDE supports add on for &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; . But I prefer the &lt;a href="http://nodejs.org/"&gt;Node&lt;/a&gt; way. Just install it and start firing commands. You can check out home site for &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; to starts with. I am now starting with example.&lt;/p&gt;
-
-&lt;p&gt;First thing I love about CoffeeScript is call back function. It wrapper your code around &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; callback function by default. Here is Hello World example of it. I first go with Java Script&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(function () { 
-  alert( "this is coffee Script" ); 
-}).call( this );
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This is pretty small things. But I forget many times. This will call anonymous function to self so it will not mess with other libraries around. And what I wrote in &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; file. Just one line &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;alert "this is coffee Script" 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;That’s it. That all I wanted to do. No more function and all that, no more brackets; nothing. Just like any other &lt;a href="https://en.wikipedia.org/wiki/Domain_specific_language"&gt;DSL&lt;/a&gt; , just write what I like to do. It is pretty basic example but even from start, it is showing the power of &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;Another thing I like is working with arrays. After having list and collection in new languages, working with array is little bit difficult sometime. My friend mention above wrote complete library to get functionality like List in &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . But it is fun to write array in &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;Normally we do things in &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; like shown here &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(function() {
-  var food, foods, _i, _len;
-
-  foods = ['broccoli', 'spinach', 'chocolate'];
-
-  for (_i = 0, _len = foods.length; _i &amp;lt; _len; _i++) {
-  food = foods[_i];
-  if (food !== 'chocolate') {
-      eat(food);
-  }
-  }
-
-}).call(this); 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;But in &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt;  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;foods = ['broccoli', 'spinach', 'chocolate']
-eat food for food in foods when food isnt 'chocolate'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Its just pure fun. Here there are few things I like to mentions specifically. First thing I have already mentioned is how to do array thing in fun way. Other thing if you have noticed is a loop with “_” variables. &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; takes care of everything starting from scoping of variable by it self. If you need to mentions at top or take care that it will not go out of scope. That will be taken care, even simple thing like loop is written in way it should be written.&lt;/p&gt;
-
-&lt;p&gt;Another example for looping&lt;/p&gt;
-
-&lt;p&gt;In &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; it is like &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(function() {
-  var countdown, num;
-
-  countdown = (function() {
-  var _i, _results;
-  _results = [];
-  for (num = _i = 10; _i &amp;gt;= 1; num = --_i) {
-      _results.push(num);
-  }
-  return _results;
-  })();
-
-}).call(this);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And in &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; it is like a one line, giving For Each loop feeling in &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . &lt;/p&gt;
-
-&lt;p&gt;countdown = (num for num in [10..1])&lt;/p&gt;
-
-&lt;p&gt;So, Here there is one another benefit. If I am insisting for &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; , it is not against the &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; but in favor of learning it. One will know the right way of writing &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . As per site of &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; , &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; generated by it passed the &lt;a href="http://www.jslint.com/"&gt;JSLint&lt;/a&gt; without a single error. So, it is good to learn &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; using &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;Now, if any one is fan of &lt;a href="http://www.ruby-lang.org/en/"&gt;Ruby&lt;/a&gt; , it supports &lt;a href="http://www.ruby-lang.org/en/"&gt;Ruby&lt;/a&gt; like syntax in few cases. Obviously web club will like this. You can pass inline variable with “#” and it will work. Let me show you the example.&lt;/p&gt;
-
-&lt;p&gt;This time I will go with &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; first &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;yearsOld = max: 10, ida: 9, tim: 11
-
-ages = for child, age of yearsOld
-  "#{child} is #{age}"
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And here is &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; for it &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(function() {
-  var age, ages, child, yearsOld;
-
-    yearsOld = {
-    max: 10,
-    ida: 9,
-    tim: 11
-    };
-
-    ages = (function() {
-    var _results;
-    _results = [];
-    for (child in yearsOld) {
-        age = yearsOld[child];
-        _results.push("" + child + " is " + age);
-    }
-return _results;
-  })();
-
-}).call(this);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;See it take pretty good care of every damn thing. I just fall in love of this. Pushing everything over the top and returning result, changing things with appropriate variables. Every damn thing. Isn’t it good ???&lt;/p&gt;
-
-&lt;p&gt;There are few more things for conditional operators and looping. But I like to move on to little bit complex example. If I want to create library like &lt;a href="http://jquery.com/"&gt;JQuery&lt;/a&gt; , few more things must be there. Now, &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; doesn’t have private , public things or classes by default. In &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; functions are the classes it self. And there is a trick to do private public thing in &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . Most of &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; programmer must have known this. But this thing is fairly easy in &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; . It has its own class syntax and there you go. Code like any other higher level language. Just check it out.&lt;/p&gt;
-
-&lt;p&gt;CoffeeScript Code&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class Animal
-  constructor: (@name) -&amp;gt;
-
-  move: (meters) -&amp;gt;
-  alert @name + " moved #{meters}m."
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;class Snake extends Animal
-      move: -&gt;
-      alert "Slithering..."
-    super 5&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class Horse extends Animal
-  move: -&amp;gt;
-  alert "Galloping..."
-  super 45
-
-sam = new Snake "Sammy the Python"
-tom = new Horse "Tommy the Palomino"
-
-sam.move()
-tom.move()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And here is Java Script code ( &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(function() {
-  var Animal, Horse, Snake, sam, tom,
-__hasProp = {}.hasOwnProperty,
-__extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  Animal = (function() {
-
-  function Animal(name) {
-    this.name = name;
-  }
-
-  Animal.prototype.move = function(meters) {
-    return alert(this.name + (" moved " + meters + "m."));
-  };
-
-  return Animal;
-
-  })();
-
-  Snake = (function(_super) {
-
-__extends(Snake, _super);
-
-function Snake() {
-  return Snake.__super__.constructor.apply(this, arguments);
-}
-
-Snake.prototype.move = function() {
-  alert("Slithering...");
-  return Snake.__super__.move.call(this, 5);
-};
-
-return Snake;
-
-  })(Animal);
-
-  Horse = (function(_super) {
-
-__extends(Horse, _super);
-
-function Horse() {
-  return Horse.__super__.constructor.apply(this, arguments);
-}
-
-Horse.prototype.move = function() {
-  alert("Galloping...");
-  return Horse.__super__.move.call(this, 45);
-};
-
-return Horse;
-
-  })(Animal);
-
-  sam = new Snake("Sammy the Python");
-
-  tom = new Horse("Tommy the Palomino");
-
-  sam.move();
-
-  tom.move();
-
-}).call(this);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Isn’t it cool ?? I guess it is. Making library becomes so easy with this kind of syntax. Obviously for the person like me who is from another language background.&lt;/p&gt;
-
-&lt;p&gt;Let us see some more complex example. Of function binding. It is easy to bind function. No, extra code at all. &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Account = (customer, cart) -&amp;gt;
-  @customer = customer
-  @cart = cart
-
-  $('.shopping_cart').bind 'click', (event) =&amp;gt;
-  @customer.purchase @cart
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And it will generate appropriate Java Script&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(function() {
-  var Account;
-
-  Account = function(customer, cart) {
-  var _this = this;
-  this.customer = customer;
-  this.cart = cart;
-  return $('.shopping_cart').bind('click', function(event) {
-    return _this.customer.purchase(_this.cart);
-  });
-  };
-
-}).call(this);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;See. It is fun. If you are thinking that what if you are &lt;a href="http://jquery.com/"&gt;JQuery&lt;/a&gt; fan like me. Again I like to repeat word from &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; only&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;It's just JavaScript&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;You can use any library with &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; . Let’s check out one of the example of it.&lt;/p&gt;
-
-&lt;p&gt;A &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; code &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;show_message = (msg) -&amp;gt; 
-  $('#message').hide().text(msg).fadeIn(2222, -&amp;gt; $('#message').append('!'))
-
-$ -&amp;gt; 
-  show_message "world"
-  $('#message').click -&amp;gt; show_message "you"
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And here we go with &lt;a href="http://jquery.com/"&gt;JQuery&lt;/a&gt; code &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(function() {
-  var show_message;
-
-    show_message = function(msg) {
-    return $('#message').hide().text(msg).fadeIn(2222, function() {
-    return $('#message').append('!');
-  });
-  };
-
-  $(function() {
-  show_message("world");
-  return $('#message').click(function() {
-    return show_message("you");
-  });
-  });
-
-}).call(this);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It becomes more powerful when it joins hands with &lt;a href="http://jquery.com/"&gt;JQuery&lt;/a&gt; or other libraries.&lt;/p&gt;
-
-&lt;p&gt;Now, for whom this is ??? This is for person like me. Or even black belt like my friend. It just fun to write &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; . I don’t insist to use it but I surely insist to give it a try. It is worth investing time in it. Again if you are die hard &lt;a href="http://www.w3schools.com/js/default.asp"&gt;Java Script&lt;/a&gt; developer, I don’t think you need this. But again there is no loss in learning new thing. I am just enjoying &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; like anything.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="http://www.w3schools.com/js/default.asp" alt="](https://lh6.googleusercontent.com/-x7ptaCkB7bA/URHJvRJbFMI/AAAAAAAAArw/dvsN8HvY0I4/s800/iStock&lt;em&gt;000005133061XSmall&lt;/em&gt;2.jpg) So, here there are clearly two options for most of the developers including me. Either I can have coffee with [Java Script" /&gt; , doing over time and solving errors. Or I can use &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; and have fun time with my (Black belt) friend. I prefer later one. And trust me this is one the most fun writing article just like &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;Taste a coffee and have fun. Coding is seriously enjoyable with friends like her and technology like &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; . Special thanks to Jeremy Ashkenas for giving &lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;Enjoy Coffee!!!&lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2012/02/arrival-of-david-aka-micro-orm/</guid><link>http://kunjan.in/2012/02/arrival-of-david-aka-micro-orm/</link><title>Arrival of David aka Micro Orm</title><description>&lt;p&gt;If you have read my previous &lt;a href="http://kunjan.in/archives/going-to-vietnam-because-of-orm"&gt;post&lt;/a&gt; . I have talk about how &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; can create mess with the application. And prior to &lt;a href="http://kunjan.in/archives/map-lsquo-your-self-rsquo-using-orm"&gt;that&lt;/a&gt; I have write that it speed up the production like anything.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;So, Am I contradicting my self ???&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;No, I am just learning new things. I am using &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; but now I am more careful while using it. That’s it.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;So, why Vietnam ???&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;My post is originally inspired by Ted Neward’s &lt;a href="http://blogs.tedneward.com/2006/06/26/The%2BVietnam%2BOf%2BComputer%2BScience.aspx"&gt;blog&lt;/a&gt; about &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; . And after effect of that blog in the &lt;a href="http://www.codinghorror.com/blog/2006/06/object-relational-mapping-is-the-vietnam-of-computer-science.html"&gt;blog&lt;/a&gt; of Jeff Atwood.&amp;nbsp; This two blogs nailed the &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; like anything. So, now we have two things ORM is good to increase productivity but bad when it comes to performance. And this gives the birth to Micro ORM.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="http://img21.imageshack.us/img21/6734/kgbr.jpg" alt="" /&gt; &lt;/p&gt;
-
-&lt;p&gt;As, I remember one of the first Micro ORM is &lt;a href="http://code.google.com/p/dapper-dot-net/"&gt;Dapper&lt;/a&gt; from the team of &lt;a href="http://stackoverflow.com/"&gt;Stackoverflow&lt;/a&gt; . And parallel we have &lt;a href="https://github.com/robconery/massive"&gt;Massive&lt;/a&gt; from &lt;a href="http://wekeroad.com/"&gt;Rob Conery&lt;/a&gt; . &lt;a href="http://code.google.com/p/dapper-dot-net/"&gt;Dapper&lt;/a&gt; comes because traditional &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; burned the server of &lt;a href="http://stackoverflow.com/"&gt;Stackoverflow&lt;/a&gt; by continuously using 100% of CPU. This happens because of heavy access and complex queries generated by &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; . As per them after that; they&amp;nbsp; rewrite the database access of application, remove &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; and use &lt;a href="http://code.google.com/p/dapper-dot-net/"&gt;Dapper&lt;/a&gt; . And then after they open source it. And this is the only &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; which has better performance just after direct data access to data base. And &lt;a href="https://github.com/robconery/massive"&gt;Massive&lt;/a&gt; , it just developed because &lt;a href="http://wekeroad.com/"&gt;Rob Conery&lt;/a&gt; is one of kind of genius person who just like want one more open source project under his belt.&lt;/p&gt;
-
-&lt;p&gt;There are few others&lt;/p&gt;
-
-&lt;p&gt;Obviously Dapper is fastest as per the benchmark available over their site. But I like &lt;a href="https://github.com/robconery/massive"&gt;Massive&lt;/a&gt; the most. And other than that &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;OrmLite&lt;/a&gt; is also quite good. I first like to talk about &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;OrmLite&lt;/a&gt; and will talk about &lt;a href="https://github.com/robconery/massive"&gt;Massive&lt;/a&gt; in my next post.&lt;/p&gt;
-
-&lt;p&gt;Now, &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;OrmLite&lt;/a&gt; is a wrapper around System.Data namespace.And may be this is the only &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; with table creation support. So, it do support &lt;a href="http://en.wikipedia.org/wiki/ADO.NET_Entity_Framework#Code_First"&gt;code first&lt;/a&gt; development. It do give me feeling of &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; without losing performance. So, now we dig into &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;OrmLite&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;If you have worked with classic data access you must have remember data connection class and data command class. Then there is a string variable for Query and data command has that command text and command type. In that we pass details as parameter to save our self from SQL injection. Good old days. I don’t like this type of fuss that much, and every now and then check over then connection. Writing query in database and then again in code.&lt;/p&gt;
-
-&lt;p&gt;This is the ORM which solves most of the problem.&amp;nbsp; Here, I will explain how ??? I am using most of the example from its site only. So, if you like to skip the topic here. You can, but I think if you like the above part you will like the rest too. By the way here is the link of &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;OrmLite&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;First and best thing of &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;OrmLite&lt;/a&gt; is, it creates table. Though it provide only one to one mapping with database but still it &lt;strong&gt;CAN&lt;/strong&gt; creates the &lt;strong&gt;TABLES.&lt;/strong&gt; I am not just big fan of creating table with query. And after writing things on paper, you find very rare occasion where you need to write query for creating table. And also I am more of C# guy, even when I have started the journey of &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; , with LINQ to SQL and Entity Framework, I go with reverse mapping. But after that &lt;a href="http://nuget.org/packages/EntityFramework"&gt;Entity Framework Code First&lt;/a&gt; enters. That is awesome for creating tables for you. So, you can concentrate on core logic. But again it is Entity Framework so !!!&lt;/p&gt;
-
-&lt;p&gt;Here, is the sample of it. You can start with making POCO classes without worrying about your database.&lt;/p&gt;
-
-&lt;p&gt;public enum PhoneType {
-    Home,
-    Work,
-    Mobile,
-  }
-  public enum AddressType {
-    Home,
-    Work,
-    Other,
-  }
-  public class Address {
-  public string Line1 { get; set; }
-  public string Line2 { get; set; }
-  public string ZipCode { get; set; }
-  public string State { get; set; }
-  public string City { get; set; }
-  public string Country { get; set; }
-  }
-  public class Customer {
-    public Customer() {
-      this.PhoneNumbers = new Dictionary &lt;PhoneType, string&gt;();
-      this.Addresses = new Dictionary &lt;AddressType, Address&gt;();
-    }&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[AutoIncrement] 
-public int Id { get; set; }
-
-public string FirstName { get; set; }
-public string LastName { get; set; }
-
-[Index(Unique = true)] 
-public string Email { get; set; }
-
-public Dictionary &amp;lt;PhoneType, string&amp;gt; PhoneNumbers { get; set; }  
-public Dictionary &amp;lt;AddressType, Address&amp;gt; Addresses { get; set; }  
-public DateTime CreatedAt { get; set; }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;}  &lt;/p&gt;
-
-&lt;p&gt;Again this supports all the data annotation from .net 4.0. Here is the example of it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public class Order {
-
-[AutoIncrement]
-public int Id { get; set; }
-
-[References(typeof(Customer))]  
-public int CustomerId { get; set; }
-
-[References(typeof(Employee))]  
-public int EmployeeId { get; set; }
-
-[StringLenght(256)]
-public string ShippingAddress { get; set; } 
-
-public DateTime? OrderDate { get; set; }
-public DateTime? RequiredDate { get; set; }
-public DateTime? ShippedDate { get; set; }
-public int? ShipVia { get; set; }
-public decimal Freight { get; set; }
-public decimal Total { get; set; }
-}  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So, it supports required, Max Length and all others. I haven’t check all though.&lt;/p&gt;
-
-&lt;p&gt;Now, the CRUD operation. It is easy like anything.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var dbFactory = new OrmLiteConnectionFactory(@"Data Source=.SQLEXPRESS;AttachDbFilename=|DataDirectory|App_DataDatabase1.mdf;Integrated Security=True;User Instance=True",SqlServerOrmLiteDialectProvider.Instance);  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Here is the catch. I was unable to find property to set Dialect provider. After initiating default blank constructor. But you can always go with this default example. Then, one just need to remember that old days of connection creation and command creation and just fire up the command. But, this is &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; . Things must be easy here. And yes, it is damn easy.&lt;/p&gt;
-
-&lt;p&gt;I have never seen this much classic use of extension method before. &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;OrmLite&lt;/a&gt; extend the functionality of default class and make our work easy like anything. Here, is the example&lt;/p&gt;
-
-&lt;p&gt;```cs    &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;//Non-intrusive: All extension methods hang off System.Data.* interfaces
-IDbConnection dbConn = dbFactory.OpenDbConnection()
-IDbCommand dbCmd = dbConn.CreateCommand()
-
-//Re-Create all table schemas:
-dbCmd.DropTable &amp;lt;OrderDetail&amp;gt;()
-dbCmd.DropTable &amp;lt;Order&amp;gt;()
-dbCmd.DropTable &amp;lt;Customer&amp;gt;()
-dbCmd.DropTable &amp;lt;Product&amp;gt;()
-dbCmd.DropTable &amp;lt;Employee&amp;gt;()
-
-dbCmd.CreateTable &amp;lt;Employee&amp;gt;()
-dbCmd.CreateTable &amp;lt;Product&amp;gt;()
-dbCmd.CreateTable &amp;lt;Customer&amp;gt;()
-dbCmd.CreateTable &amp;lt;Order&amp;gt;()
-dbCmd.CreateTable &amp;lt;OrderDetail&amp;gt;()
-
-dbCmd.Insert(new Employee { Id = 1, Name = "Employee 1" })
-dbCmd.Insert(new Employee { Id = 2, Name = "Employee 2" })
-var product1 = new Product { Id = 1, Name = "Product 1", UnitPrice = 10 }
-var product2 = new Product { Id = 2, Name = "Product 2", UnitPrice = 20 }
-dbCmd.Save(product1, product2)
-
-var customer = new Customer
-{
-  FirstName = "Orm",
-  LastName = "Lite",
-  Email = "ormlite@servicestack.net",
-  PhoneNumbers =
-  {
-    { PhoneType.Home, "555-1234" },
-    { PhoneType.Work, "1-800-1234" },
-    { PhoneType.Mobile, "818-123-4567" },
-  },
-  Addresses =
-  {
-    { AddressType.Work, 
-    new Address 
-      { Line1 = "1 Street", Country = "US", State = "NY", City = "New York", ZipCode = "10101" } 
-      },
-    },
-    CreatedAt = DateTime.UtcNow,
-  }
-dbCmd.Insert(customer)
-
-var customerId = dbCmd.GetLastInsertId()
-customer = dbCmd.QuerySingle &amp;amp;lt;Customer&amp;amp;gt;(new { customer.Email })
-Assert.That(customer.Id, Is.EqualTo(customerId))
-
-//Direct access to System.Data.Transactions:
-using (var trans = dbCmd.BeginTransaction(IsolationLevel.ReadCommitted))
-{
-  var order = new Order
-{
-CustomerId = customer.Id,
-EmployeeId = 1,
-OrderDate = DateTime.UtcNow,
-Freight = 10.50m,
-ShippingAddress = new Address { Line1 = "3 Street", Country = "US", State = "NY", City = "New York", ZipCode = "12121" },
-}
-dbCmd.Save(order)
-
-order.Id = (int)dbCmd.GetLastInsertId()
-
-var orderDetails = new[] {
-  new OrderDetail
-  {
-    OrderId = order.Id,
-    ProductId = product1.Id,
-    Quantity = 2,
-    UnitPrice = product1.UnitPrice,
-  },
-  new OrderDetail
-  {
-    OrderId = order.Id,
-    ProductId = product2.Id,
-    Quantity = 2,
-    UnitPrice = product2.UnitPrice,
-    Discount = .15m,
-  }
-}
-
-dbCmd.Insert(orderDetails)
-
-order.Total = orderDetails.Sum(x =&amp;gt; x.UnitPrice * x.Quantity * x.Discount) +  order.Freight
-
-dbCmd.Save(order)
-
-trans.Commit()
-}  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;```&lt;br /&gt;
-So, As you can see. It supports mighty POCO and handles almost everything. If you have a question, this can be done by Entity Framework too. And even in pretty nicer way. Then here is the answer, &lt;a href="http://www.servicestack.net/benchmarks/"&gt;benchmark&lt;/a&gt; . Speed, performance, scalability it is the thing which makes the difference.&lt;/p&gt;
-
-&lt;p&gt;Now, anyone can write a code. I definitely don’t mind that. But there are few who really write good code. And please I am not saying about following standards of casing but saying about trimming things up, take bold decision and follow rules of &lt;a href="http://martinfowler.com/"&gt;Martin Flower&lt;/a&gt; .&lt;/p&gt;
-</description><pubDate>Wed, 22 Feb 2012 18:30:00 Z</pubDate><a10:updated>2012-02-22T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;If you have read my previous &lt;a href="http://kunjan.in/archives/going-to-vietnam-because-of-orm"&gt;post&lt;/a&gt; . I have talk about how &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; can create mess with the application. And prior to &lt;a href="http://kunjan.in/archives/map-lsquo-your-self-rsquo-using-orm"&gt;that&lt;/a&gt; I have write that it speed up the production like anything.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;So, Am I contradicting my self ???&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;No, I am just learning new things. I am using &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; but now I am more careful while using it. That’s it.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;So, why Vietnam ???&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;My post is originally inspired by Ted Neward’s &lt;a href="http://blogs.tedneward.com/2006/06/26/The%2BVietnam%2BOf%2BComputer%2BScience.aspx"&gt;blog&lt;/a&gt; about &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; . And after effect of that blog in the &lt;a href="http://www.codinghorror.com/blog/2006/06/object-relational-mapping-is-the-vietnam-of-computer-science.html"&gt;blog&lt;/a&gt; of Jeff Atwood.&amp;nbsp; This two blogs nailed the &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; like anything. So, now we have two things ORM is good to increase productivity but bad when it comes to performance. And this gives the birth to Micro ORM.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="http://img21.imageshack.us/img21/6734/kgbr.jpg" alt="" /&gt; &lt;/p&gt;
-
-&lt;p&gt;As, I remember one of the first Micro ORM is &lt;a href="http://code.google.com/p/dapper-dot-net/"&gt;Dapper&lt;/a&gt; from the team of &lt;a href="http://stackoverflow.com/"&gt;Stackoverflow&lt;/a&gt; . And parallel we have &lt;a href="https://github.com/robconery/massive"&gt;Massive&lt;/a&gt; from &lt;a href="http://wekeroad.com/"&gt;Rob Conery&lt;/a&gt; . &lt;a href="http://code.google.com/p/dapper-dot-net/"&gt;Dapper&lt;/a&gt; comes because traditional &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; burned the server of &lt;a href="http://stackoverflow.com/"&gt;Stackoverflow&lt;/a&gt; by continuously using 100% of CPU. This happens because of heavy access and complex queries generated by &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; . As per them after that; they&amp;nbsp; rewrite the database access of application, remove &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; and use &lt;a href="http://code.google.com/p/dapper-dot-net/"&gt;Dapper&lt;/a&gt; . And then after they open source it. And this is the only &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; which has better performance just after direct data access to data base. And &lt;a href="https://github.com/robconery/massive"&gt;Massive&lt;/a&gt; , it just developed because &lt;a href="http://wekeroad.com/"&gt;Rob Conery&lt;/a&gt; is one of kind of genius person who just like want one more open source project under his belt.&lt;/p&gt;
-
-&lt;p&gt;There are few others&lt;/p&gt;
-
-&lt;p&gt;Obviously Dapper is fastest as per the benchmark available over their site. But I like &lt;a href="https://github.com/robconery/massive"&gt;Massive&lt;/a&gt; the most. And other than that &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;OrmLite&lt;/a&gt; is also quite good. I first like to talk about &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;OrmLite&lt;/a&gt; and will talk about &lt;a href="https://github.com/robconery/massive"&gt;Massive&lt;/a&gt; in my next post.&lt;/p&gt;
-
-&lt;p&gt;Now, &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;OrmLite&lt;/a&gt; is a wrapper around System.Data namespace.And may be this is the only &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; with table creation support. So, it do support &lt;a href="http://en.wikipedia.org/wiki/ADO.NET_Entity_Framework#Code_First"&gt;code first&lt;/a&gt; development. It do give me feeling of &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; without losing performance. So, now we dig into &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;OrmLite&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;If you have worked with classic data access you must have remember data connection class and data command class. Then there is a string variable for Query and data command has that command text and command type. In that we pass details as parameter to save our self from SQL injection. Good old days. I don’t like this type of fuss that much, and every now and then check over then connection. Writing query in database and then again in code.&lt;/p&gt;
-
-&lt;p&gt;This is the ORM which solves most of the problem.&amp;nbsp; Here, I will explain how ??? I am using most of the example from its site only. So, if you like to skip the topic here. You can, but I think if you like the above part you will like the rest too. By the way here is the link of &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;OrmLite&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;First and best thing of &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;OrmLite&lt;/a&gt; is, it creates table. Though it provide only one to one mapping with database but still it &lt;strong&gt;CAN&lt;/strong&gt; creates the &lt;strong&gt;TABLES.&lt;/strong&gt; I am not just big fan of creating table with query. And after writing things on paper, you find very rare occasion where you need to write query for creating table. And also I am more of C# guy, even when I have started the journey of &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; , with LINQ to SQL and Entity Framework, I go with reverse mapping. But after that &lt;a href="http://nuget.org/packages/EntityFramework"&gt;Entity Framework Code First&lt;/a&gt; enters. That is awesome for creating tables for you. So, you can concentrate on core logic. But again it is Entity Framework so !!!&lt;/p&gt;
-
-&lt;p&gt;Here, is the sample of it. You can start with making POCO classes without worrying about your database.&lt;/p&gt;
-
-&lt;p&gt;public enum PhoneType {
-    Home,
-    Work,
-    Mobile,
-  }
-  public enum AddressType {
-    Home,
-    Work,
-    Other,
-  }
-  public class Address {
-  public string Line1 { get; set; }
-  public string Line2 { get; set; }
-  public string ZipCode { get; set; }
-  public string State { get; set; }
-  public string City { get; set; }
-  public string Country { get; set; }
-  }
-  public class Customer {
-    public Customer() {
-      this.PhoneNumbers = new Dictionary &lt;PhoneType, string&gt;();
-      this.Addresses = new Dictionary &lt;AddressType, Address&gt;();
-    }&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[AutoIncrement] 
-public int Id { get; set; }
-
-public string FirstName { get; set; }
-public string LastName { get; set; }
-
-[Index(Unique = true)] 
-public string Email { get; set; }
-
-public Dictionary &amp;lt;PhoneType, string&amp;gt; PhoneNumbers { get; set; }  
-public Dictionary &amp;lt;AddressType, Address&amp;gt; Addresses { get; set; }  
-public DateTime CreatedAt { get; set; }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;}  &lt;/p&gt;
-
-&lt;p&gt;Again this supports all the data annotation from .net 4.0. Here is the example of it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public class Order {
-
-[AutoIncrement]
-public int Id { get; set; }
-
-[References(typeof(Customer))]  
-public int CustomerId { get; set; }
-
-[References(typeof(Employee))]  
-public int EmployeeId { get; set; }
-
-[StringLenght(256)]
-public string ShippingAddress { get; set; } 
-
-public DateTime? OrderDate { get; set; }
-public DateTime? RequiredDate { get; set; }
-public DateTime? ShippedDate { get; set; }
-public int? ShipVia { get; set; }
-public decimal Freight { get; set; }
-public decimal Total { get; set; }
-}  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So, it supports required, Max Length and all others. I haven’t check all though.&lt;/p&gt;
-
-&lt;p&gt;Now, the CRUD operation. It is easy like anything.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var dbFactory = new OrmLiteConnectionFactory(@"Data Source=.SQLEXPRESS;AttachDbFilename=|DataDirectory|App_DataDatabase1.mdf;Integrated Security=True;User Instance=True",SqlServerOrmLiteDialectProvider.Instance);  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Here is the catch. I was unable to find property to set Dialect provider. After initiating default blank constructor. But you can always go with this default example. Then, one just need to remember that old days of connection creation and command creation and just fire up the command. But, this is &lt;a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping"&gt;ORM&lt;/a&gt; . Things must be easy here. And yes, it is damn easy.&lt;/p&gt;
-
-&lt;p&gt;I have never seen this much classic use of extension method before. &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;OrmLite&lt;/a&gt; extend the functionality of default class and make our work easy like anything. Here, is the example&lt;/p&gt;
-
-&lt;p&gt;```cs    &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;//Non-intrusive: All extension methods hang off System.Data.* interfaces
-IDbConnection dbConn = dbFactory.OpenDbConnection()
-IDbCommand dbCmd = dbConn.CreateCommand()
-
-//Re-Create all table schemas:
-dbCmd.DropTable &amp;lt;OrderDetail&amp;gt;()
-dbCmd.DropTable &amp;lt;Order&amp;gt;()
-dbCmd.DropTable &amp;lt;Customer&amp;gt;()
-dbCmd.DropTable &amp;lt;Product&amp;gt;()
-dbCmd.DropTable &amp;lt;Employee&amp;gt;()
-
-dbCmd.CreateTable &amp;lt;Employee&amp;gt;()
-dbCmd.CreateTable &amp;lt;Product&amp;gt;()
-dbCmd.CreateTable &amp;lt;Customer&amp;gt;()
-dbCmd.CreateTable &amp;lt;Order&amp;gt;()
-dbCmd.CreateTable &amp;lt;OrderDetail&amp;gt;()
-
-dbCmd.Insert(new Employee { Id = 1, Name = "Employee 1" })
-dbCmd.Insert(new Employee { Id = 2, Name = "Employee 2" })
-var product1 = new Product { Id = 1, Name = "Product 1", UnitPrice = 10 }
-var product2 = new Product { Id = 2, Name = "Product 2", UnitPrice = 20 }
-dbCmd.Save(product1, product2)
-
-var customer = new Customer
-{
-  FirstName = "Orm",
-  LastName = "Lite",
-  Email = "ormlite@servicestack.net",
-  PhoneNumbers =
-  {
-    { PhoneType.Home, "555-1234" },
-    { PhoneType.Work, "1-800-1234" },
-    { PhoneType.Mobile, "818-123-4567" },
-  },
-  Addresses =
-  {
-    { AddressType.Work, 
-    new Address 
-      { Line1 = "1 Street", Country = "US", State = "NY", City = "New York", ZipCode = "10101" } 
-      },
-    },
-    CreatedAt = DateTime.UtcNow,
-  }
-dbCmd.Insert(customer)
-
-var customerId = dbCmd.GetLastInsertId()
-customer = dbCmd.QuerySingle &amp;amp;lt;Customer&amp;amp;gt;(new { customer.Email })
-Assert.That(customer.Id, Is.EqualTo(customerId))
-
-//Direct access to System.Data.Transactions:
-using (var trans = dbCmd.BeginTransaction(IsolationLevel.ReadCommitted))
-{
-  var order = new Order
-{
-CustomerId = customer.Id,
-EmployeeId = 1,
-OrderDate = DateTime.UtcNow,
-Freight = 10.50m,
-ShippingAddress = new Address { Line1 = "3 Street", Country = "US", State = "NY", City = "New York", ZipCode = "12121" },
-}
-dbCmd.Save(order)
-
-order.Id = (int)dbCmd.GetLastInsertId()
-
-var orderDetails = new[] {
-  new OrderDetail
-  {
-    OrderId = order.Id,
-    ProductId = product1.Id,
-    Quantity = 2,
-    UnitPrice = product1.UnitPrice,
-  },
-  new OrderDetail
-  {
-    OrderId = order.Id,
-    ProductId = product2.Id,
-    Quantity = 2,
-    UnitPrice = product2.UnitPrice,
-    Discount = .15m,
-  }
-}
-
-dbCmd.Insert(orderDetails)
-
-order.Total = orderDetails.Sum(x =&amp;gt; x.UnitPrice * x.Quantity * x.Discount) +  order.Freight
-
-dbCmd.Save(order)
-
-trans.Commit()
-}  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;```&lt;br /&gt;
-So, As you can see. It supports mighty POCO and handles almost everything. If you have a question, this can be done by Entity Framework too. And even in pretty nicer way. Then here is the answer, &lt;a href="http://www.servicestack.net/benchmarks/"&gt;benchmark&lt;/a&gt; . Speed, performance, scalability it is the thing which makes the difference.&lt;/p&gt;
-
-&lt;p&gt;Now, anyone can write a code. I definitely don’t mind that. But there are few who really write good code. And please I am not saying about following standards of casing but saying about trimming things up, take bold decision and follow rules of &lt;a href="http://martinfowler.com/"&gt;Martin Flower&lt;/a&gt; .&lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2012/01/bhagwad-gita-chapter1/</guid><link>http://kunjan.in/2012/01/bhagwad-gita-chapter1/</link><title>Bhagwad Gita Chapter 1</title><description>&lt;p&gt;कुर्क्षेत्र की युद्ध भूमि पर सैन्य निरिक्षण &lt;/p&gt;
-
-&lt;p&gt;Its all started when war of Mahabharata is about to begin. Both army stand against each other. And at the time of war, &lt;a href="http://en.wikipedia.org/wiki/Arjuna"&gt;Arjuna&lt;/a&gt; told &lt;a href="http://en.wikipedia.org/wiki/Krishna"&gt;Krishna&lt;/a&gt; to take his chariot to the middle of battle field. When they reach there, &lt;a href="http://en.wikipedia.org/wiki/Arjuna"&gt;Arjuna&lt;/a&gt; observed both side of army.&lt;/p&gt;
-
-&lt;p&gt;At this time he found only relatives on the both side. And he just collapsed. He don’t want to fight. He don’t want to win at the cost of killing his own relatives. He asked &lt;a href="http://en.wikipedia.org/wiki/Krishna"&gt;Krishna&lt;/a&gt; &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;What is significant of this type of win? Why should I win? Why should I do the war?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;At that time Krishna recite Gita. Other than &lt;a href="http://en.wikipedia.org/wiki/Arjuna"&gt;Arjuna&lt;/a&gt; there are few others who heard Gita, one is &lt;a href="http://en.wikipedia.org/wiki/Hanuman"&gt;Hanuman&lt;/a&gt; who is there in the flag of &lt;a href="http://en.wikipedia.org/wiki/Arjuna"&gt;Arjuna’s&lt;/a&gt; chariot. And other is &lt;a href="http://en.wikipedia.org/wiki/Sanjaya"&gt;Sanjay&lt;/a&gt; who has “divya drashti”.&lt;/p&gt;
-
-&lt;p&gt;So, here by I try to explain every “slok” of Gita.&lt;/p&gt;
-
-&lt;p&gt;I pray to &lt;a href="http://en.wikipedia.org/wiki/Ganesha"&gt;Shree Ganesh&lt;/a&gt; as there is a tradition that every good thing start with the name of &lt;a href="http://en.wikipedia.org/wiki/Ganesha"&gt;Shree Ganesh&lt;/a&gt; .&lt;/p&gt;
-</description><pubDate>Thu, 05 Jan 2012 18:30:00 Z</pubDate><a10:updated>2012-01-05T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;कुर्क्षेत्र की युद्ध भूमि पर सैन्य निरिक्षण &lt;/p&gt;
-
-&lt;p&gt;Its all started when war of Mahabharata is about to begin. Both army stand against each other. And at the time of war, &lt;a href="http://en.wikipedia.org/wiki/Arjuna"&gt;Arjuna&lt;/a&gt; told &lt;a href="http://en.wikipedia.org/wiki/Krishna"&gt;Krishna&lt;/a&gt; to take his chariot to the middle of battle field. When they reach there, &lt;a href="http://en.wikipedia.org/wiki/Arjuna"&gt;Arjuna&lt;/a&gt; observed both side of army.&lt;/p&gt;
-
-&lt;p&gt;At this time he found only relatives on the both side. And he just collapsed. He don’t want to fight. He don’t want to win at the cost of killing his own relatives. He asked &lt;a href="http://en.wikipedia.org/wiki/Krishna"&gt;Krishna&lt;/a&gt; &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;What is significant of this type of win? Why should I win? Why should I do the war?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;At that time Krishna recite Gita. Other than &lt;a href="http://en.wikipedia.org/wiki/Arjuna"&gt;Arjuna&lt;/a&gt; there are few others who heard Gita, one is &lt;a href="http://en.wikipedia.org/wiki/Hanuman"&gt;Hanuman&lt;/a&gt; who is there in the flag of &lt;a href="http://en.wikipedia.org/wiki/Arjuna"&gt;Arjuna’s&lt;/a&gt; chariot. And other is &lt;a href="http://en.wikipedia.org/wiki/Sanjaya"&gt;Sanjay&lt;/a&gt; who has “divya drashti”.&lt;/p&gt;
-
-&lt;p&gt;So, here by I try to explain every “slok” of Gita.&lt;/p&gt;
-
-&lt;p&gt;I pray to &lt;a href="http://en.wikipedia.org/wiki/Ganesha"&gt;Shree Ganesh&lt;/a&gt; as there is a tradition that every good thing start with the name of &lt;a href="http://en.wikipedia.org/wiki/Ganesha"&gt;Shree Ganesh&lt;/a&gt; .&lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2012/01/bhagwad-gita-introduction/</guid><link>http://kunjan.in/2012/01/bhagwad-gita-introduction/</link><title>Bhagwad Gita Introduction</title><description>&lt;p&gt;Who ever know something about Indian culture must have know about Gita. As per religion or history whatever you prefer, it is a compilation of words, a message given to Arjuna by Krishna. It is not only for him but for whole world. And trust me this book do have answer of almost any things.&lt;/p&gt;
-
-&lt;p&gt;First I brief about this compilation. At the time of Mahabharata war, when Arjuna has to face his own family at war place, kurukshetra. He did not want to fight, he did not want to win at a price of killing his own loved once. At that time Shree Krishna, told him that it is his work, he is not responsible of it. He had to do what is necessary. He didn’t have any right to claim on result of his work. And then whatever communication is done between them is called Bhagwad Gita. Other than Arjuna there were few other who witnesses this communication, one is Ved Vyas who written Mahabharat, one is Sajay a Charioteer of King Dhitrashtra and Hanuman who was there in the flag of Chariot of Arjuna.&lt;/p&gt;
-
-&lt;p&gt;I am not a big philosopher or spiritual guru, but I love this book. And trying to explain each and every “slok”, sentence in detail. Please bare with me, if there is any mistake in understanding or explaining this .&lt;/p&gt;
-
-&lt;p&gt;I don’t say I am a great believer of God, but I am believer of this book. It do has solution of every problem, and do support to over come any obstacle of life. Gita was told by Shree Krishna around 5000 years back and even now every word of it, is so true and real.&lt;/p&gt;
-
-&lt;p&gt;There are few, who still believe the Shree Krishna is Myth, for them here I am sharing a video, just have a look at it. And I don’t mind any opinion but whats wrong in trying new things, and a thing which already had more than enough followers.&lt;/p&gt;
-
-&lt;p&gt;Video about Krishna is here.&lt;/p&gt;
-
-&lt;iframe width="560" height="315" src="//www.youtube.com/embed/dalNJ4luBws" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
-</description><pubDate>Thu, 05 Jan 2012 18:30:00 Z</pubDate><a10:updated>2012-01-05T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;Who ever know something about Indian culture must have know about Gita. As per religion or history whatever you prefer, it is a compilation of words, a message given to Arjuna by Krishna. It is not only for him but for whole world. And trust me this book do have answer of almost any things.&lt;/p&gt;
-
-&lt;p&gt;First I brief about this compilation. At the time of Mahabharata war, when Arjuna has to face his own family at war place, kurukshetra. He did not want to fight, he did not want to win at a price of killing his own loved once. At that time Shree Krishna, told him that it is his work, he is not responsible of it. He had to do what is necessary. He didn’t have any right to claim on result of his work. And then whatever communication is done between them is called Bhagwad Gita. Other than Arjuna there were few other who witnesses this communication, one is Ved Vyas who written Mahabharat, one is Sajay a Charioteer of King Dhitrashtra and Hanuman who was there in the flag of Chariot of Arjuna.&lt;/p&gt;
-
-&lt;p&gt;I am not a big philosopher or spiritual guru, but I love this book. And trying to explain each and every “slok”, sentence in detail. Please bare with me, if there is any mistake in understanding or explaining this .&lt;/p&gt;
-
-&lt;p&gt;I don’t say I am a great believer of God, but I am believer of this book. It do has solution of every problem, and do support to over come any obstacle of life. Gita was told by Shree Krishna around 5000 years back and even now every word of it, is so true and real.&lt;/p&gt;
-
-&lt;p&gt;There are few, who still believe the Shree Krishna is Myth, for them here I am sharing a video, just have a look at it. And I don’t mind any opinion but whats wrong in trying new things, and a thing which already had more than enough followers.&lt;/p&gt;
-
-&lt;p&gt;Video about Krishna is here.&lt;/p&gt;
-
-&lt;iframe width="560" height="315" src="//www.youtube.com/embed/dalNJ4luBws" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;So, as of now. I happy with my static file generator that is doing much more than needed, with light weight node back end and static file as front end. &lt;/p&gt;
+
+&lt;p&gt;Hopefully my blog get massive hit, as I already have set virtually infinite scalability with my static html pages ;).&lt;/p&gt;
+
+&lt;p&gt;Till now experience with &lt;a href="http://docpad.org"&gt;Docpad&lt;/a&gt; is wonderful. There are few hiccups here and there but overall it is nice and with lots of plugins to make life even more easier. &lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2012/12/entity-framework-upside-down/</guid><link>http://kunjan.in/2012/12/entity-framework-upside-down/</link><title>Entity Framework Upside Down</title><description>&lt;p&gt;If you have read my previous articles you must be knowing that I don’t like ORMs that much and also I am pretty lazy person. I don’t like to repeat stuff again and again. If I can find the solution than I will automate it or I just change from very root. Same thing is true with Entity Framework. It comes after LINQ to SQL as an improved ORM. And it proved to be lousy. But here is the catch if we are not using it with all its functionality it is lousy.&lt;/p&gt;
+
+&lt;p&gt;Now, it provides proper name at entity level and also inheritance like stuff. Its really a cool and neat feature about Entity Framework to abstract away the complexity of database with ‘_’ name. I never understand this type of names and I don’t know if ever I will be understanding this type of name. But if you are just updating from database and using it, than there is no use of EF at all. Or there is no need of EF. If I will become little bit harsh, then I can say &lt;strong&gt;“WE ARE DOING IT WRONG”&lt;/strong&gt; .&lt;/p&gt;
+
+&lt;p&gt;And after EF evolved to further version it is providing more features, but still we are stick to the feature which is shown in &lt;a href="https://channel9.msdn.com/"&gt;Channel9&lt;/a&gt; . We must understand here that there is difference between demo and production. In demo we have pizza factory in production we never have at least in most of the cases. So, things are far different in production environment. If we are just deleting and adding entities then obviously again &lt;strong&gt;“WE ARE DOING IT WRONG”&lt;/strong&gt; . If any one think who the hell I am to tell that ??? I am just nothing and no one, but I am open minded to ideas and new things. Just think how much more overhead you are having for pushing EF in production. It is there to help you out not to make things worst.&lt;/p&gt;
+
+&lt;p&gt;I tweeted about it and also got reply from Rob Conery of &lt;a href="http://tekpub.com"&gt;Tekpub&lt;/a&gt; . I insist to check that out. I must say EF is a tool if we are not careful it will surely hit our own ass very bad. Here is the &lt;a href="https://twitter.com/robconery/status/270700961109004288"&gt;link&lt;/a&gt; for tweet. So, I am not providing any right way as there are many and you will found out over google, but I am just saying to think twice before come to a conclusion or before porting demo to production environment.&lt;/p&gt;
+</description><pubDate>Tue, 04 Dec 2012 18:30:00 Z</pubDate><a10:updated>2012-12-04T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;If you have read my previous articles you must be knowing that I don’t like ORMs that much and also I am pretty lazy person. I don’t like to repeat stuff again and again. If I can find the solution than I will automate it or I just change from very root. Same thing is true with Entity Framework. It comes after LINQ to SQL as an improved ORM. And it proved to be lousy. But here is the catch if we are not using it with all its functionality it is lousy.&lt;/p&gt;
+
+&lt;p&gt;Now, it provides proper name at entity level and also inheritance like stuff. Its really a cool and neat feature about Entity Framework to abstract away the complexity of database with ‘_’ name. I never understand this type of names and I don’t know if ever I will be understanding this type of name. But if you are just updating from database and using it, than there is no use of EF at all. Or there is no need of EF. If I will become little bit harsh, then I can say &lt;strong&gt;“WE ARE DOING IT WRONG”&lt;/strong&gt; .&lt;/p&gt;
+
+&lt;p&gt;And after EF evolved to further version it is providing more features, but still we are stick to the feature which is shown in &lt;a href="https://channel9.msdn.com/"&gt;Channel9&lt;/a&gt; . We must understand here that there is difference between demo and production. In demo we have pizza factory in production we never have at least in most of the cases. So, things are far different in production environment. If we are just deleting and adding entities then obviously again &lt;strong&gt;“WE ARE DOING IT WRONG”&lt;/strong&gt; . If any one think who the hell I am to tell that ??? I am just nothing and no one, but I am open minded to ideas and new things. Just think how much more overhead you are having for pushing EF in production. It is there to help you out not to make things worst.&lt;/p&gt;
+
+&lt;p&gt;I tweeted about it and also got reply from Rob Conery of &lt;a href="http://tekpub.com"&gt;Tekpub&lt;/a&gt; . I insist to check that out. I must say EF is a tool if we are not careful it will surely hit our own ass very bad. Here is the &lt;a href="https://twitter.com/robconery/status/270700961109004288"&gt;link&lt;/a&gt; for tweet. So, I am not providing any right way as there are many and you will found out over google, but I am just saying to think twice before come to a conclusion or before porting demo to production environment.&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2012/11/something-never-changed-hellip-guiding-principal-to-software-development/</guid><link>http://kunjan.in/2012/11/something-never-changed-hellip-guiding-principal-to-software-development/</link><title>Something Never Changed!!! Guiding Principles to Software Development</title><description>&lt;p&gt;I am particularly a lazy guy. I don’t work hard, stay back and never show sad face to issue or bug. Obviously many don’t like me for this. But again “who cares?”. But one thing is sure for me, I always ready to learn new things and obviously always work for better code. At the end of day it is just a code, bugs will be there and me too , to solve the issue.&lt;/p&gt;
+
+&lt;p&gt;Here, I mentions new things, but in reality it is not possible all the time that I will get new things. Some time I will get old things to take care off. Or something that never changed. I was reading old articles from &lt;a href="http://www.hanselman.com"&gt;Hanselman&lt;/a&gt; , now a days he is putting more preference over high quality article. So, his articles are not coming daily basis. So, one day I was wondering towards the &lt;a href="http://www.hanselman.com/blog/GreatestHits.aspx"&gt;hit series of articles&lt;/a&gt; and I found “ &lt;a href="http://www.hanselman.com/blog/SomeGuidingPrinciplesForSoftwareDevelopment.aspx"&gt;some guiding principles for software development&lt;/a&gt; ”. And again as per suggestion again from &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; I &lt;a href="http://www.hanselman.com/blog/InstapaperDeliveredToYourKindleChangesHowYouConsumeWebContentPlusIFTTTBlogsAndMore.aspx"&gt;read later&lt;/a&gt; it.&lt;/p&gt;
+
+&lt;p&gt;Now, I was working on something and just to get refreshed I was checking my &lt;a href="http://www.instapaper.com"&gt;Instapaper&lt;/a&gt; and found this one. I was reading it. First thing I noticed is that it was written in 2007; even before I was a certified software engineer. As, I normally don’t read historical article that much but I read this. And that surprised me!!! Nothing is changed at all. Principles are same even after 5 years of this articles. And when they written it was there only. And also one thing is not changed too, we are not following most of them… (saying from the personal experience). For a change now a days I tried to follow them…&lt;/p&gt;
+
+&lt;p&gt;So, I thought I should re-write this article in context of current technology. I am also going to put links of tools but this is my personal preference obviously in context of Dot Net only. I start learning &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt; but again I am not that good in that.&lt;/p&gt;
+
+&lt;p&gt;A original posts are from &lt;a href="http://www.cauldwell.net/patrick/blog/ThisIBelieveTheDeveloperEdition.aspx"&gt;Patrick Cauldwell&lt;/a&gt; and &lt;a href="http://www.hanselman.com/blog/SomeGuidingPrinciplesForSoftwareDevelopment.aspx"&gt;Scott Hanselman&lt;/a&gt; . Be sure to visit the original work.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Our “Guiding Principles”&lt;/strong&gt; &lt;/li&gt;
+&lt;li&gt;Test Driven Development&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;TDD / BDD always give confidence for our own written code. Couple of frameworks available for that. For TDD &lt;a href="http://www.nunit.org/"&gt;NUnit&lt;/a&gt; and &lt;a href="http://xunit.codeplex.com/"&gt;XUnit&lt;/a&gt; are there. And for two types of BDD &lt;a href="http://specflow.org"&gt;Specflow&lt;/a&gt; and &lt;a href="http://nspec.org/"&gt;NSpec&lt;/a&gt; are there. &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Continues Integration&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;This includes testing for complete application and also UI automation using framework like &lt;a href="http://seleniumhq.org/"&gt;Selenium&lt;/a&gt; (Visit &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; to check out wonderful video of UI automation) &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;I prefer to checkout blog from &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; and podcast from &lt;a href="http://www.hanselminutes.com/339/continuous-delivery-with-jez-humble-and-martin-fowler"&gt;hanselminutes&lt;/a&gt; to check this topic. &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Unit Tests&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Two kinds of tests&lt;/li&gt;
+&lt;li&gt;Unit test is what that test code written by &lt;strong&gt;us,&lt;/strong&gt; so it is not dependent over external entities like SQL or Web Service etc &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Integration test, it dependent on SQL and Web Service like external entities and check our code in reference to over logic&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Automation is equally possible for both type of test&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Again I like to mention post by &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; which show how to do automation. &lt;/li&gt;
+&lt;li&gt;As a thumb rule said by &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; whenever we need to repeat things or even have to do copy paste we should automate things. &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;There are many tools available for Visual Studio to automate testing (you need to hack little bit for Express Edition)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;All UI development should follow MVC/ MVP pattern for ease of testing&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://asp.net/mvc"&gt;MVC&lt;/a&gt; is specifically design for better testing support &lt;/li&gt;
+&lt;li&gt;Even if you are using Asp.Net Web Forms I strongly recommended &lt;a href="http://webformsmvp.com/"&gt;MVP&lt;/a&gt; framework to implement to support more code coverage for testing &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Even for &lt;a href="http://vanilla-js.com/"&gt;Javascript&lt;/a&gt; this is true as many client side frameworks are available like &lt;a href="http://pivotal.github.com/jasmine/"&gt;Jasmine&lt;/a&gt; and &lt;a href="http://qunitjs.com/"&gt;Qunit&lt;/a&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Test Coverage&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;90% %2B should be the goal including UI logic written in JavaScript&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Again many tools are available for code coverage so not listing here. NCover is there by Default in Visual Studio higher version&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Buy, Not Build&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Take full advantage of the platform, even if only solves the 80% case (Most of the time we don’t know library functions available that leads to copy of code and rewriting functionalities )&lt;/li&gt;
+&lt;li&gt;Don’t write single line of code that you don’t have to (in software engineering one has to be lazy, if you are staying back working you’re a** of, then definitely you are not writing good code)&lt;/li&gt;
+&lt;li&gt;Take full advantage of .Net 4.0 / .Net 4.5 and also plan – test for Windows 8 (we are working for the future so, it must work on future/current releases of platforms )&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Don’t invent new solution for solved problems (in case of Dot Net &lt;a href="http://nuget.org/"&gt;nuget&lt;/a&gt; is there, just checkout that your problem is solved by community members, if yes use them and if no solve and share with community… these OSS libraries increase productivity like anything) &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Limit compile time dependencies on code you don’t own&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Everything that is now owned by &lt;strong&gt;us&lt;/strong&gt; should be behind interface and a factory method (I also like to mention a wonderful &lt;a href="http://simpleprogrammer.com/back-to-basics-series/"&gt;article series&lt;/a&gt; to understand concepts like interface) &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Define your data contracts in C# (think ‘active records’)&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;All persistence storage should be abstracted using logical interfaces&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Here we can use ORM like &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;Ormlite&lt;/a&gt; , &lt;a href="https://github.com/SamSaffron/dapper-dot-net"&gt;Dapper&lt;/a&gt; , &lt;a href="http://msdn.microsoft.com/en-us/data/ef.aspx"&gt;EF&lt;/a&gt; and few others to achieve this &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Fewer assemblies are better&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;There should be very good reason for creating a new assembly&lt;/li&gt;
+&lt;li&gt;The assembly is a smallest deployable unit, so it’s not only worth creating a new assembly if it means NOT shipping something else&lt;/li&gt;
+&lt;li&gt;Namespace != assembly name. Roll up many namespaces into one physical assembly if they all must be deployed together&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;As a thumb rule again said by &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; , domain driven and / or isolated design is only useful when we have a &lt;strong&gt;VERY&lt;/strong&gt; good knowledge of domains else it just increase number of assemblies to manage &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Only the public interface should be public&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Only make classes and interface public if absolutely necessary&lt;/li&gt;
+&lt;li&gt;Testing can be done by using internal visible to attribute&lt;/li&gt;
+&lt;li&gt;Good use of internal can avoid public issue for classes and functions&lt;/li&gt;
+&lt;li&gt;If its public, need to provide support for life time&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Also like to mentions a line from &lt;a href="https://twitter.com/jonskeet"&gt;Jon Skeet&lt;/a&gt; , “Any software/application should be code as we are coding API” &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Authentication&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Authentication should be abstracted from the application.&lt;/li&gt;
+&lt;li&gt;We can use &lt;a href="http://msdn.microsoft.com/en-in/security/aa570351.aspx"&gt;WIF&lt;/a&gt; , and token should be used to talk with other entities like Web Service &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;4.5 version framework (Asp.Net Framework) provides many options for Authentication/ Authorization that can be used here.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tracing&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Think long and hard about trace level&lt;/li&gt;
+&lt;li&gt;Use formatted resource strings everywhere for localization (Now a days localization is must for any commercial application, abstraction of that always help in long run)&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;For critical, error or warning , your audience is not a developer&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Error Handling&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Error handling is not just putting try / catch everywhere or anywhere that I called error hiding&lt;/li&gt;
+&lt;li&gt;Method names are verbs&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If anything breaks the contract, throw an exception&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;The definition of “Done”(or how do I know when a task is ready for QA?)&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Any significant design decisions have been discussed and approved by &lt;strong&gt;team&lt;/strong&gt; (In agile team takes the decisions, so there is always a scope for saying &lt;strong&gt;NO&lt;/strong&gt; to business guys for new functionalities to implement runtime) &lt;/li&gt;
+&lt;li&gt;For each MyClass, there is a corresponding MyClassFixture in the corresponding test assembly, it also includes same for UI part using java script framework&lt;/li&gt;
+&lt;li&gt;MyClassFixture exercise all the functionality of MyClass nothing else, single responsibility is true ever for test classes&lt;/li&gt;
+&lt;li&gt;Code coverage of MyClass is =&amp;gt;90% , excluding only lines you are confident are unreasonable to test&lt;/li&gt;
+&lt;li&gt;No compiler &lt;strong&gt;warning&lt;/strong&gt; are generated by new code (warnings are equally important like error, you can ignore if you are doing POC or college project. In Visual Studio warnings are generated after completing code analysis. It should be on all the time and personally I prefer to set not to allow ‘run’ if warning is there) &lt;/li&gt;
+&lt;li&gt;Before committing anything to source control, update to get all recent changes, and make sure all unit and integration tests pass&lt;/li&gt;
+&lt;li&gt;Compiling with warnings as errors will flush out any place you forgot documentation comments, which must be included for any new code&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is just a try to list our frameworks and new technology with this g/old guiding principals. Do let me know if anything is there to CRUD for this list.&lt;/p&gt;
+
+&lt;p&gt;This list in my &lt;strong&gt;learn by heart&lt;/strong&gt; part. Basically these points force to do good software practice.&lt;/p&gt;
+</description><pubDate>Thu, 01 Nov 2012 18:30:00 Z</pubDate><a10:updated>2012-11-01T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;I am particularly a lazy guy. I don’t work hard, stay back and never show sad face to issue or bug. Obviously many don’t like me for this. But again “who cares?”. But one thing is sure for me, I always ready to learn new things and obviously always work for better code. At the end of day it is just a code, bugs will be there and me too , to solve the issue.&lt;/p&gt;
+
+&lt;p&gt;Here, I mentions new things, but in reality it is not possible all the time that I will get new things. Some time I will get old things to take care off. Or something that never changed. I was reading old articles from &lt;a href="http://www.hanselman.com"&gt;Hanselman&lt;/a&gt; , now a days he is putting more preference over high quality article. So, his articles are not coming daily basis. So, one day I was wondering towards the &lt;a href="http://www.hanselman.com/blog/GreatestHits.aspx"&gt;hit series of articles&lt;/a&gt; and I found “ &lt;a href="http://www.hanselman.com/blog/SomeGuidingPrinciplesForSoftwareDevelopment.aspx"&gt;some guiding principles for software development&lt;/a&gt; ”. And again as per suggestion again from &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; I &lt;a href="http://www.hanselman.com/blog/InstapaperDeliveredToYourKindleChangesHowYouConsumeWebContentPlusIFTTTBlogsAndMore.aspx"&gt;read later&lt;/a&gt; it.&lt;/p&gt;
+
+&lt;p&gt;Now, I was working on something and just to get refreshed I was checking my &lt;a href="http://www.instapaper.com"&gt;Instapaper&lt;/a&gt; and found this one. I was reading it. First thing I noticed is that it was written in 2007; even before I was a certified software engineer. As, I normally don’t read historical article that much but I read this. And that surprised me!!! Nothing is changed at all. Principles are same even after 5 years of this articles. And when they written it was there only. And also one thing is not changed too, we are not following most of them… (saying from the personal experience). For a change now a days I tried to follow them…&lt;/p&gt;
+
+&lt;p&gt;So, I thought I should re-write this article in context of current technology. I am also going to put links of tools but this is my personal preference obviously in context of Dot Net only. I start learning &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt; but again I am not that good in that.&lt;/p&gt;
+
+&lt;p&gt;A original posts are from &lt;a href="http://www.cauldwell.net/patrick/blog/ThisIBelieveTheDeveloperEdition.aspx"&gt;Patrick Cauldwell&lt;/a&gt; and &lt;a href="http://www.hanselman.com/blog/SomeGuidingPrinciplesForSoftwareDevelopment.aspx"&gt;Scott Hanselman&lt;/a&gt; . Be sure to visit the original work.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Our “Guiding Principles”&lt;/strong&gt; &lt;/li&gt;
+&lt;li&gt;Test Driven Development&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;TDD / BDD always give confidence for our own written code. Couple of frameworks available for that. For TDD &lt;a href="http://www.nunit.org/"&gt;NUnit&lt;/a&gt; and &lt;a href="http://xunit.codeplex.com/"&gt;XUnit&lt;/a&gt; are there. And for two types of BDD &lt;a href="http://specflow.org"&gt;Specflow&lt;/a&gt; and &lt;a href="http://nspec.org/"&gt;NSpec&lt;/a&gt; are there. &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Continues Integration&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;This includes testing for complete application and also UI automation using framework like &lt;a href="http://seleniumhq.org/"&gt;Selenium&lt;/a&gt; (Visit &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; to check out wonderful video of UI automation) &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;I prefer to checkout blog from &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; and podcast from &lt;a href="http://www.hanselminutes.com/339/continuous-delivery-with-jez-humble-and-martin-fowler"&gt;hanselminutes&lt;/a&gt; to check this topic. &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Unit Tests&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Two kinds of tests&lt;/li&gt;
+&lt;li&gt;Unit test is what that test code written by &lt;strong&gt;us,&lt;/strong&gt; so it is not dependent over external entities like SQL or Web Service etc &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Integration test, it dependent on SQL and Web Service like external entities and check our code in reference to over logic&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Automation is equally possible for both type of test&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Again I like to mention post by &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; which show how to do automation. &lt;/li&gt;
+&lt;li&gt;As a thumb rule said by &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; whenever we need to repeat things or even have to do copy paste we should automate things. &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;There are many tools available for Visual Studio to automate testing (you need to hack little bit for Express Edition)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;All UI development should follow MVC/ MVP pattern for ease of testing&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://asp.net/mvc"&gt;MVC&lt;/a&gt; is specifically design for better testing support &lt;/li&gt;
+&lt;li&gt;Even if you are using Asp.Net Web Forms I strongly recommended &lt;a href="http://webformsmvp.com/"&gt;MVP&lt;/a&gt; framework to implement to support more code coverage for testing &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Even for &lt;a href="http://vanilla-js.com/"&gt;Javascript&lt;/a&gt; this is true as many client side frameworks are available like &lt;a href="http://pivotal.github.com/jasmine/"&gt;Jasmine&lt;/a&gt; and &lt;a href="http://qunitjs.com/"&gt;Qunit&lt;/a&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Test Coverage&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;90% %2B should be the goal including UI logic written in JavaScript&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Again many tools are available for code coverage so not listing here. NCover is there by Default in Visual Studio higher version&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Buy, Not Build&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Take full advantage of the platform, even if only solves the 80% case (Most of the time we don’t know library functions available that leads to copy of code and rewriting functionalities )&lt;/li&gt;
+&lt;li&gt;Don’t write single line of code that you don’t have to (in software engineering one has to be lazy, if you are staying back working you’re a** of, then definitely you are not writing good code)&lt;/li&gt;
+&lt;li&gt;Take full advantage of .Net 4.0 / .Net 4.5 and also plan – test for Windows 8 (we are working for the future so, it must work on future/current releases of platforms )&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Don’t invent new solution for solved problems (in case of Dot Net &lt;a href="http://nuget.org/"&gt;nuget&lt;/a&gt; is there, just checkout that your problem is solved by community members, if yes use them and if no solve and share with community… these OSS libraries increase productivity like anything) &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Limit compile time dependencies on code you don’t own&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Everything that is now owned by &lt;strong&gt;us&lt;/strong&gt; should be behind interface and a factory method (I also like to mention a wonderful &lt;a href="http://simpleprogrammer.com/back-to-basics-series/"&gt;article series&lt;/a&gt; to understand concepts like interface) &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Define your data contracts in C# (think ‘active records’)&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;All persistence storage should be abstracted using logical interfaces&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Here we can use ORM like &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;Ormlite&lt;/a&gt; , &lt;a href="https://github.com/SamSaffron/dapper-dot-net"&gt;Dapper&lt;/a&gt; , &lt;a href="http://msdn.microsoft.com/en-us/data/ef.aspx"&gt;EF&lt;/a&gt; and few others to achieve this &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Fewer assemblies are better&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;There should be very good reason for creating a new assembly&lt;/li&gt;
+&lt;li&gt;The assembly is a smallest deployable unit, so it’s not only worth creating a new assembly if it means NOT shipping something else&lt;/li&gt;
+&lt;li&gt;Namespace != assembly name. Roll up many namespaces into one physical assembly if they all must be deployed together&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;As a thumb rule again said by &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; , domain driven and / or isolated design is only useful when we have a &lt;strong&gt;VERY&lt;/strong&gt; good knowledge of domains else it just increase number of assemblies to manage &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Only the public interface should be public&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Only make classes and interface public if absolutely necessary&lt;/li&gt;
+&lt;li&gt;Testing can be done by using internal visible to attribute&lt;/li&gt;
+&lt;li&gt;Good use of internal can avoid public issue for classes and functions&lt;/li&gt;
+&lt;li&gt;If its public, need to provide support for life time&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Also like to mentions a line from &lt;a href="https://twitter.com/jonskeet"&gt;Jon Skeet&lt;/a&gt; , “Any software/application should be code as we are coding API” &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Authentication&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Authentication should be abstracted from the application.&lt;/li&gt;
+&lt;li&gt;We can use &lt;a href="http://msdn.microsoft.com/en-in/security/aa570351.aspx"&gt;WIF&lt;/a&gt; , and token should be used to talk with other entities like Web Service &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;4.5 version framework (Asp.Net Framework) provides many options for Authentication/ Authorization that can be used here.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tracing&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Think long and hard about trace level&lt;/li&gt;
+&lt;li&gt;Use formatted resource strings everywhere for localization (Now a days localization is must for any commercial application, abstraction of that always help in long run)&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;For critical, error or warning , your audience is not a developer&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Error Handling&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Error handling is not just putting try / catch everywhere or anywhere that I called error hiding&lt;/li&gt;
+&lt;li&gt;Method names are verbs&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If anything breaks the contract, throw an exception&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;The definition of “Done”(or how do I know when a task is ready for QA?)&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Any significant design decisions have been discussed and approved by &lt;strong&gt;team&lt;/strong&gt; (In agile team takes the decisions, so there is always a scope for saying &lt;strong&gt;NO&lt;/strong&gt; to business guys for new functionalities to implement runtime) &lt;/li&gt;
+&lt;li&gt;For each MyClass, there is a corresponding MyClassFixture in the corresponding test assembly, it also includes same for UI part using java script framework&lt;/li&gt;
+&lt;li&gt;MyClassFixture exercise all the functionality of MyClass nothing else, single responsibility is true ever for test classes&lt;/li&gt;
+&lt;li&gt;Code coverage of MyClass is =&amp;gt;90% , excluding only lines you are confident are unreasonable to test&lt;/li&gt;
+&lt;li&gt;No compiler &lt;strong&gt;warning&lt;/strong&gt; are generated by new code (warnings are equally important like error, you can ignore if you are doing POC or college project. In Visual Studio warnings are generated after completing code analysis. It should be on all the time and personally I prefer to set not to allow ‘run’ if warning is there) &lt;/li&gt;
+&lt;li&gt;Before committing anything to source control, update to get all recent changes, and make sure all unit and integration tests pass&lt;/li&gt;
+&lt;li&gt;Compiling with warnings as errors will flush out any place you forgot documentation comments, which must be included for any new code&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is just a try to list our frameworks and new technology with this g/old guiding principals. Do let me know if anything is there to CRUD for this list.&lt;/p&gt;
+
+&lt;p&gt;This list in my &lt;strong&gt;learn by heart&lt;/strong&gt; part. Basically these points force to do good software practice.&lt;/p&gt;
 </a10:content></item></channel></rss>
