@@ -1,4 +1,34 @@
-<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2013/12/functional-programming-need-in-web-development/</guid><link>http://kunjan.in/2013/12/functional-programming-need-in-web-development/</link><title>Functional Programming Need in Web Development</title><description>&lt;p&gt;Whenever I talk about Functional Programming people with experience in web make faces. And seriously don't blame them. &lt;/p&gt;
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/02/should-i-write-more-poems/</guid><link>http://kunjan.in/2014/02/should-i-write-more-poems/</link><title>Should I continue writing more poems?</title><description>&lt;p&gt;Long back I have tried my hand to writing poems. And trust me I am no where near poetic part. I have good grip over language but that is only for my mother tongue. I am quite comfortable with writing with English but still no where near having artistic touch. Or in simple language my database of words is not that strong. But I normally I am able to convey my feelings. &lt;/p&gt;
+
+&lt;p&gt;I can say, I am pretty lucky in the case of writing poems. Though I have write only few, many of them got good review from whom so ever read it. But that charm doesn't last that much. &lt;/p&gt;
+
+&lt;p&gt;I wrote a poem for my &lt;a href="/2012/04/i-miss-you-sister/"&gt;sister&lt;/a&gt; and it don't get any kind of review. I got personal message from sister a long time that it was sweet. But that all because she is my sister. Personally if I like to give review to my this poem it is not good. There are tsunami of feeling I wanted to convert and I just converted drops of it. And at that moment I decided, will never write poem; at least never in public. &lt;/p&gt;
+
+&lt;p&gt;I do write sometimes, but that is all personal on personal request. And I will not say that poem too. They are just few lines, I crafted for person requested. Like few hand picked words, that's it. &lt;/p&gt;
+
+&lt;p&gt;But over the time I got request to write more poems. So, I decided to take a course at &lt;a href="https://class.coursera.org/songwriting-004"&gt;coursera&lt;/a&gt; and with that I like to take opinion of others. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Should I write more poems?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Please write whatever you think in comments. And help me to make a decision.&lt;/p&gt;
+</description><pubDate>Tue, 04 Feb 2014 18:30:00 Z</pubDate><a10:updated>2014-02-04T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;Long back I have tried my hand to writing poems. And trust me I am no where near poetic part. I have good grip over language but that is only for my mother tongue. I am quite comfortable with writing with English but still no where near having artistic touch. Or in simple language my database of words is not that strong. But I normally I am able to convey my feelings. &lt;/p&gt;
+
+&lt;p&gt;I can say, I am pretty lucky in the case of writing poems. Though I have write only few, many of them got good review from whom so ever read it. But that charm doesn't last that much. &lt;/p&gt;
+
+&lt;p&gt;I wrote a poem for my &lt;a href="http://kunjan.in/2012/04/i-miss-you-sister/"&gt;sister&lt;/a&gt; and it don't get any kind of review. I got personal message from sister a long time that it was sweet. But that all because she is my sister. Personally if I like to give review to my this poem it is not good. There are tsunami of feeling I wanted to convert and I just converted drops of it. And at that moment I decided, will never write poem; at least never in public. &lt;/p&gt;
+
+&lt;p&gt;I do write sometimes, but that is all personal on personal request. And I will not say that poem too. They are just few lines, I crafted for person requested. Like few hand picked words, that's it. &lt;/p&gt;
+
+&lt;p&gt;But over the time I got request to write more poems. So, I decided to take a course at &lt;a href="https://class.coursera.org/songwriting-004"&gt;coursera&lt;/a&gt; and with that I like to take opinion of others. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Should I write more poems?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Please write whatever you think in comments. And help me to make a decision.&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/12/functional-programming-need-in-web-development/</guid><link>http://kunjan.in/2013/12/functional-programming-need-in-web-development/</link><title>Functional Programming Need in Web Development</title><description>&lt;p&gt;Whenever I talk about Functional Programming people with experience in web make faces. And seriously don't blame them. &lt;/p&gt;
 
 &lt;p&gt;Issue is mainly Functional Programming stays in back ground only. If you see any starting example of any functional language is mainly some machine learning example or some complicated algorithm example. And that may effect normal people to getting started with Functional Programming. &lt;/p&gt;
 
@@ -400,160 +430,4 @@
 &lt;p&gt;And after EF evolved to further version it is providing more features, but still we are stick to the feature which is shown in &lt;a href="https://channel9.msdn.com/"&gt;Channel9&lt;/a&gt; . We must understand here that there is difference between demo and production. In demo we have pizza factory in production we never have at least in most of the cases. So, things are far different in production environment. If we are just deleting and adding entities then obviously again &lt;strong&gt;“WE ARE DOING IT WRONG”&lt;/strong&gt; . If any one think who the hell I am to tell that ??? I am just nothing and no one, but I am open minded to ideas and new things. Just think how much more overhead you are having for pushing EF in production. It is there to help you out not to make things worst.&lt;/p&gt;
 
 &lt;p&gt;I tweeted about it and also got reply from Rob Conery of &lt;a href="http://tekpub.com"&gt;Tekpub&lt;/a&gt; . I insist to check that out. I must say EF is a tool if we are not careful it will surely hit our own ass very bad. Here is the &lt;a href="https://twitter.com/robconery/status/270700961109004288"&gt;link&lt;/a&gt; for tweet. So, I am not providing any right way as there are many and you will found out over google, but I am just saying to think twice before come to a conclusion or before porting demo to production environment.&lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2012/11/something-never-changed-hellip-guiding-principal-to-software-development/</guid><link>http://kunjan.in/2012/11/something-never-changed-hellip-guiding-principal-to-software-development/</link><title>Something Never Changed!!! Guiding Principles to Software Development</title><description>&lt;p&gt;I am particularly a lazy guy. I don’t work hard, stay back and never show sad face to issue or bug. Obviously many don’t like me for this. But again “who cares?”. But one thing is sure for me, I always ready to learn new things and obviously always work for better code. At the end of day it is just a code, bugs will be there and me too , to solve the issue.&lt;/p&gt;
-
-&lt;p&gt;Here, I mentions new things, but in reality it is not possible all the time that I will get new things. Some time I will get old things to take care off. Or something that never changed. I was reading old articles from &lt;a href="http://www.hanselman.com"&gt;Hanselman&lt;/a&gt; , now a days he is putting more preference over high quality article. So, his articles are not coming daily basis. So, one day I was wondering towards the &lt;a href="http://www.hanselman.com/blog/GreatestHits.aspx"&gt;hit series of articles&lt;/a&gt; and I found “ &lt;a href="http://www.hanselman.com/blog/SomeGuidingPrinciplesForSoftwareDevelopment.aspx"&gt;some guiding principles for software development&lt;/a&gt; ”. And again as per suggestion again from &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; I &lt;a href="http://www.hanselman.com/blog/InstapaperDeliveredToYourKindleChangesHowYouConsumeWebContentPlusIFTTTBlogsAndMore.aspx"&gt;read later&lt;/a&gt; it.&lt;/p&gt;
-
-&lt;p&gt;Now, I was working on something and just to get refreshed I was checking my &lt;a href="http://www.instapaper.com"&gt;Instapaper&lt;/a&gt; and found this one. I was reading it. First thing I noticed is that it was written in 2007; even before I was a certified software engineer. As, I normally don’t read historical article that much but I read this. And that surprised me!!! Nothing is changed at all. Principles are same even after 5 years of this articles. And when they written it was there only. And also one thing is not changed too, we are not following most of them… (saying from the personal experience). For a change now a days I tried to follow them…&lt;/p&gt;
-
-&lt;p&gt;So, I thought I should re-write this article in context of current technology. I am also going to put links of tools but this is my personal preference obviously in context of Dot Net only. I start learning &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt; but again I am not that good in that.&lt;/p&gt;
-
-&lt;p&gt;A original posts are from &lt;a href="http://www.cauldwell.net/patrick/blog/ThisIBelieveTheDeveloperEdition.aspx"&gt;Patrick Cauldwell&lt;/a&gt; and &lt;a href="http://www.hanselman.com/blog/SomeGuidingPrinciplesForSoftwareDevelopment.aspx"&gt;Scott Hanselman&lt;/a&gt; . Be sure to visit the original work.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Our “Guiding Principles”&lt;/strong&gt; &lt;/li&gt;
-&lt;li&gt;Test Driven Development&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;TDD / BDD always give confidence for our own written code. Couple of frameworks available for that. For TDD &lt;a href="http://www.nunit.org/"&gt;NUnit&lt;/a&gt; and &lt;a href="http://xunit.codeplex.com/"&gt;XUnit&lt;/a&gt; are there. And for two types of BDD &lt;a href="http://specflow.org"&gt;Specflow&lt;/a&gt; and &lt;a href="http://nspec.org/"&gt;NSpec&lt;/a&gt; are there. &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Continues Integration&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;This includes testing for complete application and also UI automation using framework like &lt;a href="http://seleniumhq.org/"&gt;Selenium&lt;/a&gt; (Visit &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; to check out wonderful video of UI automation) &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;I prefer to checkout blog from &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; and podcast from &lt;a href="http://www.hanselminutes.com/339/continuous-delivery-with-jez-humble-and-martin-fowler"&gt;hanselminutes&lt;/a&gt; to check this topic. &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Unit Tests&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Two kinds of tests&lt;/li&gt;
-&lt;li&gt;Unit test is what that test code written by &lt;strong&gt;us,&lt;/strong&gt; so it is not dependent over external entities like SQL or Web Service etc &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Integration test, it dependent on SQL and Web Service like external entities and check our code in reference to over logic&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Automation is equally possible for both type of test&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Again I like to mention post by &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; which show how to do automation. &lt;/li&gt;
-&lt;li&gt;As a thumb rule said by &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; whenever we need to repeat things or even have to do copy paste we should automate things. &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;There are many tools available for Visual Studio to automate testing (you need to hack little bit for Express Edition)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;All UI development should follow MVC/ MVP pattern for ease of testing&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://asp.net/mvc"&gt;MVC&lt;/a&gt; is specifically design for better testing support &lt;/li&gt;
-&lt;li&gt;Even if you are using Asp.Net Web Forms I strongly recommended &lt;a href="http://webformsmvp.com/"&gt;MVP&lt;/a&gt; framework to implement to support more code coverage for testing &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Even for &lt;a href="http://vanilla-js.com/"&gt;Javascript&lt;/a&gt; this is true as many client side frameworks are available like &lt;a href="http://pivotal.github.com/jasmine/"&gt;Jasmine&lt;/a&gt; and &lt;a href="http://qunitjs.com/"&gt;Qunit&lt;/a&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Test Coverage&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;90% %2B should be the goal including UI logic written in JavaScript&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Again many tools are available for code coverage so not listing here. NCover is there by Default in Visual Studio higher version&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Buy, Not Build&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Take full advantage of the platform, even if only solves the 80% case (Most of the time we don’t know library functions available that leads to copy of code and rewriting functionalities )&lt;/li&gt;
-&lt;li&gt;Don’t write single line of code that you don’t have to (in software engineering one has to be lazy, if you are staying back working you’re a** of, then definitely you are not writing good code)&lt;/li&gt;
-&lt;li&gt;Take full advantage of .Net 4.0 / .Net 4.5 and also plan – test for Windows 8 (we are working for the future so, it must work on future/current releases of platforms )&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Don’t invent new solution for solved problems (in case of Dot Net &lt;a href="http://nuget.org/"&gt;nuget&lt;/a&gt; is there, just checkout that your problem is solved by community members, if yes use them and if no solve and share with community… these OSS libraries increase productivity like anything) &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Limit compile time dependencies on code you don’t own&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Everything that is now owned by &lt;strong&gt;us&lt;/strong&gt; should be behind interface and a factory method (I also like to mention a wonderful &lt;a href="http://simpleprogrammer.com/back-to-basics-series/"&gt;article series&lt;/a&gt; to understand concepts like interface) &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Define your data contracts in C# (think ‘active records’)&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;All persistence storage should be abstracted using logical interfaces&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Here we can use ORM like &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;Ormlite&lt;/a&gt; , &lt;a href="https://github.com/SamSaffron/dapper-dot-net"&gt;Dapper&lt;/a&gt; , &lt;a href="http://msdn.microsoft.com/en-us/data/ef.aspx"&gt;EF&lt;/a&gt; and few others to achieve this &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Fewer assemblies are better&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;There should be very good reason for creating a new assembly&lt;/li&gt;
-&lt;li&gt;The assembly is a smallest deployable unit, so it’s not only worth creating a new assembly if it means NOT shipping something else&lt;/li&gt;
-&lt;li&gt;Namespace != assembly name. Roll up many namespaces into one physical assembly if they all must be deployed together&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;As a thumb rule again said by &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; , domain driven and / or isolated design is only useful when we have a &lt;strong&gt;VERY&lt;/strong&gt; good knowledge of domains else it just increase number of assemblies to manage &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Only the public interface should be public&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Only make classes and interface public if absolutely necessary&lt;/li&gt;
-&lt;li&gt;Testing can be done by using internal visible to attribute&lt;/li&gt;
-&lt;li&gt;Good use of internal can avoid public issue for classes and functions&lt;/li&gt;
-&lt;li&gt;If its public, need to provide support for life time&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Also like to mentions a line from &lt;a href="https://twitter.com/jonskeet"&gt;Jon Skeet&lt;/a&gt; , “Any software/application should be code as we are coding API” &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Authentication&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Authentication should be abstracted from the application.&lt;/li&gt;
-&lt;li&gt;We can use &lt;a href="http://msdn.microsoft.com/en-in/security/aa570351.aspx"&gt;WIF&lt;/a&gt; , and token should be used to talk with other entities like Web Service &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;4.5 version framework (Asp.Net Framework) provides many options for Authentication/ Authorization that can be used here.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tracing&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Think long and hard about trace level&lt;/li&gt;
-&lt;li&gt;Use formatted resource strings everywhere for localization (Now a days localization is must for any commercial application, abstraction of that always help in long run)&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;For critical, error or warning , your audience is not a developer&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Error Handling&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Error handling is not just putting try / catch everywhere or anywhere that I called error hiding&lt;/li&gt;
-&lt;li&gt;Method names are verbs&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;If anything breaks the contract, throw an exception&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;The definition of “Done”(or how do I know when a task is ready for QA?)&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Any significant design decisions have been discussed and approved by &lt;strong&gt;team&lt;/strong&gt; (In agile team takes the decisions, so there is always a scope for saying &lt;strong&gt;NO&lt;/strong&gt; to business guys for new functionalities to implement runtime) &lt;/li&gt;
-&lt;li&gt;For each MyClass, there is a corresponding MyClassFixture in the corresponding test assembly, it also includes same for UI part using java script framework&lt;/li&gt;
-&lt;li&gt;MyClassFixture exercise all the functionality of MyClass nothing else, single responsibility is true ever for test classes&lt;/li&gt;
-&lt;li&gt;Code coverage of MyClass is =&amp;gt;90% , excluding only lines you are confident are unreasonable to test&lt;/li&gt;
-&lt;li&gt;No compiler &lt;strong&gt;warning&lt;/strong&gt; are generated by new code (warnings are equally important like error, you can ignore if you are doing POC or college project. In Visual Studio warnings are generated after completing code analysis. It should be on all the time and personally I prefer to set not to allow ‘run’ if warning is there) &lt;/li&gt;
-&lt;li&gt;Before committing anything to source control, update to get all recent changes, and make sure all unit and integration tests pass&lt;/li&gt;
-&lt;li&gt;Compiling with warnings as errors will flush out any place you forgot documentation comments, which must be included for any new code&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This is just a try to list our frameworks and new technology with this g/old guiding principals. Do let me know if anything is there to CRUD for this list.&lt;/p&gt;
-
-&lt;p&gt;This list in my &lt;strong&gt;learn by heart&lt;/strong&gt; part. Basically these points force to do good software practice.&lt;/p&gt;
-</description><pubDate>Thu, 01 Nov 2012 18:30:00 Z</pubDate><a10:updated>2012-11-01T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;I am particularly a lazy guy. I don’t work hard, stay back and never show sad face to issue or bug. Obviously many don’t like me for this. But again “who cares?”. But one thing is sure for me, I always ready to learn new things and obviously always work for better code. At the end of day it is just a code, bugs will be there and me too , to solve the issue.&lt;/p&gt;
-
-&lt;p&gt;Here, I mentions new things, but in reality it is not possible all the time that I will get new things. Some time I will get old things to take care off. Or something that never changed. I was reading old articles from &lt;a href="http://www.hanselman.com"&gt;Hanselman&lt;/a&gt; , now a days he is putting more preference over high quality article. So, his articles are not coming daily basis. So, one day I was wondering towards the &lt;a href="http://www.hanselman.com/blog/GreatestHits.aspx"&gt;hit series of articles&lt;/a&gt; and I found “ &lt;a href="http://www.hanselman.com/blog/SomeGuidingPrinciplesForSoftwareDevelopment.aspx"&gt;some guiding principles for software development&lt;/a&gt; ”. And again as per suggestion again from &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; I &lt;a href="http://www.hanselman.com/blog/InstapaperDeliveredToYourKindleChangesHowYouConsumeWebContentPlusIFTTTBlogsAndMore.aspx"&gt;read later&lt;/a&gt; it.&lt;/p&gt;
-
-&lt;p&gt;Now, I was working on something and just to get refreshed I was checking my &lt;a href="http://www.instapaper.com"&gt;Instapaper&lt;/a&gt; and found this one. I was reading it. First thing I noticed is that it was written in 2007; even before I was a certified software engineer. As, I normally don’t read historical article that much but I read this. And that surprised me!!! Nothing is changed at all. Principles are same even after 5 years of this articles. And when they written it was there only. And also one thing is not changed too, we are not following most of them… (saying from the personal experience). For a change now a days I tried to follow them…&lt;/p&gt;
-
-&lt;p&gt;So, I thought I should re-write this article in context of current technology. I am also going to put links of tools but this is my personal preference obviously in context of Dot Net only. I start learning &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt; but again I am not that good in that.&lt;/p&gt;
-
-&lt;p&gt;A original posts are from &lt;a href="http://www.cauldwell.net/patrick/blog/ThisIBelieveTheDeveloperEdition.aspx"&gt;Patrick Cauldwell&lt;/a&gt; and &lt;a href="http://www.hanselman.com/blog/SomeGuidingPrinciplesForSoftwareDevelopment.aspx"&gt;Scott Hanselman&lt;/a&gt; . Be sure to visit the original work.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Our “Guiding Principles”&lt;/strong&gt; &lt;/li&gt;
-&lt;li&gt;Test Driven Development&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;TDD / BDD always give confidence for our own written code. Couple of frameworks available for that. For TDD &lt;a href="http://www.nunit.org/"&gt;NUnit&lt;/a&gt; and &lt;a href="http://xunit.codeplex.com/"&gt;XUnit&lt;/a&gt; are there. And for two types of BDD &lt;a href="http://specflow.org"&gt;Specflow&lt;/a&gt; and &lt;a href="http://nspec.org/"&gt;NSpec&lt;/a&gt; are there. &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Continues Integration&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;This includes testing for complete application and also UI automation using framework like &lt;a href="http://seleniumhq.org/"&gt;Selenium&lt;/a&gt; (Visit &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; to check out wonderful video of UI automation) &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;I prefer to checkout blog from &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; and podcast from &lt;a href="http://www.hanselminutes.com/339/continuous-delivery-with-jez-humble-and-martin-fowler"&gt;hanselminutes&lt;/a&gt; to check this topic. &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Unit Tests&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Two kinds of tests&lt;/li&gt;
-&lt;li&gt;Unit test is what that test code written by &lt;strong&gt;us,&lt;/strong&gt; so it is not dependent over external entities like SQL or Web Service etc &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Integration test, it dependent on SQL and Web Service like external entities and check our code in reference to over logic&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Automation is equally possible for both type of test&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Again I like to mention post by &lt;a href="http://amirrajan.net/"&gt;Amir Rajan&lt;/a&gt; which show how to do automation. &lt;/li&gt;
-&lt;li&gt;As a thumb rule said by &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; whenever we need to repeat things or even have to do copy paste we should automate things. &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;There are many tools available for Visual Studio to automate testing (you need to hack little bit for Express Edition)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;All UI development should follow MVC/ MVP pattern for ease of testing&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://asp.net/mvc"&gt;MVC&lt;/a&gt; is specifically design for better testing support &lt;/li&gt;
-&lt;li&gt;Even if you are using Asp.Net Web Forms I strongly recommended &lt;a href="http://webformsmvp.com/"&gt;MVP&lt;/a&gt; framework to implement to support more code coverage for testing &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Even for &lt;a href="http://vanilla-js.com/"&gt;Javascript&lt;/a&gt; this is true as many client side frameworks are available like &lt;a href="http://pivotal.github.com/jasmine/"&gt;Jasmine&lt;/a&gt; and &lt;a href="http://qunitjs.com/"&gt;Qunit&lt;/a&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Test Coverage&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;90% %2B should be the goal including UI logic written in JavaScript&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Again many tools are available for code coverage so not listing here. NCover is there by Default in Visual Studio higher version&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Buy, Not Build&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Take full advantage of the platform, even if only solves the 80% case (Most of the time we don’t know library functions available that leads to copy of code and rewriting functionalities )&lt;/li&gt;
-&lt;li&gt;Don’t write single line of code that you don’t have to (in software engineering one has to be lazy, if you are staying back working you’re a** of, then definitely you are not writing good code)&lt;/li&gt;
-&lt;li&gt;Take full advantage of .Net 4.0 / .Net 4.5 and also plan – test for Windows 8 (we are working for the future so, it must work on future/current releases of platforms )&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Don’t invent new solution for solved problems (in case of Dot Net &lt;a href="http://nuget.org/"&gt;nuget&lt;/a&gt; is there, just checkout that your problem is solved by community members, if yes use them and if no solve and share with community… these OSS libraries increase productivity like anything) &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Limit compile time dependencies on code you don’t own&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Everything that is now owned by &lt;strong&gt;us&lt;/strong&gt; should be behind interface and a factory method (I also like to mention a wonderful &lt;a href="http://simpleprogrammer.com/back-to-basics-series/"&gt;article series&lt;/a&gt; to understand concepts like interface) &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Define your data contracts in C# (think ‘active records’)&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;All persistence storage should be abstracted using logical interfaces&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Here we can use ORM like &lt;a href="https://github.com/ServiceStack/ServiceStack.OrmLite"&gt;Ormlite&lt;/a&gt; , &lt;a href="https://github.com/SamSaffron/dapper-dot-net"&gt;Dapper&lt;/a&gt; , &lt;a href="http://msdn.microsoft.com/en-us/data/ef.aspx"&gt;EF&lt;/a&gt; and few others to achieve this &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Fewer assemblies are better&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;There should be very good reason for creating a new assembly&lt;/li&gt;
-&lt;li&gt;The assembly is a smallest deployable unit, so it’s not only worth creating a new assembly if it means NOT shipping something else&lt;/li&gt;
-&lt;li&gt;Namespace != assembly name. Roll up many namespaces into one physical assembly if they all must be deployed together&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;As a thumb rule again said by &lt;a href="http://www.hanselman.com/"&gt;Hanselman&lt;/a&gt; , domain driven and / or isolated design is only useful when we have a &lt;strong&gt;VERY&lt;/strong&gt; good knowledge of domains else it just increase number of assemblies to manage &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Only the public interface should be public&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Only make classes and interface public if absolutely necessary&lt;/li&gt;
-&lt;li&gt;Testing can be done by using internal visible to attribute&lt;/li&gt;
-&lt;li&gt;Good use of internal can avoid public issue for classes and functions&lt;/li&gt;
-&lt;li&gt;If its public, need to provide support for life time&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Also like to mentions a line from &lt;a href="https://twitter.com/jonskeet"&gt;Jon Skeet&lt;/a&gt; , “Any software/application should be code as we are coding API” &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Authentication&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Authentication should be abstracted from the application.&lt;/li&gt;
-&lt;li&gt;We can use &lt;a href="http://msdn.microsoft.com/en-in/security/aa570351.aspx"&gt;WIF&lt;/a&gt; , and token should be used to talk with other entities like Web Service &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;4.5 version framework (Asp.Net Framework) provides many options for Authentication/ Authorization that can be used here.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tracing&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Think long and hard about trace level&lt;/li&gt;
-&lt;li&gt;Use formatted resource strings everywhere for localization (Now a days localization is must for any commercial application, abstraction of that always help in long run)&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;For critical, error or warning , your audience is not a developer&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Error Handling&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Error handling is not just putting try / catch everywhere or anywhere that I called error hiding&lt;/li&gt;
-&lt;li&gt;Method names are verbs&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;If anything breaks the contract, throw an exception&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;The definition of “Done”(or how do I know when a task is ready for QA?)&lt;/strong&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Any significant design decisions have been discussed and approved by &lt;strong&gt;team&lt;/strong&gt; (In agile team takes the decisions, so there is always a scope for saying &lt;strong&gt;NO&lt;/strong&gt; to business guys for new functionalities to implement runtime) &lt;/li&gt;
-&lt;li&gt;For each MyClass, there is a corresponding MyClassFixture in the corresponding test assembly, it also includes same for UI part using java script framework&lt;/li&gt;
-&lt;li&gt;MyClassFixture exercise all the functionality of MyClass nothing else, single responsibility is true ever for test classes&lt;/li&gt;
-&lt;li&gt;Code coverage of MyClass is =&amp;gt;90% , excluding only lines you are confident are unreasonable to test&lt;/li&gt;
-&lt;li&gt;No compiler &lt;strong&gt;warning&lt;/strong&gt; are generated by new code (warnings are equally important like error, you can ignore if you are doing POC or college project. In Visual Studio warnings are generated after completing code analysis. It should be on all the time and personally I prefer to set not to allow ‘run’ if warning is there) &lt;/li&gt;
-&lt;li&gt;Before committing anything to source control, update to get all recent changes, and make sure all unit and integration tests pass&lt;/li&gt;
-&lt;li&gt;Compiling with warnings as errors will flush out any place you forgot documentation comments, which must be included for any new code&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This is just a try to list our frameworks and new technology with this g/old guiding principals. Do let me know if anything is there to CRUD for this list.&lt;/p&gt;
-
-&lt;p&gt;This list in my &lt;strong&gt;learn by heart&lt;/strong&gt; part. Basically these points force to do good software practice.&lt;/p&gt;
 </a10:content></item></channel></rss>
