@@ -12,7 +12,7 @@ Issue is mainly Functional Programming stays in back ground only. If you see any
 But functional programming can do far more than that. And that include simple things too. And I means it can make thing simpler or I can say it can make easy thing simple. 
 
 Here, if I say have to put web case here. May be web is right now most appropriate place where functional programming can be used. And reason is damn simple, current web projects are getting bigger and bigger and user base is also getting even larger. Now, to support that hardware is also getting better and better. 
-
+<!--excerpt-->
 Now, the only thing is there is a need of programming language that can use this kind of hardware. And this case Functional Programming comes in picture or I must say it is most suitable.
 
 Because there are many things that are backed into the language that help with the situation. If I take one thing is immutability. As there are grid of processors, there is a need of multiple objects using the resource parallel and there will be need to manage state of the objects. With immutability there will be no state that can be mutated. So, it is very much easy to reason with.

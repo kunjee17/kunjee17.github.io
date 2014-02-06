@@ -13,7 +13,7 @@ Birds wake up
 Songs are waiting to be sung  
 Beats are waiting for you sun shine  
 Waiting for your dazzling smile  
-
+<!--excerpt-->
 Air just started moving   
 Breeze just wanted to spread   
 Fragrance is waiting for you sun shine  

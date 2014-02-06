@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="last-modified" content="2014-02-06T14:32:00.6815209+05:30" />
+    <meta http-equiv="last-modified" content="2014-02-06T14:48:28.5279951+05:30" />
     <title>Kunjan a.k.a. Kunjee's blog</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
@@ -55,15 +55,6 @@
 
 <p><a href="http://docpad.org/">docpad</a> on other hand make it very easy to move things as at the end it is just a static html files. So, if I like give somewhat different touch to my any specific page I can give them specifically. I don't need to change complete theme for that. Which is there in other kinda blog engines. </p>
 
-<blockquote>
-  <p>Yes, and I don't like php. At all. Giving me feeling of old ASP pages. I never worked on that and never want to work on that... </p>
-</blockquote>
-
-<p>So, as of now. I happy with my static file generator that is doing much more than needed, with light weight node back end and static file as front end. </p>
-
-<p>Hopefully my blog get massive hit, as I already have set virtually infinite scalability with my static html pages ;).</p>
-
-<p>Till now experience with <a href="http://docpad.org">Docpad</a> is wonderful. There are few hiccups here and there but overall it is nice and with lots of plugins to make life even more easier. </p>
 
       <p><a href="/2013/01/hello-docpad/">Read more...</a></p>
     </li>
@@ -77,9 +68,7 @@
 
 <p>Now, it provides proper name at entity level and also inheritance like stuff. Its really a cool and neat feature about Entity Framework to abstract away the complexity of database with ‘_’ name. I never understand this type of names and I don’t know if ever I will be understanding this type of name. But if you are just updating from database and using it, than there is no use of EF at all. Or there is no need of EF. If I will become little bit harsh, then I can say <strong>“WE ARE DOING IT WRONG”</strong> .</p>
 
-<p>And after EF evolved to further version it is providing more features, but still we are stick to the feature which is shown in <a href="https://channel9.msdn.com/">Channel9</a> . We must understand here that there is difference between demo and production. In demo we have pizza factory in production we never have at least in most of the cases. So, things are far different in production environment. If we are just deleting and adding entities then obviously again <strong>“WE ARE DOING IT WRONG”</strong> . If any one think who the hell I am to tell that ??? I am just nothing and no one, but I am open minded to ideas and new things. Just think how much more overhead you are having for pushing EF in production. It is there to help you out not to make things worst.</p>
-
-<p>I tweeted about it and also got reply from Rob Conery of <a href="http://tekpub.com">Tekpub</a> . I insist to check that out. I must say EF is a tool if we are not careful it will surely hit our own ass very bad. Here is the <a href="https://twitter.com/robconery/status/270700961109004288">link</a> for tweet. So, I am not providing any right way as there are many and you will found out over google, but I am just saying to think twice before come to a conclusion or before porting demo to production environment.</p>
+<p>And after EF evolved to further version it is providing more features, but still we are stick to the feature which is shown in <a href="https://channel9.msdn.com/">Channel9</a> . We must understand here that there is difference between demo and production. In demo we have pizza factory in production we never have at least in most of the cases. So, things are far different in production environment. If we are just deleting and adding entities then obviously again <strong>“WE ARE DOING IT WRONG”</strong> . If any one think who the hell I am to tell that ??? I am just nothing and no one, but I am open minded to ideas and new things. Just think how much more overhead you are having for pushing EF in production. It is there to help you out not to make things worst.
 
       <p><a href="/2012/12/entity-framework-upside-down/">Read more...</a></p>
     </li>
@@ -95,79 +84,7 @@
 
 <p>Now, I was working on something and just to get refreshed I was checking my <a href="http://www.instapaper.com">Instapaper</a> and found this one. I was reading it. First thing I noticed is that it was written in 2007; even before I was a certified software engineer. As, I normally don’t read historical article that much but I read this. And that surprised me!!! Nothing is changed at all. Principles are same even after 5 years of this articles. And when they written it was there only. And also one thing is not changed too, we are not following most of them… (saying from the personal experience). For a change now a days I tried to follow them…</p>
 
-<p>So, I thought I should re-write this article in context of current technology. I am also going to put links of tools but this is my personal preference obviously in context of Dot Net only. I start learning <a href="http://rubyonrails.org/">Ruby on Rails</a> but again I am not that good in that.</p>
-
-<p>A original posts are from <a href="http://www.cauldwell.net/patrick/blog/ThisIBelieveTheDeveloperEdition.aspx">Patrick Cauldwell</a> and <a href="http://www.hanselman.com/blog/SomeGuidingPrinciplesForSoftwareDevelopment.aspx">Scott Hanselman</a> . Be sure to visit the original work.</p>
-
-<ul>
-<li><strong>Our “Guiding Principles”</strong> </li>
-<li>Test Driven Development</li>
-<li><p>TDD / BDD always give confidence for our own written code. Couple of frameworks available for that. For TDD <a href="http://www.nunit.org/">NUnit</a> and <a href="http://xunit.codeplex.com/">XUnit</a> are there. And for two types of BDD <a href="http://specflow.org">Specflow</a> and <a href="http://nspec.org/">NSpec</a> are there. </p></li>
-<li><p>Continues Integration</p></li>
-<li>This includes testing for complete application and also UI automation using framework like <a href="http://seleniumhq.org/">Selenium</a> (Visit <a href="http://amirrajan.net/">Amir Rajan</a> to check out wonderful video of UI automation) </li>
-<li><p>I prefer to checkout blog from <a href="http://amirrajan.net/">Amir Rajan</a> and podcast from <a href="http://www.hanselminutes.com/339/continuous-delivery-with-jez-humble-and-martin-fowler">hanselminutes</a> to check this topic. </p></li>
-<li><p><strong>Unit Tests</strong> </p></li>
-<li>Two kinds of tests</li>
-<li>Unit test is what that test code written by <strong>us,</strong> so it is not dependent over external entities like SQL or Web Service etc </li>
-<li><p>Integration test, it dependent on SQL and Web Service like external entities and check our code in reference to over logic</p></li>
-<li><p>Automation is equally possible for both type of test</p></li>
-<li>Again I like to mention post by <a href="http://amirrajan.net/">Amir Rajan</a> which show how to do automation. </li>
-<li>As a thumb rule said by <a href="http://www.hanselman.com/">Hanselman</a> whenever we need to repeat things or even have to do copy paste we should automate things. </li>
-<li><p>There are many tools available for Visual Studio to automate testing (you need to hack little bit for Express Edition)</p></li>
-<li><p>All UI development should follow MVC/ MVP pattern for ease of testing</p></li>
-<li><a href="http://asp.net/mvc">MVC</a> is specifically design for better testing support </li>
-<li>Even if you are using Asp.Net Web Forms I strongly recommended <a href="http://webformsmvp.com/">MVP</a> framework to implement to support more code coverage for testing </li>
-<li><p>Even for <a href="http://vanilla-js.com/">Javascript</a> this is true as many client side frameworks are available like <a href="http://pivotal.github.com/jasmine/">Jasmine</a> and <a href="http://qunitjs.com/">Qunit</a> </p></li>
-<li><p><strong>Test Coverage</strong> </p></li>
-<li>90% %2B should be the goal including UI logic written in JavaScript</li>
-<li><p>Again many tools are available for code coverage so not listing here. NCover is there by Default in Visual Studio higher version</p></li>
-<li><p><strong>Buy, Not Build</strong> </p></li>
-<li>Take full advantage of the platform, even if only solves the 80% case (Most of the time we don’t know library functions available that leads to copy of code and rewriting functionalities )</li>
-<li>Don’t write single line of code that you don’t have to (in software engineering one has to be lazy, if you are staying back working you’re a** of, then definitely you are not writing good code)</li>
-<li>Take full advantage of .Net 4.0 / .Net 4.5 and also plan – test for Windows 8 (we are working for the future so, it must work on future/current releases of platforms )</li>
-<li><p>Don’t invent new solution for solved problems (in case of Dot Net <a href="http://nuget.org/">nuget</a> is there, just checkout that your problem is solved by community members, if yes use them and if no solve and share with community… these OSS libraries increase productivity like anything) </p></li>
-<li><p><strong>Limit compile time dependencies on code you don’t own</strong> </p></li>
-<li><p>Everything that is now owned by <strong>us</strong> should be behind interface and a factory method (I also like to mention a wonderful <a href="http://simpleprogrammer.com/back-to-basics-series/">article series</a> to understand concepts like interface) </p></li>
-<li><p><strong>Define your data contracts in C# (think ‘active records’)</strong> </p></li>
-<li>All persistence storage should be abstracted using logical interfaces</li>
-<li><p>Here we can use ORM like <a href="https://github.com/ServiceStack/ServiceStack.OrmLite">Ormlite</a> , <a href="https://github.com/SamSaffron/dapper-dot-net">Dapper</a> , <a href="http://msdn.microsoft.com/en-us/data/ef.aspx">EF</a> and few others to achieve this </p></li>
-<li><p><strong>Fewer assemblies are better</strong> </p></li>
-<li>There should be very good reason for creating a new assembly</li>
-<li>The assembly is a smallest deployable unit, so it’s not only worth creating a new assembly if it means NOT shipping something else</li>
-<li>Namespace != assembly name. Roll up many namespaces into one physical assembly if they all must be deployed together</li>
-<li><p>As a thumb rule again said by <a href="http://www.hanselman.com/">Hanselman</a> , domain driven and / or isolated design is only useful when we have a <strong>VERY</strong> good knowledge of domains else it just increase number of assemblies to manage </p></li>
-<li><p><strong>Only the public interface should be public</strong> </p></li>
-<li>Only make classes and interface public if absolutely necessary</li>
-<li>Testing can be done by using internal visible to attribute</li>
-<li>Good use of internal can avoid public issue for classes and functions</li>
-<li>If its public, need to provide support for life time</li>
-<li><p>Also like to mentions a line from <a href="https://twitter.com/jonskeet">Jon Skeet</a> , “Any software/application should be code as we are coding API” </p></li>
-<li><p><strong>Authentication</strong> </p></li>
-<li>Authentication should be abstracted from the application.</li>
-<li>We can use <a href="http://msdn.microsoft.com/en-in/security/aa570351.aspx">WIF</a> , and token should be used to talk with other entities like Web Service </li>
-<li><p>4.5 version framework (Asp.Net Framework) provides many options for Authentication/ Authorization that can be used here.</p></li>
-<li><p><strong>Tracing</strong> </p></li>
-<li>Think long and hard about trace level</li>
-<li>Use formatted resource strings everywhere for localization (Now a days localization is must for any commercial application, abstraction of that always help in long run)</li>
-<li><p>For critical, error or warning , your audience is not a developer</p></li>
-<li><p><strong>Error Handling</strong> </p></li>
-<li>Error handling is not just putting try / catch everywhere or anywhere that I called error hiding</li>
-<li>Method names are verbs</li>
-<li><p>If anything breaks the contract, throw an exception</p></li>
-<li><p><strong>The definition of “Done”(or how do I know when a task is ready for QA?)</strong> </p></li>
-<li>Any significant design decisions have been discussed and approved by <strong>team</strong> (In agile team takes the decisions, so there is always a scope for saying <strong>NO</strong> to business guys for new functionalities to implement runtime) </li>
-<li>For each MyClass, there is a corresponding MyClassFixture in the corresponding test assembly, it also includes same for UI part using java script framework</li>
-<li>MyClassFixture exercise all the functionality of MyClass nothing else, single responsibility is true ever for test classes</li>
-<li>Code coverage of MyClass is =&gt;90% , excluding only lines you are confident are unreasonable to test</li>
-<li>No compiler <strong>warning</strong> are generated by new code (warnings are equally important like error, you can ignore if you are doing POC or college project. In Visual Studio warnings are generated after completing code analysis. It should be on all the time and personally I prefer to set not to allow ‘run’ if warning is there) </li>
-<li>Before committing anything to source control, update to get all recent changes, and make sure all unit and integration tests pass</li>
-<li>Compiling with warnings as errors will flush out any place you forgot documentation comments, which must be included for any new code</li>
-</ul>
-
-<p>This is just a try to list our frameworks and new technology with this g/old guiding principals. Do let me know if anything is there to CRUD for this list.</p>
-
-<p>This list in my <strong>learn by heart</strong> part. Basically these points force to do good software practice.</p>
-
+<p>
       <p><a href="/2012/11/something-never-changed-hellip-guiding-principal-to-software-development/">Read more...</a></p>
     </li>
     <li class="fancy-container lightblue">
@@ -184,15 +101,7 @@
 
 <p>Than I got mail that Pro version is available. Wow, I just loved that news. So, first thing first learn about SSD and I got wonderful <a href="http://www.overclock.net/t/1227655/how-to-set-up-intel-smart-response-technology-ssd-caching">article</a> written by Sean. Ok, now I know that SSD for caching only. Here, issue again that I need to order first as direct download of ISO is not available. Damn is seriously don’t like this.</p>
 
-<p>To, do that I need to reinstall Windows 7 and then I started the process using <a href="http://windows.microsoft.com/en-IN/windows/upgrade-offer">upgrade wizard</a> . I ordered my brand new Windows 8 Pro and started downloading. Then there is wizard come that give me option to create a ISO for that. I selected that. And then I have created my boot USB.</p>
-
-<p>Ok, things seems good up till now. But when I change my mode to SATA ACHI to RAID, drive is not showing up only. I installed in ACHI and try to change again but giving me error that drive where windows is locked. Just feeling like I am road end. Then I have done some Google, but sadly couldn’t found any perfect solution. That keep me thinking how to give them driver even before installing of windows.</p>
-
-<p>Now, time came where one should trust books and basics instead of Google God. Drivers are sys files which allows you to load hardware, it is not exe, out file its below that which contains definition of the hardware. So, I went to dell site and download drivers. I extracted on my other machine, put it on USB from where I am installing OS. At the time of installation I clicked load drivers, unchecked for singed drivers only check-box and I got the list of drivers available. I selected the RAID one and magic works. Drive list arrives to complete the installation. Later things is kids stuff, next next and Windows 8 up and running. [NOTE: You need key to do the installation. I don’t find trial option in there. ]</p>
-
-<p>Now, time to use SSD, just install all the application from Dell [In case of other vendors use your respective site or Intel site] and you will get Rapid Storage software running, just enable Caching there for your hard disk using SSD. Its done. A cool OS is ready to use.</p>
-
-<p>Download aaps, Visual Studio are running. Its done. Enjoy the change.</p>
+<p>To, do that I need to reinstall Windows 7 and then I started the process using <a href="http://windows.microsoft.com/en-IN/windows/upgrade-offer">upgrade wizard</a> . I ordered my brand new Windows 8 Pro and started downloading. Then there is wizard come that give me option to create a ISO for that. I selected that. And then I have created my boot USB.
 
       <p><a href="/2012/10/duffer-s-guide-for-windows-8-installation/">Read more...</a></p>
     </li>
@@ -209,86 +118,8 @@
 <p>It is normal. Even I thought just another things come from <a href="https://www.microsoft.com">Microsoft</a> that is similar to <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> . But I was wrong it is far different than <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> . I am in long time relationship with typed language like C-*, JAVA and recently fall in love with Ruby like language. So, I kinda like both. I don’t have problem with any. Whenever I am learning <a href="http://rubyonrails.org/">Ruby on Rails</a> I like to code with <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> and even I started using with my day to day work in .Net. But there is no symmetry in that. I am missing that. And typescript came to solve that issue. Obviously some people claim that they don’t need good tool but still I wonder how can a person make enterprise level language using notepad.</p>
 
 <blockquote>
-  <p>Check out comments section over this blog :  </p>
-</blockquote>
-
-<p><a href="http://www.typescriptlang.org">Typescript</a> is just provide type to <a href="http://vanilla-js.com/">javascript</a> . And with that it provides tooling support to writing client side code. Nothing else. Even it is not trying to bring good parts of <a href="http://vanilla-js.com/">javascript</a> to you. Like <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> . Not forcing anything and also not doing any magic behind. So, you can say it is very near to metal, pure <a href="http://vanilla-js.com/">javascript</a> . And I like and also dislike this thing. I like this because it allows me copy paste and I have it because it also allows bad parts of <a href="http://vanilla-js.com/">javascript</a> to production code. I personally like <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> for a reason that it doesn’t allows any bad parts but restrict / force you to write good parts only. Again this is personal view and like. I am not that good with <a href="http://vanilla-js.com/">javascript</a> so I prefer writing code in <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> which take care of every other things and emit a beautiful <a href="http://vanilla-js.com/">javascript</a> . </p>
-
-<p>But a person who is good with <a href="http://vanilla-js.com/">javascript</a> or believed to be good with <a href="http://vanilla-js.com/">javascript</a> . <a href="http://www.typescriptlang.org">Typescript</a> is for them. It is wonderful thing which provides complete freedom of <a href="http://vanilla-js.com/">javascript</a> with types to help you out.<br />
-So, lets check out what the hell <a href="http://www.typescriptlang.org">typescript</a> is.</p>
-
-<p>I have special relationship with this. Because this is the first language I have read language specification. Huff its nasty. At first shot I haven’t got a single thing. But than when I am in the state of understanding that its just wow. I just loved it. I should have read language specification with Pro Books. I personally insist to visit site and check out <a href="http://www.typescriptlang.org">typescript</a> , a wonderful introduction video is there. And lots of samples are also available too. Also, there is <a href="http://go.microsoft.com/fwlink/?LinkId=267238">specification</a> available. It is nice, must read book.</p>
-
-<p>If you are lazy genius than you should continue reading. I will try to cover as much possible of <a href="http://www.typescriptlang.org">typescript</a> .</p>
-
-<p>Basically you can just bounce <a href="http://vanilla-js.com/">javascript</a> into <a href="http://www.typescriptlang.org">typescript</a> just like that. It will work because of dynamic data type “any”. But just like dynamic keyword of C# it will not provide intellesense support. But I think its fine it you using some <a href="http://go.microsoft.com/fwlink/?LinkId=267238">JQuery</a> plug in just to do some UI effect or something like that.</p>
-
-<p>Type script has <strong>module</strong> keyword to define namespace. In that module you can bounce classes, functions, interface or var. If any of that which is not exported or public in case of functions than that is private to that module. And module is public/global variable. So, everything within that is exported using module pattern. Here is sample directly taken from <a href="http://www.typescriptlang.org">typescript</a> site. </p>
-
-<p>module Sayings { 
-    export class Greeter { 
-      greeting: string ; 
-      constructor (message: string ) { 
-        this .greeting = message; 
-      } 
-      greet() { 
-      return "Hello, " + this .greeting; } 
-      } 
-    } 
-    var greeter = new Sayings.Greeter( "world" ); 
-    var button = document.createElement( 'button' ) 
-    button.innerText = "Say Hello"; 
-    button.onclick = function () { 
-      alert(greeter.greet()) 
-    } 
-    document.body.appendChild(button) </p>
-
-<p>That will generate java script as shown below.</p>
-
-<p>var Sayings; 
-  ( function (Sayings) { 
-    var Greeter = ( function () { 
-      function Greeter(message) { 
-        this .greeting = message; 
-        } 
-        Greeter.prototype.greet = function () { 
-        return "Hello, " + this .greeting; }; 
-        return Greeter; })(); 
-        Sayings.Greeter = Greeter; })
-        (Sayings || (Sayings = {})); 
-        var greeter = new Sayings.Greeter( "world" ); 
-        var button = document.createElement( 'button' ); 
-        button.innerText = "Say Hello" ; 
-        button.onclick = function () { 
-          alert(greeter.greet()); }; 
-        document.body.appendChild(button); </p>
-
-<p>Lovely I guess. So, this is basic <a href="http://www.typescriptlang.org">typescript</a> , its nothing but a <a href="http://vanilla-js.com/">javascript</a> with class. So, I don’t copy paste more example here, but talk about few things I like about type script. And you can always visit a site to check out. If you have read my <a href="http://kunjan.in/archives/coffee-with-coffeescript">coffeescript</a> article, it was longgggggg… but in that there is lot to cover. If I started writing that much about <a href="http://www.typescriptlang.org">typescript</a> it will be <a href="http://vanilla-js.com/">javascript</a> class only.</p>
-
-<p>So, here is a small list of things I like about <a href="http://www.typescriptlang.org">typescript</a> </p>
-
-<ul>
-<li>It provide support for number,string, array and dynamic function</li>
-<li>Easy to integrate with external java script library</li>
-<li>one can create or export declaration file to provide intellisense support</li>
-<li>module, classes, private/public functions are just super awesome as it feels like typed language</li>
-<li>interface support is there, just another add in to dynamic language to make programming like anything</li>
-<li><a href="http://jquery.com/">JQuery</a> , JQueryUI, Win8 files are available in samples, I guess best way to learn <a href="http://jquery.com/">JQuery</a> , just fire a command, and be sure that you will not get spelling mistakes </li>
-<li>AMD and Module pattern is default in build so, there classes are ready use with framework like <a href="http://www.requirejs.org/">RequireJS</a> . //I seriously want this with CoffeeScript </li>
-<li>Miserable “this” keyword is getting handled nicely</li>
-<li>Very less change in your written functions and generated <a href="http://vanilla-js.com/">javascript</a> functions. //At some point I don’t like this as it allows bad parts in your functions </li>
-</ul>
-
-<p>Obviously I don’t like few things about <a href="http://www.typescriptlang.org">typescript</a> too.</p>
-
-<ul>
-<li>It is allowing bad code, even like comparison operator is not getting corrected like other counterparts.</li>
-<li>Easy to go wrong as it provides free will to put step out side the boundary as it not force you for that</li>
-<li>It is not sweet like <a href="http://kunjan.in/archives/coffee-with-coffeescript">coffeescript</a></li>
-</ul>
-
-<p>Comments and corrections are always welcome. But I strongly recommended not to bash company or new born language. I am not working in Microsoft but we are leaving in free world and <a href="http://www.typescriptlang.org">Typescript</a> is open source under apache license.</p>
-
+  <p>Check out comments section over this blog :<br />
+  
       <p><a href="/2012/10/type-casting-javascript-with-typescript/">Read more...</a></p>
     </li>
     <li class="fancy-container lightblue">
@@ -303,11 +134,6 @@ So, lets check out what the hell <a href="http://www.typescriptlang.org">typescr
 
 <p>Here is the video.</p>
 
-<iframe style="height:544px;width:960px" src="http://channel9.msdn.com/Events/MIX/MIX11/OPN08/player?w=960&h=544" frameBorder="0" scrolling="no" ></iframe>
-
-<p><strong>So, here is details that are showed in video.</strong> </p>
-
-<p>Please go through this. Its worth watching and learning.</p>
 
       <p><a href="/2012/09/java-script-diary-ii/">Read more...</a></p>
     </li>
@@ -321,63 +147,7 @@ So, lets check out what the hell <a href="http://www.typescriptlang.org">typescr
 
 <p>And as a base rule. Even you are using <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> , you are not escaping from <a href="http://vanilla-js.com/">JavaScript</a> . It was there and it will be there for future for sure. So, It is worth learning it. If you have read previous article you must know that I am not that good with <a href="http://vanilla-js.com/">JavaScript</a> . So, I started learning and also thought for note I should put that to a blog. Whatever I learn will document on my blog. So, that will helpful to others and specially for me.</p>
 
-<p>Most of the guys must be knowing many things. But that’s fine, its again for personal reference.</p>
-
-<p><a href="http://vanilla-js.com/">JavaScript</a> is very flexible language. And this allows you to write lovely code without worrying about many things. But again this makes issue many times. And every damn time I will end up messing with that flexibility issue. <a href="https://lh5.googleusercontent.com/-9S0vNlm41AY/URHJtukdwUI/AAAAAAAAArI/blHsaJPrt_c/s800/flexible_4.jpg"> <img src="https://lh5.googleusercontent.com/-9S0vNlm41AY/URHJtukdwUI/AAAAAAAAArI/blHsaJPrt_c/s800/flexible_4.jpg" alt="flexible" /></a> </p>
-
-<p>And first thing starts with Global variable. In <a href="http://vanilla-js.com/">JavaScript</a> everything is global by default. So, whenever you are writing any function just like that, they are globally accessible. This is an issue. Just like static variable in any other language. So, don’t write functions just like that. Out anywhere on page. Simple solution of this is self executable anonymous function. That will make everything private. And that’s good at some point at least better than putting everything global. Here everything is private and executed. Just check out the example. </p>
-
-<pre><code>(funciton{ 
-  var dosomething = function (){ 
-  //Here I am doing something 
-  } 
-})(); 
-</code></pre>
-
-<p>Here do something is completely private. But sometime we need some thing in global. We need to access it from outside. Then there are two patterns for that. Module Pattern and Revealing Module Pattern. I personally prefer Revealing Module Patter. So, I am giving demo for that.</p>
-
-<pre><code>var REVEALING; 
-  REVEALING = ( function () { 
-    var dosomething = function (){ 
-      //Here I am doing something 
-      } 
-      var dosomethingmore = function (){ 
-      // here I am accessing dosomething 
-    function dosomething(); 
-    } 
-  return 
-    {   
-    dosomethingmore:dosomethingmore 
-    //here only one function is exposed 
-    //so it is the only function available outside this namespace 
-    } 
-})(); 
-</code></pre>
-
-<p>Here one more thing comes in a picture. Namespace, which are not available by default in <a href="http://vanilla-js.com/">JavaScript</a> .</p>
-
-<p>As namespace is not there, we are missing classes too. As <a href="http://vanilla-js.com/">JavaScript</a> is a functional language, it only has functions, also as available as Objects. So, if you like to make things like classes, internally they are functions only. And you also can create constructor based functions too.</p>
-
-<pre><code>var Dosomething = ( 
-  function (){ 
-    function Dosomething(parametername)   
-    this.parametername = parametername; 
-})(); 
-</code></pre>
-
-<p>So, now we have our lovely constructor with parameter. While calling this we can just do like this</p>
-
-<p><code>var dosomethingobject = new Dosomething( "namehere" );</code> </p>
-
-<p>And after that we can call whatever functions we like to call. It will use the parameter. This is also having same benefit as we are getting with parameterized constructor in structured language. So, this small things always helps to write more readable code.</p>
-
-<p>One another things worth nothing here. It is that we can write anything anywhere in <a href="http://vanilla-js.com/">JavaScript</a> does not mean that we should go for that. Even in <a href="http://vanilla-js.com/">JavaScript</a> Single Responsibility Principal should be followed.</p>
-
-<p>And also parameter name and function name should be self describing. Just because <a href="http://vanilla-js.com/">JavaScript</a> is giving freedom we just use it like that.</p>
-
-<p>There are many library and other corner cases that can be consider while development client side JavaScript application. But that will be in next time.</p>
-
-<p>Till then happy coding…</p>
+<p>Most of the guys must be knowing many things. But that’s fine, its again for personal reference.
 
       <p><a href="/2012/09/java-script-diary-i/">Read more...</a></p>
     </li>
@@ -397,51 +167,7 @@ I miss you, my dear sister</p>
 Teasing me with different names<br />
 Remaining is now, only the pain<br />
 Not being with you, I feel mundane<br />
-I miss you, my dear sister</p>
-
-<p>You are Dad’s favorite<br />
-You are Mom’s favorite<br />
-But you know you are also my favorite<br />
-Then why you became someone else’s favorite<br />
-I miss you, my dear sister  </p>
-
-<p>Achievements are just made for you<br />
-Success always waiting for you<br />
-Even world is following you<br />
-But you know at home, someone still waiting for you<br />
-I miss you, my dear sister   </p>
-
-<p>You went to school made new friends<br />
-You went to college made new friends<br />
-I go to school, you are my friend<br />
-I go to college, you are my friend<br />
-I miss you, my dear sister</p>
-
-<p>I know you want to shine and never fade<br />
-Want to study and always be ahead<br />
-Want to work hard and move forward<br />
-But once look back, and then move forward<br />
-I miss you, my dear sister</p>
-
-<p>Time doesn’t stop, neither do you<br />
-You are busy with time for only few<br />
-I am still at doorstep, eagerly waiting for you<br />
-I miss you, my dear sister</p>
-
-<p>You got married, had a new life<br />
-Few more smiles because of you,<br />
-A new sunrise shines your new life<br />
-But what will I do without you<br />
-I miss you, my dear sister</p>
-
-<p>My life is incomplete without you<br />
-My poem is incomplete without you   </p>
-
-<hr />
-
-<hr />
-
-<p>I miss you, my dear sister</p>
+I miss you, my dear sister
 
       <p><a href="/2012/04/i-miss-you-sister/">Read more...</a></p>
     </li>
@@ -451,303 +177,7 @@ My poem is incomplete without you   </p>
         <span>posted on 01 Apr 2012</span>
       </h1> 
       
-      <p>I am in Bangalore, and first thing I found here classically well is <a href="https://en.wikipedia.org/wiki/Coffee">coffee</a>. Obviously I will not going to talk about coffee here. But about <a href="http://coffeescript.org/">CoffeeScript</a> which is as good as <a href="https://en.wikipedia.org/wiki/Coffee">coffee</a> . I come to know about <a href="http://coffeescript.org/">CoffeeScript</a> from the <a href="http://www.hanselman.com/blog/CoffeeScriptSassAndLESSSupportForVisualStudioAndASPNETWithTheMindscapeWebWorkbench.aspx">article</a> written by <a href="http://www.hanselman.com">Scott Hanselman</a> . And I become addicted to it. I am not much a web guy. I like coding but mostly on server end. And Visual Studio is always there to save me. But when it comes to Java Script, I just crash land any time. I always try to go back to server as soon as possible. Obviously <a href="http://jquery.com/">JQuery</a> is there to bail me out. But still it is only for DOM, but for other things, you have to be expert. Now, here expert means whose written <a href="http://www.w3schools.com/js/default.asp">Java Script</a> pass the <a href="http://www.jslint.com/">JSLint</a> with minimum errors. Simple functions and doing some addition is not a big deal but making a library for web application is do a big deal. At least for me. I am so rigid about my code quality and <a href="http://www.w3schools.com/js/default.asp">Java Script</a> is a damn flexible scripting language which easy become a sloppy for me. I always try to follow architecture define by <a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742?tag=duckduckgo-d-20">Java Script Good Parts</a> . But at the end following some rules in <a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)">C Sharp</a> is easy than follow in <a href="http://www.w3schools.com/js/default.asp">Java Script</a>. But God is with me. I found a friend who is damn powerful in <a href="http://www.w3schools.com/js/default.asp">Java Script</a> .</p>
-
-<p>She is princess of <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . She write JS like any thing. And standards are not violated at all. I don’t know how someone can write code like that. She is like <a href="http://www.cynthiarothrock.org/">Cynthia Rothrock</a> of Web. <img src="https://lh4.googleusercontent.com/-Dw-LumABw0Q/URHJoqyQPlI/AAAAAAAAApY/hnY4qIE8wAE/s800/CR_2.jpg" alt="" /> </p>
-
-<p>Yeah, she is like her only. Just like photo. A girl you don’t want to mess with.</p>
-
-<blockquote>
-  <p><em>I am not that another person in picture. It just a FYI.</em> </p>
-</blockquote>
-
-<p>Like <a href="http://www.cynthiarothrock.org/">Cynthia Rothrock</a> she is also a black belt but in <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . Always kicking around in web arena. Whenever I stuck somewhere she comes laugh at me and solve the problem. And what I am in compare to her, like kid shown here. </p>
-
-<p><img src="https://lh6.googleusercontent.com/-TwrCb_2KLk0/URHJyRifiTI/AAAAAAAAAsk/V7mr0dHwQ3o/s800/kids-gi_thumb.jpg" alt="" /></p>
-
-<p>A white belt kid. Now what I can do to match the standards with her. Technically I can’t. As she is black belt and I am just a kid. But I am a smart kid. I drink some <a href="http://www.cynthiarothrock.org/">coffee</a> and write <a href="http://coffeescript.org/">CoffeeScript</a> . Yeah, you have black belt and I have <a href="http://www.cynthiarothrock.org/">coffee</a> . Now, I come to point. There is always a need of writing good code, weather it is compiled language or a scripting language.</p>
-
-<p>And good code has two main quality as per me. One is its readability and another is extendibility. If I am writing code, other should read it and also able to extend it. Now, if you are writing <a href="http://www.w3schools.com/js/default.asp">Java Script</a> like her, others don’t find any problem to read or extend it but else that will be a problem specifically with scripting languages. It prone to get dirty soon.</p>
-
-<p>Here, <a href="http://coffeescript.org/">CoffeeScript</a> has major advantage. First thing its readability, and second thing it is just a <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . Here, I am going to use few example from <a href="http://coffeescript.org/">CoffeeScript</a> site only. So, if you like to try it out, site have try <a href="http://coffeescript.org/">CoffeeScript</a> option, I encouraged you to do that.</p>
-
-<p>To try <a href="http://coffeescript.org/">coffeeScript</a> on local machine there are few options to go with. Today most of the IDE supports add on for <a href="http://coffeescript.org/">CoffeeScript</a> . But I prefer the <a href="http://nodejs.org/">Node</a> way. Just install it and start firing commands. You can check out home site for <a href="http://coffeescript.org/">CoffeeScript</a> to starts with. I am now starting with example.</p>
-
-<p>First thing I love about CoffeeScript is call back function. It wrapper your code around <a href="http://www.w3schools.com/js/default.asp">Java Script</a> callback function by default. Here is Hello World example of it. I first go with Java Script</p>
-
-<pre><code>(function () { 
-  alert( "this is coffee Script" ); 
-}).call( this );
-</code></pre>
-
-<p>This is pretty small things. But I forget many times. This will call anonymous function to self so it will not mess with other libraries around. And what I wrote in <a href="http://coffeescript.org/">CoffeeScript</a> file. Just one line </p>
-
-<pre><code>alert "this is coffee Script" 
-</code></pre>
-
-<p>That’s it. That all I wanted to do. No more function and all that, no more brackets; nothing. Just like any other <a href="https://en.wikipedia.org/wiki/Domain_specific_language">DSL</a> , just write what I like to do. It is pretty basic example but even from start, it is showing the power of <a href="http://coffeescript.org/">CoffeeScript</a> .</p>
-
-<p>Another thing I like is working with arrays. After having list and collection in new languages, working with array is little bit difficult sometime. My friend mention above wrote complete library to get functionality like List in <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . But it is fun to write array in <a href="http://coffeescript.org/">CoffeeScript</a> .</p>
-
-<p>Normally we do things in <a href="http://www.w3schools.com/js/default.asp">Java Script</a> like shown here </p>
-
-<pre><code>(function() {
-  var food, foods, _i, _len;
-
-  foods = ['broccoli', 'spinach', 'chocolate'];
-
-  for (_i = 0, _len = foods.length; _i &lt; _len; _i++) {
-  food = foods[_i];
-  if (food !== 'chocolate') {
-      eat(food);
-  }
-  }
-
-}).call(this); 
-</code></pre>
-
-<p>But in <a href="http://coffeescript.org/">CoffeeScript</a>  </p>
-
-<pre><code>foods = ['broccoli', 'spinach', 'chocolate']
-eat food for food in foods when food isnt 'chocolate'
-</code></pre>
-
-<p>Its just pure fun. Here there are few things I like to mentions specifically. First thing I have already mentioned is how to do array thing in fun way. Other thing if you have noticed is a loop with “_” variables. <a href="http://coffeescript.org/">CoffeeScript</a> takes care of everything starting from scoping of variable by it self. If you need to mentions at top or take care that it will not go out of scope. That will be taken care, even simple thing like loop is written in way it should be written.</p>
-
-<p>Another example for looping</p>
-
-<p>In <a href="http://www.w3schools.com/js/default.asp">Java Script</a> it is like </p>
-
-<pre><code>(function() {
-  var countdown, num;
-
-  countdown = (function() {
-  var _i, _results;
-  _results = [];
-  for (num = _i = 10; _i &gt;= 1; num = --_i) {
-      _results.push(num);
-  }
-  return _results;
-  })();
-
-}).call(this);
-</code></pre>
-
-<p>And in <a href="http://coffeescript.org/">CoffeeScript</a> it is like a one line, giving For Each loop feeling in <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . </p>
-
-<p>countdown = (num for num in [10..1])</p>
-
-<p>So, Here there is one another benefit. If I am insisting for <a href="http://coffeescript.org/">CoffeeScript</a> , it is not against the <a href="http://www.w3schools.com/js/default.asp">Java Script</a> but in favor of learning it. One will know the right way of writing <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . As per site of <a href="http://coffeescript.org/">CoffeeScript</a> , <a href="http://www.w3schools.com/js/default.asp">Java Script</a> generated by it passed the <a href="http://www.jslint.com/">JSLint</a> without a single error. So, it is good to learn <a href="http://www.w3schools.com/js/default.asp">Java Script</a> using <a href="http://coffeescript.org/">CoffeeScript</a> .</p>
-
-<p>Now, if any one is fan of <a href="http://www.ruby-lang.org/en/">Ruby</a> , it supports <a href="http://www.ruby-lang.org/en/">Ruby</a> like syntax in few cases. Obviously web club will like this. You can pass inline variable with “#” and it will work. Let me show you the example.</p>
-
-<p>This time I will go with <a href="http://coffeescript.org/">CoffeeScript</a> first </p>
-
-<pre><code>yearsOld = max: 10, ida: 9, tim: 11
-
-ages = for child, age of yearsOld
-  "#{child} is #{age}"
-</code></pre>
-
-<p>And here is <a href="http://www.w3schools.com/js/default.asp">Java Script</a> for it </p>
-
-<pre><code>(function() {
-  var age, ages, child, yearsOld;
-
-    yearsOld = {
-    max: 10,
-    ida: 9,
-    tim: 11
-    };
-
-    ages = (function() {
-    var _results;
-    _results = [];
-    for (child in yearsOld) {
-        age = yearsOld[child];
-        _results.push("" + child + " is " + age);
-    }
-return _results;
-  })();
-
-}).call(this);
-</code></pre>
-
-<p>See it take pretty good care of every damn thing. I just fall in love of this. Pushing everything over the top and returning result, changing things with appropriate variables. Every damn thing. Isn’t it good ???</p>
-
-<p>There are few more things for conditional operators and looping. But I like to move on to little bit complex example. If I want to create library like <a href="http://jquery.com/">JQuery</a> , few more things must be there. Now, <a href="http://www.w3schools.com/js/default.asp">Java Script</a> doesn’t have private , public things or classes by default. In <a href="http://www.w3schools.com/js/default.asp">Java Script</a> functions are the classes it self. And there is a trick to do private public thing in <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . Most of <a href="http://www.w3schools.com/js/default.asp">Java Script</a> programmer must have known this. But this thing is fairly easy in <a href="http://coffeescript.org/">CoffeeScript</a> . It has its own class syntax and there you go. Code like any other higher level language. Just check it out.</p>
-
-<p>CoffeeScript Code</p>
-
-<pre><code>class Animal
-  constructor: (@name) -&gt;
-
-  move: (meters) -&gt;
-  alert @name + " moved #{meters}m."
-</code></pre>
-
-<p>class Snake extends Animal
-      move: ->
-      alert "Slithering..."
-    super 5</p>
-
-<pre><code>class Horse extends Animal
-  move: -&gt;
-  alert "Galloping..."
-  super 45
-
-sam = new Snake "Sammy the Python"
-tom = new Horse "Tommy the Palomino"
-
-sam.move()
-tom.move()
-</code></pre>
-
-<p>And here is Java Script code ( </p>
-
-<pre><code>(function() {
-  var Animal, Horse, Snake, sam, tom,
-__hasProp = {}.hasOwnProperty,
-__extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  Animal = (function() {
-
-  function Animal(name) {
-    this.name = name;
-  }
-
-  Animal.prototype.move = function(meters) {
-    return alert(this.name + (" moved " + meters + "m."));
-  };
-
-  return Animal;
-
-  })();
-
-  Snake = (function(_super) {
-
-__extends(Snake, _super);
-
-function Snake() {
-  return Snake.__super__.constructor.apply(this, arguments);
-}
-
-Snake.prototype.move = function() {
-  alert("Slithering...");
-  return Snake.__super__.move.call(this, 5);
-};
-
-return Snake;
-
-  })(Animal);
-
-  Horse = (function(_super) {
-
-__extends(Horse, _super);
-
-function Horse() {
-  return Horse.__super__.constructor.apply(this, arguments);
-}
-
-Horse.prototype.move = function() {
-  alert("Galloping...");
-  return Horse.__super__.move.call(this, 45);
-};
-
-return Horse;
-
-  })(Animal);
-
-  sam = new Snake("Sammy the Python");
-
-  tom = new Horse("Tommy the Palomino");
-
-  sam.move();
-
-  tom.move();
-
-}).call(this);
-</code></pre>
-
-<p>Isn’t it cool ?? I guess it is. Making library becomes so easy with this kind of syntax. Obviously for the person like me who is from another language background.</p>
-
-<p>Let us see some more complex example. Of function binding. It is easy to bind function. No, extra code at all. </p>
-
-<pre><code>Account = (customer, cart) -&gt;
-  @customer = customer
-  @cart = cart
-
-  $('.shopping_cart').bind 'click', (event) =&gt;
-  @customer.purchase @cart
-</code></pre>
-
-<p>And it will generate appropriate Java Script</p>
-
-<pre><code>(function() {
-  var Account;
-
-  Account = function(customer, cart) {
-  var _this = this;
-  this.customer = customer;
-  this.cart = cart;
-  return $('.shopping_cart').bind('click', function(event) {
-    return _this.customer.purchase(_this.cart);
-  });
-  };
-
-}).call(this);
-</code></pre>
-
-<p>See. It is fun. If you are thinking that what if you are <a href="http://jquery.com/">JQuery</a> fan like me. Again I like to repeat word from <a href="http://coffeescript.org/">CoffeeScript</a> only</p>
-
-<blockquote>
-  <p>It's just JavaScript</p>
-</blockquote>
-
-<p>You can use any library with <a href="http://coffeescript.org/">CoffeeScript</a> . Let’s check out one of the example of it.</p>
-
-<p>A <a href="http://coffeescript.org/">CoffeeScript</a> code </p>
-
-<pre><code>show_message = (msg) -&gt; 
-  $('#message').hide().text(msg).fadeIn(2222, -&gt; $('#message').append('!'))
-
-$ -&gt; 
-  show_message "world"
-  $('#message').click -&gt; show_message "you"
-</code></pre>
-
-<p>And here we go with <a href="http://jquery.com/">JQuery</a> code </p>
-
-<pre><code>(function() {
-  var show_message;
-
-    show_message = function(msg) {
-    return $('#message').hide().text(msg).fadeIn(2222, function() {
-    return $('#message').append('!');
-  });
-  };
-
-  $(function() {
-  show_message("world");
-  return $('#message').click(function() {
-    return show_message("you");
-  });
-  });
-
-}).call(this);
-</code></pre>
-
-<p>It becomes more powerful when it joins hands with <a href="http://jquery.com/">JQuery</a> or other libraries.</p>
-
-<p>Now, for whom this is ??? This is for person like me. Or even black belt like my friend. It just fun to write <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . I don’t insist to use it but I surely insist to give it a try. It is worth investing time in it. Again if you are die hard <a href="http://www.w3schools.com/js/default.asp">Java Script</a> developer, I don’t think you need this. But again there is no loss in learning new thing. I am just enjoying <a href="http://coffeescript.org/">CoffeeScript</a> like anything.</p>
-
-<p><img src="https://lh6.googleusercontent.com/-x7ptaCkB7bA/URHJvRJbFMI/AAAAAAAAArw/dvsN8HvY0I4/s800/iStock_000005133061XSmall_2.jpg" alt="" /> </p>
-
-<p>So, here there are clearly two options for most of the developers including me. Either I can have coffee with <a href="http://www.w3schools.com/js/default.asp">Java Script</a> , doing over time and solving errors. Or I can use <a href="http://coffeescript.org/">CoffeeScript</a> and have fun time with my (Black belt) friend. I prefer later one. And trust me this is one the most fun writing article just like <a href="http://coffeescript.org/">CoffeeScript</a> .</p>
-
-<p>Taste a coffee and have fun. Coding is seriously enjoyable with friends like her and technology like <a href="http://coffeescript.org/">CoffeeScript</a> . Special thanks to Jeremy Ashkenas for giving <a href="http://coffeescript.org/">CoffeeScript</a> .</p>
-
-<p>Enjoy Coffee!!!</p>
+      <p>I am in Bangalore, and first thing I found here classically well is <a href="https://en.wikipedia.org/wiki/Coffee">coffee</a>. Obviously I will not going to talk about coffee here. But about <a href="http://coffeescript.org/">CoffeeScript</a> which is as good as <a href="https://en.wikipedia.org/wiki/Coffee">coffee</a> . I come to know about <a href="http://coffeescript.org/">CoffeeScript</a> from the <a href="http://www.hanselman.com/blog/CoffeeScriptSassAndLESSSupportForVisualStudioAndASPNETWithTheMindscapeWebWorkbench.aspx">article</a> written by <a href="http://www.hanselman.com">Scott Hanselman</a> . And I become addicted to it. I am not much a web guy. I like coding but mostly on server end. And Visual Studio is always there to save me. But when it comes to Java Script, I just crash land any time. I always try to go back to server as soon as possible. Obviously <a href="http://jquery.com/">JQuery</a> is there to bail me out. But still it is only for DOM, but for other things, you have to be expert. Now, here expert means whose written <a href="http://www.w3schools.com/js/default.asp">Java Script</a> pass the <a href="http://www.jslint.com/">JSLint</a> with minimum errors. Simple functions and doing some addition is not a big deal but making a library for web application is do a big deal. At least for me. I am so rigid about my code quality and <a href="http://www.w3schools.com/js/default.asp">Java Script</a> is a damn flexible scripting language which easy become a sloppy for me. I always try to follow architecture define by <a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742?tag=duckduckgo-d-20">Java Script Good Parts</a> . But at the end following some rules in <a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)">C Sharp</a> is easy than follow in <a href="http://www.w3schools.com/js/default.asp">Java Script</a>. But God is with me. I found a friend who is damn powerful in <a href="http://www.w3schools.com/js/default.asp">Java Script</a> .
 
       <p><a href="/2012/04/coffee-with-coffeescript/">Read more...</a></p>
     </li>
@@ -767,23 +197,7 @@ $ -&gt;
 
 <p>Here in India, every other teacher expect student to be like <a href="http://en.wikipedia.org/wiki/Arjuna">Arjuna</a> , because of his concentration and dedication towards the learning or work. But the person they forget is <a href="https://en.wikipedia.org/wiki/Ekalavya">Ekalavya</a> . And Rob sir is providing that opportunity to world to learn like <a href="https://en.wikipedia.org/wiki/Ekalavya">Ekalavya</a> . Learning from distance and prove your worthy.</p>
 
-<p><a href="http://tekpub.com">Tekpub</a> is having open house for a weekend. And first thing I have done is watching a video of a programming wizard, genius developer and classic speaker <a href="http://www.hanselman.com">Scott Hanselman</a> . I was waiting for this from a long time. Actually I am saving money to buy at least this video, because here we have currency in rupees and conversion to dollar is bit heavy on pocket. No doubt I am earning fair enough as software engineer but still amount is a more in terms of rupees.</p>
-
-<p>These are not the only thing, I am currently checking out few more screen casts. And they are awesome. I always in favor of knowledge sharing. And may be this is the only reason to have a dream to work in Microsoft. Money obviously matters, but that I can earn it any how. At the end of the day I am from <a href="https://en.wikipedia.org/wiki/Gujarat">Gujarat</a> . But knowledge, learning new things and specially having fun at what I do; will be possible at few places only. It is not about Microsoft but about persons like <a href="http://www.hanselman.com">Scott Hanselman</a> , <a href="http://haacked.com/">Phil Haack</a> , <a href="http://wekeroad.com/">Rob Conery</a> and others. Working with them is seriously a fun stuff, its like you are learning from a university and also getting paid for that.</p>
-
-<blockquote>
-  <p>Hey, Scott Sir. In any case you are reading this. Please Please do take care of your self. At least buy me some time so I can meet you in person someday in future. Diabetes called as “Rajarog” in India. Means it only comes to king and/or it is king of all diseases as it provide wonderful platform for other diseases to have dance off. So, please do take care and keep on talking. I never miss your screen cast or talk.</p>
-</blockquote>
-
-<p>I seriously like to thank Rob and Team for bringing up such a wonderful world of knowledge. And also having open pass to access them on weekend. Keep on the good work.</p>
-
-<p>I seriously recommended that wasting time for some box office flicks, better enjoy heroes from Technology world.</p>
-
-<p>Thanks of Open House at <a href="http://tekpub.com">Tekpub</a> . And thanks to <a href="http://www.pluralsight-training.net">pluralsight</a> </p>
-
-<p>Sincerely,</p>
-
-<p>Kunjan</p>
+<p><a href="http://tekpub.com">Tekpub</a> is having open house for a weekend. And first thing I have done is watching a video of a programming wizard, genius developer and classic speaker <a href="http://www.hanselman.com">Scott Hanselman</a> . I was waiting for this from a long time. Actually I am saving money to buy at least this video, because here we have currency in rupees and conversion to dollar is bit heavy on pocket. No doubt I am earning fair enough as software engineer but still amount is a more in terms of rupees.
 
       <p><a href="/2012/04/open-letter-to-tekpub/">Read more...</a></p>
     </li>

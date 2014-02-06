@@ -10,7 +10,7 @@ I am not kind of Technical person who started hacking / coding in very early age
 And this was the starting point or I can say reason I started baby steps in functional programming. I like DI, not in term of Dependency Injection but in case of Data Interpretation. Those tabular data and all the graphs and details that data can produce is awesome. It simply blow away my mind. 
 
 It is possible to do analysis in almost any language, but as I have heard it will be fairly easy with functional languages. As, I was coming from .Net background (Its just I am / was using as my day job.) I checked out F#. 
-
+<!--excerpt-->
 I know about F# even 2 years back, when it was picking up the ground, but I thought I am no where near good with C# and one more language will just add more confusion. But now things are different. I am good with C# and love LINQ. And so, I gave shot to [F#](http://tryfsharp.org).
 
 And trust me, it blows my mind. It was awesome. I never know that programming can be this much fun. It is like that whatever should be there is there. If I elaborate my last sentence then I can say that, normally I / we need to train our brain to learn any kind of language but in case of Functional Programming, language learn to think like me. I don't have to put special effort for that. And this is the fun part. 

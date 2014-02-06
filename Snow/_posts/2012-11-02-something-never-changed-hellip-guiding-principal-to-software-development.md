@@ -11,7 +11,7 @@ Here, I mentions new things, but in reality it is not possible all the time that
 
 Now, I was working on something and just to get refreshed I was checking my [Instapaper][6] and found this one. I was reading it. First thing I noticed is that it was written in 2007; even before I was a certified software engineer. As, I normally don’t read historical article that much but I read this. And that surprised me!!! Nothing is changed at all. Principles are same even after 5 years of this articles. And when they written it was there only. And also one thing is not changed too, we are not following most of them… (saying from the personal experience). For a change now a days I tried to follow them…
 
-
+<!--excerpt-->
 So, I thought I should re-write this article in context of current technology. I am also going to put links of tools but this is my personal preference obviously in context of Dot Net only. I start learning [Ruby on Rails][7] but again I am not that good in that.
 
 A original posts are from [Patrick Cauldwell][8] and [Scott Hanselman][3] . Be sure to visit the original work.

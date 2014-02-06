@@ -16,7 +16,7 @@ Teasing me with different names
 Remaining is now, only the pain   
 Not being with you, I feel mundane   
 I miss you, my dear sister
-
+<!--excerpt-->
 You are Dad’s favorite   
 You are Mom’s favorite   
 But you know you are also my favorite   

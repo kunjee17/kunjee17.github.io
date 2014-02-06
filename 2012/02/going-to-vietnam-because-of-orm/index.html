@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="last-modified" content="2014-02-06T14:32:00.6815209+05:30" />
+    <meta http-equiv="last-modified" content="2014-02-06T14:48:28.5279951+05:30" />
     <title>Kunjan a.k.a. Kunjee's blog</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
@@ -79,9 +79,9 @@
 
 <p>Around two years back, at the time when .Net 3.5 arrived, I was reading a chapter from a book. It is from <a href="http://oreilly.com/">Oreilly</a> in that author states that your DBA’s job is in danger we have LINQ to SQL a easy way to do the task. And trust me I just like this statement. I am not DB guy, and don’t like much to mess with database. But as I learn more, I understand the importance of Database guys and database. And personally I found person like <a href="http://beyondrelational.com/blogs/chintak/">Chintak Chappia</a> who is not only good with database but also as friend, philosopher and guide. I definitely don’t want to piss him off by my simple LINQ queries which eventually generates complex SQL queries. Don’t trust me here is the <a href="http://datachomp.com/archives/getting-started-with-massive-in-mvc3/">example</a> .</p>
 
-<p>Now, take a hypothetical example very big application. Now, this application has around 1000+ tables and 35+ modules to handle. Ya, very big application it is. And first and foremost mistake done by programmer is to add edmx file for all database. (Here I am taking example of EF only, but this is true for all other ORMs too. )</p>
-
-<p>It may seems lame but it is true. A single file which has all the details of database and relationship. And first effect of this is that file’s designer view will crash. Now, every now and then you have to open XML file and edit it, manually. And single change in database will cause 2 to 3 hours to get effect in that file. And every time you invoke that file in program it will take that much load to compile and run.</p>
+<p>Now, take a hypothetical example very big application. Now, this application has around 1000+ tables and 35+ modules to handle. Ya, very big application it is. And first and foremost mistake done by programmer is to add edmx file for all database. (Here I am taking example of EF only, but this is true for all other ORMs too. )
+<!--excerpt-->
+It may seems lame but it is true. A single file which has all the details of database and relationship. And first effect of this is that file’s designer view will crash. Now, every now and then you have to open XML file and edit it, manually. And single change in database will cause 2 to 3 hours to get effect in that file. And every time you invoke that file in program it will take that much load to compile and run.</p>
 
 <p>There are few work around to this. Use multiple edmx file. May be one file per module. Pros is that you have mighty designer of edmx file and it is light weighted. Cons is database guy have to manage more than one edmx file. But I don’t think that will be a big problem as it saves much of the time.</p>
 

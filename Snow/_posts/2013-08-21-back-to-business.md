@@ -13,7 +13,7 @@ Then I moved to Docpad. I have to loose some of my comments, which was there as 
 And in other reason, work load at day job. Things are moving faster then I can plan for. I was trying to learn other languages and tools. Moving out of my comfort zone. So, number of posts are less. Sadly!!!
 
 I also changed my job and my city, so that transaction do take time, specially leaving city like Bangalore was a bit of a pain on my side. Now, I am out shock, almost!
-
+<!--excerpt-->
 But biggest lost I think, is my google juice. My site is not coming on front page if someone  search my name. Luckily I am and I was active on my [twitter](https://twitter.com/kunjee) and it point to my site. So, still some juice stays there. 
 
 And I also owe apology to any readers who come to my site while I was modifying details, site was in bad state and I pushed on [Heroku](https://www.heroku.com/), that was total uncool of me. But there were some issue related to domain and I am to lazy to maintain production and master branch at least for my blog. I am the only one using it and I am not so popular; at least as of now. 

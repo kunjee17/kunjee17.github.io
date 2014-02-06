@@ -14,7 +14,7 @@ published: true
 Thanks to [Danial Mohl](http://blog.danielmohl.com/) getting started with Asp.net MVC5 is pretty easy. He had put a tremendous effort to make different kind of templates. Even starting from MVC3 till date now. 
 
 Old templates are like there are two projects one is C# and one is [F#](http://fsharp.org). C# is having all the [Java Script](http://vanilla-js.com/), html, css and stuff while F# is having coding part. 
-
+<!--excerpt-->
 But with time pass and version update, now we are having pure F# templates. A single project of F# having code, Java Script, cshtml, html, CSS everything. It is far more fun and easy to get started with. At the end of day F# is all about compressing code. Doing more with less code. 
 
 > Scala people, play is almost same as MVC framework. If you are following, code will be almost same only. I will still try to put code snippets wherever possible.

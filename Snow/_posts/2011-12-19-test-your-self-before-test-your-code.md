@@ -9,7 +9,7 @@ Few days back I had written a [post][1] , on [Test Driven Development][2] . And 
 First thing, as per title, you should test your self before test your code. It is not philosophical but it is pure technical. If I am writing test for my code, I should know why I am writing? How I am going to write? These few question must be answered before writing test. Now, we are normal kind of coders. I can’t say that whatever code I am writing is going to execute perfectly. In a contrary in most of the cases reverse is true. Every damn time I forgot something to consider and that crash my code. If you are like my friend [Aalap][3] then you can go on and on, without writing test. He is damn good with windows technology and write code like anything. And a bit lucky because whenever he writes code, and that piece of shit executes perfectly. But I am not genius like him, so I need to test it.
 
 Again we go with my [mathematical functions][4] . Because I just loved [mathematics][5] . And this time we are using [Visual Studio][6] Testing facility. You can go with [NUnit][7] , it almost same, just few syntax changed here and there. But it is not a big deal. Start with new console application. Add new class MathUtil to it. And make is [static class][8] for the simplicity. Now, I am not putting screen shot for “how to use visual studio???”, if you don’t know, this article is not for you better you go and study some basics before jump to this. Sorry…
-
+<!--excerpt-->
 Again we have static function to add something. Let’s start with [integer][9] . So, here is a add method for adding integer.
     
     public static class MathUtil { 

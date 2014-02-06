@@ -6,7 +6,7 @@ layout: post
 ---
 
 I am in Bangalore, and first thing I found here classically well is [coffee][1]. Obviously I will not going to talk about coffee here. But about [CoffeeScript][2] which is as good as [coffee][1] . I come to know about [CoffeeScript][2] from the [article][3] written by [Scott Hanselman][4] . And I become addicted to it. I am not much a web guy. I like coding but mostly on server end. And Visual Studio is always there to save me. But when it comes to Java Script, I just crash land any time. I always try to go back to server as soon as possible. Obviously [JQuery][5] is there to bail me out. But still it is only for DOM, but for other things, you have to be expert. Now, here expert means whose written [Java Script][6] pass the [JSLint][7] with minimum errors. Simple functions and doing some addition is not a big deal but making a library for web application is do a big deal. At least for me. I am so rigid about my code quality and [Java Script][6] is a damn flexible scripting language which easy become a sloppy for me. I always try to follow architecture define by [Java Script Good Parts][8] . But at the end following some rules in [C Sharp][9] is easy than follow in [Java Script][6]. But God is with me. I found a friend who is damn powerful in [Java Script][6] .
-
+<!--excerpt-->
 She is princess of [Java Script][6] . She write JS like any thing. And standards are not violated at all. I don’t know how someone can write code like that. She is like [Cynthia Rothrock][10] of Web. ![](https://lh4.googleusercontent.com/-Dw-LumABw0Q/URHJoqyQPlI/AAAAAAAAApY/hnY4qIE8wAE/s800/CR_2.jpg) 
 
 Yeah, she is like her only. Just like photo. A girl you don’t want to mess with.

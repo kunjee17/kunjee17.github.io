@@ -9,7 +9,7 @@ Long back I have wrote a article on [CoffeeScript][1] . If anyone see closely it
 And as a base rule. Even you are using [CoffeeScript][1] , you are not escaping from [JavaScript][5] . It was there and it will be there for future for sure. So, It is worth learning it. If you have read previous article you must know that I am not that good with [JavaScript][5] . So, I started learning and also thought for note I should put that to a blog. Whatever I learn will document on my blog. So, that will helpful to others and specially for me.
 
 Most of the guys must be knowing many things. But that’s fine, its again for personal reference.
-
+<!--excerpt-->
 [JavaScript][5] is very flexible language. And this allows you to write lovely code without worrying about many things. But again this makes issue many times. And every damn time I will end up messing with that flexibility issue. [ ![flexible][7]][7] 
 
 

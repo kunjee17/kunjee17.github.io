@@ -14,7 +14,7 @@ layout: post
  At that moment, something called [Ruby on Rails](http://rubyonrails.org/) took birth. It was extracted from [Basecamp](https://basecamp.com/). And then it took the world like anything. Even today it is so popular. 
  
  I am proper Microsoft Developer. And I know Asp.Net MVC(at least my [Resume](http://kunjan.in/pages/resume) says so.). I never felt I should learn any other thing than MVC. It is good, better than Web Forms (at least for me). And I know how to do data in and data out. 
- 
+ <!--excerpt-->
  >What else can be needed??? 
 
 The answer is many things. My views are hammered by [Rob Conery](http://wekeroad.com/) with one of his video at [NDC](http://www.ndcoslo.com/). Then I thought there is no harm in learning new thing. 

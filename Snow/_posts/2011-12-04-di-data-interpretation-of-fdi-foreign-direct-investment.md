@@ -12,7 +12,7 @@ I am not a politician, so as engineer I will do data analysis of FDI in India. n
 We have around 125 corers people and also have internal dependencies in chain management system. Now, for the sake of two end users, big brother will element man small chains and put one big heavy chain. Here, we can advocate that even a one big chain need many persons to work properly. So, we can say that it will generate more employment. We WILL discuss this specific topic afterwards, service v/s self employment.
 
 Now, after first victim is down. We have a classis competition of dollars v/s rupees, its just like [David v/s Goliath][3] .
-
+<!--excerpt-->
 ![](https://lh5.googleusercontent.com/-UOYX0j4d74Y/URHJr5nw2nI/AAAAAAAAAqg/bmKB4tSWmoY/s144/david-and-goliath-sumo-version_thumb_2456faf3-4b48-4d31-8a4d-440692818ef1.jpg)
 
 

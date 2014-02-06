@@ -9,7 +9,7 @@ Pointers, heart of C, C++. If you belongs to engineering branch and learned C as
 Even if you work, higher level languages or going for web, you can’t deny existence of pointer in your life. It’s just you are not touching directly to them, but they are there every time. Now, I directly jump to basic understanding of topic.
 
 If I give a definition than pointer is variable which saves address of another variable. It is useful when you want to share data. Pointer is like light weight variable which saves memory and do normal task for us like anything.
-
+<!--excerpt-->
 Pointer consumes two bytes of memory to save address. It doesn’t matter which type of pointer you are using. Here we directly jump to the example
 
     int value = 10; // declaring and assigning simple integer variable.

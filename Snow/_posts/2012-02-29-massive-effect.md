@@ -7,7 +7,7 @@ layout: post
 Hope you have read my earlier [post][1] about Micro [ORM][2] . Here I talk about another Micro ORM [Massive][3] . I don’t want to go with traditional approach. I write intro about [Rob Conery][4] and give some details about [Massive][3] . Few example here and there, some hyperlinks and that’s it. I will try to find answer of “why” instead of “how”. For how part we have more than enough example and also have [stackoverflow][5] to solve issues. Still I go through technical details at the end, but article will not be like tutorial for [Massive][3] .
 
 Let’s start from the start. I was just wondering around the [asp.net][6] web site. And come across the tutorial of [store front][7] . There I found person with name [Rob Conery][4] . As usual I found his site and come to know that he recently left job. I was little upset, as I liked the way he explained. Then I came across his another video in speaking section, [Kill Your ORM][8] . This is the first time I come across something called Micro ORM. And this is the moment when I press the refresh button of my technical skill or thinking or approach what so ever you can say. I just open up my mind and options I am trying.
-
+<!--excerpt-->
 [Rob Conery][4] is like Tony Stark of Technical Arena. And every now and then he create some new element ( [OSS][9] ).
 
 ![](https://lh5.googleusercontent.com/-Eq-pGJZhHtU/URHJx47Y2dI/AAAAAAAAAsY/LO2BqVFZUTQ/s800/iron-man-32_2.jpg) ![](https://lh6.googleusercontent.com/-GIE2x98SNDE/URHJqwsNwNI/AAAAAAAAAqM/l7n__dsAo9o/s800/RobCon_Hanselman_2_2.jpg) The second one in white shirt is Rob Sir. He is not just in his Iron suit. And here are few elements created by him [Massive][3] , [Manatee][12] and [Sub Sonic][13] .

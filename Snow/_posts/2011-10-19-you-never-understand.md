@@ -13,7 +13,7 @@ It’s not that you don’t know
 But you always say it’s NO   
 You know it all   
 But you never understand   
-
+<!--excerpt-->
 Every word sought for you   
 Every line sings for you   
 You read it all   

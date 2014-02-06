@@ -15,7 +15,7 @@ Let’s come back to .net. We used to have connection and command class rule the
 > What is command class?
 >  
 > Difference between data set and data reader?
-
+<!--excerpt-->
 Some, time I do wonder I was going to be selected for making application or “**connection to**” database class. And then we had few more option to connect to database. Few other question which are still unanswered, like
 
 > Where I should put connection string? In web config or in single class?

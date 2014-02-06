@@ -9,7 +9,7 @@ I was reading article on [Wall Street Journal][1] , about Steve Jobs. It was won
 It was the time of change, if any one is familiar with the history of&nbsp; computer world, must know the era of changing. When companies like Microsoft and Apple started and change the rule of game. They change the way of thinking that computer should be big and for co-operate work only. Computer should be good at calculation only, that black screen just calculate and give desire output to management. Person of industry wearing suits and showing standers.
 
 Than hippy like guys arrived, who break all the rule, and drive world to new future. Right now I want&nbsp; to talk about [Steve Jobs][2] . Who just left us, leaving behind the a legacy of change and revolution.
-
+<!--excerpt-->
 Every paragraph of article just showing attitude of Steve, never say never attitude, non-compromising mentality. Courage to take risk, and most important confidence in his own self.
 
 This thing is completely opposite to Indian mentality, where we learn to compromise from the starting. Every time we are forced to change our self as per society. Many of us, just do something for the sake of doing. Earning money is important than earning credit. Confidence is just a short term certificate which we get at college as college result.

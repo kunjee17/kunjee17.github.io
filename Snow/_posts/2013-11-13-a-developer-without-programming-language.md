@@ -8,7 +8,7 @@ layout: post
 Now a days I am little bit more involved in History lessons. And those also from Computer Science only. Specifically from programming language's perspective.  Why on the earth I am doing this, I guess answer is given by  [Duglas Cockford](http://www.crockford.com/) over the [Hanselminutes](http://hanselminutes.com/396/bugs-considered-harmful-with-douglas-crockford).  And personally I love this part of learning. It is so delightful to know different language and why languages emerge the way it is.
 
 That is one part of story. Now, I was talking with my friend about different ways of rapid game development, as we both like playing and making games. (Nothing reached to the release level yet though :P). It is fun always. Now, he is working with C++ and I am .Net guy until now. Recently I become web guy on paper with Java Script skills again on paper :P. But as I mentioned I have special love for languages. 
-
+<!--excerpt-->
 Here comes the twist, as I have tried my hand on functional programming language, there is one sentence for functional languages stuck with me, "it is useful to develop algorithm". And it is like that only, it is very easy to develop algorithm with functional programming language because of features like pattern matching, pipe lining functions, higher order functions and other function oriented facility that is normally only possible with functional languages. So, I suggested that normally game should be done is some functional languages only, as it will be lot easier. 
 
 >But he is like NOPE!!! 

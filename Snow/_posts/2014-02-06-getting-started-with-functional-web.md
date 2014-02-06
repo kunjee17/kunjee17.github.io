@@ -13,7 +13,7 @@ published: true
 I am doing web development from quite a long time. And now a days I am keep pushing my self to do functional programming. [Learning](http://learnyouahaskell.com/) languages like [Haskell](http://www.haskell.org/haskellwiki/Haskell), [Scala](http://www.scala-lang.org/), [F#](http://fsharp.org/). Obviously I try my hand to other functional languages too as per time permits. 
 
 As I am .Net developer my primary focused is working with [F#](http://fsharp.org/) and I will also start from that only. You can also check out other functional articles of mine to check out what I think about functional programming and why it is necessity now a days. 
-
+<!--excerpt-->
 [F#](http://fsharp.org/) for a long is treated as second class citizen in main stream programming in .Net area. But now it is picking up the pace. When I decided to write a complete series of web development with I was even thinking like that only. There will be C# project and [F#](http://fsharp.org/) project. C# project will take care of UI and F# project will do all the heavy lifting.
 
 But thanks to wonderful community of [F#](http://fsharp.org/), we have now pure templates. And that is the point of start. Complete web development using [F#](http://fsharp.org/) only. Nothing can be more fun that this. And it is not ended here, there are testing , mocking , testing libraries. 
