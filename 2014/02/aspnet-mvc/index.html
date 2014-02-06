@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
     <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif">
-    <link rel="canonical" href="http://kunjan.in/2012/02/nuget-mall-of-oss/" />
+    <link rel="canonical" href="http://kunjan.in/2014/02/aspnet-mvc/" />
 </head>
 <body class="home blog">
     <div id="page" class="hfeed site">
@@ -39,12 +39,14 @@
                   
 
 <div id="post">
-    <h1>Nuget mall of OSS</h1>
+    <h1>Asp.Net MVC5 with F#</h1>
 
     <div class="post-note">
-      posted on 13 Feb 2012
+      posted on 06 Feb 2014
+       | <a href="/category/functional-programming">Functional Programming</a>
+       | <a href="/category/functional-web">Functional Web</a>
        | <a href="/category/technical">Technical</a>
-       | <a href="/category/dotnet">DotNet</a>
+       | <a href="/category/web">Web</a>
       
 <!--       <div class="addthis_toolbox addthis_default_style" style="float:right;">
         <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -73,17 +75,34 @@
       
     </div>
     
-    
+    <ul class="snow-series"><li><a href="/2014/02/getting-started-with-functional-web/">Getting started with web and Functional Programming</a></li><li>Asp.Net MVC5 with F#</li></ul>
         
-    <p>OSS, stands for Open Source Software. If you are a .net developer, most of the time you don’t care much of OSS. But trust me, OSS are far better than pure solution provided by MS.</p>
+    <p>Thanks to <a href="http://blog.danielmohl.com/">Danial Mohl</a> getting started with Asp.net MVC5 is pretty easy. He had put a tremendous effort to make different kind of templates. Even starting from MVC3 till date now. </p>
 
-<p>And now MS is pushing for OSS, via <a href="http://nuget.org">nuget</a> . It’s a wonderful site providing base for OSS technologies. If you have experienced development in Ruby, you must have known this. Ruby has gems, which pushed by open source community. And now .net developer has <a href="http://nuget.org">nuget</a> .</p>
+<p>Old templates are like there are two projects one is C# and one is <a href="http://fsharp.org">F#</a>. C# is having all the <a href="http://vanilla-js.com/">Java Script</a>, html, css and stuff while F# is having coding part. </p>
 
-<p>Its so difficult to follow day to day open source work. Trust I don’t know much more than JQuery. But now I am just a click away of whole new world of Open Source Framework and Technology.</p>
+<p>But with time pass and version update, now we are having pure F# templates. A single project of F# having code, Java Script, cshtml, html, CSS everything. It is far more fun and easy to get started with. At the end of day F# is all about compressing code. Doing more with less code. </p>
 
-<p>It also has few more benefits like updating packages, power shell command prompt etc. It just speed up the development like anything. Now, I know about knowckoutJs, Ninject, MEF, JQGrid and few others just because of <a href="http://nuget.org">nuget</a> .</p>
+<blockquote>
+  <p>Scala people, play is almost same as MVC framework. If you are following, code will be almost same only. I will still try to put code snippets wherever possible.</p>
+</blockquote>
 
-<p>So, specially in this article I haven’t provide any other link then <a href="http://nuget.org">nuget</a> . So, no more hazels to go to source code provider site download and update just fire few commands and its done. That’s it.</p>
+<p>So, if you haven't downloaded template yet. Please check out my previous post the first one in series and download template. Once installed you are up and running to write some MVC code. </p>
+
+<blockquote>
+  <p>I am assuming that people trying this; is quite familiar with MVC and other concepts. </p>
+</blockquote>
+
+<p>First I will be doing one to one map between C# and F# code. Just to get familiar with syntax. Then will move to optimized code to make it more functional. </p>
+
+<blockquote>
+  <p><strong>Side Note</strong> If you are not having Visual Studio Pro or higher one. Do not worry, templates are working with Express versions also. As per latest release F# is now primarily supported by <a href="http://fsharp.org/use/windows/">Desktop and Web Express version</a>. </p>
+</blockquote>
+
+<p>Install template, create new project with MVC5 and Web API option. Hit F5 and it is done. You are up and running. </p>
+
+<p>Feeling great?!? It is just started. 
+<img src="/images/rollercoasterride.gif" alt="roller coaster ride" /></p>
 
 
     <div id="disqus_thread"></div>
@@ -93,14 +112,14 @@
             reload: true,
             config: function () {
                 //this.page.identifier = '';
-                this.page.url = 'http://kunjan.in/2012/02/nuget-mall-of-oss/';
+                this.page.url = 'http://kunjan.in/2014/02/aspnet-mvc/';
                 //this.page.title = '';
             }
         });
     };
 
     var disqus_shortname = 'kunjan';
-    var disqus_url = 'http://kunjan.in/2012/02/nuget-mall-of-oss/';
+    var disqus_url = 'http://kunjan.in/2014/02/aspnet-mvc/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

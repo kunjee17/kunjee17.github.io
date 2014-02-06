@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
     <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif">
-    <link rel="canonical" href="http://kunjan.in/2012/02/nuget-mall-of-oss/" />
+    <link rel="canonical" href="http://kunjan.in/2014/02/getting-started-with-functional-web/" />
 </head>
 <body class="home blog">
     <div id="page" class="hfeed site">
@@ -39,12 +39,14 @@
                   
 
 <div id="post">
-    <h1>Nuget mall of OSS</h1>
+    <h1>Getting started with Functional web</h1>
 
     <div class="post-note">
-      posted on 13 Feb 2012
+      posted on 06 Feb 2014
+       | <a href="/category/functional-programming">Functional Programming</a>
+       | <a href="/category/functional-web">Functional Web</a>
        | <a href="/category/technical">Technical</a>
-       | <a href="/category/dotnet">DotNet</a>
+       | <a href="/category/web">Web</a>
       
 <!--       <div class="addthis_toolbox addthis_default_style" style="float:right;">
         <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -73,17 +75,69 @@
       
     </div>
     
-    
+    <ul class="snow-series"><li>Getting started with web and Functional Programming</li><li><a href="/2014/02/aspnet-mvc/">Asp.Net MVC5 with F#</a></li></ul>
         
-    <p>OSS, stands for Open Source Software. If you are a .net developer, most of the time you don’t care much of OSS. But trust me, OSS are far better than pure solution provided by MS.</p>
+    <p>I am doing web development from quite a long time. And now a days I am keep pushing my self to do functional programming. <a href="http://learnyouahaskell.com/">Learning</a> languages like <a href="http://www.haskell.org/haskellwiki/Haskell">Haskell</a>, <a href="http://www.scala-lang.org/">Scala</a>, <a href="http://fsharp.org/">F#</a>. Obviously I try my hand to other functional languages too as per time permits. </p>
 
-<p>And now MS is pushing for OSS, via <a href="http://nuget.org">nuget</a> . It’s a wonderful site providing base for OSS technologies. If you have experienced development in Ruby, you must have known this. Ruby has gems, which pushed by open source community. And now .net developer has <a href="http://nuget.org">nuget</a> .</p>
+<p>As I am .Net developer my primary focused is working with <a href="http://fsharp.org/">F#</a> and I will also start from that only. You can also check out other functional articles of mine to check out what I think about functional programming and why it is necessity now a days. </p>
 
-<p>Its so difficult to follow day to day open source work. Trust I don’t know much more than JQuery. But now I am just a click away of whole new world of Open Source Framework and Technology.</p>
+<p><a href="http://fsharp.org/">F#</a> for a long is treated as second class citizen in main stream programming in .Net area. But now it is picking up the pace. When I decided to write a complete series of web development with I was even thinking like that only. There will be C# project and <a href="http://fsharp.org/">F#</a> project. C# project will take care of UI and F# project will do all the heavy lifting.</p>
 
-<p>It also has few more benefits like updating packages, power shell command prompt etc. It just speed up the development like anything. Now, I know about knowckoutJs, Ninject, MEF, JQGrid and few others just because of <a href="http://nuget.org">nuget</a> .</p>
+<p>But thanks to wonderful community of <a href="http://fsharp.org/">F#</a>, we have now pure templates. And that is the point of start. Complete web development using <a href="http://fsharp.org/">F#</a> only. Nothing can be more fun that this. And it is not ended here, there are testing , mocking , testing libraries. </p>
 
-<p>So, specially in this article I haven’t provide any other link then <a href="http://nuget.org">nuget</a> . So, no more hazels to go to source code provider site download and update just fire few commands and its done. That’s it.</p>
+<p>With this series, I will try to check out every vertical of web development. Including deployment to cloud. </p>
+
+<blockquote>
+  <p>I will also make sure to keep posting details about Scala and <a href="http://clojure.org/">Clojure</a> too, in compare to <a href="http://fsharp.org">F#</a></p>
+</blockquote>
+
+<p>Let's start with <strong>Hello World</strong>. Go to the visual studio gallery and download the templates and add-on for <a href="http://fsharp.org">F#</a> web development. </p>
+
+<p>Here is the list.</p>
+
+<ul>
+<li><a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f">Servicestak</a> (Update is coming soon)</li>
+<li><a href="http://visualstudiogallery.msdn.microsoft.com/b55b8aac-b11a-4a6a-8a77-2153f46f4e2f">NancyFX</a></li>
+<li><a href="http://visualstudiogallery.msdn.microsoft.com/bbec75fa-0f31-47e9-a8ce-c301edb2fa4b">Simple.Web</a></li>
+<li><a href="http://visualstudiogallery.msdn.microsoft.com/39ae8dec-d11a-4ac9-974e-be0fdadec71b">Asp.net MVC5 &amp; Web API2</a></li>
+<li><a href="http://visualstudiogallery.msdn.microsoft.com/24ef5c87-b4e3-4c3b-b126-1064cc66e148">Fantomas</a> For code formatting </li>
+<li><a href="http://visualstudiogallery.msdn.microsoft.com/bec977b8-c9d9-4926-999e-e50c4498df8a">F# Outlining</a> </li>
+<li><a href="http://visualstudiogallery.msdn.microsoft.com/f1dae7fe-1ecc-4f1b-86b5-32a2970d012a">F# web templates</a></li>
+</ul>
+
+<p>Installing these template and add on will give you nice ways to start. Trust me I am enjoying far more after these pure <a href="http://fsharp.org">F#</a> templates arrived. </p>
+
+<blockquote>
+  <p>For people who is new to language, I will start from simple conversation of OOP to Functional programming. Most of them is one to one map only. So, there will be less use of pure functional concept. But slowly will move to more functional style of programming. And trying to achieve nirvana. </p>
+</blockquote>
+
+<p>People trying Scala or coming from Java background <a href="http://www.playframework.com/">Play</a> is choice of framework for you. It is supported by wonderful community and build over the ever powerful <a href="http://akka.io/">AKKA</a>. </p>
+
+<p>For people who don't like types or coming from Ruby like language background. You can Clojure for you. And here is twitter conversation with <a href="http://bodil.org/">Bodil</a> for the selection of framework.</p>
+
+<blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/kunjee">@kunjee</a> I&#39;m a bit out of touch, used to prefer straight Ring + Compojure, maybe Aleph. But that was before both core.async and Pedestal...</p>&mdash; Bodil Stokke (@bodil) <a href="https://twitter.com/bodil/statuses/431086156470833152">February 5, 2014</a></blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>For People who is going with F# / scala; there are couple of reference reading for getting started. </p>
+
+<ul>
+<li><a href="http://fsharpforfunandprofit.com/">F# for fun and profit</a></li>
+<li><a href="http://pluralsight.com/training/Courses/TableOfContents/functional-architecture-fsharp">Functional Architecture with F#</a></li>
+<li><a href="http://blog.jessitron.com/">Jessica Kerr's blog for Scala lovers</a></li>
+</ul>
+
+<p>Do have a look. </p>
+
+<blockquote>
+  <p><strong>Disclaimer</strong> : - I am neither expert of <em>web</em> nor <em>functional programming</em>. But I know web a little bit more than other programming things and I love functional programming. </p>
+</blockquote>
+
+<p>So, what we are waiting for?</p>
+
+<p><img src="/images/rock.gif" alt="rock" /></p>
+
+<p>lets rock. </p>
 
 
     <div id="disqus_thread"></div>
@@ -93,14 +147,14 @@
             reload: true,
             config: function () {
                 //this.page.identifier = '';
-                this.page.url = 'http://kunjan.in/2012/02/nuget-mall-of-oss/';
+                this.page.url = 'http://kunjan.in/2014/02/getting-started-with-functional-web/';
                 //this.page.title = '';
             }
         });
     };
 
     var disqus_shortname = 'kunjan';
-    var disqus_url = 'http://kunjan.in/2012/02/nuget-mall-of-oss/';
+    var disqus_url = 'http://kunjan.in/2014/02/getting-started-with-functional-web/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

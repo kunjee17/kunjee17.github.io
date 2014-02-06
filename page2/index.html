@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="last-modified" content="2014-02-06T12:11:43.2054288+05:30" />
+    <meta http-equiv="last-modified" content="2014-02-06T14:32:00.6815209+05:30" />
     <title>Kunjan a.k.a. Kunjee's blog</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
@@ -15,8 +15,7 @@
         <header id="masthead" class="site-header fancy-container lightgreen" role="banner">
             <hgroup>
                 <h1 class="site-title"><a href="/" title="Kunjee's Blog" rel="home">Kunjan's Blog</a></h1>
-                <h2><small>let f s g = g|>List.mapi(fun i x->match Seq.sumBy(fun o->
-g.[abs((i+o)%(s*s))])[-1-s;-s;1-s;-1;1;-1+s;s;1+s]with 3->1|2->x|_->0)</small></h2>
+                <h2><small>Why Did the Chicken Cross the Möbius Strip?</small></h2>
                 <p class="site-description"> All idea, opinion are my own and don't reflect opinion of my current or any former employee. </p>
             </hgroup>
             <nav role="navigation" class="site-navigation main-navigation">
@@ -40,6 +39,50 @@ g.[abs((i+o)%(s*s))])[-1-s;-s;1-s;-1;1;-1+s;s;1+s]with 3->1|2->x|_->0)</small></
                   
 
   <ul class="posts">
+    <li class="fancy-container lightblue">
+      <h1>
+        <a href="/2013/01/hello-docpad/">Hello Doc Pad</a> 
+        <span>posted on 30 Jan 2013</span>
+      </h1> 
+      
+      <p>I have recently moved my blog to docpad. Reason, I want to move to heroku and I want static files to be hosted.</p>
+
+<p>I do have checked out project like <a href="http://jekyllrb.com/">jekyll</a> and <a href="http://octopress.org/">octapress</a>. They are good but ruby was giving me issue on my windows machine with no reason. And in any case I am better with JavaScript then what I can do with ruby. </p>
+
+<p>And also <a href="http://docpad.org/">docpad</a> is having wonderful plugins system and easy to start skeleton. I was able to get up and started in just no time. </p>
+
+<p>I was hosting my blog with <a href="http://www.orchardproject.net/">Orchard</a> a wonderful .net CMS system. But the thing is it very big for my need. And to edit them I have to write lot more code just to move few parts here and there</p>
+
+<p><a href="http://docpad.org/">docpad</a> on other hand make it very easy to move things as at the end it is just a static html files. So, if I like give somewhat different touch to my any specific page I can give them specifically. I don't need to change complete theme for that. Which is there in other kinda blog engines. </p>
+
+<blockquote>
+  <p>Yes, and I don't like php. At all. Giving me feeling of old ASP pages. I never worked on that and never want to work on that... </p>
+</blockquote>
+
+<p>So, as of now. I happy with my static file generator that is doing much more than needed, with light weight node back end and static file as front end. </p>
+
+<p>Hopefully my blog get massive hit, as I already have set virtually infinite scalability with my static html pages ;).</p>
+
+<p>Till now experience with <a href="http://docpad.org">Docpad</a> is wonderful. There are few hiccups here and there but overall it is nice and with lots of plugins to make life even more easier. </p>
+
+      <p><a href="/2013/01/hello-docpad/">Read more...</a></p>
+    </li>
+    <li class="fancy-container lightblue">
+      <h1>
+        <a href="/2012/12/entity-framework-upside-down/">Entity Framework Upside Down</a> 
+        <span>posted on 05 Dec 2012</span>
+      </h1> 
+      
+      <p>If you have read my previous articles you must be knowing that I don’t like ORMs that much and also I am pretty lazy person. I don’t like to repeat stuff again and again. If I can find the solution than I will automate it or I just change from very root. Same thing is true with Entity Framework. It comes after LINQ to SQL as an improved ORM. And it proved to be lousy. But here is the catch if we are not using it with all its functionality it is lousy.</p>
+
+<p>Now, it provides proper name at entity level and also inheritance like stuff. Its really a cool and neat feature about Entity Framework to abstract away the complexity of database with ‘_’ name. I never understand this type of names and I don’t know if ever I will be understanding this type of name. But if you are just updating from database and using it, than there is no use of EF at all. Or there is no need of EF. If I will become little bit harsh, then I can say <strong>“WE ARE DOING IT WRONG”</strong> .</p>
+
+<p>And after EF evolved to further version it is providing more features, but still we are stick to the feature which is shown in <a href="https://channel9.msdn.com/">Channel9</a> . We must understand here that there is difference between demo and production. In demo we have pizza factory in production we never have at least in most of the cases. So, things are far different in production environment. If we are just deleting and adding entities then obviously again <strong>“WE ARE DOING IT WRONG”</strong> . If any one think who the hell I am to tell that ??? I am just nothing and no one, but I am open minded to ideas and new things. Just think how much more overhead you are having for pushing EF in production. It is there to help you out not to make things worst.</p>
+
+<p>I tweeted about it and also got reply from Rob Conery of <a href="http://tekpub.com">Tekpub</a> . I insist to check that out. I must say EF is a tool if we are not careful it will surely hit our own ass very bad. Here is the <a href="https://twitter.com/robconery/status/270700961109004288">link</a> for tweet. So, I am not providing any right way as there are many and you will found out over google, but I am just saying to think twice before come to a conclusion or before porting demo to production environment.</p>
+
+      <p><a href="/2012/12/entity-framework-upside-down/">Read more...</a></p>
+    </li>
     <li class="fancy-container lightblue">
       <h1>
         <a href="/2012/11/something-never-changed-hellip-guiding-principal-to-software-development/">Something Never Changed!!! Guiding Principles to Software Development</a> 
@@ -418,7 +461,11 @@ My poem is incomplete without you   </p>
   <p><em>I am not that another person in picture. It just a FYI.</em> </p>
 </blockquote>
 
-<p>Like <a href="http://www.cynthiarothrock.org/">Cynthia Rothrock</a> she is also a black belt but in <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . Always kicking around in web arena. Whenever I stuck somewhere she comes laugh at me and solve the problem. And what I am in compare to her, like kid shown here. <img src="http://www.cynthiarothrock.org/" alt="](https://lh6.googleusercontent.com/-TwrCb<em>2KLk0/URHJyRifiTI/AAAAAAAAAsk/V7mr0dHwQ3o/s800/kids-gi</em>thumb.jpg)  A white belt kid. Now what I can do to match the standards with her. Technically I can’t. As she is black belt and I am just a kid. But I am a smart kid. I drink some [coffee" /> and write <a href="http://coffeescript.org/">CoffeeScript</a> . Yeah, you have black belt and I have <a href="http://www.cynthiarothrock.org/">coffee</a> . Now, I come to point. There is always a need of writing good code, weather it is compiled language or a scripting language.</p>
+<p>Like <a href="http://www.cynthiarothrock.org/">Cynthia Rothrock</a> she is also a black belt but in <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . Always kicking around in web arena. Whenever I stuck somewhere she comes laugh at me and solve the problem. And what I am in compare to her, like kid shown here. </p>
+
+<p><img src="https://lh6.googleusercontent.com/-TwrCb_2KLk0/URHJyRifiTI/AAAAAAAAAsk/V7mr0dHwQ3o/s800/kids-gi_thumb.jpg" alt="" /></p>
+
+<p>A white belt kid. Now what I can do to match the standards with her. Technically I can’t. As she is black belt and I am just a kid. But I am a smart kid. I drink some <a href="http://www.cynthiarothrock.org/">coffee</a> and write <a href="http://coffeescript.org/">CoffeeScript</a> . Yeah, you have black belt and I have <a href="http://www.cynthiarothrock.org/">coffee</a> . Now, I come to point. There is always a need of writing good code, weather it is compiled language or a scripting language.</p>
 
 <p>And good code has two main quality as per me. One is its readability and another is extendibility. If I am writing code, other should read it and also able to extend it. Now, if you are writing <a href="http://www.w3schools.com/js/default.asp">Java Script</a> like her, others don’t find any problem to read or extend it but else that will be a problem specifically with scripting languages. It prone to get dirty soon.</p>
 
@@ -694,7 +741,9 @@ $ -&gt;
 
 <p>Now, for whom this is ??? This is for person like me. Or even black belt like my friend. It just fun to write <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . I don’t insist to use it but I surely insist to give it a try. It is worth investing time in it. Again if you are die hard <a href="http://www.w3schools.com/js/default.asp">Java Script</a> developer, I don’t think you need this. But again there is no loss in learning new thing. I am just enjoying <a href="http://coffeescript.org/">CoffeeScript</a> like anything.</p>
 
-<p><img src="http://www.w3schools.com/js/default.asp" alt="](https://lh6.googleusercontent.com/-x7ptaCkB7bA/URHJvRJbFMI/AAAAAAAAArw/dvsN8HvY0I4/s800/iStock<em>000005133061XSmall</em>2.jpg) So, here there are clearly two options for most of the developers including me. Either I can have coffee with [Java Script" /> , doing over time and solving errors. Or I can use <a href="http://coffeescript.org/">CoffeeScript</a> and have fun time with my (Black belt) friend. I prefer later one. And trust me this is one the most fun writing article just like <a href="http://coffeescript.org/">CoffeeScript</a> .</p>
+<p><img src="https://lh6.googleusercontent.com/-x7ptaCkB7bA/URHJvRJbFMI/AAAAAAAAArw/dvsN8HvY0I4/s800/iStock_000005133061XSmall_2.jpg" alt="" /> </p>
+
+<p>So, here there are clearly two options for most of the developers including me. Either I can have coffee with <a href="http://www.w3schools.com/js/default.asp">Java Script</a> , doing over time and solving errors. Or I can use <a href="http://coffeescript.org/">CoffeeScript</a> and have fun time with my (Black belt) friend. I prefer later one. And trust me this is one the most fun writing article just like <a href="http://coffeescript.org/">CoffeeScript</a> .</p>
 
 <p>Taste a coffee and have fun. Coding is seriously enjoyable with friends like her and technology like <a href="http://coffeescript.org/">CoffeeScript</a> . Special thanks to Jeremy Ashkenas for giving <a href="http://coffeescript.org/">CoffeeScript</a> .</p>
 
@@ -737,121 +786,6 @@ $ -&gt;
 <p>Kunjan</p>
 
       <p><a href="/2012/04/open-letter-to-tekpub/">Read more...</a></p>
-    </li>
-    <li class="fancy-container lightblue">
-      <h1>
-        <a href="/2012/03/moving-away-from-oop/">Moving away from OOP</a> 
-        <span>posted on 24 Mar 2012</span>
-      </h1> 
-      
-      <p>OOP, it is a full form of Object Oriented Programming. And even with starting of career in software engineering we are force to implement OOP in our coding. Cross your heart and tell how many time we are implementing???</p>
-
-<p>I start my career with .Net / C#. And C# is object oriented language. But I code like C. Pushing function for every thing. May be it is my love for it. And what happened I end up with 14000 line of code and crashing the system. At that point of time I shift and optimized my code which end up with 700 lines of code and pretty nice working product. This is the first time I come to know that there is a use of object oriented system other than writing exam and cracking interview.</p>
-
-<p>But again its just about creating objects, nothing else. Then I work with pretty big web application. At that point I learn something about Architecture. Oh! that is nice. Even software also has an Architecture. So, it is moving away from OOP. May be yes ???</p>
-
-<p>It is like difference between Civil engineer and an Architecture. It is some advanced functionality which are implemented using Object Oriented fundamentals. And these are not new things but advanced version of what I have learn. These are <a href="http://en.wikipedia.org/wiki/Software_design_pattern">Design Patterns</a> .</p>
-
-<p>First it was created by Gang of Four. They are pillars and pioneers of design patterns. Although it is easy to learn but hard to choose between. But may be in future I will be writing something on these patterns. Till than if you are from Dot Net background do check out <a href="http://dofactory.com/Default.aspx">this</a> site. It has all the details needed to learn Design Patterns.</p>
-
-      <p><a href="/2012/03/moving-away-from-oop/">Read more...</a></p>
-    </li>
-    <li class="fancy-container lightblue">
-      <h1>
-        <a href="/2012/02/massive-effect/">Massive Effect</a> 
-        <span>posted on 29 Feb 2012</span>
-      </h1> 
-      
-      <p>Hope you have read my earlier <a href="http://kunjan.in/archives/arrival-of-david-aka-micro-orm">post</a> about Micro <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> . Here I talk about another Micro ORM <a href="https://github.com/robconery/massive">Massive</a> . I don’t want to go with traditional approach. I write intro about <a href="http://wekeroad.com/">Rob Conery</a> and give some details about <a href="https://github.com/robconery/massive">Massive</a> . Few example here and there, some hyperlinks and that’s it. I will try to find answer of “why” instead of “how”. For how part we have more than enough example and also have <a href="http://stackoverflow.com/">stackoverflow</a> to solve issues. Still I go through technical details at the end, but article will not be like tutorial for <a href="https://github.com/robconery/massive">Massive</a> .</p>
-
-<p>Let’s start from the start. I was just wondering around the <a href="http://asp.net">asp.net</a> web site. And come across the tutorial of <a href="http://www.asp.net/mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-1-architectural-discussion-and-overview">store front</a> . There I found person with name <a href="http://wekeroad.com/">Rob Conery</a> . As usual I found his site and come to know that he recently left job. I was little upset, as I liked the way he explained. Then I came across his another video in speaking section, <a href="http://ndc2011.macsimum.no/mp4/Day2%20Thursday/Track1%201140-1240.mp4">Kill Your ORM</a> . This is the first time I come across something called Micro ORM. And this is the moment when I press the refresh button of my technical skill or thinking or approach what so ever you can say. I just open up my mind and options I am trying.</p>
-
-<p><a href="http://wekeroad.com/">Rob Conery</a> is like Tony Stark of Technical Arena. And every now and then he create some new element ( <a href="http://en.wikipedia.org/wiki/Open-source_software">OSS</a> ).</p>
-
-<p><img src="https://github.com/robconery/massive" alt="](https://lh5.googleusercontent.com/-Eq-pGJZhHtU/URHJx47Y2dI/AAAAAAAAAsY/LO2BqVFZUTQ/s800/iron-man-32_2.jpg) <img src="https://lh6.googleusercontent.com/-GIE2x98SNDE/URHJqwsNwNI/AAAAAAAAAqM/l7n__dsAo9o/s800/RobCon_Hanselman_2_2.jpg" alt="" /> The second one in white shirt is Rob Sir. He is not just in his Iron suit. And here are few elements created by him [Massive" /> , <a href="http://github.com/robconery/manatee">Manatee</a> and <a href="http://github.com/robconery/subsonic">Sub Sonic</a> .</p>
-
-<p>And there are few other heroes of mine specifically in technical arena. But about them will talk later. Still you can enjoy the image comparison.</p>
-
-<p><img src="https://lh5.googleusercontent.com/-xtkof-Bai6g/URHJqhgda7I/AAAAAAAAAqE/CqRSsiZ424k/s800/Qui_gon_jinn_from_movie_2.jpg" alt="" /> <img src="https://lh3.googleusercontent.com/-jzEvsjhnylg/URHJuutPtOI/AAAAAAAAArY/wmXiv7qRjEg/s800/hanselman_4.png" alt="" /> </p>
-
-<p>And</p>
-
-<p><img src="https://lh4.googleusercontent.com/-2FeVrSh4Xas/URHJnpRUhnI/AAAAAAAAAo8/dvptH8qu1qY/s800/149117-batman-returns-dos-screenshot-main-computer-s_2.gif" alt="" /> <img src="https://lh4.googleusercontent.com/-uTs5lIhQLgA/URHJz2abyDI/AAAAAAAAAs4/agORU4lbeoo/s800/phil_2.jpg" alt="" /></p>
-
-<p><strong>Images are of course not my proprietary, if anyone has problem with it. Please let me know will remove it.</strong> </p>
-
-<p>Now, come back to <a href="https://github.com/robconery/massive">Massive</a> .</p>
-
-<blockquote>
-  <p>Why???????</p>
-</blockquote>
-
-<p>Isn’t it nice to have POCO objects and that will take care of all things. Obviously it is NICE. I don’t like Database at all. And that complex joins and yet another language to learn… Nope. I hate it. But just give the answer of one simple question.</p>
-
-<blockquote>
-  <p>If I am using <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> , does it allow me to not to use SQL at all? </p>
-</blockquote>
-
-<p>No. I don’t think so. And I am not talking about hypothetical situation. I am talking about real life situation. Real project and real experience. Every now and then I have to double check my query with SQL query. This just double the work of mine. And it is useful to add value to my Resume only. Here I am not talking about performance at all. Everyone knows benchmark. I am talking about working. In a very distributed system, with DBA working round the clock.</p>
-
-<blockquote>
-  <p>Is there a space for ORM?</p>
-</blockquote>
-
-<p>No, I don’t think so. If I am alone and working on some small scale project than its fine. Just go with it. But with big scale project even today also DBAs are integral part of system. And trust me they don’t know .net or Java or not even care about it. I have use <a href="http://en.wikipedia.org/wiki/Inversion_of_control">IOC</a> , <a href="http://www.martinfowler.com/eaaCatalog/repository.html">Repository Pattern</a> , <a href="http://www.oodesign.com/factory-pattern.html">Factory Pattern</a> or anything else they don’t even care. They just create that massy tables which no one going to understand in one shot. At least I never understand that one to one and one to many and n level down with tables relationship at one shot. I remember eventually but still at one shot no chance.</p>
-
-<p>Many will argue that, ORM will decrease my work on application level. Yes may be. But thing is I am learning something to replace something. Like I am learning Entity Framework because I don’t like to work with SQL. I learn every in and out of Entity Framework, checking out screen cast, blogs, articles etc. And one day I have to debug query which is SQL. I feel this is just overhead. At least for now. At some point of time, may be there will be no need of Database or SQL. Everything will shift to Application level and at that point of time EF will be necessity or just part of language. But now it is not. And that is creating problems. And it is general statement for all <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> s. You are learning something new but old is still there you cant escape. Even <a href="https://github.com/robconery/massive">Massive</a> has some learning curve. But in case of Micro ORMs learning curve is some what simpler and smaller.</p>
-
-<blockquote>
-  <p>If in any case Rob sir if you are reading this article can you please give the answer of these questions. I should devote more time to execute complex task or why ORM is not working to execute task? Either learn and add html tag or give more time to why html helper is not working?</p>
-</blockquote>
-
-<p>Means there are more important things to do, other than solving error of framework which are designed to help us. I am not criticizing framework, I just love it and can’t leave with out it but if they are replacing core than good but if I have to use combination than I am not in favor of it. Like C# is developed over C++, but I never have to debug C# at C++ level. I hope you are getting my point. One more example of <a href="http://knockoutjs.com/">knockoutjs</a> . It is java script library which is using “data-bind’ key word to bind with java script object or function. Now, I want to use it with html helper. I simply pass anonymous object in it and banged. Error arrived. I Google it, waste almost half an hour and find out I have to pass “data_bind” instead of “data-bind” specifically for helper method. If I am using pure html syntax than my half an hour is saved.</p>
-
-<p>I am not opposing concept of <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> and also if I got chance will work to improve it to next level. But when I have to create application with time constraint I will avoid it. This is complete personal opinion. But I do have some reason to support my opinion.</p>
-
-<blockquote>
-  <p>Now, How?</p>
-</blockquote>
-
-<p>As promise this will be short and sweet. I personally go for <a href="http://en.wikipedia.org/wiki/MVVM">MVVM pattern</a> . Now, if I am developing application using Asp.Net MVC. I have controller, model and view. Now, in model section I separated with two section. ViewModel and Model. I do it by using two different files. You can chose any other approach. In model we have class which have one to one relationship with database and inherited from DynamicModel from <a href="https://github.com/robconery/massive">Massive</a> . And view model has class which can be used in views and same type of class we can have in java script. So, it can be used using <a href="http://knockoutjs.com/">knockoutjs</a> . Here are some example of <a href="https://github.com/robconery/massive">Massive</a> . This is directly taken from site. If anyone want can skip it.</p>
-
-<blockquote>
-  <p>This is another best part of Micro ORM. You don’t need tutorial at all. I am not good at SQL, <a href="https://github.com/robconery/massive">Massive</a> can execute any complex SQL using same syntax, <a href="https://github.com/robconery/massive">Massive</a> it self is quite simple. So, I don’t have anything special or complex or alien to write.</p>
-</blockquote>
-
-<pre><code>public class Products:DynamicModel { //you don't have to specify the connection - Massive will use the first one it finds in your config 
-</code></pre>
-
-<p>public Products(): base ( "northwind" , "products" , "productid" ) {
-    } 
-  } 
-  var table = new Products(); //grab all the products 
-  var products = table.All(); //just grab from category 4. This uses named parameters 
-  var productsFour = table.All(columns: "ProductName as Name" , where : "WHERE categoryID=@0" ,args: 4); 
-  var result = tbl.Query( "SELECT * FROM Categories" ); // my favorite function, no need to learn massive use this function :P 
-    for Grid view like things, it also has paged query. 
-  var result = tbl.Paged(where : "UnitPrice &gt; 20" , currentPage:2, pageSize: 20); // Insert and update are quite flexible in Massive, you should try with different options 
-  var table = new Products(); 
-  var poopy = new {ProductName = "Chicken Fingers" }; //update Product with ProductID = 12 to have a ProductName of "Chicken Fingers" 
-  table.Update(poopy, 12); 
-  var table = new Products(); //update Product with ProductID = 12 to have a ProductName of whatever was submitted via the form 
-  table.Update(poopy, Request.Form); //pretend we have a class like Products but it's called Categories 
-  var table = new Categories(); //do it up - the new ID will be returned from the query 
-  var newID = table.Insert(new {CategoryName = "Buck Fify Stuff" , Description = "Things I like" }); </p>
-
-<p>So, Here is the reason why I prefer Micro ORM or NO ORM over ORM. I learned, I used and I am hurt so I avoid. But trust me <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> is so cool to mess with it but it should be done in free time for personal learning at least for now. Still there can be few more things to discuss, but I like to do that in comment section specially for this article.</p>
-
-<p>Comments are always welcome!!!</p>
-
-<p>[]: https://lh5.googleusercontent.com/-Eq-pGJZhHtU/URHJx47Y2dI/AAAAAAAAAsY/LO2BqVFZUTQ/s800/iron-man-32<em>2.jpg
- []: https://lh6.googleusercontent.com/-GIE2x98SNDE/URHJqwsNwNI/AAAAAAAAAqM/l7n</em><em>dsAo9o/s800/RobCon</em>Hanselman<em>2</em>2.jpg
- []: https://lh5.googleusercontent.com/-xtkof-Bai6g/URHJqhgda7I/AAAAAAAAAqE/CqRSsiZ424k/s800/Qui<em>gon</em>jinn<em>from</em>movie<em>2.jpg
- []: https://lh3.googleusercontent.com/-jzEvsjhnylg/URHJuutPtOI/AAAAAAAAArY/wmXiv7qRjEg/s800/hanselman</em>4.png
- []: https://lh4.googleusercontent.com/-2FeVrSh4Xas/URHJnpRUhnI/AAAAAAAAAo8/dvptH8qu1qY/s800/149117-batman-returns-dos-screenshot-main-computer-s<em>2.gif
- []: https://lh4.googleusercontent.com/-uTs5lIhQLgA/URHJz2abyDI/AAAAAAAAAs4/agORU4lbeoo/s800/phil</em>2.jpg</p>
-
-      <p><a href="/2012/02/massive-effect/">Read more...</a></p>
     </li>
   </ul> 
 

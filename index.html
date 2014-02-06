@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="last-modified" content="2014-02-06T12:11:43.2054288+05:30" />
+    <meta http-equiv="last-modified" content="2014-02-06T14:32:00.6815209+05:30" />
     <title>Kunjan a.k.a. Kunjee's blog</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
@@ -15,8 +15,7 @@
         <header id="masthead" class="site-header fancy-container lightgreen" role="banner">
             <hgroup>
                 <h1 class="site-title"><a href="/" title="Kunjee's Blog" rel="home">Kunjan's Blog</a></h1>
-                <h2><small>let f s g = g|>List.mapi(fun i x->match Seq.sumBy(fun o->
-g.[abs((i+o)%(s*s))])[-1-s;-s;1-s;-1;1;-1+s;s;1+s]with 3->1|2->x|_->0)</small></h2>
+                <h2><small>Why Did the Chicken Cross the Möbius Strip?</small></h2>
                 <p class="site-description"> All idea, opinion are my own and don't reflect opinion of my current or any former employee. </p>
             </hgroup>
             <nav role="navigation" class="site-navigation main-navigation">
@@ -42,11 +41,116 @@ g.[abs((i+o)%(s*s))])[-1-s;-s;1-s;-1;1;-1+s;s;1+s]with 3->1|2->x|_->0)</small></
   <ul class="posts">
     <li class="fancy-container lightblue">
       <h1>
+        <a href="/2014/02/aspnet-mvc/">Asp.Net MVC5 with F#</a> 
+        <span>posted on 06 Feb 2014</span>
+      </h1> 
+      <ul class="snow-series"><li><a href="/2014/02/getting-started-with-functional-web/">Getting started with web and Functional Programming</a></li><li>Asp.Net MVC5 with F#</li></ul>
+      <p>Thanks to <a href="http://blog.danielmohl.com/">Danial Mohl</a> getting started with Asp.net MVC5 is pretty easy. He had put a tremendous effort to make different kind of templates. Even starting from MVC3 till date now. </p>
+
+<p>Old templates are like there are two projects one is C# and one is <a href="http://fsharp.org">F#</a>. C# is having all the <a href="http://vanilla-js.com/">Java Script</a>, html, css and stuff while F# is having coding part. </p>
+
+<p>But with time pass and version update, now we are having pure F# templates. A single project of F# having code, Java Script, cshtml, html, CSS everything. It is far more fun and easy to get started with. At the end of day F# is all about compressing code. Doing more with less code. </p>
+
+<blockquote>
+  <p>Scala people, play is almost same as MVC framework. If you are following, code will be almost same only. I will still try to put code snippets wherever possible.</p>
+</blockquote>
+
+<p>So, if you haven't downloaded template yet. Please check out my previous post the first one in series and download template. Once installed you are up and running to write some MVC code. </p>
+
+<blockquote>
+  <p>I am assuming that people trying this; is quite familiar with MVC and other concepts. </p>
+</blockquote>
+
+<p>First I will be doing one to one map between C# and F# code. Just to get familiar with syntax. Then will move to optimized code to make it more functional. </p>
+
+<blockquote>
+  <p><strong>Side Note</strong> If you are not having Visual Studio Pro or higher one. Do not worry, templates are working with Express versions also. As per latest release F# is now primarily supported by <a href="http://fsharp.org/use/windows/">Desktop and Web Express version</a>. </p>
+</blockquote>
+
+<p>Install template, create new project with MVC5 and Web API option. Hit F5 and it is done. You are up and running. </p>
+
+<p>Feeling great?!? It is just started. 
+<img src="/images/rollercoasterride.gif" alt="roller coaster ride" /></p>
+
+      <p><a href="/2014/02/aspnet-mvc/">Read more...</a></p>
+    </li>
+    <li class="fancy-container lightblue">
+      <h1>
+        <a href="/2014/02/getting-started-with-functional-web/">Getting started with Functional web</a> 
+        <span>posted on 06 Feb 2014</span>
+      </h1> 
+      <ul class="snow-series"><li>Getting started with web and Functional Programming</li><li><a href="/2014/02/aspnet-mvc/">Asp.Net MVC5 with F#</a></li></ul>
+      <p>I am doing web development from quite a long time. And now a days I am keep pushing my self to do functional programming. <a href="http://learnyouahaskell.com/">Learning</a> languages like <a href="http://www.haskell.org/haskellwiki/Haskell">Haskell</a>, <a href="http://www.scala-lang.org/">Scala</a>, <a href="http://fsharp.org/">F#</a>. Obviously I try my hand to other functional languages too as per time permits. </p>
+
+<p>As I am .Net developer my primary focused is working with <a href="http://fsharp.org/">F#</a> and I will also start from that only. You can also check out other functional articles of mine to check out what I think about functional programming and why it is necessity now a days. </p>
+
+<p><a href="http://fsharp.org/">F#</a> for a long is treated as second class citizen in main stream programming in .Net area. But now it is picking up the pace. When I decided to write a complete series of web development with I was even thinking like that only. There will be C# project and <a href="http://fsharp.org/">F#</a> project. C# project will take care of UI and F# project will do all the heavy lifting.</p>
+
+<p>But thanks to wonderful community of <a href="http://fsharp.org/">F#</a>, we have now pure templates. And that is the point of start. Complete web development using <a href="http://fsharp.org/">F#</a> only. Nothing can be more fun that this. And it is not ended here, there are testing , mocking , testing libraries. </p>
+
+<p>With this series, I will try to check out every vertical of web development. Including deployment to cloud. </p>
+
+<blockquote>
+  <p>I will also make sure to keep posting details about Scala and <a href="http://clojure.org/">Clojure</a> too, in compare to <a href="http://fsharp.org">F#</a></p>
+</blockquote>
+
+<p>Let's start with <strong>Hello World</strong>. Go to the visual studio gallery and download the templates and add-on for <a href="http://fsharp.org">F#</a> web development. </p>
+
+<p>Here is the list.</p>
+
+<ul>
+<li><a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f">Servicestak</a> (Update is coming soon)</li>
+<li><a href="http://visualstudiogallery.msdn.microsoft.com/b55b8aac-b11a-4a6a-8a77-2153f46f4e2f">NancyFX</a></li>
+<li><a href="http://visualstudiogallery.msdn.microsoft.com/bbec75fa-0f31-47e9-a8ce-c301edb2fa4b">Simple.Web</a></li>
+<li><a href="http://visualstudiogallery.msdn.microsoft.com/39ae8dec-d11a-4ac9-974e-be0fdadec71b">Asp.net MVC5 &amp; Web API2</a></li>
+<li><a href="http://visualstudiogallery.msdn.microsoft.com/24ef5c87-b4e3-4c3b-b126-1064cc66e148">Fantomas</a> For code formatting </li>
+<li><a href="http://visualstudiogallery.msdn.microsoft.com/bec977b8-c9d9-4926-999e-e50c4498df8a">F# Outlining</a> </li>
+<li><a href="http://visualstudiogallery.msdn.microsoft.com/f1dae7fe-1ecc-4f1b-86b5-32a2970d012a">F# web templates</a></li>
+</ul>
+
+<p>Installing these template and add on will give you nice ways to start. Trust me I am enjoying far more after these pure <a href="http://fsharp.org">F#</a> templates arrived. </p>
+
+<blockquote>
+  <p>For people who is new to language, I will start from simple conversation of OOP to Functional programming. Most of them is one to one map only. So, there will be less use of pure functional concept. But slowly will move to more functional style of programming. And trying to achieve nirvana. </p>
+</blockquote>
+
+<p>People trying Scala or coming from Java background <a href="http://www.playframework.com/">Play</a> is choice of framework for you. It is supported by wonderful community and build over the ever powerful <a href="http://akka.io/">AKKA</a>. </p>
+
+<p>For people who don't like types or coming from Ruby like language background. You can Clojure for you. And here is twitter conversation with <a href="http://bodil.org/">Bodil</a> for the selection of framework.</p>
+
+<blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/kunjee">@kunjee</a> I&#39;m a bit out of touch, used to prefer straight Ring + Compojure, maybe Aleph. But that was before both core.async and Pedestal...</p>&mdash; Bodil Stokke (@bodil) <a href="https://twitter.com/bodil/statuses/431086156470833152">February 5, 2014</a></blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>For People who is going with F# / scala; there are couple of reference reading for getting started. </p>
+
+<ul>
+<li><a href="http://fsharpforfunandprofit.com/">F# for fun and profit</a></li>
+<li><a href="http://pluralsight.com/training/Courses/TableOfContents/functional-architecture-fsharp">Functional Architecture with F#</a></li>
+<li><a href="http://blog.jessitron.com/">Jessica Kerr's blog for Scala lovers</a></li>
+</ul>
+
+<p>Do have a look. </p>
+
+<blockquote>
+  <p><strong>Disclaimer</strong> : - I am neither expert of <em>web</em> nor <em>functional programming</em>. But I know web a little bit more than other programming things and I love functional programming. </p>
+</blockquote>
+
+<p>So, what we are waiting for?</p>
+
+<p><img src="/images/rock.gif" alt="rock" /></p>
+
+<p>lets rock. </p>
+
+      <p><a href="/2014/02/getting-started-with-functional-web/">Read more...</a></p>
+    </li>
+    <li class="fancy-container lightblue">
+      <h1>
         <a href="/2014/02/should-i-write-more-poems/">Should I continue writing more poems?</a> 
         <span>posted on 05 Feb 2014</span>
       </h1> 
       
-      <p>Long back I have tried my hand to writing poems. And trust me I am no where near poetic part. I have good grip over language but that is only for my mother tongue. I am quite comfortable with writing with English but still no where near having artistic touch. Or in simple language my database of words is not that strong. But normally I am able to convey my feelings. </p>
+      <p>Long back I have tried my hand to writing poems. And trust me I am no where near poetic part. I have good grip over language but that is only for my mother tongue. I am quite comfortable with English but still no where near having artistic touch. Or in simple language my database of words is not that strong. But normally I am able to convey my feelings. </p>
 
 <p>I can say, I am pretty lucky in the case of writing poems. Though I have write only few, many of them got good review from whom so ever read it. But that charm doesn't last that much. </p>
 
@@ -301,50 +405,6 @@ g.[abs((i+o)%(s*s))])[-1-s;-s;1-s;-1;1;-1+s;s;1+s]with 3->1|2->x|_->0)</small></
 <p>Stay tuned... </p>
 
       <p><a href="/2013/08/back-to-business/">Read more...</a></p>
-    </li>
-    <li class="fancy-container lightblue">
-      <h1>
-        <a href="/2013/01/hello-docpad/">Hello Doc Pad</a> 
-        <span>posted on 30 Jan 2013</span>
-      </h1> 
-      
-      <p>I have recently moved my blog to docpad. Reason, I want to move to heroku and I want static files to be hosted.</p>
-
-<p>I do have checked out project like <a href="http://jekyllrb.com/">jekyll</a> and <a href="http://octopress.org/">octapress</a>. They are good but ruby was giving me issue on my windows machine with no reason. And in any case I am better with JavaScript then what I can do with ruby. </p>
-
-<p>And also <a href="http://docpad.org/">docpad</a> is having wonderful plugins system and easy to start skeleton. I was able to get up and started in just no time. </p>
-
-<p>I was hosting my blog with <a href="http://www.orchardproject.net/">Orchard</a> a wonderful .net CMS system. But the thing is it very big for my need. And to edit them I have to write lot more code just to move few parts here and there</p>
-
-<p><a href="http://docpad.org/">docpad</a> on other hand make it very easy to move things as at the end it is just a static html files. So, if I like give somewhat different touch to my any specific page I can give them specifically. I don't need to change complete theme for that. Which is there in other kinda blog engines. </p>
-
-<blockquote>
-  <p>Yes, and I don't like php. At all. Giving me feeling of old ASP pages. I never worked on that and never want to work on that... </p>
-</blockquote>
-
-<p>So, as of now. I happy with my static file generator that is doing much more than needed, with light weight node back end and static file as front end. </p>
-
-<p>Hopefully my blog get massive hit, as I already have set virtually infinite scalability with my static html pages ;).</p>
-
-<p>Till now experience with <a href="http://docpad.org">Docpad</a> is wonderful. There are few hiccups here and there but overall it is nice and with lots of plugins to make life even more easier. </p>
-
-      <p><a href="/2013/01/hello-docpad/">Read more...</a></p>
-    </li>
-    <li class="fancy-container lightblue">
-      <h1>
-        <a href="/2012/12/entity-framework-upside-down/">Entity Framework Upside Down</a> 
-        <span>posted on 05 Dec 2012</span>
-      </h1> 
-      
-      <p>If you have read my previous articles you must be knowing that I don’t like ORMs that much and also I am pretty lazy person. I don’t like to repeat stuff again and again. If I can find the solution than I will automate it or I just change from very root. Same thing is true with Entity Framework. It comes after LINQ to SQL as an improved ORM. And it proved to be lousy. But here is the catch if we are not using it with all its functionality it is lousy.</p>
-
-<p>Now, it provides proper name at entity level and also inheritance like stuff. Its really a cool and neat feature about Entity Framework to abstract away the complexity of database with ‘_’ name. I never understand this type of names and I don’t know if ever I will be understanding this type of name. But if you are just updating from database and using it, than there is no use of EF at all. Or there is no need of EF. If I will become little bit harsh, then I can say <strong>“WE ARE DOING IT WRONG”</strong> .</p>
-
-<p>And after EF evolved to further version it is providing more features, but still we are stick to the feature which is shown in <a href="https://channel9.msdn.com/">Channel9</a> . We must understand here that there is difference between demo and production. In demo we have pizza factory in production we never have at least in most of the cases. So, things are far different in production environment. If we are just deleting and adding entities then obviously again <strong>“WE ARE DOING IT WRONG”</strong> . If any one think who the hell I am to tell that ??? I am just nothing and no one, but I am open minded to ideas and new things. Just think how much more overhead you are having for pushing EF in production. It is there to help you out not to make things worst.</p>
-
-<p>I tweeted about it and also got reply from Rob Conery of <a href="http://tekpub.com">Tekpub</a> . I insist to check that out. I must say EF is a tool if we are not careful it will surely hit our own ass very bad. Here is the <a href="https://twitter.com/robconery/status/270700961109004288">link</a> for tweet. So, I am not providing any right way as there are many and you will found out over google, but I am just saying to think twice before come to a conclusion or before porting demo to production environment.</p>
-
-      <p><a href="/2012/12/entity-framework-upside-down/">Read more...</a></p>
     </li>
   </ul> 
 

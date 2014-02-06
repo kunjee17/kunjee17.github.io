@@ -13,7 +13,12 @@ Yeah, she is like her only. Just like photo. A girl you don’t want to mess wit
 
 > *I am not that another person in picture. It just a FYI.* 
 
-Like [Cynthia Rothrock][10] she is also a black belt but in [Java Script][6] . Always kicking around in web arena. Whenever I stuck somewhere she comes laugh at me and solve the problem. And what I am in compare to her, like kid shown here. ![](https://lh6.googleusercontent.com/-TwrCb_2KLk0/URHJyRifiTI/AAAAAAAAAsk/V7mr0dHwQ3o/s800/kids-gi_thumb.jpg)  A white belt kid. Now what I can do to match the standards with her. Technically I can’t. As she is black belt and I am just a kid. But I am a smart kid. I drink some [coffee][10] and write [CoffeeScript][2] . Yeah, you have black belt and I have [coffee][10] . Now, I come to point. There is always a need of writing good code, weather it is compiled language or a scripting language.
+Like [Cynthia Rothrock][10] she is also a black belt but in [Java Script][6] . Always kicking around in web arena. Whenever I stuck somewhere she comes laugh at me and solve the problem. And what I am in compare to her, like kid shown here. 
+
+![](https://lh6.googleusercontent.com/-TwrCb_2KLk0/URHJyRifiTI/AAAAAAAAAsk/V7mr0dHwQ3o/s800/kids-gi_thumb.jpg)
+
+
+A white belt kid. Now what I can do to match the standards with her. Technically I can’t. As she is black belt and I am just a kid. But I am a smart kid. I drink some [coffee][10] and write [CoffeeScript][2] . Yeah, you have black belt and I have [coffee][10] . Now, I come to point. There is always a need of writing good code, weather it is compiled language or a scripting language.
 
 And good code has two main quality as per me. One is its readability and another is extendibility. If I am writing code, other should read it and also able to extend it. Now, if you are writing [Java Script][6] like her, others don’t find any problem to read or extend it but else that will be a problem specifically with scripting languages. It prone to get dirty soon.
 
@@ -279,7 +284,9 @@ It becomes more powerful when it joins hands with [JQuery][5] or other libraries
 Now, for whom this is ??? This is for person like me. Or even black belt like my friend. It just fun to write [Java Script][6] . I don’t insist to use it but I surely insist to give it a try. It is worth investing time in it. Again if you are die hard [Java Script][6] developer, I don’t think you need this. But again there is no loss in learning new thing. I am just enjoying [CoffeeScript][2] like anything.
 
 
-![](https://lh6.googleusercontent.com/-x7ptaCkB7bA/URHJvRJbFMI/AAAAAAAAArw/dvsN8HvY0I4/s800/iStock_000005133061XSmall_2.jpg) So, here there are clearly two options for most of the developers including me. Either I can have coffee with [Java Script][6] , doing over time and solving errors. Or I can use [CoffeeScript][2] and have fun time with my (Black belt) friend. I prefer later one. And trust me this is one the most fun writing article just like [CoffeeScript][2] .
+![](https://lh6.googleusercontent.com/-x7ptaCkB7bA/URHJvRJbFMI/AAAAAAAAArw/dvsN8HvY0I4/s800/iStock_000005133061XSmall_2.jpg) 
+
+So, here there are clearly two options for most of the developers including me. Either I can have coffee with [Java Script][6] , doing over time and solving errors. Or I can use [CoffeeScript][2] and have fun time with my (Black belt) friend. I prefer later one. And trust me this is one the most fun writing article just like [CoffeeScript][2] .
 
 
 Taste a coffee and have fun. Coding is seriously enjoyable with friends like her and technology like [CoffeeScript][2] . Special thanks to Jeremy Ashkenas for giving [CoffeeScript][2] .

@@ -7,14 +7,14 @@ series:
 	name: functionalweb
 	current: 1
 	part : Getting started with web and Functional Programming
-published: private
+published: true
 ---
 
 I am doing web development from quite a long time. And now a days I am keep pushing my self to do functional programming. [Learning](http://learnyouahaskell.com/) languages like [Haskell](http://www.haskell.org/haskellwiki/Haskell), [Scala](http://www.scala-lang.org/), [F#](http://fsharp.org/). Obviously I try my hand to other functional languages too as per time permits. 
 
 As I am .Net developer my primary focused is working with [F#](http://fsharp.org/) and I will also start from that only. You can also check out other functional articles of mine to check out what I think about functional programming and why it is necessity now a days. 
 
-[F#](http://fsharp.org/) for a long is treated as second class citizen in main stream programming. But now it is picking up the pace. When I decided to write a complete series of web development with I was even thinking like that only. There will be C# project and [F#](http://fsharp.org/) project. C# project will take care of UI and F# project will do all the heavy lifting.
+[F#](http://fsharp.org/) for a long is treated as second class citizen in main stream programming in .Net area. But now it is picking up the pace. When I decided to write a complete series of web development with I was even thinking like that only. There will be C# project and [F#](http://fsharp.org/) project. C# project will take care of UI and F# project will do all the heavy lifting.
 
 But thanks to wonderful community of [F#](http://fsharp.org/), we have now pure templates. And that is the point of start. Complete web development using [F#](http://fsharp.org/) only. Nothing can be more fun that this. And it is not ended here, there are testing , mocking , testing libraries. 
 
@@ -45,7 +45,7 @@ For people who don't like types or coming from Ruby like language background. Yo
 <blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/kunjee">@kunjee</a> I&#39;m a bit out of touch, used to prefer straight Ring + Compojure, maybe Aleph. But that was before both core.async and Pedestal...</p>&mdash; Bodil Stokke (@bodil) <a href="https://twitter.com/bodil/statuses/431086156470833152">February 5, 2014</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-For People who is going with F# there are couple of reference reading to getting started. 
+For People who is going with F# / scala; there are couple of reference reading for getting started. 
 
 - [F# for fun and profit](http://fsharpforfunandprofit.com/)
 - [Functional Architecture with F#](http://pluralsight.com/training/Courses/TableOfContents/functional-architecture-fsharp)

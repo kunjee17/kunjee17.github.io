@@ -6,7 +6,7 @@ layout: post
 published: true
 ---
 
-Long back I have tried my hand to writing poems. And trust me I am no where near poetic part. I have good grip over language but that is only for my mother tongue. I am quite comfortable with writing with English but still no where near having artistic touch. Or in simple language my database of words is not that strong. But normally I am able to convey my feelings. 
+Long back I have tried my hand to writing poems. And trust me I am no where near poetic part. I have good grip over language but that is only for my mother tongue. I am quite comfortable with English but still no where near having artistic touch. Or in simple language my database of words is not that strong. But normally I am able to convey my feelings. 
 
 I can say, I am pretty lucky in the case of writing poems. Though I have write only few, many of them got good review from whom so ever read it. But that charm doesn't last that much. 
 
