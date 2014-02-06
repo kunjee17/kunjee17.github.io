@@ -55,7 +55,7 @@ Do have a look.
 
 > **Disclaimer** : - I am neither expert of *web* nor *functional programming*. But I know web a little bit more than other programming things and I love functional programming. 
 
-So, what we are waiting for?
+So, what are we waiting for?
 
 ![rock](/images/rock.gif)
 
