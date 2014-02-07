@@ -11,7 +11,7 @@ I have specific love for [Servicestack](http://servicestack.net/) and that is kn
 > Hell, yes.. No XML... 
 
 Ok, I can write on and on for [Servicestack](http://servicestack.net/) but for now it is not the topic. Topic is about [Shaving the Yak](http://www.hanselman.com/blog/YakShavingDefinedIllGetThatDoneAsSoonAsIShaveThisYak.aspx). There are many hatters of Visual Studio and its project file. I also don't mind sometimes joining the league. But for most of the cases it is doing many things, that we need to do otherwise.
-
+<!--excerpt-->
 And I am saying this because I have done this while creating templates for  [Servicestack](http://servicestack.net/). My first experience is damn flow less.
 
 I created one sample application and [Daniel Mohl](http://blog.danielmohl.com/) did the mojo jojo part. And template is up and running. But after that he was little bit busy with day job so I got that task. And first challenge was to run [Servicestack](http://servicestack.net/) with F#. Console application is pretty easy as I have done it [earlier too](https://github.com/kunjee17/ServiceStackHeroku) and deployed it to [Heroku](http://servicestackheroku.herokuapp.com/). But with Asp.Net it was giving weird issue. After struggling for two weeks and asking community over twitter, I got answer from [stackoverflow](http://stackoverflow.com/questions/21213363/servicestack-razor-page-is-getting-added-to-content). Damn silly mistake. I copy pasted code from self host and that is spinning up two server. Once solved I was so happy. 

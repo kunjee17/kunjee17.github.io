@@ -4,52 +4,16 @@
   &lt;p&gt;Hell, yes.. No XML... &lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Ok, I can write on and on for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; but for now it is not the topic. Topic is about &lt;a href="http://www.hanselman.com/blog/YakShavingDefinedIllGetThatDoneAsSoonAsIShaveThisYak.aspx"&gt;Shaving the Yak&lt;/a&gt;. There are many hatters of Visual Studio and its project file. I also don't mind sometimes joining the league. But for most of the cases it is doing many things, that we need to do otherwise.&lt;/p&gt;
-
-&lt;p&gt;And I am saying this because I have done this while creating templates for  &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;. My first experience is damn flow less.&lt;/p&gt;
-
-&lt;p&gt;I created one sample application and &lt;a href="http://blog.danielmohl.com/"&gt;Daniel Mohl&lt;/a&gt; did the mojo jojo part. And template is up and running. But after that he was little bit busy with day job so I got that task. And first challenge was to run &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; with F#. Console application is pretty easy as I have done it &lt;a href="https://github.com/kunjee17/ServiceStackHeroku"&gt;earlier too&lt;/a&gt; and deployed it to &lt;a href="http://servicestackheroku.herokuapp.com/"&gt;Heroku&lt;/a&gt;. But with Asp.Net it was giving weird issue. After struggling for two weeks and asking community over twitter, I got answer from &lt;a href="http://stackoverflow.com/questions/21213363/servicestack-razor-page-is-getting-added-to-content"&gt;stackoverflow&lt;/a&gt;. Damn silly mistake. I copy pasted code from self host and that is spinning up two server. Once solved I was so happy. &lt;/p&gt;
-
-&lt;p&gt;But next thing is waiting for me is to make is template. I was having no idea how to do that. Other than I was having link where to give pull request. At this point &lt;a href="http://sidewaffle.com/"&gt;Side Waffle&lt;/a&gt; came to rescue. Just a 5 minutes video and you are done. &lt;/p&gt;
-
-&lt;p&gt;Ok, I do got some hiccups, like I was unable to created project at first. But then I did &lt;em&gt;hacking&lt;/em&gt; , lamest one. Did copy paste of other working project, removed their data and insert mine. And it was working.  Obviously this was not the best way but for now it is working. And I am the happy one for now. &lt;/p&gt;
-
-&lt;p&gt;At last I have given my first pull request to &lt;strong&gt;&lt;em&gt;F# Community&lt;/em&gt;&lt;/strong&gt; project. Yes, Yes, Yes... It is time for celebration. This can not be possible without a wonderful helping community over github, twitter, stackoverflow. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;But two things are certain from my experience that Yak Shaving is pain in a##, and &lt;a href="http://sidewaffle.com/"&gt;Side Waffle&lt;/a&gt; is flow less in saving it. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I will highly encourage people having .Net Open Source project, please do make template and provide the boiler plate code. It will be hell easy to get started in that way. And it will save time from doing initial set up to get up and started. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt;  Currently I am putting together V4 templates at my &lt;a href="https://github.com/kunjee17/ServiceStackFSharp"&gt;repo&lt;/a&gt;.  And again facing issue to make Asp.Net version running. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Right now I am waiting for my pull request to get accepted. Once done, do have a look. You will see that F# and Servicestack are made for each other. Both are strongly typed, believed in message driven design and async model of working. &lt;/p&gt;
-
-&lt;p&gt;In current state where everyone is making API, this is most &lt;em&gt;viable&lt;/em&gt; option for .Net people to have. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Template is currently having V3.71, it is still under MIT. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Even if someone like to move to V4, that is also not that costly option for the worth Servicestack bringing to development. Once I ll get up and running V4, I will put the template of that too. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Community members, if there are any suggestion, comments please do provide. And obviously I am happy to take pull request for my template projects too. Different combinations of Servicestack option will be great. Also, if someone can check out issue that will be also great.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Thanks F#, Servicestack and specially Side Waffle. &lt;/p&gt;
+&lt;p&gt;Ok, I can write on and on for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; but for now it is not the topic. Topic is about &lt;a href="http://www.hanselman.com/blog/YakShavingDefinedIllGetThatDoneAsSoonAsIShaveThisYak.aspx"&gt;Shaving the Yak&lt;/a&gt;. There are many hatters of Visual Studio and its project file. I also don't mind sometimes joining the league. But for most of the cases it is doing many things, that we need to do otherwise.
 </description><pubDate>Thu, 06 Feb 2014 18:30:00 Z</pubDate><a10:updated>2014-02-06T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;I have specific love for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; and that is known thing. It is not because it is awesome or the ways it do web service things, no one else is doing. But because of my past with WCF. It is so rocky that I never want to go back.  And more over &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; doing hell lot of the things under the cover, and that is also without doing any damn thing into &lt;strong&gt;XML&lt;/strong&gt;. &lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Hell, yes.. No XML... &lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Ok, I can write on and on for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; but for now it is not the topic. Topic is about &lt;a href="http://www.hanselman.com/blog/YakShavingDefinedIllGetThatDoneAsSoonAsIShaveThisYak.aspx"&gt;Shaving the Yak&lt;/a&gt;. There are many hatters of Visual Studio and its project file. I also don't mind sometimes joining the league. But for most of the cases it is doing many things, that we need to do otherwise.&lt;/p&gt;
-
-&lt;p&gt;And I am saying this because I have done this while creating templates for  &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;. My first experience is damn flow less.&lt;/p&gt;
+&lt;p&gt;Ok, I can write on and on for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; but for now it is not the topic. Topic is about &lt;a href="http://www.hanselman.com/blog/YakShavingDefinedIllGetThatDoneAsSoonAsIShaveThisYak.aspx"&gt;Shaving the Yak&lt;/a&gt;. There are many hatters of Visual Studio and its project file. I also don't mind sometimes joining the league. But for most of the cases it is doing many things, that we need to do otherwise.
+&lt;!--excerpt--&gt;
+And I am saying this because I have done this while creating templates for  &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;. My first experience is damn flow less.&lt;/p&gt;
 
 &lt;p&gt;I created one sample application and &lt;a href="http://blog.danielmohl.com/"&gt;Daniel Mohl&lt;/a&gt; did the mojo jojo part. And template is up and running. But after that he was little bit busy with day job so I got that task. And first challenge was to run &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; with F#. Console application is pretty easy as I have done it &lt;a href="https://github.com/kunjee17/ServiceStackHeroku"&gt;earlier too&lt;/a&gt; and deployed it to &lt;a href="http://servicestackheroku.herokuapp.com/"&gt;Heroku&lt;/a&gt;. But with Asp.Net it was giving weird issue. After struggling for two weeks and asking community over twitter, I got answer from &lt;a href="http://stackoverflow.com/questions/21213363/servicestack-razor-page-is-getting-added-to-content"&gt;stackoverflow&lt;/a&gt;. Damn silly mistake. I copy pasted code from self host and that is spinning up two server. Once solved I was so happy. &lt;/p&gt;
 
