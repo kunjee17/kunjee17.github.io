@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
     <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif">
-    <link rel="canonical" href="http://kunjan.in/2014/02/aspnet-mvc/" />
+    <link rel="canonical" href="http://kunjan.in/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/" />
 </head>
 <body class="home blog">
     <div id="page" class="hfeed site">
@@ -39,10 +39,10 @@
                   
 
 <div id="post">
-    <h1>Asp.Net MVC5 with F#</h1>
+    <h1>When Servicestack meet F# via Side Waffle</h1>
 
     <div class="post-note">
-      posted on 06 Feb 2014
+      posted on 07 Feb 2014
        | <a href="/category/functional-programming">Functional Programming</a>
        | <a href="/category/functional-web">Functional Web</a>
        | <a href="/category/technical">Technical</a>
@@ -75,34 +75,51 @@
       
     </div>
     
-    <ul class="snow-series"><li><a href="/2014/02/getting-started-with-functional-web/">Getting started with web and Functional Programming</a></li><li>Asp.Net MVC5 with F#</li></ul>
+    
         
-    <p>Thanks to <a href="http://blog.danielmohl.com/">Danial Mohl</a> getting started with Asp.net MVC5 is pretty easy. He had put a tremendous effort to make different kind of templates. Even starting from MVC3 till date now. </p>
-
-<p>Old templates are like there are two projects one is C# and one is <a href="http://fsharp.org">F#</a>. C# is having all the <a href="http://vanilla-js.com/">Java Script</a>, html, css and stuff while F# is having coding part. 
-<!--excerpt-->
-But with time pass and version update, now we are having pure F# templates. A single project of F# having code, Java Script, cshtml, html, CSS everything. It is far more fun and easy to get started with. At the end of day F# is all about compressing code. Doing more with less code. </p>
+    <p>I have specific love for <a href="http://servicestack.net/">Servicestack</a> and that is known thing. It is not because it is awesome or the ways it do web service things, no one else is doing. But because of my past with WCF. It is so rocky that I never want to go back.  And more over <a href="http://servicestack.net/">Servicestack</a> doing hell lot of the things under the cover, and that is also without doing any damn thing into <strong>XML</strong>. </p>
 
 <blockquote>
-  <p>Scala people, play is almost same as MVC framework. If you are following, code will be almost same only. I will still try to put code snippets wherever possible.</p>
+  <p>Hell, yes.. No XML... </p>
 </blockquote>
 
-<p>So, if you haven't downloaded template yet. Please check out my previous post the first one in series and download template. Once installed you are up and running to write some MVC code. </p>
+<p>Ok, I can write on and on for <a href="http://servicestack.net/">Servicestack</a> but for now it is not the topic. Topic is about <a href="http://www.hanselman.com/blog/YakShavingDefinedIllGetThatDoneAsSoonAsIShaveThisYak.aspx">Shaving the Yak</a>. There are many hatters of Visual Studio and its project file. I also don't mind sometimes joining the league. But for most of the cases it is doing many things, that we need to do otherwise.</p>
+
+<p>And I am saying this because I have done this while creating templates for  <a href="http://servicestack.net/">Servicestack</a>. My first experience is damn flow less.</p>
+
+<p>I created one sample application and <a href="http://blog.danielmohl.com/">Daniel Mohl</a> did the mojo jojo part. And template is up and running. But after that he was little bit busy with day job so I got that task. And first challenge was to run <a href="http://servicestack.net/">Servicestack</a> with F#. Console application is pretty easy as I have done it <a href="https://github.com/kunjee17/ServiceStackHeroku">earlier too</a> and deployed it to <a href="http://servicestackheroku.herokuapp.com/">Heroku</a>. But with Asp.Net it was giving weird issue. After struggling for two weeks and asking community over twitter, I got answer from <a href="http://stackoverflow.com/questions/21213363/servicestack-razor-page-is-getting-added-to-content">stackoverflow</a>. Damn silly mistake. I copy pasted code from self host and that is spinning up two server. Once solved I was so happy. </p>
+
+<p>But next thing is waiting for me is to make is template. I was having no idea how to do that. Other than I was having link where to give pull request. At this point <a href="http://sidewaffle.com/">Side Waffle</a> came to rescue. Just a 5 minutes video and you are done. </p>
+
+<p>Ok, I do got some hiccups, like I was unable to created project at first. But then I did <em>hacking</em> , lamest one. Did copy paste of other working project, removed their data and insert mine. And it was working.  Obviously this was not the best way but for now it is working. And I am the happy one for now. </p>
+
+<p>At last I have given my first pull request to <strong><em>F# Community</em></strong> project. Yes, Yes, Yes... It is time for celebration. This can not be possible without a wonderful helping community over github, twitter, stackoverflow. </p>
 
 <blockquote>
-  <p>I am assuming that people trying this; is quite familiar with MVC and other concepts. </p>
+  <p>But two things are certain from my experience that Yak Shaving is pain in a##, and <a href="http://sidewaffle.com/">Side Waffle</a> is flow less in saving it. </p>
 </blockquote>
 
-<p>First I will be doing one to one map between C# and F# code. Just to get familiar with syntax. Then will move to optimized code to make it more functional. </p>
+<p>I will highly encourage people having .Net Open Source project, please do make template and provide the boiler plate code. It will be hell easy to get started in that way. And it will save time from doing initial set up to get up and started. </p>
 
 <blockquote>
-  <p><strong>Side Note</strong> If you are not having Visual Studio Pro or higher one. Do not worry, templates are working with Express versions also. As per latest release F# is now primarily supported by <a href="http://fsharp.org/use/windows/">Desktop and Web Express version</a>. </p>
+  <p><strong>Update:</strong>  Currently I am putting together V4 templates at my <a href="https://github.com/kunjee17/ServiceStackFSharp">repo</a>.  And again facing issue to make Asp.Net version running. </p>
 </blockquote>
 
-<p>Install template, create new project with MVC5 and Web API option. Hit F5 and it is done. You are up and running. </p>
+<p>Right now I am waiting for my pull request to get accepted. Once done, do have a look. You will see that F# and Servicestack are made for each other. Both are strongly typed, believed in message driven design and async model of working. </p>
 
-<p>Feeling great?!? It is just started. 
-<img src="/images/rollercoasterride.gif" alt="roller coaster ride" /></p>
+<p>In current state where everyone is making API, this is most <em>viable</em> option for .Net people to have. </p>
+
+<blockquote>
+  <p>Template is currently having V3.71, it is still under MIT. </p>
+</blockquote>
+
+<p>Even if someone like to move to V4, that is also not that costly option for the worth Servicestack bringing to development. Once I ll get up and running V4, I will put the template of that too. </p>
+
+<blockquote>
+  <p>Community members, if there are any suggestion, comments please do provide. And obviously I am happy to take pull request for my template projects too. Different combinations of Servicestack option will be great. Also, if someone can check out issue that will be also great.</p>
+</blockquote>
+
+<p>Thanks F#, Servicestack and specially Side Waffle. </p>
 
 
     <div id="disqus_thread"></div>
@@ -112,14 +129,14 @@ But with time pass and version update, now we are having pure F# templates. A si
             reload: true,
             config: function () {
                 //this.page.identifier = '';
-                this.page.url = 'http://kunjan.in/2014/02/aspnet-mvc/';
+                this.page.url = 'http://kunjan.in/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/';
                 //this.page.title = '';
             }
         });
     };
 
     var disqus_shortname = 'kunjan';
-    var disqus_url = 'http://kunjan.in/2014/02/aspnet-mvc/';
+    var disqus_url = 'http://kunjan.in/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

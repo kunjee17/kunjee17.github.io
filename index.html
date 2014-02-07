@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="last-modified" content="2014-02-06T14:51:57.6807907+05:30" />
+    <meta http-equiv="last-modified" content="2014-02-07T20:49:52.9296752+05:30" />
     <title>Kunjan a.k.a. Kunjee's blog</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
@@ -39,6 +39,58 @@
                   
 
   <ul class="posts">
+    <li class="fancy-container lightblue">
+      <h1>
+        <a href="/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/">When Servicestack meet F# via Side Waffle</a> 
+        <span>posted on 07 Feb 2014</span>
+      </h1> 
+      
+      <p>I have specific love for <a href="http://servicestack.net/">Servicestack</a> and that is known thing. It is not because it is awesome or the ways it do web service things, no one else is doing. But because of my past with WCF. It is so rocky that I never want to go back.  And more over <a href="http://servicestack.net/">Servicestack</a> doing hell lot of the things under the cover, and that is also without doing any damn thing into <strong>XML</strong>. </p>
+
+<blockquote>
+  <p>Hell, yes.. No XML... </p>
+</blockquote>
+
+<p>Ok, I can write on and on for <a href="http://servicestack.net/">Servicestack</a> but for now it is not the topic. Topic is about <a href="http://www.hanselman.com/blog/YakShavingDefinedIllGetThatDoneAsSoonAsIShaveThisYak.aspx">Shaving the Yak</a>. There are many hatters of Visual Studio and its project file. I also don't mind sometimes joining the league. But for most of the cases it is doing many things, that we need to do otherwise.</p>
+
+<p>And I am saying this because I have done this while creating templates for  <a href="http://servicestack.net/">Servicestack</a>. My first experience is damn flow less.</p>
+
+<p>I created one sample application and <a href="http://blog.danielmohl.com/">Daniel Mohl</a> did the mojo jojo part. And template is up and running. But after that he was little bit busy with day job so I got that task. And first challenge was to run <a href="http://servicestack.net/">Servicestack</a> with F#. Console application is pretty easy as I have done it <a href="https://github.com/kunjee17/ServiceStackHeroku">earlier too</a> and deployed it to <a href="http://servicestackheroku.herokuapp.com/">Heroku</a>. But with Asp.Net it was giving weird issue. After struggling for two weeks and asking community over twitter, I got answer from <a href="http://stackoverflow.com/questions/21213363/servicestack-razor-page-is-getting-added-to-content">stackoverflow</a>. Damn silly mistake. I copy pasted code from self host and that is spinning up two server. Once solved I was so happy. </p>
+
+<p>But next thing is waiting for me is to make is template. I was having no idea how to do that. Other than I was having link where to give pull request. At this point <a href="http://sidewaffle.com/">Side Waffle</a> came to rescue. Just a 5 minutes video and you are done. </p>
+
+<p>Ok, I do got some hiccups, like I was unable to created project at first. But then I did <em>hacking</em> , lamest one. Did copy paste of other working project, removed their data and insert mine. And it was working.  Obviously this was not the best way but for now it is working. And I am the happy one for now. </p>
+
+<p>At last I have given my first pull request to <strong><em>F# Community</em></strong> project. Yes, Yes, Yes... It is time for celebration. This can not be possible without a wonderful helping community over github, twitter, stackoverflow. </p>
+
+<blockquote>
+  <p>But two things are certain from my experience that Yak Shaving is pain in a##, and <a href="http://sidewaffle.com/">Side Waffle</a> is flow less in saving it. </p>
+</blockquote>
+
+<p>I will highly encourage people having .Net Open Source project, please do make template and provide the boiler plate code. It will be hell easy to get started in that way. And it will save time from doing initial set up to get up and started. </p>
+
+<blockquote>
+  <p><strong>Update:</strong>  Currently I am putting together V4 templates at my <a href="https://github.com/kunjee17/ServiceStackFSharp">repo</a>.  And again facing issue to make Asp.Net version running. </p>
+</blockquote>
+
+<p>Right now I am waiting for my pull request to get accepted. Once done, do have a look. You will see that F# and Servicestack are made for each other. Both are strongly typed, believed in message driven design and async model of working. </p>
+
+<p>In current state where everyone is making API, this is most <em>viable</em> option for .Net people to have. </p>
+
+<blockquote>
+  <p>Template is currently having V3.71, it is still under MIT. </p>
+</blockquote>
+
+<p>Even if someone like to move to V4, that is also not that costly option for the worth Servicestack bringing to development. Once I ll get up and running V4, I will put the template of that too. </p>
+
+<blockquote>
+  <p>Community members, if there are any suggestion, comments please do provide. And obviously I am happy to take pull request for my template projects too. Different combinations of Servicestack option will be great. Also, if someone can check out issue that will be also great.</p>
+</blockquote>
+
+<p>Thanks F#, Servicestack and specially Side Waffle. </p>
+
+      <p><a href="/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/">Read more...</a></p>
+    </li>
     <li class="fancy-container lightblue">
       <h1>
         <a href="/2014/02/aspnet-mvc/">Asp.Net MVC5 with F#</a> 
@@ -168,24 +220,6 @@
 <p>Here is the <a href="https://twitter.com/kunjee/status/344894343066296321">twitter conversation</a>. And I agreed if I don' learn new things I am not doing justification to my old tools. How can I say that Visual Studio is good if I haven't tried <a href="http://www.sublimetext.com/">Sublimetext</a> or <a href="http://www.vim.org/">VIM</a>.
 
       <p><a href="/2013/08/vim-for-me/">Read more...</a></p>
-    </li>
-    <li class="fancy-container lightblue">
-      <h1>
-        <a href="/2013/08/back-to-business/">Back to Business</a> 
-        <span>posted on 21 Aug 2013</span>
-      </h1> 
-      
-      <p>It have been long that I was doing active blogging. There are multiple reason for that, and on of them is being a lazy ass. </p>
-
-<p>I changed my blog from <a href="http://www.orchardproject.net">Orchard</a> to <a href="http://docpad.org/">Docpad</a> for almost no reason. I just wanted my few page look different then other pages. And that will little bit more effort if I am going to do it with <a href="http://www.orchardproject.net">Orchard</a>.  So, I check out on net how to do it. I know Rob was using <a href="http://nestacms.com/">Nesta</a> but I am not good with Ruby, at least that much and more over ruby was giving issue on my windows machine. And switching on my VM just to write blog... Naaaahhh!!!!</p>
-
-<p>Then I moved to Docpad. I have to loose some of my comments, which was there as part of Orchard system. But it was fine. Only painful thing is I have to do lot more work to just get it up as I wanted. It was not like set up and go using <a href="http://windows.microsoft.com/en-us/windows-live/essentials">Windows Essentials' Live Writer</a>. But it is giving me flexibility. </p>
-
-<p>And in other reason, work load at day job. Things are moving faster then I can plan for. I was trying to learn other languages and tools. Moving out of my comfort zone. So, number of posts are less. Sadly!!!</p>
-
-<p>I also changed my job and my city, so that transaction do take time, specially leaving city like Bangalore was a bit of a pain on my side. Now, I am out shock, almost!
-
-      <p><a href="/2013/08/back-to-business/">Read more...</a></p>
     </li>
   </ul> 
 
