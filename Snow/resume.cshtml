@@ -1,17 +1,85 @@
 @inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Snow.ViewModels.ContentViewModel>
 
 @{
-  Layout = "default.cshtml";
+    Layout = "default.cshtml";
 }
 
-  <header>
-  <div class="head-inner">
-    <h1>About me</h1>
-  </div>
-  </header>
+<header>
+    <div class="head-inner">
+        <h1>About me</h1>
+    </div>
+</header>
 
-  <div class="fancy-container lightblue">
+<div class="fancy-container lightblue">
+    <h2 id="career-summary-">Career Summary:</h2>
+    <ul>
+        <li>
+            Having 5+ years of experience in software development, which includes development in web, windows, cross OS development and also with Graphics.
+            Have experience of complete software life cycle, for application development in .Net
+        </li>
+        <li>
+            Hands on Experience in Graphics library, Windows’ forms application.
+            Efficient at developing Window and Web based application for both graphics and business purposes.
+        </li>
+        <li>
+            Hands on Experience in Current web technology, which includes web development, identity management, reporting, client side application, single page application, mobile support for application.
+        </li>
+    </ul>
+    <h2 id="technical-skills-">Technical Skills:</h2>
+    <ul>
+        <li>
+            <strong>Languages:</strong> C, C++, C#.Net (2.0, 3.0, 4.0, 5.0), F# (3.0), Ruby, Scala
+        </li>
+        <li>
+            <strong>Database:</strong> Oracle 9i, Microsoft SQL server 2005, Microsoft SQL Server 2008 R2
+        </li>
+        <li>
+            <strong>Scripting Language:</strong> HTML, HTML 5.0, Asp.Net (2.0, 3.5, 4.5), Ajax, Java Script, JQuery, Asp.Net MVC (2.0, 3.0, 4.0), SPA (Single page application), Node JS
+        </li>
+        <li>
+            <strong>Testing Framework:</strong> NUnit, XUnit, MSUnit for TDD, MSpec, NSpec for BDD, Speckflow for BDD, Selenium and Canopy for UI testing
+        </li>
+        <li>
+            <strong>Java Script Framework:</strong> Knockoutjs, AngularJs, UnderscoreJs, LoDashjs
+        </li>
+        <li>
+            <strong>Mobile Technology:</strong> JQuery mobile with phone gap, Xamarin for Android
+        </li>
+        <li>
+            <strong>Applications:</strong>  Microsoft Visio, Microsoft Visual Studio 2010, Microsoft Visual Studio 2012, Microsoft Visual Studio BI 2008
+        </li>
+        <li>
+            <strong>Operating System:</strong> Windows (98/XP/Vista/Windows 7/Windows 8), Linux (UNIX)
+        </li>
+        <li>
+            <strong>Has Knowledge of:</strong> WCF, LINQ, Entity Framework (1.0, 4.0, 5.0, and 6.0), N-Hibernate, ADFS 2.0, SIF, SSRS, WIF, Ruby on Rails, ServiceStack, NancyFX and other OSS frameworks. Also having knowledge of current Microsoft technology like Web API, SignalR, Azure and OpenXML
+        </li>
+    </ul>
+    <h2 id="academics-">Academics:</h2>
+    <p>D. D. University, Bachelor of Engineering in Information and Technology (May 2008), Nadiad, India              Secured 63% in Final Semester. </p>
+    <p><strong>Relevant Courses:</strong> C, C++, UNIX, Data Structure, Data Analysis Algorithm, Microprocessor 8085, 8086 (8086, 80286, 80386, 80486), Networking, Digital Electronics, Operating System, Database System, Data Warehouse and Data Mining, J2SE, J2EE, Software Engineering </p>
+    <h2 id="professional-experience-">Professional Experience:</h2>
+    <ol>
+        <li>
+            <strong>Organization:</strong> Capgemeni (Client HP India)<br><strong>Project:</strong> Project is about E-Commerce system for Internal use of any Company<br><strong>Project Description:</strong> Project is about managing services and product which are available for employees as a part of company policy. It manage all the service/ product related data of employee also give employee access as per their rights to respective service.<br><strong>Technology Used:</strong> Asp.Net MVC3, Jquery, Javascript, SQL Server 2008R2, OpenXML and other OSS from .net and javascript side.<br><strong>Responsibilities Included:</strong> Main work included to work on modules assigned along with provide architectural support to product. That also includes creating internal library and api that make fellow developer&#39;s work more easier and they can focus on executing business logic. Also taking care of performance improvement of product, providing different solution/ methodology for client and server side code.
+        </li>
+        <li>
+            <strong>Organization:</strong> IGatePatni Ltd (Previosly known as Patni Computers Ltd)<br><strong>Project:</strong> Project is on Education System<br><strong>Project Description:</strong> Project is to manage complete Education system. Starting from student enters the school, maintain exam results, behavior, employee to higher level cluster. Includes parents, government agencies etc. System provides end to end solution for a person who is student, parent, school admin, cluster admin, third party working with school, employee or government managing the data of school.<br><strong>Technology Used:</strong> Asp.Net 4.0, Asp.Net Mvc 3.0, JQuery, SQL Server 2008 R2, Entity Framework 4.0, LINQ, ADFS 2.0, WCF, Windows Service, SSRS (SQL Server Reporting Service)<br><strong>Responsibilities Included:</strong> Main task which is assigned to me is doing identity management for the users of application, to achieve, SSO (Single Sign On). If user is logged in once, it doesn’t have to give credential again. This will applicable to around 100 +, third party application which is joined with the school. Have completed task using WIF (Windows Identity Foundation) and ADFS 2.0 (Active Directory Federation Service). Other task was to manage third party who register for the service, task was completed using ASP.Net Mvc 3.0, Entity Framework 4.0, JQuery, LINQ.  Some other tasks included like creating windows service to manage ADFS details in timely manner, web service to expose the data of users to third party. Also has worked with SIF (School Interpretability Framework), a framework specially developed to maintain details between different schools. Reports are integrated part of any system, we have to create reports using SSRS (SQL Server Reporting Service), a service provided by Microsoft.
+        </li>
+        <li>
+            <strong>Organization:</strong> NVI Technologies / SMG Infosolution<br><strong>Project:</strong> Project for Secure Video Transmission<br><strong>Project Description:</strong> Its application which provide end to end video transfer securely for more than one client by one server, can’t give further detail here because of company’s agreement.<br><strong>Technology Used:</strong> C++ (VS 2005), JUCE (Cross OS Framework)<br><strong>Responsibilities Included:</strong> Work in JUCE library which is develop in Open GL and C++ which is cross OS graphics library. To make user interface which works on windows as well as linux and also provide functionality of interface which includes but not limited to file management, data base management, right management, log management, flow control.
+        </li>
+        <li>
+            <strong>Organization:</strong> Zatun<br><strong>Project:</strong> Map Editor and In House Game<br><strong>Technology Used:</strong> C# (3.0), .Net 3.5, XNA 2.0<br><strong>Project Description:</strong> Map Editor is an application to create map for using XNA graphics/game   library for 2.5 side scrolled game. Application can be used for Role Playing, Platform or Multiplayer action game. In application added functionality to utilize less memory and faster performance. And functions are added which can make game development easier on AI and character programming side. Also work on 2.5 D game. Detail can be found on zatungames.com, can’t give further detail here because of company’s NDA.<br><strong>Responsibilities Included:</strong> Complete application developed by me single handedly as per requirement needed by artist and other programmers in company. Also worked in 2.5D graphics programming, as per the artist description and requirement of other programmers. Mainly work on implementing Mathematics and Physics equation in code to deliver optimized and real life look to game.
+        </li>
+    </ol>
+    <h2 id="personal-open-source-projects">Personal / Open Source Projects</h2>
+    <p>
+        I am working on some personal projects, some of them with friends and some individually for personal use.
+        Have successfully ported .Net web service framework to work on Heroku that is linux cloud hosting. And all that using F# which is functional programming language from Microsoft. While web service framework called service stack which is developed using C#.
+        For my effort I got place on F# community site in web programming section <a href="http://fsharp.org/webstacks/">http://fsharp.org/webstacks/</a>. And also I was part of F# weekly a community magazine for porting framework first and then porting razor engine.
+    </p>
+    <p>Writing Articles. I have started a personal site, where I am putting articles of technical and non-technical stuff, for the use of community. Trying to sharing things whatever I have learned or learning. Web Address of site is <a href="http://kunjan.in">http://kunjan.in</a> .</p>
+</div>
 
-    <p>Resume coming soon</p>
 
-  </div>
