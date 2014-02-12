@@ -38,7 +38,7 @@ Even if someone like to move to V4, that is also not that costly option for the 
 
 > Community members, if there are any suggestion, comments please do provide. And obviously I am happy to take pull request for my template projects too. Different combinations of Servicestack option will be great. Also, if someone can check out issue that will be also great.
 
-
-> **Update2:**  Latest template is up at [Visual Studio Gallery](http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f), now having asp.net host too. There are three additional templates.
+---
+> **Update2:**  Latest template is up at [Visual Studio Gallery](http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f), now having asp.net host too. There are three additional templates. And also V4 issue is solved and project is working now.
 
 Thanks F#, Servicestack and specially Side Waffle. 
