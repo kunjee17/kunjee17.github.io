@@ -1,4 +1,87 @@
-<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/</guid><link>http://kunjan.in/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/</link><title>When Servicestack meet F# via Side Waffle</title><description>&lt;p&gt;I have specific love for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; and that is known thing. It is not because it is awesome or the ways it do web service things, no one else is doing. But because of my past with WCF. It is so rocky that I never want to go back.  And more over &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; doing hell lot of the things under the cover, and that is also without doing any damn thing into &lt;strong&gt;XML&lt;/strong&gt;. &lt;/p&gt;
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/</guid><link>http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/</link><title>Servicestack F# template Update. Circle is Complete.</title><description>&lt;p&gt;Few day's back I wrote a &lt;a href="2014/02/when-servicestack-meet-fsharp-via-sidewaffle/"&gt;article&lt;/a&gt; about how I created &lt;a href="http://sidewaffle.com/"&gt;side waffle&lt;/a&gt; templates for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;Yesterday, &lt;a href="http://blog.danielmohl.com/"&gt;Daniel Mohl&lt;/a&gt;, merged the pull request. Add the missing bits make it working and it is up on &lt;a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f"&gt;visual studio gallery&lt;/a&gt;. I seriously like to thank Daniel for this work and support even after his own hectic schedule of day job. And a wonderful members of &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt; community. 
+</description><pubDate>Tue, 11 Feb 2014 18:30:00 Z</pubDate><a10:updated>2014-02-11T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;Few day's back I wrote a &lt;a href="http://kunjan.in/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/"&gt;article&lt;/a&gt; about how I created &lt;a href="http://sidewaffle.com/"&gt;side waffle&lt;/a&gt; templates for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;Yesterday, &lt;a href="http://blog.danielmohl.com/"&gt;Daniel Mohl&lt;/a&gt;, merged the pull request. Add the missing bits make it working and it is up on &lt;a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f"&gt;visual studio gallery&lt;/a&gt;. I seriously like to thank Daniel for this work and support even after his own hectic schedule of day job. And a wonderful members of &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt; community. 
+&lt;!--excerpt--&gt;
+Here, I am sharing few details of the template, I have created. &lt;/p&gt;
+
+&lt;p&gt;There are four templates available now. &lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Servicestack with Asp.Net host&lt;/li&gt;
+&lt;li&gt;Servicestack with Asp.Net host and Razor Engine&lt;/li&gt;
+&lt;li&gt;Servicestack with Self host&lt;/li&gt;
+&lt;li&gt;Servicestack with Self host and Razor Engine&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I was working on Asp.Net MVC with Servicestack but then work in still progress. As, most of the people who are using servicestack can go with above options as Razor view engine now available. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Just try out all options and pick which suits for specific need.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Now, all templates are using &lt;strong&gt;3.71&lt;/strong&gt; version of SS. As, it is the last version under MIT license. Why I am using that?&lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p&gt;oh dear, adding task to remove servicestack from solution &lt;a href="https://t.co/STpdEKQiJC"&gt;https://t.co/STpdEKQiJC&lt;/a&gt;&lt;/p&gt;&amp;mdash; Simon Cousins (@simontcousins) &lt;a href="https://twitter.com/simontcousins/statuses/408182117579776000"&gt;December 4, 2013&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;People who are starting, or just like to stay with older version till the product kick off. They can continue with &lt;strong&gt;3.71&lt;/strong&gt;.  And else it is a wonderful solution, that is worth &lt;a href="https://servicestack.net/pricing"&gt;buying&lt;/a&gt;. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Do take care while fire up command of update-package without thinking a bit. If there is a need of using old version &lt;strong&gt;PLEASE&lt;/strong&gt; don't update it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;What if someone like to update from 3.71 to 4.X. There are couple of breaking changes there. Here are the steps to make it work. &lt;/p&gt;
+
+&lt;p&gt;Download the template from the &lt;a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f"&gt;Visual Studio gallery&lt;/a&gt; and install it. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Yes, it will also work with latest express version too. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Create new project and choose any template. Select OK. It is done. Easy enough right? &lt;/p&gt;
+
+&lt;p&gt;Press F5, and it will work with "Hello World" code. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Code may seems little dirty. It misses comments and also read me. It will be there in future updates. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;But current code is so less that it will be not that problematic to understand it. Obviously if you know &lt;a href="http://servicestack.net"&gt;Servicestack&lt;/a&gt; or &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt; a little bit. &lt;/p&gt;
+
+&lt;h2&gt;Things needed to update the version&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fire a update command from nuget&lt;/li&gt;
+&lt;li&gt;There are chances that one need to fire it more than one time, check package.config that all versions are updated to same version&lt;/li&gt;
+&lt;li&gt;Remove all the *.cs files and unwanted .htm, .js, .css files for now&lt;/li&gt;
+&lt;li&gt;Now there will be some errors about namespace, remove unwanted namespace as code is merged to base namespace for many files
+&lt;ul&gt;
+&lt;li&gt;remove ServiceStack.ServiceInterface&lt;/li&gt;
+&lt;li&gt;remove ServiceStack.ServiceHost&lt;/li&gt;
+&lt;li&gt;remove ServiceStack.WebHost.Endpoints&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Rebuild it and run it. &lt;/li&gt;
+&lt;li&gt;If we get error about Razor pages, remove 1.0.0.0 version line from web config if there is 2.0.0.0 one is already there else change 1.0.0.0 to 2.0.0.0&lt;/li&gt;
+&lt;li&gt;Rebuild and run it.&lt;/li&gt;
+&lt;li&gt;Now if there is a error "Object reference not set to an instance of an object." then we are on right track. &lt;/li&gt;
+&lt;li&gt;In AppHost.fs file replace &lt;code&gt;apphost.Init()&lt;/code&gt; with &lt;code&gt;apphost.Init() |&amp;gt; ignore&lt;/code&gt; &lt;strong&gt;This is breaking change for V4&lt;/strong&gt; please do not forget this.&lt;/li&gt;
+&lt;li&gt;Now, we need out namespace so, remove "ServiceStackAspNetHost" with your desired project namespace in entire project including web.config file. &lt;/li&gt;
+&lt;li&gt;Remove any multiple entries of namespace from namespace section in web.cofig file. Do keep one&lt;/li&gt;
+&lt;li&gt;Rebuild and run it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It should work. If still you stuck any where? I am also putting all V4 projects too, over my &lt;a href="https://github.com/kunjee17/ServiceStackFSharp/tree/master/V4"&gt;github repo&lt;/a&gt;, have a look at it.&lt;/p&gt;
+
+&lt;p&gt;I have also started complete series called &lt;a href="http://kunjan.in/category/functional-web/"&gt;Functional Web&lt;/a&gt;, where I will be putting everything I know to get started. Not only for SS but also for others.&lt;/p&gt;
+
+&lt;p&gt;So, as everyone is putting up API for their web application. Why we should stay behind?!?&lt;/p&gt;
+
+&lt;p&gt;Feedback and comments are always welcome.&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/</guid><link>http://kunjan.in/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/</link><title>When Servicestack meet F# via Side Waffle</title><description>&lt;p&gt;I have specific love for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; and that is known thing. It is not because it is awesome or the ways it do web service things, no one else is doing. But because of my past with WCF. It is so rocky that I never want to go back.  And more over &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; doing hell lot of the things under the cover, and that is also without doing any damn thing into &lt;strong&gt;XML&lt;/strong&gt;. &lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Hell, yes.. No XML... &lt;/p&gt;
@@ -45,6 +128,8 @@ And I am saying this because I have done this while creating templates for  &lt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Community members, if there are any suggestion, comments please do provide. And obviously I am happy to take pull request for my template projects too. Different combinations of Servicestack option will be great. Also, if someone can check out issue that will be also great.&lt;/p&gt;
+  
+  &lt;p&gt;&lt;strong&gt;Update2:&lt;/strong&gt;  Latest template is up at &lt;a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f"&gt;Visual Studio Gallery&lt;/a&gt;, now having asp.net host too. There are three additional templates.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Thanks F#, Servicestack and specially Side Waffle. &lt;/p&gt;
@@ -304,46 +389,4 @@ I know about F# even 2 years back, when it was picking up the ground, but I thou
 &lt;p&gt;I am still a .Net developer at least as of now, but still it clears out many things. And with that it is also true that rails is not a silver bullet. If you are creating back end architecture to provide service you can try out different things. Even though rails way works but still you are not bounded. &lt;/p&gt;
 
 &lt;p&gt;But learning is not option I guess. If anyone related to web development must learn or at least once give it shot for &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt;.&lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/08/vim-for-me/</guid><link>http://kunjan.in/2013/08/vim-for-me/</link><title>VIM for me?</title><description>&lt;p&gt;I want confess that, my whole career I was and I am working with Visual Studio. Not a big fan, but it was good or I must say it is good. I don't think any other IDE is doing as much thing as visual studio is doing. &lt;/p&gt;
-
-&lt;p&gt;And with few add-ons (even if you exclude &lt;a href="https://www.jetbrains.com/resharper/"&gt;ReSharper&lt;/a&gt;) it is like wow. As full time web developer I like the tools, that always there to solve my issue. &lt;/p&gt;
-
-&lt;p&gt;But my love for languages like C# is far more than that. Give me my language and I can do wonders. And I also love OSS work and people doing OSS work in .net. One of my favourite project is &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Now, here is the point, when a conversation with &lt;a href="https://twitter.com/demisbellot"&gt;Demis&lt;/a&gt;, creator of  &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; made me thinking. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Am I going to far with my affection for tools? Am I doing it &lt;em&gt;wrong&lt;/em&gt;? Am I going in &lt;em&gt;wrong&lt;/em&gt; direction?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Here is the &lt;a href="https://twitter.com/kunjee/status/344894343066296321"&gt;twitter conversation&lt;/a&gt;. And I agreed if I don' learn new things I am not doing justification to my old tools. How can I say that Visual Studio is good if I haven't tried &lt;a href="http://www.sublimetext.com/"&gt;Sublimetext&lt;/a&gt; or &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;.
-</description><pubDate>Wed, 21 Aug 2013 18:30:00 Z</pubDate><a10:updated>2013-08-21T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;I want confess that, my whole career I was and I am working with Visual Studio. Not a big fan, but it was good or I must say it is good. I don't think any other IDE is doing as much thing as visual studio is doing. &lt;/p&gt;
-
-&lt;p&gt;And with few add-ons (even if you exclude &lt;a href="https://www.jetbrains.com/resharper/"&gt;ReSharper&lt;/a&gt;) it is like wow. As full time web developer I like the tools, that always there to solve my issue. &lt;/p&gt;
-
-&lt;p&gt;But my love for languages like C# is far more than that. Give me my language and I can do wonders. And I also love OSS work and people doing OSS work in .net. One of my favourite project is &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Now, here is the point, when a conversation with &lt;a href="https://twitter.com/demisbellot"&gt;Demis&lt;/a&gt;, creator of  &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; made me thinking. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Am I going to far with my affection for tools? Am I doing it &lt;em&gt;wrong&lt;/em&gt;? Am I going in &lt;em&gt;wrong&lt;/em&gt; direction?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Here is the &lt;a href="https://twitter.com/kunjee/status/344894343066296321"&gt;twitter conversation&lt;/a&gt;. And I agreed if I don' learn new things I am not doing justification to my old tools. How can I say that Visual Studio is good if I haven't tried &lt;a href="http://www.sublimetext.com/"&gt;Sublimetext&lt;/a&gt; or &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;.
-&lt;!--excerpt--&gt;
-I have tried &lt;a href="http://www.sublimetext.com/"&gt;Sublimetext&lt;/a&gt; and pretty much impressed. It is my basic tools to edit web stuff or I am doing something with my blog. It is fast, light weigh with awesome plug ins; almost for every language. &lt;/p&gt;
-
-&lt;p&gt;Now, I am trying for &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;, I am starting with &lt;a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/"&gt;tutorial&lt;/a&gt; suggested by &lt;a href="https://twitter.com/amirrajan"&gt;Amir Rajan&lt;/a&gt;. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Even if there is a slightest chance that your daily work is C# and you are thinking what you are doing with &lt;a href="http://www.vim.org/"&gt;VIM&lt;/a&gt;; think &lt;strong&gt;again&lt;/strong&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href="https://twitter.com/amirrajan"&gt;Amir Rajan&lt;/a&gt; did wonderful &lt;a href="http://vimeo.com/72745278"&gt;video&lt;/a&gt;, how things work with C#.&lt;/p&gt;
-
-&lt;p&gt;Have a look at it&lt;/p&gt;
-
-&lt;p&gt;&lt;iframe src="http://player.vimeo.com/video/72745278" width="500" height="313" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="http://vimeo.com/72745278"&gt;Coding out loud: C#, TDD, NSpec and VIM&lt;/a&gt; from &lt;a href="http://vimeo.com/user19333001"&gt;Amir Rajan&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
-
-&lt;p&gt;It is like learning new thing. Lets see how far it will go. Will check it out and write about my experience in follow up post.&lt;/p&gt;
 </a10:content></item></channel></rss>

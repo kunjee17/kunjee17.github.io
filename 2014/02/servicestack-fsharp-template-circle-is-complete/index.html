@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
     <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif">
-    <link rel="canonical" href="http://kunjan.in/2012/02/nuget-mall-of-oss/" />
+    <link rel="canonical" href="http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/" />
 </head>
 <body class="home blog">
     <div id="page" class="hfeed site">
@@ -39,12 +39,14 @@
                   
 
 <div id="post">
-    <h1>Nuget mall of OSS</h1>
+    <h1>Servicestack F# template Update. Circle is Complete.</h1>
 
     <div class="post-note">
-      posted on 13 Feb 2012
+      posted on 12 Feb 2014
        | <a href="/category/technical">Technical</a>
        | <a href="/category/dotnet">DotNet</a>
+       | <a href="/category/oss">OSS</a>
+       | <a href="/category/functional-programming">Functional Programming</a>
       
 <!--       <div class="addthis_toolbox addthis_default_style" style="float:right;">
         <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -75,15 +77,86 @@
     
     
         
-    <p>OSS, stands for Open Source Software. If you are a .net developer, most of the time you don’t care much of OSS. But trust me, OSS are far better than pure solution provided by MS.</p>
+    <p>Few day's back I wrote a <a href="2014/02/when-servicestack-meet-fsharp-via-sidewaffle/">article</a> about how I created <a href="http://sidewaffle.com/">side waffle</a> templates for <a href="http://servicestack.net/">Servicestack</a>. </p>
 
-<p>And now MS is pushing for OSS, via <a href="http://nuget.org">nuget</a> . It’s a wonderful site providing base for OSS technologies. If you have experienced development in Ruby, you must have known this. Ruby has gems, which pushed by open source community. And now .net developer has <a href="http://nuget.org">nuget</a> .</p>
-
-<p>Its so difficult to follow day to day open source work. Trust I don’t know much more than JQuery. But now I am just a click away of whole new world of Open Source Framework and Technology.
+<p>Yesterday, <a href="http://blog.danielmohl.com/">Daniel Mohl</a>, merged the pull request. Add the missing bits make it working and it is up on <a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f">visual studio gallery</a>. I seriously like to thank Daniel for this work and support even after his own hectic schedule of day job. And a wonderful members of <a href="http://fsharp.org">F#</a> community. 
 <!--excerpt-->
-It also has few more benefits like updating packages, power shell command prompt etc. It just speed up the development like anything. Now, I know about knowckoutJs, Ninject, MEF, JQGrid and few others just because of <a href="http://nuget.org">nuget</a> .</p>
+Here, I am sharing few details of the template, I have created. </p>
 
-<p>So, specially in this article I haven’t provide any other link then <a href="http://nuget.org">nuget</a> . So, no more hazels to go to source code provider site download and update just fire few commands and its done. That’s it.</p>
+<p>There are four templates available now. </p>
+
+<ol>
+<li>Servicestack with Asp.Net host</li>
+<li>Servicestack with Asp.Net host and Razor Engine</li>
+<li>Servicestack with Self host</li>
+<li>Servicestack with Self host and Razor Engine</li>
+</ol>
+
+<p>I was working on Asp.Net MVC with Servicestack but then work in still progress. As, most of the people who are using servicestack can go with above options as Razor view engine now available. </p>
+
+<blockquote>
+  <p>Just try out all options and pick which suits for specific need.</p>
+</blockquote>
+
+<p>Now, all templates are using <strong>3.71</strong> version of SS. As, it is the last version under MIT license. Why I am using that?</p>
+
+<blockquote class="twitter-tweet" lang="en"><p>oh dear, adding task to remove servicestack from solution <a href="https://t.co/STpdEKQiJC">https://t.co/STpdEKQiJC</a></p>&mdash; Simon Cousins (@simontcousins) <a href="https://twitter.com/simontcousins/statuses/408182117579776000">December 4, 2013</a></blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>People who are starting, or just like to stay with older version till the product kick off. They can continue with <strong>3.71</strong>.  And else it is a wonderful solution, that is worth <a href="https://servicestack.net/pricing">buying</a>. </p>
+
+<blockquote>
+  <p>Do take care while fire up command of update-package without thinking a bit. If there is a need of using old version <strong>PLEASE</strong> don't update it.</p>
+</blockquote>
+
+<p>What if someone like to update from 3.71 to 4.X. There are couple of breaking changes there. Here are the steps to make it work. </p>
+
+<p>Download the template from the <a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f">Visual Studio gallery</a> and install it. </p>
+
+<blockquote>
+  <p>Yes, it will also work with latest express version too. </p>
+</blockquote>
+
+<p>Create new project and choose any template. Select OK. It is done. Easy enough right? </p>
+
+<p>Press F5, and it will work with "Hello World" code. </p>
+
+<blockquote>
+  <p>Code may seems little dirty. It misses comments and also read me. It will be there in future updates. </p>
+</blockquote>
+
+<p>But current code is so less that it will be not that problematic to understand it. Obviously if you know <a href="http://servicestack.net">Servicestack</a> or <a href="http://fsharp.org">F#</a> a little bit. </p>
+
+<h2>Things needed to update the version</h2>
+
+<ul>
+<li>Fire a update command from nuget</li>
+<li>There are chances that one need to fire it more than one time, check package.config that all versions are updated to same version</li>
+<li>Remove all the *.cs files and unwanted .htm, .js, .css files for now</li>
+<li>Now there will be some errors about namespace, remove unwanted namespace as code is merged to base namespace for many files
+<ul>
+<li>remove ServiceStack.ServiceInterface</li>
+<li>remove ServiceStack.ServiceHost</li>
+<li>remove ServiceStack.WebHost.Endpoints</li>
+</ul></li>
+<li>Rebuild it and run it. </li>
+<li>If we get error about Razor pages, remove 1.0.0.0 version line from web config if there is 2.0.0.0 one is already there else change 1.0.0.0 to 2.0.0.0</li>
+<li>Rebuild and run it.</li>
+<li>Now if there is a error "Object reference not set to an instance of an object." then we are on right track. </li>
+<li>In AppHost.fs file replace <code>apphost.Init()</code> with <code>apphost.Init() |&gt; ignore</code> <strong>This is breaking change for V4</strong> please do not forget this.</li>
+<li>Now, we need out namespace so, remove "ServiceStackAspNetHost" with your desired project namespace in entire project including web.config file. </li>
+<li>Remove any multiple entries of namespace from namespace section in web.cofig file. Do keep one</li>
+<li>Rebuild and run it.</li>
+</ul>
+
+<p>It should work. If still you stuck any where? I am also putting all V4 projects too, over my <a href="https://github.com/kunjee17/ServiceStackFSharp/tree/master/V4">github repo</a>, have a look at it.</p>
+
+<p>I have also started complete series called <a href="category/functional-web/">Functional Web</a>, where I will be putting everything I know to get started. Not only for SS but also for others.</p>
+
+<p>So, as everyone is putting up API for their web application. Why we should stay behind?!?</p>
+
+<p>Feedback and comments are always welcome.</p>
 
 
     <div id="disqus_thread"></div>
@@ -93,14 +166,14 @@ It also has few more benefits like updating packages, power shell command prompt
             reload: true,
             config: function () {
                 //this.page.identifier = '';
-                this.page.url = 'http://kunjan.in/2012/02/nuget-mall-of-oss/';
+                this.page.url = 'http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/';
                 //this.page.title = '';
             }
         });
     };
 
     var disqus_shortname = 'kunjan';
-    var disqus_url = 'http://kunjan.in/2012/02/nuget-mall-of-oss/';
+    var disqus_url = 'http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
