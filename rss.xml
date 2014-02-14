@@ -1,4 +1,304 @@
-<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/</guid><link>http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/</link><title>Servicestack F# template Update. Circle is Complete.</title><description>&lt;p&gt;Few day's back I wrote a &lt;a href="2014/02/when-servicestack-meet-fsharp-via-sidewaffle/"&gt;article&lt;/a&gt; about how I created &lt;a href="http://sidewaffle.com/"&gt;side waffle&lt;/a&gt; templates for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;. &lt;/p&gt;
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/02/servicestack-fsharp-template-starting-from-start/</guid><link>http://kunjan.in/2014/02/servicestack-fsharp-template-starting-from-start/</link><title>Servicestack F# template. Starting from the Start.</title><description>&lt;p&gt;I have already wrote a blog &lt;a href="/2014/02/servicestack-fsharp-template-circle-is-complete/"&gt;post&lt;/a&gt; about how to get started with service stack if any one is using templates. It is pretty easy. Just install and run.&lt;/p&gt;
+
+&lt;p&gt;But as &lt;a href="http://servicestack.net/"&gt;Service Stack&lt;/a&gt; is moved to V4 with some breaking changes. I had give details about updating it. But still it is little bit more complicated or confusing if I can say.&lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p&gt;&lt;a href="https://twitter.com/kunjee"&gt;@kunjee&lt;/a&gt; Sure, otherwise a tutorial on getting SS v4 + F# together without templates would be better than starting from a broken v3 one.&lt;/p&gt;&amp;mdash; Demis Bellot (@demisbellot) &lt;a href="https://twitter.com/demisbellot/statuses/433545493738582016"&gt;February 12, 2014&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;Above is the conversation inspired me to write this blog. And also it will be fun to write back stories. &lt;/p&gt;
+
+&lt;p&gt;So, if any one want to get started with SS without templates. They need to download template of &lt;a href="http://visualstudiogallery.msdn.microsoft.com/b55b8aac-b11a-4a6a-8a77-2153f46f4e2f"&gt;Nancy&lt;/a&gt;. Yes, the cousin sibling of SS and other best thing happen to web part of  .Net after .Net it self.&lt;/p&gt;
+
+&lt;p&gt;Create new project and select Empty ASP.Net option. And remove all other packages. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;we are doing this just to save our self from using complicated project GUIDs. If any one wanted to go raw, s/he need to select library project in F# and set GUID so it will be web application.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Now install, SS from nuget. Preferably with Asp.Net host. Use this &lt;code&gt;Install-Package servicestack.Host.AspNet&lt;/code&gt; . If any one prefer not search nuget.&lt;/p&gt;
+
+&lt;p&gt;Now, delete every file with .cs extension. &lt;strong&gt;Yes&lt;/strong&gt;, we are doing it in &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also, delete default.htm and *.js files. But keep the App_Start folder. We may need it.&lt;/p&gt;
+
+&lt;p&gt;It is almost done. Now, create AppHost.fs in App_start folder. Write a namespace you like and copy paste below code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type AppHost() = 
+    inherit AppHostBase("Hello F# Service", typeof&amp;lt;HelloService&amp;gt;.Assembly)
+    override this.Configure container = ignore()
+    static member start() = 
+        let apphost = new AppHost()
+        apphost.Init() |&amp;gt; ignore
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, create HelloService.fs outside somewhere. and copy paste below code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[&amp;lt;CLIMutable&amp;gt;]
+    type HelloResponse = 
+        { Result : string }
+
+
+    [&amp;lt;Route("/hello")&amp;gt;]
+    [&amp;lt;Route("/hello/{name}")&amp;gt;]
+    type Hello() = 
+        interface IReturn&amp;lt;HelloResponse&amp;gt;
+        member val Name = "" with get, set
+
+
+    type HelloService() = 
+        inherit Service()
+        member this.Any(request : Hello) = { Result = "Hello " + request.Name }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, final settings. Add global.asax.fs file. And copy - paste below code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type Global() = 
+    inherit System.Web.HttpApplication()
+
+    member x.Application_Start (sender:Object, e:EventArgs) = 
+        App_Start.AppHost.start() 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We also need to add global.asax file too.&lt;/p&gt;
+
+&lt;p&gt;Add this line to it&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;%@ Application Inherits="ServicestackAspNetHost.Global" %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Do check for namespace name. This my project's namespace. &lt;/p&gt;
+
+&lt;p&gt;Now, you may get error that couple of system references are missing. Please add them. I got for System.data and also for System.xml.linq&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;F# visual studio project is poor with compilation sequence. So, do keep open project file in your favorite text editor. If there is some error like "xyxy" is not defined. Most of the time it is compilation sequence.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If everything builds. It is out first victory. Run it. It should show, metadata page of SS.&lt;/p&gt;
+
+&lt;p&gt;It is done for people just wanted to create back end for their single page application or mobile application or thick client. &lt;/p&gt;
+
+&lt;p&gt;For complete web story lets add razor engine to it. Fire &lt;code&gt;Install-Package ServiceStack.Razor&lt;/code&gt; in package manager.&lt;/p&gt;
+
+&lt;p&gt;Add Default.cshtml file. Add some html text to test.&lt;/p&gt;
+
+&lt;p&gt;Now, here is complicated part. We can't add folder in F# projects. But as it is Asp.Net web project too, we can add them. Add one of the folder and rename it to &lt;em&gt;Views&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Add two files. One is _Layout.cshtml and other is Hello.cshtml. Don't forget to set compile type content for all cshtml files. &lt;/p&gt;
+
+&lt;p&gt;Here is content for _Layout.cshtml&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;!doctype html&amp;gt;
+&amp;lt;html lang="en-us"&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;@ViewBag.Title&amp;lt;/title&amp;gt;
+    &amp;lt;style type="text/css"&amp;gt;
+        body {
+            background: #E6E6E6;
+        }
+    &amp;lt;/style&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+    @RenderBody()
+
+    &amp;lt;h6 style="font-size:12px; color: #999; position: fixed; bottom: -25px; right: 10px;"&amp;gt;
+        @Env.ServerUserAgent
+    &amp;lt;/h6&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And here is content for Hello.cshtml&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@using ServiceStackAspNetHost
+@inherits ViewPage&amp;lt;HelloResponse&amp;gt; 
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Hello Page";
+}
+
+&amp;lt;div&amp;gt;
+    Hello Page
+    &amp;lt;a href="/hello"&amp;gt;Default Hello&amp;lt;/a&amp;gt;
+    &amp;lt;a href="/hello/fsharp"&amp;gt;Hello With get Request&amp;lt;/a&amp;gt;
+
+
+    &amp;lt;br /&amp;gt;
+    &amp;lt;br /&amp;gt;
+    &amp;lt;p&amp;gt;Model binding with DTO Response&amp;lt;/p&amp;gt;
+    &amp;lt;p&amp;gt;@Model.Result&amp;lt;/p&amp;gt;
+
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pretty much same as we do in C# projects. &lt;/p&gt;
+
+&lt;p&gt;We are almost done. Now we need to tell AppHost to add razor plugin. Change code as below&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;override this.Configure container =
+            this.Plugins.Add(new RazorFormat())
+            ignore()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, rebuild and run it. It will show default page on "/" location and Hello page on "/Hello" location. Even you can access metadata page too.&lt;/p&gt;
+
+&lt;p&gt;Not that tough I guess. A little bit more code then normal one but as in F# it will be same as normal code in C#. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I love SS that is true thing, but I love Nancy too. Will not lie on &lt;strong&gt;Valentine's Day&lt;/strong&gt;. Just to clarify as I used Nancy template to work with SS. If I have to do some web application work Nancy is weapon of choice and for API like thing SS is always there. People who created both are damn smart and more importantly friendly one. In .Net where OSS and OSS community story is not that good, these people are making the difference. Obviously I can't forget to mention F# community, they are awesome.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description><pubDate>Thu, 13 Feb 2014 18:30:00 Z</pubDate><a10:updated>2014-02-13T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;I have already wrote a blog &lt;a href="http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/"&gt;post&lt;/a&gt; about how to get started with service stack if any one is using templates. It is pretty easy. Just install and run.&lt;/p&gt;
+
+&lt;p&gt;But as &lt;a href="http://servicestack.net/"&gt;Service Stack&lt;/a&gt; is moved to V4 with some breaking changes. I had give details about updating it. But still it is little bit more complicated or confusing if I can say.&lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p&gt;&lt;a href="https://twitter.com/kunjee"&gt;@kunjee&lt;/a&gt; Sure, otherwise a tutorial on getting SS v4 + F# together without templates would be better than starting from a broken v3 one.&lt;/p&gt;&amp;mdash; Demis Bellot (@demisbellot) &lt;a href="https://twitter.com/demisbellot/statuses/433545493738582016"&gt;February 12, 2014&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;Above is the conversation inspired me to write this blog. And also it will be fun to write back stories. &lt;/p&gt;
+
+&lt;p&gt;So, if any one want to get started with SS without templates. They need to download template of &lt;a href="http://visualstudiogallery.msdn.microsoft.com/b55b8aac-b11a-4a6a-8a77-2153f46f4e2f"&gt;Nancy&lt;/a&gt;. Yes, the cousin sibling of SS and other best thing happen to web part of  .Net after .Net it self.&lt;/p&gt;
+
+&lt;p&gt;Create new project and select Empty ASP.Net option. And remove all other packages. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;we are doing this just to save our self from using complicated project GUIDs. If any one wanted to go raw, s/he need to select library project in F# and set GUID so it will be web application.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Now install, SS from nuget. Preferably with Asp.Net host. Use this &lt;code&gt;Install-Package servicestack.Host.AspNet&lt;/code&gt; . If any one prefer not search nuget.&lt;/p&gt;
+
+&lt;p&gt;Now, delete every file with .cs extension. &lt;strong&gt;Yes&lt;/strong&gt;, we are doing it in &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also, delete default.htm and *.js files. But keep the App_Start folder. We may need it.&lt;/p&gt;
+
+&lt;p&gt;It is almost done. Now, create AppHost.fs in App_start folder. Write a namespace you like and copy paste below code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type AppHost() = 
+    inherit AppHostBase("Hello F# Service", typeof&amp;lt;HelloService&amp;gt;.Assembly)
+    override this.Configure container = ignore()
+    static member start() = 
+        let apphost = new AppHost()
+        apphost.Init() |&amp;gt; ignore
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, create HelloService.fs outside somewhere. and copy paste below code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[&amp;lt;CLIMutable&amp;gt;]
+    type HelloResponse = 
+        { Result : string }
+
+
+    [&amp;lt;Route("/hello")&amp;gt;]
+    [&amp;lt;Route("/hello/{name}")&amp;gt;]
+    type Hello() = 
+        interface IReturn&amp;lt;HelloResponse&amp;gt;
+        member val Name = "" with get, set
+
+
+    type HelloService() = 
+        inherit Service()
+        member this.Any(request : Hello) = { Result = "Hello " + request.Name }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, final settings. Add global.asax.fs file. And copy - paste below code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type Global() = 
+    inherit System.Web.HttpApplication()
+
+    member x.Application_Start (sender:Object, e:EventArgs) = 
+        App_Start.AppHost.start() 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We also need to add global.asax file too.&lt;/p&gt;
+
+&lt;p&gt;Add this line to it&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;%@ Application Inherits="ServicestackAspNetHost.Global" %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Do check for namespace name. This my project's namespace. &lt;/p&gt;
+
+&lt;p&gt;Now, you may get error that couple of system references are missing. Please add them. I got for System.data and also for System.xml.linq&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;F# visual studio project is poor with compilation sequence. So, do keep open project file in your favorite text editor. If there is some error like "xyxy" is not defined. Most of the time it is compilation sequence.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If everything builds. It is out first victory. Run it. It should show, metadata page of SS.&lt;/p&gt;
+
+&lt;p&gt;It is done for people just wanted to create back end for their single page application or mobile application or thick client. &lt;/p&gt;
+
+&lt;p&gt;For complete web story lets add razor engine to it. Fire &lt;code&gt;Install-Package ServiceStack.Razor&lt;/code&gt; in package manager.&lt;/p&gt;
+
+&lt;p&gt;Add Default.cshtml file. Add some html text to test.&lt;/p&gt;
+
+&lt;p&gt;Now, here is complicated part. We can't add folder in F# projects. But as it is Asp.Net web project too, we can add them. Add one of the folder and rename it to &lt;em&gt;Views&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Add two files. One is _Layout.cshtml and other is Hello.cshtml. Don't forget to set compile type content for all cshtml files. &lt;/p&gt;
+
+&lt;p&gt;Here is content for _Layout.cshtml&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;!doctype html&amp;gt;
+&amp;lt;html lang="en-us"&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;@ViewBag.Title&amp;lt;/title&amp;gt;
+    &amp;lt;style type="text/css"&amp;gt;
+        body {
+            background: #E6E6E6;
+        }
+    &amp;lt;/style&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+    @RenderBody()
+
+    &amp;lt;h6 style="font-size:12px; color: #999; position: fixed; bottom: -25px; right: 10px;"&amp;gt;
+        @Env.ServerUserAgent
+    &amp;lt;/h6&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And here is content for Hello.cshtml&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@using ServiceStackAspNetHost
+@inherits ViewPage&amp;lt;HelloResponse&amp;gt; 
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Hello Page";
+}
+
+&amp;lt;div&amp;gt;
+    Hello Page
+    &amp;lt;a href="/hello"&amp;gt;Default Hello&amp;lt;/a&amp;gt;
+    &amp;lt;a href="/hello/fsharp"&amp;gt;Hello With get Request&amp;lt;/a&amp;gt;
+
+
+    &amp;lt;br /&amp;gt;
+    &amp;lt;br /&amp;gt;
+    &amp;lt;p&amp;gt;Model binding with DTO Response&amp;lt;/p&amp;gt;
+    &amp;lt;p&amp;gt;@Model.Result&amp;lt;/p&amp;gt;
+
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pretty much same as we do in C# projects. &lt;/p&gt;
+
+&lt;p&gt;We are almost done. Now we need to tell AppHost to add razor plugin. Change code as below&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;override this.Configure container =
+            this.Plugins.Add(new RazorFormat())
+            ignore()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, rebuild and run it. It will show default page on "/" location and Hello page on "/Hello" location. Even you can access metadata page too.&lt;/p&gt;
+
+&lt;p&gt;Not that tough I guess. A little bit more code then normal one but as in F# it will be same as normal code in C#. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I love SS that is true thing, but I love Nancy too. Will not lie on &lt;strong&gt;Valentine's Day&lt;/strong&gt;. Just to clarify as I used Nancy template to work with SS. If I have to do some web application work Nancy is weapon of choice and for API like thing SS is always there. People who created both are damn smart and more importantly friendly one. In .Net where OSS and OSS community story is not that good, these people are making the difference. Obviously I can't forget to mention F# community, they are awesome.&lt;/p&gt;
+&lt;/blockquote&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/</guid><link>http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/</link><title>Servicestack F# template Update. Circle is Complete.</title><description>&lt;p&gt;Few day's back I wrote a &lt;a href="2014/02/when-servicestack-meet-fsharp-via-sidewaffle/"&gt;article&lt;/a&gt; about how I created &lt;a href="http://sidewaffle.com/"&gt;side waffle&lt;/a&gt; templates for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;. &lt;/p&gt;
 
 &lt;p&gt;Yesterday, &lt;a href="http://blog.danielmohl.com/"&gt;Daniel Mohl&lt;/a&gt;, merged the pull request. Add the missing bits make it working and it is up on &lt;a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f"&gt;visual studio gallery&lt;/a&gt;. I seriously like to thank Daniel for this work and support even after his own hectic schedule of day job. And a wonderful members of &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt; community. 
 </description><pubDate>Tue, 11 Feb 2014 18:30:00 Z</pubDate><a10:updated>2014-02-11T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;Few day's back I wrote a &lt;a href="http://kunjan.in/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/"&gt;article&lt;/a&gt; about how I created &lt;a href="http://sidewaffle.com/"&gt;side waffle&lt;/a&gt; templates for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;. &lt;/p&gt;
@@ -348,49 +648,4 @@ I know about F# even 2 years back, when it was picking up the ground, but I thou
 &lt;blockquote&gt;
   &lt;p&gt;And just like this specific blog, it is concise, crisp and like haiku short and sweet. &lt;/p&gt;
 &lt;/blockquote&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/08/why-ror-is-necessity/</guid><link>http://kunjan.in/2013/08/why-ror-is-necessity/</link><title>Why Ruby on Rails in not only for Ruby on Rails Developers?!</title><description>&lt;p&gt;If you ever involved in web development, then you must be knowing the history of it. Once upon a time there is something called &lt;a href="https://en.wikipedia.org/wiki/CGI_script"&gt;CGI&lt;/a&gt;. And at that moment there are static html pages. &lt;/p&gt;
-
-&lt;p&gt;Only few part of page is dynamic. Then things changed, &lt;a href="https://en.wikipedia.org/wiki/Active_server_pages"&gt;ASP&lt;/a&gt; came. Server access become so normal and easy. But still there is a lot more work to do. And main issue with them is code is not arranged and coding style is not suitable for big projects. &lt;/p&gt;
-
-&lt;p&gt;One can create dirty few pages but creating sophisticated big project is almost big no no. Same is true with other part of languages too. Languages like &lt;a href="https://en.wikipedia.org/wiki/Php"&gt;Php&lt;/a&gt; , &lt;a href="https://en.wikipedia.org/wiki/Java_Server_Pages"&gt;JSP&lt;/a&gt; etc.&lt;/p&gt;
-
-&lt;p&gt;At that moment, something called &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt; took birth. It was extracted from &lt;a href="https://basecamp.com/"&gt;Basecamp&lt;/a&gt;. And then it took the world like anything. Even today it is so popular. &lt;/p&gt;
-
-&lt;p&gt;I am proper Microsoft Developer. And I know Asp.Net MVC(at least my &lt;a href="http://kunjan.in/pages/resume"&gt;Resume&lt;/a&gt; says so.). I never felt I should learn any other thing than MVC. It is good, better than Web Forms (at least for me). And I know how to do data in and data out. 
- </description><pubDate>Mon, 26 Aug 2013 18:30:00 Z</pubDate><a10:updated>2013-08-26T18:30:00Z</a10:updated><a10:content type="text">&lt;p&gt;If you ever involved in web development, then you must be knowing the history of it. Once upon a time there is something called &lt;a href="https://en.wikipedia.org/wiki/CGI_script"&gt;CGI&lt;/a&gt;. And at that moment there are static html pages. &lt;/p&gt;
-
-&lt;p&gt;Only few part of page is dynamic. Then things changed, &lt;a href="https://en.wikipedia.org/wiki/Active_server_pages"&gt;ASP&lt;/a&gt; came. Server access become so normal and easy. But still there is a lot more work to do. And main issue with them is code is not arranged and coding style is not suitable for big projects. &lt;/p&gt;
-
-&lt;p&gt;One can create dirty few pages but creating sophisticated big project is almost big no no. Same is true with other part of languages too. Languages like &lt;a href="https://en.wikipedia.org/wiki/Php"&gt;Php&lt;/a&gt; , &lt;a href="https://en.wikipedia.org/wiki/Java_Server_Pages"&gt;JSP&lt;/a&gt; etc.&lt;/p&gt;
-
-&lt;p&gt;At that moment, something called &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt; took birth. It was extracted from &lt;a href="https://basecamp.com/"&gt;Basecamp&lt;/a&gt;. And then it took the world like anything. Even today it is so popular. &lt;/p&gt;
-
-&lt;p&gt;I am proper Microsoft Developer. And I know Asp.Net MVC(at least my &lt;a href="http://kunjan.in/pages/resume"&gt;Resume&lt;/a&gt; says so.). I never felt I should learn any other thing than MVC. It is good, better than Web Forms (at least for me). And I know how to do data in and data out. 
- &lt;!--excerpt--&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;What else can be needed??? &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The answer is many things. My views are hammered by &lt;a href="http://wekeroad.com/"&gt;Rob Conery&lt;/a&gt; with one of his video at &lt;a href="http://www.ndcoslo.com/"&gt;NDC&lt;/a&gt;. Then I thought there is no harm in learning new thing. &lt;/p&gt;
-
-&lt;p&gt;First I start with MVC thing. What things it claims to solve? It provides &lt;a href="https://en.wikipedia.org/wiki/Separation_of_concerns"&gt;Separation of Concern&lt;/a&gt; in your code. But in any framework it is not strictly imposed. Specially in Asp.Net MVC. Means there is no proper guideline on how things should be. And you can find hell lot of opinion for that. I don't mind any of them but one thing I mind that culture is missing there. Culture that provides starting point. For the new user it will be damn tough to start things. &lt;/p&gt;
-
-&lt;p&gt;If I give a example, in Ruby On Rails things with 7 operation will stay in one controller but in MVC I can do it more than that. I can put every  JSON operation in one controller. One may argue that it is issue on my side but I will say it is issue on our culture side. No one forcing me to do it right things first. Obviously I need freedom to do things in my way but first I like to learn right way of doing things. &lt;/p&gt;
-
-&lt;p&gt;Even though there are many copy of ROR, but culture is not copied properly. And that makes issue sometimes. And that even not allowed to rip the benefit of using MVC. So, it will be like that I am creating controller and writing code in View. Or model is there but I still don't know why? &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Or I can say I don't know how many models are there??? My MVC then became (M^n)VC. And then all that mapping and stuff. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Am I using MVC to make things easy for me or make things even worst for me? This question always bugs me till I learn (I still not no where near good user of ROR) ROR. That helps me a lot to cultured my MVC code. At the end of day ROR is father of all the MVC framework out there. &lt;/p&gt;
-
-&lt;p&gt;You take it .Net, Java, Node or even &lt;a href="http://www.codinghorror.com/blog/2012/06/the-php-singularity.html"&gt;sucky Php&lt;/a&gt; every damn technology have their version of rails. If you have that much things from rails, then there is no need to shy away from learning it. &lt;/p&gt;
-
-&lt;p&gt;I learned from &lt;a href="http://tekpub.com/collections/ruby-rails/products/rails3"&gt;Tekpub&lt;/a&gt;, you can also try it. Or you can try &lt;a href="https://peepcode.com/"&gt;Peepcode&lt;/a&gt; too. Both are quite good at teaching specially rails. &lt;/p&gt;
-
-&lt;p&gt;I am still a .Net developer at least as of now, but still it clears out many things. And with that it is also true that rails is not a silver bullet. If you are creating back end architecture to provide service you can try out different things. Even though rails way works but still you are not bounded. &lt;/p&gt;
-
-&lt;p&gt;But learning is not option I guess. If anyone related to web development must learn or at least once give it shot for &lt;a href="http://rubyonrails.org/"&gt;Ruby on Rails&lt;/a&gt;.&lt;/p&gt;
 </a10:content></item></channel></rss>
