@@ -9,6 +9,7 @@ I have already wrote a blog [post](/2014/02/servicestack-fsharp-template-circle-
 
 But as [Service Stack](http://servicestack.net/) is moved to V4 with some breaking changes. I had give details about updating it. But still it is little bit more complicated or confusing if I can say.
 
+<!--excerpt-->
 <blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/kunjee">@kunjee</a> Sure, otherwise a tutorial on getting SS v4 + F# together without templates would be better than starting from a broken v3 one.</p>&mdash; Demis Bellot (@demisbellot) <a href="https://twitter.com/demisbellot/statuses/433545493738582016">February 12, 2014</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
