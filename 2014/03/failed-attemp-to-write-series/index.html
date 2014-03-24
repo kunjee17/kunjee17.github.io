@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
     <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif">
-    <link rel="canonical" href="http://kunjan.in/2012/09/java-script-diary-i/" />
+    <link rel="canonical" href="http://kunjan.in/2014/03/failed-attemp-to-write-series/" />
 </head>
 <body class="home blog">
     <div id="page" class="hfeed site">
@@ -39,10 +39,14 @@
                   
 
 <div id="post">
-    <h1>JavaScript Diary I</h1>
+    <h1>Failed attempt to write series, again!</h1>
 
     <div class="post-note">
-      posted on 05 Sep 2012
+      posted on 24 Mar 2014
+       | <a href="/category/functional-programming">Functional Programming</a>
+       | <a href="/category/functional-web">Functional Web</a>
+       | <a href="/category/technical">Technical</a>
+       | <a href="/category/web">Web</a>
       
 <!--       <div class="addthis_toolbox addthis_default_style" style="float:right;">
         <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -71,69 +75,21 @@
       
     </div>
     
-    
+    <ul class="snow-series"><li><a href="/2014/02/getting-started-with-functional-web/">Getting started with web and Functional Programming</a></li><li><a href="/2014/02/aspnet-mvc/">Asp.Net MVC5 with F#</a></li><li>HTTP actions Asp.Net MVC5 with F#</li></ul>
         
-    <p>Long back I have wrote a article on <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> . If anyone see closely its all about writing proper Java Script in easy way. But in many cases its not possible that you got chance to write <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> . Or if you are learning some library like <a href="http://knockoutjs.com/">KnockoutJS</a> or <a href="http://backbonejs.org/">BackboneJS</a> , also if you are using some framework like <a href="http://angularjs.org/">AngularJS</a> . Than using <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> and also using this function to learn than it will be difficult to catch up together. If you are not powerful enough with one of either.</p>
+    <p>I have tried writing complete series again. And again failed. And I am stopping it again. </p>
 
-<p>And as a base rule. Even you are using <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> , you are not escaping from <a href="http://vanilla-js.com/">JavaScript</a> . It was there and it will be there for future for sure. So, It is worth learning it. If you have read previous article you must know that I am not that good with <a href="http://vanilla-js.com/">JavaScript</a> . So, I started learning and also thought for note I should put that to a blog. Whatever I learn will document on my blog. So, that will helpful to others and specially for me.</p>
-
-<p>Most of the guys must be knowing many things. But that’s fine, its again for personal reference.
+<p>There are couple of reason of it. First and for most thing is I am not good at it. No where near even readable, I guess. Now, I don't know reason specifically for that. May be I can write on specific topic better instead of things that are continues. 
 <!--excerpt-->
-<a href="http://vanilla-js.com/">JavaScript</a> is very flexible language. And this allows you to write lovely code without worrying about many things. But again this makes issue many times. And every damn time I will end up messing with that flexibility issue. <a href="https://lh5.googleusercontent.com/-9S0vNlm41AY/URHJtukdwUI/AAAAAAAAArI/blHsaJPrt_c/s800/flexible_4.jpg"> <img src="https://lh5.googleusercontent.com/-9S0vNlm41AY/URHJtukdwUI/AAAAAAAAArI/blHsaJPrt_c/s800/flexible_4.jpg" alt="flexible" /></a> </p>
+And that is the reason complete series thing is not that good but individual write ups are getting good reviews. </p>
 
-<p>And first thing starts with Global variable. In <a href="http://vanilla-js.com/">JavaScript</a> everything is global by default. So, whenever you are writing any function just like that, they are globally accessible. This is an issue. Just like static variable in any other language. So, don’t write functions just like that. Out anywhere on page. Simple solution of this is self executable anonymous function. That will make everything private. And that’s good at some point at least better than putting everything global. Here everything is private and executed. Just check out the example. </p>
+<p>There is one more things. Few things are just very random that can't fit in series at all. Few days back I was trying to run SignalR with F#. I succeeded but that will not fit here. Before that there was article about <a href="2014/02/servicestack-fsharp-template-starting-from-start/">getting started with Servicestack</a> from very zero. And that also can't fit here.</p>
 
-<pre><code>(funciton{ 
-  var dosomething = function (){ 
-  //Here I am doing something 
-  } 
-})(); 
-</code></pre>
+<p>So, I finally though to kill it for while. Because of this I couldn't able to write few other things I like to write. I am putting this in this series as completely non-technical part. </p>
 
-<p>Here do something is completely private. But sometime we need some thing in global. We need to access it from outside. Then there are two patterns for that. Module Pattern and Revealing Module Pattern. I personally prefer Revealing Module Patter. So, I am giving demo for that.</p>
+<p>There will be more articles about web, game and F# but not in series form. </p>
 
-<pre><code>var REVEALING; 
-  REVEALING = ( function () { 
-    var dosomething = function (){ 
-      //Here I am doing something 
-      } 
-      var dosomethingmore = function (){ 
-      // here I am accessing dosomething 
-    function dosomething(); 
-    } 
-  return 
-    {   
-    dosomethingmore:dosomethingmore 
-    //here only one function is exposed 
-    //so it is the only function available outside this namespace 
-    } 
-})(); 
-</code></pre>
-
-<p>Here one more thing comes in a picture. Namespace, which are not available by default in <a href="http://vanilla-js.com/">JavaScript</a> .</p>
-
-<p>As namespace is not there, we are missing classes too. As <a href="http://vanilla-js.com/">JavaScript</a> is a functional language, it only has functions, also as available as Objects. So, if you like to make things like classes, internally they are functions only. And you also can create constructor based functions too.</p>
-
-<pre><code>var Dosomething = ( 
-  function (){ 
-    function Dosomething(parametername)   
-    this.parametername = parametername; 
-})(); 
-</code></pre>
-
-<p>So, now we have our lovely constructor with parameter. While calling this we can just do like this</p>
-
-<p><code>var dosomethingobject = new Dosomething( "namehere" );</code> </p>
-
-<p>And after that we can call whatever functions we like to call. It will use the parameter. This is also having same benefit as we are getting with parameterized constructor in structured language. So, this small things always helps to write more readable code.</p>
-
-<p>One another things worth nothing here. It is that we can write anything anywhere in <a href="http://vanilla-js.com/">JavaScript</a> does not mean that we should go for that. Even in <a href="http://vanilla-js.com/">JavaScript</a> Single Responsibility Principal should be followed.</p>
-
-<p>And also parameter name and function name should be self describing. Just because <a href="http://vanilla-js.com/">JavaScript</a> is giving freedom we just use it like that.</p>
-
-<p>There are many library and other corner cases that can be consider while development client side JavaScript application. But that will be in next time.</p>
-
-<p>Till then happy coding…</p>
+<p>So, wait for next one. </p>
 
 
     <div id="disqus_thread"></div>
@@ -143,14 +99,14 @@
             reload: true,
             config: function () {
                 //this.page.identifier = '';
-                this.page.url = 'http://kunjan.in/2012/09/java-script-diary-i/';
+                this.page.url = 'http://kunjan.in/2014/03/failed-attemp-to-write-series/';
                 //this.page.title = '';
             }
         });
     };
 
     var disqus_shortname = 'kunjan';
-    var disqus_url = 'http://kunjan.in/2012/09/java-script-diary-i/';
+    var disqus_url = 'http://kunjan.in/2014/03/failed-attemp-to-write-series/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
