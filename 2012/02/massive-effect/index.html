@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="last-modified" content="2014-03-24T14:20:35.3042823-07:00" />
+    <meta http-equiv="last-modified" content="2014-03-25T14:44:40.3637274-07:00" />
     <title>Kunjan a.k.a. Kunjee's blog</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
@@ -37,15 +37,15 @@
             <div id="primary" class="site-content">
                 <div id="content" role="main">
                   
-
+<meta name="description" content="Introduction to wonderful single file ORM massive. It is for DotNet by Rob Conery. It is using dynamic of DotNet 4.0." />
+<meta name="author" content="Kunjan Dalal" />
 <div id="post">
-    <h1>Massive Effect</h1>
+  <h1>Massive Effect</h1>
+  <div class="post-note">
+    posted on 29 Feb 2012
+    | <a href="/category/technical">Technical</a>
+    | <a href="/category/dotnet">DotNet</a>
 
-    <div class="post-note">
-      posted on 29 Feb 2012
-       | <a href="/category/technical">Technical</a>
-       | <a href="/category/dotnet">DotNet</a>
-      
 <!--       <div class="addthis_toolbox addthis_default_style" style="float:right;">
         <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
         <a class="addthis_button_tweet"></a>
@@ -53,29 +53,29 @@
         <a class="addthis_button_linkedin_counter"></a>
         <a class="addthis_counter addthis_pill_style"></a>
       </div>
- -->
+    -->
 
-      <!-- AddThis Button BEGIN -->
-      <div class="hidden-phone">
-        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-          <a class="addthis_button_preferred_1"></a>
-          <a class="addthis_button_preferred_2"></a>
-          <a class="addthis_button_preferred_3"></a>
-          <a class="addthis_button_preferred_4"></a>
-          <a class="addthis_button_compact"></a>
-          <a class="addthis_counter addthis_bubble_style"></a>
-        </div>
+    <!-- AddThis Button BEGIN -->
+    <div class="hidden-phone">
+      <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
       </div>
-      <!-- AddThis Button END -->
-
-
-
-      
     </div>
-    
-    
-        
-    <p>Hope you have read my earlier <a href="http://kunjan.in/archives/arrival-of-david-aka-micro-orm">post</a> about Micro <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> . Here I talk about another Micro ORM <a href="https://github.com/robconery/massive">Massive</a> . I don’t want to go with traditional approach. I write intro about <a href="http://wekeroad.com/">Rob Conery</a> and give some details about <a href="https://github.com/robconery/massive">Massive</a> . Few example here and there, some hyperlinks and that’s it. I will try to find answer of “why” instead of “how”. For how part we have more than enough example and also have <a href="http://stackoverflow.com/">stackoverflow</a> to solve issues. Still I go through technical details at the end, but article will not be like tutorial for <a href="https://github.com/robconery/massive">Massive</a> .</p>
+    <!-- AddThis Button END -->
+
+
+
+
+  </div>
+
+  
+
+  <p>Hope you have read my earlier <a href="http://kunjan.in/archives/arrival-of-david-aka-micro-orm">post</a> about Micro <a href="http://en.wikipedia.org/wiki/Object-Relational_Mapping">ORM</a> . Here I talk about another Micro ORM <a href="https://github.com/robconery/massive">Massive</a> . I don’t want to go with traditional approach. I write intro about <a href="http://wekeroad.com/">Rob Conery</a> and give some details about <a href="https://github.com/robconery/massive">Massive</a> . Few example here and there, some hyperlinks and that’s it. I will try to find answer of “why” instead of “how”. For how part we have more than enough example and also have <a href="http://stackoverflow.com/">stackoverflow</a> to solve issues. Still I go through technical details at the end, but article will not be like tutorial for <a href="https://github.com/robconery/massive">Massive</a> .</p>
 
 <p>Let’s start from the start. I was just wondering around the <a href="http://asp.net">asp.net</a> web site. And come across the tutorial of <a href="http://www.asp.net/mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-1-architectural-discussion-and-overview">store front</a> . There I found person with name <a href="http://wekeroad.com/">Rob Conery</a> . As usual I found his site and come to know that he recently left job. I was little upset, as I liked the way he explained. Then I came across his another video in speaking section, <a href="http://ndc2011.macsimum.no/mp4/Day2%20Thursday/Track1%201140-1240.mp4">Kill Your ORM</a> . This is the first time I come across something called Micro ORM. And this is the moment when I press the refresh button of my technical skill or thinking or approach what so ever you can say. I just open up my mind and options I am trying.
 <!--excerpt-->
@@ -165,7 +165,7 @@
  []: https://lh4.googleusercontent.com/-uTs5lIhQLgA/URHJz2abyDI/AAAAAAAAAs4/agORU4lbeoo/s800/phil</em>2.jpg</p>
 
 
-    <div id="disqus_thread"></div>
+  <div id="disqus_thread"></div>
 <script>
     var reset_disqus = function(){
         DISQUS.reset({
@@ -191,8 +191,8 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f054dec05e2662c"></script>
+
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f054dec05e2662c"></script>
 
 </div>
                 </div>
