@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
     <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif">
-    <link rel="canonical" href="http://kunjan.in/2013/12/functional-programming-need-in-web-development/" />
+    <link rel="canonical" href="http://kunjan.in/2014/03/signalr-nancy-azure-with-fsharp/" />
 </head>
 <body class="home blog">
     <div id="page" class="hfeed site">
@@ -37,16 +37,18 @@
             <div id="primary" class="site-content">
                 <div id="content" role="main">
                   
-<meta name="description" content="What is need for Functional programming in Web Development. What are the options available, and where .Net people stands with F#" />
+<meta name="description" content="Using SignalR framework with F#. Also solve the issue of Dynamic with F#" />
 <meta name="author" content="Kunjan Dalal" />
 <div id="post">
-  <h1>Functional Programming Need in Web Development</h1>
+  <h1>SignalR, Nancy, Azure with F#</h1>
   <div class="post-note">
-    posted on 17 Dec 2013
+    posted on 28 Mar 2014
     | <a href="/category/technical">Technical</a>
     | <a href="/category/dotnet">DotNet</a>
     | <a href="/category/oss">OSS</a>
     | <a href="/category/functional-programming">Functional Programming</a>
+    | <a href="/category/functional-web">Functional Web</a>
+    | <a href="/category/web">Web</a>
 
 <!--       <div class="addthis_toolbox addthis_default_style" style="float:right;">
         <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -77,27 +79,130 @@
 
   
 
-  <p>Whenever I talk about Functional Programming people with experience in web make faces. And seriously don't blame them. </p>
-
-<p>Issue is mainly Functional Programming stays in back ground only. If you see any starting example of any functional language is mainly some machine learning example or some complicated algorithm example. And that may effect normal people to getting started with Functional Programming. </p>
-
-<p>But functional programming can do far more than that. And that include simple things too. And I means it can make thing simpler or I can say it can make easy thing simple. </p>
-
-<p>Here, if I say have to put web case here. May be web is right now most appropriate place where functional programming can be used. And reason is damn simple, current web projects are getting bigger and bigger and user base is also getting even larger. Now, to support that hardware is also getting better and better. 
+  <p>What you feel if you meet your favourite actor? Feeling is wonderful right? Now, add the your actress in the mixture. Have you said WOW??? How about director? Still heart is beating?!? How about having dinner with them? Nothing can be better than that.
 <!--excerpt-->
-Now, the only thing is there is a need of programming language that can use this kind of hardware. And this case Functional Programming comes in picture or I must say it is most suitable.</p>
+I am having kinda same feeling. It is nothing new that <a href="http://nancyfx.org/">Nancy</a> is dancing quite comfortable with <a href="http://fsharp.org">F#</a>. And thanks to Daniel Mohl we are also having <a href="http://visualstudiogallery.msdn.microsoft.com/b55b8aac-b11a-4a6a-8a77-2153f46f4e2f">templates</a> to get started with Nancy and F#. </p>
 
-<p>Because there are many things that are backed into the language that help with the situation. If I take one thing is immutability. As there are grid of processors, there is a need of multiple objects using the resource parallel and there will be need to manage state of the objects. With immutability there will be no state that can be mutated. So, it is very much easy to reason with.</p>
+<p>Now, I was doing some experiments around it. It was quite good. But how about running it on Owin. hmmm, it works flow less. Nothing more on code side other than few lines here and there. Then I found few projects running <a href="http://signalr.net/">SignalR</a> with F#. </p>
 
-<p>But unfortunately we don't utilize functional programming that much. And may be that is the reason we don't know how easy and beautiful things code can be with the use of functional programming. </p>
+<p>I knowing Nancy from a long time. But SignalR, I don't know anything about it. The only thing I know is that, it is super awesome. </p>
 
-<p>So, here I will be writing couple of articles or may be series to make a case how useful functional programming can be in the case of web development. </p>
+<p>So, first task is to run Nancy on Owin. </p>
 
-<p>As, I am mainly from the .Net background I ll be talking about F# mostly. But the thing is, functional programming is not limited to that. If anyone is coming from the Java land, <a href="http://www.playframework.com/">Scala</a> is the language for you. And if anyone wants something dynamic and very near to LISP, <a href="http://clojure.org/">clojure</a> is for you. </p>
+<p>Here are simple steps. Using template create a asp.net host with razor project. remove asp.net host and add <a href="http://www.nuget.org/packages/Nancy.Owin/">Owin host</a> using nuget package manager.</p>
 
-<p>I try to get taste of every possible language, few sample here and there. But things mainly will be for Functional programming and Web.</p>
+<p>Now we need to add startup file. </p>
 
-<p>Hope that effort count.</p>
+<pre><code>type Startup() = 
+    member x.Configuration(app : Owin.IAppBuilder) =  app.UseNancy() |&gt; ignore
+
+
+[&lt;Microsoft.Owin.OwinStartup(typeof&lt;Startup&gt;)&gt;]
+do ()
+</code></pre>
+
+<p>And add simple Nancy code. The regular one. Nothing fancy. </p>
+
+<p>There is bootstrap class</p>
+
+<pre><code>type Bootstrapper() =
+    inherit DefaultNancyBootstrapper()
+    override x.ApplicationStartup(container:TinyIoCContainer, pipelines:IPipelines) = 
+        StaticConfiguration.DisableErrorTraces &lt;- false
+        base.ApplicationStartup(container,pipelines)
+        ignore()
+</code></pre>
+
+<p><em>this is needed to trace the error if anything is there at nancy end.</em></p>
+
+<p>And our index module </p>
+
+<pre><code>type IndexModule() as x =
+    inherit NancyModule()
+    do x.Get.["/"] &lt;- fun _ -&gt; box x.View.["Index"]
+</code></pre>
+
+<p>Pretty lame right. But it works.</p>
+
+<p>Now, add <a href="http://www.nuget.org/packages/Microsoft.AspNet.SignalR/">Signalr asp.net host nuget package</a> to project. As startup file is already there; no need to create one more. Just minor modification will do.</p>
+
+<pre><code>type Startup() = 
+    member x.Configuration(app : Owin.IAppBuilder) =  app.MapSignalR().UseNancy() |&gt; ignore
+</code></pre>
+
+<p>That MapSignalR thing is additionally added. I have just followed Hello World example of real time world. Create a chat application. So, here is the hub to broadcast the message to all users.</p>
+
+<pre><code>type ChatHub() as this = 
+    inherit Hub()
+    member x.send (name : string, msg : string) = this.Clients.All?broadcastMessage (name, msg) |&gt; ignore
+</code></pre>
+
+<p>Now, copy paste code for html part. Here is code snippet. There is no need to go into detail as of now for JavaScript part.  </p>
+
+<pre><code>&lt;div&gt;
+    &lt;p&gt;Here is singnal R working great with Nancy&lt;/p&gt;
+    &lt;div class="container"&gt;
+        &lt;input type="text" id="message" /&gt;
+        &lt;input type="button" id="sendmessage" value="Send" /&gt;
+        &lt;input type="hidden" id="displayname" /&gt;
+        &lt;ul id="discussion"&gt;&lt;/ul&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;!--Script references. --&gt;
+&lt;!--Reference the jQuery library. --&gt;
+&lt;script src="Scripts/jquery-1.6.4.min.js"&gt;&lt;/script&gt;
+&lt;!--Reference the SignalR library. --&gt;
+&lt;script src="Scripts/jquery.signalR-2.0.2.min.js"&gt;&lt;/script&gt;
+&lt;!--Reference the autogenerated SignalR hub script. --&gt;
+&lt;script src="signalr/hubs"&gt;&lt;/script&gt;
+&lt;!--Add script to update the page and send messages.--&gt;
+&lt;script type="text/javascript"&gt;
+    $(function () {
+        // Declare a proxy to reference the hub.
+        var chat = $.connection.chatHub;
+        // Create a function that the hub can call to broadcast messages.
+        chat.client.broadcastMessage = function (name, msg) {
+            // Html encode display name and message.
+
+            var encodedName = $('&lt;div /&gt;').text(name).html();
+            var encodedMsg = $('&lt;div /&gt;').text(msg).html();
+            // Add the message to the page.
+            $('#discussion').append('&lt;li&gt;&lt;strong&gt;' + encodedName
+                + '&lt;/strong&gt;:&amp;nbsp;&amp;nbsp;' + encodedMsg + '&lt;/li&gt;');
+        };
+        // Get the user name and store it to prepend to messages.
+        $('#displayname').val(prompt('Enter your name:', ''));
+        // Set initial focus to message input box.
+        $('#message').focus();
+        // Start the connection.
+        $.connection.hub.start().done(function () {
+            $('#sendmessage').click(function () {
+                // Call the Send method on the hub.
+                chat.server.send($('#displayname').val(), $('#message').val());
+                // Clear text box and reset focus for next comment.
+                $('#message').val('').focus();
+            });
+        });
+    });
+&lt;/script&gt;
+</code></pre>
+
+<p>Now, there is one "?" thing before broadcastMessage function. That is where dynamic method is getting called. F# do not support dynamic by default but there are many work around available. I personally prefer <a href="http://www.nuget.org/packages/FSharp.Dynamic/">Fsharp.dynamic</a> library. It is better than other code snippets I found over other sites. But that is all personal choice how one like to handle dynamic functions. </p>
+
+<p>So, it is done. Hit F5 and you are ready to go.</p>
+
+<p>What is fun of working with Web if I can't publish it. But for now with F# web templates it is not possible. And that is known <a href="https://github.com/fsharp/FSharpCommunityTemplates/issues/28">issue</a>. So, if I like to publish it on cloud like azure I need to give git hooks. That is easiest thing I can think off. But road is still not that smooth. </p>
+
+<p>Deployment will break with some weird error. I followed <a href="http://blog.ploeh.dk/2013/08/26/running-a-pure-f-web-api-on-azure-web-sites/">Mark's article</a> to make it work. </p>
+
+<p>And things are working like anything. No, issues at all. </p>
+
+<blockquote>
+  <p>Nancy |> Razor |> SignalR |> Azure |> F# |> lots of love.</p>
+</blockquote>
+
+<p>Please give it a shot. If it break somewhere let me know will try to solve it. Any suggestion to make things even better and streamlined are always welcome. </p>
 
 
   <div id="disqus_thread"></div>
@@ -107,14 +212,14 @@ Now, the only thing is there is a need of programming language that can use this
             reload: true,
             config: function () {
                 //this.page.identifier = '';
-                this.page.url = 'http://kunjan.in/2013/12/functional-programming-need-in-web-development/';
+                this.page.url = 'http://kunjan.in/2014/03/signalr-nancy-azure-with-fsharp/';
                 //this.page.title = '';
             }
         });
     };
 
     var disqus_shortname = 'kunjan';
-    var disqus_url = 'http://kunjan.in/2013/12/functional-programming-need-in-web-development/';
+    var disqus_url = 'http://kunjan.in/2014/03/signalr-nancy-azure-with-fsharp/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -1,5 +1,130 @@
-<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/03/why-i-moved-away-from-sencha-to-phonejs/</guid><link>http://kunjan.in/2014/03/why-i-moved-away-from-sencha-to-phonejs/</link><title>Why I moved away from Sencha to Phonejs?</title><description>&lt;p&gt;&lt;a href="http://sencha.com"&gt;Sencha&lt;/a&gt; is well known framework for mobile development. Not only mobile development but it is doing a hell of a lot of thing other than mobile development. Not only that it is surely having wonderful history with &lt;a href="https://www.sencha.com/products/extjs/"&gt;JavaScript framework development&lt;/a&gt;. I don't have anything to complain against that. 
-</description><pubDate>Tue, 25 Mar 2014 07:00:00 Z</pubDate><a10:updated>2014-03-25T07:00:00Z</a10:updated><a10:content type="html">&lt;p&gt;&lt;a href="http://sencha.com"&gt;Sencha&lt;/a&gt; is well known framework for mobile development. Not only mobile development but it is doing a hell of a lot of thing other than mobile development. Not only that it is surely having wonderful history with &lt;a href="https://www.sencha.com/products/extjs/"&gt;JavaScript framework development&lt;/a&gt;. I don't have anything to complain against that. 
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/03/signalr-nancy-azure-with-fsharp/</guid><link>http://kunjan.in/2014/03/signalr-nancy-azure-with-fsharp/</link><title>SignalR, Nancy, Azure with F#</title><description>&lt;p&gt;What you feel if you meet your favourite actor? Feeling is wonderful right? Now, add the your actress in the mixture. Have you said WOW??? How about director? Still heart is beating?!? How about having dinner with them? Nothing can be better than that.
+</description><pubDate>Thu, 27 Mar 2014 18:30:00 Z</pubDate><a10:updated>2014-03-27T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;What you feel if you meet your favourite actor? Feeling is wonderful right? Now, add the your actress in the mixture. Have you said WOW??? How about director? Still heart is beating?!? How about having dinner with them? Nothing can be better than that.
+&lt;!--excerpt--&gt;
+I am having kinda same feeling. It is nothing new that &lt;a href="http://nancyfx.org/"&gt;Nancy&lt;/a&gt; is dancing quite comfortable with &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt;. And thanks to Daniel Mohl we are also having &lt;a href="http://visualstudiogallery.msdn.microsoft.com/b55b8aac-b11a-4a6a-8a77-2153f46f4e2f"&gt;templates&lt;/a&gt; to get started with Nancy and F#. &lt;/p&gt;
+
+&lt;p&gt;Now, I was doing some experiments around it. It was quite good. But how about running it on Owin. hmmm, it works flow less. Nothing more on code side other than few lines here and there. Then I found few projects running &lt;a href="http://signalr.net/"&gt;SignalR&lt;/a&gt; with F#. &lt;/p&gt;
+
+&lt;p&gt;I knowing Nancy from a long time. But SignalR, I don't know anything about it. The only thing I know is that, it is super awesome. &lt;/p&gt;
+
+&lt;p&gt;So, first task is to run Nancy on Owin. &lt;/p&gt;
+
+&lt;p&gt;Here are simple steps. Using template create a asp.net host with razor project. remove asp.net host and add &lt;a href="http://www.nuget.org/packages/Nancy.Owin/"&gt;Owin host&lt;/a&gt; using nuget package manager.&lt;/p&gt;
+
+&lt;p&gt;Now we need to add startup file. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type Startup() = 
+    member x.Configuration(app : Owin.IAppBuilder) =  app.UseNancy() |&amp;gt; ignore
+
+
+[&amp;lt;Microsoft.Owin.OwinStartup(typeof&amp;lt;Startup&amp;gt;)&amp;gt;]
+do ()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And add simple Nancy code. The regular one. Nothing fancy. &lt;/p&gt;
+
+&lt;p&gt;There is bootstrap class&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type Bootstrapper() =
+    inherit DefaultNancyBootstrapper()
+    override x.ApplicationStartup(container:TinyIoCContainer, pipelines:IPipelines) = 
+        StaticConfiguration.DisableErrorTraces &amp;lt;- false
+        base.ApplicationStartup(container,pipelines)
+        ignore()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;this is needed to trace the error if anything is there at nancy end.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;And our index module &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type IndexModule() as x =
+    inherit NancyModule()
+    do x.Get.["/"] &amp;lt;- fun _ -&amp;gt; box x.View.["Index"]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pretty lame right. But it works.&lt;/p&gt;
+
+&lt;p&gt;Now, add &lt;a href="http://www.nuget.org/packages/Microsoft.AspNet.SignalR/"&gt;Signalr asp.net host nuget package&lt;/a&gt; to project. As startup file is already there; no need to create one more. Just minor modification will do.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type Startup() = 
+    member x.Configuration(app : Owin.IAppBuilder) =  app.MapSignalR().UseNancy() |&amp;gt; ignore
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That MapSignalR thing is additionally added. I have just followed Hello World example of real time world. Create a chat application. So, here is the hub to broadcast the message to all users.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type ChatHub() as this = 
+    inherit Hub()
+    member x.send (name : string, msg : string) = this.Clients.All?broadcastMessage (name, msg) |&amp;gt; ignore
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, copy paste code for html part. Here is code snippet. There is no need to go into detail as of now for JavaScript part.  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div&amp;gt;
+    &amp;lt;p&amp;gt;Here is singnal R working great with Nancy&amp;lt;/p&amp;gt;
+    &amp;lt;div class="container"&amp;gt;
+        &amp;lt;input type="text" id="message" /&amp;gt;
+        &amp;lt;input type="button" id="sendmessage" value="Send" /&amp;gt;
+        &amp;lt;input type="hidden" id="displayname" /&amp;gt;
+        &amp;lt;ul id="discussion"&amp;gt;&amp;lt;/ul&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+&amp;lt;/div&amp;gt;
+&amp;lt;!--Script references. --&amp;gt;
+&amp;lt;!--Reference the jQuery library. --&amp;gt;
+&amp;lt;script src="Scripts/jquery-1.6.4.min.js"&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;!--Reference the SignalR library. --&amp;gt;
+&amp;lt;script src="Scripts/jquery.signalR-2.0.2.min.js"&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;!--Reference the autogenerated SignalR hub script. --&amp;gt;
+&amp;lt;script src="signalr/hubs"&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;!--Add script to update the page and send messages.--&amp;gt;
+&amp;lt;script type="text/javascript"&amp;gt;
+    $(function () {
+        // Declare a proxy to reference the hub.
+        var chat = $.connection.chatHub;
+        // Create a function that the hub can call to broadcast messages.
+        chat.client.broadcastMessage = function (name, msg) {
+            // Html encode display name and message.
+
+            var encodedName = $('&amp;lt;div /&amp;gt;').text(name).html();
+            var encodedMsg = $('&amp;lt;div /&amp;gt;').text(msg).html();
+            // Add the message to the page.
+            $('#discussion').append('&amp;lt;li&amp;gt;&amp;lt;strong&amp;gt;' + encodedName
+                + '&amp;lt;/strong&amp;gt;:&amp;amp;nbsp;&amp;amp;nbsp;' + encodedMsg + '&amp;lt;/li&amp;gt;');
+        };
+        // Get the user name and store it to prepend to messages.
+        $('#displayname').val(prompt('Enter your name:', ''));
+        // Set initial focus to message input box.
+        $('#message').focus();
+        // Start the connection.
+        $.connection.hub.start().done(function () {
+            $('#sendmessage').click(function () {
+                // Call the Send method on the hub.
+                chat.server.send($('#displayname').val(), $('#message').val());
+                // Clear text box and reset focus for next comment.
+                $('#message').val('').focus();
+            });
+        });
+    });
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, there is one "?" thing before broadcastMessage function. That is where dynamic method is getting called. F# do not support dynamic by default but there are many work around available. I personally prefer &lt;a href="http://www.nuget.org/packages/FSharp.Dynamic/"&gt;Fsharp.dynamic&lt;/a&gt; library. It is better than other code snippets I found over other sites. But that is all personal choice how one like to handle dynamic functions. &lt;/p&gt;
+
+&lt;p&gt;So, it is done. Hit F5 and you are ready to go.&lt;/p&gt;
+
+&lt;p&gt;What is fun of working with Web if I can't publish it. But for now with F# web templates it is not possible. And that is known &lt;a href="https://github.com/fsharp/FSharpCommunityTemplates/issues/28"&gt;issue&lt;/a&gt;. So, if I like to publish it on cloud like azure I need to give git hooks. That is easiest thing I can think off. But road is still not that smooth. &lt;/p&gt;
+
+&lt;p&gt;Deployment will break with some weird error. I followed &lt;a href="http://blog.ploeh.dk/2013/08/26/running-a-pure-f-web-api-on-azure-web-sites/"&gt;Mark's article&lt;/a&gt; to make it work. &lt;/p&gt;
+
+&lt;p&gt;And things are working like anything. No, issues at all. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Nancy |&gt; Razor |&gt; SignalR |&gt; Azure |&gt; F# |&gt; lots of love.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Please give it a shot. If it break somewhere let me know will try to solve it. Any suggestion to make things even better and streamlined are always welcome. &lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/03/why-i-moved-away-from-sencha-to-phonejs/</guid><link>http://kunjan.in/2014/03/why-i-moved-away-from-sencha-to-phonejs/</link><title>Why I moved away from Sencha to Phonejs?</title><description>&lt;p&gt;&lt;a href="http://sencha.com"&gt;Sencha&lt;/a&gt; is well known framework for mobile development. Not only mobile development but it is doing a hell of a lot of thing other than mobile development. Not only that it is surely having wonderful history with &lt;a href="https://www.sencha.com/products/extjs/"&gt;JavaScript framework development&lt;/a&gt;. I don't have anything to complain against that. 
+</description><pubDate>Mon, 24 Mar 2014 18:30:00 Z</pubDate><a10:updated>2014-03-24T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;&lt;a href="http://sencha.com"&gt;Sencha&lt;/a&gt; is well known framework for mobile development. Not only mobile development but it is doing a hell of a lot of thing other than mobile development. Not only that it is surely having wonderful history with &lt;a href="https://www.sencha.com/products/extjs/"&gt;JavaScript framework development&lt;/a&gt;. I don't have anything to complain against that. 
 &lt;!--excerpt--&gt;
 But today I am going to talk about specifically one framework, that is &lt;a href="https://www.sencha.com/products/touch/"&gt;Sencha Touch&lt;/a&gt;. I was trying to something that can developed once and deployed everywhere. &lt;em&gt;Yes, it is kinda new trend in mobile development now a days.&lt;/em&gt; &lt;/p&gt;
 
@@ -31,7 +156,7 @@ But today I am going to talk about specifically one framework, that is &lt;a hre
 </a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/03/failed-attemp-to-write-series/</guid><link>http://kunjan.in/2014/03/failed-attemp-to-write-series/</link><title>Failed attempt to write series, again!</title><description>&lt;p&gt;I have tried writing complete series again. And again failed. And I am stopping it again. &lt;/p&gt;
 
 &lt;p&gt;There are couple of reason of it. First and for most thing is I am not good at it. No where near even readable, I guess. Now, I don't know reason specifically for that. May be I can write on specific topic better instead of things that are continues. 
-</description><pubDate>Mon, 24 Mar 2014 07:00:00 Z</pubDate><a10:updated>2014-03-24T07:00:00Z</a10:updated><a10:content type="html">&lt;p&gt;I have tried writing complete series again. And again failed. And I am stopping it again. &lt;/p&gt;
+</description><pubDate>Sun, 23 Mar 2014 18:30:00 Z</pubDate><a10:updated>2014-03-23T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;I have tried writing complete series again. And again failed. And I am stopping it again. &lt;/p&gt;
 
 &lt;p&gt;There are couple of reason of it. First and for most thing is I am not good at it. No where near even readable, I guess. Now, I don't know reason specifically for that. May be I can write on specific topic better instead of things that are continues. 
 &lt;!--excerpt--&gt;
@@ -48,7 +173,7 @@ And that is the reason complete series thing is not that good but individual wri
 
 &lt;p&gt;But as &lt;a href="http://servicestack.net/"&gt;Service Stack&lt;/a&gt; is moved to V4 with some breaking changes. I had give details about updating it. But still it is little bit more complicated or confusing if I can say.&lt;/p&gt;
 
-</description><pubDate>Fri, 14 Feb 2014 08:00:00 Z</pubDate><a10:updated>2014-02-14T08:00:00Z</a10:updated><a10:content type="html">&lt;p&gt;I have already wrote a blog &lt;a href="http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/"&gt;post&lt;/a&gt; about how to get started with service stack if any one is using templates. It is pretty easy. Just install and run.&lt;/p&gt;
+</description><pubDate>Thu, 13 Feb 2014 18:30:00 Z</pubDate><a10:updated>2014-02-13T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;I have already wrote a blog &lt;a href="http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/"&gt;post&lt;/a&gt; about how to get started with service stack if any one is using templates. It is pretty easy. Just install and run.&lt;/p&gt;
 
 &lt;p&gt;But as &lt;a href="http://servicestack.net/"&gt;Service Stack&lt;/a&gt; is moved to V4 with some breaking changes. I had give details about updating it. But still it is little bit more complicated or confusing if I can say.&lt;/p&gt;
 
@@ -203,7 +328,7 @@ And that is the reason complete series thing is not that good but individual wri
 </a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/</guid><link>http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/</link><title>Servicestack F# template Update. Circle is Complete.</title><description>&lt;p&gt;Few day's back I wrote a &lt;a href="http://kunjan.in/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/"&gt;article&lt;/a&gt; about how I created &lt;a href="http://sidewaffle.com/"&gt;side waffle&lt;/a&gt; templates for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;. &lt;/p&gt;
 
 &lt;p&gt;Yesterday, &lt;a href="http://blog.danielmohl.com/"&gt;Daniel Mohl&lt;/a&gt;, merged the pull request. Add the missing bits make it working and it is up on &lt;a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f"&gt;visual studio gallery&lt;/a&gt;. I seriously like to thank Daniel for this work and support even after his own hectic schedule of day job. And a wonderful members of &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt; community. 
-</description><pubDate>Wed, 12 Feb 2014 08:00:00 Z</pubDate><a10:updated>2014-02-12T08:00:00Z</a10:updated><a10:content type="html">&lt;p&gt;Few day's back I wrote a &lt;a href="http://kunjan.in/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/"&gt;article&lt;/a&gt; about how I created &lt;a href="http://sidewaffle.com/"&gt;side waffle&lt;/a&gt; templates for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;. &lt;/p&gt;
+</description><pubDate>Tue, 11 Feb 2014 18:30:00 Z</pubDate><a10:updated>2014-02-11T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Few day's back I wrote a &lt;a href="http://kunjan.in/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/"&gt;article&lt;/a&gt; about how I created &lt;a href="http://sidewaffle.com/"&gt;side waffle&lt;/a&gt; templates for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;. &lt;/p&gt;
 
 &lt;p&gt;Yesterday, &lt;a href="http://blog.danielmohl.com/"&gt;Daniel Mohl&lt;/a&gt;, merged the pull request. Add the missing bits make it working and it is up on &lt;a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f"&gt;visual studio gallery&lt;/a&gt;. I seriously like to thank Daniel for this work and support even after his own hectic schedule of day job. And a wonderful members of &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt; community. 
 &lt;!--excerpt--&gt;
@@ -290,7 +415,7 @@ Here, I am sharing few details of the template, I have created. &lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Ok, I can write on and on for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; but for now it is not the topic. Topic is about &lt;a href="http://www.hanselman.com/blog/YakShavingDefinedIllGetThatDoneAsSoonAsIShaveThisYak.aspx"&gt;Shaving the Yak&lt;/a&gt;. There are many hatters of Visual Studio and its project file. I also don't mind sometimes joining the league. But for most of the cases it is doing many things, that we need to do otherwise.
-</description><pubDate>Fri, 07 Feb 2014 08:00:00 Z</pubDate><a10:updated>2014-02-07T08:00:00Z</a10:updated><a10:content type="html">&lt;p&gt;I have specific love for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; and that is known thing. It is not because it is awesome or the ways it do web service things, no one else is doing. But because of my past with WCF. It is so rocky that I never want to go back.  And more over &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; doing hell lot of the things under the cover, and that is also without doing any damn thing into &lt;strong&gt;XML&lt;/strong&gt;. &lt;/p&gt;
+</description><pubDate>Thu, 06 Feb 2014 18:30:00 Z</pubDate><a10:updated>2014-02-06T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;I have specific love for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; and that is known thing. It is not because it is awesome or the ways it do web service things, no one else is doing. But because of my past with WCF. It is so rocky that I never want to go back.  And more over &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; doing hell lot of the things under the cover, and that is also without doing any damn thing into &lt;strong&gt;XML&lt;/strong&gt;. &lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Hell, yes.. No XML... &lt;/p&gt;
@@ -342,7 +467,7 @@ And I am saying this because I have done this while creating templates for  &lt;
 </a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/02/aspnet-mvc/</guid><link>http://kunjan.in/2014/02/aspnet-mvc/</link><title>Asp.Net MVC5 with F#</title><description>&lt;p&gt;Thanks to &lt;a href="http://blog.danielmohl.com/"&gt;Danial Mohl&lt;/a&gt; getting started with Asp.net MVC5 is pretty easy. He had put a tremendous effort to make different kind of templates. Even starting from MVC3 till date now. &lt;/p&gt;
 
 &lt;p&gt;Old templates are like there are two projects one is C# and one is &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt;. C# is having all the &lt;a href="http://vanilla-js.com/"&gt;Java Script&lt;/a&gt;, html, css and stuff while F# is having coding part. 
-</description><pubDate>Thu, 06 Feb 2014 08:00:00 Z</pubDate><a10:updated>2014-02-06T08:00:00Z</a10:updated><a10:content type="html">&lt;p&gt;Thanks to &lt;a href="http://blog.danielmohl.com/"&gt;Danial Mohl&lt;/a&gt; getting started with Asp.net MVC5 is pretty easy. He had put a tremendous effort to make different kind of templates. Even starting from MVC3 till date now. &lt;/p&gt;
+</description><pubDate>Wed, 05 Feb 2014 18:30:00 Z</pubDate><a10:updated>2014-02-05T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Thanks to &lt;a href="http://blog.danielmohl.com/"&gt;Danial Mohl&lt;/a&gt; getting started with Asp.net MVC5 is pretty easy. He had put a tremendous effort to make different kind of templates. Even starting from MVC3 till date now. &lt;/p&gt;
 
 &lt;p&gt;Old templates are like there are two projects one is C# and one is &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt;. C# is having all the &lt;a href="http://vanilla-js.com/"&gt;Java Script&lt;/a&gt;, html, css and stuff while F# is having coding part. 
 &lt;!--excerpt--&gt;
@@ -371,7 +496,7 @@ But with time pass and version update, now we are having pure F# templates. A si
 </a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/02/getting-started-with-functional-web/</guid><link>http://kunjan.in/2014/02/getting-started-with-functional-web/</link><title>Getting started with Functional web</title><description>&lt;p&gt;I am doing web development from quite a long time. And now a days I am keep pushing my self to do functional programming. &lt;a href="http://learnyouahaskell.com/"&gt;Learning&lt;/a&gt; languages like &lt;a href="http://www.haskell.org/haskellwiki/Haskell"&gt;Haskell&lt;/a&gt;, &lt;a href="http://www.scala-lang.org/"&gt;Scala&lt;/a&gt;, &lt;a href="http://fsharp.org/"&gt;F#&lt;/a&gt;. Obviously I try my hand to other functional languages too as per time permits. &lt;/p&gt;
 
 &lt;p&gt;As I am .Net developer my primary focused is working with &lt;a href="http://fsharp.org/"&gt;F#&lt;/a&gt; and I will also start from that only. You can also check out other functional articles of mine to check out what I think about functional programming and why it is necessity now a days. 
-</description><pubDate>Thu, 06 Feb 2014 08:00:00 Z</pubDate><a10:updated>2014-02-06T08:00:00Z</a10:updated><a10:content type="html">&lt;p&gt;I am doing web development from quite a long time. And now a days I am keep pushing my self to do functional programming. &lt;a href="http://learnyouahaskell.com/"&gt;Learning&lt;/a&gt; languages like &lt;a href="http://www.haskell.org/haskellwiki/Haskell"&gt;Haskell&lt;/a&gt;, &lt;a href="http://www.scala-lang.org/"&gt;Scala&lt;/a&gt;, &lt;a href="http://fsharp.org/"&gt;F#&lt;/a&gt;. Obviously I try my hand to other functional languages too as per time permits. &lt;/p&gt;
+</description><pubDate>Wed, 05 Feb 2014 18:30:00 Z</pubDate><a10:updated>2014-02-05T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;I am doing web development from quite a long time. And now a days I am keep pushing my self to do functional programming. &lt;a href="http://learnyouahaskell.com/"&gt;Learning&lt;/a&gt; languages like &lt;a href="http://www.haskell.org/haskellwiki/Haskell"&gt;Haskell&lt;/a&gt;, &lt;a href="http://www.scala-lang.org/"&gt;Scala&lt;/a&gt;, &lt;a href="http://fsharp.org/"&gt;F#&lt;/a&gt;. Obviously I try my hand to other functional languages too as per time permits. &lt;/p&gt;
 
 &lt;p&gt;As I am .Net developer my primary focused is working with &lt;a href="http://fsharp.org/"&gt;F#&lt;/a&gt; and I will also start from that only. You can also check out other functional articles of mine to check out what I think about functional programming and why it is necessity now a days. 
 &lt;!--excerpt--&gt;
@@ -437,7 +562,7 @@ But with time pass and version update, now we are having pure F# templates. A si
 &lt;p&gt;I can say, I am pretty lucky in the case of writing poems. Though I have write only few, many of them got good review from whom so ever read it. But that charm doesn't last that much. &lt;/p&gt;
 
 &lt;p&gt;I wrote a poem for my &lt;a href="http://kunjan.in/2012/04/i-miss-you-sister/"&gt;sister&lt;/a&gt; and it don't get any kind of review. I do got personal message from sister after a long time that "it was sweet". But that all because she is my sister. Personally if I like to give review to my this poem it is not good at all. There are tsunami of feeling I wanted to convert and I just converted drops of it. And at that moment I decided, will never write poem; at least never in public. 
-</description><pubDate>Wed, 05 Feb 2014 08:00:00 Z</pubDate><a10:updated>2014-02-05T08:00:00Z</a10:updated><a10:content type="html">&lt;p&gt;Long back I have tried my hand to writing poems. And trust me I am no where near poetic part. I have good grip over language but that is only for my mother tongue. I am quite comfortable with English but still no where near having artistic touch. Or in simple language my database of words is not that strong. But normally I am able to convey my feelings. &lt;/p&gt;
+</description><pubDate>Tue, 04 Feb 2014 18:30:00 Z</pubDate><a10:updated>2014-02-04T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Long back I have tried my hand to writing poems. And trust me I am no where near poetic part. I have good grip over language but that is only for my mother tongue. I am quite comfortable with English but still no where near having artistic touch. Or in simple language my database of words is not that strong. But normally I am able to convey my feelings. &lt;/p&gt;
 
 &lt;p&gt;I can say, I am pretty lucky in the case of writing poems. Though I have write only few, many of them got good review from whom so ever read it. But that charm doesn't last that much. &lt;/p&gt;
 
@@ -459,7 +584,7 @@ I do write sometimes, but that is all personal on personal request. And I will n
 &lt;p&gt;But functional programming can do far more than that. And that include simple things too. And I means it can make thing simpler or I can say it can make easy thing simple. &lt;/p&gt;
 
 &lt;p&gt;Here, if I say have to put web case here. May be web is right now most appropriate place where functional programming can be used. And reason is damn simple, current web projects are getting bigger and bigger and user base is also getting even larger. Now, to support that hardware is also getting better and better. 
-</description><pubDate>Tue, 17 Dec 2013 08:00:00 Z</pubDate><a10:updated>2013-12-17T08:00:00Z</a10:updated><a10:content type="html">&lt;p&gt;Whenever I talk about Functional Programming people with experience in web make faces. And seriously don't blame them. &lt;/p&gt;
+</description><pubDate>Mon, 16 Dec 2013 18:30:00 Z</pubDate><a10:updated>2013-12-16T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Whenever I talk about Functional Programming people with experience in web make faces. And seriously don't blame them. &lt;/p&gt;
 
 &lt;p&gt;Issue is mainly Functional Programming stays in back ground only. If you see any starting example of any functional language is mainly some machine learning example or some complicated algorithm example. And that may effect normal people to getting started with Functional Programming. &lt;/p&gt;
 
@@ -480,38 +605,4 @@ Now, the only thing is there is a need of programming language that can use this
 &lt;p&gt;I try to get taste of every possible language, few sample here and there. But things mainly will be for Functional programming and Web.&lt;/p&gt;
 
 &lt;p&gt;Hope that effort count.&lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/11/a-developer-without-programming-language/</guid><link>http://kunjan.in/2013/11/a-developer-without-programming-language/</link><title>A Developer without Programming Language</title><description>&lt;p&gt;Now a days I am little bit more involved in History lessons. And those also from Computer Science only. Specifically from programming language's perspective.  Why on the earth I am doing this, I guess answer is given by  &lt;a href="http://www.crockford.com/"&gt;Duglas Cockford&lt;/a&gt; over the &lt;a href="http://hanselminutes.com/396/bugs-considered-harmful-with-douglas-crockford"&gt;Hanselminutes&lt;/a&gt;.  And personally I love this part of learning. It is so delightful to know different language and why languages emerge the way it is.&lt;/p&gt;
-
-&lt;p&gt;That is one part of story. Now, I was talking with my friend about different ways of rapid game development, as we both like playing and making games. (Nothing reached to the release level yet though :P). It is fun always. Now, he is working with C++ and I am .Net guy until now. Recently I become web guy on paper with Java Script skills again on paper :P. But as I mentioned I have special love for languages. 
-</description><pubDate>Wed, 13 Nov 2013 08:00:00 Z</pubDate><a10:updated>2013-11-13T08:00:00Z</a10:updated><a10:content type="html">&lt;p&gt;Now a days I am little bit more involved in History lessons. And those also from Computer Science only. Specifically from programming language's perspective.  Why on the earth I am doing this, I guess answer is given by  &lt;a href="http://www.crockford.com/"&gt;Duglas Cockford&lt;/a&gt; over the &lt;a href="http://hanselminutes.com/396/bugs-considered-harmful-with-douglas-crockford"&gt;Hanselminutes&lt;/a&gt;.  And personally I love this part of learning. It is so delightful to know different language and why languages emerge the way it is.&lt;/p&gt;
-
-&lt;p&gt;That is one part of story. Now, I was talking with my friend about different ways of rapid game development, as we both like playing and making games. (Nothing reached to the release level yet though :P). It is fun always. Now, he is working with C++ and I am .Net guy until now. Recently I become web guy on paper with Java Script skills again on paper :P. But as I mentioned I have special love for languages. 
-&lt;!--excerpt--&gt;
-Here comes the twist, as I have tried my hand on functional programming language, there is one sentence for functional languages stuck with me, "it is useful to develop algorithm". And it is like that only, it is very easy to develop algorithm with functional programming language because of features like pattern matching, pipe lining functions, higher order functions and other function oriented facility that is normally only possible with functional languages. So, I suggested that normally game should be done is some functional languages only, as it will be lot easier. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;But he is like NOPE!!! &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;No matter how many frameworks he need to throw to make task easier, but it should be there in C++ only. The only reason is he is so involved or I must say in love with C++ that he can't just leave it off. And I am just putting his example here but I have seen this a lot. Not only C or C++ people but also with C#, JAVA people. And there are other people who said that they are using open source but basically they are just using free stuff nothing else. People working with Linux based technology and advocating free stuff. I am not saying just like that because every argument end with sentence "And finally its free.".  But normally C and C++ people are so tightly attached with language that normally no one else do. &lt;/p&gt;
-
-&lt;p&gt;Even on twitter there is one highly respected person who moved away from C# and Microsoft stack to Ruby. And I also like the Ruby there is no doubt in that. But then there is no need to bash C# or Microsoft stack. But he never misses chance. Technically speaking compiled language is better in performance then transpiled languages. But does it matter??? It is just like what is good for at that specific point of time. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;If I am loving something, does not give me any right to bash the other thing.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;And more importantly we are developer, we develop things and languages are just part of tool we are using. And tool must be chosen as per problem. We are in industry where there is not liberty to choose problem as per our tools. And the rigidity and reluctance about choice of language, IDE or even OS make things more miserable while solving real problems. &lt;/p&gt;
-
-&lt;p&gt;This lesson I learned from people like &lt;a href="https://twitter.com/demisbellot"&gt;Demis Bellot&lt;/a&gt;, &lt;a href="https://twitter.com/amirrajan"&gt;Amir Rajan&lt;/a&gt; who always give priority to problem over language. You think Demis will stop working with &lt;a href="http://servicestack.net/"&gt;ServiceStack&lt;/a&gt; as he also like &lt;a href="https://www.dartlang.org/"&gt;Dart&lt;/a&gt;, or as Amir is more and more working with Nodejs he will not love &lt;a href="http://amirrajan.net/Oak/"&gt;Oak&lt;/a&gt; as he normally do. I don't think so. Every thing is design with some problem in mind. There is nothing that is just like that. &lt;/p&gt;
-
-&lt;p&gt;I am lucky enough to have friends who always there crash my reluctance and push me hard to make me more flexible and that helps to make right decision for right problem. And now I am also trying same with others.&lt;/p&gt;
-
-&lt;p&gt;I am trying hard to become polyglot developer, but I guess I have become a developer without any programming language. Just, pure developer. &lt;/p&gt;
-
-&lt;p&gt;Today's article is inspired by wonderful write up by &lt;a href="http://haacked.com/archive/2013/11/08/death-to-the-if-statement.aspx"&gt;Phil Haacked&lt;/a&gt; and today's conversation with Jessica Kerr&lt;/p&gt;
-
-&lt;blockquote class="twitter-tweet"&gt;&lt;p&gt;&lt;a href="https://twitter.com/kunjee"&gt;@kunjee&lt;/a&gt; They have their identity tied up with &amp;quot;I&amp;#39;m a C# developer.&amp;quot; To switch languages would be to change their self-image.&lt;/p&gt;&amp;mdash; Jessica Kerr (@jessitron) &lt;a href="https://twitter.com/jessitron/statuses/400455908724994048"&gt;November 13, 2013&lt;/a&gt;&lt;/blockquote&gt;
-
-&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
 </a10:content></item></channel></rss>
