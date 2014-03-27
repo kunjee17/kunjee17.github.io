@@ -2,6 +2,7 @@
 title: Why I moved away from Sencha to Phonejs?
 metadescription: Story about me ditching away Sencha for very new Phonejs
 layout: post
+category: Technical,DotNet,OSS,Functional Programming, Mobile, Mobile Web
 published: public
 ---
 
