@@ -1,0 +1,36 @@
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Snow.ViewModels.ContentViewModel>
+
+@{
+Layout = "default.cshtml";
+}
+<style type="text/css">
+  .cse input.gsc-search-button, input.gsc-search-button {
+    /*background: url('/images/search_button.jpg') no-repeat !important;*/
+    text-indent: -1em;
+    border: none !important;
+    width: 60px;
+    height: 40px !important;
+  }
+</style>
+<header>
+  <div class="head-inner">
+    <h1>Search</h1>
+  </div>
+</header>
+
+<div class="fancy-container lightblue">
+  <script>
+    (function() {
+      var cx = '017269599620605270273:9ttjiicbhy4';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+      '//www.google.com/cse/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  <gcse:search enableAutoComplete=true></gcse:search>
+
+</div>
