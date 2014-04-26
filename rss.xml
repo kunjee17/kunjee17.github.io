@@ -1,4 +1,52 @@
-<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/03/signalr-nancy-azure-with-fsharp/</guid><link>http://kunjan.in/2014/03/signalr-nancy-azure-with-fsharp/</link><title>SignalR + Nancy with F# hosted on Azure</title><description>&lt;p&gt;What you feel if you meet your favourite actor? Feeling is wonderful right? Now, add the your actress in the mixture. Have you said WOW??? How about director? Still heart is beating?!? How about having dinner with them? Nothing can be better than that.
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/04/thanks-to-wonderful-community/</guid><link>http://kunjan.in/2014/04/thanks-to-wonderful-community/</link><title>Thanks to wonderful community</title><description>&lt;p&gt;Few days back &lt;a href="http://www.hanselman.com/"&gt;Scott Hanselman&lt;/a&gt; tweeted &lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p&gt;Take a moment, right now, and email the organizers of your favorite Open Source project and THANK THEM.&lt;/p&gt;&amp;mdash; Scott Hanselman (@shanselman) &lt;a href="https://twitter.com/shanselman/statuses/456216661415034880"&gt;April 15, 2014&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;And I think, I should do that. But twitter is too short and emails boring even I don't have email ids of few of my favourite Open Source project managers. But I am not shying away from thanking. So, I am writing this entry. &lt;/p&gt;
+
+</description><pubDate>Thu, 24 Apr 2014 18:30:00 Z</pubDate><a10:updated>2014-04-24T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Few days back &lt;a href="http://www.hanselman.com/"&gt;Scott Hanselman&lt;/a&gt; tweeted &lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p&gt;Take a moment, right now, and email the organizers of your favorite Open Source project and THANK THEM.&lt;/p&gt;&amp;mdash; Scott Hanselman (@shanselman) &lt;a href="https://twitter.com/shanselman/statuses/456216661415034880"&gt;April 15, 2014&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;And I think, I should do that. But twitter is too short and emails boring even I don't have email ids of few of my favourite Open Source project managers. But I am not shying away from thanking. So, I am writing this entry. &lt;/p&gt;
+
+&lt;!--excerpt--&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Will try to cover as many person as possible who made important part in my life; mainly professionally and sometimes personally too. But if I miss someone, that will be completely unintentional and I am extremely sorry for that.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Let me tell you a little story. My life was nothing different then every other software engineer. I missed first class by .08% and get out of college in the ear of recession. And technically know nothing but little bit of C#.&lt;/p&gt;
+
+&lt;p&gt;Things are pretty normal. Just like every other software person in Ahmedabad. 
+&lt;img src="http://imgs.xkcd.com/comics/mu.png" alt="" /&gt;&lt;/p&gt;
+
+&lt;p&gt;And all dreams and no way to achieve it. Then luckily or unluckily I move to company where I need to work with &lt;a href="http://www.asp.net/mvc"&gt;Asp.Net MVC&lt;/a&gt;. And first thing I did was find something on home site. I don't know there are still any archive available but at that time there is a video series by &lt;a href="http://www.wekeroad.com/"&gt;Rob Conery&lt;/a&gt;. I didn't even know him by then or even his reputation. For me he is Microsoft employee and I am working in Microsoft Technology so he is God sent. Whatever he say is truth nothing but the truth. &lt;/p&gt;
+
+&lt;p&gt;And while wondering around his site, found the video he gave at &lt;a href="http://www.ndcoslo.com/"&gt;NDC conference&lt;/a&gt; called &lt;strong&gt;The Next Big Thing Or Cool-Kid Koolaid? Slicing Through The Rhetoric of MVC vs Web Forms&lt;/strong&gt; . Sorry I didn't found any downloadable link for it but I still do have a copy of it. This video changed me up side down, changed my way of thinking and learning. I started questioning more and learning more. &lt;/p&gt;
+
+&lt;p&gt;In a way &lt;strong&gt;Rob&lt;/strong&gt; is responsible for my way to community. Then I became customer/viewer/admirer of &lt;a href="http://tekpub.com/"&gt;tekpub&lt;/a&gt;. &lt;em&gt;Yes, I do earn in rupees and spend in dollars&lt;/em&gt;. but every penny of it is worth it. &lt;/p&gt;
+
+&lt;p&gt;Best thing happen is it opens the door of open source projects. Its all started with leaving EF and checking out other ORMs. Will not talk about them now, but will move to my few favourite web projects.&lt;/p&gt;
+
+&lt;p&gt;One is &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt; and other is &lt;a href="http://nancyfx.org/"&gt;NancyFX&lt;/a&gt;. I do like others but this are kinda first ones' I fall in love with. And just like first love nothing can replace that. And I like to thank them for their work. Both are wonderful frameworks to do the web development if someone is working in the .Net. One is for rapid web development and other is rapid web service development in true to the nature of Object Oriented Programming. &lt;/p&gt;
+
+&lt;p&gt;And there is one more transaction of me from Object Oriented Programming to Functional Programming. And trust me the F# community is awesome and kind of reason behind it. Don't know why but they are. And I love to thank them too. &lt;/p&gt;
+
+&lt;p&gt;I am 1986 born, so I am kid to most of the member of the F# community. Most of them are coding even before I born. But whenever I stuck somewhere they help and give answer of any of my dumbest question. Thank You &amp;lt;3&lt;/p&gt;
+
+&lt;p&gt;I will be not knowing philosophical programming without &lt;a href="https://twitter.com/jessitron"&gt;Jessica Kerr&lt;/a&gt;, will not be knowing Actors without &lt;a href="https://twitter.com/rachelreese"&gt;Rachele Resse&lt;/a&gt;,functional programming will not be fun without &lt;a href="https://twitter.com/bodil"&gt;Bodil&lt;/a&gt;'s presentation/talks, without infinite force of &lt;a href="https://twitter.com/dsyme"&gt;Don Syme&lt;/a&gt; there is no me &amp;lt;3 F# and &lt;a href="https://twitter.com/ptrelford"&gt;Phillip Trelford&lt;/a&gt;, &lt;a href="https://twitter.com/7sharp9"&gt;Dave Thomas&lt;/a&gt;, &lt;a href="https://twitter.com/ScottWlaschin"&gt;Scott Wlaschin&lt;/a&gt; and others who are always there for community. I never meet any of them but they are always there whenever I need them. May be this is the reason Internet was invented, or if I say specifically then social network invented. &lt;/p&gt;
+
+&lt;p&gt;I am sorry if I missed other community members. But there is a long list. Hopefully someday I meet them and thank them in personally.  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Even this blog is running on &lt;a href="https://github.com/Sandra/Sandra.Snow"&gt;Snow&lt;/a&gt; made by &lt;a href="https://twitter.com/philliphaydon"&gt;Phillip Haydon&lt;/a&gt;. Thanks &amp;lt;3 &amp;lt;3 &amp;lt;3&lt;/p&gt;
+&lt;/blockquote&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/03/signalr-nancy-azure-with-fsharp/</guid><link>http://kunjan.in/2014/03/signalr-nancy-azure-with-fsharp/</link><title>SignalR + Nancy with F# hosted on Azure</title><description>&lt;p&gt;What you feel if you meet your favourite actor? Feeling is wonderful right? Now, add the your actress in the mixture. Have you said WOW??? How about director? Still heart is beating?!? How about having dinner with them? Nothing can be better than that.
 </description><pubDate>Thu, 27 Mar 2014 18:30:00 Z</pubDate><a10:updated>2014-03-27T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;What you feel if you meet your favourite actor? Feeling is wonderful right? Now, add the your actress in the mixture. Have you said WOW??? How about director? Still heart is beating?!? How about having dinner with them? Nothing can be better than that.
 &lt;!--excerpt--&gt;
 I am having kinda same feeling. It is nothing new that &lt;a href="http://nancyfx.org/"&gt;Nancy&lt;/a&gt; is dancing quite comfortable with &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt;. And thanks to Daniel Mohl we are also having &lt;a href="http://visualstudiogallery.msdn.microsoft.com/b55b8aac-b11a-4a6a-8a77-2153f46f4e2f"&gt;templates&lt;/a&gt; to get started with Nancy and F#. &lt;/p&gt;
@@ -577,32 +625,4 @@ I do write sometimes, but that is all personal on personal request. And I will n
 &lt;/blockquote&gt;
 
 &lt;p&gt;Please write whatever you think in comments. And help me to make a decision.&lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2013/12/functional-programming-need-in-web-development/</guid><link>http://kunjan.in/2013/12/functional-programming-need-in-web-development/</link><title>Functional Programming Need in Web Development</title><description>&lt;p&gt;Whenever I talk about Functional Programming people with experience in web make faces. And seriously don't blame them. &lt;/p&gt;
-
-&lt;p&gt;Issue is mainly Functional Programming stays in back ground only. If you see any starting example of any functional language is mainly some machine learning example or some complicated algorithm example. And that may effect normal people to getting started with Functional Programming. &lt;/p&gt;
-
-&lt;p&gt;But functional programming can do far more than that. And that include simple things too. And I means it can make thing simpler or I can say it can make easy thing simple. &lt;/p&gt;
-
-&lt;p&gt;Here, if I say have to put web case here. May be web is right now most appropriate place where functional programming can be used. And reason is damn simple, current web projects are getting bigger and bigger and user base is also getting even larger. Now, to support that hardware is also getting better and better. 
-</description><pubDate>Mon, 16 Dec 2013 18:30:00 Z</pubDate><a10:updated>2013-12-16T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Whenever I talk about Functional Programming people with experience in web make faces. And seriously don't blame them. &lt;/p&gt;
-
-&lt;p&gt;Issue is mainly Functional Programming stays in back ground only. If you see any starting example of any functional language is mainly some machine learning example or some complicated algorithm example. And that may effect normal people to getting started with Functional Programming. &lt;/p&gt;
-
-&lt;p&gt;But functional programming can do far more than that. And that include simple things too. And I means it can make thing simpler or I can say it can make easy thing simple. &lt;/p&gt;
-
-&lt;p&gt;Here, if I say have to put web case here. May be web is right now most appropriate place where functional programming can be used. And reason is damn simple, current web projects are getting bigger and bigger and user base is also getting even larger. Now, to support that hardware is also getting better and better. 
-&lt;!--excerpt--&gt;
-Now, the only thing is there is a need of programming language that can use this kind of hardware. And this case Functional Programming comes in picture or I must say it is most suitable.&lt;/p&gt;
-
-&lt;p&gt;Because there are many things that are backed into the language that help with the situation. If I take one thing is immutability. As there are grid of processors, there is a need of multiple objects using the resource parallel and there will be need to manage state of the objects. With immutability there will be no state that can be mutated. So, it is very much easy to reason with.&lt;/p&gt;
-
-&lt;p&gt;But unfortunately we don't utilize functional programming that much. And may be that is the reason we don't know how easy and beautiful things code can be with the use of functional programming. &lt;/p&gt;
-
-&lt;p&gt;So, here I will be writing couple of articles or may be series to make a case how useful functional programming can be in the case of web development. &lt;/p&gt;
-
-&lt;p&gt;As, I am mainly from the .Net background I ll be talking about F# mostly. But the thing is, functional programming is not limited to that. If anyone is coming from the Java land, &lt;a href="http://www.playframework.com/"&gt;Scala&lt;/a&gt; is the language for you. And if anyone wants something dynamic and very near to LISP, &lt;a href="http://clojure.org/"&gt;clojure&lt;/a&gt; is for you. &lt;/p&gt;
-
-&lt;p&gt;I try to get taste of every possible language, few sample here and there. But things mainly will be for Functional programming and Web.&lt;/p&gt;
-
-&lt;p&gt;Hope that effort count.&lt;/p&gt;
 </a10:content></item></channel></rss>
