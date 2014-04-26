@@ -19,7 +19,9 @@ And I think, I should do that. But twitter is too short and emails boring even I
 Let me tell you a little story. My life was nothing different then every other software engineer. I missed first class by .08% and get out of college in the ear of recession. And technically know nothing but little bit of C#.
 
 Things are pretty normal. Just like every other software person in Ahmedabad. 
+
 ![](http://imgs.xkcd.com/comics/mu.png)
+
 
 And all dreams and no way to achieve it. Then luckily or unluckily I move to company where I need to work with [Asp.Net MVC](http://www.asp.net/mvc). And first thing I did was find something on home site. I don't know there are still any archive available but at that time there is a video series by [Rob Conery](http://www.wekeroad.com/). I didn't even know him by then or even his reputation. For me he is Microsoft employee and I am working in Microsoft Technology so he is God sent. Whatever he say is truth nothing but the truth. 
 
