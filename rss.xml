@@ -1,4 +1,23 @@
-<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/04/thanks-to-wonderful-community/</guid><link>http://kunjan.in/2014/04/thanks-to-wonderful-community/</link><title>Thanks to wonderful community</title><description>&lt;p&gt;Few days back &lt;a href="http://www.hanselman.com/"&gt;Scott Hanselman&lt;/a&gt; tweeted &lt;/p&gt;
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/06/xamanrin3-first-look-mindblown/</guid><link>http://kunjan.in/2014/06/xamanrin3-first-look-mindblown/</link><title>Xamarin Studio 3 - First Look.</title><description>&lt;p&gt;Few days back I got mail from &lt;a href="http://xamarin.com/"&gt;Xamarin&lt;/a&gt; about their launch of new IDE. And also for the registration of webinar. And just like always they again managed to blow my mind. I don't know what else they are having for upcoming &lt;a href="https://evolve.xamarin.com/"&gt;evolve conference.&lt;/a&gt;. &lt;/p&gt;
+
+</description><pubDate>Sun, 01 Jun 2014 18:30:00 Z</pubDate><a10:updated>2014-06-01T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Few days back I got mail from &lt;a href="http://xamarin.com/"&gt;Xamarin&lt;/a&gt; about their launch of new IDE. And also for the registration of webinar. And just like always they again managed to blow my mind. I don't know what else they are having for upcoming &lt;a href="https://evolve.xamarin.com/"&gt;evolve conference.&lt;/a&gt;. &lt;/p&gt;
+
+&lt;!--excerpt--&gt;
+
+&lt;p&gt;Xamarin is like technical democracy. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A company of Technical People, by the technical people and for the technical people.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A kinda awesome. Just like their new studio. I am normally work on windows and have Visual Studio installed on my machine. Still many time I prefer to use Xamarin Studio. This new launch will force me more to do so more often. It is not crashing any more like older version while debugging. Even F# is now first class citizen of it. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;I am currently facing error while running android + F# project but I guess that will be some issue on my end only.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Complete new designer, Xamarin.Form api to provide abstraction for LOB applications and flow less studio. If this year will be known as mobile development revolution, Xamarin people will be considered as pioneer of that revolution. I will write more about Mobile application + F#. Now, I can't wait to dirty my hand with some android code and that is also in F#.   &lt;/p&gt;
+
+&lt;p&gt;&amp;lt;3 &amp;lt;3 &amp;lt;3 Xamarin. You know I seriously do love you people.&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/04/thanks-to-wonderful-community/</guid><link>http://kunjan.in/2014/04/thanks-to-wonderful-community/</link><title>Thanks to wonderful community</title><description>&lt;p&gt;Few days back &lt;a href="http://www.hanselman.com/"&gt;Scott Hanselman&lt;/a&gt; tweeted &lt;/p&gt;
 
 &lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p&gt;Take a moment, right now, and email the organizers of your favorite Open Source project and THANK THEM.&lt;/p&gt;&amp;mdash; Scott Hanselman (@shanselman) &lt;a href="https://twitter.com/shanselman/statuses/456216661415034880"&gt;April 15, 2014&lt;/a&gt;&lt;/blockquote&gt;
 
@@ -606,24 +625,4 @@ But with time pass and version update, now we are having pure F# templates. A si
 &lt;p&gt;&lt;img src="http://kunjan.in/images/rock.gif" alt="rock" /&gt;&lt;/p&gt;
 
 &lt;p&gt;lets rock. &lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/02/should-i-write-more-poems/</guid><link>http://kunjan.in/2014/02/should-i-write-more-poems/</link><title>Should I continue writing more poems?</title><description>&lt;p&gt;Long back I have tried my hand to writing poems. And trust me I am no where near poetic part. I have good grip over language but that is only for my mother tongue. I am quite comfortable with English but still no where near having artistic touch. Or in simple language my database of words is not that strong. But normally I am able to convey my feelings. &lt;/p&gt;
-
-&lt;p&gt;I can say, I am pretty lucky in the case of writing poems. Though I have write only few, many of them got good review from whom so ever read it. But that charm doesn't last that much. &lt;/p&gt;
-
-&lt;p&gt;I wrote a poem for my &lt;a href="http://kunjan.in/2012/04/i-miss-you-sister/"&gt;sister&lt;/a&gt; and it don't get any kind of review. I do got personal message from sister after a long time that "it was sweet". But that all because she is my sister. Personally if I like to give review to my this poem it is not good at all. There are tsunami of feeling I wanted to convert and I just converted drops of it. And at that moment I decided, will never write poem; at least never in public. 
-</description><pubDate>Tue, 04 Feb 2014 18:30:00 Z</pubDate><a10:updated>2014-02-04T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Long back I have tried my hand to writing poems. And trust me I am no where near poetic part. I have good grip over language but that is only for my mother tongue. I am quite comfortable with English but still no where near having artistic touch. Or in simple language my database of words is not that strong. But normally I am able to convey my feelings. &lt;/p&gt;
-
-&lt;p&gt;I can say, I am pretty lucky in the case of writing poems. Though I have write only few, many of them got good review from whom so ever read it. But that charm doesn't last that much. &lt;/p&gt;
-
-&lt;p&gt;I wrote a poem for my &lt;a href="http://kunjan.in/2012/04/i-miss-you-sister/"&gt;sister&lt;/a&gt; and it don't get any kind of review. I do got personal message from sister after a long time that "it was sweet". But that all because she is my sister. Personally if I like to give review to my this poem it is not good at all. There are tsunami of feeling I wanted to convert and I just converted drops of it. And at that moment I decided, will never write poem; at least never in public. 
-&lt;!--excerpt--&gt;
-I do write sometimes, but that is all personal on personal request. And I will not say that poem too. They are just few lines, I crafted for person requested. Like few hand picked words, that's it. &lt;/p&gt;
-
-&lt;p&gt;But over the time I got request to write more poems. So, I decided to take a course at &lt;a href="https://class.coursera.org/songwriting-004"&gt;coursera&lt;/a&gt; and with that I like to take opinion of others. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Should I write more poems?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Please write whatever you think in comments. And help me to make a decision.&lt;/p&gt;
 </a10:content></item></channel></rss>
