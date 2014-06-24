@@ -117,8 +117,17 @@ What is fun of working with Web if I can't publish it. But for now with F# web t
 
 Deployment will break with some weird error. I followed [Mark's article](http://blog.ploeh.dk/2013/08/26/running-a-pure-f-web-api-on-azure-web-sites/) to make it work. 
 
+Needed to add below lines to .fsproj file after its own import tags. 
+
+	<Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" 
+	        Condition="'$(VSToolsPath)' != ''" />
+	<Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v11.0\WebApplications\Microsoft.WebApplication.targets" 
+	        Condition="true" />
+
 And things are working like anything. No, issues at all. 
 
 > Nancy |> Razor |> SignalR |> Azure |> F# |> lots of love.
 
-Please give it a shot. If it break somewhere let me know will try to solve it. Any suggestion to make things even better and streamlined are always welcome. 
+Please give it a shot. If it break somewhere let me know will try to solve it. Any suggestion to make things even better and streamlined are always welcome.
+
+**UPDATE:** Here is my [github repo](https://github.com/kunjee17/NancySignalRFSharp) with updated code. I have made with web express 2013. 

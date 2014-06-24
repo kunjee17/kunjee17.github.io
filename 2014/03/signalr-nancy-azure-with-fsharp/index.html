@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="last-modified" content="2014-06-02T16:04:49.9178085+05:30" />
+    <meta http-equiv="last-modified" content="2014-06-24T12:50:43.9347913+05:30" />
     <title>Kunjan a.k.a. Kunjee's blog</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
@@ -199,13 +199,23 @@ do ()
 
 <p>Deployment will break with some weird error. I followed <a href="http://blog.ploeh.dk/2013/08/26/running-a-pure-f-web-api-on-azure-web-sites/">Mark's article</a> to make it work. </p>
 
+<p>Needed to add below lines to .fsproj file after its own import tags. </p>
+
+<pre><code>&lt;Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" 
+        Condition="'$(VSToolsPath)' != ''" /&gt;
+&lt;Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v11.0\WebApplications\Microsoft.WebApplication.targets" 
+        Condition="true" /&gt;
+</code></pre>
+
 <p>And things are working like anything. No, issues at all. </p>
 
 <blockquote>
   <p>Nancy |> Razor |> SignalR |> Azure |> F# |> lots of love.</p>
 </blockquote>
 
-<p>Please give it a shot. If it break somewhere let me know will try to solve it. Any suggestion to make things even better and streamlined are always welcome. </p>
+<p>Please give it a shot. If it break somewhere let me know will try to solve it. Any suggestion to make things even better and streamlined are always welcome.</p>
+
+<p><strong>UPDATE:</strong> Here is my <a href="https://github.com/kunjee17/NancySignalRFSharp">github repo</a> with updated code. I have made with web express 2013. </p>
 
 
   <div id="disqus_thread"></div>

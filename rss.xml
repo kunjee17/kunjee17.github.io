@@ -184,13 +184,23 @@ do ()
 
 &lt;p&gt;Deployment will break with some weird error. I followed &lt;a href="http://blog.ploeh.dk/2013/08/26/running-a-pure-f-web-api-on-azure-web-sites/"&gt;Mark's article&lt;/a&gt; to make it work. &lt;/p&gt;
 
+&lt;p&gt;Needed to add below lines to .fsproj file after its own import tags. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" 
+        Condition="'$(VSToolsPath)' != ''" /&amp;gt;
+&amp;lt;Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v11.0\WebApplications\Microsoft.WebApplication.targets" 
+        Condition="true" /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;And things are working like anything. No, issues at all. &lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Nancy |&gt; Razor |&gt; SignalR |&gt; Azure |&gt; F# |&gt; lots of love.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Please give it a shot. If it break somewhere let me know will try to solve it. Any suggestion to make things even better and streamlined are always welcome. &lt;/p&gt;
+&lt;p&gt;Please give it a shot. If it break somewhere let me know will try to solve it. Any suggestion to make things even better and streamlined are always welcome.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; Here is my &lt;a href="https://github.com/kunjee17/NancySignalRFSharp"&gt;github repo&lt;/a&gt; with updated code. I have made with web express 2013. &lt;/p&gt;
 </a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/03/why-i-moved-away-from-sencha-to-phonejs/</guid><link>http://kunjan.in/2014/03/why-i-moved-away-from-sencha-to-phonejs/</link><title>Why I moved away from Sencha to Phonejs?</title><description>&lt;p&gt;&lt;a href="http://sencha.com"&gt;Sencha&lt;/a&gt; is well known framework for mobile development. Not only mobile development but it is doing a hell of a lot of thing other than mobile development. Not only that it is surely having wonderful history with &lt;a href="https://www.sencha.com/products/extjs/"&gt;JavaScript framework development&lt;/a&gt;. I don't have anything to complain against that. 
 </description><pubDate>Mon, 24 Mar 2014 18:30:00 Z</pubDate><a10:updated>2014-03-24T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;&lt;a href="http://sencha.com"&gt;Sencha&lt;/a&gt; is well known framework for mobile development. Not only mobile development but it is doing a hell of a lot of thing other than mobile development. Not only that it is surely having wonderful history with &lt;a href="https://www.sencha.com/products/extjs/"&gt;JavaScript framework development&lt;/a&gt;. I don't have anything to complain against that. 
 &lt;!--excerpt--&gt;
