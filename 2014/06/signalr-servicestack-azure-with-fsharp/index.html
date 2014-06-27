@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
     <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif">
-    <link rel="canonical" href="http://kunjan.in/2014/06/xamanrin3-first-look-mindblown/" />
+    <link rel="canonical" href="http://kunjan.in/2014/06/signalr-servicestack-azure-with-fsharp/" />
 </head>
 <body class="home blog">
     <div id="page" class="hfeed site">
@@ -40,16 +40,18 @@
             <div id="content" role="main">
 
                 
-<meta name="description" content="Xamarin studio is alternative way to develop application using Mono / .Net technology. Specifically focused on C# to develop mobile application." />
+<meta name="description" content="Using SignalR framework with F#. Also solve the issue of Dynamic with F#. That is running along side with web service framework Servicestack." />
 <meta name="author" content="Kunjan Dalal" />
 <div id="post">
-  <h1>Xamarin Studio 3 - First Look.</h1>
+  <h1>SignalR + Servciestack with F# hosted on Azure</h1>
   <div class="post-note">
-    posted on 02 Jun 2014
+    posted on 24 Jun 2014
     | <a href="/category/technical">Technical</a>
     | <a href="/category/dotnet">DotNet</a>
     | <a href="/category/oss">OSS</a>
-    | <a href="/category/mobile-technology">Mobile Technology</a>
+    | <a href="/category/functional-programming">Functional Programming</a>
+    | <a href="/category/functional-web">Functional Web</a>
+    | <a href="/category/web">Web</a>
 
 <!--       <div class="addthis_toolbox addthis_default_style" style="float:right;">
         <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -80,23 +82,53 @@
 
   
 
-  <p>Few days back I got mail from <a href="http://xamarin.com/">Xamarin</a> about their launch of new IDE. And also for the registration of webinar. And just like always they again managed to blow my mind. I don't know what else they are having for upcoming <a href="https://evolve.xamarin.com/">evolve conference.</a>. </p>
+  <p>This may be nastiest thing I have done with deployment after a long time. There is no problem with making it work. But deployment on azure is a serious issue. And <strong>luckily</strong> I completed that. Yes, there is a luck involved.  </p>
 
 <!--excerpt-->
 
-<p>Xamarin is like technical democracy. </p>
+<p>If you read my previous <a href="/2014/03/signalr-nancy-azure-with-fsharp/">entry</a> for running Nancy and SignalR together. Then most of the things are same only.</p>
 
-<blockquote>
-  <p>A company of Technical People, by the technical people and for the technical people.</p>
-</blockquote>
+<p>Use <a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f">Servicestack template</a> to create project. Remove global.asax &amp; global.asax.fs (<em>yes remove it!</em>). Install SignalR asp.net package from <a href="www.nuget.org/packages/Microsoft.AspNet.SignalR/">nuget</a>. And copy paste below code in AppCode.fs</p>
 
-<p>A kinda awesome. Just like their new studio. I am normally work on windows and have Visual Studio installed on my machine. Still many time I prefer to use Xamarin Studio. This new launch will force me more to do so more often. It is not crashing any more like older version while debugging. Even F# is now first class citizen of it. </p>
+<pre><code>namespace ServicestackSignalRFSharp.App_Start
+    open ServiceStack
+    open ServiceStack.Common
+    open ServicestackSignalRFSharp
+    open ServiceStack.Razor
+    open System
+    open Owin
 
-<p><strong><em>I am currently facing error while running android + F# project but I guess that will be some issue on my end only.</em></strong></p>
 
-<p>Complete new designer, Xamarin.Form api to provide abstraction for LOB applications and flow less studio. If this year will be known as mobile development revolution, Xamarin people will be considered as pioneer of that revolution. I will write more about Mobile application + F#. Now, I can't wait to dirty my hand with some android code and that is also in F#.   </p>
+    type AppHost() = 
+        inherit AppHostBase("Hello F# Service", 
+                                        typeof&lt;HelloService&gt;.Assembly)
+        override this.Configure container =
+            Diagnostics.Trace.TraceError("In servicestack configure");
+            this.Plugins.Add(new RazorFormat())
+            ignore()
 
-<p>&lt;3 &lt;3 &lt;3 Xamarin. You know I seriously do love you people.</p>
+
+        static member start() = 
+            let apphost = new AppHost()
+            Diagnostics.Trace.TraceError("In servicestack start");
+            apphost.Init() |&gt; ignore
+
+    type Startup()=
+        member x.Configuration(app : Owin.IAppBuilder) = 
+            AppHost.start()
+            Diagnostics.Trace.TraceError("In signalr startup");
+            app.MapSignalR() |&gt; ignore        
+
+
+    [&lt;Microsoft.Owin.OwinStartup(typeof&lt;Startup&gt;)&gt;]
+    do ()
+</code></pre>
+
+<p><em>Don't forget to rename the namespace as per your project namespace.</em></p>
+
+<p>As per my Nancy article changed the index.cshtml to get signalR client running. Once done run it. It should work hello world of <a href="http://servicestack.net">Servicestack</a> and Hello Chat from <a href="http://signalr.net">SignalR</a>. </p>
+
+<p>If things still not work here is my <a href="">github repo</a>. Have a look at code.         </p>
 
 
   <div id="disqus_thread"></div>
@@ -106,14 +138,14 @@
             reload: true,
             config: function () {
                 //this.page.identifier = '';
-                this.page.url = 'http://kunjan.in/2014/06/xamanrin3-first-look-mindblown/';
+                this.page.url = 'http://kunjan.in/2014/06/signalr-servicestack-azure-with-fsharp/';
                 //this.page.title = '';
             }
         });
     };
 
     var disqus_shortname = 'kunjan';
-    var disqus_url = 'http://kunjan.in/2014/06/xamanrin3-first-look-mindblown/';
+    var disqus_url = 'http://kunjan.in/2014/06/signalr-servicestack-azure-with-fsharp/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

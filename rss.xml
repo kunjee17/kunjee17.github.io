@@ -1,4 +1,53 @@
-<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/06/xamanrin3-first-look-mindblown/</guid><link>http://kunjan.in/2014/06/xamanrin3-first-look-mindblown/</link><title>Xamarin Studio 3 - First Look.</title><description>&lt;p&gt;Few days back I got mail from &lt;a href="http://xamarin.com/"&gt;Xamarin&lt;/a&gt; about their launch of new IDE. And also for the registration of webinar. And just like always they again managed to blow my mind. I don't know what else they are having for upcoming &lt;a href="https://evolve.xamarin.com/"&gt;evolve conference.&lt;/a&gt;. &lt;/p&gt;
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/06/signalr-servicestack-azure-with-fsharp/</guid><link>http://kunjan.in/2014/06/signalr-servicestack-azure-with-fsharp/</link><title>SignalR + Servciestack with F# hosted on Azure</title><description>&lt;p&gt;This may be nastiest thing I have done with deployment after a long time. There is no problem with making it work. But deployment on azure is a serious issue. And &lt;strong&gt;luckily&lt;/strong&gt; I completed that. Yes, there is a luck involved.  &lt;/p&gt;
+
+</description><pubDate>Mon, 23 Jun 2014 18:30:00 Z</pubDate><a10:updated>2014-06-23T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;This may be nastiest thing I have done with deployment after a long time. There is no problem with making it work. But deployment on azure is a serious issue. And &lt;strong&gt;luckily&lt;/strong&gt; I completed that. Yes, there is a luck involved.  &lt;/p&gt;
+
+&lt;!--excerpt--&gt;
+
+&lt;p&gt;If you read my previous &lt;a href="http://kunjan.in/2014/03/signalr-nancy-azure-with-fsharp/"&gt;entry&lt;/a&gt; for running Nancy and SignalR together. Then most of the things are same only.&lt;/p&gt;
+
+&lt;p&gt;Use &lt;a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f"&gt;Servicestack template&lt;/a&gt; to create project. Remove global.asax &amp;amp; global.asax.fs (&lt;em&gt;yes remove it!&lt;/em&gt;). Install SignalR asp.net package from &lt;a href="http://kunjan.in/www.nuget.org/packages/Microsoft.AspNet.SignalR/"&gt;nuget&lt;/a&gt;. And copy paste below code in AppCode.fs&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;namespace ServicestackSignalRFSharp.App_Start
+    open ServiceStack
+    open ServiceStack.Common
+    open ServicestackSignalRFSharp
+    open ServiceStack.Razor
+    open System
+    open Owin
+
+
+    type AppHost() = 
+        inherit AppHostBase("Hello F# Service", 
+                                        typeof&amp;lt;HelloService&amp;gt;.Assembly)
+        override this.Configure container =
+            Diagnostics.Trace.TraceError("In servicestack configure");
+            this.Plugins.Add(new RazorFormat())
+            ignore()
+
+
+        static member start() = 
+            let apphost = new AppHost()
+            Diagnostics.Trace.TraceError("In servicestack start");
+            apphost.Init() |&amp;gt; ignore
+
+    type Startup()=
+        member x.Configuration(app : Owin.IAppBuilder) = 
+            AppHost.start()
+            Diagnostics.Trace.TraceError("In signalr startup");
+            app.MapSignalR() |&amp;gt; ignore        
+
+
+    [&amp;lt;Microsoft.Owin.OwinStartup(typeof&amp;lt;Startup&amp;gt;)&amp;gt;]
+    do ()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Don't forget to rename the namespace as per your project namespace.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;As per my Nancy article changed the index.cshtml to get signalR client running. Once done run it. It should work hello world of &lt;a href="http://servicestack.net"&gt;Servicestack&lt;/a&gt; and Hello Chat from &lt;a href="http://signalr.net"&gt;SignalR&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;If things still not work here is my &lt;a href=""&gt;github repo&lt;/a&gt;. Have a look at code.         &lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/06/xamanrin3-first-look-mindblown/</guid><link>http://kunjan.in/2014/06/xamanrin3-first-look-mindblown/</link><title>Xamarin Studio 3 - First Look.</title><description>&lt;p&gt;Few days back I got mail from &lt;a href="http://xamarin.com/"&gt;Xamarin&lt;/a&gt; about their launch of new IDE. And also for the registration of webinar. And just like always they again managed to blow my mind. I don't know what else they are having for upcoming &lt;a href="https://evolve.xamarin.com/"&gt;evolve conference.&lt;/a&gt;. &lt;/p&gt;
 
 </description><pubDate>Sun, 01 Jun 2014 18:30:00 Z</pubDate><a10:updated>2014-06-01T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Few days back I got mail from &lt;a href="http://xamarin.com/"&gt;Xamarin&lt;/a&gt; about their launch of new IDE. And also for the registration of webinar. And just like always they again managed to blow my mind. I don't know what else they are having for upcoming &lt;a href="https://evolve.xamarin.com/"&gt;evolve conference.&lt;/a&gt;. &lt;/p&gt;
 
@@ -571,68 +620,4 @@ But with time pass and version update, now we are having pure F# templates. A si
 
 &lt;p&gt;Feeling great?!? It is just started. 
 &lt;img src="http://kunjan.in/images/rollercoasterride.gif" alt="roller coaster ride" /&gt;&lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/02/getting-started-with-functional-web/</guid><link>http://kunjan.in/2014/02/getting-started-with-functional-web/</link><title>Getting started with Functional web</title><description>&lt;p&gt;I am doing web development from quite a long time. And now a days I am keep pushing my self to do functional programming. &lt;a href="http://learnyouahaskell.com/"&gt;Learning&lt;/a&gt; languages like &lt;a href="http://www.haskell.org/haskellwiki/Haskell"&gt;Haskell&lt;/a&gt;, &lt;a href="http://www.scala-lang.org/"&gt;Scala&lt;/a&gt;, &lt;a href="http://fsharp.org/"&gt;F#&lt;/a&gt;. Obviously I try my hand to other functional languages too as per time permits. &lt;/p&gt;
-
-&lt;p&gt;As I am .Net developer my primary focused is working with &lt;a href="http://fsharp.org/"&gt;F#&lt;/a&gt; and I will also start from that only. You can also check out other functional articles of mine to check out what I think about functional programming and why it is necessity now a days. 
-</description><pubDate>Wed, 05 Feb 2014 18:30:00 Z</pubDate><a10:updated>2014-02-05T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;I am doing web development from quite a long time. And now a days I am keep pushing my self to do functional programming. &lt;a href="http://learnyouahaskell.com/"&gt;Learning&lt;/a&gt; languages like &lt;a href="http://www.haskell.org/haskellwiki/Haskell"&gt;Haskell&lt;/a&gt;, &lt;a href="http://www.scala-lang.org/"&gt;Scala&lt;/a&gt;, &lt;a href="http://fsharp.org/"&gt;F#&lt;/a&gt;. Obviously I try my hand to other functional languages too as per time permits. &lt;/p&gt;
-
-&lt;p&gt;As I am .Net developer my primary focused is working with &lt;a href="http://fsharp.org/"&gt;F#&lt;/a&gt; and I will also start from that only. You can also check out other functional articles of mine to check out what I think about functional programming and why it is necessity now a days. 
-&lt;!--excerpt--&gt;
-&lt;a href="http://fsharp.org/"&gt;F#&lt;/a&gt; for a long is treated as second class citizen in main stream programming in .Net area. But now it is picking up the pace. When I decided to write a complete series of web development with I was even thinking like that only. There will be C# project and &lt;a href="http://fsharp.org/"&gt;F#&lt;/a&gt; project. C# project will take care of UI and F# project will do all the heavy lifting.&lt;/p&gt;
-
-&lt;p&gt;But thanks to wonderful community of &lt;a href="http://fsharp.org/"&gt;F#&lt;/a&gt;, we have now pure templates. And that is the point of start. Complete web development using &lt;a href="http://fsharp.org/"&gt;F#&lt;/a&gt; only. Nothing can be more fun that this. And it is not ended here, there are testing , mocking , testing libraries. &lt;/p&gt;
-
-&lt;p&gt;With this series, I will try to check out every vertical of web development. Including deployment to cloud. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;I will also make sure to keep posting details about Scala and &lt;a href="http://clojure.org/"&gt;Clojure&lt;/a&gt; too, in compare to &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Let's start with &lt;strong&gt;Hello World&lt;/strong&gt;. Go to the visual studio gallery and download the templates and add-on for &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt; web development. &lt;/p&gt;
-
-&lt;p&gt;Here is the list.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f"&gt;Servicestak&lt;/a&gt; (Update is coming soon)&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://visualstudiogallery.msdn.microsoft.com/b55b8aac-b11a-4a6a-8a77-2153f46f4e2f"&gt;NancyFX&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://visualstudiogallery.msdn.microsoft.com/bbec75fa-0f31-47e9-a8ce-c301edb2fa4b"&gt;Simple.Web&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://visualstudiogallery.msdn.microsoft.com/39ae8dec-d11a-4ac9-974e-be0fdadec71b"&gt;Asp.net MVC5 &amp;amp; Web API2&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://visualstudiogallery.msdn.microsoft.com/24ef5c87-b4e3-4c3b-b126-1064cc66e148"&gt;Fantomas&lt;/a&gt; For code formatting &lt;/li&gt;
-&lt;li&gt;&lt;a href="http://visualstudiogallery.msdn.microsoft.com/bec977b8-c9d9-4926-999e-e50c4498df8a"&gt;F# Outlining&lt;/a&gt; &lt;/li&gt;
-&lt;li&gt;&lt;a href="http://visualstudiogallery.msdn.microsoft.com/f1dae7fe-1ecc-4f1b-86b5-32a2970d012a"&gt;F# web templates&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Installing these template and add on will give you nice ways to start. Trust me I am enjoying far more after these pure &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt; templates arrived. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;For people who is new to language, I will start from simple conversation of OOP to Functional programming. Most of them is one to one map only. So, there will be less use of pure functional concept. But slowly will move to more functional style of programming. And trying to achieve nirvana. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;People trying Scala or coming from Java background &lt;a href="http://www.playframework.com/"&gt;Play&lt;/a&gt; is choice of framework for you. It is supported by wonderful community and build over the ever powerful &lt;a href="http://akka.io/"&gt;AKKA&lt;/a&gt;. &lt;/p&gt;
-
-&lt;p&gt;For people who don't like types or coming from Ruby like language background. You can Clojure for you. And here is twitter conversation with &lt;a href="http://bodil.org/"&gt;Bodil&lt;/a&gt; for the selection of framework.&lt;/p&gt;
-
-&lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p&gt;&lt;a href="https://twitter.com/kunjee"&gt;@kunjee&lt;/a&gt; I&amp;#39;m a bit out of touch, used to prefer straight Ring + Compojure, maybe Aleph. But that was before both core.async and Pedestal...&lt;/p&gt;&amp;mdash; Bodil Stokke (@bodil) &lt;a href="https://twitter.com/bodil/statuses/431086156470833152"&gt;February 5, 2014&lt;/a&gt;&lt;/blockquote&gt;
-
-&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-
-&lt;p&gt;For People who is going with F# / scala; there are couple of reference reading for getting started. &lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://fsharpforfunandprofit.com/"&gt;F# for fun and profit&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://pluralsight.com/training/Courses/TableOfContents/functional-architecture-fsharp"&gt;Functional Architecture with F#&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://blog.jessitron.com/"&gt;Jessica Kerr's blog for Scala lovers&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Do have a look. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt; : - I am neither expert of &lt;em&gt;web&lt;/em&gt; nor &lt;em&gt;functional programming&lt;/em&gt;. But I know web a little bit more than other programming things and I love functional programming. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;So, what are we waiting for?&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="http://kunjan.in/images/rock.gif" alt="rock" /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets rock. &lt;/p&gt;
 </a10:content></item></channel></rss>
