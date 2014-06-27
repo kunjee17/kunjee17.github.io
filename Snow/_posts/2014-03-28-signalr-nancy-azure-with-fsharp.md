@@ -130,4 +130,4 @@ And things are working like anything. No, issues at all.
 
 Please give it a shot. If it break somewhere let me know will try to solve it. Any suggestion to make things even better and streamlined are always welcome.
 
-**UPDATE:** Here is my [github repo](https://github.com/kunjee17/NancySignalRFSharp) with updated code. Project created with web express 2013. 
+**UPDATE:** Here is my [github repo](https://github.com/kunjee17/NancySignalRFSharp) with updated code. Project created with web express 2013. Also it is deployed over [azure](http://nancysignalrfsharp.azurewebsites.net/).
