@@ -46,7 +46,35 @@
 
 &lt;p&gt;As per my Nancy article changed the index.cshtml to get signalR client running. Once done run it. It should work hello world of &lt;a href="http://servicestack.net"&gt;Servicestack&lt;/a&gt; and Hello Chat from &lt;a href="http://signalr.net"&gt;SignalR&lt;/a&gt;. &lt;/p&gt;
 
-&lt;p&gt;If things still not work here is my &lt;a href=""&gt;github repo&lt;/a&gt;. Have a look at code.         &lt;/p&gt;
+&lt;p&gt;If things still not work here is my &lt;a href="https://github.com/kunjee17/ServicestackSignalRFSharp/"&gt;github repo&lt;/a&gt;. Have a look at code. And also it is deployed over &lt;a href="http://servicestacksignalrfsharp.azurewebsites.net/"&gt;azure&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;My Personal Experience&lt;/h3&gt;
+
+&lt;p&gt;One thing I like to clear it upfront. Even though I was able to run Servicestack and SignalR together but they are still running differently under the hood. Servicestack is hitting asp.net directly and signalR is hitting via &lt;a href="http://owin.org/"&gt;OWIN&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;I am also not making web service real time. It is just both can easily run together. Making them run together was easy task. But deploying on azure is a serious pain in a**. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Yes, azure is. It is so damn easy to deploy traditional imperative C# project as azure web site but functional F# project. It is like giving death by a thousand cuts. You solve one issue and another issue came. Just like &lt;em&gt;pipeline&lt;/em&gt; operator. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It is more like whatever F# is compensating by making development easy, deployment is making it even. &lt;/p&gt;
+
+&lt;p&gt;That is the same with above code. global.asax.fs is working in local, I can even put a break point but it is not working on azure. I put a trace in every possible function and at last find out. (Special thanks to &lt;a href="https://twitter.com/demisbellot"&gt;Demis Bellot&lt;/a&gt; for pointing out this possible issue.) &lt;/p&gt;
+
+&lt;p&gt;Even though F# is picking up new height, and I personally contributed and will continue to contribute in templates. But if someone want to take full advantage of F# in web development &lt;strong&gt;&lt;em&gt;today&lt;/em&gt;&lt;/strong&gt; with cloud then s/he need to make one C# project and point F# to them. Just to get best of both worlds. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Yes, C# is still far better when it comes to csproj file. o_O&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As usual working with functional language is always fun experience and now we have web service that we can scale with real time icing.&lt;/p&gt;
+
+&lt;p&gt;So, now. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Servicestack |&gt; Razor |&gt; SignalR |&gt; Azure (with little hiccups) |&gt; F# |&gt; lots of love.&lt;/p&gt;
+&lt;/blockquote&gt;
 </a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/06/xamanrin3-first-look-mindblown/</guid><link>http://kunjan.in/2014/06/xamanrin3-first-look-mindblown/</link><title>Xamarin Studio 3 - First Look.</title><description>&lt;p&gt;Few days back I got mail from &lt;a href="http://xamarin.com/"&gt;Xamarin&lt;/a&gt; about their launch of new IDE. And also for the registration of webinar. And just like always they again managed to blow my mind. I don't know what else they are having for upcoming &lt;a href="https://evolve.xamarin.com/"&gt;evolve conference.&lt;/a&gt;. &lt;/p&gt;
 
 </description><pubDate>Sun, 01 Jun 2014 18:30:00 Z</pubDate><a10:updated>2014-06-01T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Few days back I got mail from &lt;a href="http://xamarin.com/"&gt;Xamarin&lt;/a&gt; about their launch of new IDE. And also for the registration of webinar. And just like always they again managed to blow my mind. I don't know what else they are having for upcoming &lt;a href="https://evolve.xamarin.com/"&gt;evolve conference.&lt;/a&gt;. &lt;/p&gt;

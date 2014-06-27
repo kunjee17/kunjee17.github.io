@@ -52,4 +52,25 @@ Use [Servicestack template](http://visualstudiogallery.msdn.microsoft.com/278caf
 
 As per my Nancy article changed the index.cshtml to get signalR client running. Once done run it. It should work hello world of [Servicestack](http://servicestack.net) and Hello Chat from [SignalR](http://signalr.net). 
 
-If things still not work here is my [github repo](). Have a look at code.         
+If things still not work here is my [github repo](https://github.com/kunjee17/ServicestackSignalRFSharp/). Have a look at code. And also it is deployed over [azure](http://servicestacksignalrfsharp.azurewebsites.net/).
+
+###My Personal Experience###
+One thing I like to clear it upfront. Even though I was able to run Servicestack and SignalR together but they are still running differently under the hood. Servicestack is hitting asp.net directly and signalR is hitting via [OWIN](http://owin.org/). 
+
+I am also not making web service real time. It is just both can easily run together. Making them run together was easy task. But deploying on azure is a serious pain in a**. 
+
+> Yes, azure is. It is so damn easy to deploy traditional imperative C# project as azure web site but functional F# project. It is like giving death by a thousand cuts. You solve one issue and another issue came. Just like *pipeline* operator. 
+
+It is more like whatever F# is compensating by making development easy, deployment is making it even. 
+
+That is the same with above code. global.asax.fs is working in local, I can even put a break point but it is not working on azure. I put a trace in every possible function and at last find out. (Special thanks to [Demis Bellot](https://twitter.com/demisbellot) for pointing out this possible issue.) 
+
+Even though F# is picking up new height, and I personally contributed and will continue to contribute in templates. But if someone want to take full advantage of F# in web development ***today*** with cloud then s/he need to make one C# project and point F# to them. Just to get best of both worlds. 
+
+> Yes, C# is still far better when it comes to csproj file. o_O
+
+As usual working with functional language is always fun experience and now we have web service that we can scale with real time icing.
+
+So, now. 
+
+> Servicestack |> Razor |> SignalR |> Azure (with little hiccups) |> F# |> lots of love.

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="last-modified" content="2014-06-27T10:06:01.1952234+05:30" />
+    <meta http-equiv="last-modified" content="2014-06-27T10:34:51.7410756+05:30" />
     <title>Kunjan a.k.a. Kunjee's blog</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
@@ -128,7 +128,35 @@
 
 <p>As per my Nancy article changed the index.cshtml to get signalR client running. Once done run it. It should work hello world of <a href="http://servicestack.net">Servicestack</a> and Hello Chat from <a href="http://signalr.net">SignalR</a>. </p>
 
-<p>If things still not work here is my <a href="">github repo</a>. Have a look at code.         </p>
+<p>If things still not work here is my <a href="https://github.com/kunjee17/ServicestackSignalRFSharp/">github repo</a>. Have a look at code. And also it is deployed over <a href="http://servicestacksignalrfsharp.azurewebsites.net/">azure</a>.</p>
+
+<h3>My Personal Experience</h3>
+
+<p>One thing I like to clear it upfront. Even though I was able to run Servicestack and SignalR together but they are still running differently under the hood. Servicestack is hitting asp.net directly and signalR is hitting via <a href="http://owin.org/">OWIN</a>. </p>
+
+<p>I am also not making web service real time. It is just both can easily run together. Making them run together was easy task. But deploying on azure is a serious pain in a**. </p>
+
+<blockquote>
+  <p>Yes, azure is. It is so damn easy to deploy traditional imperative C# project as azure web site but functional F# project. It is like giving death by a thousand cuts. You solve one issue and another issue came. Just like <em>pipeline</em> operator. </p>
+</blockquote>
+
+<p>It is more like whatever F# is compensating by making development easy, deployment is making it even. </p>
+
+<p>That is the same with above code. global.asax.fs is working in local, I can even put a break point but it is not working on azure. I put a trace in every possible function and at last find out. (Special thanks to <a href="https://twitter.com/demisbellot">Demis Bellot</a> for pointing out this possible issue.) </p>
+
+<p>Even though F# is picking up new height, and I personally contributed and will continue to contribute in templates. But if someone want to take full advantage of F# in web development <strong><em>today</em></strong> with cloud then s/he need to make one C# project and point F# to them. Just to get best of both worlds. </p>
+
+<blockquote>
+  <p>Yes, C# is still far better when it comes to csproj file. o_O</p>
+</blockquote>
+
+<p>As usual working with functional language is always fun experience and now we have web service that we can scale with real time icing.</p>
+
+<p>So, now. </p>
+
+<blockquote>
+  <p>Servicestack |> Razor |> SignalR |> Azure (with little hiccups) |> F# |> lots of love.</p>
+</blockquote>
 
 
   <div id="disqus_thread"></div>
