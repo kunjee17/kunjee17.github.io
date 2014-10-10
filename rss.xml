@@ -1,6 +1,144 @@
-<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/08/web-programming-and-fsharp-still-a-far-cry/</guid><link>http://kunjan.in/2014/08/web-programming-and-fsharp-still-a-far-cry/</link><title>Web programming and F# still a Far Cry?</title><description>&lt;p&gt;F# is wonderful language. And luckily or unluckily I do Web Programming (now a  days mostly that). So, it is always a preference to use it, wherever possible. But even in 2014 end it is still pain in a**.&lt;/p&gt;
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/10/to-xamarin-with-love/</guid><link>http://kunjan.in/2014/10/to-xamarin-with-love/</link><title>To Xamarin with Love</title><description>&lt;p&gt;&lt;a href="https://evolve.xamarin.com/"&gt;Xamarin Evolve&lt;/a&gt; just concluded. And there no best time to write this post. And for the fact I am not writing anything new or even anything related to announcements that happened there. I am writing this because recently I got chance to work with android using Java. And experience was not at all good. And reason is not so surprisingly Java.&lt;/p&gt;
 
-</description><pubDate>Fri, 08 Aug 2014 18:30:00 Z</pubDate><a10:updated>2014-08-08T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;F# is wonderful language. And luckily or unluckily I do Web Programming (now a  days mostly that). So, it is always a preference to use it, wherever possible. But even in 2014 end it is still pain in a**.&lt;/p&gt;
+</description><pubDate>Thu, 09 Oct 2014 18:30:00 Z</pubDate><a10:updated>2014-10-09T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;&lt;a href="https://evolve.xamarin.com/"&gt;Xamarin Evolve&lt;/a&gt; just concluded. And there no best time to write this post. And for the fact I am not writing anything new or even anything related to announcements that happened there. I am writing this because recently I got chance to work with android using Java. And experience was not at all good. And reason is not so surprisingly Java.&lt;/p&gt;
+
+&lt;!--excerpt--&gt;
+
+&lt;p&gt;I am will not explain anything instead I just copy paste three code snippets. All are doing same thing but they are all in different languages. Now, for the people who think that language doesn't make any difference; this post is for them. Here I am not including any frameworks like Reactive UI or Xamarin.Forms. If I include them then this competition will be one sided. (Xamarin Sided)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Code Snippet in Java&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public class MainActivity extends Activity {
+
+    int count = 0;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setEvents();
+    }
+
+    private void setEvents() {
+        final Button mybutton = (Button) this.findViewById(R.id.myButton);
+        mybutton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                mybutton.setText(String.valueOf(count));
+            }
+        });
+
+        final TextView seekbarView = (TextView) this.findViewById(R.id.seekbarTextView);
+        SeekBar seekbar = (SeekBar) this.findViewById(R.id.seekBar1);
+        seekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            int progresssed = 0;
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+                seekbarView.setText(String.valueOf(progresssed));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,
+                    boolean fromUser) {
+                // TODO Auto-generated method stub
+                progresssed = progress;
+            }
+        });
+
+        CheckBox checkbox = (CheckBox) this.findViewById(R.id.checkBox1);
+        checkbox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // TODO Auto-generated method stub
+                Log.i("info","Checkbox is " + String.valueOf(isChecked));
+            }
+        });
+    }
+
+
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Code Snippet in C#&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[Activity (Label = "XamarinBlog", MainLauncher = true, Icon = "@drawable/icon")]
+    public class MainActivity : Activity
+    {
+        int count = 1;
+
+        protected override void OnCreate (Bundle bundle)
+        {
+            base.OnCreate (bundle);
+
+            // Set our view from the "main" layout resource
+            SetContentView (Resource.Layout.Main);
+            var button = this.FindViewById&amp;lt;Button&amp;gt; (Resource.Id.myButton);
+            button.Click += (sender, e) =&amp;gt; {
+                button.Text = String.Format("{0} clicks",count);
+                count++;
+            };
+
+            var seekbarTextView = this.FindViewById&amp;lt;TextView&amp;gt; (Resource.Id.seekbarTextView);
+            var seekbar = this.FindViewById&amp;lt;SeekBar&amp;gt; (Resource.Id.seekBar1);
+            seekbar.ProgressChanged += (sender, e) =&amp;gt; {
+                seekbarTextView.Text = String.Format("The value of seekbar is {0}", e.Progress);
+            };
+
+            var checkbox = this.FindViewById&amp;lt;CheckBox&amp;gt; (Resource.Id.checkBox1);
+
+            checkbox.CheckedChange += (sender, e) =&amp;gt; {
+                Console.WriteLine("Checked changed!");
+            };
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Code Snippet in F#&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[&amp;lt;Activity(Label = "XamarinBlog", MainLauncher = true)&amp;gt;]
+type MainActivity() = 
+    inherit Activity()
+    let mutable count : int = 1
+    override this.OnCreate(bundle) = 
+        base.OnCreate(bundle)
+        // Set our view from the "main" layout resource
+        this.SetContentView(Resource_Layout.Main)
+        // Get our button from the layout resource, and attach an event to it
+        let button = this.FindViewById&amp;lt;Button&amp;gt;(Resource_Id.myButton)
+        button.Click.Add(fun args -&amp;gt; 
+            button.Text &amp;lt;- sprintf "%d clicks!" count
+            count &amp;lt;- count + 1)
+        let seekbarTextView = this.FindViewById&amp;lt;TextView&amp;gt;(Resource_Id.seekbarTextView)
+        let seekbar = this.FindViewById&amp;lt;SeekBar&amp;gt;(Resource_Id.seekBar1)
+        seekbar.ProgressChanged.Add
+            (fun args -&amp;gt; seekbarTextView.Text &amp;lt;- sprintf "The value of seekbar is %A" args.Progress)
+
+        let checkbox = this.FindViewById&amp;lt;CheckBox&amp;gt;(Resource_Id.checkBox1)
+        checkbox.CheckedChange.Add(fun args -&amp;gt; printfn "Check changed")
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Hope you can see what I am trying to say here. I can become a good typist by writing code in Java but defiantly not good programmer. I don't know from which planet Java has incorporated it's Object Oriented model. &lt;/p&gt;
+
+&lt;p&gt;Xamarin is solving many problems by supporting C# and F# for android development. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&amp;lt;3&amp;lt;3&amp;lt;3 Xamarin&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;You can also compare code between C# and F# but don't tell anyone as right now I am bashing Java in this post. :P&lt;/em&gt; &lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/10/web-programming-and-fsharp-still-a-far-cry/</guid><link>http://kunjan.in/2014/10/web-programming-and-fsharp-still-a-far-cry/</link><title>Web programming and F# still a Far Cry?</title><description>&lt;p&gt;F# is wonderful language. And luckily or unluckily I do Web Programming (now a  days mostly that). So, it is always a preference to use it, wherever possible. But even in 2014 end it is still pain in a**.&lt;/p&gt;
+
+</description><pubDate>Wed, 08 Oct 2014 18:30:00 Z</pubDate><a10:updated>2014-10-08T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;F# is wonderful language. And luckily or unluckily I do Web Programming (now a  days mostly that). So, it is always a preference to use it, wherever possible. But even in 2014 end it is still pain in a**.&lt;/p&gt;
 
 &lt;!--excerpt--&gt;
 
@@ -550,87 +688,4 @@ And that is the reason complete series thing is not that good but individual wri
 &lt;blockquote&gt;
   &lt;p&gt;I love SS that is true thing, but I love Nancy too. Will not lie on &lt;strong&gt;Valentine's Day&lt;/strong&gt;. Just to clarify as I used Nancy template to work with SS. If I have to do some web application work Nancy is weapon of choice and for API like thing SS is always there. People who created both are damn smart and more importantly friendly one. In .Net where OSS and OSS community story is not that good, these people are making the difference. Obviously I can't forget to mention F# community, they are awesome.&lt;/p&gt;
 &lt;/blockquote&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/</guid><link>http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/</link><title>Servicestack F# template Update. Circle is Complete.</title><description>&lt;p&gt;Few day's back I wrote a &lt;a href="http://kunjan.in/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/"&gt;article&lt;/a&gt; about how I created &lt;a href="http://sidewaffle.com/"&gt;side waffle&lt;/a&gt; templates for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;. &lt;/p&gt;
-
-&lt;p&gt;Yesterday, &lt;a href="http://blog.danielmohl.com/"&gt;Daniel Mohl&lt;/a&gt;, merged the pull request. Add the missing bits make it working and it is up on &lt;a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f"&gt;visual studio gallery&lt;/a&gt;. I seriously like to thank Daniel for this work and support even after his own hectic schedule of day job. And a wonderful members of &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt; community. 
-</description><pubDate>Tue, 11 Feb 2014 18:30:00 Z</pubDate><a10:updated>2014-02-11T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Few day's back I wrote a &lt;a href="http://kunjan.in/2014/02/when-servicestack-meet-fsharp-via-sidewaffle/"&gt;article&lt;/a&gt; about how I created &lt;a href="http://sidewaffle.com/"&gt;side waffle&lt;/a&gt; templates for &lt;a href="http://servicestack.net/"&gt;Servicestack&lt;/a&gt;. &lt;/p&gt;
-
-&lt;p&gt;Yesterday, &lt;a href="http://blog.danielmohl.com/"&gt;Daniel Mohl&lt;/a&gt;, merged the pull request. Add the missing bits make it working and it is up on &lt;a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f"&gt;visual studio gallery&lt;/a&gt;. I seriously like to thank Daniel for this work and support even after his own hectic schedule of day job. And a wonderful members of &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt; community. 
-&lt;!--excerpt--&gt;
-Here, I am sharing few details of the template, I have created. &lt;/p&gt;
-
-&lt;p&gt;There are four templates available now. &lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Servicestack with Asp.Net host&lt;/li&gt;
-&lt;li&gt;Servicestack with Asp.Net host and Razor Engine&lt;/li&gt;
-&lt;li&gt;Servicestack with Self host&lt;/li&gt;
-&lt;li&gt;Servicestack with Self host and Razor Engine&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;I was working on Asp.Net MVC with Servicestack but then work in still progress. As, most of the people who are using servicestack can go with above options as Razor view engine now available. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Just try out all options and pick which suits for specific need.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Now, all templates are using &lt;strong&gt;3.71&lt;/strong&gt; version of SS. As, it is the last version under MIT license. Why I am using that?&lt;/p&gt;
-
-&lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p&gt;oh dear, adding task to remove servicestack from solution &lt;a href="https://t.co/STpdEKQiJC"&gt;https://t.co/STpdEKQiJC&lt;/a&gt;&lt;/p&gt;&amp;mdash; Simon Cousins (@simontcousins) &lt;a href="https://twitter.com/simontcousins/statuses/408182117579776000"&gt;December 4, 2013&lt;/a&gt;&lt;/blockquote&gt;
-
-&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-
-&lt;p&gt;People who are starting, or just like to stay with older version till the product kick off. They can continue with &lt;strong&gt;3.71&lt;/strong&gt;.  And else it is a wonderful solution, that is worth &lt;a href="https://servicestack.net/pricing"&gt;buying&lt;/a&gt;. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Do take care while fire up command of update-package without thinking a bit. If there is a need of using old version &lt;strong&gt;PLEASE&lt;/strong&gt; don't update it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;What if someone like to update from 3.71 to 4.X. There are couple of breaking changes there. Here are the steps to make it work. &lt;/p&gt;
-
-&lt;p&gt;Download the template from the &lt;a href="http://visualstudiogallery.msdn.microsoft.com/278caff1-917a-4ac1-a552-e5a2ce0f6e1f"&gt;Visual Studio gallery&lt;/a&gt; and install it. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Yes, it will also work with latest express version too. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Create new project and choose any template. Select OK. It is done. Easy enough right? &lt;/p&gt;
-
-&lt;p&gt;Press F5, and it will work with "Hello World" code. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Code may seems little dirty. It misses comments and also read me. It will be there in future updates. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;But current code is so less that it will be not that problematic to understand it. Obviously if you know &lt;a href="http://servicestack.net"&gt;Servicestack&lt;/a&gt; or &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt; a little bit. &lt;/p&gt;
-
-&lt;h2&gt;Things needed to update the version&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Fire a update command from nuget&lt;/li&gt;
-&lt;li&gt;There are chances that one need to fire it more than one time, check package.config that all versions are updated to same version&lt;/li&gt;
-&lt;li&gt;Remove all the *.cs files and unwanted .htm, .js, .css files for now&lt;/li&gt;
-&lt;li&gt;Now there will be some errors about namespace, remove unwanted namespace as code is merged to base namespace for many files
-&lt;ul&gt;
-&lt;li&gt;remove ServiceStack.ServiceInterface&lt;/li&gt;
-&lt;li&gt;remove ServiceStack.ServiceHost&lt;/li&gt;
-&lt;li&gt;remove ServiceStack.WebHost.Endpoints&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Rebuild it and run it. &lt;/li&gt;
-&lt;li&gt;If we get error about Razor pages, remove 1.0.0.0 version line from web config if there is 2.0.0.0 one is already there else change 1.0.0.0 to 2.0.0.0&lt;/li&gt;
-&lt;li&gt;Rebuild and run it.&lt;/li&gt;
-&lt;li&gt;Now if there is a error "Object reference not set to an instance of an object." then we are on right track. &lt;/li&gt;
-&lt;li&gt;In AppHost.fs file replace &lt;code&gt;apphost.Init()&lt;/code&gt; with &lt;code&gt;apphost.Init() |&amp;gt; ignore&lt;/code&gt; &lt;strong&gt;This is breaking change for V4&lt;/strong&gt; please do not forget this.&lt;/li&gt;
-&lt;li&gt;Now, we need out namespace so, remove "ServiceStackAspNetHost" with your desired project namespace in entire project including web.config file. &lt;/li&gt;
-&lt;li&gt;Remove any multiple entries of namespace from namespace section in web.cofig file. Do keep one&lt;/li&gt;
-&lt;li&gt;Rebuild and run it.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;It should work. If still you stuck any where? I am also putting all V4 projects too, over my &lt;a href="https://github.com/kunjee17/ServiceStackFSharp/tree/master/V4"&gt;github repo&lt;/a&gt;, have a look at it.&lt;/p&gt;
-
-&lt;p&gt;I have also started complete series called &lt;a href="http://kunjan.in/category/functional-web/"&gt;Functional Web&lt;/a&gt;, where I will be putting everything I know to get started. Not only for SS but also for others.&lt;/p&gt;
-
-&lt;p&gt;So, as everyone is putting up API for their web application. Why we should stay behind?!?&lt;/p&gt;
-
-&lt;p&gt;Feedback and comments are always welcome.&lt;/p&gt;
 </a10:content></item></channel></rss>
