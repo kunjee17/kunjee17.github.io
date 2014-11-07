@@ -1,4 +1,37 @@
-<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/feed.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/10/to-xamarin-with-love/</guid><link>http://kunjan.in/2014/10/to-xamarin-with-love/</link><title>To Xamarin with Love</title><description>&lt;p&gt;&lt;a href="https://evolve.xamarin.com/"&gt;Xamarin Evolve&lt;/a&gt; just concluded. And there no best time to write this post. And for the fact I am not writing anything new or even anything related to announcements that happened there. I am writing this because recently I got chance to work with android using Java. And experience was not at all good. And reason is not so surprisingly Java.&lt;/p&gt;
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/feed.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/11/sails-sailing-on-azure-websites/</guid><link>http://kunjan.in/2014/11/sails-sailing-on-azure-websites/</link><title>Sails sailing seamlessly on Azure Web Sites</title><description>&lt;p&gt;There are lots of &lt;a href="http://nodeframework.com/"&gt;frameworks&lt;/a&gt; for web development in &lt;a href="http://nodejs.org/"&gt;Nodejs&lt;/a&gt;. Many of them are pretty cool. I pretty much like the &lt;a href="http://sailsjs.org/#/"&gt;SailsJS&lt;/a&gt;. And also have worked on that in recent past. &lt;/p&gt;
+
+&lt;p&gt;Now, when it comes to hosting I love the &lt;a href="http://azure.microsoft.com/en-us/"&gt;Azure&lt;/a&gt; for various reasons. It is specially awesome when it comes to web sites. You do some experiments and throw it towards azure and that is ready for world to check out. My many experiments with &lt;a href="http://kunjan.in/category/functional-web/"&gt;F# and Web&lt;/a&gt; are already there. &lt;/p&gt;
+
+</description><pubDate>Thu, 06 Nov 2014 18:30:00 Z</pubDate><a10:updated>2014-11-06T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;There are lots of &lt;a href="http://nodeframework.com/"&gt;frameworks&lt;/a&gt; for web development in &lt;a href="http://nodejs.org/"&gt;Nodejs&lt;/a&gt;. Many of them are pretty cool. I pretty much like the &lt;a href="http://sailsjs.org/#/"&gt;SailsJS&lt;/a&gt;. And also have worked on that in recent past. &lt;/p&gt;
+
+&lt;p&gt;Now, when it comes to hosting I love the &lt;a href="http://azure.microsoft.com/en-us/"&gt;Azure&lt;/a&gt; for various reasons. It is specially awesome when it comes to web sites. You do some experiments and throw it towards azure and that is ready for world to check out. My many experiments with &lt;a href="http://kunjan.in/category/functional-web/"&gt;F# and Web&lt;/a&gt; are already there. &lt;/p&gt;
+
+&lt;!--excerpt--&gt;
+
+&lt;p&gt;Recently I was talking with a friend about SailsJS and discussion kinda stuck at deployment part. As it is having kinda manual process involved. It is never a issue to fire a few commands but even why I should waste few key strokes when that can be done by Azure.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Always a fan of continues integration and continues delivery mechanism &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I searched Google to find out if anyone has done this before. Results showing couple of examples; but all with spinning up VM on Azure and hosting a application. But I think that is to a overkill. &lt;/p&gt;
+
+&lt;p&gt;I tried &lt;code&gt;sails new&lt;/code&gt; and put a web.config file in root folder and try to published it with web matrix. And web site crashed. &lt;strong&gt;&lt;em&gt;I still don't recall when things just run without crashing at first shot with me.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I can see the streaming log (&lt;em&gt;console.log in nodejs case&lt;/em&gt;) with &lt;code&gt;azure site log tail &amp;lt;sitename&amp;gt;&lt;/code&gt; and found out that it is not getting node modules. That is weird as I was pushing npm_modules too. &lt;/p&gt;
+
+&lt;p&gt;Then I tried with github repository. And that thing just worked. Without any issue and also directly in production mode. (&lt;em&gt;I seriously don't know how it switched to production mode. As for production mode I need to pass parameter --prod with app.js&lt;/em&gt;)&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: Don't forget to change server.js to app.js in web.config. I guess it is kinda required. I am also skipping npm_modules with gitignore.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Right now first page is running without any issue. So, now it is time to sailing on azure web sites with sailsjs. &lt;/p&gt;
+
+&lt;p&gt;Here is &lt;a href="http://sailslift.azurewebsites.net/"&gt;demo&lt;/a&gt; and my &lt;a href="https://github.com/kunjee17/sailslift"&gt;github repo&lt;/a&gt;. Feel free to clone and give PR with some demo application. I seriously like to see how far it can go.&lt;/p&gt;
+
+&lt;p&gt;Let me know if any further details are required.&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/10/to-xamarin-with-love/</guid><link>http://kunjan.in/2014/10/to-xamarin-with-love/</link><title>To Xamarin with Love</title><description>&lt;p&gt;&lt;a href="https://evolve.xamarin.com/"&gt;Xamarin Evolve&lt;/a&gt; just concluded. And there no best time to write this post. And for the fact I am not writing anything new or even anything related to announcements that happened there. I am writing this because recently I got chance to work with android using Java. And experience was not at all good. And reason is not so surprisingly Java.&lt;/p&gt;
 
 </description><pubDate>Thu, 09 Oct 2014 18:30:00 Z</pubDate><a10:updated>2014-10-09T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;&lt;a href="https://evolve.xamarin.com/"&gt;Xamarin Evolve&lt;/a&gt; just concluded. And there no best time to write this post. And for the fact I am not writing anything new or even anything related to announcements that happened there. I am writing this because recently I got chance to work with android using Java. And experience was not at all good. And reason is not so surprisingly Java.&lt;/p&gt;
 
@@ -532,160 +565,4 @@ And that is the reason complete series thing is not that good but individual wri
 &lt;p&gt;There will be more articles about web, game and F# but not in series form. &lt;/p&gt;
 
 &lt;p&gt;So, wait for next one. &lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/02/servicestack-fsharp-template-starting-from-start/</guid><link>http://kunjan.in/2014/02/servicestack-fsharp-template-starting-from-start/</link><title>Servicestack F# template. Starting from the Start.</title><description>&lt;p&gt;I have already wrote a blog &lt;a href="http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/"&gt;post&lt;/a&gt; about how to get started with service stack if any one is using templates. It is pretty easy. Just install and run.&lt;/p&gt;
-
-&lt;p&gt;But as &lt;a href="http://servicestack.net/"&gt;Service Stack&lt;/a&gt; is moved to V4 with some breaking changes. I had give details about updating it. But still it is little bit more complicated or confusing if I can say.&lt;/p&gt;
-
-</description><pubDate>Thu, 13 Feb 2014 18:30:00 Z</pubDate><a10:updated>2014-02-13T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;I have already wrote a blog &lt;a href="http://kunjan.in/2014/02/servicestack-fsharp-template-circle-is-complete/"&gt;post&lt;/a&gt; about how to get started with service stack if any one is using templates. It is pretty easy. Just install and run.&lt;/p&gt;
-
-&lt;p&gt;But as &lt;a href="http://servicestack.net/"&gt;Service Stack&lt;/a&gt; is moved to V4 with some breaking changes. I had give details about updating it. But still it is little bit more complicated or confusing if I can say.&lt;/p&gt;
-
-&lt;!--excerpt--&gt;
-
-&lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p&gt;&lt;a href="https://twitter.com/kunjee"&gt;@kunjee&lt;/a&gt; Sure, otherwise a tutorial on getting SS v4 + F# together without templates would be better than starting from a broken v3 one.&lt;/p&gt;&amp;mdash; Demis Bellot (@demisbellot) &lt;a href="https://twitter.com/demisbellot/statuses/433545493738582016"&gt;February 12, 2014&lt;/a&gt;&lt;/blockquote&gt;
-
-&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-
-&lt;p&gt;Above is the conversation inspired me to write this blog. And also it will be fun to write back stories. &lt;/p&gt;
-
-&lt;p&gt;So, if any one want to get started with SS without templates. They need to download template of &lt;a href="http://visualstudiogallery.msdn.microsoft.com/b55b8aac-b11a-4a6a-8a77-2153f46f4e2f"&gt;Nancy&lt;/a&gt;. Yes, the cousin sibling of SS and other best thing happen to web part of  .Net after .Net it self.&lt;/p&gt;
-
-&lt;p&gt;Create new project and select Empty ASP.Net option. And remove all other packages. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;we are doing this just to save our self from using complicated project GUIDs. If any one wanted to go raw, s/he need to select library project in F# and set GUID so it will be web application.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Now install, SS from nuget. Preferably with Asp.Net host. Use this &lt;code&gt;Install-Package servicestack.Host.AspNet&lt;/code&gt; . If any one prefer not search nuget.&lt;/p&gt;
-
-&lt;p&gt;Now, delete every file with .cs extension. &lt;strong&gt;Yes&lt;/strong&gt;, we are doing it in &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Also, delete default.htm and *.js files. But keep the App_Start folder. We may need it.&lt;/p&gt;
-
-&lt;p&gt;It is almost done. Now, create AppHost.fs in App_start folder. Write a namespace you like and copy paste below code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type AppHost() = 
-    inherit AppHostBase("Hello F# Service", typeof&amp;lt;HelloService&amp;gt;.Assembly)
-    override this.Configure container = ignore()
-    static member start() = 
-        let apphost = new AppHost()
-        apphost.Init() |&amp;gt; ignore
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now, create HelloService.fs outside somewhere. and copy paste below code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[&amp;lt;CLIMutable&amp;gt;]
-    type HelloResponse = 
-        { Result : string }
-
-
-    [&amp;lt;Route("/hello")&amp;gt;]
-    [&amp;lt;Route("/hello/{name}")&amp;gt;]
-    type Hello() = 
-        interface IReturn&amp;lt;HelloResponse&amp;gt;
-        member val Name = "" with get, set
-
-
-    type HelloService() = 
-        inherit Service()
-        member this.Any(request : Hello) = { Result = "Hello " + request.Name }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now, final settings. Add global.asax.fs file. And copy - paste below code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type Global() = 
-    inherit System.Web.HttpApplication()
-
-    member x.Application_Start (sender:Object, e:EventArgs) = 
-        App_Start.AppHost.start() 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We also need to add global.asax file too.&lt;/p&gt;
-
-&lt;p&gt;Add this line to it&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;%@ Application Inherits="ServicestackAspNetHost.Global" %&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Do check for namespace name. This my project's namespace. &lt;/p&gt;
-
-&lt;p&gt;Now, you may get error that couple of system references are missing. Please add them. I got for System.data and also for System.xml.linq&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;F# visual studio project is poor with compilation sequence. So, do keep open project file in your favorite text editor. If there is some error like "xyxy" is not defined. Most of the time it is compilation sequence.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;If everything builds. It is out first victory. Run it. It should show, metadata page of SS.&lt;/p&gt;
-
-&lt;p&gt;It is done for people just wanted to create back end for their single page application or mobile application or thick client. &lt;/p&gt;
-
-&lt;p&gt;For complete web story lets add razor engine to it. Fire &lt;code&gt;Install-Package ServiceStack.Razor&lt;/code&gt; in package manager.&lt;/p&gt;
-
-&lt;p&gt;Add Default.cshtml file. Add some html text to test.&lt;/p&gt;
-
-&lt;p&gt;Now, here is complicated part. We can't add folder in F# projects. But as it is Asp.Net web project too, we can add Asp.Net project folder. Add one of the folder and rename it to &lt;em&gt;Views&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Add two files. One is _Layout.cshtml and other is Hello.cshtml. Don't forget to set compile type content for all cshtml files. &lt;/p&gt;
-
-&lt;p&gt;Here is content for _Layout.cshtml&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;!doctype html&amp;gt;
-&amp;lt;html lang="en-us"&amp;gt;
-&amp;lt;head&amp;gt;
-    &amp;lt;title&amp;gt;@ViewBag.Title&amp;lt;/title&amp;gt;
-    &amp;lt;style type="text/css"&amp;gt;
-        body {
-            background: #E6E6E6;
-        }
-    &amp;lt;/style&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-    @RenderBody()
-
-    &amp;lt;h6 style="font-size:12px; color: #999; position: fixed; bottom: -25px; right: 10px;"&amp;gt;
-        @Env.ServerUserAgent
-    &amp;lt;/h6&amp;gt;
-&amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And here is content for Hello.cshtml&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;@using ServiceStackAspNetHost
-@inherits ViewPage&amp;lt;HelloResponse&amp;gt; 
-@{
-    Layout = "_Layout";
-    ViewBag.Title = "Hello Page";
-}
-
-&amp;lt;div&amp;gt;
-    Hello Page
-    &amp;lt;a href="/hello"&amp;gt;Default Hello&amp;lt;/a&amp;gt;
-    &amp;lt;a href="/hello/fsharp"&amp;gt;Hello With get Request&amp;lt;/a&amp;gt;
-
-
-    &amp;lt;br /&amp;gt;
-    &amp;lt;br /&amp;gt;
-    &amp;lt;p&amp;gt;Model binding with DTO Response&amp;lt;/p&amp;gt;
-    &amp;lt;p&amp;gt;@Model.Result&amp;lt;/p&amp;gt;
-
-&amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Pretty much same as we do in C# projects. &lt;/p&gt;
-
-&lt;p&gt;We are almost done. Now we need to tell AppHost to add razor plugin. Change code as below&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;override this.Configure container =
-            this.Plugins.Add(new RazorFormat())
-            ignore()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now, rebuild and run it. It will show default page on "/" location and Hello page on "/Hello" location. Even you can access metadata page too.&lt;/p&gt;
-
-&lt;p&gt;Not that tough I guess. A little bit more code then normal one but as in F# it will be same as normal code in C#. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;I love SS that is true thing, but I love Nancy too. Will not lie on &lt;strong&gt;Valentine's Day&lt;/strong&gt;. Just to clarify as I used Nancy template to work with SS. If I have to do some web application work Nancy is weapon of choice and for API like thing SS is always there. People who created both are damn smart and more importantly friendly one. In .Net where OSS and OSS community story is not that good, these people are making the difference. Obviously I can't forget to mention F# community, they are awesome.&lt;/p&gt;
-&lt;/blockquote&gt;
 </a10:content></item></channel></rss>
