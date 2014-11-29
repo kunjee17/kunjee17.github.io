@@ -1,4 +1,154 @@
-<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/11/sails-sailing-on-azure-websites/</guid><link>http://kunjan.in/2014/11/sails-sailing-on-azure-websites/</link><title>Sails sailing seamlessly on Azure Web Sites</title><description>&lt;p&gt;There are lots of &lt;a href="http://nodeframework.com/"&gt;frameworks&lt;/a&gt; for web development in &lt;a href="http://nodejs.org/"&gt;Nodejs&lt;/a&gt;. Many of them are pretty cool. I pretty much like the &lt;a href="http://sailsjs.org/#/"&gt;SailsJS&lt;/a&gt;. And also have worked on that in recent past. &lt;/p&gt;
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/rss.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/</guid><link>http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/</link><title>Typed Hack of Cloudant using F#</title><description>&lt;p&gt;Sometimes things are not in your control. They just happens. Just like that. But all other times things are in your control only. And specifically when one wanted to do something mad. Recently I was helping my &lt;a href="http://4-to-6.com/#team"&gt;MAD friends&lt;/a&gt; to create a mad newsletter site. (I am also part of it at least for now o_O ). Don't ask me why we are doing this?!? Everything is explain at the page of &lt;a href="https://tinyletter.com/beemad"&gt;subscription&lt;/a&gt; and also on &lt;a href="http://4-to-6.com/"&gt;beemad site&lt;/a&gt;.&lt;/p&gt;
+
+</description><pubDate>Thu, 27 Nov 2014 18:30:00 Z</pubDate><a10:updated>2014-11-27T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Sometimes things are not in your control. They just happens. Just like that. But all other times things are in your control only. And specifically when one wanted to do something mad. Recently I was helping my &lt;a href="http://4-to-6.com/#team"&gt;MAD friends&lt;/a&gt; to create a mad newsletter site. (I am also part of it at least for now o_O ). Don't ask me why we are doing this?!? Everything is explain at the page of &lt;a href="https://tinyletter.com/beemad"&gt;subscription&lt;/a&gt; and also on &lt;a href="http://4-to-6.com/"&gt;beemad site&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--excerpt--&gt;
+
+&lt;p&gt;On a first thought this task can be done by any &lt;a href="http://en.wikipedia.org/wiki/Content_management_system"&gt;CMS&lt;/a&gt; and there is no need for anything else. But how can I explain my heart which can't tolerate PHP around it.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://kunjan.in/images/nonotthisagain.jpg" alt="" /&gt;&lt;/p&gt;
+
+&lt;p&gt;And frankly speaking there is no requirement of complete, heavy, slow, sluggish CMS. And if we were having that; we may be not doing any madness but still finding plug-ins on web. I personally like the freedom of simple HTML page. You can unleash the imagination on that but not on CMS. &lt;/p&gt;
+
+&lt;p&gt;So, I thought why not &lt;a href="http://fsharp.org"&gt;F#&lt;/a&gt;? and I also know &lt;a href="http://nancyfx.org/"&gt;NancyFX&lt;/a&gt; so that will be easy and fast. And really it was. And hosting on &lt;a href="http://azure.microsoft.com/en-us/"&gt;Azure&lt;/a&gt; is even more fun. There were some pain points but it was all OK at the end. &lt;/p&gt;
+
+&lt;p&gt;But now it times to save the data. Azure do offer quite few options for that; but again this heart never listen to me. I choose NOSQL. &lt;/p&gt;
+
+&lt;p&gt;Here comes the dinosaur, manage your own VM. And I was like &lt;a href="http://www.nooooooooooooooo.com/"&gt;nooooooooooooooooooooo&lt;/a&gt;. I was knowing about &lt;a href="http://cloudant.com"&gt;Cloudant&lt;/a&gt; from long back. Even before IBM bought it. It is indeed a wonderful service and also kinda free for small stuff. I thought this will be best fit for now. As we are just starting, taking our first baby steps in the world of web. We are MAD but still we are kids. 
+&lt;img src="http://kunjan.in/images/Babies.jpg" alt="" /&gt;&lt;/p&gt;
+
+&lt;p&gt;And there is no need of scary relations ships with database. So, I decided to use this one. &lt;/p&gt;
+
+&lt;p&gt;Now as one problem is solved other started. It is saving data that is in JSON format. That is untyped and F# is statically typed. I have tried few libraries developed in C# but was not happy. So, I thought it is just a HTTP request, why shouldn't I give it as shot to make one of my own helper module? It is may be some what dirty attempt but I got it working what I needed with less than 100 lines. Here is code snippets.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#r "../packages/Http.fs.1.4.0/lib/net40/HttpClient.dll"
+#r "../packages/Newtonsoft.Json.6.0.6/lib/net45/Newtonsoft.Json.dll"
+
+open HttpClient
+open Newtonsoft.Json
+open Newtonsoft.Json.Linq
+
+[&amp;lt;CLIMutableAttribute&amp;gt;]
+type Row&amp;lt;'a&amp;gt; = 
+    { id : string
+      key : string
+      value : 'a }
+
+[&amp;lt;CLIMutableAttribute&amp;gt;]
+type ResultSet&amp;lt;'a&amp;gt; = 
+    { total_rows : int
+      offset : int
+      rows : Row&amp;lt;'a&amp;gt; [] }
+
+[&amp;lt;CLIMutableAttribute&amp;gt;]
+type PostResult = 
+    { ok : string
+      id : string
+      rev : string }
+
+[&amp;lt;CLIMutableAttribute&amp;gt;]
+type PostError = 
+    { error : string
+      reason : string }
+
+let cloudantUrl = @"&amp;lt;cloudanturl/databasename/&amp;gt;"
+let username = @"&amp;lt;username&amp;gt;"
+let password = @"&amp;lt;password&amp;gt;"
+
+let private cloudantGet url = 
+    let request = 
+        createRequest Get url
+        |&amp;gt; withBasicAuthentication username password
+        |&amp;gt; withHeader (ContentType "application/json")
+    request |&amp;gt; getResponseBody
+
+let private cloudantPost url data = 
+    let request = 
+        createRequest Post url
+        |&amp;gt; withBasicAuthentication username password
+        |&amp;gt; withBody data
+        |&amp;gt; withHeader (ContentType "application/json")
+    request |&amp;gt; getResponseBody
+
+let private checkDataForNewId (data : JObject) = 
+    let removeIdrev (data : JObject) = 
+        data.Remove("_id") |&amp;gt; ignore
+        data.Remove("_rev") |&amp;gt; ignore
+    if System.String.IsNullOrEmpty(data.["_id"].ToString()) || System.String.IsNullOrEmpty(data.["_rev"].ToString()) then 
+        removeIdrev data
+    data
+
+let PostJson&amp;lt;'a&amp;gt; data = 
+    let serializedObject = JObject.FromObject(data) |&amp;gt; checkDataForNewId
+    serializedObject.Add("$doctype", JToken.Parse("'" + data.GetType().Name + "'"))
+    cloudantPost cloudantUrl &amp;lt;| serializedObject.ToString()
+
+let GetJsonByType&amp;lt;'a&amp;gt; = 
+    let resultset = 
+        JsonConvert.DeserializeObject&amp;lt;ResultSet&amp;lt;'a&amp;gt;&amp;gt;
+            (cloudantGet (cloudantUrl + "/_design/Type/_view/" + typeof&amp;lt;'a&amp;gt;.Name))
+    query { 
+        for row in resultset.rows do
+            select row.value
+    }
+
+let GetJsonById&amp;lt;'a&amp;gt; Id = JsonConvert.DeserializeObject&amp;lt;'a&amp;gt;(cloudantGet (cloudantUrl + Id))
+
+[&amp;lt;CLIMutableAttribute&amp;gt;]
+type Person = 
+    { _id : string
+      _rev : string
+      FirstName : string
+      LastName : string }
+
+let newPerson = 
+    { _id = ""
+      _rev = ""
+      FirstName = "Boom"
+      LastName = "Baam" }
+
+let inline isNull (x:^a when ^a : not struct) =
+    obj.ReferenceEquals (x, Unchecked.defaultof&amp;lt;_&amp;gt;)
+
+let findPerson = 
+    query { 
+        for p in GetJsonByType&amp;lt;Person&amp;gt; do
+            where (p.FirstName = "Boom")
+            select p
+            headOrDefault
+            }
+isNull findPerson    
+GetJsonById&amp;lt;Person&amp;gt; ("3b389dc6b8ee0dcbf7f366faaa59cf42")
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In above code below part is just for testing. And even with that code snippet is 98 lines. So, with blank line removed it is even short. &lt;/p&gt;
+
+&lt;p&gt;Now, in cloudant I need to create views so its code is like &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function(doc) {
+    if (doc.$doctype !== "Person") return;
+    var copydoc = JSON.parse(JSON.stringify(doc));
+    delete copydoc["$doctype"];
+    emit(doc._id,copydoc);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I need &lt;code&gt;$doctype&lt;/code&gt; while I am inserting or updating data only, not while reading. So, I am removing it. As I am already filtering based on type.&lt;/p&gt;
+
+&lt;p&gt;In above code two libraries are getting used one is &lt;a href="https://github.com/relentless/Http.fs"&gt;Http.fs&lt;/a&gt; and the other is &lt;a href="http://james.newtonking.com/json"&gt;JSON.net&lt;/a&gt; libraries. &lt;/p&gt;
+
+&lt;p&gt;In library as you can see I am not doing anything special. I am inserting data with type information. If new data is there I am removing &lt;code&gt;_id&lt;/code&gt; and &lt;code&gt;_rev&lt;/code&gt; and for simplicity sake I had put &lt;code&gt;_id&lt;/code&gt; and &lt;code&gt;_rev&lt;/code&gt; in all the types I am using to interacting with Cloudant data store. &lt;/p&gt;
+
+&lt;p&gt;So, now whenever I am reading I just need to give type and that will be fetched as collection of that typed records. And once collection came to memory now I have powerful F# to process data. In above code I am using &lt;code&gt;query&lt;/code&gt; expression to do so. It becomes very easy and fun to use. And it is damn fast. At least for now.&lt;/p&gt;
+
+&lt;p&gt;Now, I don't know it if perfect or not. It kinda part functional and part Object Oriented as far as I know. Should I convert this to Type Provider or is it possible or not? I don't know. But one thing is sure I am achieving what I wanted with simplest possible code. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dear F# community members&lt;/strong&gt; do provide your views on this. And also let me know if it will be use full to make it more mature and push it as nuget package. Or may be a type provider for Cloudant? &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Highly inspired by &lt;a href="https://twitter.com/dmohl"&gt;Daniel Mohl's&lt;/a&gt; old library &lt;a href="https://github.com/dmohl/FSharpCouch"&gt;FSharpCouch&lt;/a&gt;. Thank you... :)&lt;/p&gt;
+&lt;/blockquote&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/11/sails-sailing-on-azure-websites/</guid><link>http://kunjan.in/2014/11/sails-sailing-on-azure-websites/</link><title>Sails sailing seamlessly on Azure Web Sites</title><description>&lt;p&gt;There are lots of &lt;a href="http://nodeframework.com/"&gt;frameworks&lt;/a&gt; for web development in &lt;a href="http://nodejs.org/"&gt;Nodejs&lt;/a&gt;. Many of them are pretty cool. I pretty much like the &lt;a href="http://sailsjs.org/#/"&gt;SailsJS&lt;/a&gt;. And also have worked on that in recent past. &lt;/p&gt;
 
 &lt;p&gt;Now, when it comes to hosting I love the &lt;a href="http://azure.microsoft.com/en-us/"&gt;Azure&lt;/a&gt; for various reasons. It is specially awesome when it comes to web sites. You do some experiments and throw it towards azure and that is ready for world to check out. My many experiments with &lt;a href="http://kunjan.in/category/functional-web/"&gt;F# and Web&lt;/a&gt; are already there. &lt;/p&gt;
 
@@ -549,20 +699,4 @@ But today I am going to talk about specifically one framework, that is &lt;a hre
 &lt;p&gt;&lt;strong&gt;[UPDATE]&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;I spend quite a amount of time learning Sencha, and same amount of time I was able complete application using more simpler &lt;a href="http://kunjan.in/phonejs.devexpress.com"&gt;Phonejs&lt;/a&gt;. It is little slow at start up but at least I am not slowing down my application to get out of development state. &lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/03/failed-attemp-to-write-series/</guid><link>http://kunjan.in/2014/03/failed-attemp-to-write-series/</link><title>Failed attempt to write series, again!</title><description>&lt;p&gt;I have tried writing complete series again. And again failed. And I am stopping it again. &lt;/p&gt;
-
-&lt;p&gt;There are couple of reason of it. First and for most thing is I am not good at it. No where near even readable, I guess. Now, I don't know reason specifically for that. May be I can write on specific topic better instead of things that are continues. 
-</description><pubDate>Sun, 23 Mar 2014 18:30:00 Z</pubDate><a10:updated>2014-03-23T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;I have tried writing complete series again. And again failed. And I am stopping it again. &lt;/p&gt;
-
-&lt;p&gt;There are couple of reason of it. First and for most thing is I am not good at it. No where near even readable, I guess. Now, I don't know reason specifically for that. May be I can write on specific topic better instead of things that are continues. 
-&lt;!--excerpt--&gt;
-And that is the reason complete series thing is not that good but individual write ups are getting good reviews. &lt;/p&gt;
-
-&lt;p&gt;There is one more things. Few things are just very random that can't fit in series at all. Few days back I was trying to run SignalR with F#. I succeeded but that will not fit here. Before that there was article about &lt;a href="http://kunjan.in/2014/02/servicestack-fsharp-template-starting-from-start/"&gt;getting started with Servicestack&lt;/a&gt; from very zero. And that also can't fit here.&lt;/p&gt;
-
-&lt;p&gt;So, I finally though to kill it for while. Because of this I couldn't able to write few other things I like to write. I am putting this in this series as completely non-technical part. &lt;/p&gt;
-
-&lt;p&gt;There will be more articles about web, game and F# but not in series form. &lt;/p&gt;
-
-&lt;p&gt;So, wait for next one. &lt;/p&gt;
 </a10:content></item></channel></rss>

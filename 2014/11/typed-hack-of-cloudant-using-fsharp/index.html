@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
     <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif">
-    <link rel="canonical" href="http://kunjan.in/2013/08/vim-for-me/" />
+    <link rel="canonical" href="http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/" />
 </head>
 <body class="home blog">
     <div id="page" class="hfeed site">
@@ -40,13 +40,17 @@
             <div id="content" role="main">
 
                 
-<meta name="description" content="Why learn VIM or any other editor in that case. Even why bother about learning new technology at all. Including new OS, new programming language, new tools or any thing new" />
+<meta name="description" content="Write a small wrapper which convert untyped Cloudant data to typed F# data" />
 <meta name="author" content="Kunjan Dalal" />
 <div id="post">
-  <h1>VIM for me?</h1>
+  <h1>Typed Hack of Cloudant using F#</h1>
   <div class="post-note">
-    posted on 22 Aug 2013
+    posted on 28 Nov 2014
     | <a href="/category/technical">Technical</a>
+    | <a href="/category/oss">OSS</a>
+    | <a href="/category/web">Web</a>
+    | <a href="/category/functional">Functional</a>
+    | <a href="/category/functional-web">Functional Web</a>
 
 <!--       <div class="addthis_toolbox addthis_default_style" style="float:right;">
         <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -59,7 +63,7 @@
 
     <!-- AddThis Button BEGIN -->
     <div class="hidden-phone">
-      <div class="addthis_toolbox addthis_default_style addthis_32x32_style" addthis:title="VIM for me?">
+      <div class="addthis_toolbox addthis_default_style addthis_32x32_style" addthis:title="Typed Hack of Cloudant using F#">
         <a class="addthis_button_preferred_1"></a>
         <a class="addthis_button_preferred_2"></a>
         <a class="addthis_button_preferred_3"></a>
@@ -77,35 +81,154 @@
 
   
 
-  <p>I want confess that, my whole career I was and I am working with Visual Studio. Not a big fan, but it was good or I must say it is good. I don't think any other IDE is doing as much thing as visual studio is doing. </p>
+  <p>Sometimes things are not in your control. They just happens. Just like that. But all other times things are in your control only. And specifically when one wanted to do something mad. Recently I was helping my <a href="http://4-to-6.com/#team">MAD friends</a> to create a mad newsletter site. (I am also part of it at least for now o_O ). Don't ask me why we are doing this?!? Everything is explain at the page of <a href="https://tinyletter.com/beemad">subscription</a> and also on <a href="http://4-to-6.com/">beemad site</a>.</p>
 
-<p>And with few add-ons (even if you exclude <a href="https://www.jetbrains.com/resharper/">ReSharper</a>) it is like wow. As full time web developer I like the tools, that always there to solve my issue. </p>
-
-<p>But my love for languages like C# is far more than that. Give me my language and I can do wonders. And I also love OSS work and people doing OSS work in .net. One of my favourite project is <a href="http://servicestack.net/">Servicestack</a>.</p>
-
-<p>Now, here is the point, when a conversation with <a href="https://twitter.com/demisbellot">Demis</a>, creator of  <a href="http://servicestack.net/">Servicestack</a> made me thinking. </p>
-
-<blockquote>
-  <p>Am I going to far with my affection for tools? Am I doing it <em>wrong</em>? Am I going in <em>wrong</em> direction?</p>
-</blockquote>
-
-<p>Here is the <a href="https://twitter.com/kunjee/status/344894343066296321">twitter conversation</a>. And I agreed if I don' learn new things I am not doing justification to my old tools. How can I say that Visual Studio is good if I haven't tried <a href="http://www.sublimetext.com/">Sublimetext</a> or <a href="http://www.vim.org/">VIM</a>.
 <!--excerpt-->
-I have tried <a href="http://www.sublimetext.com/">Sublimetext</a> and pretty much impressed. It is my basic tools to edit web stuff or I am doing something with my blog. It is fast, light weigh with awesome plug ins; almost for every language. </p>
 
-<p>Now, I am trying for <a href="http://www.vim.org/">VIM</a>, I am starting with <a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/">tutorial</a> suggested by <a href="https://twitter.com/amirrajan">Amir Rajan</a>. </p>
+<p>On a first thought this task can be done by any <a href="http://en.wikipedia.org/wiki/Content_management_system">CMS</a> and there is no need for anything else. But how can I explain my heart which can't tolerate PHP around it.</p>
+
+<p><img src="/images/nonotthisagain.jpg" alt="" /></p>
+
+<p>And frankly speaking there is no requirement of complete, heavy, slow, sluggish CMS. And if we were having that; we may be not doing any madness but still finding plug-ins on web. I personally like the freedom of simple HTML page. You can unleash the imagination on that but not on CMS. </p>
+
+<p>So, I thought why not <a href="http://fsharp.org">F#</a>? and I also know <a href="http://nancyfx.org/">NancyFX</a> so that will be easy and fast. And really it was. And hosting on <a href="http://azure.microsoft.com/en-us/">Azure</a> is even more fun. There were some pain points but it was all OK at the end. </p>
+
+<p>But now it times to save the data. Azure do offer quite few options for that; but again this heart never listen to me. I choose NOSQL. </p>
+
+<p>Here comes the dinosaur, manage your own VM. And I was like <a href="http://www.nooooooooooooooo.com/">nooooooooooooooooooooo</a>. I was knowing about <a href="http://cloudant.com">Cloudant</a> from long back. Even before IBM bought it. It is indeed a wonderful service and also kinda free for small stuff. I thought this will be best fit for now. As we are just starting, taking our first baby steps in the world of web. We are MAD but still we are kids. 
+<img src="/images/Babies.jpg" alt="" /></p>
+
+<p>And there is no need of scary relations ships with database. So, I decided to use this one. </p>
+
+<p>Now as one problem is solved other started. It is saving data that is in JSON format. That is untyped and F# is statically typed. I have tried few libraries developed in C# but was not happy. So, I thought it is just a HTTP request, why shouldn't I give it as shot to make one of my own helper module? It is may be some what dirty attempt but I got it working what I needed with less than 100 lines. Here is code snippets.</p>
+
+<pre><code>#r "../packages/Http.fs.1.4.0/lib/net40/HttpClient.dll"
+#r "../packages/Newtonsoft.Json.6.0.6/lib/net45/Newtonsoft.Json.dll"
+
+open HttpClient
+open Newtonsoft.Json
+open Newtonsoft.Json.Linq
+
+[&lt;CLIMutableAttribute&gt;]
+type Row&lt;'a&gt; = 
+    { id : string
+      key : string
+      value : 'a }
+
+[&lt;CLIMutableAttribute&gt;]
+type ResultSet&lt;'a&gt; = 
+    { total_rows : int
+      offset : int
+      rows : Row&lt;'a&gt; [] }
+
+[&lt;CLIMutableAttribute&gt;]
+type PostResult = 
+    { ok : string
+      id : string
+      rev : string }
+
+[&lt;CLIMutableAttribute&gt;]
+type PostError = 
+    { error : string
+      reason : string }
+
+let cloudantUrl = @"&lt;cloudanturl/databasename/&gt;"
+let username = @"&lt;username&gt;"
+let password = @"&lt;password&gt;"
+
+let private cloudantGet url = 
+    let request = 
+        createRequest Get url
+        |&gt; withBasicAuthentication username password
+        |&gt; withHeader (ContentType "application/json")
+    request |&gt; getResponseBody
+
+let private cloudantPost url data = 
+    let request = 
+        createRequest Post url
+        |&gt; withBasicAuthentication username password
+        |&gt; withBody data
+        |&gt; withHeader (ContentType "application/json")
+    request |&gt; getResponseBody
+
+let private checkDataForNewId (data : JObject) = 
+    let removeIdrev (data : JObject) = 
+        data.Remove("_id") |&gt; ignore
+        data.Remove("_rev") |&gt; ignore
+    if System.String.IsNullOrEmpty(data.["_id"].ToString()) || System.String.IsNullOrEmpty(data.["_rev"].ToString()) then 
+        removeIdrev data
+    data
+
+let PostJson&lt;'a&gt; data = 
+    let serializedObject = JObject.FromObject(data) |&gt; checkDataForNewId
+    serializedObject.Add("$doctype", JToken.Parse("'" + data.GetType().Name + "'"))
+    cloudantPost cloudantUrl &lt;| serializedObject.ToString()
+
+let GetJsonByType&lt;'a&gt; = 
+    let resultset = 
+        JsonConvert.DeserializeObject&lt;ResultSet&lt;'a&gt;&gt;
+            (cloudantGet (cloudantUrl + "/_design/Type/_view/" + typeof&lt;'a&gt;.Name))
+    query { 
+        for row in resultset.rows do
+            select row.value
+    }
+
+let GetJsonById&lt;'a&gt; Id = JsonConvert.DeserializeObject&lt;'a&gt;(cloudantGet (cloudantUrl + Id))
+
+[&lt;CLIMutableAttribute&gt;]
+type Person = 
+    { _id : string
+      _rev : string
+      FirstName : string
+      LastName : string }
+
+let newPerson = 
+    { _id = ""
+      _rev = ""
+      FirstName = "Boom"
+      LastName = "Baam" }
+
+let inline isNull (x:^a when ^a : not struct) =
+    obj.ReferenceEquals (x, Unchecked.defaultof&lt;_&gt;)
+
+let findPerson = 
+    query { 
+        for p in GetJsonByType&lt;Person&gt; do
+            where (p.FirstName = "Boom")
+            select p
+            headOrDefault
+            }
+isNull findPerson    
+GetJsonById&lt;Person&gt; ("3b389dc6b8ee0dcbf7f366faaa59cf42")
+</code></pre>
+
+<p>In above code below part is just for testing. And even with that code snippet is 98 lines. So, with blank line removed it is even short. </p>
+
+<p>Now, in cloudant I need to create views so its code is like </p>
+
+<pre><code>function(doc) {
+    if (doc.$doctype !== "Person") return;
+    var copydoc = JSON.parse(JSON.stringify(doc));
+    delete copydoc["$doctype"];
+    emit(doc._id,copydoc);
+}
+</code></pre>
+
+<p>I need <code>$doctype</code> while I am inserting or updating data only, not while reading. So, I am removing it. As I am already filtering based on type.</p>
+
+<p>In above code two libraries are getting used one is <a href="https://github.com/relentless/Http.fs">Http.fs</a> and the other is <a href="http://james.newtonking.com/json">JSON.net</a> libraries. </p>
+
+<p>In library as you can see I am not doing anything special. I am inserting data with type information. If new data is there I am removing <code>_id</code> and <code>_rev</code> and for simplicity sake I had put <code>_id</code> and <code>_rev</code> in all the types I am using to interacting with Cloudant data store. </p>
+
+<p>So, now whenever I am reading I just need to give type and that will be fetched as collection of that typed records. And once collection came to memory now I have powerful F# to process data. In above code I am using <code>query</code> expression to do so. It becomes very easy and fun to use. And it is damn fast. At least for now.</p>
+
+<p>Now, I don't know it if perfect or not. It kinda part functional and part Object Oriented as far as I know. Should I convert this to Type Provider or is it possible or not? I don't know. But one thing is sure I am achieving what I wanted with simplest possible code. </p>
+
+<p><strong>Dear F# community members</strong> do provide your views on this. And also let me know if it will be use full to make it more mature and push it as nuget package. Or may be a type provider for Cloudant? </p>
 
 <blockquote>
-  <p>Even if there is a slightest chance that your daily work is C# and you are thinking what you are doing with <a href="http://www.vim.org/">VIM</a>; think <strong>again</strong>.</p>
+  <p>Highly inspired by <a href="https://twitter.com/dmohl">Daniel Mohl's</a> old library <a href="https://github.com/dmohl/FSharpCouch">FSharpCouch</a>. Thank you... :)</p>
 </blockquote>
-
-<p><a href="https://twitter.com/amirrajan">Amir Rajan</a> did wonderful <a href="http://vimeo.com/72745278">video</a>, how things work with C#.</p>
-
-<p>Have a look at it</p>
-
-<p><iframe src="http://player.vimeo.com/video/72745278" width="500" height="313" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/72745278">Coding out loud: C#, TDD, NSpec and VIM</a> from <a href="http://vimeo.com/user19333001">Amir Rajan</a> on <a href="https://vimeo.com">Vimeo</a>.</p></p>
-
-<p>It is like learning new thing. Lets see how far it will go. Will check it out and write about my experience in follow up post.</p>
 
 
   <div id="disqus_thread"></div>
@@ -115,14 +238,14 @@ I have tried <a href="http://www.sublimetext.com/">Sublimetext</a> and pretty mu
             reload: true,
             config: function () {
                 //this.page.identifier = '';
-                this.page.url = 'http://kunjan.in/2013/08/vim-for-me/';
+                this.page.url = 'http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/';
                 //this.page.title = '';
             }
         });
     };
 
     var disqus_shortname = 'kunjan';
-    var disqus_url = 'http://kunjan.in/2013/08/vim-for-me/';
+    var disqus_url = 'http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
