@@ -4,25 +4,13 @@ metadescription: Write a small wrapper which convert untyped Cloudant data to ty
 category: Technical,OSS,Web,Functional, Functional Web 
 published: public
 ---
-
-Sometimes things are not in your control. They just happens. Just like that. But all other times things are in your control only. And specifically when one wanted to do something mad. Recently I was helping my [MAD friends](http://4-to-6.com/#team) to create a mad newsletter site. (I am also part of it at least for now o_O ). Don't ask me why we are doing this?!? Everything is explain at the page of [subscription](https://tinyletter.com/beemad) and also on [beemad site](http://4-to-6.com/).
+There is a continues war between typed and untyped data. But then there is need of finding a middle ground for ever growing application. There is place, a requirement when I feel application should be typed and data store should be untyped. So, I created this little code snippet to access cloudant (a couchbase fork) NOSQL database. 
 
 <!--excerpt-->
 
-On a first thought this task can be done by any [CMS](http://en.wikipedia.org/wiki/Content_management_system) and there is no need for anything else. But how can I explain my heart which can't tolerate PHP around it.
+I was knowing about [Cloudant](http://cloudant.com) from long back. Even before IBM bought it. It is indeed a wonderful service and also kinda free for small stuff. I thought this will be best fit for now. (I still don't know why I didn't use Mongodb). 
 
-![](/images/nonotthisagain.jpg)
-
-And frankly speaking there is no requirement of complete, heavy, slow, sluggish CMS. And if we were having that; we may be not doing any madness but still finding plug-ins on web. I personally like the freedom of simple HTML page. You can unleash the imagination on that but not on CMS. 
-
-So, I thought why not [F#](http://fsharp.org)? and I also know [NancyFX](http://nancyfx.org/) so that will be easy and fast. And really it was. And hosting on [Azure](http://azure.microsoft.com/en-us/) is even more fun. There were some pain points but it was all OK at the end. 
-
-But now it times to save the data. Azure do offer quite few options for that; but again this heart never listen to me. I choose NOSQL. 
-
-Here comes the dinosaur, manage your own VM. And I was like [nooooooooooooooooooooo](http://www.nooooooooooooooo.com/). I was knowing about [Cloudant](http://cloudant.com) from long back. Even before IBM bought it. It is indeed a wonderful service and also kinda free for small stuff. I thought this will be best fit for now. As we are just starting, taking our first baby steps in the world of web. We are MAD but still we are kids. 
-![](/images/Babies.jpg)
-
-And there is no need of scary relations ships with database. So, I decided to use this one. 
+As there is no need of scary relations ships with database. So, I decided to use this one. 
 
 Now as one problem is solved other started. It is saving data that is in JSON format. That is untyped and F# is statically typed. I have tried few libraries developed in C# but was not happy. So, I thought it is just a HTTP request, why shouldn't I give it as shot to make one of my own helper module? It is may be some what dirty attempt but I got it working what I needed with less than 100 lines. Here is code snippets.
 

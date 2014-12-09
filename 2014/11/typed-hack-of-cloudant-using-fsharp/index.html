@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="last-modified" content="2014-11-29T23:45:10.8512014+05:30" />
+    <meta http-equiv="last-modified" content="2014-12-09T10:14:29.6121491+05:30" />
     <title>Kunjan a.k.a. Kunjee's blog</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
@@ -81,24 +81,13 @@
 
   
 
-  <p>Sometimes things are not in your control. They just happens. Just like that. But all other times things are in your control only. And specifically when one wanted to do something mad. Recently I was helping my <a href="http://4-to-6.com/#team">MAD friends</a> to create a mad newsletter site. (I am also part of it at least for now o_O ). Don't ask me why we are doing this?!? Everything is explain at the page of <a href="https://tinyletter.com/beemad">subscription</a> and also on <a href="http://4-to-6.com/">beemad site</a>.</p>
+  <p>There is a continues war between typed and untyped data. But then there is need of finding a middle ground for ever growing application. There is place, a requirement when I feel application should be typed and data store should be untyped. So, I created this little code snippet to access cloudant (a couchbase fork) NOSQL database. </p>
 
 <!--excerpt-->
 
-<p>On a first thought this task can be done by any <a href="http://en.wikipedia.org/wiki/Content_management_system">CMS</a> and there is no need for anything else. But how can I explain my heart which can't tolerate PHP around it.</p>
+<p>I was knowing about <a href="http://cloudant.com">Cloudant</a> from long back. Even before IBM bought it. It is indeed a wonderful service and also kinda free for small stuff. I thought this will be best fit for now. (I still don't know why I didn't use Mongodb). </p>
 
-<p><img src="/images/nonotthisagain.jpg" alt="" /></p>
-
-<p>And frankly speaking there is no requirement of complete, heavy, slow, sluggish CMS. And if we were having that; we may be not doing any madness but still finding plug-ins on web. I personally like the freedom of simple HTML page. You can unleash the imagination on that but not on CMS. </p>
-
-<p>So, I thought why not <a href="http://fsharp.org">F#</a>? and I also know <a href="http://nancyfx.org/">NancyFX</a> so that will be easy and fast. And really it was. And hosting on <a href="http://azure.microsoft.com/en-us/">Azure</a> is even more fun. There were some pain points but it was all OK at the end. </p>
-
-<p>But now it times to save the data. Azure do offer quite few options for that; but again this heart never listen to me. I choose NOSQL. </p>
-
-<p>Here comes the dinosaur, manage your own VM. And I was like <a href="http://www.nooooooooooooooo.com/">nooooooooooooooooooooo</a>. I was knowing about <a href="http://cloudant.com">Cloudant</a> from long back. Even before IBM bought it. It is indeed a wonderful service and also kinda free for small stuff. I thought this will be best fit for now. As we are just starting, taking our first baby steps in the world of web. We are MAD but still we are kids. 
-<img src="/images/Babies.jpg" alt="" /></p>
-
-<p>And there is no need of scary relations ships with database. So, I decided to use this one. </p>
+<p>As there is no need of scary relations ships with database. So, I decided to use this one. </p>
 
 <p>Now as one problem is solved other started. It is saving data that is in JSON format. That is untyped and F# is statically typed. I have tried few libraries developed in C# but was not happy. So, I thought it is just a HTTP request, why shouldn't I give it as shot to make one of my own helper module? It is may be some what dirty attempt but I got it working what I needed with less than 100 lines. Here is code snippets.</p>
 
