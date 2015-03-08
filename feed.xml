@@ -1,4 +1,47 @@
-<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/feed.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/</guid><link>http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/</link><title>Typed Hack of Cloudant using F#</title><description>&lt;p&gt;There is a continues war between typed and untyped data. But then there is need of finding a middle ground for ever growing application. There is place, a requirement when I feel application should be typed and data store should be untyped. So, I created this little code snippet to access cloudant (a couchbase fork) NOSQL database. &lt;/p&gt;
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/feed.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2015/03/journey-in-search-of-destination/</guid><link>http://kunjan.in/2015/03/journey-in-search-of-destination/</link><title>Journey in Search of Destination</title><description>&lt;p&gt;I never thought I would make this public. I wrote long back for one of my dear cousin. It was relevant then. But it is more relevant now. One of my best friend, batch mate, college mate, colleague at one point of time, rommie is now moving to another country. With a aim to never looking back for all the good reasons. &lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://twitter.com/nrezzzz"&gt;Andrew Vyas&lt;/a&gt; this is for you. You are one of the friend I never wanted because I knew one day time flew and you or me will move on and that may be good for future but at point it is utterly painful. Pain that can't be defined by words my friend. But still here are few words&lt;/p&gt;
+
+</description><pubDate>Sat, 07 Mar 2015 18:30:00 Z</pubDate><a10:updated>2015-03-07T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;I never thought I would make this public. I wrote long back for one of my dear cousin. It was relevant then. But it is more relevant now. One of my best friend, batch mate, college mate, colleague at one point of time, rommie is now moving to another country. With a aim to never looking back for all the good reasons. &lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://twitter.com/nrezzzz"&gt;Andrew Vyas&lt;/a&gt; this is for you. You are one of the friend I never wanted because I knew one day time flew and you or me will move on and that may be good for future but at point it is utterly painful. Pain that can't be defined by words my friend. But still here are few words&lt;/p&gt;
+
+&lt;!--excerpt--&gt;
+
+&lt;p&gt;मंजिल की तलाश में दूर हम निकल गए&lt;br /&gt;
+रस्ते बनते गए हमराही मिलते गए&lt;br /&gt;
+मंजिल तोह आज भी दूर है&lt;br /&gt;
+मंजिल के लिए प्यार भी  वही है&lt;br /&gt;
+लेकिन पता नहीं क्यों रस्ते इतने अच्छे क्यों है&lt;br /&gt;
+आँखे इतनी नर्म क्यों है&lt;br /&gt;
+मंजिल पाने की चाह तो आज भी वही है&lt;br /&gt;
+हमराही को छोड़ने का गम क्यों है 
+हमराही कल भी बिछड़े थे, आज भी बिछड़ रहे है&lt;br /&gt;
+लेकिन दील मे एक सन्नाटा, तन्हाई, दर्द आज ही क्यों है&lt;br /&gt;
+मंजिल की तलाश में हम तो फीर भी निकल चले है&lt;br /&gt;
+रस्ते फीर बनते चले है, हमराही फीर मिलते चले है&lt;br /&gt;
+लेकिन दील मै उनकी याद क्यों है, ये दर्द एक बेचैनी सि क्यों है &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;For people who don't understand Hindi, here is English translation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In search of destination we came long way&lt;br /&gt;
+roads started carving them selves, new companion started joining me&lt;br /&gt;
+destination is still far&lt;br /&gt;
+love for destination is still there&lt;br /&gt;
+but don't know why roads seems more beautiful&lt;br /&gt;
+and have tears at the corner of my eyes&lt;br /&gt;
+Desire to get to the destination is still the same&lt;br /&gt;
+then why there is pain for leaving companion back&lt;br /&gt;
+I left companion and I am leaving companion back&lt;br /&gt;
+then why there is silence, loneliness and pain in heart&lt;br /&gt;
+Still moving on in search of destination&lt;br /&gt;
+roads are being made again, companion are started joining again&lt;br /&gt;
+then why there are memories them of who left behind, why there is pain, restlessness in heart.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Dear friend wherever you go my wishes and prayers are always there for you.&lt;/p&gt;
+&lt;/blockquote&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/</guid><link>http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/</link><title>Typed Hack of Cloudant using F#</title><description>&lt;p&gt;There is a continues war between typed and untyped data. But then there is need of finding a middle ground for ever growing application. There is place, a requirement when I feel application should be typed and data store should be untyped. So, I created this little code snippet to access cloudant (a couchbase fork) NOSQL database. &lt;/p&gt;
 
 </description><pubDate>Thu, 27 Nov 2014 18:30:00 Z</pubDate><a10:updated>2014-11-27T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;There is a continues war between typed and untyped data. But then there is need of finding a middle ground for ever growing application. There is place, a requirement when I feel application should be typed and data store should be untyped. So, I created this little code snippet to access cloudant (a couchbase fork) NOSQL database. &lt;/p&gt;
 
@@ -658,34 +701,4 @@ do ()
 &lt;p&gt;Please give it a shot. If it break somewhere let me know will try to solve it. Any suggestion to make things even better and streamlined are always welcome.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; Here is my &lt;a href="https://github.com/kunjee17/NancySignalRFSharp"&gt;github repo&lt;/a&gt; with updated code. Project created with web express 2013. Also it is deployed over &lt;a href="http://nancysignalrfsharp.azurewebsites.net/"&gt;azure&lt;/a&gt;.&lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/03/why-i-moved-away-from-sencha-to-phonejs/</guid><link>http://kunjan.in/2014/03/why-i-moved-away-from-sencha-to-phonejs/</link><title>Why I moved away from Sencha to Phonejs?</title><description>&lt;p&gt;&lt;a href="http://sencha.com"&gt;Sencha&lt;/a&gt; is well known framework for mobile development. Not only mobile development but it is doing a hell of a lot of thing other than mobile development. Not only that it is surely having wonderful history with &lt;a href="https://www.sencha.com/products/extjs/"&gt;JavaScript framework development&lt;/a&gt;. I don't have anything to complain against that. 
-</description><pubDate>Mon, 24 Mar 2014 18:30:00 Z</pubDate><a10:updated>2014-03-24T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;&lt;a href="http://sencha.com"&gt;Sencha&lt;/a&gt; is well known framework for mobile development. Not only mobile development but it is doing a hell of a lot of thing other than mobile development. Not only that it is surely having wonderful history with &lt;a href="https://www.sencha.com/products/extjs/"&gt;JavaScript framework development&lt;/a&gt;. I don't have anything to complain against that. 
-&lt;!--excerpt--&gt;
-But today I am going to talk about specifically one framework, that is &lt;a href="https://www.sencha.com/products/touch/"&gt;Sencha Touch&lt;/a&gt;. I was trying to something that can developed once and deployed everywhere. &lt;em&gt;Yes, it is kinda new trend in mobile development now a days.&lt;/em&gt; &lt;/p&gt;
-
-&lt;p&gt;And I do have working experience with &lt;a href="http://jquerymobile.com/"&gt;JQuery Moblie&lt;/a&gt;, but still I choose Sencha, due to its performance and preference for architecture. I did same mistake which &lt;a href="http://datachomp.com/"&gt;Rob Sullivan&lt;/a&gt; mentioned couple of days back. &lt;/p&gt;
-
-&lt;blockquote class="twitter-tweet" data-conversation="none" lang="en"&gt;&lt;p&gt;&lt;a href="https://twitter.com/kunjee"&gt;@kunjee&lt;/a&gt; it’s always a balance of being able to push yourself but make sure you don’t go over a cliff from the push.&lt;/p&gt;&amp;mdash; Rob Sullivan (@DataChomp) &lt;a href="https://twitter.com/DataChomp/statuses/447559429353787392"&gt;March 23, 2014&lt;/a&gt;&lt;/blockquote&gt;
-
-&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-
-&lt;p&gt;I practically pushed my self over the cliff. I am particularly having nothing against &lt;a href="https://www.sencha.com/products/touch/"&gt;Sencha Touch&lt;/a&gt;. It is nothing but the &lt;strong&gt;&lt;em&gt;overly&lt;/em&gt;&lt;/strong&gt; awesome product. May be problem is on my side. I am not &lt;strong&gt;only&lt;/strong&gt; doing mobile work. Mobile application is part of bigger idea or bigger application. So, there are many other things than running that very same thing on mobile. &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Framework should help and if I can't get it up and running in hours it is coming into my way of development.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;That same thing happened with me. I have tried &lt;a href="https://www.sencha.com/products/touch/"&gt;Sencha Touch&lt;/a&gt;, other than having lots of boiler plate code; Sencha command tool is also broken. That is also few months back there is no way to generate store using command. I never understand why? &lt;/p&gt;
-
-&lt;p&gt;There are two ways of programming which is ruling the market as of now. &lt;a href="http://en.wikipedia.org/wiki/Object-oriented_programming"&gt;Object Oriented Programming&lt;/a&gt; and &lt;a href="http://en.wikipedia.org/wiki/Functional_programming"&gt;Functional Programming&lt;/a&gt;. In latter one you can compose functions and normally code tends to stay small while is first one code is more so there is complete tooling chain around that. One of that is &lt;a href="http://en.wikipedia.org/wiki/Scaffolding"&gt;Scaffolding&lt;/a&gt;. If that is broken, there is no way I can write that much code and that also in JavaScript. Dynamic typing language is good if I can use that nature, if I am writing code like static typing that is like worst of both world.  &lt;/p&gt;
-
-&lt;p&gt;JavaScript is already functionally object oriented language. If I am doing only object oriented part of it I need my tools up and running perfectly. &lt;/p&gt;
-
-&lt;p&gt;I have also tried &lt;a href="https://www.sencha.com/products/architect/"&gt;Sencha Architect&lt;/a&gt;. It is good for starting but after using for sometime, it started coming into my way. And I was spending more time in learning tool than solving the real problem. I personally don't like this kinda tools. &lt;/p&gt;
-
-&lt;p&gt;May be I am not smart enough to use &lt;a href="http://www.sencha.com"&gt;Sencha&lt;/a&gt; products. &lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;[UPDATE]&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;I spend quite a amount of time learning Sencha, and same amount of time I was able complete application using more simpler &lt;a href="http://kunjan.in/phonejs.devexpress.com"&gt;Phonejs&lt;/a&gt;. It is little slow at start up but at least I am not slowing down my application to get out of development state. &lt;/p&gt;
 </a10:content></item></channel></rss>
