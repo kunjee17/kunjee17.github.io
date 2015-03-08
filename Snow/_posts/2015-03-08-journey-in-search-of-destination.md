@@ -1,6 +1,6 @@
 ---
 title: Journey in Search of Destination
-metadescription: Poem to reflect emotion of the pain of Journey 
+metadescription: Poem to reflect emotions wired up in journey towards the destination
 category: Poem, Non-Technical 
 published: public
 ---
