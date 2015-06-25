@@ -87,7 +87,7 @@
 &lt;p&gt;Now, in current scenarios where garbage collector are so powerful and we are having quite a good amount of hardware to process. Singleton is not used while writing domain/business code. But still it is widely used on API side to expose specific functionality. &lt;/p&gt;
 
 &lt;p&gt;I am still to find relevance in case of functional programming. In functional programming &lt;code&gt;type&lt;/code&gt; is different then &lt;code&gt;class&lt;/code&gt;. In normal cases they don't have behaviors attached with it. So, it reducing the need of this pattern. &lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/04/functional-factory-pattern/</guid><link>http://kunjan.in/2015/04/functional-factory-pattern/</link><title>Demystifying Design Pattern in a Functional Way</title><description>&lt;p&gt;The fun part working or explaining functional pattern is word &lt;code&gt;functional&lt;/code&gt; can be used in very &lt;code&gt;fun&lt;/code&gt; way. Just like it is used in title here. &lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/04/functional-factory-pattern/</guid><link>http://kunjan.in/2015/04/functional-factory-pattern/</link><title>Functional Factory Pattern</title><description>&lt;p&gt;The fun part working or explaining functional pattern is word &lt;code&gt;functional&lt;/code&gt; can be used in very &lt;code&gt;fun&lt;/code&gt; way. Just like it is used in title here. &lt;/p&gt;
 
 &lt;p&gt;Now, factory pattern may be the most used pattern in Object Oriented world. Here is code in &lt;code&gt;C#&lt;/code&gt;.&lt;/p&gt;
 

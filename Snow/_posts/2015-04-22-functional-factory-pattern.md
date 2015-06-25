@@ -1,5 +1,5 @@
 ---
-title: Demystifying Design Pattern in a Functional Way
+title: Functional Factory Pattern
 metadescription: Design pattern rethink in functional way. Factory design pattern.
 category: Technical,OSS,Functional,Functional Design Pattern
 published: public
