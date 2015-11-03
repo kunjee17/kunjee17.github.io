@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
     <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif">
-    <link rel="canonical" href="http://kunjan.in/2013/08/why-ror-is-necessity/" />
+    <link rel="canonical" href="http://kunjan.in/2015/11/azure-websites-with-paket/" />
 </head>
 <body class="home blog">
     <div id="page" class="hfeed site">
@@ -40,13 +40,16 @@
             <div id="content" role="main">
 
                 
-<meta name="description" content="Ruby on Rails is there for more than 10 years. Now, it is in pretty much matured state. But more important thing is every body is copying it. And that makes it necessity to learn, not only as language or framework but as culture." />
+<meta name="description" content="Minimum requirement to run paket on Azure websites." />
 <meta name="author" content="Kunjan Dalal" />
 <div id="post">
-  <h1>Why Ruby on Rails in not only for Ruby on Rails Developers?!</h1>
+  <h1>Azure web sites with Paket</h1>
   <div class="post-note">
-    posted on 27 Aug 2013
-    | <a href="/category/non-technical">Non-Technical</a>
+    posted on 03 Nov 2015
+    | <a href="/category/technical">Technical</a>
+    | <a href="/category/oss">OSS</a>
+    | <a href="/category/functional">Functional</a>
+    | <a href="/category/functional-programming">Functional Programming</a>
 
 <!--       <div class="addthis_toolbox addthis_default_style" style="float:right;">
         <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -59,7 +62,7 @@
 
     <!-- AddThis Button BEGIN -->
     <div class="hidden-phone">
-      <div class="addthis_toolbox addthis_default_style addthis_32x32_style" addthis:title="Why Ruby on Rails in not only for Ruby on Rails Developers?!">
+      <div class="addthis_toolbox addthis_default_style addthis_32x32_style" addthis:title="Azure web sites with Paket">
         <a class="addthis_button_preferred_1"></a>
         <a class="addthis_button_preferred_2"></a>
         <a class="addthis_button_preferred_3"></a>
@@ -77,42 +80,74 @@
 
   
 
-  <p>If you ever involved in web development, then you must be knowing the history of it. Once upon a time there is something called <a href="https://en.wikipedia.org/wiki/CGI_script">CGI</a>. And at that moment there are static html pages. </p>
+  <p>Whoever worked with Microsoft Shop knows about <a href="https://www.nuget.org/">nuget</a>. It is package manager for anything and everything related to .Net. And it is getting better and better with versions coming in. But again it is nowhere near maturity needed to work with projects having many small projects. Things get cranky soon. </p>
 
-<p>Only few part of page is dynamic. Then things changed, <a href="https://en.wikipedia.org/wiki/Active_server_pages">ASP</a> came. Server access become so normal and easy. But still there is a lot more work to do. And main issue with them is code is not arranged and coding style is not suitable for big projects. </p>
+<!--excerpt-->
 
-<p>One can create dirty few pages but creating sophisticated big project is almost big no no. Same is true with other part of languages too. Languages like <a href="https://en.wikipedia.org/wiki/Php">Php</a> , <a href="https://en.wikipedia.org/wiki/Java_Server_Pages">JSP</a> etc.</p>
+<p>Now, there is better option as per my opinion called <a href="https://fsprojects.github.io/Paket/">Paket</a>. Very easy to get started. And so damn reliable. Couple of more command to learn but I guess it is ok. It most of the mess of nuget. And best thing no XML. </p>
 
-<p>At that moment, something called <a href="http://rubyonrails.org/">Ruby on Rails</a> took birth. It was extracted from <a href="https://basecamp.com/">Basecamp</a>. And then it took the world like anything. Even today it is so popular. </p>
+<p>Now, I normally throw anything and everything to Azure websites. Just do experiments and its free. Mostly I put project in <a href="https://github.com/">Github</a> and pull in Azure. Easiest way to test something or anything which need network. </p>
 
-<p>I am proper Microsoft Developer. And I know Asp.Net MVC(at least my <a href="http://kunjan.in/pages/resume">Resume</a> says so.). I never felt I should learn any other thing than MVC. It is good, better than Web Forms (at least for me). And I know how to do data in and data out. 
- <!--excerpt--></p>
+<p>Now, you can have Paket also instead of nuget with minimum changes. There are detailed <a href="http://www.hanselman.com/blog/RunningSuaveioAndFWithFAKEInAzureWebAppsWithGitAndTheDeployButton.aspx">article</a> you can found written by <a href="http://www.hanselman.com">Scott Hanselman</a>. </p>
+
+<p>But for you existing or new web project what can be minimum requirement. </p>
+
+<p>You need to create <code>.deployment</code> in root of your project. It will tell Azure build system to not to go with defaults. (I guess build system is called Kudu.)</p>
+
+<p>In that file copy paste below code</p>
+
+<pre><code>[config]
+command = build.cmd
+</code></pre>
+
+<p>Two lines to tell use <code>build.cmd</code> to build project. </p>
+
+<p>Now, we obviously need <code>build.cmd</code> file in root. </p>
+
+<p>And here is code</p>
+
+<pre><code>@ECHO OFF
+setlocal
+
+echo ====== Restoring packages... ======
+
+if not exist .paket\paket.exe (
+  .paket\paket.bootstrapper.exe
+)
+
+.paket\paket.exe restore
+
+if not %ERRORLEVEL% == 0 (
+  echo ====== Failed to restore packages. ======
+  exit 1
+)
+
+echo ====== Building... ======
+
+msbuild /p:Configuration=Release
+
+if not %ERRORLEVEL% == 0 (
+echo ====== Build failed. ======
+  exit 1
+)
+
+if not "%DEPLOYMENT_TARGET%" == "" (
+  echo ====== Deploying... ======
+  xcopy /y /e &lt;project name&gt; "%DEPLOYMENT_TARGET%"
+)
+</code></pre>
+
+<p>Code is very much self explanatory. </p>
+
+<p>First pull latest paket.exe, then restore package. msbuild is there only so use it. And age-old xcopy to copy built files to deployment target. </p>
 
 <blockquote>
-  <p>What else can be needed??? </p>
+  <p>Bang! Its done. You can check things out in with log tail or console on azure portal.</p>
 </blockquote>
 
-<p>The answer is many things. My views are hammered by <a href="http://wekeroad.com/">Rob Conery</a> with one of his video at <a href="http://www.ndcoslo.com/">NDC</a>. Then I thought there is no harm in learning new thing. </p>
+<p>If you want to go little bit advanced and want kinda build system then you can always try for <a href="http://fsharp.github.io/FAKE/">FAKE</a>. But if you are in great hurry and don't want waste time with nuget issues go for Paket. </p>
 
-<p>First I start with MVC thing. What things it claims to solve? It provides <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">Separation of Concern</a> in your code. But in any framework it is not strictly imposed. Specially in Asp.Net MVC. Means there is no proper guideline on how things should be. And you can find hell lot of opinion for that. I don't mind any of them but one thing I mind that culture is missing there. Culture that provides starting point. For the new user it will be damn tough to start things. </p>
-
-<p>If I give a example, in Ruby On Rails things with 7 operation will stay in one controller but in MVC I can do it more than that. I can put every  JSON operation in one controller. One may argue that it is issue on my side but I will say it is issue on our culture side. No one forcing me to do it right things first. Obviously I need freedom to do things in my way but first I like to learn right way of doing things. </p>
-
-<p>Even though there are many copy of ROR, but culture is not copied properly. And that makes issue sometimes. And that even not allowed to rip the benefit of using MVC. So, it will be like that I am creating controller and writing code in View. Or model is there but I still don't know why? </p>
-
-<blockquote>
-  <p>Or I can say I don't know how many models are there??? My MVC then became (M^n)VC. And then all that mapping and stuff. </p>
-</blockquote>
-
-<p>Am I using MVC to make things easy for me or make things even worst for me? This question always bugs me till I learn (I still not no where near good user of ROR) ROR. That helps me a lot to cultured my MVC code. At the end of day ROR is father of all the MVC framework out there. </p>
-
-<p>You take it .Net, Java, Node or even <a href="http://www.codinghorror.com/blog/2012/06/the-php-singularity.html">sucky Php</a> every damn technology have their version of rails. If you have that much things from rails, then there is no need to shy away from learning it. </p>
-
-<p>I learned from <a href="http://tekpub.com/collections/ruby-rails/products/rails3">Tekpub</a>, you can also try it. Or you can try <a href="https://peepcode.com/">Peepcode</a> too. Both are quite good at teaching specially rails. </p>
-
-<p>I am still a .Net developer at least as of now, but still it clears out many things. And with that it is also true that rails is not a silver bullet. If you are creating back end architecture to provide service you can try out different things. Even though rails way works but still you are not bounded. </p>
-
-<p>But learning is not option I guess. If anyone related to web development must learn or at least once give it shot for <a href="http://rubyonrails.org/">Ruby on Rails</a>.</p>
+<p><strong>Happy Packaging!!!</strong></p>
 
 
   <div id="disqus_thread"></div>
@@ -122,14 +157,14 @@
             reload: true,
             config: function () {
                 //this.page.identifier = '';
-                this.page.url = 'http://kunjan.in/2013/08/why-ror-is-necessity/';
+                this.page.url = 'http://kunjan.in/2015/11/azure-websites-with-paket/';
                 //this.page.title = '';
             }
         });
     };
 
     var disqus_shortname = 'kunjan';
-    var disqus_url = 'http://kunjan.in/2013/08/why-ror-is-necessity/';
+    var disqus_url = 'http://kunjan.in/2015/11/azure-websites-with-paket/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
