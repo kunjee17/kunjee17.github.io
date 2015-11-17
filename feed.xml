@@ -1,6 +1,4 @@
-<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/feed.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2015/11/azure-websites-with-paket/</guid><link>http://kunjan.in/2015/11/azure-websites-with-paket/</link><title>Azure web sites with Paket</title><description>&lt;p&gt;Whoever worked with Microsoft Shop knows about &lt;a href="https://www.nuget.org/"&gt;nuget&lt;/a&gt;. It is package manager for anything and everything related to .Net. And it is getting better and better with versions coming in. But again it is nowhere near maturity needed to work with projects having many small projects. Things get cranky soon. &lt;/p&gt;
-
-</description><pubDate>Mon, 02 Nov 2015 18:30:00 Z</pubDate><a10:updated>2015-11-02T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Whoever worked with Microsoft Shop knows about &lt;a href="https://www.nuget.org/"&gt;nuget&lt;/a&gt;. It is package manager for anything and everything related to .Net. And it is getting better and better with versions coming in. But again it is nowhere near maturity needed to work with projects having many small projects. Things get cranky soon. &lt;/p&gt;
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><description /><link>http://kunjan.in/feed.xml</link><item><guid isPermaLink="false">http://kunjan.in/2015/11/azure-websites-with-paket/</guid><title>Azure web sites with Paket</title><description type="html">&lt;p&gt;Whoever worked with Microsoft Shop knows about &lt;a href="https://www.nuget.org/"&gt;nuget&lt;/a&gt;. It is package manager for anything and everything related to .Net. And it is getting better and better with versions coming in. But again it is nowhere near maturity needed to work with projects having many small projects. Things get cranky soon. &lt;/p&gt;
 
 &lt;!--excerpt--&gt;
 
@@ -68,15 +66,7 @@ if not "%DEPLOYMENT_TARGET%" == "" (
 &lt;p&gt;If you want to go little bit advanced and want kinda build system then you can always try for &lt;a href="http://fsharp.github.io/FAKE/"&gt;FAKE&lt;/a&gt;. But if you are in great hurry and don't want waste time with nuget issues go for Paket. &lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Happy Packaging!!!&lt;/strong&gt;&lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/11/angularjs-and-mess-we-are-in/</guid><link>http://kunjan.in/2015/11/angularjs-and-mess-we-are-in/</link><title>Angularjs and the Mess we are in</title><description>&lt;p&gt;Who doesn't know &lt;a href="https://angularjs.org/"&gt;Angularjs&lt;/a&gt;?!? Everyone worked is web, mobile, server, windows, mac, Linux, Google, Microsoft or anyway related to this knows about it. And its fun when people tell me&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;You know about angularjs. Its pretty hot now a days. I'm planning to learn it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Oh man...&lt;/p&gt;
-
-</description><pubDate>Sun, 01 Nov 2015 18:30:00 Z</pubDate><a10:updated>2015-11-01T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Who doesn't know &lt;a href="https://angularjs.org/"&gt;Angularjs&lt;/a&gt;?!? Everyone worked is web, mobile, server, windows, mac, Linux, Google, Microsoft or anyway related to this knows about it. And its fun when people tell me&lt;/p&gt;
+</description><link>http://kunjan.in/2015/11/azure-websites-with-paket/</link><pubDate>Mon, 02 Nov 2015 18:30:00</pubDate><a10:updated>2015-11-03T00:00:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2015/11/angularjs-and-mess-we-are-in/</guid><title>Angularjs and the Mess we are in</title><description type="html">&lt;p&gt;Who doesn't know &lt;a href="https://angularjs.org/"&gt;Angularjs&lt;/a&gt;?!? Everyone worked is web, mobile, server, windows, mac, Linux, Google, Microsoft or anyway related to this knows about it. And its fun when people tell me&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;You know about angularjs. Its pretty hot now a days. I'm planning to learn it.&lt;/p&gt;
@@ -139,11 +129,7 @@ if not "%DEPLOYMENT_TARGET%" == "" (
 &lt;p&gt;Big project. &lt;a href="http://emberjs.com/"&gt;Ember&lt;/a&gt; is there. But few times I feel it is unnecessary complexity. Two way binding and not much of angular mess &lt;a href="http://aurelia.io/"&gt;Aurelia&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Above all opinion is derived from my personal experience and not influenced by any one. And it is my own.&lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/04/functional-command-pattern/</guid><link>http://kunjan.in/2015/04/functional-command-pattern/</link><title>Functional Command Pattern</title><description>&lt;p&gt;Command pattern is a pattern which allows executor of the pattern to execute or playback the commands. In most of the application wherever Undo/Redo is implemented this pattern is used. &lt;/p&gt;
-
-&lt;p&gt;Here is C# code. &lt;/p&gt;
-
-</description><pubDate>Fri, 24 Apr 2015 18:30:00 Z</pubDate><a10:updated>2015-04-24T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Command pattern is a pattern which allows executor of the pattern to execute or playback the commands. In most of the application wherever Undo/Redo is implemented this pattern is used. &lt;/p&gt;
+</description><link>http://kunjan.in/2015/11/angularjs-and-mess-we-are-in/</link><pubDate>Sun, 01 Nov 2015 18:30:00</pubDate><a10:updated>2015-11-02T00:00:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2015/04/functional-command-pattern/</guid><title>Functional Command Pattern</title><description type="html">&lt;p&gt;Command pattern is a pattern which allows executor of the pattern to execute or playback the commands. In most of the application wherever Undo/Redo is implemented this pattern is used. &lt;/p&gt;
 
 &lt;p&gt;Here is C# code. &lt;/p&gt;
 
@@ -162,11 +148,7 @@ if not "%DEPLOYMENT_TARGET%" == "" (
 &lt;blockquote&gt;
   &lt;p&gt;Fan of &lt;a href="http://martinfowler.com/bliki/CQRS.html"&gt;CQRS&lt;/a&gt; and &lt;a href="http://www.martinfowler.com/eaaDev/EventSourcing.html"&gt;Event Sourcing&lt;/a&gt;; listen up these both design concepts are standing on the shoulders of command pattern.&lt;/p&gt;
 &lt;/blockquote&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/04/functional-strategy-pattern/</guid><link>http://kunjan.in/2015/04/functional-strategy-pattern/</link><title>Functional Strategy Pattern</title><description>&lt;p&gt;Another pattern that is widely used in Object Oriented world. And as far as .Net world is concern it is may be most used pattern in wide range of .Net API. And it &lt;em&gt;heavily&lt;/em&gt; used in &lt;em&gt;heavily&lt;/em&gt; used LINQ API.&lt;/p&gt;
-
-&lt;p&gt;So, I guess giving a understanding of that is kinda waste of space. Have a look at C# code.&lt;/p&gt;
-
-</description><pubDate>Thu, 23 Apr 2015 18:30:00 Z</pubDate><a10:updated>2015-04-23T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Another pattern that is widely used in Object Oriented world. And as far as .Net world is concern it is may be most used pattern in wide range of .Net API. And it &lt;em&gt;heavily&lt;/em&gt; used in &lt;em&gt;heavily&lt;/em&gt; used LINQ API.&lt;/p&gt;
+</description><link>http://kunjan.in/2015/04/functional-command-pattern/</link><pubDate>Fri, 24 Apr 2015 18:30:00</pubDate><a10:updated>2015-04-25T00:00:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2015/04/functional-strategy-pattern/</guid><title>Functional Strategy Pattern</title><description type="html">&lt;p&gt;Another pattern that is widely used in Object Oriented world. And as far as .Net world is concern it is may be most used pattern in wide range of .Net API. And it &lt;em&gt;heavily&lt;/em&gt; used in &lt;em&gt;heavily&lt;/em&gt; used LINQ API.&lt;/p&gt;
 
 &lt;p&gt;So, I guess giving a understanding of that is kinda waste of space. Have a look at C# code.&lt;/p&gt;
 
@@ -195,11 +177,7 @@ if not "%DEPLOYMENT_TARGET%" == "" (
 &lt;blockquote&gt;
   &lt;p&gt;It something all togather when this pattern shown in context of Functional Programming. I am just composing functions. But it serves as Strategy Pattern of OOP so I have used that.&lt;/p&gt;
 &lt;/blockquote&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/04/functional-singleton-pattern/</guid><link>http://kunjan.in/2015/04/functional-singleton-pattern/</link><title>Functional Singleton Pattern</title><description>&lt;p&gt;This is my favorite pattern. First pattern I learn. And till date I don't know where to use it. &lt;strong&gt;So, I use everywhere. :P&lt;/strong&gt; &lt;/p&gt;
-
-&lt;p&gt;I have mainly used for database connection object and then all JavaScript frameworks are exposing Singleton object only. I can say it is quite useful in case of web.&lt;/p&gt;
-
-</description><pubDate>Wed, 22 Apr 2015 18:30:00 Z</pubDate><a10:updated>2015-04-22T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;This is my favorite pattern. First pattern I learn. And till date I don't know where to use it. &lt;strong&gt;So, I use everywhere. :P&lt;/strong&gt; &lt;/p&gt;
+</description><link>http://kunjan.in/2015/04/functional-strategy-pattern/</link><pubDate>Thu, 23 Apr 2015 18:30:00</pubDate><a10:updated>2015-04-24T00:00:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2015/04/functional-singleton-pattern/</guid><title>Functional Singleton Pattern</title><description type="html">&lt;p&gt;This is my favorite pattern. First pattern I learn. And till date I don't know where to use it. &lt;strong&gt;So, I use everywhere. :P&lt;/strong&gt; &lt;/p&gt;
 
 &lt;p&gt;I have mainly used for database connection object and then all JavaScript frameworks are exposing Singleton object only. I can say it is quite useful in case of web.&lt;/p&gt;
 
@@ -228,11 +206,7 @@ if not "%DEPLOYMENT_TARGET%" == "" (
 &lt;p&gt;Now, in current scenarios where garbage collector are so powerful and we are having quite a good amount of hardware to process. Singleton is not used while writing domain/business code. But still it is widely used on API side to expose specific functionality. &lt;/p&gt;
 
 &lt;p&gt;I am still to find relevance in case of functional programming. In functional programming &lt;code&gt;type&lt;/code&gt; is different then &lt;code&gt;class&lt;/code&gt;. In normal cases they don't have behaviors attached with it. So, it reducing the need of this pattern. &lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/04/functional-factory-pattern/</guid><link>http://kunjan.in/2015/04/functional-factory-pattern/</link><title>Functional Factory Pattern</title><description>&lt;p&gt;The fun part working or explaining functional pattern is word &lt;code&gt;functional&lt;/code&gt; can be used in very &lt;code&gt;fun&lt;/code&gt; way. Just like it is used in title here. &lt;/p&gt;
-
-&lt;p&gt;Now, factory pattern may be the most used pattern in Object Oriented world. Here is code in &lt;code&gt;C#&lt;/code&gt;.&lt;/p&gt;
-
-</description><pubDate>Tue, 21 Apr 2015 18:30:00 Z</pubDate><a10:updated>2015-04-21T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;The fun part working or explaining functional pattern is word &lt;code&gt;functional&lt;/code&gt; can be used in very &lt;code&gt;fun&lt;/code&gt; way. Just like it is used in title here. &lt;/p&gt;
+</description><link>http://kunjan.in/2015/04/functional-singleton-pattern/</link><pubDate>Wed, 22 Apr 2015 18:30:00</pubDate><a10:updated>2015-04-23T00:00:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2015/04/functional-factory-pattern/</guid><title>Functional Factory Pattern</title><description type="html">&lt;p&gt;The fun part working or explaining functional pattern is word &lt;code&gt;functional&lt;/code&gt; can be used in very &lt;code&gt;fun&lt;/code&gt; way. Just like it is used in title here. &lt;/p&gt;
 
 &lt;p&gt;Now, factory pattern may be the most used pattern in Object Oriented world. Here is code in &lt;code&gt;C#&lt;/code&gt;.&lt;/p&gt;
 
@@ -256,11 +230,7 @@ Now, lets have a look at &lt;code&gt;F#&lt;/code&gt; equivalent&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;F# people. Your comments and review are required. Will update the code as per the suggestions. Do provide them. I don't mind adding examples of other functional language if anyone is helping me out. &lt;/p&gt;
 &lt;/blockquote&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/04/demystifying-design-pattern-in-a-functional-way/</guid><link>http://kunjan.in/2015/04/demystifying-design-pattern-in-a-functional-way/</link><title>Demystifying Design Pattern in a Functional Way</title><description>&lt;p&gt;As functional programming is taking pace in current software development. There is always a question what is the difference and why on the earth I should bother about it. &lt;/p&gt;
-
-&lt;p&gt;Most of the time reason of the question comes because of human nature of resistance towards learning new things. And then there are people who can easily learn new things but even for them unlearning something and re-learning new things is pretty tough. And this makes a problem every time. &lt;/p&gt;
-
-</description><pubDate>Mon, 20 Apr 2015 18:30:00 Z</pubDate><a10:updated>2015-04-20T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;As functional programming is taking pace in current software development. There is always a question what is the difference and why on the earth I should bother about it. &lt;/p&gt;
+</description><link>http://kunjan.in/2015/04/functional-factory-pattern/</link><pubDate>Tue, 21 Apr 2015 18:30:00</pubDate><a10:updated>2015-04-22T00:00:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2015/04/demystifying-design-pattern-in-a-functional-way/</guid><title>Demystifying Design Pattern in a Functional Way</title><description type="html">&lt;p&gt;As functional programming is taking pace in current software development. There is always a question what is the difference and why on the earth I should bother about it. &lt;/p&gt;
 
 &lt;p&gt;Most of the time reason of the question comes because of human nature of resistance towards learning new things. And then there are people who can easily learn new things but even for them unlearning something and re-learning new things is pretty tough. And this makes a problem every time. &lt;/p&gt;
 
@@ -299,11 +269,7 @@ Now, lets have a look at &lt;code&gt;F#&lt;/code&gt; equivalent&lt;/p&gt;
 &lt;p&gt;&lt;iframe src="https://player.vimeo.com/video/113588389" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="https://vimeo.com/113588389"&gt;Functional programming design patterns by Scott Wlaschin&lt;/a&gt; from &lt;a href="https://vimeo.com/ndcconferences"&gt;NDC Conferences&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
 
 &lt;p&gt;Now, in coming post I will try to take every pattern one by one and try to demystify it. Obviously in a functional way. And also try to explore some functional patterns also. Stay tuned. &lt;/p&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/03/journey-in-search-of-destination/</guid><link>http://kunjan.in/2015/03/journey-in-search-of-destination/</link><title>Journey in Search of Destination</title><description>&lt;p&gt;I never thought I would make this public. I wrote long back for one of my dear cousin. It was relevant then. But it is more relevant now. One of my best friend, batch mate, college mate, colleague at one point of time, rommie is now moving to another country. With a aim to never looking back for all the good reasons. &lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://twitter.com/nrezzzz"&gt;Andrew Vyas&lt;/a&gt; this is for you. You are one of the friend I never wanted because I knew one day time flew and you or me will move on and that may be good for future but at point it is utterly painful. Pain that can't be defined by words my friend. But still here are few words&lt;/p&gt;
-
-</description><pubDate>Sat, 07 Mar 2015 18:30:00 Z</pubDate><a10:updated>2015-03-07T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;I never thought I would make this public. I wrote long back for one of my dear cousin. It was relevant then. But it is more relevant now. One of my best friend, batch mate, college mate, colleague at one point of time, rommie is now moving to another country. With a aim to never looking back for all the good reasons. &lt;/p&gt;
+</description><link>http://kunjan.in/2015/04/demystifying-design-pattern-in-a-functional-way/</link><pubDate>Mon, 20 Apr 2015 18:30:00</pubDate><a10:updated>2015-04-21T00:00:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2015/03/journey-in-search-of-destination/</guid><title>Journey in Search of Destination</title><description type="html">&lt;p&gt;I never thought I would make this public. I wrote long back for one of my dear cousin. It was relevant then. But it is more relevant now. One of my best friend, batch mate, college mate, colleague at one point of time, rommie is now moving to another country. With a aim to never looking back for all the good reasons. &lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://twitter.com/nrezzzz"&gt;Andrew Vyas&lt;/a&gt; this is for you. You are one of the friend I never wanted because I knew one day time flew and you or me will move on and that may be good for future but at point it is utterly painful. Pain that can't be defined by words my friend. But still here are few words&lt;/p&gt;
 
@@ -342,9 +308,7 @@ then why there are memories them of who left behind, why there is pain, restless
 &lt;blockquote&gt;
   &lt;p&gt;Dear friend wherever you go my wishes and prayers are always there for you.&lt;/p&gt;
 &lt;/blockquote&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/</guid><link>http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/</link><title>Typed Hack of Cloudant using F#</title><description>&lt;p&gt;There is a continues war between typed and untyped data. But then there is need of finding a middle ground for ever growing application. There is place, a requirement when I feel application should be typed and data store should be untyped. So, I created this little code snippet to access cloudant (a couchbase fork) NOSQL database. &lt;/p&gt;
-
-</description><pubDate>Thu, 27 Nov 2014 18:30:00 Z</pubDate><a10:updated>2014-11-27T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;There is a continues war between typed and untyped data. But then there is need of finding a middle ground for ever growing application. There is place, a requirement when I feel application should be typed and data store should be untyped. So, I created this little code snippet to access cloudant (a couchbase fork) NOSQL database. &lt;/p&gt;
+</description><link>http://kunjan.in/2015/03/journey-in-search-of-destination/</link><pubDate>Sat, 07 Mar 2015 18:30:00</pubDate><a10:updated>2015-03-08T00:00:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/</guid><title>Typed Hack of Cloudant using F#</title><description type="html">&lt;p&gt;There is a continues war between typed and untyped data. But then there is need of finding a middle ground for ever growing application. There is place, a requirement when I feel application should be typed and data store should be untyped. So, I created this little code snippet to access cloudant (a couchbase fork) NOSQL database. &lt;/p&gt;
 
 &lt;!--excerpt--&gt;
 
@@ -481,11 +445,7 @@ GetJsonById&amp;lt;Person&amp;gt; ("3b389dc6b8ee0dcbf7f366faaa59cf42")
 &lt;blockquote&gt;
   &lt;p&gt;Highly inspired by &lt;a href="https://twitter.com/dmohl"&gt;Daniel Mohl's&lt;/a&gt; old library &lt;a href="https://github.com/dmohl/FSharpCouch"&gt;FSharpCouch&lt;/a&gt;. Thank you... :)&lt;/p&gt;
 &lt;/blockquote&gt;
-</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2014/11/sails-sailing-on-azure-websites/</guid><link>http://kunjan.in/2014/11/sails-sailing-on-azure-websites/</link><title>Sails sailing seamlessly on Azure Web Sites</title><description>&lt;p&gt;There are lots of &lt;a href="http://nodeframework.com/"&gt;frameworks&lt;/a&gt; for web development in &lt;a href="http://nodejs.org/"&gt;Nodejs&lt;/a&gt;. Many of them are pretty cool. I pretty much like the &lt;a href="http://sailsjs.org/#/"&gt;SailsJS&lt;/a&gt;. And also have worked on that in recent past. &lt;/p&gt;
-
-&lt;p&gt;Now, when it comes to hosting I love the &lt;a href="http://azure.microsoft.com/en-us/"&gt;Azure&lt;/a&gt; for various reasons. It is specially awesome when it comes to web sites. You do some experiments and throw it towards azure and that is ready for world to check out. My many experiments with &lt;a href="http://kunjan.in/category/functional-web/"&gt;F# and Web&lt;/a&gt; are already there. &lt;/p&gt;
-
-</description><pubDate>Thu, 06 Nov 2014 18:30:00 Z</pubDate><a10:updated>2014-11-06T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;There are lots of &lt;a href="http://nodeframework.com/"&gt;frameworks&lt;/a&gt; for web development in &lt;a href="http://nodejs.org/"&gt;Nodejs&lt;/a&gt;. Many of them are pretty cool. I pretty much like the &lt;a href="http://sailsjs.org/#/"&gt;SailsJS&lt;/a&gt;. And also have worked on that in recent past. &lt;/p&gt;
+</description><link>http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/</link><pubDate>Thu, 27 Nov 2014 18:30:00</pubDate><a10:updated>2014-11-28T00:00:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2014/11/sails-sailing-on-azure-websites/</guid><title>Sails sailing seamlessly on Azure Web Sites</title><description type="html">&lt;p&gt;There are lots of &lt;a href="http://nodeframework.com/"&gt;frameworks&lt;/a&gt; for web development in &lt;a href="http://nodejs.org/"&gt;Nodejs&lt;/a&gt;. Many of them are pretty cool. I pretty much like the &lt;a href="http://sailsjs.org/#/"&gt;SailsJS&lt;/a&gt;. And also have worked on that in recent past. &lt;/p&gt;
 
 &lt;p&gt;Now, when it comes to hosting I love the &lt;a href="http://azure.microsoft.com/en-us/"&gt;Azure&lt;/a&gt; for various reasons. It is specially awesome when it comes to web sites. You do some experiments and throw it towards azure and that is ready for world to check out. My many experiments with &lt;a href="http://kunjan.in/category/functional-web/"&gt;F# and Web&lt;/a&gt; are already there. &lt;/p&gt;
 
@@ -514,4 +474,4 @@ GetJsonById&amp;lt;Person&amp;gt; ("3b389dc6b8ee0dcbf7f366faaa59cf42")
 &lt;p&gt;Here is &lt;a href="http://sailslift.azurewebsites.net/"&gt;demo&lt;/a&gt; and my &lt;a href="https://github.com/kunjee17/sailslift"&gt;github repo&lt;/a&gt;. Feel free to clone and give PR with some demo application. I seriously like to see how far it can go.&lt;/p&gt;
 
 &lt;p&gt;Let me know if any further details are required.&lt;/p&gt;
-</a10:content></item></channel></rss>
+</description><link>http://kunjan.in/2014/11/sails-sailing-on-azure-websites/</link><pubDate>Thu, 06 Nov 2014 18:30:00</pubDate><a10:updated>2014-11-07T00:00:00+05:30</a10:updated></item></channel></rss>
