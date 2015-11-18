@@ -3,6 +3,7 @@ title: Waiting for your Smile
 metadescription: A small effort dedicated to a person who is having World's best smile 
 category: Non-Technical,Poem
 layout: post
+published: private
 ---
 Its wonderful morning  
 Sun is waiting to rise  
