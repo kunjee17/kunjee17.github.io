@@ -1,4 +1,191 @@
-<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><description /><link>http://kunjan.in/feed.xml</link><item><guid isPermaLink="false">http://kunjan.in/2015/11/reactive-services-with-servicestack-and-fsharp/</guid><title>Reactive Services with Servicestack and F#</title><description type="html">&lt;p&gt;Reactive word is not new nowadays. If you want your library to get limelight, use reactive word in the name any way possible and it will definitely get initial attention. Reactive word is appropriate for things that follows &lt;a href="http://www.reactivemanifesto.org/"&gt;reactive manifesto&lt;/a&gt;. That is true for now. And there are many variant of libraries on server and client to fulfil this.&lt;/p&gt;
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title /><link>http://kunjan.in/feed.xml</link><description /><item><guid isPermaLink="true">http://kunjan.in/2015/12/1729/</guid><link>http://kunjan.in/2015/12/1729/</link><title>1729</title><description>&lt;blockquote&gt;
+  &lt;p&gt;This post is part of &lt;a href="https://sergeytihon.wordpress.com/2015/10/25/f-advent-calendar-in-english-2015/"&gt;F# Advent&lt;/a&gt; calender. Thanks &lt;a href="https://twitter.com/sergey_tihon"&gt;Sergey Tihon&lt;/a&gt; for arranging this and giving me chance. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;First I like to clarify that this was &lt;em&gt;not&lt;/em&gt; my original choice for FSAdvent calender. I was going to write long post about web, AKKA, api and real time system. My current working area. But this time's calender entries are reaching new level and dimension. And recent &lt;a href="http://evelinag.com/blog/2015/12-15-star-wars-social-network/index.html#.VnK_aRV97IV"&gt;post&lt;/a&gt; from &lt;a href="https://twitter.com/evelgab"&gt;Evelina Gabasova&lt;/a&gt; is kind of reason behind change. Do read the post and you may like to re-watch &lt;strong&gt;Star Wars&lt;/strong&gt; series. Evelina you are super awesome. And post was too good.  &lt;/p&gt;
+
+&lt;p&gt;So, why &lt;strong&gt;&lt;em&gt;1729&lt;/em&gt;&lt;/strong&gt;?&lt;/p&gt;
+
+</description><pubDate>Wed, 16 Dec 2015 18:30:00 Z</pubDate><a10:updated>2015-12-16T18:30:00Z</a10:updated><a10:content type="html">&lt;blockquote&gt;
+  &lt;p&gt;This post is part of &lt;a href="https://sergeytihon.wordpress.com/2015/10/25/f-advent-calendar-in-english-2015/"&gt;F# Advent&lt;/a&gt; calender. Thanks &lt;a href="https://twitter.com/sergey_tihon"&gt;Sergey Tihon&lt;/a&gt; for arranging this and giving me chance. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;First I like to clarify that this was &lt;em&gt;not&lt;/em&gt; my original choice for FSAdvent calender. I was going to write long post about web, AKKA, api and real time system. My current working area. But this time's calender entries are reaching new level and dimension. And recent &lt;a href="http://evelinag.com/blog/2015/12-15-star-wars-social-network/index.html#.VnK_aRV97IV"&gt;post&lt;/a&gt; from &lt;a href="https://twitter.com/evelgab"&gt;Evelina Gabasova&lt;/a&gt; is kind of reason behind change. Do read the post and you may like to re-watch &lt;strong&gt;Star Wars&lt;/strong&gt; series. Evelina you are super awesome. And post was too good.  &lt;/p&gt;
+
+&lt;p&gt;So, why &lt;strong&gt;&lt;em&gt;1729&lt;/em&gt;&lt;/strong&gt;?&lt;/p&gt;
+
+&lt;!--excerpt--&gt;
+
+&lt;p&gt;I have special love for Mathematics. Unluckily I never got chance to take formal mathematics training. I'm an engineer so know things here and there to solve the problem. May be more than others for Physics and Mathematics just because of my love. It is so much fun doing them. &lt;/p&gt;
+
+&lt;p&gt;In our side of country if you are scoring good marks in School either you become doctor or if little less then engineer. Normally there is no other choices. Hope you got the point why I'm engineer (mine was little too less). But if you ask a name of well known gifted mathematician from India first name come is &lt;a href="https://en.wikipedia.org/wiki/Srinivasa_Ramanujan"&gt;Srinivasa Ramanujan&lt;/a&gt;. And we have a exam series on his name. It is way tough, I still remember that I prepared and never gather enough guts to give one. Damn afraid of failing. But my senior and first leaving mathematics role model my senior in school &lt;a href="http://www.pubfacts.com/author/Vithal+Rangarajan"&gt;Dr.Vithal Rangarajan&lt;/a&gt; scored 2nd rank and joined Medicine. Yet, my another friend &lt;a href="https://twitter.com/path_to_parth"&gt;Dr.Parth Ganatra&lt;/a&gt; same story. You mostly getting gist why we are having rare Ramanujans in India. Because most of them become Doctors. &lt;/p&gt;
+
+&lt;p&gt;Enough of back ground noise. Let's have some fun with numbers. You can check out wiki page for the story of &lt;strong&gt;&lt;em&gt;1729&lt;/em&gt;&lt;/strong&gt; number. It is the smallest number expressible as the sum of two cubes in two different ways. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Ok, that is good. But I don't have enough brain power to cross check that. And if that is smallest which are others?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So, I decided to find out by self. And at midnight I started working on this. &lt;/p&gt;
+
+&lt;p&gt;My first try was going to question form the result. But for some reason &lt;code&gt;Math.Floor (1728.0 ** (1.0/3.0))&lt;/code&gt; is resulting in &lt;code&gt;11.0&lt;/code&gt;. I have no idea why. It should come &lt;code&gt;12.0&lt;/code&gt;. Then I thought how he has arrived to this number. It is smallest so he must have started from &lt;code&gt;1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;F# gurus can you please tell me why &lt;code&gt;1728.0 ** (1.0/3.0) = 12.0 //false&lt;/code&gt; ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Here is code snippet.  I start with sequence of numbers and cube it. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let posNum = seq {1..101}
+
+let cube x = x * x * x 
+
+let cubeposNum = 
+    posNum 
+    |&amp;gt; Seq.map (fun x -&amp;gt; (x, cube x))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I have returned tuple instead of cube result so I can use it afterwords in visualizing data.&lt;/p&gt;
+
+&lt;p&gt;Now, its time to find out total combinations &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let totalCombination = 
+    cubeposNum 
+    |&amp;gt; Seq.map (fun (a,b) -&amp;gt; cubeposNum |&amp;gt; Seq.map (fun (x,y) -&amp;gt; (a,x,b+y)))
+    |&amp;gt; Seq.concat
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It gives all the possible combinations numbers. Again in tuple I am returning result and numbers that are being cubed and added. Same reason for display purpose.&lt;/p&gt;
+
+&lt;p&gt;Now, time for truth.&lt;/p&gt;
+
+&lt;p&gt;Here is final result &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let finalResult =
+    totalCombination
+    |&amp;gt; Seq.countBy (fun (x,y,z) -&amp;gt; z)
+    |&amp;gt; Seq.filter (fun (x,y) -&amp;gt; y &amp;gt;= 4)
+    |&amp;gt; Seq.map (fun (x,y) -&amp;gt; x)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It will return Sequence of numbers fulfilling above condition. if you are wondering for &lt;code&gt;y&amp;gt;=4&lt;/code&gt; then 4 is because (1,2,9) is same as (2,1,9). As I need two distinct pair, I having four pair. I did have used greater than 4 but couldn't found any pair bigger than 4 for given set. &lt;/p&gt;
+
+&lt;p&gt;Time for doing some analysis of numbers. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let dirtyHack (inputSeq)=
+    let a = inputSeq |&amp;gt; Seq.item 0
+    let b = inputSeq |&amp;gt; Seq.item 1
+    let c = inputSeq |&amp;gt; Seq.item 2
+    (a, b, c)
+
+let pairValues =
+    finalResult 
+    |&amp;gt; Seq.map (fun x -&amp;gt; totalCombination |&amp;gt; Seq.filter (fun (a,b,c) -&amp;gt; c = x ))
+    |&amp;gt; Seq.map (fun a -&amp;gt; a |&amp;gt; Seq.map (fun (x,y,z) -&amp;gt; seq[x;y;z] |&amp;gt; Seq.sort |&amp;gt; dirtyHack))
+    |&amp;gt; Seq.map (fun x -&amp;gt; x |&amp;gt; Seq.distinct)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It will give Sequence of Sequences which contains tuple of numbers. Where tuple is in form of &lt;code&gt;(a , b, a^3 + b^3)&lt;/code&gt;. &lt;em&gt;Dirty hack&lt;/em&gt; part I couldn't get it right so I will be grateful if someone can provide better solution in that part.&lt;/p&gt;
+
+&lt;p&gt;We have all the things. It's time to put data to view. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//form crazyness - a copy paste from 2010 code :P
+
+let form = new Form(Visible = true, Text = "A Simple F# Form",
+                    TopMost = true, Size = Size(600,600))
+
+let data = new DataGridView(Dock = DockStyle.Fill, Text = "Hardy–Ramanujan number",
+                            Font = new Font("Lucida Console",12.0f),
+                            ForeColor = Color.DarkBlue
+                            )
+
+
+form.Controls.Add(data)
+
+data.DataSource &amp;lt;- (pairValues |&amp;gt; Seq.concat |&amp;gt; Seq.sortBy (fun (x,y,z) -&amp;gt; z) |&amp;gt; Seq.toArray)
+data.Columns.[0].Width &amp;lt;- 200
+data.Columns.[1].Width &amp;lt;- 200
+data.Columns.[2].Width &amp;lt;- 200
+
+data.Columns.[0].HeaderText &amp;lt;- "a"
+data.Columns.[1].HeaderText &amp;lt;- "b"
+data.Columns.[2].HeaderText &amp;lt;- "(a^3 + b^3)"
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Clearing up the data showing up in grid view. Below are screen shots of complete data.
+&lt;img src="http://kunjan.in/images/1729Form1.PNG" alt="" /&gt;
+&lt;img src="http://kunjan.in/images/1729Form2.PNG" alt="" /&gt;
+&lt;img src="http://kunjan.in/images/1729Form3.PNG" alt="" /&gt;&lt;/p&gt;
+
+&lt;p&gt;Looks good. &lt;/p&gt;
+
+&lt;p&gt;Put on chart to see where data is moving.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let taxicabnumbers = pairValues 
+                     |&amp;gt; Seq.concat 
+                     |&amp;gt; Seq.sortBy (fun (x,y,z) -&amp;gt; z) 
+                     |&amp;gt; Seq.map (fun (x,y,z) -&amp;gt; z) 
+                     |&amp;gt; Seq.distinct
+
+Chart.Point (taxicabnumbers,"TaxiCabNumbers","TaxiCab Number")
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src="http://kunjan.in/images/1729Chart1.PNG" alt="" /&gt;&lt;/p&gt;
+
+&lt;p&gt;above chart is showing distribution of result of numbers which are fulfilling above condition.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let taxicabnumbersX = pairValues 
+                     |&amp;gt; Seq.concat 
+                     |&amp;gt; Seq.sortBy (fun (x,y,z) -&amp;gt; z) 
+                     |&amp;gt; Seq.map (fun (x,y,z) -&amp;gt; (x,z)) 
+
+
+Chart.Point (taxicabnumbersX,"TaxiCabNumbersX","TaxiCab Number in ref to X")
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src="http://kunjan.in/images/1729Chart2.PNG" alt="" /&gt;&lt;/p&gt;
+
+&lt;p&gt;above chart is showing distribution in compare to number X&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let taxicabnumbersY = pairValues 
+                     |&amp;gt; Seq.concat 
+                     |&amp;gt; Seq.sortBy (fun (x,y,z) -&amp;gt; z) 
+                     |&amp;gt; Seq.map (fun (x,y,z) -&amp;gt; (y,z)) 
+
+
+Chart.Point (taxicabnumbersY,"TaxiCabNumbersY","TaxiCab Number in ref to Y")
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src="http://kunjan.in/images/1729Chart3.PNG" alt="" /&gt;&lt;/p&gt;
+
+&lt;p&gt;above chart is showing distribution in compare to number Y&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Chart.Combine[
+    Chart.Point(taxicabnumbersX, "TaxiCabNumbersX")
+    Chart.Point(taxicabnumbersY, "TaxiCabNumbersY")
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src="http://kunjan.in/images/1729Chart4.PNG" alt="" /&gt;&lt;/p&gt;
+
+&lt;p&gt;above chart is showing both X,Y. Here, X and Y is pretty much interchangeable.&lt;/p&gt;
+
+&lt;p&gt;Code is not that good. But F# makes it pretty easy to work with. I will not bash any other language or style of programming today. As it is my &lt;strong&gt;*BirthDay&lt;/strong&gt; today (1712 was pretty boring number and so I took 1729. :P ). But you can make it out. How, easy it can be. &lt;/p&gt;
+
+&lt;p&gt;Ramanujan is having many other interesting formula that can be proved and analyst same way. One of them I personally like is [Partition Number Theory](https://en.wikipedia.org/wiki/Partition&lt;em&gt;(number&lt;/em&gt;theory), but may be next time. At his time we don't that much computing power or programming language to solve this type of problems. Or even prove them. How, he did it. No one knows. (I doubt he must be more functional. ;) ). &lt;/p&gt;
+
+&lt;p&gt;I will really appreciate any input for code. I know it is pretty poor in quality. &lt;a href="https://gist.github.com/kunjee17/6965af56a3821ad2d850"&gt;Gist&lt;/a&gt; is here. I love to have comments and PR. I will update my code/blog accordingly. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Special request. It will be great if someone can compress the code that can be tweeted to &lt;a href="https://twitter.com/fsibot"&gt;fsibot&lt;/a&gt; and it will return 1729. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Thanks for wonderful and supporting community.  &lt;strong&gt;Merry Christmas and Happy New Year&lt;/strong&gt; to all. &lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/11/reactive-services-with-servicestack-and-fsharp/</guid><link>http://kunjan.in/2015/11/reactive-services-with-servicestack-and-fsharp/</link><title>Reactive Services with Servicestack and F#</title><description>&lt;p&gt;Reactive word is not new nowadays. If you want your library to get limelight, use reactive word in the name any way possible and it will definitely get initial attention. Reactive word is appropriate for things that follows &lt;a href="http://www.reactivemanifesto.org/"&gt;reactive manifesto&lt;/a&gt;. That is true for now. And there are many variant of libraries on server and client to fulfil this.&lt;/p&gt;
+
+&lt;p&gt;Let's start from the start of web.&lt;/p&gt;
+
+</description><pubDate>Sun, 29 Nov 2015 18:30:00 Z</pubDate><a10:updated>2015-11-29T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Reactive word is not new nowadays. If you want your library to get limelight, use reactive word in the name any way possible and it will definitely get initial attention. Reactive word is appropriate for things that follows &lt;a href="http://www.reactivemanifesto.org/"&gt;reactive manifesto&lt;/a&gt;. That is true for now. And there are many variant of libraries on server and client to fulfil this.&lt;/p&gt;
 
 &lt;p&gt;Let's start from the start of web.&lt;/p&gt;
 
@@ -227,7 +414,9 @@ module AsyncProcess =
 &lt;blockquote&gt;
   &lt;p&gt;P.S. - With this there will be no need for spinner at all.&lt;/p&gt;
 &lt;/blockquote&gt;
-</description><link>http://kunjan.in/2015/11/reactive-services-with-servicestack-and-fsharp/</link><pubDate>Sun, 29 Nov 2015 18:30:00</pubDate><a10:updated>2015-11-29T18:30:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2015/11/azure-websites-with-paket/</guid><title>Azure web sites with Paket</title><description type="html">&lt;p&gt;Whoever worked with Microsoft Shop knows about &lt;a href="https://www.nuget.org/"&gt;nuget&lt;/a&gt;. It is package manager for anything and everything related to .Net. And it is getting better and better with versions coming in. But again it is nowhere near maturity needed to work with projects having many small projects. Things get cranky soon. &lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/11/azure-websites-with-paket/</guid><link>http://kunjan.in/2015/11/azure-websites-with-paket/</link><title>Azure web sites with Paket</title><description>&lt;p&gt;Whoever worked with Microsoft Shop knows about &lt;a href="https://www.nuget.org/"&gt;nuget&lt;/a&gt;. It is package manager for anything and everything related to .Net. And it is getting better and better with versions coming in. But again it is nowhere near maturity needed to work with projects having many small projects. Things get cranky soon. &lt;/p&gt;
+
+</description><pubDate>Mon, 02 Nov 2015 18:30:00 Z</pubDate><a10:updated>2015-11-02T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Whoever worked with Microsoft Shop knows about &lt;a href="https://www.nuget.org/"&gt;nuget&lt;/a&gt;. It is package manager for anything and everything related to .Net. And it is getting better and better with versions coming in. But again it is nowhere near maturity needed to work with projects having many small projects. Things get cranky soon. &lt;/p&gt;
 
 &lt;!--excerpt--&gt;
 
@@ -295,7 +484,15 @@ if not "%DEPLOYMENT_TARGET%" == "" (
 &lt;p&gt;If you want to go little bit advanced and want kinda build system then you can always try for &lt;a href="http://fsharp.github.io/FAKE/"&gt;FAKE&lt;/a&gt;. But if you are in great hurry and don't want waste time with nuget issues go for Paket. &lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Happy Packaging!!!&lt;/strong&gt;&lt;/p&gt;
-</description><link>http://kunjan.in/2015/11/azure-websites-with-paket/</link><pubDate>Mon, 02 Nov 2015 18:30:00</pubDate><a10:updated>2015-11-02T18:30:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2015/11/angularjs-and-mess-we-are-in/</guid><title>Angularjs and the Mess we are in</title><description type="html">&lt;p&gt;Who doesn't know &lt;a href="https://angularjs.org/"&gt;Angularjs&lt;/a&gt;?!? Everyone worked is web, mobile, server, windows, mac, Linux, Google, Microsoft or anyway related to this knows about it. And its fun when people tell me&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/11/angularjs-and-mess-we-are-in/</guid><link>http://kunjan.in/2015/11/angularjs-and-mess-we-are-in/</link><title>Angularjs and the Mess we are in</title><description>&lt;p&gt;Who doesn't know &lt;a href="https://angularjs.org/"&gt;Angularjs&lt;/a&gt;?!? Everyone worked is web, mobile, server, windows, mac, Linux, Google, Microsoft or anyway related to this knows about it. And its fun when people tell me&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;You know about angularjs. Its pretty hot now a days. I'm planning to learn it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Oh man...&lt;/p&gt;
+
+</description><pubDate>Sun, 01 Nov 2015 18:30:00 Z</pubDate><a10:updated>2015-11-01T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Who doesn't know &lt;a href="https://angularjs.org/"&gt;Angularjs&lt;/a&gt;?!? Everyone worked is web, mobile, server, windows, mac, Linux, Google, Microsoft or anyway related to this knows about it. And its fun when people tell me&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;You know about angularjs. Its pretty hot now a days. I'm planning to learn it.&lt;/p&gt;
@@ -358,7 +555,11 @@ if not "%DEPLOYMENT_TARGET%" == "" (
 &lt;p&gt;Big project. &lt;a href="http://emberjs.com/"&gt;Ember&lt;/a&gt; is there. But few times I feel it is unnecessary complexity. Two way binding and not much of angular mess &lt;a href="http://aurelia.io/"&gt;Aurelia&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Above all opinion is derived from my personal experience and not influenced by any one. And it is my own.&lt;/p&gt;
-</description><link>http://kunjan.in/2015/11/angularjs-and-mess-we-are-in/</link><pubDate>Sun, 01 Nov 2015 18:30:00</pubDate><a10:updated>2015-11-01T18:30:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2015/04/functional-command-pattern/</guid><title>Functional Command Pattern</title><description type="html">&lt;p&gt;Command pattern is a pattern which allows executor of the pattern to execute or playback the commands. In most of the application wherever Undo/Redo is implemented this pattern is used. &lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/04/functional-command-pattern/</guid><link>http://kunjan.in/2015/04/functional-command-pattern/</link><title>Functional Command Pattern</title><description>&lt;p&gt;Command pattern is a pattern which allows executor of the pattern to execute or playback the commands. In most of the application wherever Undo/Redo is implemented this pattern is used. &lt;/p&gt;
+
+&lt;p&gt;Here is C# code. &lt;/p&gt;
+
+</description><pubDate>Fri, 24 Apr 2015 18:30:00 Z</pubDate><a10:updated>2015-04-24T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Command pattern is a pattern which allows executor of the pattern to execute or playback the commands. In most of the application wherever Undo/Redo is implemented this pattern is used. &lt;/p&gt;
 
 &lt;p&gt;Here is C# code. &lt;/p&gt;
 
@@ -377,7 +578,11 @@ if not "%DEPLOYMENT_TARGET%" == "" (
 &lt;blockquote&gt;
   &lt;p&gt;Fan of &lt;a href="http://martinfowler.com/bliki/CQRS.html"&gt;CQRS&lt;/a&gt; and &lt;a href="http://www.martinfowler.com/eaaDev/EventSourcing.html"&gt;Event Sourcing&lt;/a&gt;; listen up these both design concepts are standing on the shoulders of command pattern.&lt;/p&gt;
 &lt;/blockquote&gt;
-</description><link>http://kunjan.in/2015/04/functional-command-pattern/</link><pubDate>Fri, 24 Apr 2015 18:30:00</pubDate><a10:updated>2015-04-24T18:30:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2015/04/functional-strategy-pattern/</guid><title>Functional Strategy Pattern</title><description type="html">&lt;p&gt;Another pattern that is widely used in Object Oriented world. And as far as .Net world is concern it is may be most used pattern in wide range of .Net API. And it &lt;em&gt;heavily&lt;/em&gt; used in &lt;em&gt;heavily&lt;/em&gt; used LINQ API.&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/04/functional-strategy-pattern/</guid><link>http://kunjan.in/2015/04/functional-strategy-pattern/</link><title>Functional Strategy Pattern</title><description>&lt;p&gt;Another pattern that is widely used in Object Oriented world. And as far as .Net world is concern it is may be most used pattern in wide range of .Net API. And it &lt;em&gt;heavily&lt;/em&gt; used in &lt;em&gt;heavily&lt;/em&gt; used LINQ API.&lt;/p&gt;
+
+&lt;p&gt;So, I guess giving a understanding of that is kinda waste of space. Have a look at C# code.&lt;/p&gt;
+
+</description><pubDate>Thu, 23 Apr 2015 18:30:00 Z</pubDate><a10:updated>2015-04-23T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;Another pattern that is widely used in Object Oriented world. And as far as .Net world is concern it is may be most used pattern in wide range of .Net API. And it &lt;em&gt;heavily&lt;/em&gt; used in &lt;em&gt;heavily&lt;/em&gt; used LINQ API.&lt;/p&gt;
 
 &lt;p&gt;So, I guess giving a understanding of that is kinda waste of space. Have a look at C# code.&lt;/p&gt;
 
@@ -406,7 +611,11 @@ if not "%DEPLOYMENT_TARGET%" == "" (
 &lt;blockquote&gt;
   &lt;p&gt;It something all togather when this pattern shown in context of Functional Programming. I am just composing functions. But it serves as Strategy Pattern of OOP so I have used that.&lt;/p&gt;
 &lt;/blockquote&gt;
-</description><link>http://kunjan.in/2015/04/functional-strategy-pattern/</link><pubDate>Thu, 23 Apr 2015 18:30:00</pubDate><a10:updated>2015-04-23T18:30:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2015/04/functional-singleton-pattern/</guid><title>Functional Singleton Pattern</title><description type="html">&lt;p&gt;This is my favorite pattern. First pattern I learn. And till date I don't know where to use it. &lt;strong&gt;So, I use everywhere. :P&lt;/strong&gt; &lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/04/functional-singleton-pattern/</guid><link>http://kunjan.in/2015/04/functional-singleton-pattern/</link><title>Functional Singleton Pattern</title><description>&lt;p&gt;This is my favorite pattern. First pattern I learn. And till date I don't know where to use it. &lt;strong&gt;So, I use everywhere. :P&lt;/strong&gt; &lt;/p&gt;
+
+&lt;p&gt;I have mainly used for database connection object and then all JavaScript frameworks are exposing Singleton object only. I can say it is quite useful in case of web.&lt;/p&gt;
+
+</description><pubDate>Wed, 22 Apr 2015 18:30:00 Z</pubDate><a10:updated>2015-04-22T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;This is my favorite pattern. First pattern I learn. And till date I don't know where to use it. &lt;strong&gt;So, I use everywhere. :P&lt;/strong&gt; &lt;/p&gt;
 
 &lt;p&gt;I have mainly used for database connection object and then all JavaScript frameworks are exposing Singleton object only. I can say it is quite useful in case of web.&lt;/p&gt;
 
@@ -435,7 +644,11 @@ if not "%DEPLOYMENT_TARGET%" == "" (
 &lt;p&gt;Now, in current scenarios where garbage collector are so powerful and we are having quite a good amount of hardware to process. Singleton is not used while writing domain/business code. But still it is widely used on API side to expose specific functionality. &lt;/p&gt;
 
 &lt;p&gt;I am still to find relevance in case of functional programming. In functional programming &lt;code&gt;type&lt;/code&gt; is different then &lt;code&gt;class&lt;/code&gt;. In normal cases they don't have behaviors attached with it. So, it reducing the need of this pattern. &lt;/p&gt;
-</description><link>http://kunjan.in/2015/04/functional-singleton-pattern/</link><pubDate>Wed, 22 Apr 2015 18:30:00</pubDate><a10:updated>2015-04-22T18:30:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2015/04/functional-factory-pattern/</guid><title>Functional Factory Pattern</title><description type="html">&lt;p&gt;The fun part working or explaining functional pattern is word &lt;code&gt;functional&lt;/code&gt; can be used in very &lt;code&gt;fun&lt;/code&gt; way. Just like it is used in title here. &lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/04/functional-factory-pattern/</guid><link>http://kunjan.in/2015/04/functional-factory-pattern/</link><title>Functional Factory Pattern</title><description>&lt;p&gt;The fun part working or explaining functional pattern is word &lt;code&gt;functional&lt;/code&gt; can be used in very &lt;code&gt;fun&lt;/code&gt; way. Just like it is used in title here. &lt;/p&gt;
+
+&lt;p&gt;Now, factory pattern may be the most used pattern in Object Oriented world. Here is code in &lt;code&gt;C#&lt;/code&gt;.&lt;/p&gt;
+
+</description><pubDate>Tue, 21 Apr 2015 18:30:00 Z</pubDate><a10:updated>2015-04-21T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;The fun part working or explaining functional pattern is word &lt;code&gt;functional&lt;/code&gt; can be used in very &lt;code&gt;fun&lt;/code&gt; way. Just like it is used in title here. &lt;/p&gt;
 
 &lt;p&gt;Now, factory pattern may be the most used pattern in Object Oriented world. Here is code in &lt;code&gt;C#&lt;/code&gt;.&lt;/p&gt;
 
@@ -459,7 +672,11 @@ Now, lets have a look at &lt;code&gt;F#&lt;/code&gt; equivalent&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;F# people. Your comments and review are required. Will update the code as per the suggestions. Do provide them. I don't mind adding examples of other functional language if anyone is helping me out. &lt;/p&gt;
 &lt;/blockquote&gt;
-</description><link>http://kunjan.in/2015/04/functional-factory-pattern/</link><pubDate>Tue, 21 Apr 2015 18:30:00</pubDate><a10:updated>2015-04-21T18:30:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2015/04/demystifying-design-pattern-in-a-functional-way/</guid><title>Demystifying Design Pattern in a Functional Way</title><description type="html">&lt;p&gt;As functional programming is taking pace in current software development. There is always a question what is the difference and why on the earth I should bother about it. &lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/04/demystifying-design-pattern-in-a-functional-way/</guid><link>http://kunjan.in/2015/04/demystifying-design-pattern-in-a-functional-way/</link><title>Demystifying Design Pattern in a Functional Way</title><description>&lt;p&gt;As functional programming is taking pace in current software development. There is always a question what is the difference and why on the earth I should bother about it. &lt;/p&gt;
+
+&lt;p&gt;Most of the time reason of the question comes because of human nature of resistance towards learning new things. And then there are people who can easily learn new things but even for them unlearning something and re-learning new things is pretty tough. And this makes a problem every time. &lt;/p&gt;
+
+</description><pubDate>Mon, 20 Apr 2015 18:30:00 Z</pubDate><a10:updated>2015-04-20T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;As functional programming is taking pace in current software development. There is always a question what is the difference and why on the earth I should bother about it. &lt;/p&gt;
 
 &lt;p&gt;Most of the time reason of the question comes because of human nature of resistance towards learning new things. And then there are people who can easily learn new things but even for them unlearning something and re-learning new things is pretty tough. And this makes a problem every time. &lt;/p&gt;
 
@@ -498,7 +715,11 @@ Now, lets have a look at &lt;code&gt;F#&lt;/code&gt; equivalent&lt;/p&gt;
 &lt;p&gt;&lt;iframe src="https://player.vimeo.com/video/113588389" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="https://vimeo.com/113588389"&gt;Functional programming design patterns by Scott Wlaschin&lt;/a&gt; from &lt;a href="https://vimeo.com/ndcconferences"&gt;NDC Conferences&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
 
 &lt;p&gt;Now, in coming post I will try to take every pattern one by one and try to demystify it. Obviously in a functional way. And also try to explore some functional patterns also. Stay tuned. &lt;/p&gt;
-</description><link>http://kunjan.in/2015/04/demystifying-design-pattern-in-a-functional-way/</link><pubDate>Mon, 20 Apr 2015 18:30:00</pubDate><a10:updated>2015-04-20T18:30:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2015/03/journey-in-search-of-destination/</guid><title>Journey in Search of Destination</title><description type="html">&lt;p&gt;I never thought I would make this public. I wrote long back for one of my dear cousin. It was relevant then. But it is more relevant now. One of my best friend, batch mate, college mate, colleague at one point of time, rommie is now moving to another country. With a aim to never looking back for all the good reasons. &lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/03/journey-in-search-of-destination/</guid><link>http://kunjan.in/2015/03/journey-in-search-of-destination/</link><title>Journey in Search of Destination</title><description>&lt;p&gt;I never thought I would make this public. I wrote long back for one of my dear cousin. It was relevant then. But it is more relevant now. One of my best friend, batch mate, college mate, colleague at one point of time, rommie is now moving to another country. With a aim to never looking back for all the good reasons. &lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://twitter.com/nrezzzz"&gt;Andrew Vyas&lt;/a&gt; this is for you. You are one of the friend I never wanted because I knew one day time flew and you or me will move on and that may be good for future but at point it is utterly painful. Pain that can't be defined by words my friend. But still here are few words&lt;/p&gt;
+
+</description><pubDate>Sat, 07 Mar 2015 18:30:00 Z</pubDate><a10:updated>2015-03-07T18:30:00Z</a10:updated><a10:content type="html">&lt;p&gt;I never thought I would make this public. I wrote long back for one of my dear cousin. It was relevant then. But it is more relevant now. One of my best friend, batch mate, college mate, colleague at one point of time, rommie is now moving to another country. With a aim to never looking back for all the good reasons. &lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://twitter.com/nrezzzz"&gt;Andrew Vyas&lt;/a&gt; this is for you. You are one of the friend I never wanted because I knew one day time flew and you or me will move on and that may be good for future but at point it is utterly painful. Pain that can't be defined by words my friend. But still here are few words&lt;/p&gt;
 
@@ -537,141 +758,4 @@ then why there are memories them of who left behind, why there is pain, restless
 &lt;blockquote&gt;
   &lt;p&gt;Dear friend wherever you go my wishes and prayers are always there for you.&lt;/p&gt;
 &lt;/blockquote&gt;
-</description><link>http://kunjan.in/2015/03/journey-in-search-of-destination/</link><pubDate>Sat, 07 Mar 2015 18:30:00</pubDate><a10:updated>2015-03-07T18:30:00+05:30</a10:updated></item><item><guid isPermaLink="false">http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/</guid><title>Typed Hack of Cloudant using F#</title><description type="html">&lt;p&gt;There is a continues war between typed and untyped data. But then there is need of finding a middle ground for ever growing application. There is place, a requirement when I feel application should be typed and data store should be untyped. So, I created this little code snippet to access cloudant (a couchbase fork) NOSQL database. &lt;/p&gt;
-
-&lt;!--excerpt--&gt;
-
-&lt;p&gt;I was knowing about &lt;a href="http://cloudant.com"&gt;Cloudant&lt;/a&gt; from long back. Even before IBM bought it. It is indeed a wonderful service and also kinda free for small stuff. I thought this will be best fit for now. (I still don't know why I didn't use Mongodb). &lt;/p&gt;
-
-&lt;p&gt;As there is no need of scary relations ships with database. So, I decided to use this one. &lt;/p&gt;
-
-&lt;p&gt;Now as one problem is solved other started. It is saving data that is in JSON format. That is untyped and F# is statically typed. I have tried few libraries developed in C# but was not happy. So, I thought it is just a HTTP request, why shouldn't I give it as shot to make one of my own helper module? It is may be some what dirty attempt but I got it working what I needed with less than 100 lines. Here is code snippets.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#r "../packages/Http.fs.1.4.0/lib/net40/HttpClient.dll"
-#r "../packages/Newtonsoft.Json.6.0.6/lib/net45/Newtonsoft.Json.dll"
-
-open HttpClient
-open Newtonsoft.Json
-open Newtonsoft.Json.Linq
-
-[&amp;lt;CLIMutableAttribute&amp;gt;]
-type Row&amp;lt;'a&amp;gt; = 
-    { id : string
-      key : string
-      value : 'a }
-
-[&amp;lt;CLIMutableAttribute&amp;gt;]
-type ResultSet&amp;lt;'a&amp;gt; = 
-    { total_rows : int
-      offset : int
-      rows : Row&amp;lt;'a&amp;gt; [] }
-
-[&amp;lt;CLIMutableAttribute&amp;gt;]
-type PostResult = 
-    { ok : string
-      id : string
-      rev : string }
-
-[&amp;lt;CLIMutableAttribute&amp;gt;]
-type PostError = 
-    { error : string
-      reason : string }
-
-let cloudantUrl = @"&amp;lt;cloudanturl/databasename/&amp;gt;"
-let username = @"&amp;lt;username&amp;gt;"
-let password = @"&amp;lt;password&amp;gt;"
-
-let private cloudantGet url = 
-    let request = 
-        createRequest Get url
-        |&amp;gt; withBasicAuthentication username password
-        |&amp;gt; withHeader (ContentType "application/json")
-    request |&amp;gt; getResponseBody
-
-let private cloudantPost url data = 
-    let request = 
-        createRequest Post url
-        |&amp;gt; withBasicAuthentication username password
-        |&amp;gt; withBody data
-        |&amp;gt; withHeader (ContentType "application/json")
-    request |&amp;gt; getResponseBody
-
-let private checkDataForNewId (data : JObject) = 
-    let removeIdrev (data : JObject) = 
-        data.Remove("_id") |&amp;gt; ignore
-        data.Remove("_rev") |&amp;gt; ignore
-    if System.String.IsNullOrEmpty(data.["_id"].ToString()) || System.String.IsNullOrEmpty(data.["_rev"].ToString()) then 
-        removeIdrev data
-    data
-
-let PostJson&amp;lt;'a&amp;gt; data = 
-    let serializedObject = JObject.FromObject(data) |&amp;gt; checkDataForNewId
-    serializedObject.Add("$doctype", JToken.Parse("'" + data.GetType().Name + "'"))
-    cloudantPost cloudantUrl &amp;lt;| serializedObject.ToString()
-
-let GetJsonByType&amp;lt;'a&amp;gt; = 
-    let resultset = 
-        JsonConvert.DeserializeObject&amp;lt;ResultSet&amp;lt;'a&amp;gt;&amp;gt;
-            (cloudantGet (cloudantUrl + "/_design/Type/_view/" + typeof&amp;lt;'a&amp;gt;.Name))
-    query { 
-        for row in resultset.rows do
-            select row.value
-    }
-
-let GetJsonById&amp;lt;'a&amp;gt; Id = JsonConvert.DeserializeObject&amp;lt;'a&amp;gt;(cloudantGet (cloudantUrl + Id))
-
-[&amp;lt;CLIMutableAttribute&amp;gt;]
-type Person = 
-    { _id : string
-      _rev : string
-      FirstName : string
-      LastName : string }
-
-let newPerson = 
-    { _id = ""
-      _rev = ""
-      FirstName = "Boom"
-      LastName = "Baam" }
-
-let inline isNull (x:^a when ^a : not struct) =
-    obj.ReferenceEquals (x, Unchecked.defaultof&amp;lt;_&amp;gt;)
-
-let findPerson = 
-    query { 
-        for p in GetJsonByType&amp;lt;Person&amp;gt; do
-            where (p.FirstName = "Boom")
-            select p
-            headOrDefault
-            }
-isNull findPerson    
-GetJsonById&amp;lt;Person&amp;gt; ("3b389dc6b8ee0dcbf7f366faaa59cf42")
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In above code below part is just for testing. And even with that code snippet is 98 lines. So, with blank line removed it is even short. &lt;/p&gt;
-
-&lt;p&gt;Now, in cloudant I need to create views so its code is like &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;function(doc) {
-    if (doc.$doctype !== "Person") return;
-    var copydoc = JSON.parse(JSON.stringify(doc));
-    delete copydoc["$doctype"];
-    emit(doc._id,copydoc);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I need &lt;code&gt;$doctype&lt;/code&gt; while I am inserting or updating data only, not while reading. So, I am removing it. As I am already filtering based on type.&lt;/p&gt;
-
-&lt;p&gt;In above code two libraries are getting used one is &lt;a href="https://github.com/relentless/Http.fs"&gt;Http.fs&lt;/a&gt; and the other is &lt;a href="http://james.newtonking.com/json"&gt;JSON.net&lt;/a&gt; libraries. &lt;/p&gt;
-
-&lt;p&gt;In library as you can see I am not doing anything special. I am inserting data with type information. If new data is there I am removing &lt;code&gt;_id&lt;/code&gt; and &lt;code&gt;_rev&lt;/code&gt; and for simplicity sake I had put &lt;code&gt;_id&lt;/code&gt; and &lt;code&gt;_rev&lt;/code&gt; in all the types I am using to interacting with Cloudant data store. &lt;/p&gt;
-
-&lt;p&gt;So, now whenever I am reading I just need to give type and that will be fetched as collection of that typed records. And once collection came to memory now I have powerful F# to process data. In above code I am using &lt;code&gt;query&lt;/code&gt; expression to do so. It becomes very easy and fun to use. And it is damn fast. At least for now.&lt;/p&gt;
-
-&lt;p&gt;Now, I don't know it if perfect or not. It kinda part functional and part Object Oriented as far as I know. Should I convert this to Type Provider or is it possible or not? I don't know. But one thing is sure I am achieving what I wanted with simplest possible code. &lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Dear F# community members&lt;/strong&gt; do provide your views on this. And also let me know if it will be use full to make it more mature and push it as nuget package. Or may be a type provider for Cloudant? &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Highly inspired by &lt;a href="https://twitter.com/dmohl"&gt;Daniel Mohl's&lt;/a&gt; old library &lt;a href="https://github.com/dmohl/FSharpCouch"&gt;FSharpCouch&lt;/a&gt;. Thank you... :)&lt;/p&gt;
-&lt;/blockquote&gt;
-</description><link>http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/</link><pubDate>Thu, 27 Nov 2014 18:30:00</pubDate><a10:updated>2014-11-27T18:30:00+05:30</a10:updated></item></channel></rss>
+</a10:content></item></channel></rss>
