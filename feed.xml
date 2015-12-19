@@ -184,13 +184,23 @@ Chart.Point (taxicabnumbersY,"TaxiCabNumbersY","TaxiCab Number in ref to Y")
 
 &lt;h2&gt;Update1&lt;/h2&gt;
 
-&lt;p&gt;Special thanks to [Stachu Korick] complete logic comes in single tweet. Here it is.&lt;/p&gt;
+&lt;p&gt;Special thanks to &lt;a href="https://twitter.com/StachuDotNet"&gt;Stachu Korick&lt;/a&gt; complete logic comes in single tweet. Here it is.&lt;/p&gt;
 
 &lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p lang="und" dir="ltr"&gt;&lt;a href="https://twitter.com/fsibot"&gt;@fsibot&lt;/a&gt; seq{for el1 in [1..99] do for el2 in [1..99] do yield el1*el1*el1+el2*el2*el2}|&amp;gt;Seq.countBy(fun z-&amp;gt;z)|&amp;gt;Seq.find(fun(_,y)-&amp;gt;y&amp;gt;=4)|&amp;gt;fst&lt;/p&gt;&amp;mdash; Stachu Korick (@StachuDotNet) &lt;a href="https://twitter.com/StachuDotNet/status/677942581645455360"&gt;December 18, 2015&lt;/a&gt;&lt;/blockquote&gt;
 
 &lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
 
 &lt;p&gt;This is the reason I love F# community so much. &lt;/p&gt;
+
+&lt;h2&gt;Update2&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href="https://twitter.com/StachuDotNet"&gt;Stachu Korick&lt;/a&gt; is not stopping at all. Here is second version more legitimate one from him.&lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;&lt;a href="https://twitter.com/fsibot"&gt;@fsibot&lt;/a&gt; &amp;#10;seq{for a in [1..99] do for b in [1..99] do yield (a*a*a)+(b*b*b)}&amp;#10; |&amp;gt;Seq.countBy(fun z-&amp;gt;z)&amp;#10; |&amp;gt;Seq.find(fun(_,y)-&amp;gt;y&amp;gt;=4)&amp;#10; |&amp;gt;fst&lt;/p&gt;&amp;mdash; Stachu Korick (@StachuDotNet) &lt;a href="https://twitter.com/StachuDotNet/status/678059350317998080"&gt;December 19, 2015&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;This is fun part with F# and in general functional language. You make thing work with ugly and &lt;strong&gt;simple&lt;/strong&gt; code. And then re-factor it with beautiful and &lt;strong&gt;simple&lt;/strong&gt; code.&lt;/p&gt;
 </a10:content></item><item><guid isPermaLink="true">http://kunjan.in/2015/11/reactive-services-with-servicestack-and-fsharp/</guid><link>http://kunjan.in/2015/11/reactive-services-with-servicestack-and-fsharp/</link><title>Reactive Services with Servicestack and F#</title><description>&lt;p&gt;Reactive word is not new nowadays. If you want your library to get limelight, use reactive word in the name any way possible and it will definitely get initial attention. Reactive word is appropriate for things that follows &lt;a href="http://www.reactivemanifesto.org/"&gt;reactive manifesto&lt;/a&gt;. That is true for now. And there are many variant of libraries on server and client to fulfil this.&lt;/p&gt;
 
 &lt;p&gt;Let's start from the start of web.&lt;/p&gt;

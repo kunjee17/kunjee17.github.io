@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="last-modified" content="2015-12-19T08:54:24.9618701+05:30" />
+    <meta http-equiv="last-modified" content="2015-12-19T09:47:58.5223860+05:30" />
     <title>Kunjan a.k.a. Kunjee's blog</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
@@ -259,13 +259,23 @@ Chart.Point (taxicabnumbersY,"TaxiCabNumbersY","TaxiCab Number in ref to Y")
 
 <h2>Update1</h2>
 
-<p>Special thanks to [Stachu Korick] complete logic comes in single tweet. Here it is.</p>
+<p>Special thanks to <a href="https://twitter.com/StachuDotNet">Stachu Korick</a> complete logic comes in single tweet. Here it is.</p>
 
 <blockquote class="twitter-tweet" lang="en"><p lang="und" dir="ltr"><a href="https://twitter.com/fsibot">@fsibot</a> seq{for el1 in [1..99] do for el2 in [1..99] do yield el1*el1*el1+el2*el2*el2}|&gt;Seq.countBy(fun z-&gt;z)|&gt;Seq.find(fun(_,y)-&gt;y&gt;=4)|&gt;fst</p>&mdash; Stachu Korick (@StachuDotNet) <a href="https://twitter.com/StachuDotNet/status/677942581645455360">December 18, 2015</a></blockquote>
 
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>This is the reason I love F# community so much. </p>
+
+<h2>Update2</h2>
+
+<p><a href="https://twitter.com/StachuDotNet">Stachu Korick</a> is not stopping at all. Here is second version more legitimate one from him.</p>
+
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/fsibot">@fsibot</a> &#10;seq{for a in [1..99] do for b in [1..99] do yield (a*a*a)+(b*b*b)}&#10; |&gt;Seq.countBy(fun z-&gt;z)&#10; |&gt;Seq.find(fun(_,y)-&gt;y&gt;=4)&#10; |&gt;fst</p>&mdash; Stachu Korick (@StachuDotNet) <a href="https://twitter.com/StachuDotNet/status/678059350317998080">December 19, 2015</a></blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>This is fun part with F# and in general functional language. You make thing work with ugly and <strong>simple</strong> code. And then re-factor it with beautiful and <strong>simple</strong> code.</p>
 
 
   <div id="disqus_thread"></div>
