@@ -1,0 +1,788 @@
+
+
+  
+    
+  
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.17">
+    <title>Type Casting JavaScript with Typescript</title>
+    <meta name="author" content="Kunjan Dalal">
+    <meta name="keywords" content="Typescript, Web">
+
+    <link rel="icon" href="http://kunjan.in/favicon.png">
+    
+
+    
+    <meta name="description" content="Whenever something came from Microsoft or Microsoft employee there is always a buzz… And I still don’t understand why person’s company policies do with person’s attitude or approach of a person. Same happens when typescript came. It was just a day old and Open Source People starts bashing it like anything. Comparing with CoffeeScript , Dart . Guys, it is also open source and Microsoft in any case not forcing anything.">
+    <meta property="og:description" content="Whenever something came from Microsoft or Microsoft employee there is always a buzz… And I still don’t understand why person’s company policies do with person’s attitude or approach of a person. Same happens when typescript came. It was just a day old and Open Source People starts bashing it like anything. Comparing with CoffeeScript , Dart . Guys, it is also open source and Microsoft in any case not forcing anything.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Type Casting JavaScript with Typescript">
+    <meta property="og:url" content="/2012/10/type-casting-javascript-with-typescript/">
+    <meta property="og:site_name" content="Kunjan&#39;s Web Space">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Kunjan&#39;s Web Space">
+    <meta name="twitter:description" content="Whenever something came from Microsoft or Microsoft employee there is always a buzz… And I still don’t understand why person’s company policies do with person’s attitude or approach of a person. Same happens when typescript came. It was just a day old and Open Source People starts bashing it like anything. Comparing with CoffeeScript , Dart . Guys, it is also open source and Microsoft in any case not forcing anything.">
+    
+      <meta name="twitter:creator" content="@kunjee">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="http://kunjan.in/css/style-zfzvxnwixwz6qe7xv3xz1eyvlzc7cdfoxrgduk75zpqxib0hatbphiq9sddx.min.css" />
+    
+    
+    
+      
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="http://kunjan.in/">Kunjan&#39;s Web Space</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="http://kunjan.in/about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=90" alt="Author's picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="http://kunjan.in/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=110" alt="Author's picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Kunjan Dalal</h4>
+        
+          <h5 class="sidebar-profile-bio"><em>All idea, opinion are my own and don&rsquo;t reflect opinion of my current or any former employer.</em></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/resume">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      <span class="sidebar-button-desc">Resume</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/kunjee17" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Type Casting JavaScript with Typescript
+    </h1>
+  
+  <div class="post-meta">
+  <time itemprop="datePublished" datetime="2012-10-08T00:00:00Z">
+    Oct 8, 2012
+  </time>
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="http://kunjan.in/categories/technical">Technical</a>
+    
+  
+
+
+</div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Whenever something came from <a href="https://www.microsoft.com">Microsoft</a> or <a href="https://www.microsoft.com">Microsoft</a> employee there is always a buzz… And I still don’t understand why person’s company policies do with person’s attitude or approach of a person. Same happens when <a href="http://www.typescriptlang.org">typescript</a> came. It was just a day old and Open Source People starts bashing it like anything. Comparing with <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> , <a href="http://www.dartlang.org/">Dart</a> . Guys, it is also open source and <a href="https://www.microsoft.com">Microsoft</a> in any case not forcing anything. As of now. If you like use it if you don’t just don’t use it.</p>
+
+<p>In any case it is just a <a href="http://vanilla-js.com/">javascript</a> . There is very positive buzz when <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> came. But for <a href="http://www.typescriptlang.org">typescript</a> was not that fortunate.</p>
+
+<p>It is normal. Even I thought just another things come from <a href="https://www.microsoft.com">Microsoft</a> that is similar to <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> . But I was wrong it is far different than <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> . I am in long time relationship with typed language like C-*, JAVA and recently fall in love with Ruby like language. So, I kinda like both. I don’t have problem with any. Whenever I am learning <a href="http://rubyonrails.org/">Ruby on Rails</a> I like to code with <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> and even I started using with my day to day work in .Net. But there is no symmetry in that. I am missing that. And typescript came to solve that issue. Obviously some people claim that they don’t need good tool but still I wonder how can a person make enterprise level language using notepad.</p>
+
+<blockquote>
+<p>Check out comments section over this blog :</p>
+</blockquote>
+
+<p><a href="http://www.typescriptlang.org">Typescript</a> is just provide type to <a href="http://vanilla-js.com/">javascript</a> . And with that it provides tooling support to writing client side code. Nothing else. Even it is not trying to bring good parts of <a href="http://vanilla-js.com/">javascript</a> to you. Like <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> . Not forcing anything and also not doing any magic behind. So, you can say it is very near to metal, pure <a href="http://vanilla-js.com/">javascript</a> . And I like and also dislike this thing. I like this because it allows me copy paste and I have it because it also allows bad parts of <a href="http://vanilla-js.com/">javascript</a> to production code. I personally like <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> for a reason that it doesn’t allows any bad parts but restrict / force you to write good parts only. Again this is personal view and like. I am not that good with <a href="http://vanilla-js.com/">javascript</a> so I prefer writing code in <a href="http://kunjan.in/archives/coffee-with-coffeescript">CoffeeScript</a> which take care of every other things and emit a beautiful <a href="http://vanilla-js.com/">javascript</a> .</p>
+
+<p>But a person who is good with <a href="http://vanilla-js.com/">javascript</a> or believed to be good with <a href="http://vanilla-js.com/">javascript</a> . <a href="http://www.typescriptlang.org">Typescript</a> is for them. It is wonderful thing which provides complete freedom of <a href="http://vanilla-js.com/">javascript</a> with types to help you out.<br />
+So, lets check out what the hell <a href="http://www.typescriptlang.org">typescript</a> is.</p>
+
+<p>I have special relationship with this. Because this is the first language I have read language specification. Huff its nasty. At first shot I haven’t got a single thing. But than when I am in the state of understanding that its just wow. I just loved it. I should have read language specification with Pro Books. I personally insist to visit site and check out <a href="http://www.typescriptlang.org">typescript</a> , a wonderful introduction video is there. And lots of samples are also available too. Also, there is <a href="http://go.microsoft.com/fwlink/?LinkId=267238">specification</a> available. It is nice, must read book.</p>
+
+<p>If you are lazy genius than you should continue reading. I will try to cover as much possible of <a href="http://www.typescriptlang.org">typescript</a> .</p>
+
+<p>Basically you can just bounce <a href="http://vanilla-js.com/">javascript</a> into <a href="http://www.typescriptlang.org">typescript</a> just like that. It will work because of dynamic data type “any”. But just like dynamic keyword of C# it will not provide intellesense support. But I think its fine it you using some <a href="http://go.microsoft.com/fwlink/?LinkId=267238">JQuery</a> plug in just to do some UI effect or something like that.</p>
+
+<p>Type script has <strong>module</strong> keyword to define namespace. In that module you can bounce classes, functions, interface or var. If any of that which is not exported or public in case of functions than that is private to that module. And module is public/global variable. So, everything within that is exported using module pattern. Here is sample directly taken from <a href="http://www.typescriptlang.org">typescript</a> site.</p>
+
+<p>module Sayings {
+    export class Greeter {
+      greeting: string ;
+      constructor (message: string ) {
+        this .greeting = message;
+      }
+      greet() {
+      return &ldquo;Hello, &rdquo; + this .greeting; }
+      }
+    }
+    var greeter = new Sayings.Greeter( &ldquo;world&rdquo; );
+    var button = document.createElement( &lsquo;button&rsquo; )
+    button.innerText = &ldquo;Say Hello&rdquo;;
+    button.onclick = function () {
+      alert(greeter.greet())
+    }
+    document.body.appendChild(button)</p>
+
+<p>That will generate java script as shown below.</p>
+
+<p>var Sayings;
+  ( function (Sayings) {
+    var Greeter = ( function () {
+      function Greeter(message) {
+        this .greeting = message;
+        }
+        Greeter.prototype.greet = function () {
+        return &ldquo;Hello, &rdquo; + this .greeting; };
+        return Greeter; })();
+        Sayings.Greeter = Greeter; })
+        (Sayings || (Sayings = {}));
+        var greeter = new Sayings.Greeter( &ldquo;world&rdquo; );
+        var button = document.createElement( &lsquo;button&rsquo; );
+        button.innerText = &ldquo;Say Hello&rdquo; ;
+        button.onclick = function () {
+          alert(greeter.greet()); };
+        document.body.appendChild(button);</p>
+
+<p>Lovely I guess. So, this is basic <a href="http://www.typescriptlang.org">typescript</a> , its nothing but a <a href="http://vanilla-js.com/">javascript</a> with class. So, I don’t copy paste more example here, but talk about few things I like about type script. And you can always visit a site to check out. If you have read my <a href="http://kunjan.in/archives/coffee-with-coffeescript">coffeescript</a> article, it was longgggggg… but in that there is lot to cover. If I started writing that much about <a href="http://www.typescriptlang.org">typescript</a> it will be <a href="http://vanilla-js.com/">javascript</a> class only.</p>
+
+<p>So, here is a small list of things I like about <a href="http://www.typescriptlang.org">typescript</a></p>
+
+<ul>
+<li>It provide support for number,string, array and dynamic function</li>
+<li>Easy to integrate with external java script library</li>
+<li>one can create or export declaration file to provide intellisense support</li>
+<li>module, classes, private/public functions are just super awesome as it feels like typed language</li>
+<li>interface support is there, just another add in to dynamic language to make programming like anything</li>
+<li><a href="http://jquery.com/">JQuery</a> , JQueryUI, Win8 files are available in samples, I guess best way to learn <a href="http://jquery.com/">JQuery</a> , just fire a command, and be sure that you will not get spelling mistakes</li>
+<li>AMD and Module pattern is default in build so, there classes are ready use with framework like <a href="http://www.requirejs.org/">RequireJS</a> . //I seriously want this with CoffeeScript</li>
+<li>Miserable “this” keyword is getting handled nicely</li>
+<li>Very less change in your written functions and generated <a href="http://vanilla-js.com/">javascript</a> functions. //At some point I don’t like this as it allows bad parts in your functions</li>
+</ul>
+
+<p>Obviously I don’t like few things about <a href="http://www.typescriptlang.org">typescript</a> too.</p>
+
+<ul>
+<li>It is allowing bad code, even like comparison operator is not getting corrected like other counterparts.</li>
+<li>Easy to go wrong as it provides free will to put step out side the boundary as it not force you for that</li>
+<li>It is not sweet like <a href="http://kunjan.in/archives/coffee-with-coffeescript">coffeescript</a></li>
+</ul>
+
+<p>Comments and corrections are always welcome. But I strongly recommended not to bash company or new born language. I am not working in Microsoft but we are leaving in free world and <a href="http://www.typescriptlang.org">Typescript</a> is open source under apache license.</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+              
+                <div class="post-footer-tags">
+                  <span class="text-color-light text-small">TAGGED IN</span><br/>
+                  
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/typescript/">Typescript</a>
+
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/javascript/">JavaScript</a>
+
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/dotnet/">DotNet</a>
+
+                </div>
+              
+            
+            <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2012/10/duffers-guide-for-windows-installation/" data-tooltip="Duffer&#39;s guide for windows 8 installation">
+        
+          <i class="fa fa-angle-left"></i>
+          <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+        </a>
+      </li>
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2012/09/javascript-diary-ii/" data-tooltip="JavaScript Diary II">
+        
+          <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+        <i class="fa fa-share-alt"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fkunjan.in%2f2012%2f10%2ftype-casting-javascript-with-typescript%2f">
+        <i class="fa fa-google-plus"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkunjan.in%2f2012%2f10%2ftype-casting-javascript-with-typescript%2f">
+        <i class="fa fa-facebook-official"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fkunjan.in%2f2012%2f10%2ftype-casting-javascript-with-typescript%2f">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    Copyrights &copy; 2016 Kunjan Dalal. All Rights Reserved.
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2012/10/duffers-guide-for-windows-installation/" data-tooltip="Duffer&#39;s guide for windows 8 installation">
+        
+          <i class="fa fa-angle-left"></i>
+          <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+        </a>
+      </li>
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2012/09/javascript-diary-ii/" data-tooltip="JavaScript Diary II">
+        
+          <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+        <i class="fa fa-share-alt"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fkunjan.in%2f2012%2f10%2ftype-casting-javascript-with-typescript%2f">
+        <i class="fa fa-google-plus"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkunjan.in%2f2012%2f10%2ftype-casting-javascript-with-typescript%2f">
+        <i class="fa fa-facebook-official"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fkunjan.in%2f2012%2f10%2ftype-casting-javascript-with-typescript%2f">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <ul class="share-options">
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fkunjan.in%2f2012%2f10%2ftype-casting-javascript-with-typescript%2f">
+        <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkunjan.in%2f2012%2f10%2ftype-casting-javascript-with-typescript%2f">
+        <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fkunjan.in%2f2012%2f10%2ftype-casting-javascript-with-typescript%2f">
+        <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=110" alt="Author's picture" />
+    
+    <h4 id="about-card-name">Kunjan Dalal</h4>
+    
+      <div id="about-card-bio"><em>All idea, opinion are my own and don&rsquo;t reflect opinion of my current or any former employer.</em></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Your job title
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        India
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search "
+          autofocus="autofocus"/>
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2016/04/my-identity/">
+                <h3 class="media-heading">My Identity</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Few words dedicated to people who made me who I am right now, my teachers. I know few of them personally and few others I am yet to meet in person. But they are still there always for me. Guiding me and helping me whenever and wherever I need. Words are not enough to say Thanks but still here with my small try
+Here is original Gujarati Version
+જેને કોઈ ઓળખની જરૂર નથી</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/12/1729/">
+                <h3 class="media-heading">1729</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">This post is part of F# Advent calender. Thanks Sergey Tihon for arranging this and giving me chance.
+ First I like to clarify that this was not my original choice for FSAdvent calender. I was going to write long post about web, AKKA, api and real time system. My current working area. But this time&rsquo;s calender entries are reaching new level and dimension. And recent post from Evelina Gabasova is kind of reason behind change.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/11/reactive-services-with-servicestack-and-fsharp/">
+                <h3 class="media-heading">Reactive Services with Servicestack and F#</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Reactive word is not new nowadays. If you want your library to get limelight, use reactive word in the name any way possible and it will definitely get initial attention. Reactive word is appropriate for things that follows reactive manifesto. That is true for now. And there are many variant of libraries on server and client to fulfil this.
+Let&rsquo;s start from the start of web.
+We were having old web were we used to do post event of page.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/11/azure-web-sites-with-paket/">
+                <h3 class="media-heading">Azure web sites with Paket</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Whoever worked with Microsoft Shop knows about nuget. It is package manager for anything and everything related to .Net. And it is getting better and better with versions coming in. But again it is nowhere near maturity needed to work with projects having many small projects. Things get cranky soon.
+Now, there is better option as per my opinion called Paket. Very easy to get started. And so damn reliable. Couple of more command to learn but I guess it is ok.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/11/angularjs-and-the-mess-we-are-in/">
+                <h3 class="media-heading">Angularjs and the Mess we are in</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Who doesn&rsquo;t know Angularjs?!? Everyone worked is web, mobile, server, windows, mac, Linux, Google, Microsoft or anyway related to this knows about it. And its fun when people tell me
+ You know about angularjs. Its pretty hot now a days. I&rsquo;m planning to learn it.
+ Oh man&hellip;
+Ok I am no expert here in Angularjs. And I prefer not to be expert with any framework. Be it anything.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-command-pattern/">
+                <h3 class="media-heading">Functional Command Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Command pattern is a pattern which allows executor of the pattern to execute or playback the commands. In most of the application wherever Undo/Redo is implemented this pattern is used.
+Here is C# code.
+ Now, in this code Command Pattern is not in its purest form. As, normally in command pattern we are saving state of outside object. Instead I just returned the result to mock out side object.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-strategy-pattern/">
+                <h3 class="media-heading">Functional Strategy Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Another pattern that is widely used in Object Oriented world. And as far as .Net world is concern it is may be most used pattern in wide range of .Net API. And it heavily used in heavily used LINQ API.
+So, I guess giving a understanding of that is kinda waste of space. Have a look at C# code.
+ People familiar with LINQ and lovers of Lambda will definitely argue that this is can be replaced by delegates.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-singleton-pattern/">
+                <h3 class="media-heading">Functional Singleton Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">This is my favorite pattern. First pattern I learn. And till date I don&rsquo;t know where to use it. So, I use everywhere. :P
+I have mainly used for database connection object and then all JavaScript frameworks are exposing Singleton object only. I can say it is quite useful in case of web.
+Fun part about this pattern is that most of the people including me always use this pattern to show off that we know patterns and we follow it in practice but in most cases that practice starts and stops with Singleton Pattern.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-factory-pattern/">
+                <h3 class="media-heading">Functional Factory Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">The fun part working or explaining functional pattern is word functional can be used in very fun way. Just like it is used in title here.
+Now, factory pattern may be the most used pattern in Object Oriented world. Here is code in C#.
+ Factory method is basically used to abstract away the object creation. I am not worried how object is created but I am worried about the behavior of the objects that are created.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/demystifying-design-pattern-in-a-functional-way/">
+                <h3 class="media-heading">Demystifying Design Pattern in a Functional Way</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">As functional programming is taking pace in current software development. There is always a question what is the difference and why on the earth I should bother about it.
+Most of the time reason of the question comes because of human nature of resistance towards learning new things. And then there are people who can easily learn new things but even for them unlearning something and re-learning new things is pretty tough.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         58 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('http://kunjan.in/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="http://kunjan.in/js/script-lrchyhb5kddxeiejst2qhr1sqb7vhfxkdhrigadzb4moxbk6your91edbeqz.min.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'http:\/\/kunjan.in\/2012\/10\/type-casting-javascript-with-typescript\/';
+          
+            this.page.identifier = '\/2012\/10\/type-casting-javascript-with-typescript\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'kunjan';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+  </body>
+</html>

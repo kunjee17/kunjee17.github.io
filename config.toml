@@ -20,7 +20,7 @@ DisqusShortname = "kunjan"
 # googleAnalytics = "UA-37975068-1"
 Paginate = 7
 canonifyurls = true
-publishdir = "public"
+publishdir = "."
 
 [permalinks]
   post = "/:year/:month/:slug/"

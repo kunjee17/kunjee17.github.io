@@ -1,0 +1,928 @@
+
+
+  
+    
+  
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.17">
+    <title>1729</title>
+    <meta name="author" content="Kunjan Dalal">
+    <meta name="keywords" content="Hardy–Ramanujan, Ramanujan, Hardy–Ramanujan">
+
+    <link rel="icon" href="http://kunjan.in/favicon.png">
+    
+
+    
+    <meta name="description" content="This post is part of F# Advent calender. Thanks Sergey Tihon for arranging this and giving me chance.
+ First I like to clarify that this was not my original choice for FSAdvent calender. I was going to write long post about web, AKKA, api and real time system. My current working area. But this time&rsquo;s calender entries are reaching new level and dimension. And recent post from Evelina Gabasova is kind of reason behind change.">
+    <meta property="og:description" content="This post is part of F# Advent calender. Thanks Sergey Tihon for arranging this and giving me chance.
+ First I like to clarify that this was not my original choice for FSAdvent calender. I was going to write long post about web, AKKA, api and real time system. My current working area. But this time&rsquo;s calender entries are reaching new level and dimension. And recent post from Evelina Gabasova is kind of reason behind change.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="1729">
+    <meta property="og:url" content="/2015/12/1729/">
+    <meta property="og:site_name" content="Kunjan&#39;s Web Space">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Kunjan&#39;s Web Space">
+    <meta name="twitter:description" content="This post is part of F# Advent calender. Thanks Sergey Tihon for arranging this and giving me chance.
+ First I like to clarify that this was not my original choice for FSAdvent calender. I was going to write long post about web, AKKA, api and real time system. My current working area. But this time&rsquo;s calender entries are reaching new level and dimension. And recent post from Evelina Gabasova is kind of reason behind change.">
+    
+      <meta name="twitter:creator" content="@kunjee">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="http://kunjan.in/css/style-zfzvxnwixwz6qe7xv3xz1eyvlzc7cdfoxrgduk75zpqxib0hatbphiq9sddx.min.css" />
+    
+    
+    
+      
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="http://kunjan.in/">Kunjan&#39;s Web Space</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="http://kunjan.in/about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=90" alt="Author's picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="http://kunjan.in/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=110" alt="Author's picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Kunjan Dalal</h4>
+        
+          <h5 class="sidebar-profile-bio"><em>All idea, opinion are my own and don&rsquo;t reflect opinion of my current or any former employer.</em></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/resume">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      <span class="sidebar-button-desc">Resume</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/kunjee17" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      1729
+    </h1>
+  
+  <div class="post-meta">
+  <time itemprop="datePublished" datetime="2015-12-17T00:00:00Z">
+    Dec 17, 2015
+  </time>
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="http://kunjan.in/categories/technical">Technical</a>
+    
+  
+
+
+</div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <blockquote>
+<p>This post is part of <a href="https://sergeytihon.wordpress.com/2015/10/25/f-advent-calendar-in-english-2015/">F# Advent</a> calender. Thanks <a href="https://twitter.com/sergey_tihon">Sergey Tihon</a> for arranging this and giving me chance.</p>
+</blockquote>
+
+<p>First I like to clarify that this was <em>not</em> my original choice for FSAdvent calender. I was going to write long post about web, AKKA, api and real time system. My current working area. But this time&rsquo;s calender entries are reaching new level and dimension. And recent <a href="http://evelinag.com/blog/2015/12-15-star-wars-social-network/index.html#.VnK_aRV97IV">post</a> from <a href="https://twitter.com/evelgab">Evelina Gabasova</a> is kind of reason behind change. Do read the post and you may like to re-watch <strong>Star Wars</strong> series. Evelina you are super awesome. And post was too good.</p>
+
+<p>So, why <strong><em>1729</em></strong>?</p>
+
+<p>I have special love for Mathematics. Unluckily I never got chance to take formal mathematics training. I&rsquo;m an engineer so know things here and there to solve the problem. May be more than others for Physics and Mathematics just because of my love. It is so much fun doing them.</p>
+
+<p>In our side of country if you are scoring good marks in School either you become doctor or if little less then engineer. Normally there is no other choices. Hope you got the point why I&rsquo;m engineer (mine was little too less). But if you ask a name of well known gifted mathematician from India first name come is <a href="https://en.wikipedia.org/wiki/Srinivasa_Ramanujan">Srinivasa Ramanujan</a>. And we have a exam series on his name. It is way tough, I still remember that I prepared and never gather enough guts to give one. Damn afraid of failing. But my senior and first leaving mathematics role model my senior in school <a href="http://www.pubfacts.com/author/Vithal+Rangarajan">Dr.Vithal Rangarajan</a> scored 2nd rank and joined Medicine. Yet, my another friend <a href="https://twitter.com/path_to_parth">Dr.Parth Ganatra</a> same story. You mostly getting gist why we are having rare Ramanujans in India. Because most of them become Doctors.</p>
+
+<p>Enough of back ground noise. Let&rsquo;s have some fun with numbers. You can check out wiki page for the story of <strong><em>1729</em></strong> number. It is the smallest number expressible as the sum of two cubes in two different ways.</p>
+
+<blockquote>
+<p>Ok, that is good. But I don&rsquo;t have enough brain power to cross check that. And if that is smallest which are others?</p>
+</blockquote>
+
+<p>So, I decided to find out by self. And at midnight I started working on this.</p>
+
+<p>My first try was going to question form the result. But for some reason <code>Math.Floor (1728.0 ** (1.0/3.0))</code> is resulting in <code>11.0</code>. I have no idea why. It should come <code>12.0</code>. Then I thought how he has arrived to this number. It is smallest so he must have started from <code>1</code>.</p>
+
+<blockquote>
+<p>F# gurus can you please tell me why <code>1728.0 ** (1.0/3.0) = 12.0 //false</code> ?</p>
+</blockquote>
+
+<p>Here is code snippet.  I start with sequence of numbers and cube it.</p>
+
+<pre><code>let posNum = seq {1..101}
+
+let cube x = x * x * x 
+
+let cubeposNum = 
+    posNum 
+    |&gt; Seq.map (fun x -&gt; (x, cube x))
+</code></pre>
+
+<p>I have returned tuple instead of cube result so I can use it afterwords in visualizing data.</p>
+
+<p>Now, its time to find out total combinations</p>
+
+<pre><code>let totalCombination = 
+    cubeposNum 
+    |&gt; Seq.map (fun (a,b) -&gt; cubeposNum |&gt; Seq.map (fun (x,y) -&gt; (a,x,b+y)))
+    |&gt; Seq.concat
+</code></pre>
+
+<p>It gives all the possible combinations numbers. Again in tuple I am returning result and numbers that are being cubed and added. Same reason for display purpose.</p>
+
+<p>Now, time for truth.</p>
+
+<p>Here is final result</p>
+
+<pre><code>let finalResult =
+    totalCombination
+    |&gt; Seq.countBy (fun (x,y,z) -&gt; z)
+    |&gt; Seq.filter (fun (x,y) -&gt; y &gt;= 4)
+    |&gt; Seq.map (fun (x,y) -&gt; x)
+</code></pre>
+
+<p>It will return Sequence of numbers fulfilling above condition. if you are wondering for <code>y&gt;=4</code> then 4 is because (1,2,9) is same as (2,1,9). As I need two distinct pair, I having four pair. I did have used greater than 4 but couldn&rsquo;t found any pair bigger than 4 for given set.</p>
+
+<p>Time for doing some analysis of numbers.</p>
+
+<pre><code>let dirtyHack (inputSeq)=
+    let a = inputSeq |&gt; Seq.item 0
+    let b = inputSeq |&gt; Seq.item 1
+    let c = inputSeq |&gt; Seq.item 2
+    (a, b, c)
+
+let pairValues =
+    finalResult 
+    |&gt; Seq.map (fun x -&gt; totalCombination |&gt; Seq.filter (fun (a,b,c) -&gt; c = x ))
+    |&gt; Seq.map (fun a -&gt; a |&gt; Seq.map (fun (x,y,z) -&gt; seq[x;y;z] |&gt; Seq.sort |&gt; dirtyHack))
+    |&gt; Seq.map (fun x -&gt; x |&gt; Seq.distinct)
+</code></pre>
+
+<p>It will give Sequence of Sequences which contains tuple of numbers. Where tuple is in form of <code>(a , b, a^3 + b^3)</code>. <em>Dirty hack</em> part I couldn&rsquo;t get it right so I will be grateful if someone can provide better solution in that part.</p>
+
+<p>We have all the things. It&rsquo;s time to put data to view.</p>
+
+<pre><code>//form crazyness - a copy paste from 2010 code :P
+
+let form = new Form(Visible = true, Text = &quot;A Simple F# Form&quot;,
+                    TopMost = true, Size = Size(600,600))
+
+let data = new DataGridView(Dock = DockStyle.Fill, Text = &quot;Hardy–Ramanujan number&quot;,
+                            Font = new Font(&quot;Lucida Console&quot;,12.0f),
+                            ForeColor = Color.DarkBlue
+                            )
+
+
+form.Controls.Add(data)
+
+data.DataSource &lt;- (pairValues |&gt; Seq.concat |&gt; Seq.sortBy (fun (x,y,z) -&gt; z) |&gt; Seq.toArray)
+data.Columns.[0].Width &lt;- 200
+data.Columns.[1].Width &lt;- 200
+data.Columns.[2].Width &lt;- 200
+
+data.Columns.[0].HeaderText &lt;- &quot;a&quot;
+data.Columns.[1].HeaderText &lt;- &quot;b&quot;
+data.Columns.[2].HeaderText &lt;- &quot;(a^3 + b^3)&quot;
+</code></pre>
+
+<p>Clearing up the data showing up in grid view. Below are screen shots of complete data.
+<img src="http://kunjan.in/images/1729Form1.PNG" alt="" />
+<img src="http://kunjan.in/images/1729Form2.PNG" alt="" />
+<img src="http://kunjan.in/images/1729Form3.PNG" alt="" /></p>
+
+<p>Looks good.</p>
+
+<p>Put on chart to see where data is moving.</p>
+
+<pre><code>let taxicabnumbers = pairValues 
+                     |&gt; Seq.concat 
+                     |&gt; Seq.sortBy (fun (x,y,z) -&gt; z) 
+                     |&gt; Seq.map (fun (x,y,z) -&gt; z) 
+                     |&gt; Seq.distinct
+
+Chart.Point (taxicabnumbers,&quot;TaxiCabNumbers&quot;,&quot;TaxiCab Number&quot;)
+</code></pre>
+
+<p><img src="http://kunjan.in/images/1729Chart1.PNG" alt="" /></p>
+
+<p>above chart is showing distribution of result of numbers which are fulfilling above condition.</p>
+
+<pre><code>let taxicabnumbersX = pairValues 
+                     |&gt; Seq.concat 
+                     |&gt; Seq.sortBy (fun (x,y,z) -&gt; z) 
+                     |&gt; Seq.map (fun (x,y,z) -&gt; (x,z)) 
+
+
+Chart.Point (taxicabnumbersX,&quot;TaxiCabNumbersX&quot;,&quot;TaxiCab Number in ref to X&quot;)
+</code></pre>
+
+<p><img src="http://kunjan.in/images/1729Chart2.PNG" alt="" /></p>
+
+<p>above chart is showing distribution in compare to number X</p>
+
+<pre><code>let taxicabnumbersY = pairValues 
+                     |&gt; Seq.concat 
+                     |&gt; Seq.sortBy (fun (x,y,z) -&gt; z) 
+                     |&gt; Seq.map (fun (x,y,z) -&gt; (y,z)) 
+
+
+Chart.Point (taxicabnumbersY,&quot;TaxiCabNumbersY&quot;,&quot;TaxiCab Number in ref to Y&quot;)
+</code></pre>
+
+<p><img src="http://kunjan.in/images/1729Chart3.PNG" alt="" /></p>
+
+<p>above chart is showing distribution in compare to number Y</p>
+
+<pre><code>Chart.Combine[
+    Chart.Point(taxicabnumbersX, &quot;TaxiCabNumbersX&quot;)
+    Chart.Point(taxicabnumbersY, &quot;TaxiCabNumbersY&quot;)
+]
+</code></pre>
+
+<p><img src="http://kunjan.in/images/1729Chart4.PNG" alt="" /></p>
+
+<p>above chart is showing both X,Y. Here, X and Y is pretty much interchangeable.</p>
+
+<p>Code is not that good. But F# makes it pretty easy to work with. I will not bash any other language or style of programming today. As it is my *<strong>BirthDay</strong> today (1712 was pretty boring number and so I took 1729. :P ). But you can make it out. How, easy it can be.</p>
+
+<p>Ramanujan is having many other interesting formula that can be proved and analyst same way. One of them I personally like is <a href="https://en.wikipedia.org/wiki/Partition_(number_theory), but may be next time. At his time we don't that much computing power or programming language to solve this type of problems. Or even prove them. How, he did it. No one knows. (I doubt he must be more functional. ;">Partition Number Theory</a> ).</p>
+
+<p>I will really appreciate any input for code. I know it is pretty poor in quality. <a href="https://gist.github.com/kunjee17/6965af56a3821ad2d850">Gist</a> is here. I love to have comments and PR. I will update my code/blog accordingly.</p>
+
+<blockquote>
+<p>Special request. It will be great if someone can compress the code that can be tweeted to <a href="https://twitter.com/fsibot">fsibot</a> and it will return 1729.</p>
+</blockquote>
+
+<p>Thanks for wonderful and supporting community.  <strong>Merry Christmas and Happy New Year</strong> to all.</p>
+
+<p>##Update1##
+Special thanks to <a href="https://twitter.com/StachuDotNet">Stachu Korick</a> complete logic comes in single tweet. Here it is.
+<blockquote class="twitter-tweet" lang="en"><p lang="und" dir="ltr"><a href="https://twitter.com/fsibot">@fsibot</a> seq{for el1 in [1..99] do for el2 in [1..99] do yield el1*el1*el1+el2*el2*el2}|&gt;Seq.countBy(fun z-&gt;z)|&gt;Seq.find(fun(_,y)-&gt;y&gt;=4)|&gt;fst</p>&mdash; Stachu Korick (@StachuDotNet) <a href="https://twitter.com/StachuDotNet/status/677942581645455360">December 18, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>This is the reason I love F# community so much.</p>
+
+<p>##Update2##
+<a href="https://twitter.com/StachuDotNet">Stachu Korick</a> is not stopping at all. Here is second version more legitimate one from him.</p>
+
+<p><blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/fsibot">@fsibot</a> &#10;seq{for a in [1..99] do for b in [1..99] do yield (a*a*a)+(b*b*b)}&#10; |&gt;Seq.countBy(fun z-&gt;z)&#10; |&gt;Seq.find(fun(_,y)-&gt;y&gt;=4)&#10; |&gt;fst</p>&mdash; Stachu Korick (@StachuDotNet) <a href="https://twitter.com/StachuDotNet/status/678059350317998080">December 19, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>This is fun part with F# and in general functional language. You make thing work with ugly and <strong>simple</strong> code. And then re-factor it with beautiful and <strong>simple</strong> code.</p>
+
+<p>##Update3##
+Oh man things are getting better (shorter.) Have a look at <a href="https://twitter.com/brandewinder">Mathias Brandewinder</a> version</p>
+
+<p><blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/fsibot">@fsibot</a> let f x=x*x*x in[for x in 1..99 do for y in 1..99-&gt;f x+f y]|&gt;Seq.countBy id|&gt;Seq.find((snd&gt;&gt;(=)4))|&gt;fst // <a href="https://twitter.com/StachuDotNet">@StachuDotNet</a></p>&mdash; Mathias Brandewinder (@brandewinder) <a href="https://twitter.com/brandewinder/status/678062630456582144">December 19, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>Sweeeeettttt :)</p>
+
+<p>##Update4##</p>
+
+<p><a href="https://twitter.com/yukitos">Yukitos</a> made it even shorter. Hufff this is getting more and more fun.</p>
+
+<p><blockquote class="twitter-tweet" data-conversation="none" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/fsibot">@fsibot</a> [for x in 1..99 do for y in 1..99-&gt;pown x 3+pown y 3]|&gt;Seq.countBy id|&gt;Seq.find((snd&gt;&gt;(=)4))|&gt;fst&#10;// :) <a href="https://twitter.com/brandewinder">@brandewinder</a> <a href="https://twitter.com/StachuDotNet">@StachuDotNet</a></p>&mdash; yukitos (@yukitos) <a href="https://twitter.com/yukitos/status/678151906934435840">December 19, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>##Update5##</p>
+
+<p><a href="https://twitter.com/tomaspetricek">Tomas Petricek</a> make it even shorter. Beat this&hellip;</p>
+
+<p><blockquote class="twitter-tweet" data-conversation="none" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/fsibot">@fsibot</a> Seq.countBy id [for x in 0..9800-&gt;pown(1+x/99)3+pown(1+x%99)3]|&gt;Seq.find(snd&gt;&gt;(=)4)|&gt;fst//<a href="https://twitter.com/yukitos">@yukitos</a> <a href="https://twitter.com/brandewinder">@brandewinder</a> <a href="https://twitter.com/StachuDotNet">@StachuDotNet</a> -9 ;)</p>&mdash; Tomas Petricek (@tomaspetricek) <a href="https://twitter.com/tomaspetricek/status/678258388787183617">December 19, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>##Update6##</p>
+
+<p>Above version is beaten already. New, record is by <a href="https://twitter.com/ScottWlaschin">Scott Wlaschin</a>.</p>
+
+<p><blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/fsibot">@fsibot</a> Seq.countBy(fun x-&gt;pown(x/99)3+pown(x%99)3)[0..9800]|&gt;Seq.find(snd&gt;&gt;(=)4)|&gt;fst//<a href="https://twitter.com/tomaspetricek">@tomaspetricek</a> <a href="https://twitter.com/yukitos">@yukitos</a> <a href="https://twitter.com/kunjee">@kunjee</a> <a href="https://twitter.com/StachuDotNet">@StachuDotNet</a> 79chs!</p>&mdash; Scott Wlaschin (@ScottWlaschin) <a href="https://twitter.com/ScottWlaschin/status/678286435749863424">December 19, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<blockquote>
+<p>PS: I can&rsquo;t exactly say what is going on here. But I am enjoying it a lot.</p>
+</blockquote>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+              
+                <div class="post-footer-tags">
+                  <span class="text-color-light text-small">TAGGED IN</span><br/>
+                  
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/oss/">OSS</a>
+
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/functional-programming/">Functional Programming</a>
+
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/fsadvent/">FSAdvent</a>
+
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/programming/">Programming</a>
+
+                </div>
+              
+            
+            <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2016/04/my-identity/" data-tooltip="My Identity">
+        
+          <i class="fa fa-angle-left"></i>
+          <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+        </a>
+      </li>
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2015/11/reactive-services-with-servicestack-and-fsharp/" data-tooltip="Reactive Services with Servicestack and F#">
+        
+          <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+        <i class="fa fa-share-alt"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fkunjan.in%2f2015%2f12%2f1729%2f">
+        <i class="fa fa-google-plus"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkunjan.in%2f2015%2f12%2f1729%2f">
+        <i class="fa fa-facebook-official"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fkunjan.in%2f2015%2f12%2f1729%2f">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    Copyrights &copy; 2016 Kunjan Dalal. All Rights Reserved.
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2016/04/my-identity/" data-tooltip="My Identity">
+        
+          <i class="fa fa-angle-left"></i>
+          <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+        </a>
+      </li>
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2015/11/reactive-services-with-servicestack-and-fsharp/" data-tooltip="Reactive Services with Servicestack and F#">
+        
+          <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+        <i class="fa fa-share-alt"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fkunjan.in%2f2015%2f12%2f1729%2f">
+        <i class="fa fa-google-plus"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkunjan.in%2f2015%2f12%2f1729%2f">
+        <i class="fa fa-facebook-official"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fkunjan.in%2f2015%2f12%2f1729%2f">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <ul class="share-options">
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fkunjan.in%2f2015%2f12%2f1729%2f">
+        <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkunjan.in%2f2015%2f12%2f1729%2f">
+        <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fkunjan.in%2f2015%2f12%2f1729%2f">
+        <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=110" alt="Author's picture" />
+    
+    <h4 id="about-card-name">Kunjan Dalal</h4>
+    
+      <div id="about-card-bio"><em>All idea, opinion are my own and don&rsquo;t reflect opinion of my current or any former employer.</em></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Your job title
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        India
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search "
+          autofocus="autofocus"/>
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2016/04/my-identity/">
+                <h3 class="media-heading">My Identity</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Few words dedicated to people who made me who I am right now, my teachers. I know few of them personally and few others I am yet to meet in person. But they are still there always for me. Guiding me and helping me whenever and wherever I need. Words are not enough to say Thanks but still here with my small try
+Here is original Gujarati Version
+જેને કોઈ ઓળખની જરૂર નથી</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/12/1729/">
+                <h3 class="media-heading">1729</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">This post is part of F# Advent calender. Thanks Sergey Tihon for arranging this and giving me chance.
+ First I like to clarify that this was not my original choice for FSAdvent calender. I was going to write long post about web, AKKA, api and real time system. My current working area. But this time&rsquo;s calender entries are reaching new level and dimension. And recent post from Evelina Gabasova is kind of reason behind change.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/11/reactive-services-with-servicestack-and-fsharp/">
+                <h3 class="media-heading">Reactive Services with Servicestack and F#</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Reactive word is not new nowadays. If you want your library to get limelight, use reactive word in the name any way possible and it will definitely get initial attention. Reactive word is appropriate for things that follows reactive manifesto. That is true for now. And there are many variant of libraries on server and client to fulfil this.
+Let&rsquo;s start from the start of web.
+We were having old web were we used to do post event of page.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/11/azure-web-sites-with-paket/">
+                <h3 class="media-heading">Azure web sites with Paket</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Whoever worked with Microsoft Shop knows about nuget. It is package manager for anything and everything related to .Net. And it is getting better and better with versions coming in. But again it is nowhere near maturity needed to work with projects having many small projects. Things get cranky soon.
+Now, there is better option as per my opinion called Paket. Very easy to get started. And so damn reliable. Couple of more command to learn but I guess it is ok.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/11/angularjs-and-the-mess-we-are-in/">
+                <h3 class="media-heading">Angularjs and the Mess we are in</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Who doesn&rsquo;t know Angularjs?!? Everyone worked is web, mobile, server, windows, mac, Linux, Google, Microsoft or anyway related to this knows about it. And its fun when people tell me
+ You know about angularjs. Its pretty hot now a days. I&rsquo;m planning to learn it.
+ Oh man&hellip;
+Ok I am no expert here in Angularjs. And I prefer not to be expert with any framework. Be it anything.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-command-pattern/">
+                <h3 class="media-heading">Functional Command Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Command pattern is a pattern which allows executor of the pattern to execute or playback the commands. In most of the application wherever Undo/Redo is implemented this pattern is used.
+Here is C# code.
+ Now, in this code Command Pattern is not in its purest form. As, normally in command pattern we are saving state of outside object. Instead I just returned the result to mock out side object.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-strategy-pattern/">
+                <h3 class="media-heading">Functional Strategy Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Another pattern that is widely used in Object Oriented world. And as far as .Net world is concern it is may be most used pattern in wide range of .Net API. And it heavily used in heavily used LINQ API.
+So, I guess giving a understanding of that is kinda waste of space. Have a look at C# code.
+ People familiar with LINQ and lovers of Lambda will definitely argue that this is can be replaced by delegates.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-singleton-pattern/">
+                <h3 class="media-heading">Functional Singleton Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">This is my favorite pattern. First pattern I learn. And till date I don&rsquo;t know where to use it. So, I use everywhere. :P
+I have mainly used for database connection object and then all JavaScript frameworks are exposing Singleton object only. I can say it is quite useful in case of web.
+Fun part about this pattern is that most of the people including me always use this pattern to show off that we know patterns and we follow it in practice but in most cases that practice starts and stops with Singleton Pattern.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-factory-pattern/">
+                <h3 class="media-heading">Functional Factory Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">The fun part working or explaining functional pattern is word functional can be used in very fun way. Just like it is used in title here.
+Now, factory pattern may be the most used pattern in Object Oriented world. Here is code in C#.
+ Factory method is basically used to abstract away the object creation. I am not worried how object is created but I am worried about the behavior of the objects that are created.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/demystifying-design-pattern-in-a-functional-way/">
+                <h3 class="media-heading">Demystifying Design Pattern in a Functional Way</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">As functional programming is taking pace in current software development. There is always a question what is the difference and why on the earth I should bother about it.
+Most of the time reason of the question comes because of human nature of resistance towards learning new things. And then there are people who can easily learn new things but even for them unlearning something and re-learning new things is pretty tough.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         58 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('http://kunjan.in/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="http://kunjan.in/js/script-lrchyhb5kddxeiejst2qhr1sqb7vhfxkdhrigadzb4moxbk6your91edbeqz.min.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'http:\/\/kunjan.in\/2015\/12\/1729\/';
+          
+            this.page.identifier = '\/2015\/12\/1729\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'kunjan';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+  </body>
+</html>

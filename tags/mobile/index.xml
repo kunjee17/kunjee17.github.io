@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kunjan&#39;s Web Space</title>
+    <link>http://kunjan.in/tags/mobile/index.xml</link>
+    <description>Recent content on Kunjan&#39;s Web Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://kunjan.in/tags/mobile/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Why I moved away from Sencha to Phonejs?</title>
+      <link>http://kunjan.in/2014/03/why-i-moved-away-from-sencha-to-phonejs/</link>
+      <pubDate>Tue, 25 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://kunjan.in/2014/03/why-i-moved-away-from-sencha-to-phonejs/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://sencha.com&#34;&gt;Sencha&lt;/a&gt; is well known framework for mobile development. Not only mobile development but it is doing a hell of a lot of thing other than mobile development. Not only that it is surely having wonderful history with &lt;a href=&#34;https://www.sencha.com/products/extjs/&#34;&gt;JavaScript framework development&lt;/a&gt;. I don&amp;rsquo;t have anything to complain against that.&lt;/p&gt;
+
+&lt;p&gt;But today I am going to talk about specifically one framework, that is &lt;a href=&#34;https://www.sencha.com/products/touch/&#34;&gt;Sencha Touch&lt;/a&gt;. I was trying to something that can developed once and deployed everywhere. &lt;em&gt;Yes, it is kinda new trend in mobile development now a days.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;And I do have working experience with &lt;a href=&#34;http://jquerymobile.com/&#34;&gt;JQuery Moblie&lt;/a&gt;, but still I choose Sencha, due to its performance and preference for architecture. I did same mistake which &lt;a href=&#34;http://datachomp.com/&#34;&gt;Rob Sullivan&lt;/a&gt; mentioned couple of days back.&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-conversation=&#34;none&#34; lang=&#34;en&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://twitter.com/kunjee&#34;&gt;@kunjee&lt;/a&gt; it’s always a balance of being able to push yourself but make sure you don’t go over a cliff from the push.&lt;/p&gt;&amp;mdash; Rob Sullivan (@DataChomp) &lt;a href=&#34;https://twitter.com/DataChomp/statuses/447559429353787392&#34;&gt;March 23, 2014&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;I practically pushed my self over the cliff. I am particularly having nothing against &lt;a href=&#34;https://www.sencha.com/products/touch/&#34;&gt;Sencha Touch&lt;/a&gt;. It is nothing but the &lt;strong&gt;&lt;em&gt;overly&lt;/em&gt;&lt;/strong&gt; awesome product. May be problem is on my side. I am not &lt;strong&gt;only&lt;/strong&gt; doing mobile work. Mobile application is part of bigger idea or bigger application. So, there are many other things than running that very same thing on mobile.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Framework should help and if I can&amp;rsquo;t get it up and running in hours it is coming into my way of development.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That same thing happened with me. I have tried &lt;a href=&#34;https://www.sencha.com/products/touch/&#34;&gt;Sencha Touch&lt;/a&gt;, other than having lots of boiler plate code; Sencha command tool is also broken. That is also few months back there is no way to generate store using command. I never understand why?&lt;/p&gt;
+
+&lt;p&gt;There are two ways of programming which is ruling the market as of now. &lt;a href=&#34;http://en.wikipedia.org/wiki/Object-oriented_programming&#34;&gt;Object Oriented Programming&lt;/a&gt; and &lt;a href=&#34;http://en.wikipedia.org/wiki/Functional_programming&#34;&gt;Functional Programming&lt;/a&gt;. In latter one you can compose functions and normally code tends to stay small while is first one code is more so there is complete tooling chain around that. One of that is &lt;a href=&#34;http://en.wikipedia.org/wiki/Scaffolding&#34;&gt;Scaffolding&lt;/a&gt;. If that is broken, there is no way I can write that much code and that also in JavaScript. Dynamic typing language is good if I can use that nature, if I am writing code like static typing that is like worst of both world.&lt;/p&gt;
+
+&lt;p&gt;JavaScript is already functionally object oriented language. If I am doing only object oriented part of it I need my tools up and running perfectly.&lt;/p&gt;
+
+&lt;p&gt;I have also tried &lt;a href=&#34;https://www.sencha.com/products/architect/&#34;&gt;Sencha Architect&lt;/a&gt;. It is good for starting but after using for sometime, it started coming into my way. And I was spending more time in learning tool than solving the real problem. I personally don&amp;rsquo;t like this kinda tools.&lt;/p&gt;
+
+&lt;p&gt;May be I am not smart enough to use &lt;a href=&#34;http://www.sencha.com&#34;&gt;Sencha&lt;/a&gt; products.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[UPDATE]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I spend quite a amount of time learning Sencha, and same amount of time I was able complete application using more simpler &lt;a href=&#34;phonejs.devexpress.com&#34;&gt;Phonejs&lt;/a&gt;. It is little slow at start up but at least I am not slowing down my application to get out of development state.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

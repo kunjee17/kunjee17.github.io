@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kunjan&#39;s Web Space</title>
+    <link>http://kunjan.in/tags/c/index.xml</link>
+    <description>Recent content on Kunjan&#39;s Web Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://kunjan.in/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Pointers what is your address dude</title>
+      <link>http://kunjan.in/2011/10/pointers-what-is-your-address-dude/</link>
+      <pubDate>Mon, 10 Oct 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://kunjan.in/2011/10/pointers-what-is-your-address-dude/</guid>
+      <description>&lt;p&gt;Pointers, heart of C, C++. If you belongs to engineering branch and learned C as subject, then this may be the last chapter of you curriculum. This is the stepping stone of programming career. This is the chapter or I can say love for the pointer will differentiate a passionate coder from normal coder.&lt;/p&gt;
+
+&lt;p&gt;Even if you work, higher level languages or going for web, you can’t deny existence of pointer in your life. It’s just you are not touching directly to them, but they are there every time. Now, I directly jump to basic understanding of topic.&lt;/p&gt;
+
+&lt;p&gt;If I give a definition than pointer is variable which saves address of another variable. It is useful when you want to share data. Pointer is like light weight variable which saves memory and do normal task for us like anything.&lt;/p&gt;
+
+&lt;p&gt;Pointer consumes two bytes of memory to save address. It doesn’t matter which type of pointer you are using. Here we directly jump to the example&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;int value = 10; // declaring and assigning simple integer variable.
+
+int *prt = &amp;amp;value; // declaring and assigning simple pointer variable
+
+print value; //printing value
+
+print *ptr; // printing pointer value
+
+print prt; // printing pointer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Result of this comes somewhat like 10, 10, 8000. Here you can easily understand first and second value gives the value of integer, while last is something else. It is address of the integer, place of memory where pointer stored. Here value is called pointee, a variable pointed by pointer.&lt;/p&gt;
+
+&lt;p&gt;Here few things you have to care, you can’t assign value directly to the pointer, like *ptr = 10, if value is not assigned, don’t try to fetch value of that pointer, means *ptr is not assigned then it will give exception. Defining pointer and defining pointee is complete different operation and both are necessary.&lt;/p&gt;
+
+&lt;p&gt;This is very basic understanding of Pointers. I will try to go somewhat deeper with this in upcoming write-ups. If you want to know something more about pointers, you can always &lt;a href=&#34;http://tinyurl.com/3l3xhfs&#34;&gt;click here&lt;/a&gt; .&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
