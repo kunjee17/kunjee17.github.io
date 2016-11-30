@@ -1,3 +1,6 @@
+---
+title: "Brief details about me."
+---
 I am Kunjan a.k.a. Kunjee. Failed poet, mathematics enthusiastic, functional programming evangelist and the last person standing in queue of alpha nerds. 
 
 
