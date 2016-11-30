@@ -1,5 +1,5 @@
 ---
-title: "Brief details about me."
+title: "Brief Introduciton About Me"
 ---
 I am Kunjan a.k.a. Kunjee. Failed poet, mathematics enthusiastic, functional programming evangelist and the last person standing in queue of alpha nerds. 
 
