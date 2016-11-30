@@ -33,7 +33,7 @@ publishdir = "."
 [author]
   name = "Kunjan Dalal"
   bio = "*All idea, opinion are my own and don't reflect opinion of my current or any former employer.*"
-  job = "Your job title"
+  job = "Functional Developer... Literally!"
   location = "India"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
   gravatar_email = "kunjee17@gmail.com"
