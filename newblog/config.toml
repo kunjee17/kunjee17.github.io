@@ -74,7 +74,14 @@ canonifyurls = true
   identifier = "about"
   name = "About"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
-  url = "/#about"
+  url = "/about"
+
+[[menu.main]]
+  weight = 4
+  identifier = "resume"
+  name = "Resume"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
+  url = "/resume"
 
 [[menu.links]]
   weight = 0
@@ -154,4 +161,4 @@ canonifyurls = true
   [params.header.right_link]
     class = ""
     icon = ""
-    url = "/#about"
+    url = "/about"

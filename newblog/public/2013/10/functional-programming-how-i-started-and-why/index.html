@@ -1,0 +1,725 @@
+
+
+  
+    
+  
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.17">
+    <title>Functional Programming, How I started and Why?</title>
+    <meta name="author" content="Kunjan Dalal">
+    <meta name="keywords" content="functional programming">
+
+    <link rel="icon" href="http://kunjan.in/favicon.png">
+    
+
+    
+    <meta name="description" content="I am not kind of Technical person who started hacking / coding in very early age. But I have special love / affection towards numbers. I don&rsquo;t know why but it always fascinate me.
+And this was the starting point or I can say reason I started baby steps in functional programming. I like DI, not in term of Dependency Injection but in case of Data Interpretation. Those tabular data and all the graphs and details that data can produce is awesome.">
+    <meta property="og:description" content="I am not kind of Technical person who started hacking / coding in very early age. But I have special love / affection towards numbers. I don&rsquo;t know why but it always fascinate me.
+And this was the starting point or I can say reason I started baby steps in functional programming. I like DI, not in term of Dependency Injection but in case of Data Interpretation. Those tabular data and all the graphs and details that data can produce is awesome.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Functional Programming, How I started and Why?">
+    <meta property="og:url" content="/2013/10/functional-programming-how-i-started-and-why/">
+    <meta property="og:site_name" content="Kunjan&#39;s Web Space">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Kunjan&#39;s Web Space">
+    <meta name="twitter:description" content="I am not kind of Technical person who started hacking / coding in very early age. But I have special love / affection towards numbers. I don&rsquo;t know why but it always fascinate me.
+And this was the starting point or I can say reason I started baby steps in functional programming. I like DI, not in term of Dependency Injection but in case of Data Interpretation. Those tabular data and all the graphs and details that data can produce is awesome.">
+    
+      <meta name="twitter:creator" content="@kunjee">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="http://kunjan.in/css/style-zfzvxnwixwz6qe7xv3xz1eyvlzc7cdfoxrgduk75zpqxib0hatbphiq9sddx.min.css" />
+    
+    
+    
+      
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="http://kunjan.in/">Kunjan&#39;s Web Space</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="http://kunjan.in/about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=90" alt="Author's picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="http://kunjan.in/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=110" alt="Author's picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Kunjan Dalal</h4>
+        
+          <h5 class="sidebar-profile-bio"><em>All idea, opinion are my own and don&rsquo;t reflect opinion of my current or any former employer.</em></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/resume">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      <span class="sidebar-button-desc">Resume</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/kunjee17" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Functional Programming, How I started and Why?
+    </h1>
+  
+  <div class="post-meta">
+  <time itemprop="datePublished" datetime="2013-10-24T00:00:00Z">
+    Oct 24, 2013
+  </time>
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="http://kunjan.in/categories/technical">Technical</a>
+    
+  
+
+
+</div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>I am not kind of Technical person who started hacking / coding in very early age. But I have special love / affection towards numbers. I don&rsquo;t know why but it always fascinate me.</p>
+
+<p>And this was the starting point or I can say reason I started baby steps in functional programming. I like DI, not in term of Dependency Injection but in case of Data Interpretation. Those tabular data and all the graphs and details that data can produce is awesome. It simply blow away my mind.</p>
+
+<p>It is possible to do analysis in almost any language, but as I have heard it will be fairly easy with functional languages. As, I was coming from .Net background (Its just I am / was using as my day job.) I checked out F#.</p>
+
+<p>I know about F# even 2 years back, when it was picking up the ground, but I thought I am no where near good with C# and one more language will just add more confusion. But now things are different. I am good with C# and love LINQ. And so, I gave shot to <a href="http://tryfsharp.org">F#</a>.</p>
+
+<p>And trust me, it blows my mind. It was awesome. I never know that programming can be this much fun. It is like that whatever should be there is there. If I elaborate my last sentence then I can say that, normally I / we need to train our brain to learn any kind of language but in case of Functional Programming, language learn to think like me. I don&rsquo;t have to put special effort for that. And this is the fun part.</p>
+
+<p>Even if I copy - paste things I wrote on paper as part of pseudo code or algorithm in most of the cases it will work. There is no conversion from pseudo code to code. And that is power of language or I must say that is language. I don&rsquo;t know why any functional languages is not getting taught in colleges. Even before C, there should be a lecture on <a href="http://www.haskell.org/haskellwiki/Haskell">Haskell</a>, <a href="http://www.lisp.org/index.html">LISP</a> or any other functional language.</p>
+
+<p>My choose for this kind of language is entirely for wrong reason. I like mathematics and I don&rsquo;t mind if someone throw some complicated theory on me. But for languages like this  I choose just because of things like I can save my key strokes by not writing semi colons, functional composition is fun and easy and I can save lot and lots of time and efforts because of this feature. And more over writing code in functional language is fun.</p>
+
+<p>There will be more detailed articles are coming, specifically for web and game. Two of areas I know one because of day job and one because of love, but till than here are some video&rsquo;s you can enjoy.</p>
+
+<p>I like this <a href="http://channel9.msdn.com/Series/C9-Lectures-Erik-Meijer-Functional-Programming-Fundamentals/Lecture-Series-Erik-Meijer-Functional-Programming-Fundamentals-Chapter-1">series</a> so much, that I am still half way but I am felling blessed. It gives every possible in and out of functional programming with wonderful explanation.</p>
+
+<p>Here is video for people like me who sometime can&rsquo;t leave object oriented language and still like to use functional programming concepts. <a href="https://twitter.com/jessitron">Jessica Kerr</a> is sweetest speaker I have ever seen. If she explain in morning that there is moon out there, I think people even buy that too.</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/pMGY9ViIGNU" frameborder="0" allowfullscreen></iframe>
+
+<p>And how can I forget wonder woman <a href="https://twitter.com/rachelreese">Rachel Reese</a>. After her explanation I now can claim that I know actors. I am not expert but still I am also not dumb now. All thanks to her.
+<iframe src="//player.vimeo.com/video/74996999" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/74996999">[nyc-fsharp] Rachel Reese on FSharp Agents</a> from <a href="http://vimeo.com/rickasaurus">Richard Minerich</a> on <a href="https://vimeo.com">Vimeo</a>.</p></p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+              
+                <div class="post-footer-tags">
+                  <span class="text-color-light text-small">TAGGED IN</span><br/>
+                  
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/functional-programming/">Functional Programming</a>
+
+                </div>
+              
+            
+            <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2013/11/a-developer-without-programming-language/" data-tooltip="A Developer without Programming Language">
+        
+          <i class="fa fa-angle-left"></i>
+          <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+        </a>
+      </li>
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2013/08/i-like-functional-programming/" data-tooltip="Yes, I like functional programming">
+        
+          <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+        <i class="fa fa-share-alt"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fkunjan.in%2f2013%2f10%2ffunctional-programming-how-i-started-and-why%2f">
+        <i class="fa fa-google-plus"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkunjan.in%2f2013%2f10%2ffunctional-programming-how-i-started-and-why%2f">
+        <i class="fa fa-facebook-official"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fkunjan.in%2f2013%2f10%2ffunctional-programming-how-i-started-and-why%2f">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    Copyrights &copy; 2016 Kunjan Dalal. All Rights Reserved.
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2013/11/a-developer-without-programming-language/" data-tooltip="A Developer without Programming Language">
+        
+          <i class="fa fa-angle-left"></i>
+          <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+        </a>
+      </li>
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2013/08/i-like-functional-programming/" data-tooltip="Yes, I like functional programming">
+        
+          <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+        <i class="fa fa-share-alt"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fkunjan.in%2f2013%2f10%2ffunctional-programming-how-i-started-and-why%2f">
+        <i class="fa fa-google-plus"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkunjan.in%2f2013%2f10%2ffunctional-programming-how-i-started-and-why%2f">
+        <i class="fa fa-facebook-official"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fkunjan.in%2f2013%2f10%2ffunctional-programming-how-i-started-and-why%2f">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <ul class="share-options">
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fkunjan.in%2f2013%2f10%2ffunctional-programming-how-i-started-and-why%2f">
+        <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkunjan.in%2f2013%2f10%2ffunctional-programming-how-i-started-and-why%2f">
+        <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fkunjan.in%2f2013%2f10%2ffunctional-programming-how-i-started-and-why%2f">
+        <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=110" alt="Author's picture" />
+    
+    <h4 id="about-card-name">Kunjan Dalal</h4>
+    
+      <div id="about-card-bio"><em>All idea, opinion are my own and don&rsquo;t reflect opinion of my current or any former employer.</em></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Your job title
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        India
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search "
+          autofocus="autofocus"/>
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2016/04/my-identity/">
+                <h3 class="media-heading">My Identity</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Few words dedicated to people who made me who I am right now, my teachers. I know few of them personally and few others I am yet to meet in person. But they are still there always for me. Guiding me and helping me whenever and wherever I need. Words are not enough to say Thanks but still here with my small try
+Here is original Gujarati Version
+જેને કોઈ ઓળખની જરૂર નથી</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/12/1729/">
+                <h3 class="media-heading">1729</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">This post is part of F# Advent calender. Thanks Sergey Tihon for arranging this and giving me chance.
+ First I like to clarify that this was not my original choice for FSAdvent calender. I was going to write long post about web, AKKA, api and real time system. My current working area. But this time&rsquo;s calender entries are reaching new level and dimension. And recent post from Evelina Gabasova is kind of reason behind change.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/11/reactive-services-with-servicestack-and-fsharp/">
+                <h3 class="media-heading">Reactive Services with Servicestack and F#</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Reactive word is not new nowadays. If you want your library to get limelight, use reactive word in the name any way possible and it will definitely get initial attention. Reactive word is appropriate for things that follows reactive manifesto. That is true for now. And there are many variant of libraries on server and client to fulfil this.
+Let&rsquo;s start from the start of web.
+We were having old web were we used to do post event of page.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/11/azure-web-sites-with-paket/">
+                <h3 class="media-heading">Azure web sites with Paket</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Whoever worked with Microsoft Shop knows about nuget. It is package manager for anything and everything related to .Net. And it is getting better and better with versions coming in. But again it is nowhere near maturity needed to work with projects having many small projects. Things get cranky soon.
+Now, there is better option as per my opinion called Paket. Very easy to get started. And so damn reliable. Couple of more command to learn but I guess it is ok.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/11/angularjs-and-the-mess-we-are-in/">
+                <h3 class="media-heading">Angularjs and the Mess we are in</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Who doesn&rsquo;t know Angularjs?!? Everyone worked is web, mobile, server, windows, mac, Linux, Google, Microsoft or anyway related to this knows about it. And its fun when people tell me
+ You know about angularjs. Its pretty hot now a days. I&rsquo;m planning to learn it.
+ Oh man&hellip;
+Ok I am no expert here in Angularjs. And I prefer not to be expert with any framework. Be it anything.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-command-pattern/">
+                <h3 class="media-heading">Functional Command Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Command pattern is a pattern which allows executor of the pattern to execute or playback the commands. In most of the application wherever Undo/Redo is implemented this pattern is used.
+Here is C# code.
+ Now, in this code Command Pattern is not in its purest form. As, normally in command pattern we are saving state of outside object. Instead I just returned the result to mock out side object.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-strategy-pattern/">
+                <h3 class="media-heading">Functional Strategy Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Another pattern that is widely used in Object Oriented world. And as far as .Net world is concern it is may be most used pattern in wide range of .Net API. And it heavily used in heavily used LINQ API.
+So, I guess giving a understanding of that is kinda waste of space. Have a look at C# code.
+ People familiar with LINQ and lovers of Lambda will definitely argue that this is can be replaced by delegates.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-singleton-pattern/">
+                <h3 class="media-heading">Functional Singleton Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">This is my favorite pattern. First pattern I learn. And till date I don&rsquo;t know where to use it. So, I use everywhere. :P
+I have mainly used for database connection object and then all JavaScript frameworks are exposing Singleton object only. I can say it is quite useful in case of web.
+Fun part about this pattern is that most of the people including me always use this pattern to show off that we know patterns and we follow it in practice but in most cases that practice starts and stops with Singleton Pattern.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-factory-pattern/">
+                <h3 class="media-heading">Functional Factory Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">The fun part working or explaining functional pattern is word functional can be used in very fun way. Just like it is used in title here.
+Now, factory pattern may be the most used pattern in Object Oriented world. Here is code in C#.
+ Factory method is basically used to abstract away the object creation. I am not worried how object is created but I am worried about the behavior of the objects that are created.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/demystifying-design-pattern-in-a-functional-way/">
+                <h3 class="media-heading">Demystifying Design Pattern in a Functional Way</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">As functional programming is taking pace in current software development. There is always a question what is the difference and why on the earth I should bother about it.
+Most of the time reason of the question comes because of human nature of resistance towards learning new things. And then there are people who can easily learn new things but even for them unlearning something and re-learning new things is pretty tough.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         58 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('http://kunjan.in/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="http://kunjan.in/js/script-lrchyhb5kddxeiejst2qhr1sqb7vhfxkdhrigadzb4moxbk6your91edbeqz.min.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'http:\/\/kunjan.in\/2013\/10\/functional-programming-how-i-started-and-why\/';
+          
+            this.page.identifier = '\/2013\/10\/functional-programming-how-i-started-and-why\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'kunjan';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+  </body>
+</html>

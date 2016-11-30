@@ -1,0 +1,997 @@
+
+
+  
+    
+  
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.17">
+    <title>Coffee with CoffeeScript</title>
+    <meta name="author" content="Kunjan Dalal">
+    <meta name="keywords" content="Coffee, coffeescript">
+
+    <link rel="icon" href="http://kunjan.in/favicon.png">
+    
+
+    
+    <meta name="description" content="I am in Bangalore, and first thing I found here classically well is coffee. Obviously I will not going to talk about coffee here. But about CoffeeScript which is as good as coffee . I come to know about CoffeeScript from the article written by Scott Hanselman . And I become addicted to it. I am not much a web guy. I like coding but mostly on server end. And Visual Studio is always there to save me.">
+    <meta property="og:description" content="I am in Bangalore, and first thing I found here classically well is coffee. Obviously I will not going to talk about coffee here. But about CoffeeScript which is as good as coffee . I come to know about CoffeeScript from the article written by Scott Hanselman . And I become addicted to it. I am not much a web guy. I like coding but mostly on server end. And Visual Studio is always there to save me.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Coffee with CoffeeScript">
+    <meta property="og:url" content="/2012/04/coffee-with-coffeescript/">
+    <meta property="og:site_name" content="Kunjan&#39;s Web Space">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Kunjan&#39;s Web Space">
+    <meta name="twitter:description" content="I am in Bangalore, and first thing I found here classically well is coffee. Obviously I will not going to talk about coffee here. But about CoffeeScript which is as good as coffee . I come to know about CoffeeScript from the article written by Scott Hanselman . And I become addicted to it. I am not much a web guy. I like coding but mostly on server end. And Visual Studio is always there to save me.">
+    
+      <meta name="twitter:creator" content="@kunjee">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="http://kunjan.in/css/style-zfzvxnwixwz6qe7xv3xz1eyvlzc7cdfoxrgduk75zpqxib0hatbphiq9sddx.min.css" />
+    
+    
+    
+      
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="http://kunjan.in/">Kunjan&#39;s Web Space</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="http://kunjan.in/about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=90" alt="Author's picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="http://kunjan.in/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=110" alt="Author's picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Kunjan Dalal</h4>
+        
+          <h5 class="sidebar-profile-bio"><em>All idea, opinion are my own and don&rsquo;t reflect opinion of my current or any former employer.</em></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/resume">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      <span class="sidebar-button-desc">Resume</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/kunjee17" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Coffee with CoffeeScript
+    </h1>
+  
+  <div class="post-meta">
+  <time itemprop="datePublished" datetime="2012-04-01T00:00:00Z">
+    Apr 1, 2012
+  </time>
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="http://kunjan.in/categories/technical">Technical</a>
+    
+  
+
+
+</div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>I am in Bangalore, and first thing I found here classically well is <a href="https://en.wikipedia.org/wiki/Coffee">coffee</a>. Obviously I will not going to talk about coffee here. But about <a href="http://coffeescript.org/">CoffeeScript</a> which is as good as <a href="https://en.wikipedia.org/wiki/Coffee">coffee</a> . I come to know about <a href="http://coffeescript.org/">CoffeeScript</a> from the <a href="http://www.hanselman.com/blog/CoffeeScriptSassAndLESSSupportForVisualStudioAndASPNETWithTheMindscapeWebWorkbench.aspx">article</a> written by <a href="http://www.hanselman.com">Scott Hanselman</a> . And I become addicted to it. I am not much a web guy. I like coding but mostly on server end. And Visual Studio is always there to save me. But when it comes to Java Script, I just crash land any time. I always try to go back to server as soon as possible. Obviously <a href="http://jquery.com/">JQuery</a> is there to bail me out. But still it is only for DOM, but for other things, you have to be expert. Now, here expert means whose written <a href="http://www.w3schools.com/js/default.asp">Java Script</a> pass the <a href="http://www.jslint.com/">JSLint</a> with minimum errors. Simple functions and doing some addition is not a big deal but making a library for web application is do a big deal. At least for me. I am so rigid about my code quality and <a href="http://www.w3schools.com/js/default.asp">Java Script</a> is a damn flexible scripting language which easy become a sloppy for me. I always try to follow architecture define by <a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742?tag=duckduckgo-d-20">Java Script Good Parts</a> . But at the end following some rules in <a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)">C Sharp</a> is easy than follow in <a href="http://www.w3schools.com/js/default.asp">Java Script</a>. But God is with me. I found a friend who is damn powerful in <a href="http://www.w3schools.com/js/default.asp">Java Script</a> .</p>
+
+<p>She is princess of <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . She write JS like any thing. And standards are not violated at all. I don’t know how someone can write code like that. She is like <a href="http://www.cynthiarothrock.org/">Cynthia Rothrock</a> of Web. <img src="https://lh4.googleusercontent.com/-Dw-LumABw0Q/URHJoqyQPlI/AAAAAAAAApY/hnY4qIE8wAE/s800/CR_2.jpg" alt="" /></p>
+
+<p>Yeah, she is like her only. Just like photo. A girl you don’t want to mess with.</p>
+
+<blockquote>
+<p><em>I am not that another person in picture. It just a FYI.</em></p>
+</blockquote>
+
+<p>Like <a href="http://www.cynthiarothrock.org/">Cynthia Rothrock</a> she is also a black belt but in <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . Always kicking around in web arena. Whenever I stuck somewhere she comes laugh at me and solve the problem. And what I am in compare to her, like kid shown here.</p>
+
+<p><img src="https://lh6.googleusercontent.com/-TwrCb_2KLk0/URHJyRifiTI/AAAAAAAAAsk/V7mr0dHwQ3o/s800/kids-gi_thumb.jpg" alt="" /></p>
+
+<p>A white belt kid. Now what I can do to match the standards with her. Technically I can’t. As she is black belt and I am just a kid. But I am a smart kid. I drink some <a href="http://www.cynthiarothrock.org/">coffee</a> and write <a href="http://coffeescript.org/">CoffeeScript</a> . Yeah, you have black belt and I have <a href="http://www.cynthiarothrock.org/">coffee</a> . Now, I come to point. There is always a need of writing good code, weather it is compiled language or a scripting language.</p>
+
+<p>And good code has two main quality as per me. One is its readability and another is extendibility. If I am writing code, other should read it and also able to extend it. Now, if you are writing <a href="http://www.w3schools.com/js/default.asp">Java Script</a> like her, others don’t find any problem to read or extend it but else that will be a problem specifically with scripting languages. It prone to get dirty soon.</p>
+
+<p>Here, <a href="http://coffeescript.org/">CoffeeScript</a> has major advantage. First thing its readability, and second thing it is just a <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . Here, I am going to use few example from <a href="http://coffeescript.org/">CoffeeScript</a> site only. So, if you like to try it out, site have try <a href="http://coffeescript.org/">CoffeeScript</a> option, I encouraged you to do that.</p>
+
+<p>To try <a href="http://coffeescript.org/">coffeeScript</a> on local machine there are few options to go with. Today most of the IDE supports add on for <a href="http://coffeescript.org/">CoffeeScript</a> . But I prefer the <a href="http://nodejs.org/">Node</a> way. Just install it and start firing commands. You can check out home site for <a href="http://coffeescript.org/">CoffeeScript</a> to starts with. I am now starting with example.</p>
+
+<p>First thing I love about CoffeeScript is call back function. It wrapper your code around <a href="http://www.w3schools.com/js/default.asp">Java Script</a> callback function by default. Here is Hello World example of it. I first go with Java Script</p>
+
+<pre><code>(function () { 
+  alert( &quot;this is coffee Script&quot; ); 
+}).call( this );
+</code></pre>
+
+<p>This is pretty small things. But I forget many times. This will call anonymous function to self so it will not mess with other libraries around. And what I wrote in <a href="http://coffeescript.org/">CoffeeScript</a> file. Just one line</p>
+
+<pre><code>alert &quot;this is coffee Script&quot; 
+</code></pre>
+
+<p>That’s it. That all I wanted to do. No more function and all that, no more brackets; nothing. Just like any other <a href="https://en.wikipedia.org/wiki/Domain_specific_language">DSL</a> , just write what I like to do. It is pretty basic example but even from start, it is showing the power of <a href="http://coffeescript.org/">CoffeeScript</a> .</p>
+
+<p>Another thing I like is working with arrays. After having list and collection in new languages, working with array is little bit difficult sometime. My friend mention above wrote complete library to get functionality like List in <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . But it is fun to write array in <a href="http://coffeescript.org/">CoffeeScript</a> .</p>
+
+<p>Normally we do things in <a href="http://www.w3schools.com/js/default.asp">Java Script</a> like shown here</p>
+
+<pre><code>(function() {
+  var food, foods, _i, _len;
+
+  foods = ['broccoli', 'spinach', 'chocolate'];
+
+  for (_i = 0, _len = foods.length; _i &lt; _len; _i++) {
+  food = foods[_i];
+  if (food !== 'chocolate') {
+      eat(food);
+  }
+  }
+
+}).call(this); 
+</code></pre>
+
+<p>But in <a href="http://coffeescript.org/">CoffeeScript</a></p>
+
+<pre><code>foods = ['broccoli', 'spinach', 'chocolate']
+eat food for food in foods when food isnt 'chocolate'
+</code></pre>
+
+<p>Its just pure fun. Here there are few things I like to mentions specifically. First thing I have already mentioned is how to do array thing in fun way. Other thing if you have noticed is a loop with “_” variables. <a href="http://coffeescript.org/">CoffeeScript</a> takes care of everything starting from scoping of variable by it self. If you need to mentions at top or take care that it will not go out of scope. That will be taken care, even simple thing like loop is written in way it should be written.</p>
+
+<p>Another example for looping</p>
+
+<p>In <a href="http://www.w3schools.com/js/default.asp">Java Script</a> it is like</p>
+
+<pre><code>(function() {
+  var countdown, num;
+
+  countdown = (function() {
+  var _i, _results;
+  _results = [];
+  for (num = _i = 10; _i &gt;= 1; num = --_i) {
+      _results.push(num);
+  }
+  return _results;
+  })();
+
+}).call(this);
+</code></pre>
+
+<p>And in <a href="http://coffeescript.org/">CoffeeScript</a> it is like a one line, giving For Each loop feeling in <a href="http://www.w3schools.com/js/default.asp">Java Script</a> .</p>
+
+<p>countdown = (num for num in [10..1])</p>
+
+<p>So, Here there is one another benefit. If I am insisting for <a href="http://coffeescript.org/">CoffeeScript</a> , it is not against the <a href="http://www.w3schools.com/js/default.asp">Java Script</a> but in favor of learning it. One will know the right way of writing <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . As per site of <a href="http://coffeescript.org/">CoffeeScript</a> , <a href="http://www.w3schools.com/js/default.asp">Java Script</a> generated by it passed the <a href="http://www.jslint.com/">JSLint</a> without a single error. So, it is good to learn <a href="http://www.w3schools.com/js/default.asp">Java Script</a> using <a href="http://coffeescript.org/">CoffeeScript</a> .</p>
+
+<p>Now, if any one is fan of <a href="http://www.ruby-lang.org/en/">Ruby</a> , it supports <a href="http://www.ruby-lang.org/en/">Ruby</a> like syntax in few cases. Obviously web club will like this. You can pass inline variable with “#” and it will work. Let me show you the example.</p>
+
+<p>This time I will go with <a href="http://coffeescript.org/">CoffeeScript</a> first</p>
+
+<pre><code>yearsOld = max: 10, ida: 9, tim: 11
+
+ages = for child, age of yearsOld
+  &quot;#{child} is #{age}&quot;
+</code></pre>
+
+<p>And here is <a href="http://www.w3schools.com/js/default.asp">Java Script</a> for it</p>
+
+<pre><code>(function() {
+  var age, ages, child, yearsOld;
+
+    yearsOld = {
+    max: 10,
+    ida: 9,
+    tim: 11
+    };
+
+    ages = (function() {
+    var _results;
+    _results = [];
+    for (child in yearsOld) {
+        age = yearsOld[child];
+        _results.push(&quot;&quot; + child + &quot; is &quot; + age);
+    }
+return _results;
+  })();
+
+}).call(this);
+</code></pre>
+
+<p>See it take pretty good care of every damn thing. I just fall in love of this. Pushing everything over the top and returning result, changing things with appropriate variables. Every damn thing. Isn’t it good ???</p>
+
+<p>There are few more things for conditional operators and looping. But I like to move on to little bit complex example. If I want to create library like <a href="http://jquery.com/">JQuery</a> , few more things must be there. Now, <a href="http://www.w3schools.com/js/default.asp">Java Script</a> doesn’t have private , public things or classes by default. In <a href="http://www.w3schools.com/js/default.asp">Java Script</a> functions are the classes it self. And there is a trick to do private public thing in <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . Most of <a href="http://www.w3schools.com/js/default.asp">Java Script</a> programmer must have known this. But this thing is fairly easy in <a href="http://coffeescript.org/">CoffeeScript</a> . It has its own class syntax and there you go. Code like any other higher level language. Just check it out.</p>
+
+<p>CoffeeScript Code</p>
+
+<pre><code>class Animal
+  constructor: (@name) -&gt;
+
+  move: (meters) -&gt;
+  alert @name + &quot; moved #{meters}m.&quot;
+</code></pre>
+
+<p>class Snake extends Animal
+      move: -&gt;
+      alert &ldquo;Slithering&hellip;&rdquo;
+    super 5</p>
+
+<pre><code>class Horse extends Animal
+  move: -&gt;
+  alert &quot;Galloping...&quot;
+  super 45
+
+sam = new Snake &quot;Sammy the Python&quot;
+tom = new Horse &quot;Tommy the Palomino&quot;
+
+sam.move()
+tom.move()
+</code></pre>
+
+<p>And here is Java Script code (</p>
+
+<pre><code>(function() {
+  var Animal, Horse, Snake, sam, tom,
+__hasProp = {}.hasOwnProperty,
+__extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Animal = (function() {
+
+  function Animal(name) {
+    this.name = name;
+  }
+
+  Animal.prototype.move = function(meters) {
+    return alert(this.name + (&quot; moved &quot; + meters + &quot;m.&quot;));
+  };
+
+  return Animal;
+
+  })();
+
+  Snake = (function(_super) {
+
+__extends(Snake, _super);
+
+function Snake() {
+  return Snake.__super__.constructor.apply(this, arguments);
+}
+
+Snake.prototype.move = function() {
+  alert(&quot;Slithering...&quot;);
+  return Snake.__super__.move.call(this, 5);
+};
+
+return Snake;
+
+  })(Animal);
+
+  Horse = (function(_super) {
+
+__extends(Horse, _super);
+
+function Horse() {
+  return Horse.__super__.constructor.apply(this, arguments);
+}
+
+Horse.prototype.move = function() {
+  alert(&quot;Galloping...&quot;);
+  return Horse.__super__.move.call(this, 45);
+};
+
+return Horse;
+
+  })(Animal);
+
+  sam = new Snake(&quot;Sammy the Python&quot;);
+
+  tom = new Horse(&quot;Tommy the Palomino&quot;);
+
+  sam.move();
+
+  tom.move();
+
+}).call(this);
+</code></pre>
+
+<p>Isn’t it cool ?? I guess it is. Making library becomes so easy with this kind of syntax. Obviously for the person like me who is from another language background.</p>
+
+<p>Let us see some more complex example. Of function binding. It is easy to bind function. No, extra code at all.</p>
+
+<pre><code>Account = (customer, cart) -&gt;
+  @customer = customer
+  @cart = cart
+
+  $('.shopping_cart').bind 'click', (event) =&gt;
+  @customer.purchase @cart
+</code></pre>
+
+<p>And it will generate appropriate Java Script</p>
+
+<pre><code>(function() {
+  var Account;
+
+  Account = function(customer, cart) {
+  var _this = this;
+  this.customer = customer;
+  this.cart = cart;
+  return $('.shopping_cart').bind('click', function(event) {
+    return _this.customer.purchase(_this.cart);
+  });
+  };
+
+}).call(this);
+</code></pre>
+
+<p>See. It is fun. If you are thinking that what if you are <a href="http://jquery.com/">JQuery</a> fan like me. Again I like to repeat word from <a href="http://coffeescript.org/">CoffeeScript</a> only</p>
+
+<blockquote>
+<p>It&rsquo;s just JavaScript</p>
+</blockquote>
+
+<p>You can use any library with <a href="http://coffeescript.org/">CoffeeScript</a> . Let’s check out one of the example of it.</p>
+
+<p>A <a href="http://coffeescript.org/">CoffeeScript</a> code</p>
+
+<pre><code>show_message = (msg) -&gt; 
+  $('#message').hide().text(msg).fadeIn(2222, -&gt; $('#message').append('!'))
+
+$ -&gt; 
+  show_message &quot;world&quot;
+  $('#message').click -&gt; show_message &quot;you&quot;
+</code></pre>
+
+<p>And here we go with <a href="http://jquery.com/">JQuery</a> code</p>
+
+<pre><code>(function() {
+  var show_message;
+
+    show_message = function(msg) {
+    return $('#message').hide().text(msg).fadeIn(2222, function() {
+    return $('#message').append('!');
+  });
+  };
+
+  $(function() {
+  show_message(&quot;world&quot;);
+  return $('#message').click(function() {
+    return show_message(&quot;you&quot;);
+  });
+  });
+
+}).call(this);
+</code></pre>
+
+<p>It becomes more powerful when it joins hands with <a href="http://jquery.com/">JQuery</a> or other libraries.</p>
+
+<p>Now, for whom this is ??? This is for person like me. Or even black belt like my friend. It just fun to write <a href="http://www.w3schools.com/js/default.asp">Java Script</a> . I don’t insist to use it but I surely insist to give it a try. It is worth investing time in it. Again if you are die hard <a href="http://www.w3schools.com/js/default.asp">Java Script</a> developer, I don’t think you need this. But again there is no loss in learning new thing. I am just enjoying <a href="http://coffeescript.org/">CoffeeScript</a> like anything.</p>
+
+<p><img src="https://lh6.googleusercontent.com/-x7ptaCkB7bA/URHJvRJbFMI/AAAAAAAAArw/dvsN8HvY0I4/s800/iStock_000005133061XSmall_2.jpg" alt="" /></p>
+
+<p>So, here there are clearly two options for most of the developers including me. Either I can have coffee with <a href="http://www.w3schools.com/js/default.asp">Java Script</a> , doing over time and solving errors. Or I can use <a href="http://coffeescript.org/">CoffeeScript</a> and have fun time with my (Black belt) friend. I prefer later one. And trust me this is one the most fun writing article just like <a href="http://coffeescript.org/">CoffeeScript</a> .</p>
+
+<p>Taste a coffee and have fun. Coding is seriously enjoyable with friends like her and technology like <a href="http://coffeescript.org/">CoffeeScript</a> . Special thanks to Jeremy Ashkenas for giving <a href="http://coffeescript.org/">CoffeeScript</a> .</p>
+
+<p>Enjoy Coffee!!!</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+              
+                <div class="post-footer-tags">
+                  <span class="text-color-light text-small">TAGGED IN</span><br/>
+                  
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/web/">Web</a>
+
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/coffeescript/">CoffeeScript</a>
+
+                </div>
+              
+            
+            <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2012/04/i-miss-you-sister/" data-tooltip="I Miss You Sister">
+        
+          <i class="fa fa-angle-left"></i>
+          <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+        </a>
+      </li>
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2012/04/open-letter-to-tekpub/" data-tooltip="Open letter to Tekpub">
+        
+          <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+        <i class="fa fa-share-alt"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fkunjan.in%2f2012%2f04%2fcoffee-with-coffeescript%2f">
+        <i class="fa fa-google-plus"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkunjan.in%2f2012%2f04%2fcoffee-with-coffeescript%2f">
+        <i class="fa fa-facebook-official"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fkunjan.in%2f2012%2f04%2fcoffee-with-coffeescript%2f">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    Copyrights &copy; 2016 Kunjan Dalal. All Rights Reserved.
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2012/04/i-miss-you-sister/" data-tooltip="I Miss You Sister">
+        
+          <i class="fa fa-angle-left"></i>
+          <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+        </a>
+      </li>
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2012/04/open-letter-to-tekpub/" data-tooltip="Open letter to Tekpub">
+        
+          <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+        <i class="fa fa-share-alt"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fkunjan.in%2f2012%2f04%2fcoffee-with-coffeescript%2f">
+        <i class="fa fa-google-plus"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkunjan.in%2f2012%2f04%2fcoffee-with-coffeescript%2f">
+        <i class="fa fa-facebook-official"></i>
+      </a>
+    </li>
+    <li class="post-action hide-xs">
+      <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fkunjan.in%2f2012%2f04%2fcoffee-with-coffeescript%2f">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <ul class="share-options">
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fkunjan.in%2f2012%2f04%2fcoffee-with-coffeescript%2f">
+        <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkunjan.in%2f2012%2f04%2fcoffee-with-coffeescript%2f">
+        <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fkunjan.in%2f2012%2f04%2fcoffee-with-coffeescript%2f">
+        <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=110" alt="Author's picture" />
+    
+    <h4 id="about-card-name">Kunjan Dalal</h4>
+    
+      <div id="about-card-bio"><em>All idea, opinion are my own and don&rsquo;t reflect opinion of my current or any former employer.</em></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Your job title
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        India
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search "
+          autofocus="autofocus"/>
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2016/04/my-identity/">
+                <h3 class="media-heading">My Identity</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Few words dedicated to people who made me who I am right now, my teachers. I know few of them personally and few others I am yet to meet in person. But they are still there always for me. Guiding me and helping me whenever and wherever I need. Words are not enough to say Thanks but still here with my small try
+Here is original Gujarati Version
+જેને કોઈ ઓળખની જરૂર નથી</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/12/1729/">
+                <h3 class="media-heading">1729</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">This post is part of F# Advent calender. Thanks Sergey Tihon for arranging this and giving me chance.
+ First I like to clarify that this was not my original choice for FSAdvent calender. I was going to write long post about web, AKKA, api and real time system. My current working area. But this time&rsquo;s calender entries are reaching new level and dimension. And recent post from Evelina Gabasova is kind of reason behind change.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/11/reactive-services-with-servicestack-and-fsharp/">
+                <h3 class="media-heading">Reactive Services with Servicestack and F#</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Reactive word is not new nowadays. If you want your library to get limelight, use reactive word in the name any way possible and it will definitely get initial attention. Reactive word is appropriate for things that follows reactive manifesto. That is true for now. And there are many variant of libraries on server and client to fulfil this.
+Let&rsquo;s start from the start of web.
+We were having old web were we used to do post event of page.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/11/azure-web-sites-with-paket/">
+                <h3 class="media-heading">Azure web sites with Paket</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Whoever worked with Microsoft Shop knows about nuget. It is package manager for anything and everything related to .Net. And it is getting better and better with versions coming in. But again it is nowhere near maturity needed to work with projects having many small projects. Things get cranky soon.
+Now, there is better option as per my opinion called Paket. Very easy to get started. And so damn reliable. Couple of more command to learn but I guess it is ok.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/11/angularjs-and-the-mess-we-are-in/">
+                <h3 class="media-heading">Angularjs and the Mess we are in</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Who doesn&rsquo;t know Angularjs?!? Everyone worked is web, mobile, server, windows, mac, Linux, Google, Microsoft or anyway related to this knows about it. And its fun when people tell me
+ You know about angularjs. Its pretty hot now a days. I&rsquo;m planning to learn it.
+ Oh man&hellip;
+Ok I am no expert here in Angularjs. And I prefer not to be expert with any framework. Be it anything.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-command-pattern/">
+                <h3 class="media-heading">Functional Command Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Command pattern is a pattern which allows executor of the pattern to execute or playback the commands. In most of the application wherever Undo/Redo is implemented this pattern is used.
+Here is C# code.
+ Now, in this code Command Pattern is not in its purest form. As, normally in command pattern we are saving state of outside object. Instead I just returned the result to mock out side object.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-strategy-pattern/">
+                <h3 class="media-heading">Functional Strategy Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Another pattern that is widely used in Object Oriented world. And as far as .Net world is concern it is may be most used pattern in wide range of .Net API. And it heavily used in heavily used LINQ API.
+So, I guess giving a understanding of that is kinda waste of space. Have a look at C# code.
+ People familiar with LINQ and lovers of Lambda will definitely argue that this is can be replaced by delegates.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-singleton-pattern/">
+                <h3 class="media-heading">Functional Singleton Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">This is my favorite pattern. First pattern I learn. And till date I don&rsquo;t know where to use it. So, I use everywhere. :P
+I have mainly used for database connection object and then all JavaScript frameworks are exposing Singleton object only. I can say it is quite useful in case of web.
+Fun part about this pattern is that most of the people including me always use this pattern to show off that we know patterns and we follow it in practice but in most cases that practice starts and stops with Singleton Pattern.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-factory-pattern/">
+                <h3 class="media-heading">Functional Factory Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">The fun part working or explaining functional pattern is word functional can be used in very fun way. Just like it is used in title here.
+Now, factory pattern may be the most used pattern in Object Oriented world. Here is code in C#.
+ Factory method is basically used to abstract away the object creation. I am not worried how object is created but I am worried about the behavior of the objects that are created.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/demystifying-design-pattern-in-a-functional-way/">
+                <h3 class="media-heading">Demystifying Design Pattern in a Functional Way</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">As functional programming is taking pace in current software development. There is always a question what is the difference and why on the earth I should bother about it.
+Most of the time reason of the question comes because of human nature of resistance towards learning new things. And then there are people who can easily learn new things but even for them unlearning something and re-learning new things is pretty tough.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         58 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('http://kunjan.in/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="http://kunjan.in/js/script-lrchyhb5kddxeiejst2qhr1sqb7vhfxkdhrigadzb4moxbk6your91edbeqz.min.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'http:\/\/kunjan.in\/2012\/04\/coffee-with-coffeescript\/';
+          
+            this.page.identifier = '\/2012\/04\/coffee-with-coffeescript\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'kunjan';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+  </body>
+</html>
