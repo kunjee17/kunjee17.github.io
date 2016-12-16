@@ -9,6 +9,475 @@
     <atom:link href="http://kunjan.in/categories/technical/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Epic Adventure using F#</title>
+      <link>http://kunjan.in/2016/12/epic-adventure-using-fsharp/</link>
+      <pubDate>Sat, 17 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://kunjan.in/2016/12/epic-adventure-using-fsharp/</guid>
+      <description>
+
+&lt;p&gt;This article is part of &lt;a href=&#34;https://sergeytihon.wordpress.com/2016/10/23/f-advent-calendar-in-english-2016/&#34;&gt;FSAdvent 2016 calendar&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This my second post of 2016. Sadly not much of writing this year. So, I need to cover up by this little longish post. So, grab your favorite coffee / tea before getting started.&lt;/p&gt;
+
+&lt;p&gt;There is one wonderful coincidence here that both post of 2016 is based on Epic Mahabharata. If anyone interested in poem like things do check out my &lt;a href=&#34;http://kunjan.in/2016/04/my-identity/&#34;&gt;another post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;epic-mahabharata&#34;&gt;Epic Mahabharata&lt;/h2&gt;
+
+&lt;p&gt;Many people heard of it but few lucky get chance to read it. Or even fewer know thing in detail about it. As per global source of truth &lt;a href=&#34;https://en.wikipedia.org/wiki/Mahabharata&#34;&gt;Wikipedia&lt;/a&gt; It is &amp;ldquo;longest &lt;em&gt;poem&lt;/em&gt; ever written&amp;rdquo; in human history. It has around 1.8 million words in total. It is roughly 10 times the length of Iliad and Odyseey combined.&lt;/p&gt;
+
+&lt;p&gt;So, what is there in it? We can say everything. Love stories to stories about war to stories about revenge. Philosophy to military tactics. Policies on tax, rules of espionage, watch over enemies and how to find the most able people and make them ministers. Theory karma which is part of Gita,  which is part of Mahabharata. Yog (not to confuse with physical Yoga people do) explained in Mahabharata and so do life, death and life after death. A tale where God not solve problems for you but guide you to solution, enable you face the problems. A story where God is not forefather but a friend who is always there for you.&lt;/p&gt;
+
+&lt;p&gt;A story where even God accept curse with due respect given by a mother. A story where story teller him self not only narrate the story but also integral part of it. A tale stays same but meaning of it keep changing to every reader. A story which has spiral of different small stories consisting further different stories. A infinite source of knowledge, wisdom and fun.&lt;/p&gt;
+
+&lt;p&gt;I can go on and on; but let&amp;rsquo;s come back to F#.&lt;/p&gt;
+
+&lt;h2 id=&#34;natural-language-processing&#34;&gt;Natural Language Processing&lt;/h2&gt;
+
+&lt;p&gt;Understanding the human language, words and sentiments always is exciting. Specially using your favourite programming language. Processing old epic books is always fun, as it not only tells about history / mythology but take back to your heritage and culture. So, This part is from my Mentorship program (more details at the end). An article born from &lt;em&gt;home work&lt;/em&gt; I got recently.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t know the complexity level of it. It totally depends on reader. But results are indeed too good.&lt;/p&gt;
+
+&lt;h2 id=&#34;let-the-fun-began&#34;&gt;Let the fun Began&lt;/h2&gt;
+
+&lt;p&gt;First thing is to find out source in English (As it is easy to compare with data sets.). &lt;a href=&#34;https://www.gutenberg.org&#34;&gt;Project Gutenberg&lt;/a&gt; is good place to find some license free text. If you like to do code with this article then get your favourite book from site or you can always download if &lt;a href=&#34;https://github.com/kunjee17/mahabharata/tree/master/txt_data&#34;&gt;from my project&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;That is whole Mahabharata in four text files. So, I did some manual labour to separate the books from it. You can find them &lt;a href=&#34;https://github.com/kunjee17/mahabharata/tree/master/books&#34;&gt;here&lt;/a&gt;. There are total 18 books (sub books are not separated).&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with simple File IO.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    let booknos = [|
+                &amp;quot;01&amp;quot;;
+                &amp;quot;02&amp;quot;;
+                &amp;quot;03&amp;quot;;
+                &amp;quot;04&amp;quot;;
+                &amp;quot;05&amp;quot;;
+                &amp;quot;06&amp;quot;;
+                &amp;quot;07&amp;quot;;
+                &amp;quot;08&amp;quot;;
+                &amp;quot;09&amp;quot;;
+                &amp;quot;10&amp;quot;;
+                &amp;quot;11&amp;quot;;
+                &amp;quot;12&amp;quot;;
+                &amp;quot;13&amp;quot;;
+                &amp;quot;14&amp;quot;;
+                &amp;quot;15&amp;quot;;
+                &amp;quot;16&amp;quot;;
+                &amp;quot;17&amp;quot;;
+                &amp;quot;18&amp;quot;
+                |]
+
+    let trms = booknos.[0] |&amp;gt;  (fun x -&amp;gt;
+            Path.Combine(__SOURCE_DIRECTORY__, &amp;quot;..&amp;quot;, &amp;quot;books/&amp;quot;+ x + &amp;quot;.txt&amp;quot;) |&amp;gt; File.ReadAllLines |&amp;gt; String.concat &amp;quot; &amp;quot;
+                    ) |&amp;gt; (fun y -&amp;gt; y.Split &#39; &#39;)
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That&amp;rsquo;s quite a lot terms for small piece of code. Now, we are one step behind to become data scientist.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s find the unique terms and frequency of them.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    let uniqtrms = trms |&amp;gt; Array.countBy id
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;see another line and we are done. We are now official data scientists.&lt;/p&gt;
+
+&lt;p&gt;Go ahead and try for other books also. If you are feeling lazy you can check out &lt;a href=&#34;http://kunjan.in/mahabharata/book-details&#34;&gt;results here&lt;/a&gt; or see below.&lt;/p&gt;
+
+&lt;p&gt;For Terms:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://kunjan.in/images/mahabharata/terms.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For Unique Terms:
+&lt;img src=&#34;http://kunjan.in/images/mahabharata/uniqueterms.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For Unique Terms per Terms
+&lt;img src=&#34;http://kunjan.in/images/mahabharata/utbyterms.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;What next? Let&amp;rsquo;s do the sentiment analysis of all this books and compare them with each others.&lt;/p&gt;
+
+&lt;h2 id=&#34;sentiment-analysis&#34;&gt;Sentiment Analysis&lt;/h2&gt;
+
+&lt;h3 id=&#34;whaaat&#34;&gt;Whaaat?&lt;/h3&gt;
+
+&lt;p&gt;Analysis done to find out the tone of given text. Here we are having books. Basically using this we can find out that books is more joyful to read or tilted towards sadness. How many surprise elements book do have. It is useful to understand conversation, if it is more towards positive end or negative end.&lt;/p&gt;
+
+&lt;h3 id=&#34;coding-bits&#34;&gt;Coding bits&lt;/h3&gt;
+
+&lt;p&gt;It will make more sense while comparing.&lt;/p&gt;
+
+&lt;p&gt;As everything else in F# here we also start with type and start putting things in it. Let&amp;rsquo;s call it Book type. Because why not.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    type SentimentInNumber = {
+        Anger:float
+        Anticipation:float
+        Disgust:float
+        Fear:float
+        Joy:float
+        Negative:float
+        Positive:float
+        Sadness:float
+        Surprise:float
+        Trust:float
+        Word: string
+    }
+
+    type Word = {
+        Term :string
+        Rating : int
+    }
+
+    
+    type Book = {
+            Name : string
+            Text : string
+            UniqueTerms : Set&amp;lt;string&amp;gt;
+            Terms : string []
+            UniqueTermsWithFrequency : (string * int) []
+            SentimentIndex : SentimentInNumber
+            WordsRating : Word []
+        }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, for a second keep this aside. We need more details or here data to find out sentiments. Data with which we can compare our book terms. So, we will be using two
+data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm&#34;&gt;this&lt;/a&gt; and for positive / negative ratings we will be using &lt;a href=&#34;http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010&#34;&gt;this&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here are what they look like.&lt;/p&gt;
+
+&lt;p&gt;Emotion Lexicon:
+&lt;img src=&#34;http://kunjan.in/images/mahabharata/sentiment.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And Word with Ratings:
+&lt;img src=&#34;http://kunjan.in/images/mahabharata/posneg.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Traditional way to pull data out of CSV file is &lt;code&gt;for -&amp;gt; for -&amp;gt; for&lt;/code&gt; loops. But we are in F# land, we will be using csv Type Provider. Let&amp;rsquo;s pull data out of CSV and shape it in types.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    let sentimentCSVPath = Path.Combine(__SOURCE_DIRECTORY__, &amp;quot;..&amp;quot;,&amp;quot;data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv&amp;quot;)
+    type SentimentCsv = CsvProvider&amp;lt; &amp;quot;../data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv&amp;quot;&amp;gt;
+
+    let SentimentData = SentimentCsv.Load(&amp;quot;../data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv&amp;quot;)
+    
+    type SentimentInNumber = {
+        Anger:float
+        Anticipation:float
+        Disgust:float
+        Fear:float
+        Joy:float
+        Negative:float
+        Positive:float
+        Sadness:float
+        Surprise:float
+        Trust:float
+        Word: string
+    }
+
+    let sentimentCalculate (anger,anticipation, disgust,emotion,fear, joy, negative, positive, sadness, surprise, trust, word) =
+        let a = {
+            Anger = stringToNum anger
+            Anticipation = stringToNum anticipation
+            Disgust = stringToNum disgust
+            Fear = stringToNum fear
+            Joy = stringToNum joy
+            Negative = stringToNum negative
+            Positive = stringToNum positive
+            Sadness = stringToNum sadness
+            Surprise = stringToNum surprise
+            Trust = stringToNum trust
+            Word = word
+        }
+
+        match emotion with
+        | Anger -&amp;gt; if a.Anger = 0. then {a with Anger = 1.} else a
+        | Anticipation -&amp;gt; if a.Anticipation = 0. then {a with Anticipation = 1.} else a
+        | Disgust -&amp;gt; if a.Disgust = 0. then {a with Disgust = 1. } else a
+        | Fear -&amp;gt; if a.Fear = 0. then {a with Fear = 1.} else a
+        | Joy -&amp;gt; if a.Joy = 0. then {a with Joy = 1.} else a
+        | Negative -&amp;gt; if a.Negative = 0. then {a with Negative = 1.} else a
+        | Positive -&amp;gt; if a.Positive = 0. then {a with Positive = 1.} else a
+        | Sadness -&amp;gt; if a.Sadness = 0. then {a with Sadness = 1.} else a
+        | Surprise -&amp;gt; if a.Surprise = 0. then {a with Surprise = 1.} else a
+        | Trust -&amp;gt; if a.Trust = 0. then {a with Trust = 1.} else a
+        | _ -&amp;gt; a
+
+    let allSentimentsInNumber =
+        SentimentData.Rows
+        |&amp;gt; Seq.map (fun row -&amp;gt;
+            sentimentCalculate (
+                    row.Anger,
+                    row.Anticipation,
+                    row.Disgust,
+                    row.Emotion,
+                    row.Fear,
+                    row.Joy,
+                    row.Negative,
+                    row.Positive,
+                    row.Sadness,
+                    row.Surprise,
+                    row.Trust,
+                    row.Word
+                    ))
+    let SentimentWordsSet = allSentimentsInNumber |&amp;gt; Seq.map (fun row -&amp;gt; row.Word) |&amp;gt; set
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here is the thing about this data. Emotion column is also specifying the emotion, not always but they are there. So, we need them too. That is reason for that extra calcution we are doing. Here for every emotion found we are adding 1 else it is 0.&lt;/p&gt;
+
+&lt;p&gt;If you can see I am not comparing with string but with concrete F# term. It is because in data we are having &amp;ldquo;anticip&amp;rdquo; for &amp;ldquo;anticipation&amp;rdquo;. Now, in future if we add another data to this collection and they have &amp;ldquo;anticipation&amp;rdquo; then it will add extra case for same result. So, it would be better to encapsulate them away. And clean way to do that using Active patterns.&lt;/p&gt;
+
+&lt;p&gt;Here is missing piece of code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    //Active Pattern for Sentiments
+    let (|Anger|_|) input =
+        if input = &amp;quot;anger&amp;quot; then Some Anger else None
+    let (|Anticipation|_|) input =
+        if input = &amp;quot;anticip&amp;quot; then Some Anticipation else None
+    let (|Disgust|_|) input =
+        if input = &amp;quot;disgust&amp;quot; then Some Disgust else None
+    let (|Fear|_|) input =
+        if input = &amp;quot;fear&amp;quot; then Some Fear else None
+    let (|Joy|_|) input =
+        if input = &amp;quot;joy&amp;quot; then Some Joy else None
+    let (|Negative|_|) input =
+        if input = &amp;quot;negative&amp;quot; then Some Negative else None
+    let (|Positive|_|) input =
+        if input = &amp;quot;positive&amp;quot; then Some Positive else None
+    let (|Sadness|_|) input =
+        if input = &amp;quot;sadness&amp;quot; then Some Sadness else None
+    let (|Surprise|_|) input =
+        if input = &amp;quot;surprise&amp;quot; then Some Surprise else None
+    let (|Trust|_|) input =
+        if input = &amp;quot;trust&amp;quot; then Some Trust else None
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As we are having more than 7 cases, we will be using partial Active Patterns and join them in match statement.&lt;/p&gt;
+
+&lt;p&gt;Same can be done for word with Positive and Negative ratings.&lt;/p&gt;
+
+&lt;p&gt;Here is code for same.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    type Word = {
+        Term :string
+        Rating : int
+    }
+
+    let WordList =
+        Path.Combine(__SOURCE_DIRECTORY__, &amp;quot;..&amp;quot;, &amp;quot;data/AFINN/&amp;quot;+ &amp;quot;AFINN-111&amp;quot; + &amp;quot;.txt&amp;quot;)
+        |&amp;gt; File.ReadAllLines
+        |&amp;gt; Array.map (fun x -&amp;gt;
+                        x.Split &#39;\t&#39; |&amp;gt; (fun b -&amp;gt; {Term = b.[0]; Rating = System.Int32.Parse b.[1]})
+                        )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Great. Now stage is set to convert books made of terms to books made of numbers. Let&amp;rsquo;s create for one book and then we will loop it for our array.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    let create (bookname:string) (booktext :string) =
+        let terms = Terms booktext
+        let termsCount = terms.Length |&amp;gt; float
+        let termsWithFrequency = UniqueTermsWithFrequency terms
+        let uniqueTerms = termsWithFrequency |&amp;gt; Array.map (fun (x,_) -&amp;gt; x)
+
+        {
+            Name = bookname
+            Text = booktext
+            UniqueTerms = uniqueTerms |&amp;gt; set
+            Terms = terms
+            UniqueTermsWithFrequency = termsWithFrequency
+            SentimentIndex =
+                let commonEmotions = uniqueTerms |&amp;gt; set |&amp;gt; Set.intersect SentimentWordsSet
+                let commonEmotionsCount = termsWithFrequency
+                                            |&amp;gt; Array.filter(fun (x,_) -&amp;gt; commonEmotions.Contains x)
+                                            |&amp;gt; Array.map (fun (_,y) -&amp;gt; y) |&amp;gt; Array.sum |&amp;gt; float
+                let commonEmotionsInNumber = allSentimentsInNumber |&amp;gt; Seq.filter (fun x -&amp;gt; commonEmotions.Contains x.Word) |&amp;gt; Seq.toArray
+                let r = commonEmotionsInNumber |&amp;gt; Array.fold (SentimentSum bookname) ZeroSentiment
+                
+                { r with
+                    Anger = (r.Anger/commonEmotionsCount) * 100.
+                    Anticipation = (r.Anticipation/commonEmotionsCount) * 100.
+                    Disgust =(r.Disgust/commonEmotionsCount) * 100.
+                    // Emotion = (r.Emotion)
+                    Fear = (r.Fear/commonEmotionsCount) * 100.
+                    Joy = (r.Joy/commonEmotionsCount) * 100.
+                    Negative = (r.Negative/commonEmotionsCount) * 100.
+                    Positive = (r.Positive/commonEmotionsCount) * 100.
+                    Sadness = (r.Sadness/commonEmotionsCount) * 100.
+                    Surprise = (r.Surprise/commonEmotionsCount) * 100.
+                    Trust = (r.Trust/commonEmotionsCount) * 100.
+                }
+            WordsRating =
+                let commonWords =
+                    WordList
+                    |&amp;gt; Array.map (fun x -&amp;gt; x.Term)
+                    |&amp;gt; set
+                    |&amp;gt; Set.intersect (uniqueTerms |&amp;gt; set)
+                WordList
+                |&amp;gt; Array.filter (fun a -&amp;gt; commonWords.Contains a.Term)
+        }
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Single function and it&amp;rsquo;s done. That&amp;rsquo;s it. What we are doing in that? Creating our Book type.&lt;/p&gt;
+
+&lt;p&gt;Terms and Unique Terms were extracted away.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    let Terms (input:string)=
+            input
+            |&amp;gt; (fun x -&amp;gt; x.Split &#39; &#39;)
+            |&amp;gt; Array.map (removeSpecialChars &amp;gt;&amp;gt; (fun x -&amp;gt; x.Trim()))
+            |&amp;gt; Array.filter (fun x -&amp;gt; x &amp;lt;&amp;gt; &amp;quot;&amp;quot;)
+
+    let UniqueTermsWithFrequency (input:string[])=
+            input
+            |&amp;gt; Array.countBy id
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Little bit complicated looking part is where we are trying to find &lt;code&gt;Sentiment Index&lt;/code&gt; for book. So, first step is clean up the word set. That is the reason we are using unique terms. All terms are not present in data set we are having. So, there is need to take common terms. Again no more loops and conditions. They are two sets we need common terms so just intersect it. One line without performance over head. Now find out Sentiment details for that word and to get for book just fold it and do the sum of it. Done.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    let ZeroSentiment = {
+        Anger = 0.
+        Anticipation = 0.
+        Disgust =0.
+        Fear = 0.
+        Joy = 0.
+        Negative = 0.
+        Positive = 0.
+        Sadness = 0.
+        Surprise = 0.
+        Trust = 0.
+        Word = String.Empty
+    }
+    
+    let SentimentSum word a b =
+        {
+            Anger = a.Anger + b.Anger
+            Anticipation = a.Anticipation + b.Anticipation
+            Disgust = a.Disgust + b.Disgust
+            // Emotion = a.Emotion + b.Emotion
+            Fear = a.Fear + b.Fear
+            Joy = a.Joy + b.Joy
+            Negative = a.Negative + b.Negative
+            Positive = a.Positive + b.Positive
+            Sadness = a.Sadness + b.Sadness
+            Surprise = a.Surprise + b.Surprise
+            Trust = a.Trust + b.Trust
+            Word = word
+        }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So, we are having all the data in memory. In our case in FSI / REPL.&lt;/p&gt;
+
+&lt;p&gt;As we are official data scientist we required that we see things in Graph format. So, first let&amp;rsquo;s conver things to JSON and write to disk so we can use it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;module Utility =
+    let JsonDropPath name =
+        Path.Combine (__SOURCE_DIRECTORY__, &amp;quot;..&amp;quot;, &amp;quot;docs/js/&amp;quot; + name + &amp;quot;.json&amp;quot;)
+    let dataToJSONFile (fileName : string)(data :&#39;a) =
+        let path = JsonDropPath fileName
+        use writer = new StreamWriter(path)
+        let txt = data |&amp;gt; Compact.serialize
+        writer.WriteLine (txt)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here I am using &lt;a href=&#34;https://github.com/Microsoft/fsharplu/wiki/fsharplu.json&#34;&gt;Fsharplu.Json&lt;/a&gt;, do check their &lt;a href=&#34;https://blogs.msdn.microsoft.com/dotnet/2016/12/13/project-springfield-a-cloud-service-built-entirely-in-f/&#34;&gt;project story&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, once JSON is ready we can easily use to show in graph using any graph library.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Here I did little cheating and wrote some dirty JavaScript. A good practise would be to write code in &lt;a href=&#34;http://fable.io/&#34;&gt;Fable&lt;/a&gt;. So, I will not show code of JavaScript part.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You can find book wise graphs &lt;a href=&#34;http://kunjan.in/mahabharata/bookwise-sentiment&#34;&gt;here&lt;/a&gt; and transformed analysis &lt;a href=&#34;http://kunjan.in/mahabharata/sentiment-wise&#34;&gt;here&lt;/a&gt; which is sentiment wise. Or Check out few of them below.&lt;/p&gt;
+
+&lt;p&gt;Book Wise:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://kunjan.in/images/mahabharata/karnaparv.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://kunjan.in/images/mahabharata/mahaprasthanikaparv.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://kunjan.in/images/mahabharata/shalyaparv.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Sentiment Wise:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://kunjan.in/images/mahabharata/anger.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://kunjan.in/images/mahabharata/joy.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://kunjan.in/images/mahabharata/trust.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Same can be done for positive and negative word set. (DYI for you.)&lt;/p&gt;
+
+&lt;h2 id=&#34;reading-the-graphs-experience&#34;&gt;Reading the Graphs &amp;amp; Experience&lt;/h2&gt;
+
+&lt;p&gt;One thing needed to be understand here. Data set are created by human, code is written by human and code is executed by dumb computer. So, there is and always will be little bit manual tweaking. As language is topic with perception. One need to understand culture / history of those words from where they are coming. Graphs should be read in that context only. Let me put an example here.&lt;/p&gt;
+
+&lt;p&gt;Check out word frequency graph &lt;a href=&#34;http://kunjan.in/mahabharata/word-frequency&#34;&gt;here&lt;/a&gt;. Pick any graph. Here I am taking three graphs to compare.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://kunjan.in/images/mahabharata/w1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://kunjan.in/images/mahabharata/w2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://kunjan.in/images/mahabharata/w3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Great&amp;rdquo; would be always first. And &amp;ldquo;Fire&amp;rdquo; will come in last five always. In normal western literature &amp;ldquo;Great&amp;rdquo; word used as adverb for person or thing. But in Indian or Mahabharata context they use it to address someone. Like
+&lt;code&gt;Hey, Great worrier Arjuna&lt;/code&gt;. A poetic way of saying things. Looks good but also make word totally useless in context of understanding phrase. This issue can be solved with Inverse Document Frequency but again it is an extra effort. Same goes for word &amp;ldquo;Fire&amp;rdquo;. It is having negative value in normal context but in this specific context it is not that negative. Fire God and Fire it self (yagna) are positive. It is very much contextual.&lt;/p&gt;
+
+&lt;p&gt;But again generating graph is much more &lt;em&gt;data sciencey&lt;/em&gt; to explain.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-s-next&#34;&gt;What&amp;rsquo;s Next&lt;/h2&gt;
+
+&lt;p&gt;Next step would be doing more detailed analysis of this Epic. Compare number / analysis with original context of books. Try to push number as near as possible to words. And probably extract some good NLP library from it.&lt;/p&gt;
+
+&lt;p&gt;All books are divided in sub-books &lt;a href=&#34;http://kunjan.in/mahabharata/index&#34;&gt;telling different stories&lt;/a&gt;. Wiki links are added in Table list. If you are interested then check them out.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/kunjee17/mahabharata/blob/master/Mahabharata/Lesson1.fsx&#34;&gt;Complete script file for this article is available over github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Download your favourite books and have fun with graphs.&lt;/p&gt;
+
+&lt;h2 id=&#34;thanks-note&#34;&gt;Thanks Note&lt;/h2&gt;
+
+&lt;p&gt;Special Thanks to people without whom this project may not exist.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://rachelree.se/&#34;&gt;Rachel Reese&lt;/a&gt; - For arranging this season of &lt;a href=&#34;http://fsharp.org/mentorship/&#34;&gt;Mentorship program&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Mentorship program : In simple words. It is a program where Mentor and Mentee are tagged with each other. And they have hour / week to teach / learn some topic specific to F#. As highly technical people things looks little old school but the effect that flesh and blood can create nothing else can. No books or no recorded videos. 45 - 60 minutes can cover more than one can cover in month or two using deal material. It is always good to have someone there alive in front of you whom you can ask questions. Again that is all my preference and what I like about this program.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.roundcrisis.com/&#34;&gt;Andrea&lt;/a&gt; - For last season of Mentorship program.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;My lovely fiancée for not only allowing me but also encouraging me to give extra time to this.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/tirthpandya&#34;&gt;Saheb&lt;/a&gt; to be my phone a friend for any kind of machine learning and data science queries.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://devdutt.com/&#34;&gt;Devdutt&lt;/a&gt;, my current favourite mythologist. Author of two of my favourite books &lt;a href=&#34;http://devdutt.com/books/jaya-3.html&#34;&gt;Jaya&lt;/a&gt; and &lt;a href=&#34;http://devdutt.com/books/my-gita.html&#34;&gt;My Gita&lt;/a&gt; in this genre&lt;/p&gt;
+
+&lt;h2 id=&#34;note-to-my-mentor&#34;&gt;Note to my Mentor&lt;/h2&gt;
+
+&lt;p&gt;Words can&amp;rsquo;t explain how much grateful I am to have &lt;a href=&#34;http://evelinag.com/&#34;&gt;Evelina Gabasova&lt;/a&gt; as my mentor or may be guru would make much more sense in current context. After a long time I can have kid&amp;rsquo;s curiosity and innocence to ask anything and everything to her. And she is always there with answer and ever smiling face. Always pushing extra mile to beat the time zone differences.&lt;/p&gt;
+
+&lt;p&gt;In Mahabharata, Krishna narrate Gita to Arjuna in middle of war field; empowering him with eternal knowledge. Just like that,&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Hey, &lt;strong&gt;Great Evelina&lt;/strong&gt;, I am no Arjuna but you are always been my Krishne. Guiding my way in the flood of data. It is always good to have you around. Be as mentor and as friend. Please be there always.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;closing&#34;&gt;Closing&lt;/h2&gt;
+
+&lt;p&gt;I like to close with few of my favourite picture describing war moments of Mahabharata&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Krishna narrating Gita to Arjuna&lt;/strong&gt;
+&lt;img src=&#34;http://kunjan.in/images/mahabharata/m1.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Krishna driving Arjuna in war field&lt;/strong&gt;
+&lt;img src=&#34;http://kunjan.in/images/mahabharata/m3.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Krishna, Arjuna and Bhisma three great warriors but helpless in front of time (situation)&lt;/strong&gt;
+&lt;img src=&#34;http://kunjan.in/images/mahabharata/m2.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>1729</title>
       <link>http://kunjan.in/2015/12/1729/</link>
       <pubDate>Thu, 17 Dec 2015 00:00:00 +0000</pubDate>
@@ -1124,27 +1593,6 @@ One thing I like to clear it upfront. Even though I was able to run Servicestack
 &lt;blockquote&gt;
 &lt;p&gt;Servicestack |&amp;gt; Razor |&amp;gt; SignalR |&amp;gt; Azure (with little hiccups) |&amp;gt; F# |&amp;gt; lots of love.&lt;/p&gt;
 &lt;/blockquote&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Xamarin Studio 3 - First Look</title>
-      <link>http://kunjan.in/2014/06/xamarin-studio-3---first-look/</link>
-      <pubDate>Mon, 02 Jun 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://kunjan.in/2014/06/xamarin-studio-3---first-look/</guid>
-      <description>&lt;p&gt;Few days back I got mail from &lt;a href=&#34;http://xamarin.com/&#34;&gt;Xamarin&lt;/a&gt; about their launch of new IDE. And also for the registration of webinar. And just like always they again managed to blow my mind. I don&amp;rsquo;t know what else they are having for upcoming &lt;a href=&#34;https://evolve.xamarin.com/&#34;&gt;evolve conference.&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Xamarin is like technical democracy.
-&amp;gt; A company of Technical People, by the technical people and for the technical people.&lt;/p&gt;
-
-&lt;p&gt;A kinda awesome. Just like their new studio. I am normally work on windows and have Visual Studio installed on my machine. Still many time I prefer to use Xamarin Studio. This new launch will force me more to do so more often. It is not crashing any more like older version while debugging. Even F# is now first class citizen of it.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;I am currently facing error while running android + F# project but I guess that will be some issue on my end only.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Complete new designer, Xamarin.Form api to provide abstraction for LOB applications and flow less studio. If this year will be known as mobile development revolution, Xamarin people will be considered as pioneer of that revolution. I will write more about Mobile application + F#. Now, I can&amp;rsquo;t wait to dirty my hand with some android code and that is also in F#.&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;3 &amp;lt;3 &amp;lt;3 Xamarin. You know I seriously do love you people.&lt;/p&gt;
 </description>
     </item>
     
