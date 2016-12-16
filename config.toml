@@ -107,13 +107,13 @@ publishdir = "."
 [params]
   # Global keywords configuration. Following keywords will be add to every pages
   # keywords = ["development", "next-gen"]
-  
+
   # Hide sidebar on all article page to let article take full width to improve reading, and enjoy wide images and cover images. (true: enable, false: disable)
   clear_reading = true
 
   hierarchical_categories = true
 
-  description = "Hugo tranquilpeak theme demo"
+  description = "Personal Blog of Kunjan. Where he writes about programming, poems and other stuff."
 
   # Customization
   # Define the behavior of the sidebar
