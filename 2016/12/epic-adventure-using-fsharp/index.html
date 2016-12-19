@@ -252,7 +252,7 @@ There is one wonderful coincidence here that both post of 2016 is based on Epic 
 
 <p>Let&rsquo;s start with simple File IO.</p>
 
-<pre><code>    let booknos = [|
+<pre><code class="language-fsharp">    let booknos = [|
                 &quot;01&quot;;
                 &quot;02&quot;;
                 &quot;03&quot;;
@@ -284,7 +284,7 @@ There is one wonderful coincidence here that both post of 2016 is based on Epic 
 
 <p>Let&rsquo;s find the unique terms and frequency of them.</p>
 
-<pre><code>    let uniqtrms = trms |&gt; Array.countBy id
+<pre><code class="language-fsharp">    let uniqtrms = trms |&gt; Array.countBy id
 </code></pre>
 
 <p>see another line and we are done. We are now official data scientists.</p>
@@ -315,7 +315,7 @@ There is one wonderful coincidence here that both post of 2016 is based on Epic 
 
 <p>As everything else in F# here we also start with type and start putting things in it. Let&rsquo;s call it Book type. Because why not.</p>
 
-<pre><code>    type SentimentInNumber = {
+<pre><code class="language-fsharp">    type SentimentInNumber = {
         Anger:float
         Anticipation:float
         Disgust:float
@@ -334,16 +334,16 @@ There is one wonderful coincidence here that both post of 2016 is based on Epic 
         Rating : int
     }
 
-    
+
     type Book = {
-            Name : string
-            Text : string
-            UniqueTerms : Set&lt;string&gt;
-            Terms : string []
-            UniqueTermsWithFrequency : (string * int) []
-            SentimentIndex : SentimentInNumber
-            WordsRating : Word []
-        }
+        Name : string
+        Text : string
+        UniqueTerms : Set&lt;string&gt;
+        Terms : string []
+        UniqueTermsWithFrequency : (string * int) []
+        SentimentIndex : SentimentInNumber
+        WordsRating : Word []
+    }
 </code></pre>
 
 <p>Now, for a second keep this aside. We need more details or here data to find out sentiments. Data with which we can compare our book terms. So, we will be using two
@@ -359,11 +359,12 @@ data sets. For emotions we will be  using <a href="http://saifmohammad.com/WebPa
 
 <p>Traditional way to pull data out of CSV file is <code>for -&gt; for -&gt; for</code> loops. But we are in F# land, we will be using csv Type Provider. Let&rsquo;s pull data out of CSV and shape it in types.</p>
 
-<pre><code>    let sentimentCSVPath = Path.Combine(__SOURCE_DIRECTORY__, &quot;..&quot;,&quot;data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv&quot;)
+<pre><code class="language-fsharp">
+    let sentimentCSVPath = Path.Combine(__SOURCE_DIRECTORY__, &quot;..&quot;,&quot;data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv&quot;)
     type SentimentCsv = CsvProvider&lt; &quot;../data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv&quot;&gt;
 
     let SentimentData = SentimentCsv.Load(&quot;../data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv&quot;)
-    
+
     type SentimentInNumber = {
         Anger:float
         Anticipation:float
@@ -433,7 +434,7 @@ data sets. For emotions we will be  using <a href="http://saifmohammad.com/WebPa
 
 <p>Here is missing piece of code.</p>
 
-<pre><code>    //Active Pattern for Sentiments
+<pre><code class="language-fsharp">    //Active Pattern for Sentiments
     let (|Anger|_|) input =
         if input = &quot;anger&quot; then Some Anger else None
     let (|Anticipation|_|) input =
@@ -463,7 +464,7 @@ data sets. For emotions we will be  using <a href="http://saifmohammad.com/WebPa
 
 <p>Here is code for same.</p>
 
-<pre><code>    type Word = {
+<pre><code class="language-fsharp">    type Word = {
         Term :string
         Rating : int
     }
@@ -478,7 +479,7 @@ data sets. For emotions we will be  using <a href="http://saifmohammad.com/WebPa
 
 <p>Great. Now stage is set to convert books made of terms to books made of numbers. Let&rsquo;s create for one book and then we will loop it for our array.</p>
 
-<pre><code>    let create (bookname:string) (booktext :string) =
+<pre><code class="language-fsharp">    let create (bookname:string) (booktext :string) =
         let terms = Terms booktext
         let termsCount = terms.Length |&gt; float
         let termsWithFrequency = UniqueTermsWithFrequency terms
@@ -497,7 +498,7 @@ data sets. For emotions we will be  using <a href="http://saifmohammad.com/WebPa
                                             |&gt; Array.map (fun (_,y) -&gt; y) |&gt; Array.sum |&gt; float
                 let commonEmotionsInNumber = allSentimentsInNumber |&gt; Seq.filter (fun x -&gt; commonEmotions.Contains x.Word) |&gt; Seq.toArray
                 let r = commonEmotionsInNumber |&gt; Array.fold (SentimentSum bookname) ZeroSentiment
-                
+
                 { r with
                     Anger = (r.Anger/commonEmotionsCount) * 100.
                     Anticipation = (r.Anticipation/commonEmotionsCount) * 100.
@@ -527,7 +528,7 @@ data sets. For emotions we will be  using <a href="http://saifmohammad.com/WebPa
 
 <p>Terms and Unique Terms were extracted away.</p>
 
-<pre><code>    let Terms (input:string)=
+<pre><code class="language-fsharp">    let Terms (input:string)=
             input
             |&gt; (fun x -&gt; x.Split ' ')
             |&gt; Array.map (removeSpecialChars &gt;&gt; (fun x -&gt; x.Trim()))
@@ -540,7 +541,7 @@ data sets. For emotions we will be  using <a href="http://saifmohammad.com/WebPa
 
 <p>Little bit complicated looking part is where we are trying to find <code>Sentiment Index</code> for book. So, first step is clean up the word set. That is the reason we are using unique terms. All terms are not present in data set we are having. So, there is need to take common terms. Again no more loops and conditions. They are two sets we need common terms so just intersect it. One line without performance over head. Now find out Sentiment details for that word and to get for book just fold it and do the sum of it. Done.</p>
 
-<pre><code>    let ZeroSentiment = {
+<pre><code class="language-fsharp">    let ZeroSentiment = {
         Anger = 0.
         Anticipation = 0.
         Disgust =0.
@@ -553,7 +554,7 @@ data sets. For emotions we will be  using <a href="http://saifmohammad.com/WebPa
         Trust = 0.
         Word = String.Empty
     }
-    
+
     let SentimentSum word a b =
         {
             Anger = a.Anger + b.Anger
@@ -575,14 +576,14 @@ data sets. For emotions we will be  using <a href="http://saifmohammad.com/WebPa
 
 <p>As we are official data scientist we required that we see things in Graph format. So, first let&rsquo;s conver things to JSON and write to disk so we can use it.</p>
 
-<pre><code>module Utility =
-    let JsonDropPath name =
-        Path.Combine (__SOURCE_DIRECTORY__, &quot;..&quot;, &quot;docs/js/&quot; + name + &quot;.json&quot;)
-    let dataToJSONFile (fileName : string)(data :'a) =
-        let path = JsonDropPath fileName
-        use writer = new StreamWriter(path)
-        let txt = data |&gt; Compact.serialize
-        writer.WriteLine (txt)
+<pre><code class="language-fsharp">    module Utility =
+        let JsonDropPath name =
+            Path.Combine (__SOURCE_DIRECTORY__, &quot;..&quot;, &quot;docs/js/&quot; + name + &quot;.json&quot;)
+        let dataToJSONFile (fileName : string)(data :'a) =
+            let path = JsonDropPath fileName
+            use writer = new StreamWriter(path)
+            let txt = data |&gt; Compact.serialize
+            writer.WriteLine (txt)
 </code></pre>
 
 <p>Here I am using <a href="https://github.com/Microsoft/fsharplu/wiki/fsharplu.json">Fsharplu.Json</a>, do check their <a href="https://blogs.msdn.microsoft.com/dotnet/2016/12/13/project-springfield-a-cloud-service-built-entirely-in-f/">project story</a>.</p>

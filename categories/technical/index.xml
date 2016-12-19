@@ -46,7 +46,7 @@
 
 &lt;p&gt;Let&amp;rsquo;s start with simple File IO.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    let booknos = [|
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    let booknos = [|
                 &amp;quot;01&amp;quot;;
                 &amp;quot;02&amp;quot;;
                 &amp;quot;03&amp;quot;;
@@ -78,7 +78,7 @@
 
 &lt;p&gt;Let&amp;rsquo;s find the unique terms and frequency of them.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    let uniqtrms = trms |&amp;gt; Array.countBy id
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    let uniqtrms = trms |&amp;gt; Array.countBy id
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;see another line and we are done. We are now official data scientists.&lt;/p&gt;
@@ -109,7 +109,7 @@
 
 &lt;p&gt;As everything else in F# here we also start with type and start putting things in it. Let&amp;rsquo;s call it Book type. Because why not.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    type SentimentInNumber = {
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    type SentimentInNumber = {
         Anger:float
         Anticipation:float
         Disgust:float
@@ -128,16 +128,16 @@
         Rating : int
     }
 
-    
+
     type Book = {
-            Name : string
-            Text : string
-            UniqueTerms : Set&amp;lt;string&amp;gt;
-            Terms : string []
-            UniqueTermsWithFrequency : (string * int) []
-            SentimentIndex : SentimentInNumber
-            WordsRating : Word []
-        }
+        Name : string
+        Text : string
+        UniqueTerms : Set&amp;lt;string&amp;gt;
+        Terms : string []
+        UniqueTermsWithFrequency : (string * int) []
+        SentimentIndex : SentimentInNumber
+        WordsRating : Word []
+    }
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Now, for a second keep this aside. We need more details or here data to find out sentiments. Data with which we can compare our book terms. So, we will be using two
@@ -153,11 +153,12 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
 
 &lt;p&gt;Traditional way to pull data out of CSV file is &lt;code&gt;for -&amp;gt; for -&amp;gt; for&lt;/code&gt; loops. But we are in F# land, we will be using csv Type Provider. Let&amp;rsquo;s pull data out of CSV and shape it in types.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    let sentimentCSVPath = Path.Combine(__SOURCE_DIRECTORY__, &amp;quot;..&amp;quot;,&amp;quot;data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv&amp;quot;)
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;
+    let sentimentCSVPath = Path.Combine(__SOURCE_DIRECTORY__, &amp;quot;..&amp;quot;,&amp;quot;data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv&amp;quot;)
     type SentimentCsv = CsvProvider&amp;lt; &amp;quot;../data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv&amp;quot;&amp;gt;
 
     let SentimentData = SentimentCsv.Load(&amp;quot;../data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv&amp;quot;)
-    
+
     type SentimentInNumber = {
         Anger:float
         Anticipation:float
@@ -227,7 +228,7 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
 
 &lt;p&gt;Here is missing piece of code.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    //Active Pattern for Sentiments
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    //Active Pattern for Sentiments
     let (|Anger|_|) input =
         if input = &amp;quot;anger&amp;quot; then Some Anger else None
     let (|Anticipation|_|) input =
@@ -257,7 +258,7 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
 
 &lt;p&gt;Here is code for same.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    type Word = {
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    type Word = {
         Term :string
         Rating : int
     }
@@ -272,7 +273,7 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
 
 &lt;p&gt;Great. Now stage is set to convert books made of terms to books made of numbers. Let&amp;rsquo;s create for one book and then we will loop it for our array.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    let create (bookname:string) (booktext :string) =
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    let create (bookname:string) (booktext :string) =
         let terms = Terms booktext
         let termsCount = terms.Length |&amp;gt; float
         let termsWithFrequency = UniqueTermsWithFrequency terms
@@ -291,7 +292,7 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
                                             |&amp;gt; Array.map (fun (_,y) -&amp;gt; y) |&amp;gt; Array.sum |&amp;gt; float
                 let commonEmotionsInNumber = allSentimentsInNumber |&amp;gt; Seq.filter (fun x -&amp;gt; commonEmotions.Contains x.Word) |&amp;gt; Seq.toArray
                 let r = commonEmotionsInNumber |&amp;gt; Array.fold (SentimentSum bookname) ZeroSentiment
-                
+
                 { r with
                     Anger = (r.Anger/commonEmotionsCount) * 100.
                     Anticipation = (r.Anticipation/commonEmotionsCount) * 100.
@@ -321,7 +322,7 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
 
 &lt;p&gt;Terms and Unique Terms were extracted away.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    let Terms (input:string)=
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    let Terms (input:string)=
             input
             |&amp;gt; (fun x -&amp;gt; x.Split &#39; &#39;)
             |&amp;gt; Array.map (removeSpecialChars &amp;gt;&amp;gt; (fun x -&amp;gt; x.Trim()))
@@ -334,7 +335,7 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
 
 &lt;p&gt;Little bit complicated looking part is where we are trying to find &lt;code&gt;Sentiment Index&lt;/code&gt; for book. So, first step is clean up the word set. That is the reason we are using unique terms. All terms are not present in data set we are having. So, there is need to take common terms. Again no more loops and conditions. They are two sets we need common terms so just intersect it. One line without performance over head. Now find out Sentiment details for that word and to get for book just fold it and do the sum of it. Done.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    let ZeroSentiment = {
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    let ZeroSentiment = {
         Anger = 0.
         Anticipation = 0.
         Disgust =0.
@@ -347,7 +348,7 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
         Trust = 0.
         Word = String.Empty
     }
-    
+
     let SentimentSum word a b =
         {
             Anger = a.Anger + b.Anger
@@ -369,14 +370,14 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
 
 &lt;p&gt;As we are official data scientist we required that we see things in Graph format. So, first let&amp;rsquo;s conver things to JSON and write to disk so we can use it.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;module Utility =
-    let JsonDropPath name =
-        Path.Combine (__SOURCE_DIRECTORY__, &amp;quot;..&amp;quot;, &amp;quot;docs/js/&amp;quot; + name + &amp;quot;.json&amp;quot;)
-    let dataToJSONFile (fileName : string)(data :&#39;a) =
-        let path = JsonDropPath fileName
-        use writer = new StreamWriter(path)
-        let txt = data |&amp;gt; Compact.serialize
-        writer.WriteLine (txt)
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    module Utility =
+        let JsonDropPath name =
+            Path.Combine (__SOURCE_DIRECTORY__, &amp;quot;..&amp;quot;, &amp;quot;docs/js/&amp;quot; + name + &amp;quot;.json&amp;quot;)
+        let dataToJSONFile (fileName : string)(data :&#39;a) =
+            let path = JsonDropPath fileName
+            use writer = new StreamWriter(path)
+            let txt = data |&amp;gt; Compact.serialize
+            writer.WriteLine (txt)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Here I am using &lt;a href=&#34;https://github.com/Microsoft/fsharplu/wiki/fsharplu.json&#34;&gt;Fsharplu.Json&lt;/a&gt;, do check their &lt;a href=&#34;https://blogs.msdn.microsoft.com/dotnet/2016/12/13/project-springfield-a-cloud-service-built-entirely-in-f/&#34;&gt;project story&lt;/a&gt;.&lt;/p&gt;
@@ -483,7 +484,9 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
       <pubDate>Thu, 17 Dec 2015 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2015/12/1729/</guid>
-      <description>&lt;blockquote&gt;
+      <description>
+
+&lt;blockquote&gt;
 &lt;p&gt;This post is part of &lt;a href=&#34;https://sergeytihon.wordpress.com/2015/10/25/f-advent-calendar-in-english-2015/&#34;&gt;F# Advent&lt;/a&gt; calender. Thanks &lt;a href=&#34;https://twitter.com/sergey_tihon&#34;&gt;Sergey Tihon&lt;/a&gt; for arranging this and giving me chance.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -657,44 +660,47 @@ Chart.Point (taxicabnumbersY,&amp;quot;TaxiCabNumbersY&amp;quot;,&amp;quot;TaxiC
 
 &lt;p&gt;Thanks for wonderful and supporting community.  &lt;strong&gt;Merry Christmas and Happy New Year&lt;/strong&gt; to all.&lt;/p&gt;
 
-&lt;p&gt;##Update1##
-Special thanks to &lt;a href=&#34;https://twitter.com/StachuDotNet&#34;&gt;Stachu Korick&lt;/a&gt; complete logic comes in single tweet. Here it is.
+&lt;h2 id=&#34;update1&#34;&gt;Update1&lt;/h2&gt;
+
+&lt;p&gt;Special thanks to &lt;a href=&#34;https://twitter.com/StachuDotNet&#34;&gt;Stachu Korick&lt;/a&gt; complete logic comes in single tweet. Here it is.
 &lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;en&#34;&gt;&lt;p lang=&#34;und&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/fsibot&#34;&gt;@fsibot&lt;/a&gt; seq{for el1 in [1..99] do for el2 in [1..99] do yield el1*el1*el1+el2*el2*el2}|&amp;gt;Seq.countBy(fun z-&amp;gt;z)|&amp;gt;Seq.find(fun(_,y)-&amp;gt;y&amp;gt;=4)|&amp;gt;fst&lt;/p&gt;&amp;mdash; Stachu Korick (@StachuDotNet) &lt;a href=&#34;https://twitter.com/StachuDotNet/status/677942581645455360&#34;&gt;December 18, 2015&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;This is the reason I love F# community so much.&lt;/p&gt;
 
-&lt;p&gt;##Update2##
-&lt;a href=&#34;https://twitter.com/StachuDotNet&#34;&gt;Stachu Korick&lt;/a&gt; is not stopping at all. Here is second version more legitimate one from him.&lt;/p&gt;
+&lt;h2 id=&#34;update2&#34;&gt;Update2&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/StachuDotNet&#34;&gt;Stachu Korick&lt;/a&gt; is not stopping at all. Here is second version more legitimate one from him.&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/fsibot&#34;&gt;@fsibot&lt;/a&gt; &amp;#10;seq{for a in [1..99] do for b in [1..99] do yield (a*a*a)+(b*b*b)}&amp;#10; |&amp;gt;Seq.countBy(fun z-&amp;gt;z)&amp;#10; |&amp;gt;Seq.find(fun(_,y)-&amp;gt;y&amp;gt;=4)&amp;#10; |&amp;gt;fst&lt;/p&gt;&amp;mdash; Stachu Korick (@StachuDotNet) &lt;a href=&#34;https://twitter.com/StachuDotNet/status/678059350317998080&#34;&gt;December 19, 2015&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;This is fun part with F# and in general functional language. You make thing work with ugly and &lt;strong&gt;simple&lt;/strong&gt; code. And then re-factor it with beautiful and &lt;strong&gt;simple&lt;/strong&gt; code.&lt;/p&gt;
 
-&lt;p&gt;##Update3##
-Oh man things are getting better (shorter.) Have a look at &lt;a href=&#34;https://twitter.com/brandewinder&#34;&gt;Mathias Brandewinder&lt;/a&gt; version&lt;/p&gt;
+&lt;h2 id=&#34;update3&#34;&gt;Update3&lt;/h2&gt;
+
+&lt;p&gt;Oh man things are getting better (shorter.) Have a look at &lt;a href=&#34;https://twitter.com/brandewinder&#34;&gt;Mathias Brandewinder&lt;/a&gt; version&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/fsibot&#34;&gt;@fsibot&lt;/a&gt; let f x=x*x*x in[for x in 1..99 do for y in 1..99-&amp;gt;f x+f y]|&amp;gt;Seq.countBy id|&amp;gt;Seq.find((snd&amp;gt;&amp;gt;(=)4))|&amp;gt;fst // &lt;a href=&#34;https://twitter.com/StachuDotNet&#34;&gt;@StachuDotNet&lt;/a&gt;&lt;/p&gt;&amp;mdash; Mathias Brandewinder (@brandewinder) &lt;a href=&#34;https://twitter.com/brandewinder/status/678062630456582144&#34;&gt;December 19, 2015&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;Sweeeeettttt :)&lt;/p&gt;
 
-&lt;p&gt;##Update4##&lt;/p&gt;
+&lt;h2 id=&#34;update4&#34;&gt;Update4&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://twitter.com/yukitos&#34;&gt;Yukitos&lt;/a&gt; made it even shorter. Hufff this is getting more and more fun.&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-conversation=&#34;none&#34; lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/fsibot&#34;&gt;@fsibot&lt;/a&gt; [for x in 1..99 do for y in 1..99-&amp;gt;pown x 3+pown y 3]|&amp;gt;Seq.countBy id|&amp;gt;Seq.find((snd&amp;gt;&amp;gt;(=)4))|&amp;gt;fst&amp;#10;// :) &lt;a href=&#34;https://twitter.com/brandewinder&#34;&gt;@brandewinder&lt;/a&gt; &lt;a href=&#34;https://twitter.com/StachuDotNet&#34;&gt;@StachuDotNet&lt;/a&gt;&lt;/p&gt;&amp;mdash; yukitos (@yukitos) &lt;a href=&#34;https://twitter.com/yukitos/status/678151906934435840&#34;&gt;December 19, 2015&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;##Update5##&lt;/p&gt;
+&lt;h2 id=&#34;update5&#34;&gt;Update5&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://twitter.com/tomaspetricek&#34;&gt;Tomas Petricek&lt;/a&gt; make it even shorter. Beat this&amp;hellip;&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-conversation=&#34;none&#34; lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/fsibot&#34;&gt;@fsibot&lt;/a&gt; Seq.countBy id [for x in 0..9800-&amp;gt;pown(1+x/99)3+pown(1+x%99)3]|&amp;gt;Seq.find(snd&amp;gt;&amp;gt;(=)4)|&amp;gt;fst//&lt;a href=&#34;https://twitter.com/yukitos&#34;&gt;@yukitos&lt;/a&gt; &lt;a href=&#34;https://twitter.com/brandewinder&#34;&gt;@brandewinder&lt;/a&gt; &lt;a href=&#34;https://twitter.com/StachuDotNet&#34;&gt;@StachuDotNet&lt;/a&gt; -9 ;)&lt;/p&gt;&amp;mdash; Tomas Petricek (@tomaspetricek) &lt;a href=&#34;https://twitter.com/tomaspetricek/status/678258388787183617&#34;&gt;December 19, 2015&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;##Update6##&lt;/p&gt;
+&lt;h2 id=&#34;update6&#34;&gt;Update6&lt;/h2&gt;
 
 &lt;p&gt;Above version is beaten already. New, record is by &lt;a href=&#34;https://twitter.com/ScottWlaschin&#34;&gt;Scott Wlaschin&lt;/a&gt;.&lt;/p&gt;
 
@@ -1044,24 +1050,29 @@ if not &amp;quot;%DEPLOYMENT_TARGET%&amp;quot; == &amp;quot;&amp;quot; (
 
 &lt;p&gt;Why this? Lets take things one by one&lt;/p&gt;
 
-&lt;p&gt;##Scope - Poor man&amp;rsquo;s global##
-We should not use global. That is proven truth. No, doubt in it. But what about &lt;strong&gt;We love &lt;em&gt;global&lt;/em&gt; so much.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;scope-poor-man-s-global&#34;&gt;Scope - Poor man&amp;rsquo;s global&lt;/h2&gt;
+
+&lt;p&gt;We should not use global. That is proven truth. No, doubt in it. But what about &lt;strong&gt;We love &lt;em&gt;global&lt;/em&gt; so much.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;We got scope then. JSLint can&amp;rsquo;t catch it and we still have it. Now, angular lover may argue that we should not use it. But how can you prevent it from using it. It all comes to putting as rule in project wiki or training. But there is no way to prevent it. At least I don&amp;rsquo;t know one.&lt;/p&gt;
 
-&lt;p&gt;##Magical- Directives##
-Whenever you start abusing Angularjs people comes up with &lt;code&gt;But we have Directives?!?&lt;/code&gt; that magically solves everything. The problem with that it is hiding too much. Its good if things works out but when it breaks. Oh man. &lt;em&gt;You seriously wish that never happen.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;magical-directives&#34;&gt;Magical- Directives&lt;/h2&gt;
+
+&lt;p&gt;Whenever you start abusing Angularjs people comes up with &lt;code&gt;But we have Directives?!?&lt;/code&gt; that magically solves everything. The problem with that it is hiding too much. Its good if things works out but when it breaks. Oh man. &lt;em&gt;You seriously wish that never happen.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;If you still like Directives try implement two directive on one. It will be too much fun. And pure magic if one directive is created by you and other is created by third third-party.&lt;/p&gt;
 
-&lt;p&gt;##Three musketeers - Service, Factory and Provider##
-I don&amp;rsquo;t know how many times I have searched google with &lt;code&gt;Service vs Factor vs Provider&lt;/code&gt; . Nowadays you don&amp;rsquo;t even have to put angularjs on top of that. If you write above message you will have angularjs answer only. It way too complicated for simple module with helper functions. Aren&amp;rsquo;t we all happy with few base global in age of JQuery that passed in as parameter in modular functions. And now we have DI(Proudly called as Dependancy Injection).&lt;/p&gt;
+&lt;h2 id=&#34;three-musketeers-service-factory-and-provider&#34;&gt;Three musketeers - Service, Factory and Provider&lt;/h2&gt;
 
-&lt;p&gt;##Wired - DI##
-It is good thing. A good thing invented from the object-oriented concept. And then it is used almost every where. whether it is needed or not. For the case of Angular it is good we can have module without worrying about modules. Directly available in function. But then what about other libraries we need to created wrapper around it to make angular way. And then have plenty of gulp or grunt plumbing tools so you can save your ass when things minified and combined.&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t know how many times I have searched google with &lt;code&gt;Service vs Factor vs Provider&lt;/code&gt; . Nowadays you don&amp;rsquo;t even have to put angularjs on top of that. If you write above message you will have angularjs answer only. It way too complicated for simple module with helper functions. Aren&amp;rsquo;t we all happy with few base global in age of JQuery that passed in as parameter in modular functions. And now we have DI(Proudly called as Dependancy Injection).&lt;/p&gt;
 
-&lt;p&gt;##Grass is always green on other side##
-I don&amp;rsquo;t say angular beast we never wanted. But you need to use it carefully. I have seen more than enough projects, new and legacy using angular in all wrong way. It make tough to debug or extend. Every time you got feeling that lets dump it all and make it again. We don&amp;rsquo;t need to learn another framework just learn &lt;code&gt;JavaScript - Good Parts&lt;/code&gt;. And things are all good. But instead most of resources are wasted on teaching Angularjs. With a hope that &lt;strong&gt;Super Hero&lt;/strong&gt; framework will solve every issue we have.&lt;/p&gt;
+&lt;h2 id=&#34;wired-di&#34;&gt;Wired - DI&lt;/h2&gt;
+
+&lt;p&gt;It is good thing. A good thing invented from the object-oriented concept. And then it is used almost every where. whether it is needed or not. For the case of Angular it is good we can have module without worrying about modules. Directly available in function. But then what about other libraries we need to created wrapper around it to make angular way. And then have plenty of gulp or grunt plumbing tools so you can save your ass when things minified and combined.&lt;/p&gt;
+
+&lt;h2 id=&#34;grass-is-always-green-on-other-side&#34;&gt;Grass is always green on other side&lt;/h2&gt;
+
+&lt;p&gt;I don&amp;rsquo;t say angular beast we never wanted. But you need to use it carefully. I have seen more than enough projects, new and legacy using angular in all wrong way. It make tough to debug or extend. Every time you got feeling that lets dump it all and make it again. We don&amp;rsquo;t need to learn another framework just learn &lt;code&gt;JavaScript - Good Parts&lt;/code&gt;. And things are all good. But instead most of resources are wasted on teaching Angularjs. With a hope that &lt;strong&gt;Super Hero&lt;/strong&gt; framework will solve every issue we have.&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;It is not going to be. It was never going to be. It will never going to be.&lt;/p&gt;

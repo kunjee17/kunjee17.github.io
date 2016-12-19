@@ -46,7 +46,7 @@
 
 &lt;p&gt;Let&amp;rsquo;s start with simple File IO.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    let booknos = [|
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    let booknos = [|
                 &amp;quot;01&amp;quot;;
                 &amp;quot;02&amp;quot;;
                 &amp;quot;03&amp;quot;;
@@ -78,7 +78,7 @@
 
 &lt;p&gt;Let&amp;rsquo;s find the unique terms and frequency of them.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    let uniqtrms = trms |&amp;gt; Array.countBy id
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    let uniqtrms = trms |&amp;gt; Array.countBy id
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;see another line and we are done. We are now official data scientists.&lt;/p&gt;
@@ -109,7 +109,7 @@
 
 &lt;p&gt;As everything else in F# here we also start with type and start putting things in it. Let&amp;rsquo;s call it Book type. Because why not.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    type SentimentInNumber = {
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    type SentimentInNumber = {
         Anger:float
         Anticipation:float
         Disgust:float
@@ -128,16 +128,16 @@
         Rating : int
     }
 
-    
+
     type Book = {
-            Name : string
-            Text : string
-            UniqueTerms : Set&amp;lt;string&amp;gt;
-            Terms : string []
-            UniqueTermsWithFrequency : (string * int) []
-            SentimentIndex : SentimentInNumber
-            WordsRating : Word []
-        }
+        Name : string
+        Text : string
+        UniqueTerms : Set&amp;lt;string&amp;gt;
+        Terms : string []
+        UniqueTermsWithFrequency : (string * int) []
+        SentimentIndex : SentimentInNumber
+        WordsRating : Word []
+    }
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Now, for a second keep this aside. We need more details or here data to find out sentiments. Data with which we can compare our book terms. So, we will be using two
@@ -153,11 +153,12 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
 
 &lt;p&gt;Traditional way to pull data out of CSV file is &lt;code&gt;for -&amp;gt; for -&amp;gt; for&lt;/code&gt; loops. But we are in F# land, we will be using csv Type Provider. Let&amp;rsquo;s pull data out of CSV and shape it in types.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    let sentimentCSVPath = Path.Combine(__SOURCE_DIRECTORY__, &amp;quot;..&amp;quot;,&amp;quot;data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv&amp;quot;)
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;
+    let sentimentCSVPath = Path.Combine(__SOURCE_DIRECTORY__, &amp;quot;..&amp;quot;,&amp;quot;data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv&amp;quot;)
     type SentimentCsv = CsvProvider&amp;lt; &amp;quot;../data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv&amp;quot;&amp;gt;
 
     let SentimentData = SentimentCsv.Load(&amp;quot;../data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv&amp;quot;)
-    
+
     type SentimentInNumber = {
         Anger:float
         Anticipation:float
@@ -227,7 +228,7 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
 
 &lt;p&gt;Here is missing piece of code.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    //Active Pattern for Sentiments
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    //Active Pattern for Sentiments
     let (|Anger|_|) input =
         if input = &amp;quot;anger&amp;quot; then Some Anger else None
     let (|Anticipation|_|) input =
@@ -257,7 +258,7 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
 
 &lt;p&gt;Here is code for same.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    type Word = {
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    type Word = {
         Term :string
         Rating : int
     }
@@ -272,7 +273,7 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
 
 &lt;p&gt;Great. Now stage is set to convert books made of terms to books made of numbers. Let&amp;rsquo;s create for one book and then we will loop it for our array.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    let create (bookname:string) (booktext :string) =
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    let create (bookname:string) (booktext :string) =
         let terms = Terms booktext
         let termsCount = terms.Length |&amp;gt; float
         let termsWithFrequency = UniqueTermsWithFrequency terms
@@ -291,7 +292,7 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
                                             |&amp;gt; Array.map (fun (_,y) -&amp;gt; y) |&amp;gt; Array.sum |&amp;gt; float
                 let commonEmotionsInNumber = allSentimentsInNumber |&amp;gt; Seq.filter (fun x -&amp;gt; commonEmotions.Contains x.Word) |&amp;gt; Seq.toArray
                 let r = commonEmotionsInNumber |&amp;gt; Array.fold (SentimentSum bookname) ZeroSentiment
-                
+
                 { r with
                     Anger = (r.Anger/commonEmotionsCount) * 100.
                     Anticipation = (r.Anticipation/commonEmotionsCount) * 100.
@@ -321,7 +322,7 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
 
 &lt;p&gt;Terms and Unique Terms were extracted away.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    let Terms (input:string)=
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    let Terms (input:string)=
             input
             |&amp;gt; (fun x -&amp;gt; x.Split &#39; &#39;)
             |&amp;gt; Array.map (removeSpecialChars &amp;gt;&amp;gt; (fun x -&amp;gt; x.Trim()))
@@ -334,7 +335,7 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
 
 &lt;p&gt;Little bit complicated looking part is where we are trying to find &lt;code&gt;Sentiment Index&lt;/code&gt; for book. So, first step is clean up the word set. That is the reason we are using unique terms. All terms are not present in data set we are having. So, there is need to take common terms. Again no more loops and conditions. They are two sets we need common terms so just intersect it. One line without performance over head. Now find out Sentiment details for that word and to get for book just fold it and do the sum of it. Done.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    let ZeroSentiment = {
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    let ZeroSentiment = {
         Anger = 0.
         Anticipation = 0.
         Disgust =0.
@@ -347,7 +348,7 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
         Trust = 0.
         Word = String.Empty
     }
-    
+
     let SentimentSum word a b =
         {
             Anger = a.Anger + b.Anger
@@ -369,14 +370,14 @@ data sets. For emotions we will be  using &lt;a href=&#34;http://saifmohammad.co
 
 &lt;p&gt;As we are official data scientist we required that we see things in Graph format. So, first let&amp;rsquo;s conver things to JSON and write to disk so we can use it.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;module Utility =
-    let JsonDropPath name =
-        Path.Combine (__SOURCE_DIRECTORY__, &amp;quot;..&amp;quot;, &amp;quot;docs/js/&amp;quot; + name + &amp;quot;.json&amp;quot;)
-    let dataToJSONFile (fileName : string)(data :&#39;a) =
-        let path = JsonDropPath fileName
-        use writer = new StreamWriter(path)
-        let txt = data |&amp;gt; Compact.serialize
-        writer.WriteLine (txt)
+&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;    module Utility =
+        let JsonDropPath name =
+            Path.Combine (__SOURCE_DIRECTORY__, &amp;quot;..&amp;quot;, &amp;quot;docs/js/&amp;quot; + name + &amp;quot;.json&amp;quot;)
+        let dataToJSONFile (fileName : string)(data :&#39;a) =
+            let path = JsonDropPath fileName
+            use writer = new StreamWriter(path)
+            let txt = data |&amp;gt; Compact.serialize
+            writer.WriteLine (txt)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Here I am using &lt;a href=&#34;https://github.com/Microsoft/fsharplu/wiki/fsharplu.json&#34;&gt;Fsharplu.Json&lt;/a&gt;, do check their &lt;a href=&#34;https://blogs.msdn.microsoft.com/dotnet/2016/12/13/project-springfield-a-cloud-service-built-entirely-in-f/&#34;&gt;project story&lt;/a&gt;.&lt;/p&gt;

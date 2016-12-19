@@ -14,7 +14,9 @@
       <pubDate>Thu, 17 Dec 2015 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2015/12/1729/</guid>
-      <description>&lt;blockquote&gt;
+      <description>
+
+&lt;blockquote&gt;
 &lt;p&gt;This post is part of &lt;a href=&#34;https://sergeytihon.wordpress.com/2015/10/25/f-advent-calendar-in-english-2015/&#34;&gt;F# Advent&lt;/a&gt; calender. Thanks &lt;a href=&#34;https://twitter.com/sergey_tihon&#34;&gt;Sergey Tihon&lt;/a&gt; for arranging this and giving me chance.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -188,44 +190,47 @@ Chart.Point (taxicabnumbersY,&amp;quot;TaxiCabNumbersY&amp;quot;,&amp;quot;TaxiC
 
 &lt;p&gt;Thanks for wonderful and supporting community.  &lt;strong&gt;Merry Christmas and Happy New Year&lt;/strong&gt; to all.&lt;/p&gt;
 
-&lt;p&gt;##Update1##
-Special thanks to &lt;a href=&#34;https://twitter.com/StachuDotNet&#34;&gt;Stachu Korick&lt;/a&gt; complete logic comes in single tweet. Here it is.
+&lt;h2 id=&#34;update1&#34;&gt;Update1&lt;/h2&gt;
+
+&lt;p&gt;Special thanks to &lt;a href=&#34;https://twitter.com/StachuDotNet&#34;&gt;Stachu Korick&lt;/a&gt; complete logic comes in single tweet. Here it is.
 &lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;en&#34;&gt;&lt;p lang=&#34;und&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/fsibot&#34;&gt;@fsibot&lt;/a&gt; seq{for el1 in [1..99] do for el2 in [1..99] do yield el1*el1*el1+el2*el2*el2}|&amp;gt;Seq.countBy(fun z-&amp;gt;z)|&amp;gt;Seq.find(fun(_,y)-&amp;gt;y&amp;gt;=4)|&amp;gt;fst&lt;/p&gt;&amp;mdash; Stachu Korick (@StachuDotNet) &lt;a href=&#34;https://twitter.com/StachuDotNet/status/677942581645455360&#34;&gt;December 18, 2015&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;This is the reason I love F# community so much.&lt;/p&gt;
 
-&lt;p&gt;##Update2##
-&lt;a href=&#34;https://twitter.com/StachuDotNet&#34;&gt;Stachu Korick&lt;/a&gt; is not stopping at all. Here is second version more legitimate one from him.&lt;/p&gt;
+&lt;h2 id=&#34;update2&#34;&gt;Update2&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/StachuDotNet&#34;&gt;Stachu Korick&lt;/a&gt; is not stopping at all. Here is second version more legitimate one from him.&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/fsibot&#34;&gt;@fsibot&lt;/a&gt; &amp;#10;seq{for a in [1..99] do for b in [1..99] do yield (a*a*a)+(b*b*b)}&amp;#10; |&amp;gt;Seq.countBy(fun z-&amp;gt;z)&amp;#10; |&amp;gt;Seq.find(fun(_,y)-&amp;gt;y&amp;gt;=4)&amp;#10; |&amp;gt;fst&lt;/p&gt;&amp;mdash; Stachu Korick (@StachuDotNet) &lt;a href=&#34;https://twitter.com/StachuDotNet/status/678059350317998080&#34;&gt;December 19, 2015&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;This is fun part with F# and in general functional language. You make thing work with ugly and &lt;strong&gt;simple&lt;/strong&gt; code. And then re-factor it with beautiful and &lt;strong&gt;simple&lt;/strong&gt; code.&lt;/p&gt;
 
-&lt;p&gt;##Update3##
-Oh man things are getting better (shorter.) Have a look at &lt;a href=&#34;https://twitter.com/brandewinder&#34;&gt;Mathias Brandewinder&lt;/a&gt; version&lt;/p&gt;
+&lt;h2 id=&#34;update3&#34;&gt;Update3&lt;/h2&gt;
+
+&lt;p&gt;Oh man things are getting better (shorter.) Have a look at &lt;a href=&#34;https://twitter.com/brandewinder&#34;&gt;Mathias Brandewinder&lt;/a&gt; version&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/fsibot&#34;&gt;@fsibot&lt;/a&gt; let f x=x*x*x in[for x in 1..99 do for y in 1..99-&amp;gt;f x+f y]|&amp;gt;Seq.countBy id|&amp;gt;Seq.find((snd&amp;gt;&amp;gt;(=)4))|&amp;gt;fst // &lt;a href=&#34;https://twitter.com/StachuDotNet&#34;&gt;@StachuDotNet&lt;/a&gt;&lt;/p&gt;&amp;mdash; Mathias Brandewinder (@brandewinder) &lt;a href=&#34;https://twitter.com/brandewinder/status/678062630456582144&#34;&gt;December 19, 2015&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;Sweeeeettttt :)&lt;/p&gt;
 
-&lt;p&gt;##Update4##&lt;/p&gt;
+&lt;h2 id=&#34;update4&#34;&gt;Update4&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://twitter.com/yukitos&#34;&gt;Yukitos&lt;/a&gt; made it even shorter. Hufff this is getting more and more fun.&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-conversation=&#34;none&#34; lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/fsibot&#34;&gt;@fsibot&lt;/a&gt; [for x in 1..99 do for y in 1..99-&amp;gt;pown x 3+pown y 3]|&amp;gt;Seq.countBy id|&amp;gt;Seq.find((snd&amp;gt;&amp;gt;(=)4))|&amp;gt;fst&amp;#10;// :) &lt;a href=&#34;https://twitter.com/brandewinder&#34;&gt;@brandewinder&lt;/a&gt; &lt;a href=&#34;https://twitter.com/StachuDotNet&#34;&gt;@StachuDotNet&lt;/a&gt;&lt;/p&gt;&amp;mdash; yukitos (@yukitos) &lt;a href=&#34;https://twitter.com/yukitos/status/678151906934435840&#34;&gt;December 19, 2015&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;##Update5##&lt;/p&gt;
+&lt;h2 id=&#34;update5&#34;&gt;Update5&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://twitter.com/tomaspetricek&#34;&gt;Tomas Petricek&lt;/a&gt; make it even shorter. Beat this&amp;hellip;&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-conversation=&#34;none&#34; lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/fsibot&#34;&gt;@fsibot&lt;/a&gt; Seq.countBy id [for x in 0..9800-&amp;gt;pown(1+x/99)3+pown(1+x%99)3]|&amp;gt;Seq.find(snd&amp;gt;&amp;gt;(=)4)|&amp;gt;fst//&lt;a href=&#34;https://twitter.com/yukitos&#34;&gt;@yukitos&lt;/a&gt; &lt;a href=&#34;https://twitter.com/brandewinder&#34;&gt;@brandewinder&lt;/a&gt; &lt;a href=&#34;https://twitter.com/StachuDotNet&#34;&gt;@StachuDotNet&lt;/a&gt; -9 ;)&lt;/p&gt;&amp;mdash; Tomas Petricek (@tomaspetricek) &lt;a href=&#34;https://twitter.com/tomaspetricek/status/678258388787183617&#34;&gt;December 19, 2015&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;##Update6##&lt;/p&gt;
+&lt;h2 id=&#34;update6&#34;&gt;Update6&lt;/h2&gt;
 
 &lt;p&gt;Above version is beaten already. New, record is by &lt;a href=&#34;https://twitter.com/ScottWlaschin&#34;&gt;Scott Wlaschin&lt;/a&gt;.&lt;/p&gt;
 

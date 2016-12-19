@@ -38,12 +38,12 @@ I don't know the complexity level of it. It totally depends on reader. But resul
 
 First thing is to find out source in English (As it is easy to compare with data sets.). [Project Gutenberg](https://www.gutenberg.org) is good place to find some license free text. If you like to do code with this article then get your favourite book from site or you can always download if [from my project](https://github.com/kunjee17/mahabharata/tree/master/txt_data).
 
-That is whole Mahabharata in four text files. So, I did some manual labour to separate the books from it. You can find them [here](https://github.com/kunjee17/mahabharata/tree/master/books). There are total 18 books (sub books are not separated). 
+That is whole Mahabharata in four text files. So, I did some manual labour to separate the books from it. You can find them [here](https://github.com/kunjee17/mahabharata/tree/master/books). There are total 18 books (sub books are not separated).
 
 Let's start with simple File IO.
 
-```
-	let booknos = [|
+```fsharp
+    let booknos = [|
                 "01";
                 "02";
                 "03";
@@ -64,7 +64,7 @@ Let's start with simple File IO.
                 "18"
                 |]
 
-	let trms = booknos.[0] |>  (fun x ->
+    let trms = booknos.[0] |>  (fun x ->
             Path.Combine(__SOURCE_DIRECTORY__, "..", "books/"+ x + ".txt") |> File.ReadAllLines |> String.concat " "
                     ) |> (fun y -> y.Split ' ')
 
@@ -74,8 +74,9 @@ Let's start with simple File IO.
 That's quite a lot terms for small piece of code. Now, we are one step behind to become data scientist.
 
 Let's find the unique terms and frequency of them.
-```
-	let uniqtrms = trms |> Array.countBy id
+
+```fsharp
+    let uniqtrms = trms |> Array.countBy id
 ```
 see another line and we are done. We are now official data scientists.
 
@@ -93,7 +94,7 @@ For Unique Terms:
 For Unique Terms per Terms
 ![](/images/mahabharata/utbyterms.png)
 
-What next? Let's do the sentiment analysis of all this books and compare them with each others. 
+What next? Let's do the sentiment analysis of all this books and compare them with each others.
 
 ## Sentiment Analysis ##
 
@@ -104,8 +105,8 @@ Analysis done to find out the tone of given text. Here we are having books. Basi
 It will make more sense while comparing.
 
 As everything else in F# here we also start with type and start putting things in it. Let's call it Book type. Because why not.
-```
-	type SentimentInNumber = {
+```fsharp
+    type SentimentInNumber = {
         Anger:float
         Anticipation:float
         Disgust:float
@@ -119,27 +120,27 @@ As everything else in F# here we also start with type and start putting things i
         Word: string
     }
 
-	type Word = {
+    type Word = {
         Term :string
         Rating : int
     }
 
-	
-	type Book = {
-	        Name : string
-	        Text : string
-	        UniqueTerms : Set<string>
-	        Terms : string []
-	        UniqueTermsWithFrequency : (string * int) []
-	        SentimentIndex : SentimentInNumber
-	        WordsRating : Word []
-	    }
+
+    type Book = {
+        Name : string
+        Text : string
+        UniqueTerms : Set<string>
+        Terms : string []
+        UniqueTermsWithFrequency : (string * int) []
+        SentimentIndex : SentimentInNumber
+        WordsRating : Word []
+    }
 ```
 
 Now, for a second keep this aside. We need more details or here data to find out sentiments. Data with which we can compare our book terms. So, we will be using two
 data sets. For emotions we will be  using [this](http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm) and for positive / negative ratings we will be using [this](http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010).
 
-Here are what they look like. 
+Here are what they look like.
 
 Emotion Lexicon:
 ![](/images/mahabharata/sentiment.png)
@@ -150,13 +151,14 @@ And Word with Ratings:
 
 Traditional way to pull data out of CSV file is `for -> for -> for` loops. But we are in F# land, we will be using csv Type Provider. Let's pull data out of CSV and shape it in types.
 
-```
-	let sentimentCSVPath = Path.Combine(__SOURCE_DIRECTORY__, "..","data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv")
+```fsharp
+
+    let sentimentCSVPath = Path.Combine(__SOURCE_DIRECTORY__, "..","data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv")
     type SentimentCsv = CsvProvider< "../data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv">
 
     let SentimentData = SentimentCsv.Load("../data/Basic_Emotions_(size_is_proportional_to_number_of__data.csv")
-	
-	type SentimentInNumber = {
+
+    type SentimentInNumber = {
         Anger:float
         Anticipation:float
         Disgust:float
@@ -170,7 +172,7 @@ Traditional way to pull data out of CSV file is `for -> for -> for` loops. But w
         Word: string
     }
 
-	let sentimentCalculate (anger,anticipation, disgust,emotion,fear, joy, negative, positive, sadness, surprise, trust, word) =
+    let sentimentCalculate (anger,anticipation, disgust,emotion,fear, joy, negative, positive, sadness, surprise, trust, word) =
         let a = {
             Anger = stringToNum anger
             Anticipation = stringToNum anticipation
@@ -198,7 +200,7 @@ Traditional way to pull data out of CSV file is `for -> for -> for` loops. But w
         | Trust -> if a.Trust = 0. then {a with Trust = 1.} else a
         | _ -> a
 
-	let allSentimentsInNumber =
+    let allSentimentsInNumber =
         SentimentData.Rows
         |> Seq.map (fun row ->
             sentimentCalculate (
@@ -221,12 +223,12 @@ Traditional way to pull data out of CSV file is `for -> for -> for` loops. But w
 
 Here is the thing about this data. Emotion column is also specifying the emotion, not always but they are there. So, we need them too. That is reason for that extra calcution we are doing. Here for every emotion found we are adding 1 else it is 0.
 
-If you can see I am not comparing with string but with concrete F# term. It is because in data we are having "anticip" for "anticipation". Now, in future if we add another data to this collection and they have "anticipation" then it will add extra case for same result. So, it would be better to encapsulate them away. And clean way to do that using Active patterns. 
+If you can see I am not comparing with string but with concrete F# term. It is because in data we are having "anticip" for "anticipation". Now, in future if we add another data to this collection and they have "anticipation" then it will add extra case for same result. So, it would be better to encapsulate them away. And clean way to do that using Active patterns.
 
 Here is missing piece of code.
 
-```
-	//Active Pattern for Sentiments
+```fsharp
+    //Active Pattern for Sentiments
     let (|Anger|_|) input =
         if input = "anger" then Some Anger else None
     let (|Anticipation|_|) input =
@@ -256,8 +258,8 @@ Same can be done for word with Positive and Negative ratings.
 
 Here is code for same.
 
-```
-	type Word = {
+```fsharp
+    type Word = {
         Term :string
         Rating : int
     }
@@ -273,8 +275,8 @@ Here is code for same.
 Great. Now stage is set to convert books made of terms to books made of numbers. Let's create for one book and then we will loop it for our array.
 
 
-```
-	let create (bookname:string) (booktext :string) =
+```fsharp
+    let create (bookname:string) (booktext :string) =
         let terms = Terms booktext
         let termsCount = terms.Length |> float
         let termsWithFrequency = UniqueTermsWithFrequency terms
@@ -293,7 +295,7 @@ Great. Now stage is set to convert books made of terms to books made of numbers.
                                             |> Array.map (fun (_,y) -> y) |> Array.sum |> float
                 let commonEmotionsInNumber = allSentimentsInNumber |> Seq.filter (fun x -> commonEmotions.Contains x.Word) |> Seq.toArray
                 let r = commonEmotionsInNumber |> Array.fold (SentimentSum bookname) ZeroSentiment
-                
+
                 { r with
                     Anger = (r.Anger/commonEmotionsCount) * 100.
                     Anticipation = (r.Anticipation/commonEmotionsCount) * 100.
@@ -319,12 +321,12 @@ Great. Now stage is set to convert books made of terms to books made of numbers.
 
 ```
 
-Single function and it's done. That's it. What we are doing in that? Creating our Book type. 
+Single function and it's done. That's it. What we are doing in that? Creating our Book type.
 
 Terms and Unique Terms were extracted away.
 
-```
-	let Terms (input:string)=
+```fsharp
+    let Terms (input:string)=
             input
             |> (fun x -> x.Split ' ')
             |> Array.map (removeSpecialChars >> (fun x -> x.Trim()))
@@ -337,8 +339,8 @@ Terms and Unique Terms were extracted away.
 
 Little bit complicated looking part is where we are trying to find `Sentiment Index` for book. So, first step is clean up the word set. That is the reason we are using unique terms. All terms are not present in data set we are having. So, there is need to take common terms. Again no more loops and conditions. They are two sets we need common terms so just intersect it. One line without performance over head. Now find out Sentiment details for that word and to get for book just fold it and do the sum of it. Done.
 
-```
-	let ZeroSentiment = {
+```fsharp
+    let ZeroSentiment = {
         Anger = 0.
         Anticipation = 0.
         Disgust =0.
@@ -351,8 +353,8 @@ Little bit complicated looking part is where we are trying to find `Sentiment In
         Trust = 0.
         Word = String.Empty
     }
-	
-	let SentimentSum word a b =
+
+    let SentimentSum word a b =
         {
             Anger = a.Anger + b.Anger
             Anticipation = a.Anticipation + b.Anticipation
@@ -369,19 +371,19 @@ Little bit complicated looking part is where we are trying to find `Sentiment In
         }
 ```
 
-So, we are having all the data in memory. In our case in FSI / REPL. 
+So, we are having all the data in memory. In our case in FSI / REPL.
 
-As we are official data scientist we required that we see things in Graph format. So, first let's conver things to JSON and write to disk so we can use it. 
+As we are official data scientist we required that we see things in Graph format. So, first let's conver things to JSON and write to disk so we can use it.
 
-```
-module Utility =
-    let JsonDropPath name =
-        Path.Combine (__SOURCE_DIRECTORY__, "..", "docs/js/" + name + ".json")
-    let dataToJSONFile (fileName : string)(data :'a) =
-        let path = JsonDropPath fileName
-        use writer = new StreamWriter(path)
-        let txt = data |> Compact.serialize
-        writer.WriteLine (txt)
+```fsharp
+    module Utility =
+        let JsonDropPath name =
+            Path.Combine (__SOURCE_DIRECTORY__, "..", "docs/js/" + name + ".json")
+        let dataToJSONFile (fileName : string)(data :'a) =
+            let path = JsonDropPath fileName
+            use writer = new StreamWriter(path)
+            let txt = data |> Compact.serialize
+            writer.WriteLine (txt)
 ```
 
 Here I am using [Fsharplu.Json](https://github.com/Microsoft/fsharplu/wiki/fsharplu.json), do check their [project story](https://blogs.msdn.microsoft.com/dotnet/2016/12/13/project-springfield-a-cloud-service-built-entirely-in-f/).
@@ -390,7 +392,7 @@ Now, once JSON is ready we can easily use to show in graph using any graph libra
 
 > Here I did little cheating and wrote some dirty JavaScript. A good practise would be to write code in [Fable](http://fable.io/). So, I will not show code of JavaScript part.
 
-You can find book wise graphs [here](http://kunjan.in/mahabharata/bookwise-sentiment) and transformed analysis [here](http://kunjan.in/mahabharata/sentiment-wise) which is sentiment wise. Or Check out few of them below. 
+You can find book wise graphs [here](http://kunjan.in/mahabharata/bookwise-sentiment) and transformed analysis [here](http://kunjan.in/mahabharata/sentiment-wise) which is sentiment wise. Or Check out few of them below.
 
 Book Wise:
 
@@ -426,20 +428,21 @@ Check out word frequency graph [here](http://kunjan.in/mahabharata/word-frequenc
 ![](/images/mahabharata/w3.png)
 
 
-"Great" would be always first. And "Fire" will come in last five always. In normal western literature "Great" word used as adverb for person or thing. But in Indian or Mahabharata context they use it to address someone. Like 
-`Hey, Great worrier Arjuna`. A poetic way of saying things. Looks good but also make word totally useless in context of understanding phrase. This issue can be solved with Inverse Document Frequency but again it is an extra effort. Same goes for word "Fire". It is having negative value in normal context but in this specific context it is not that negative. Fire God and Fire it self (yagna) are positive. It is very much contextual. 
+"Great" would be always first. And "Fire" will come in last five always. In normal western literature "Great" word used as adverb for person or thing. But in Indian or Mahabharata context they use it to address someone. Like
+`Hey, Great worrier Arjuna`. A poetic way of saying things. Looks good but also make word totally useless in context of understanding phrase. This issue can be solved with Inverse Document Frequency but again it is an extra effort. Same goes for word "Fire". It is having negative value in normal context but in this specific context it is not that negative. Fire God and Fire it self (yagna) are positive. It is very much contextual.
 
 But again generating graph is much more *data sciencey* to explain.
 
 ## What's Next ##
-Next step would be doing more detailed analysis of this Epic. Compare number / analysis with original context of books. Try to push number as near as possible to words. And probably extract some good NLP library from it. 
+
+Next step would be doing more detailed analysis of this Epic. Compare number / analysis with original context of books. Try to push number as near as possible to words. And probably extract some good NLP library from it.
 
 
-All books are divided in sub-books [telling different stories](http://kunjan.in/mahabharata/index). Wiki links are added in Table list. If you are interested then check them out. 
+All books are divided in sub-books [telling different stories](http://kunjan.in/mahabharata/index). Wiki links are added in Table list. If you are interested then check them out.
 
 [Complete script file for this article is available over github](https://github.com/kunjee17/mahabharata/blob/master/Mahabharata/Lesson1.fsx).
 
-Download your favourite books and have fun with graphs. 
+Download your favourite books and have fun with graphs.
 
 ## Thanks Note ##
 
@@ -447,16 +450,16 @@ Special Thanks to people without whom this project may not exist.
 
 [Rachel Reese](http://rachelree.se/) - For arranging this season of [Mentorship program](http://fsharp.org/mentorship/).
 
-> Mentorship program : In simple words. It is a program where Mentor and Mentee are tagged with each other. And they have hour / week to teach / learn some topic specific to F#. As highly technical people things looks little old school but the effect that flesh and blood can create nothing else can. No books or no recorded videos. 45 - 60 minutes can cover more than one can cover in month or two using deal material. It is always good to have someone there alive in front of you whom you can ask questions. Again that is all my preference and what I like about this program. 
+> Mentorship program : In simple words. It is a program where Mentor and Mentee are tagged with each other. And they have hour / week to teach / learn some topic specific to F#. As highly technical people things looks little old school but the effect that flesh and blood can create nothing else can. No books or no recorded videos. 45 - 60 minutes can cover more than one can cover in month or two using deal material. It is always good to have someone there alive in front of you whom you can ask questions. Again that is all my preference and what I like about this program.
 
 [Andrea](http://www.roundcrisis.com/) - For last season of Mentorship program.
 
-***My lovely fiancée for not only allowing me but also encouraging me to give extra time to this.*** 
+***My lovely fiancée for not only allowing me but also encouraging me to give extra time to this.***
 
-[Saheb](https://twitter.com/tirthpandya) to be my phone a friend for any kind of machine learning and data science queries. 
+[Saheb](https://twitter.com/tirthpandya) to be my phone a friend for any kind of machine learning and data science queries.
 
 
-[Devdutt](http://devdutt.com/), my current favourite mythologist. Author of two of my favourite books [Jaya](http://devdutt.com/books/jaya-3.html) and [My Gita](http://devdutt.com/books/my-gita.html) in this genre 
+[Devdutt](http://devdutt.com/), my current favourite mythologist. Author of two of my favourite books [Jaya](http://devdutt.com/books/jaya-3.html) and [My Gita](http://devdutt.com/books/my-gita.html) in this genre
 
 ## Note to my Mentor ##
 
