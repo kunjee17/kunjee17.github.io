@@ -34,7 +34,7 @@ Understanding the human language, words and sentiments always is exciting. Speci
 
 I don't know the complexity level of it. It totally depends on reader. But results are indeed too good.
 
-## Let the fun Began ##
+## Let the fun Begin ##
 
 First thing is to find out source in English (As it is easy to compare with data sets.). [Project Gutenberg](https://www.gutenberg.org) is good place to find some license free text. If you like to do code with this article then get your favourite book from site or you can always download if [from my project](https://github.com/kunjee17/mahabharata/tree/master/txt_data).
 
