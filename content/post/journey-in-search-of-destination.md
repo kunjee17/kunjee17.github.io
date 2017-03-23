@@ -17,22 +17,19 @@ I never thought I would make this public. I wrote long back for one of my dear c
 
 
 
-
-
-
-मंजिल की तलाश में दूर हम निकल गए
-रस्ते बनते गए हमराही मिलते गए
-मंजिल तोह आज भी दूर है
-मंजिल के लिए प्यार भी  वही है
-लेकिन पता नहीं क्यों रस्ते इतने अच्छे क्यों है
-आँखे इतनी नर्म क्यों है
-मंजिल पाने की चाह तो आज भी वही है
-हमराही को छोड़ने का गम क्यों है
-हमराही कल भी बिछड़े थे, आज भी बिछड़ रहे है
-लेकिन दील मे एक सन्नाटा, तन्हाई, दर्द आज ही क्यों है
-मंजिल की तलाश में हम तो फीर भी निकल चले है
-रस्ते फीर बनते चले है, हमराही फीर मिलते चले है
-लेकिन दील मै उनकी याद क्यों है, ये दर्द एक बेचैनी सि क्यों है
+मंजिल की तलाश में दूर हम निकल गए <br>
+रस्ते बनते गए हमराही मिलते गए<br>
+मंजिल तोह आज भी दूर है<br>
+मंजिल के लिए प्यार भी  वही है<br>
+लेकिन पता नहीं क्यों रस्ते इतने अच्छे क्यों है<br>
+आँखे इतनी नर्म क्यों है<br>
+मंजिल पाने की चाह तो आज भी वही है<br>
+हमराही को छोड़ने का गम क्यों है<br>
+हमराही कल भी बिछड़े थे, आज भी बिछड़ रहे है<br>
+लेकिन दील मे एक सन्नाटा, तन्हाई, दर्द आज ही क्यों है<br>
+मंजिल की तलाश में हम तो फीर भी निकल चले है<br>
+रस्ते फीर बनते चले है, हमराही फीर मिलते चले है<br>
+लेकिन दील मै उनकी याद क्यों है, ये दर्द एक बेचैनी सि क्यों है<br>
 
 
 
@@ -40,19 +37,19 @@ I never thought I would make this public. I wrote long back for one of my dear c
 
 
 
-In search of destination we came long way
-roads started carving them selves, new companion started joining me
-destination is still far
-love for destination is still there
-but don't know why roads seems more beautiful
-and have tears at the corner of my eyes
-Desire to get to the destination is still the same
-then why there is pain for leaving companion back
-I left companion and I am leaving companion back
-then why there is silence, loneliness and pain in heart
-Still moving on in search of destination
-roads are being made again, companion are started joining again
-then why there are memories them of who left behind, why there is pain, restlessness in heart.
+In search of destination we came long way<br>
+roads started carving them selves, new companion started joining me<br>
+destination is still far<br>
+love for destination is still there<br>
+but don't know why roads seems more beautiful<br>
+and have tears at the corner of my eyes<br>
+Desire to get to the destination is still the same<br>
+then why there is pain for leaving companion back<br>
+I left companion and I am leaving companion back<br>
+then why there is silence, loneliness and pain in heart<br>
+Still moving on in search of destination<br>
+roads are being made again, companion are started joining again<br>
+then why there are memories them of who left behind, why there is pain, restlessness in heart.<br>
 
 
 
