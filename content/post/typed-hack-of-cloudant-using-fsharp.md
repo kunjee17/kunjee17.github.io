@@ -24,115 +24,115 @@ As there is no need of scary relations ships with database. So, I decided to use
 Now as one problem is solved other started. It is saving data that is in JSON format. That is untyped and F# is statically typed. I have tried few libraries developed in C# but was not happy. So, I thought it is just a HTTP request, why shouldn't I give it as shot to make one of my own helper module? It is may be some what dirty attempt but I got it working what I needed with less than 100 lines. Here is code snippets.
 
 
-	#r "../packages/Http.fs.1.4.0/lib/net40/HttpClient.dll"
-	#r "../packages/Newtonsoft.Json.6.0.6/lib/net45/Newtonsoft.Json.dll"
-	
-	open HttpClient
-	open Newtonsoft.Json
-	open Newtonsoft.Json.Linq
-	
-	[<CLIMutableAttribute>]
-	type Row<'a> = 
-	    { id : string
-	      key : string
-	      value : 'a }
-	
-	[<CLIMutableAttribute>]
-	type ResultSet<'a> = 
-	    { total_rows : int
-	      offset : int
-	      rows : Row<'a> [] }
-	
-	[<CLIMutableAttribute>]
-	type PostResult = 
-	    { ok : string
-	      id : string
-	      rev : string }
-	
-	[<CLIMutableAttribute>]
-	type PostError = 
-	    { error : string
-	      reason : string }
-	
-	let cloudantUrl = @"<cloudanturl/databasename/>"
-	let username = @"<username>"
-	let password = @"<password>"
-	
-	let private cloudantGet url = 
-	    let request = 
-	        createRequest Get url
-	        |> withBasicAuthentication username password
-	        |> withHeader (ContentType "application/json")
-	    request |> getResponseBody
-	
-	let private cloudantPost url data = 
-	    let request = 
-	        createRequest Post url
-	        |> withBasicAuthentication username password
-	        |> withBody data
-	        |> withHeader (ContentType "application/json")
-	    request |> getResponseBody
-	
-	let private checkDataForNewId (data : JObject) = 
-	    let removeIdrev (data : JObject) = 
-	        data.Remove("_id") |> ignore
-	        data.Remove("_rev") |> ignore
-	    if System.String.IsNullOrEmpty(data.["_id"].ToString()) || System.String.IsNullOrEmpty(data.["_rev"].ToString()) then 
-	        removeIdrev data
-	    data
-	
-	let PostJson<'a> data = 
-	    let serializedObject = JObject.FromObject(data) |> checkDataForNewId
-	    serializedObject.Add("$doctype", JToken.Parse("'" + data.GetType().Name + "'"))
-	    cloudantPost cloudantUrl <| serializedObject.ToString()
-	
-	let GetJsonByType<'a> = 
-	    let resultset = 
-	        JsonConvert.DeserializeObject<ResultSet<'a>>
-	            (cloudantGet (cloudantUrl + "/_design/Type/_view/" + typeof<'a>.Name))
-	    query { 
-	        for row in resultset.rows do
-	            select row.value
-	    }
-	
-	let GetJsonById<'a> Id = JsonConvert.DeserializeObject<'a>(cloudantGet (cloudantUrl + Id))
-	
-	[<CLIMutableAttribute>]
-	type Person = 
-	    { _id : string
-	      _rev : string
-	      FirstName : string
-	      LastName : string }
-	
-	let newPerson = 
-	    { _id = ""
-	      _rev = ""
-	      FirstName = "Boom"
-	      LastName = "Baam" }
-	
-	let inline isNull (x:^a when ^a : not struct) =
-	    obj.ReferenceEquals (x, Unchecked.defaultof<_>)
-	
-	let findPerson = 
-	    query { 
-	        for p in GetJsonByType<Person> do
-	            where (p.FirstName = "Boom")
-	            select p
-	            headOrDefault
-	            }
-	isNull findPerson    
-	GetJsonById<Person> ("3b389dc6b8ee0dcbf7f366faaa59cf42")
+    #r "../packages/Http.fs.1.4.0/lib/net40/HttpClient.dll"
+    #r "../packages/Newtonsoft.Json.6.0.6/lib/net45/Newtonsoft.Json.dll"
+    
+    open HttpClient
+    open Newtonsoft.Json
+    open Newtonsoft.Json.Linq
+    
+    [<CLIMutableAttribute>]
+    type Row<'a> = 
+        { id : string
+          key : string
+          value : 'a }
+    
+    [<CLIMutableAttribute>]
+    type ResultSet<'a> = 
+        { total_rows : int
+          offset : int
+          rows : Row<'a> [] }
+    
+    [<CLIMutableAttribute>]
+    type PostResult = 
+        { ok : string
+          id : string
+          rev : string }
+    
+    [<CLIMutableAttribute>]
+    type PostError = 
+        { error : string
+          reason : string }
+    
+    let cloudantUrl = @"<cloudanturl/databasename/>"
+    let username = @"<username>"
+    let password = @"<password>"
+    
+    let private cloudantGet url = 
+        let request = 
+            createRequest Get url
+            |> withBasicAuthentication username password
+            |> withHeader (ContentType "application/json")
+        request |> getResponseBody
+    
+    let private cloudantPost url data = 
+        let request = 
+            createRequest Post url
+            |> withBasicAuthentication username password
+            |> withBody data
+            |> withHeader (ContentType "application/json")
+        request |> getResponseBody
+    
+    let private checkDataForNewId (data : JObject) = 
+        let removeIdrev (data : JObject) = 
+            data.Remove("_id") |> ignore
+            data.Remove("_rev") |> ignore
+        if System.String.IsNullOrEmpty(data.["_id"].ToString()) || System.String.IsNullOrEmpty(data.["_rev"].ToString()) then 
+            removeIdrev data
+        data
+    
+    let PostJson<'a> data = 
+        let serializedObject = JObject.FromObject(data) |> checkDataForNewId
+        serializedObject.Add("$doctype", JToken.Parse("'" + data.GetType().Name + "'"))
+        cloudantPost cloudantUrl <| serializedObject.ToString()
+    
+    let GetJsonByType<'a> = 
+        let resultset = 
+            JsonConvert.DeserializeObject<ResultSet<'a>>
+                (cloudantGet (cloudantUrl + "/_design/Type/_view/" + typeof<'a>.Name))
+        query { 
+            for row in resultset.rows do
+                select row.value
+        }
+    
+    let GetJsonById<'a> Id = JsonConvert.DeserializeObject<'a>(cloudantGet (cloudantUrl + Id))
+    
+    [<CLIMutableAttribute>]
+    type Person = 
+        { _id : string
+          _rev : string
+          FirstName : string
+          LastName : string }
+    
+    let newPerson = 
+        { _id = ""
+          _rev = ""
+          FirstName = "Boom"
+          LastName = "Baam" }
+    
+    let inline isNull (x:^a when ^a : not struct) =
+        obj.ReferenceEquals (x, Unchecked.defaultof<_>)
+    
+    let findPerson = 
+        query { 
+            for p in GetJsonByType<Person> do
+                where (p.FirstName = "Boom")
+                select p
+                headOrDefault
+                }
+    isNull findPerson    
+    GetJsonById<Person> ("3b389dc6b8ee0dcbf7f366faaa59cf42")
 
 In above code below part is just for testing. And even with that code snippet is 98 lines. So, with blank line removed it is even short. 
 
 Now, in cloudant I need to create views so its code is like 
 
-	function(doc) {
-	    if (doc.$doctype !== "Person") return;
-	    var copydoc = JSON.parse(JSON.stringify(doc));
-	    delete copydoc["$doctype"];
-	    emit(doc._id,copydoc);
-	}
+    function(doc) {
+        if (doc.$doctype !== "Person") return;
+        var copydoc = JSON.parse(JSON.stringify(doc));
+        delete copydoc["$doctype"];
+        emit(doc._id,copydoc);
+    }
 
 I need `$doctype` while I am inserting or updating data only, not while reading. So, I am removing it. As I am already filtering based on type.
 
