@@ -384,7 +384,7 @@ they are queue with processing brain. If you take the line &lt;code&gt;let sse =
 &lt;li&gt;Elmish alternatives - React - Redux, Elm, Vue - Redux&lt;/li&gt;
 &lt;li&gt;Actor Frameworks - &lt;a href=&#34;https://akka.io/&#34;&gt;Akka&lt;/a&gt;, &lt;a href=&#34;http://proto.actor/&#34;&gt;Proto-Actor&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Async Framework - &lt;a href=&#34;http://hopac.github.io/Hopac/Hopac.html&#34;&gt;Hapoc&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Fake &amp;amp; Paket alternatives - Nuget &amp;amp; Sln file if you seriously not happy with your life&lt;/li&gt;
+&lt;li&gt;Fake &amp;amp; Paket alternatives - Nuget &amp;amp; Sln file if you are seriously not happy with your life&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;There are many people from F# community I like to thank for this post. Without them this will not be possible. But personally I like to thank &lt;a href=&#34;https://twitter.com/sforkmann&#34;&gt;Steffen Forkmann&lt;/a&gt; for crating Fake and Paket. Man if you are ever coming to India, &lt;strong&gt;Chaat&lt;/strong&gt; on me.&lt;/p&gt;

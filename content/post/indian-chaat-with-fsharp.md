@@ -388,7 +388,7 @@ Hope you like the post. Complete code you can find at my [github repo](https://g
 - Elmish alternatives - React - Redux, Elm, Vue - Redux
 - Actor Frameworks - [Akka](https://akka.io/), [Proto-Actor](http://proto.actor/)
 - Async Framework - [Hapoc](http://hopac.github.io/Hopac/Hopac.html)
-- Fake & Paket alternatives - Nuget & Sln file if you seriously not happy with your life
+- Fake & Paket alternatives - Nuget & Sln file if you are seriously not happy with your life
 
 
 There are many people from F# community I like to thank for this post. Without them this will not be possible. But personally I like to thank [Steffen Forkmann](https://twitter.com/sforkmann) for crating Fake and Paket. Man if you are ever coming to India, **Chaat** on me.
