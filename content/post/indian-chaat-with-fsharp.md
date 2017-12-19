@@ -411,6 +411,6 @@ Complete code for this you can find at my [github repo](https://github.com/kunje
 - Fake & Paket alternatives - Nuget & Sln file if you are seriously not happy with your life
 - [Awesome Fable](https://github.com/kunjee17/awesome-fable)
 
-There are many people from F# community I like to thank for this post. Without them this will not be possible. But personally I like to thank [Steffen Forkmann](https://twitter.com/sforkmann) for crating Fake and Paket. Man if you are ever coming to India, **Chaat** on me.
+There are many people from F# community I like to thank for this post. Without them this will not be possible. But personally I like to thank [Steffen Forkmann](https://twitter.com/sforkmann) for Fake and Paket. Man if you are ever coming to India, **Chaat** on me.
 
 <iframe src="https://giphy.com/embed/dIm3qgyzenCh2" width="480" height="235" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/dIm3qgyzenCh2">via GIPHY</a></p>
