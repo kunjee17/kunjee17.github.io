@@ -109,7 +109,7 @@ Elmish architecture has three main parts. **Model -> View -> Update**
 
 #### Model
 
-```
+```fsharp
     type [<StringEnum>]SpanCls = Red | Blue | Green | Yellow
 
     type Model =  {
@@ -133,7 +133,7 @@ Forget about the *Model* part now. As it is just a representation for view. More
 
 #### View
 
-```
+```fsharp
     let root model dispatch =
         div [] [
             Content.content [] [
@@ -214,7 +214,7 @@ Normally I skip the view part. As html is not that interesting. But this is diff
 
 #### Update
 
-```
+```fsharp
     let update msg model =
         match msg with
         | ChangeStr s ->
@@ -269,7 +269,7 @@ You can generate typescript dtos using *@servicestack\cli*'s command `ts-ref <ur
 
 So, now you have typed client library with typed dtos for you. Here are the Dtos
 
-```
+```fsharp
 type [<AllowNullLiteral>] OutPutMessages =
     abstract data: ResizeArray<Message> with get, set
 
@@ -300,7 +300,7 @@ If we are talking about big application, then giving skip to *scale* word will n
 
 For a simplicity case I am using Agent here. Just taking a middle ground here.
 
-```
+```fsharp
     type Utility() =
         static let rand = Random()
 
@@ -338,7 +338,7 @@ Agents are async in nature. Always take one message from the queue. So, you don'
 
 And here is code on client side.
 
-```
+```fsharp
     let subscribe =
         let socketSubscription dispatch = 
             let eventSourceOptions = createEmpty<IEventSourceOptions>

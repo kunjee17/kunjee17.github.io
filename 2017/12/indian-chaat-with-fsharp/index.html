@@ -327,7 +327,7 @@
 
 <h4 id="model">Model</h4>
 
-<pre><code>    type [&lt;StringEnum&gt;]SpanCls = Red | Blue | Green | Yellow
+<pre><code class="language-fsharp">    type [&lt;StringEnum&gt;]SpanCls = Red | Blue | Green | Yellow
 
     type Model =  {
         LocalStr : string
@@ -350,7 +350,7 @@
 
 <h4 id="view">View</h4>
 
-<pre><code>    let root model dispatch =
+<pre><code class="language-fsharp">    let root model dispatch =
         div [] [
             Content.content [] [
             ul [] [
@@ -430,7 +430,7 @@
 
 <h4 id="update">Update</h4>
 
-<pre><code>    let update msg model =
+<pre><code class="language-fsharp">    let update msg model =
         match msg with
         | ChangeStr s -&gt;
             {model with LocalStr = s}, Cmd.none
@@ -486,7 +486,7 @@ let [&lt;Import(&quot;*&quot;,&quot;./../Imports/IndianChaat.dtos&quot;)&gt;] dt
 
 <p>So, now you have typed client library with typed dtos for you. Here are the Dtos</p>
 
-<pre><code>type [&lt;AllowNullLiteral&gt;] OutPutMessages =
+<pre><code class="language-fsharp">type [&lt;AllowNullLiteral&gt;] OutPutMessages =
     abstract data: ResizeArray&lt;Message&gt; with get, set
 
 type [&lt;AllowNullLiteral&gt;] OutPutMessagesStatic =
@@ -518,7 +518,7 @@ type [&lt;AllowNullLiteral&gt;] InputMessageStatic =
 
 <p>For a simplicity case I am using Agent here. Just taking a middle ground here.</p>
 
-<pre><code>    type Utility() =
+<pre><code class="language-fsharp">    type Utility() =
         static let rand = Random()
 
         static member RandomSleep() =
@@ -556,7 +556,7 @@ type [&lt;AllowNullLiteral&gt;] InputMessageStatic =
 
 <p>And here is code on client side.</p>
 
-<pre><code>    let subscribe =
+<pre><code class="language-fsharp">    let subscribe =
         let socketSubscription dispatch = 
             let eventSourceOptions = createEmpty&lt;IEventSourceOptions&gt;
             eventSourceOptions.handlers &lt;- createObj [
