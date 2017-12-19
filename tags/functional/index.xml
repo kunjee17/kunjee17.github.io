@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kunjan&#39;s Web Space</title>
-    <link>http://kunjan.in/tags/functional/index.xml</link>
-    <description>Recent content on Kunjan&#39;s Web Space</description>
+    <title>Functional on Kunjan&#39;s Web Space</title>
+    <link>http://kunjan.in/tags/functional/</link>
+    <description>Recent content in Functional on Kunjan&#39;s Web Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://kunjan.in/tags/functional/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://kunjan.in/tags/functional/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Indian Chaat with F#</title>
@@ -14,383 +17,7 @@
       <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2017/12/indian-chaat-with-fsharp/</guid>
-      <description>
-
-&lt;h1 id=&#34;why-chaat-and-what-is-chaat&#34;&gt;Why Chaat? and What is Chaat?&lt;/h1&gt;
-
-&lt;p&gt;Most of us - developers like two things more than anything; eating (,cooking for some) and coding. So, I like to talk about one of the favorite dishes; &lt;strong&gt;Indian Chaat&lt;/strong&gt;. Yup, it is more about F# and also part of &lt;a href=&#34;https://sergeytihon.com/2017/10/22/f-advent-calendar-in-english-2017/&#34;&gt;fsAdvent calendar 2017&lt;/a&gt;. So, why this specific dish??? To understand that you should try searching &lt;a href=&#34;https://www.google.com/search?tbm=isch&amp;amp;source=hp&amp;amp;biw=1920&amp;amp;bih=940&amp;amp;ei=gdMzWvjqBsrivgSrgYOQCg&amp;amp;q=french+onion+soup&amp;amp;oq=french+o&amp;amp;gs_l=img.3.0.0l10.1779.4421.0.5814.10.9.0.0.0.0.218.715.0j3j1.4.0....0...1ac.1.64.img..6.4.711....0.yR2qZd_wqn4&#34;&gt;French Onion Soup&lt;/a&gt; or &lt;a href=&#34;https://www.google.com/search?biw=1920&amp;amp;bih=940&amp;amp;tbm=isch&amp;amp;sa=1&amp;amp;ei=iNMzWqqhOKOQvQS4zqWoAQ&amp;amp;q=pizza&amp;amp;oq=pizz&amp;amp;gs_l=psy-ab.3.0.0i67k1l2j0j0i67k1l6j0.37294.38020.0.39124.4.4.0.0.0.0.200.585.0j2j1.3.0....0...1c.1.64.psy-ab..1.3.582....0.V2wR_A3l2D0&#34;&gt;Pizzas&lt;/a&gt; and then Search for &lt;a href=&#34;https://www.google.com/search?biw=1920&amp;amp;bih=940&amp;amp;tbm=isch&amp;amp;sa=1&amp;amp;ei=sdMzWrLMKYn9vgSBhpz4DA&amp;amp;q=Indian+Chaat&amp;amp;oq=Indian+Chaat&amp;amp;gs_l=psy-ab.3..0l10.3694.16984.0.17138.15.13.1.0.0.0.297.1972.0j4j5.9.0....0...1c.1.64.psy-ab..5.10.1991...0i67k1.0.IJpHl8f_YYA&#34;&gt;Indian Chaat&lt;/a&gt;. Indian Chaat is completely different in every picture. Even it&amp;rsquo;s bare bone parts are different. &lt;strong&gt;Chaat&lt;/strong&gt; you can make it from what you want, way you want and still enjoy it. That is the heart of it. And currently that is possible with &lt;em&gt;dotnet core&lt;/em&gt; . Be it on any OS, using any editor/IDE and still you make things work.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;So, what I will do here in this post. I will try to make Simple &lt;strong&gt;Chat&lt;/strong&gt; (yup, kind of Chaat) application by picking up my &lt;em&gt;favourite&lt;/em&gt; frameworks or libraries. And also give reasons for that. And in &lt;code&gt;Epilogue&lt;/code&gt; I will try to provide all other options that can be replaced or mixed matched. So, you can try it by your self. It is more or less spin off of SAFE style application. You can find links of everything below.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;current-state-of-dotnet-core&#34;&gt;Current state of dotnet core&lt;/h1&gt;
-
-&lt;p&gt;Dotnet core is &lt;strong&gt;Unbiased&lt;/strong&gt; version of dotnet. Yeah, it kind of works on every OS. And specially with other editors. Also more openly developed. It may not be best but credit should be given. So, here I am using that. If you are sticking with &lt;em&gt;Dotnet&lt;/em&gt;, be it big fat company or start up. If you are not making Desktop application, you should be moving to &lt;em&gt;core&lt;/em&gt; for sure.&lt;/p&gt;
-
-&lt;h1 id=&#34;functional-programming-with-f&#34;&gt;Functional Programming with F#&lt;/h1&gt;
-
-&lt;p&gt;There are many Microsoft people may tell you don&amp;rsquo;t worry about &lt;code&gt;F#&lt;/code&gt; and should take care of requirements on hand first. I am saying the same thing, for the sake of &lt;em&gt;requirements&lt;/em&gt; you should be using F#. &lt;em&gt;C#&lt;/em&gt; may be good and supported by Microsoft wholeheartedly but as developer we should choose our things based on task at our hand. And from personal experience of around 10 Years in Software Industry. Few things are already proven for current time, Functional First / Functional language is already winner, no matter how many features may be added to OOP languages they are still not like prior language. OOP language never designed for that. They have their place but I am not sure about future. Be it ReasonML, ELM, Scala or F#. statically typed or not that will boil down to personal choice. Another thing is &lt;em&gt;Big projects&lt;/em&gt; be it server or client with fast pace delivery is here to stay. Make a peace with it and choose it accordingly.&lt;/p&gt;
-
-&lt;h1 id=&#34;visual-studio-code&#34;&gt;Visual Studio &lt;em&gt;Code&lt;/em&gt;&lt;/h1&gt;
-
-&lt;p&gt;While making this project and also nowadays I am using VSCode more often. Whatever bad karma earned by Visual Studio, VSCode is leveling it. And leveling them quite well. VSCode with &lt;a href=&#34;http://ionide.io/&#34;&gt;ionide&lt;/a&gt; is quite killing it. It is not the beast like it&amp;rsquo;s counter part but surely get things done and it is quite faster.&lt;/p&gt;
-
-&lt;h1 id=&#34;servicestack&#34;&gt;ServiceStack&lt;/h1&gt;
-
-&lt;p&gt;Servicestack is built with C#, and OOP framework. It was good old alternative of WCF, If WCF is still around? Then it became better version of WebAPI (WebAPI is more or less inspired by ServiceStack). Currently it has touched &lt;a href=&#34;http://docs.servicestack.net/releases/v5.0.0&#34;&gt;V5&lt;/a&gt;. And it is quite mature and flexible. Also providing way many things out of box. When there was vacuum in F# specific web framework, &lt;a href=&#34;https://servicestack.net/&#34;&gt;Servicestack&lt;/a&gt; was kind of choice for F# people. And there is obvious reason for that. Not only it works with F# but looks way better with it. And vision of Servicestack was quite futuristic, it is one of the first to force developer to think in message while doing web development. And cut to &lt;strong&gt;2017&lt;/strong&gt; every good development strategy talks about message driven development in client side. Take is react-redux, &lt;a href=&#34;http://elm-lang.org/&#34;&gt;Elm&lt;/a&gt; or &lt;a href=&#34;https://fable-elmish.github.io/elmish/&#34;&gt;Fable-Elmish&lt;/a&gt;. &lt;a href=&#34;https://guide.elm-lang.org/architecture/&#34;&gt;The Elm Architecture&lt;/a&gt; is way to go for making big application on client side.&lt;/p&gt;
-
-&lt;p&gt;Take a example here.&lt;/p&gt;
-
-&lt;p&gt;Here are DTOs&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    [&amp;lt;CLIMutableAttribute&amp;gt;]
-    type Message = {
-        Data : string
-        Color : string
-    }
-
-
-    [&amp;lt;CLIMutableAttribute&amp;gt;]
-    type OutPutMessages = {
-        Data : Message []
-    }
-
-    [&amp;lt;CLIMutableAttribute&amp;gt;]
-    [&amp;lt;Route(&amp;quot;/Chat&amp;quot;)&amp;gt;]
-    type InputMessage = {
-        UserId : int
-        Created : DateTime
-        Message : Message
-    } with interface IReturn&amp;lt;OutPutMessages&amp;gt;
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And here is Service&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    type ServerEventsServices() =
-        inherit Service()
-
-        member __.Post(request : InputMessage) =
-            chaatAgent.Post request
-            {Data = storage.ToArray()} |&amp;gt; box
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you skip &lt;em&gt;little code base configuration&lt;/em&gt; then this may be simplest way to understand communications. Everything is message. Just like that. Skip the &lt;em&gt;Agent&lt;/em&gt; line for now.&lt;/p&gt;
-
-&lt;h1 id=&#34;fable&#34;&gt;Fable&lt;/h1&gt;
-
-&lt;p&gt;Fable is one of many &lt;em&gt;your favourite language&lt;/em&gt; to &lt;em&gt;JavaScript&lt;/em&gt; transpiler. Fable here is converting quite a mature functional language. I like to quote &lt;a href=&#34;https://reasonml.github.io/guide/what-and-why&#34;&gt;ReasonML&lt;/a&gt; page here that also suggesting Fable as one of the alternative if not ReasonML. It is easy to use like Elm with the same time it more flexible then it.&lt;/p&gt;
-
-&lt;h2 id=&#34;elmish&#34;&gt;Elmish&lt;/h2&gt;
-
-&lt;p&gt;As I mentioned Elm architecture is way to mover forward if you are making big / fat business application. From personal experience I can say if you are or your team or team you know is using &lt;strong&gt;Angularjs&lt;/strong&gt; specifically 1.0 to make big application. Tell them to change or just run away from there.&lt;/p&gt;
-
-&lt;p&gt;Elmish is thin wrapper around react to provide Elm like architecture without any redux complexity. Provide you message driven architecture to work with. Elmish architecture have three main parts. &lt;strong&gt;Model -&amp;gt; View -&amp;gt; Update&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;model&#34;&gt;Model&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;    type [&amp;lt;StringEnum&amp;gt;]SpanCls = Red | Blue | Green | Yellow
-
-    type Model =  {
-        LocalStr : string
-        ServerMessages : Message []
-        SpanCls : SpanCls
-    }
-
-    type Msg =
-    | ChangeStr of string
-    | ChangeColor of SpanCls
-    | PreparePost
-    | PostMessage of InputMessage
-    | SuccessMessages of OutPutMessages
-    | SSESuccessMessages of OutPutMessages
-    | Failed of exn
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Forget about &lt;em&gt;Model&lt;/em&gt; for now. As it is just a represantation for view. More important here is &lt;em&gt;Msg&lt;/em&gt;. If you can see &lt;em&gt;of InputMessage&lt;/em&gt; and &lt;em&gt;of OutputMessages&lt;/em&gt; both are directly from Server. And all three message including with &lt;em&gt;Failed&lt;/em&gt; is there to communicate with Server. It is direct connection with Server&amp;rsquo;s DTOs. Other msg is to handle user event from view. So, every communication is divided with specific message and handled in State/Update.&lt;/p&gt;
-
-&lt;h3 id=&#34;view&#34;&gt;View&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;    let root model dispatch =
-        div [] [
-            Content.content [] [
-            ul [] [
-                for m in model.ServerMessages do
-                yield
-                    li[][
-                    span [ClassName m.color][str m.data]
-                    ]
-            ]
-            ]
-
-            br []
-            br []
-            p [ClassName (model.SpanCls.ToString())] [str (sprintf &amp;quot;local message %s&amp;quot; model.LocalStr)]
-
-
-            Control.control_div [] [
-            Radio.radio [CustomClass &amp;quot;red&amp;quot;] [
-                Radio.input [
-                Radio.Input.name &amp;quot;color&amp;quot;
-                Radio.Input.props [
-                    Checked (model.SpanCls = Red)
-                    OnChange (fun _ -&amp;gt; Red |&amp;gt; ChangeColor |&amp;gt; dispatch)
-                    ]
-                ]
-                str &amp;quot;Red&amp;quot;
-            ]
-            Radio.radio [CustomClass &amp;quot;green&amp;quot;] [
-                Radio.input [
-                Radio.Input.name &amp;quot;color&amp;quot;
-                Radio.Input.props [
-                    Checked (model.SpanCls = Green)
-                    OnChange (fun _ -&amp;gt; Green |&amp;gt; ChangeColor |&amp;gt; dispatch)
-                    ]
-                ]
-                str &amp;quot;Green&amp;quot;
-            ]
-            Radio.radio [CustomClass &amp;quot;yellow&amp;quot;] [
-                Radio.input [
-                Radio.Input.name &amp;quot;color&amp;quot;
-                Radio.Input.props [
-                    Checked (model.SpanCls = Yellow)
-                    OnChange (fun _ -&amp;gt; Yellow |&amp;gt; ChangeColor |&amp;gt; dispatch)
-                    ]
-                ]
-                str &amp;quot;Yellow&amp;quot;
-            ]
-            Radio.radio [CustomClass &amp;quot;blue&amp;quot;] [
-                Radio.input [
-                    Radio.Input.name &amp;quot;color&amp;quot;
-                    Radio.Input.props [
-                    Checked (model.SpanCls = Blue)
-                    OnChange (fun _ -&amp;gt; Blue |&amp;gt; ChangeColor |&amp;gt; dispatch)
-                    ]
-                ]
-                str &amp;quot;Blue&amp;quot;
-            ]
-            ]
-
-            Control.control_div [] [
-            Input.input [
-                Input.typeIsText
-                Input.placeholder &amp;quot;AddSomething&amp;quot;
-                Input.value model.LocalStr
-                Input.props [
-                OnChange (fun ev -&amp;gt; !!ev.target?value |&amp;gt; ChangeStr |&amp;gt; dispatch)
-                ]
-            ]
-            ]
-            Button.button_btn [
-            Button.onClick (fun _ -&amp;gt; PreparePost |&amp;gt; dispatch)
-            ] [str &amp;quot;Post&amp;quot;]
-        ]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Normally I skip the view part. As html is not that interesting. But this is different. It is not only statically typed HTML but also having &lt;a href=&#34;https://bulma.io/&#34;&gt;Bulma&lt;/a&gt; wrapped with staticially typed functions. Means if this compiles you don&amp;rsquo;t have to worry about even CSS typos. Thanks to &lt;a href=&#34;https://mangelmaxime.github.io/Fulma/&#34;&gt;Fulma&lt;/a&gt;. And that is how you write html-css with confidence.&lt;/p&gt;
-
-&lt;h3 id=&#34;update&#34;&gt;Update&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;    let update msg model =
-        match msg with
-        | ChangeStr s -&amp;gt;
-            {model with LocalStr = s}, Cmd.none
-        | ChangeColor s -&amp;gt;
-            {model with SpanCls = s}, Cmd.none
-        | PreparePost -&amp;gt;
-            let inputMessage = dtos.InputMessage.Create()
-            let message = dtos.Message.Create()
-            message.color &amp;lt;- model.SpanCls.ToString()
-            message.data &amp;lt;- model.LocalStr
-            inputMessage.created &amp;lt;- DateTime.Now.ToString()
-            inputMessage.userId &amp;lt;- 0.
-            inputMessage.message &amp;lt;- message
-            let postCmd = Cmd.ofMsg (PostMessage inputMessage)
-            model,postCmd
-        | PostMessage pm -&amp;gt;
-            let msgPost (msg : InputMessage) =
-            client.post (msg :&amp;gt; IReturn&amp;lt;OutPutMessages&amp;gt;)
-            let helloCmd (msg: InputMessage) =
-            Cmd.ofPromise msgPost msg SuccessMessages Failed
-            let msgCmd = helloCmd pm
-            model, msgCmd
-        | SuccessMessages o -&amp;gt;
-            {model with ServerMessages = o.data.ToArray(); LocalStr = &amp;quot;&amp;quot;}, Cmd.none
-        | SSESuccessMessages o -&amp;gt;
-            {model with ServerMessages = o.data.ToArray()}, Cmd.none
-        | Failed exn -&amp;gt;
-            model, Cmd.none
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;A very simple update method. Now closely look at &lt;em&gt;PreparePost&lt;/em&gt; message. That is where Fable ecosystem shined, I am mutating thing. As it is not that strict. And for the fact mutable is not bad but shared mutable is very bad. I am preparing post command here and the hand it over to other method. And from there it will go forward.&lt;/p&gt;
-
-&lt;h2 id=&#34;ts2fable&#34;&gt;ts2fable&lt;/h2&gt;
-
-&lt;p&gt;In above &lt;em&gt;PreparePost&lt;/em&gt; and &lt;em&gt;PostMessage&lt;/em&gt; message; there are few things like &lt;em&gt;dtos&lt;/em&gt; and &lt;em&gt;client&lt;/em&gt; . That all comes thanks to ts2fable. A library used to convert typescript definition file to F# imports. It is quite magical and super awesome. Currently in beta but works most of the time for around 95% of code.&lt;/p&gt;
-
-&lt;p&gt;And here is code how you use it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;let [&amp;lt;Import(&amp;quot;*&amp;quot;,&amp;quot;@servicestack\client&amp;quot;)&amp;gt;] SSClient: SSClient.IExports = jsNative
-
-let [&amp;lt;Import(&amp;quot;*&amp;quot;,&amp;quot;./../Imports/IndianChaat.dtos&amp;quot;)&amp;gt;] dtos: IExports = jsNative
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Simple one line import and all library functions are available in your project.&lt;/p&gt;
-
-&lt;p&gt;Convert &lt;em&gt;index.d.ts&lt;/em&gt; from &lt;em&gt;@servicestack\client&lt;/em&gt; to create Import file. And then just pull it in your code. Client library is also provided by Servicestck. And it is having quite complete typed library for TypeScript. So, you use that just like that.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;What about &lt;em&gt;dtos&lt;/em&gt;?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;You can generate typescript dtos using &lt;em&gt;@servicestack\cli&lt;/em&gt;. Then using &lt;code&gt;tsc -d&lt;/code&gt; command created js and definitions. And then using ts2fable convert to import. Then pull it in your project. Seems little complicated but it is just few commands.&lt;/p&gt;
-
-&lt;p&gt;So, now you have typed client library with typed dtos for you. Here are the Dtos&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type [&amp;lt;AllowNullLiteral&amp;gt;] OutPutMessages =
-    abstract data: ResizeArray&amp;lt;Message&amp;gt; with get, set
-
-type [&amp;lt;AllowNullLiteral&amp;gt;] OutPutMessagesStatic =
-    [&amp;lt;Emit &amp;quot;new $0($1...)&amp;quot;&amp;gt;] abstract Create: unit -&amp;gt; OutPutMessages
-
-type [&amp;lt;AllowNullLiteral&amp;gt;] Message =
-    abstract data: string with get, set
-    abstract color: string with get, set
-
-type [&amp;lt;AllowNullLiteral&amp;gt;] InputMessage =
-    inherit IReturn&amp;lt;OutPutMessages&amp;gt;
-    abstract userId: float with get, set
-    abstract created: string with get, set
-    abstract message: Message with get, set
-    abstract createResponse: unit -&amp;gt; OutPutMessages
-    abstract getTypeName: unit -&amp;gt; string
-
-type [&amp;lt;AllowNullLiteral&amp;gt;] InputMessageStatic =
-    [&amp;lt;Emit &amp;quot;new $0($1...)&amp;quot;&amp;gt;] abstract Create: unit -&amp;gt; InputMessage
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;There is another way that you can directly share &lt;code&gt;dtos&lt;/code&gt; from server file. That is benefit of using F# on client and server both side. But then I can&amp;rsquo;t show great work done with ts2fable tool.&lt;/p&gt;
-
-&lt;h1 id=&#34;aaa-actor-agent-async&#34;&gt;AAA - Actor-Agent-Async&lt;/h1&gt;
-
-&lt;p&gt;if we are talking about big application, then giving skip to &lt;em&gt;scale&lt;/em&gt; word never gonna happen. And still most of the &lt;em&gt;Enterprise Application&lt;/em&gt; move around &lt;em&gt;Design Patterns&lt;/em&gt;. But I am pretty sure that for AAA size application you need AAA solution. You can use all or either of it. Power and Flexibility are also in same order as mentioned above. Actor is having referential transparency while agent don&amp;rsquo;t. Due to this Actors are more suitable for Micro-service kind of architecture. Using actors you can off load your heavy process to another machine without any issue. Also, it easy to set up cluster with them. That is not possible with agents. I guess &lt;code&gt;Async&lt;/code&gt; is pretty much known by everyone. Also all will agree that Async is quite necessary but at the same time difficult to implement correctly. (I am not considering Java in here. Syntax is so horrific.)&lt;/p&gt;
-
-&lt;p&gt;For a simplicity case I am using Agent here. Just taking middle ground.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    type Utility() =
-        static let rand = Random()
-
-        static member RandomSleep() =
-            let ms = rand.Next(1,1000)
-            Thread.Sleep ms
-
-
-    let storage = new List&amp;lt;Message&amp;gt;()
-
-    let blastAgent = Agent&amp;lt;List&amp;lt;Message&amp;gt;&amp;gt;.Start(fun inbox -&amp;gt;
-        let rec messageLoop() = async {
-            let! msg = inbox.Receive()
-            Utility.RandomSleep()
-            let sse = ServiceStack.ServiceStackHost.Instance.Container.TryResolve&amp;lt;ServiceStack.IServerEvents&amp;gt;()
-            let blastObject = {Data = (msg.ToArray())}
-            sse.NotifyChannel(&amp;quot;home&amp;quot;,&amp;quot;cmd.chat&amp;quot;, blastObject)
-            return! messageLoop()
-        }
-        messageLoop()
-    )
-
-    let chaatAgent = Agent&amp;lt;InputMessage&amp;gt;.Start(fun inbox -&amp;gt;
-        let rec messageLoop() = async {
-            let! msg = inbox.Receive()
-            Utility.RandomSleep()
-            storage.Add(msg.Message)
-            blastAgent.Post storage
-            return! messageLoop()
-        }
-        messageLoop()
-    )
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Agents are async in nature. Always take one message from queue. So, you don&amp;rsquo;t have to worry about &lt;code&gt;locks&lt;/code&gt; or &lt;code&gt;mutability&lt;/code&gt;. They run in isolation. So, no more stepping on anyone&amp;rsquo;s foot. Basically in simple words
-they are queue with processing brain. If you take the line &lt;code&gt;let sse = ServiceStack.ServiceStackHost.Instance.Container.TryResolve&amp;lt;ServiceStack.IServerEvents&amp;gt;()&lt;/code&gt;, here I am messaging from server to client using &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events&#34;&gt;SSE-Server Sent Events&lt;/a&gt;. Mighty Servicestack provide support for it out of box.&lt;/p&gt;
-
-&lt;p&gt;And here is code on client side.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    let subscribe =
-        let socketSubscription dispatch = 
-            let eventSourceOptions = createEmpty&amp;lt;IEventSourceOptions&amp;gt;
-            eventSourceOptions.handlers &amp;lt;- createObj [
-                // &amp;quot;onConnect&amp;quot; ==&amp;gt; fun (sub : ServerEventConnect) -&amp;gt; printfn &amp;quot;onConnect: %A&amp;quot; sub.displayName
-                // &amp;quot;onJoin&amp;quot; ==&amp;gt; fun (msg: ServerEventJoin) -&amp;gt; printfn &amp;quot;onJoin: %A&amp;quot; msg.displayName
-                // &amp;quot;onLeave&amp;quot; ==&amp;gt; fun (msg: ServerEventLeave) -&amp;gt; printfn &amp;quot;onLeave: %A&amp;quot; msg.displayName
-                // &amp;quot;onUpdate&amp;quot; ==&amp;gt; fun (msg : ServerEventUpdate) -&amp;gt; printfn &amp;quot;onUpdate %A&amp;quot; msg.displayName
-                &amp;quot;onMessage&amp;quot; ==&amp;gt; fun (msg: ServerEventMessage) -&amp;gt; printfn &amp;quot;onMessage %A&amp;quot; msg.json
-                &amp;quot;chat&amp;quot; ==&amp;gt; fun (msg : OutPutMessages) -&amp;gt;
-                                msg |&amp;gt; (SSESuccessMessages &amp;gt;&amp;gt; dispatch)
-            ] |&amp;gt; Some |&amp;gt; Some
-
-            let channels = [|&amp;quot;home&amp;quot;; &amp;quot;&amp;quot;|]
-            SSClient.ServerEventsClient.Create(baseUrl
-            , new List&amp;lt;string&amp;gt;(channels)
-            , eventSourceOptions
-            ).start() |&amp;gt; ignore
-        Cmd.ofSub socketSubscription
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;More power to Fable and their support for dynamic nature of JavaScript. If you can see it is more mixture of Static and Dynamic typing. While I am creating object using static type &lt;code&gt;IEventSourceOptions&lt;/code&gt;, I am registering handler using Fable&amp;rsquo;s dynamic support to crate &lt;code&gt;JS object&lt;/code&gt; on the fly. And from here to again goes to &lt;code&gt;update&lt;/code&gt; method using dispatch. from there application loop will take over.&lt;/p&gt;
-
-&lt;h1 id=&#34;business-business-business&#34;&gt;Business Business Business&lt;/h1&gt;
-
-&lt;p&gt;There are three thing important for any Software &lt;code&gt;Business Business Business&lt;/code&gt; . Be it architecture, UX or scale. All boils down to business and how you execute it. For me I like my compiler to do work for me. I don&amp;rsquo;t want to write more code as less code means less errors. Also code should be kind of future friendly.&lt;/p&gt;
-
-&lt;p&gt;It is reason behind picking up language and frameworks. In above use case I am replying with message that is not updated. I m sending across old message. By doing this I am not blocking the user. Even not in async loop. And then I m changing message under the table when they arrived via SSE. This make UX way better as there will always be reply.&lt;/p&gt;
-
-&lt;p&gt;Take any big application. For example of user rating of movie. Many users are giving their &lt;code&gt;star&lt;/code&gt; ratings. And I am updating average stars based on that. So, here I am not blocking user and allowing them to continue. Here, either you can change things in client or wait for SSE to come with updated message. User never bother unless and until s/he knows that his input is taken care of.&lt;/p&gt;
-
-&lt;p&gt;Another thing is. JavaScript runs every where. OK that is Given. You can&amp;rsquo;t escape from it. But that don&amp;rsquo;t tied your hands to use it. You can use any damn thing that transpile to JavaScript. Elmish / Elm architecture push you to make big application using small isolated lego pieces. It will force you think in that direction. It may hurt in start but once your project reach considerable size then you will thank your previous self for this. And no &lt;code&gt;null&lt;/code&gt; or &lt;code&gt;object not found&lt;/code&gt; or &lt;code&gt;function is not an object&lt;/code&gt; or &lt;code&gt;object object&lt;/code&gt; error.&lt;/p&gt;
-
-&lt;p&gt;As you have seen fable is quite more flexible in nature, and here I can joined forces with Servicestack client with it. So, I don&amp;rsquo;t even have to give specific url path to make request or decode json on this side. It just works. Without any issue.&lt;/p&gt;
-
-&lt;p&gt;All this is great but what next&lt;/p&gt;
-
-&lt;h1 id=&#34;docker&#34;&gt;Docker&lt;/h1&gt;
-
-&lt;p&gt;There are many containers out there. But I am choosing &lt;a href=&#34;https://www.docker.com/&#34;&gt;docker here&lt;/a&gt;. I am not biased but as Docker is kind of front runner now a days. And it will make you future safe. Give or take 5-10 years. If you are just starting things out with your project and not sure about how good it will go. Run docker with &lt;a href=&#34;http://dokku.viewdocs.io/dokku/&#34;&gt;Dokku&lt;/a&gt;, if you are scaling things up then can use any docker based hosting. And for every other use cases there is &lt;a href=&#34;https://kubernetes.io/&#34;&gt;kubernetes&lt;/a&gt; . Using docker is having one &lt;code&gt;side effect&lt;/code&gt; that you are not locking your self into any vendor.&lt;/p&gt;
-
-&lt;p&gt;My favourite development time benefit is that you don&amp;rsquo;t have to set up every environment. Once done is done. If you are still not using docker in &lt;em&gt;development&lt;/em&gt; pipe line, while developing your application, you are making big mistake and you should start using it. Yes, for development purpose also. Don&amp;rsquo;t forget to check in your docker file so every team member is testing / running application against same environment.&lt;/p&gt;
-
-&lt;h1 id=&#34;fake-paket&#34;&gt;Fake Paket&lt;/h1&gt;
-
-&lt;p&gt;All this stuff will not be possible without twin F# heros. &lt;a href=&#34;https://fake.build/&#34;&gt;Fake&lt;/a&gt; and &lt;a href=&#34;https://fsprojects.github.io/Paket/&#34;&gt;Paket&lt;/a&gt;. Everything above is good and shinny but without joining things together, it is not useful also more importantly fun. And fake and paket exactly doing that.&lt;/p&gt;
-
-&lt;p&gt;Paket is way better package manager than nuget ever will be. And Fake is build tool that can run anything and everything.&lt;/p&gt;
-
-&lt;p&gt;While developing this application, I had kept them running, that ran my test, server code in watch mode while fable in hot reload mode.&lt;/p&gt;
-
-&lt;p&gt;Above things are mostly inspired / copy-pasted things from &lt;a href=&#34;https://safe-stack.github.io/&#34;&gt;SAFE stack&lt;/a&gt;. Obviously changing things as per my personal taste. And that make my development experience so great. Specially feedback loops is quite fast, that make coding more fun. No more F5, no more breaking point in JavaScript and trying to debug what the hell [object object] is?&lt;/p&gt;
-
-&lt;p&gt;Hope you like the post. Complete code you can find at my &lt;a href=&#34;https://github.com/kunjee17/indian-chaat&#34;&gt;github repo&lt;/a&gt;. And don&amp;rsquo;t forget to read below list for other alternatives.&lt;/p&gt;
-
-&lt;h1 id=&#34;epilogue&#34;&gt;Epilogue&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;F# - If you looking for alternative C# is good option but you should go for Q#.&lt;/li&gt;
-&lt;li&gt;Server side frameworks - &lt;a href=&#34;https://suave.io/&#34;&gt;Suave&lt;/a&gt; - kind of default with SAFE, &lt;a href=&#34;https://github.com/giraffe-fsharp/Giraffe&#34;&gt;Giraffe&lt;/a&gt; if you like aspnetcore, &lt;a href=&#34;https://freya.io/&#34;&gt;Freya&lt;/a&gt; crazy fast option&lt;/li&gt;
-&lt;li&gt;Honorable mention for Server Side Frameworks - &lt;a href=&#34;http://nancyfx.org/&#34;&gt;NancyFx&lt;/a&gt; - can&amp;rsquo;t miss this sweet framework&lt;/li&gt;
-&lt;li&gt;Fable alternatives - ReasonML, Elm, OCaml, Pure Script, Clojure Script&lt;/li&gt;
-&lt;li&gt;Elmish alternatives - React - Redux, Elm, Vue - Redux&lt;/li&gt;
-&lt;li&gt;Actor Frameworks - &lt;a href=&#34;https://akka.io/&#34;&gt;Akka&lt;/a&gt;, &lt;a href=&#34;http://proto.actor/&#34;&gt;Proto-Actor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Async Framework - &lt;a href=&#34;http://hopac.github.io/Hopac/Hopac.html&#34;&gt;Hapoc&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Fake &amp;amp; Paket alternatives - Nuget &amp;amp; Sln file if you are seriously not happy with your life&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;There are many people from F# community I like to thank for this post. Without them this will not be possible. But personally I like to thank &lt;a href=&#34;https://twitter.com/sforkmann&#34;&gt;Steffen Forkmann&lt;/a&gt; for crating Fake and Paket. Man if you are ever coming to India, &lt;strong&gt;Chaat&lt;/strong&gt; on me.&lt;/p&gt;
-
-&lt;p&gt;&lt;iframe src=&#34;https://giphy.com/embed/dIm3qgyzenCh2&#34; width=&#34;480&#34; height=&#34;235&#34; frameBorder=&#34;0&#34; class=&#34;giphy-embed&#34; allowFullScreen&gt;&lt;/iframe&gt;&lt;p&gt;&lt;a href=&#34;https://giphy.com/gifs/dIm3qgyzenCh2&#34;&gt;via GIPHY&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;
-</description>
+      <description>Why Chaat? and What is Chaat? Most of us - developers like two things more than anything; eating (,cooking for some) and coding. So, I like to talk about one of the favorite dishes; Indian Chaat. Yup, it is more about F# and also part of fsAdvent calendar 2017. So, why this specific dish??? To understand that you should try searching French Onion Soup or Pizzas and then Search for Indian Chaat.</description>
     </item>
     
     <item>
@@ -399,234 +26,9 @@ they are queue with processing brain. If you take the line &lt;code&gt;let sse =
       <pubDate>Mon, 30 Nov 2015 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2015/11/reactive-services-with-servicestack-and-fsharp/</guid>
-      <description>&lt;p&gt;Reactive word is not new nowadays. If you want your library to get limelight, use reactive word in the name any way possible and it will definitely get initial attention. Reactive word is appropriate for things that follows &lt;a href=&#34;http://www.reactivemanifesto.org/&#34;&gt;reactive manifesto&lt;/a&gt;. That is true for now. And there are many variant of libraries on server and client to fulfil this.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s start from the start of web.&lt;/p&gt;
-
-&lt;p&gt;We were having old web were we used to do post event of page. At the time of posting whole page goes to server. And then &lt;em&gt;loading loading loading&lt;/em&gt; of the page. But after the rise of &lt;a href=&#34;https://jquery.com/&#34;&gt;JQuery&lt;/a&gt; page refresh become the thing of past. AJAX was there even before JQuery but become widely used after that only.
-Now, that spinner which was there in browser tab bar / address bar came in center of page.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Side Note&lt;/strong&gt;: If you want to make ajax request faster just use a spinner &lt;strong&gt;gif&lt;/strong&gt; which spins faster. Tried and tested thing. With no code change performance issue will be resolved.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;With hardware getting better and if I be more specific more connected it is easy to store lots of data. And this makes things slower eventually. And user have to wait even for ajax request. So, what is next. With &lt;a href=&#34;http://html5doctor.com/&#34;&gt;HTML5&lt;/a&gt; allowing Web Sockets and Server Events things are becoming real-time as now pushing data from Server to client is possible.&lt;/p&gt;
-
-&lt;p&gt;Server and Client is no more one-sided love story. Now, both can send message to each other. This new change allows build more reactive system.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s take example. I request my friend to come with me to visit &lt;code&gt;X&lt;/code&gt; place. I got answer &lt;code&gt;yes, will go.&lt;/code&gt; So, my request is accepted but we haven&amp;rsquo;t visited that place. Visit is still pending. After sometime we visited. So, result happen. I don&amp;rsquo;t have to ask again and again. But that event pushed by that end.&lt;/p&gt;
-
-&lt;p&gt;Same goes for server. In post event client request for some data. But that data may or may not be available at that specific moment. So, Server can send &lt;code&gt;201 - Accepted&lt;/code&gt; status to client. So, data is accepted and waiting for processed result. And whenever result it ready server push data to client. This way neither server is blocked nor client.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;There is will be no need for spinner. Neither slow not fast.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://signalr.net/&#34;&gt;SignalR&lt;/a&gt; is very well-known example of real-time processing. But I wanted to achieve this by API framework. And nothing can be better than &lt;a href=&#34;https://servicestack.net/&#34;&gt;Servicestack&lt;/a&gt;. It is having Server Sent Event / Server Event support in all 4+ version. So, why not?&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s jump into code. Code is in &lt;a href=&#34;http://fsharp.org/&#34;&gt;F#&lt;/a&gt;. It is in F# for a reason and that you will know. Keep on reading.&lt;/p&gt;
-
-&lt;p&gt;I am running a standalone Servicestack host but same code will working with Asp.net host also.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Programe.fs&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;module reactiveServicestack.main
-open ServiceStack
-open System
-open ServiceStack.Logging
-
-type AppHost() = 
-    inherit AppHostHttpListenerBase (&amp;quot;Hello F# Service&amp;quot;, typeof&amp;lt;HelloService&amp;gt;.Assembly)
-    override this.Configure container = 
-        this.Plugins.Add(new PostmanFeature()) |&amp;gt; ignore
-        this.Plugins.Add(new CorsFeature()) |&amp;gt; ignore
-        this.Plugins.Add(new ServerEventsFeature()) |&amp;gt; ignore
-        let serverEventsFeature = this.GetPlugin&amp;lt;ServerEventsFeature&amp;gt;() 
-        printfn &amp;quot;%s&amp;quot; serverEventsFeature.StreamPath
-        ignore()
-
-
-[&amp;lt;EntryPoint&amp;gt;]
-let main args = 
-    LogManager.LogFactory &amp;lt;- new ConsoleLogFactory()
-    let env_port = Environment.GetEnvironmentVariable(&amp;quot;PORT&amp;quot;)
-    let port = if env_port = null then &amp;quot;1234&amp;quot; else env_port
-    let host = &amp;quot;http://localhost:8080/&amp;quot;
-    printfn &amp;quot;listening on %s ...&amp;quot; host
-    let appHost = new AppHost()
-    appHost.Init() |&amp;gt; ignore
-    appHost.Start host |&amp;gt; ignore
-    while true do Console.ReadLine() |&amp;gt; ignore
-    0 // return an integer exit code
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Above code is very much classic Servicestack. Nothing fancy here.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;HelloDto.fs&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;namespace reactiveServicestack
-open System
-open ServiceStack
-
-//I can&#39;t but CLI can mutate this one
-[&amp;lt;CLIMutable&amp;gt;]
-type HelloResponse = { Result:string }
-
-
-//There always be hello world, atleast something should be running
-[&amp;lt;Route(&amp;quot;/hello&amp;quot;)&amp;gt;]
-[&amp;lt;Route(&amp;quot;/hello/{name}&amp;quot;)&amp;gt;]
-type Hello() =
-    interface IReturn&amp;lt;HelloResponse&amp;gt;
-    member val Name = &amp;quot;&amp;quot; with get, set
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Again, POCO members. Hello and HelloResponse. No magic here also.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;AsyncProcessor.fs&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#nowarn &amp;quot;40&amp;quot;
-namespace reactiveServicestack
-
-module SSE =
-    open ServiceStack
-    let private serverEvent = ServiceStackHost.Instance.Container.TryResolve&amp;lt;IServerEvents&amp;gt;()
-    let NotifyAll (msg:&#39;T) = serverEvent.NotifyAll(msg)
-
-
-
-module AsyncProcess =
-    open System
-
-    let rnd = new Random()
-    let agent = 
-        MailboxProcessor.Start(fun inbox -&amp;gt; 
-            let rec messageLoop = 
-                async {
-                    let! (msg:Hello) = inbox.Receive()
-                    do! Async.Sleep(3000)
-                    Console.WriteLine(&amp;quot;Original &amp;quot; + msg.Name)
-                    let reversed = msg.Name.ToCharArray() |&amp;gt; Array.rev |&amp;gt; fun x -&amp;gt; new String (x)
-                    Console.WriteLine(&amp;quot;Reversed &amp;quot; + reversed)
-                    SSE.NotifyAll({HelloResponse.Result = reversed})
-                    return! messageLoop
-                }
-            messageLoop)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Here fun starts. I am creating Actor which takes Hello typed message and NotifyAll with HelloResponse after processing name string.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s understand complicated parts.&lt;/p&gt;
-
-&lt;p&gt;I have created SSE module because if I open Servicestack I was getting &lt;code&gt;asyncbuilder&lt;/code&gt; compile error at async keyword. And I needed to open it to expose all the extension methods. So, I wrap things up in another module.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Don&amp;rsquo;t&lt;/em&gt; create seperate instance of any kind of ServerEvent implementation instead resolve it as above. Else things will surely not work. I was stuck at that problem for couple of days.&lt;/p&gt;
-
-&lt;p&gt;Actor is very much traditional, I am reversing a string and as it is &lt;em&gt;very complex&lt;/em&gt; process. My actor will take precisely &lt;strong&gt;3&lt;/strong&gt; seconds to do it. And then I am notifying to all from actor itself.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;In ideal case it should be Subscriber ID/s or Channel/s.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;As, actor is async by nature it may complicate stuff to return things from agent loop. If you have used framework like &lt;a href=&#34;http://getakka.net/&#34;&gt;AKKA&lt;/a&gt; you must be knowing that &lt;code&gt;ASK&lt;/code&gt; is performance heavy in compare to &lt;code&gt;TELL&lt;/code&gt;. This way you can fire result from Actor itself.&lt;/p&gt;
-
-&lt;p&gt;Now, you can easily guess what service will look like&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Hello.fs&lt;/code&gt;
-    namespace reactiveServicestack
-    open ServiceStack
-        open ServiceStack.Logging
-        open System
-        open System.Net&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    type HelloService() =
-        inherit Service()
-        member val serverEvents:IServerEvents = null with get, set
-        member this.Get (request:Hello) = 
-            {Result = &amp;quot;Hello &amp;quot; + request.Name}
-        member this.Post (request: Hello) =
-            AsyncProcess.agent.Post(request)
-            HttpStatusCode.Accepted
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And final piece of puzzle &lt;strong&gt;HTML&lt;/strong&gt;
-&lt;code&gt;default.html&lt;/code&gt;
-    &lt;html&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;head&amp;gt;
-    &amp;lt;title&amp;gt;Reactive Servicestack&amp;lt;/title&amp;gt;
-    &amp;lt;link href=&amp;quot;//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css&amp;quot; rel=&#39;stylesheet&#39; type=&#39;text/css&#39;&amp;gt;
-&amp;lt;/head&amp;gt;
-
-&amp;lt;body&amp;gt;
-    &amp;lt;div&amp;gt;Hello this is default page&amp;lt;/div&amp;gt;
-    &amp;lt;div&amp;gt;
-        &amp;lt;label for=&amp;quot;name&amp;quot;&amp;gt;Enter Your name&amp;lt;/label&amp;gt;
-        &amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;name&amp;quot; value=&amp;quot;&amp;quot; /&amp;gt;
-        &amp;lt;button id=&amp;quot;reverse&amp;quot;&amp;gt;Reverse&amp;lt;/button&amp;gt;
-        &amp;lt;ul&amp;gt;
-
-        &amp;lt;/ul&amp;gt;
-    &amp;lt;/div&amp;gt;
-    &amp;lt;script src=&amp;quot;//code.jquery.com/jquery-2.1.4.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script src=&amp;quot;/js/ss-utils.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script src=&amp;quot;//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-        $(&#39;#name&#39;).keypress(function (e) {
-            var key = e.which;
-            if(key == 13)  // the enter key code
-            {
-                $(&#39;#reverse&#39;).click();
-                $(&#39;#name&#39;).val(&#39;&#39;);
-                return false;  
-            }
-        }); 
-        $(&#39;#reverse&#39;).click(function(e) {
-            e.preventDefault();
-            var name = $(&#39;#name&#39;).val();
-
-            if (name != &#39;&#39; || name != undefined) {
-                $.post(&#39;/hello&#39;, {
-                        name: name
-                    })
-                    .done(function() {
-                        toastr.success(name + &#39; is very much Accepted!&#39;)
-                    });
-            }
-        });
-        var addName = function(reversedName) {
-            $(&#39;ul&#39;).append(&#39;&amp;lt;li&amp;gt;&#39; + reversedName + &#39;&amp;lt;/li&amp;gt;&#39;);
-        };
-        var channel = &#39;home&#39;;
-        var eventSource = new EventSource(&#39;/event-stream?channel=home&amp;amp;t=&#39; + new Date().getTime());
-        $(eventSource).handleServerEvents({
-            handlers: {
-                HelloResponse: function(msg) {
-                        console.log(msg);
-                        addName(msg.Result);
-                    }
-                    //... Register custom handlers
-            }
-        });
-
-    &amp;lt;/script&amp;gt;
-&amp;lt;/body&amp;gt;
-
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I am taking post request and returning &lt;code&gt;201-accepted&lt;/code&gt; instead of &lt;code&gt;200-ok&lt;/code&gt; from server. On client it will go in &lt;code&gt;success&lt;/code&gt; callback only.&lt;/p&gt;
-
-&lt;p&gt;This way we can easily decouple server and client. And this can be used for games, stock market, betting or other reactive systems.&lt;/p&gt;
-
-&lt;p&gt;I am not going in detail of Actor or AKKA but as it natively available in F# so I used it. One of the reason beside being more fun while writing code.&lt;/p&gt;
-
-&lt;p&gt;Please provide your input for this. I don&amp;rsquo;t know this is right / wrong or can&amp;rsquo;t say. But it is very much possible that using current technology even without enabling Web Sockets (&lt;em&gt;Most of the cloud provider supports web sockets&lt;/em&gt;) one can create reactive web services.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;P.S. - With this there will be no need for spinner at all.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+      <description>Reactive word is not new nowadays. If you want your library to get limelight, use reactive word in the name any way possible and it will definitely get initial attention. Reactive word is appropriate for things that follows reactive manifesto. That is true for now. And there are many variant of libraries on server and client to fulfil this.
+Let&amp;rsquo;s start from the start of web.
+We were having old web were we used to do post event of page.</description>
     </item>
     
     <item>
@@ -635,73 +37,8 @@ module AsyncProcess =
       <pubDate>Tue, 03 Nov 2015 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2015/11/azure-web-sites-with-paket/</guid>
-      <description>&lt;p&gt;Whoever worked with Microsoft Shop knows about &lt;a href=&#34;https://www.nuget.org/&#34;&gt;nuget&lt;/a&gt;. It is package manager for anything and everything related to .Net. And it is getting better and better with versions coming in. But again it is nowhere near maturity needed to work with projects having many small projects. Things get cranky soon.&lt;/p&gt;
-
-&lt;p&gt;Now, there is better option as per my opinion called &lt;a href=&#34;https://fsprojects.github.io/Paket/&#34;&gt;Paket&lt;/a&gt;. Very easy to get started. And so damn reliable. Couple of more command to learn but I guess it is ok. It most of the mess of nuget. And best thing no XML.&lt;/p&gt;
-
-&lt;p&gt;Now, I normally throw anything and everything to Azure websites. Just do experiments and its free. Mostly I put project in &lt;a href=&#34;https://github.com/&#34;&gt;Github&lt;/a&gt; and pull in Azure. Easiest way to test something or anything which need network.&lt;/p&gt;
-
-&lt;p&gt;Now, you can have Paket also instead of nuget with minimum changes. There are detailed &lt;a href=&#34;http://www.hanselman.com/blog/RunningSuaveioAndFWithFAKEInAzureWebAppsWithGitAndTheDeployButton.aspx&#34;&gt;article&lt;/a&gt; you can found written by &lt;a href=&#34;http://www.hanselman.com&#34;&gt;Scott Hanselman&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;But for you existing or new web project what can be minimum requirement.&lt;/p&gt;
-
-&lt;p&gt;You need to create &lt;code&gt;.deployment&lt;/code&gt; in root of your project. It will tell Azure build system to not to go with defaults. (I guess build system is called Kudu.)&lt;/p&gt;
-
-&lt;p&gt;In that file copy paste below code&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[config]
-command = build.cmd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Two lines to tell use &lt;code&gt;build.cmd&lt;/code&gt; to build project.&lt;/p&gt;
-
-&lt;p&gt;Now, we obviously need &lt;code&gt;build.cmd&lt;/code&gt; file in root.&lt;/p&gt;
-
-&lt;p&gt;And here is code&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;@ECHO OFF
-setlocal
-
-echo ====== Restoring packages... ======
-
-if not exist .paket\paket.exe (
-  .paket\paket.bootstrapper.exe
-)
-
-.paket\paket.exe restore
-
-if not %ERRORLEVEL% == 0 (
-  echo ====== Failed to restore packages. ======
-  exit 1
-)
-
-echo ====== Building... ======
-
-msbuild /p:Configuration=Release
-
-if not %ERRORLEVEL% == 0 (
-echo ====== Build failed. ======
-  exit 1
-)
-
-if not &amp;quot;%DEPLOYMENT_TARGET%&amp;quot; == &amp;quot;&amp;quot; (
-  echo ====== Deploying... ======
-  xcopy /y /e &amp;lt;project name&amp;gt; &amp;quot;%DEPLOYMENT_TARGET%&amp;quot;
-)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Code is very much self explanatory.&lt;/p&gt;
-
-&lt;p&gt;First pull latest paket.exe, then restore package. msbuild is there only so use it. And age-old xcopy to copy built files to deployment target.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Bang! Its done. You can check things out in with log tail or console on azure portal.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;If you want to go little bit advanced and want kinda build system then you can always try for &lt;a href=&#34;http://fsharp.github.io/FAKE/&#34;&gt;FAKE&lt;/a&gt;. But if you are in great hurry and don&amp;rsquo;t want waste time with nuget issues go for Paket.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Happy Packaging!!!&lt;/strong&gt;&lt;/p&gt;
-</description>
+      <description>Whoever worked with Microsoft Shop knows about nuget. It is package manager for anything and everything related to .Net. And it is getting better and better with versions coming in. But again it is nowhere near maturity needed to work with projects having many small projects. Things get cranky soon.
+Now, there is better option as per my opinion called Paket. Very easy to get started. And so damn reliable. Couple of more command to learn but I guess it is ok.</description>
     </item>
     
     <item>
@@ -710,24 +47,9 @@ if not &amp;quot;%DEPLOYMENT_TARGET%&amp;quot; == &amp;quot;&amp;quot; (
       <pubDate>Sat, 25 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2015/04/functional-command-pattern/</guid>
-      <description>&lt;p&gt;Command pattern is a pattern which allows executor of the pattern to execute or playback the commands. In most of the application wherever Undo/Redo is implemented this pattern is used.&lt;/p&gt;
-
-&lt;p&gt;Here is C# code.&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/5wmvGN&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;Now, in this code Command Pattern is not in its purest form. As, normally in command pattern we are saving state of outside object. Instead I just returned the result to mock out side object.&lt;/p&gt;
-
-&lt;p&gt;Now have a look at similar F# code. That is doing kinda same thing.&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/htQsqv&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;Here, instead of class I am using functions with the command type. And definition of the command is given as type instead of interface. Now, this is fun with functional programming in general where functions are first class citizen. I can save commands and events like objects only. I don&amp;rsquo;t have to wrap around some classes. This makes code more concise.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Fan of &lt;a href=&#34;http://martinfowler.com/bliki/CQRS.html&#34;&gt;CQRS&lt;/a&gt; and &lt;a href=&#34;http://www.martinfowler.com/eaaDev/EventSourcing.html&#34;&gt;Event Sourcing&lt;/a&gt;; listen up these both design concepts are standing on the shoulders of command pattern.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+      <description>Command pattern is a pattern which allows executor of the pattern to execute or playback the commands. In most of the application wherever Undo/Redo is implemented this pattern is used.
+Here is C# code.
+ Now, in this code Command Pattern is not in its purest form. As, normally in command pattern we are saving state of outside object. Instead I just returned the result to mock out side object.</description>
     </item>
     
     <item>
@@ -736,34 +58,9 @@ if not &amp;quot;%DEPLOYMENT_TARGET%&amp;quot; == &amp;quot;&amp;quot; (
       <pubDate>Fri, 24 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2015/04/functional-strategy-pattern/</guid>
-      <description>&lt;p&gt;Another pattern that is widely used in Object Oriented world. And as far as .Net world is concern it is may be most used pattern in wide range of .Net API. And it &lt;em&gt;heavily&lt;/em&gt; used in &lt;em&gt;heavily&lt;/em&gt; used LINQ API.&lt;/p&gt;
-
-&lt;p&gt;So, I guess giving a understanding of that is kinda waste of space. Have a look at C# code.&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/c4qcvo&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;People familiar with LINQ and lovers of Lambda will definitely argue that this is can be replaced by delegates. And for the face I am arguing the same. But for now I have took this sample as a traditional practice.&lt;/p&gt;
-
-&lt;p&gt;Now, have a look at the F# code doing the same.&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/rhn63P&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;Now, it is definitely not &lt;strong&gt;one to one&lt;/strong&gt; replacement as I have did in last few posts. But here I have replaced class with function but we are achieving the same thing.&lt;/p&gt;
-
-&lt;p&gt;Now, what is strategy pattern. As name suggest it is used to provide strategy from the consumer end. It is like I am saying that I want coffee and also I am telling I want cappuccino. And as shown in sample for sorting I am passing sorting strategy also. For example case I haven&amp;rsquo;t passed array else I have to pass array or list and also strategy or how to sort it. It is mainly used when consumer is having control on how to do execution but execution is done by someone else.&lt;/p&gt;
-
-&lt;p&gt;Now, in case of C# and Java8 where lambda is available. So I have this functional behavior there also. But for the fact it is functional programming concept of passing functions around &lt;em&gt;(or some may argue it is object oriented concept in purest form)&lt;/em&gt; and syntax wise it more suitable / human friendly in functional programming language.&lt;/p&gt;
-
-&lt;p&gt;Here is C# example.&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/63PK93&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;It is very much near to F# counter part. Only F# syntax is having less noise.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;It something all togather when this pattern shown in context of Functional Programming. I am just composing functions. But it serves as Strategy Pattern of OOP so I have used that.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+      <description>Another pattern that is widely used in Object Oriented world. And as far as .Net world is concern it is may be most used pattern in wide range of .Net API. And it heavily used in heavily used LINQ API.
+So, I guess giving a understanding of that is kinda waste of space. Have a look at C# code.
+ People familiar with LINQ and lovers of Lambda will definitely argue that this is can be replaced by delegates.</description>
     </item>
     
     <item>
@@ -772,34 +69,9 @@ if not &amp;quot;%DEPLOYMENT_TARGET%&amp;quot; == &amp;quot;&amp;quot; (
       <pubDate>Thu, 23 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2015/04/functional-singleton-pattern/</guid>
-      <description>&lt;p&gt;This is my favorite pattern. First pattern I learn. And till date I don&amp;rsquo;t know where to use it. &lt;strong&gt;So, I use everywhere. :P&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;I have mainly used for database connection object and then all JavaScript frameworks are exposing Singleton object only. I can say it is quite useful in case of web.&lt;/p&gt;
-
-&lt;p&gt;Fun part about this pattern is that most of the people including me always use this pattern to show off that we know patterns and we follow it in practice but in most cases that practice starts and stops with Singleton Pattern.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s understand the pattern, as name suggested this pattern is propagating singularity. Object of specific class will be created once and only once but No more. Object creation is totally hidden away from consumer and with static method object will be handed over to consumer. If there is a instance presence it will be handed over else new instance will be created and it will be given to consumer.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s check out the C# code&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/ou8ReI&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;See, simple and easy.&lt;/p&gt;
-
-&lt;p&gt;And now here is F# code. Even simpler and easier&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/EAcx3W&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Look ma no &lt;code&gt;null&lt;/code&gt;. As F# is not allowing null by default in the system there is no need to check it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Instead make constructor private to stop creating object of type and provide same instance of type again and again.&lt;/p&gt;
-
-&lt;p&gt;Now, in current scenarios where garbage collector are so powerful and we are having quite a good amount of hardware to process. Singleton is not used while writing domain/business code. But still it is widely used on API side to expose specific functionality.&lt;/p&gt;
-
-&lt;p&gt;I am still to find relevance in case of functional programming. In functional programming &lt;code&gt;type&lt;/code&gt; is different then &lt;code&gt;class&lt;/code&gt;. In normal cases they don&amp;rsquo;t have behaviors attached with it. So, it reducing the need of this pattern.&lt;/p&gt;
-</description>
+      <description>This is my favorite pattern. First pattern I learn. And till date I don&amp;rsquo;t know where to use it. So, I use everywhere. :P
+I have mainly used for database connection object and then all JavaScript frameworks are exposing Singleton object only. I can say it is quite useful in case of web.
+Fun part about this pattern is that most of the people including me always use this pattern to show off that we know patterns and we follow it in practice but in most cases that practice starts and stops with Singleton Pattern.</description>
     </item>
     
     <item>
@@ -808,29 +80,9 @@ if not &amp;quot;%DEPLOYMENT_TARGET%&amp;quot; == &amp;quot;&amp;quot; (
       <pubDate>Wed, 22 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2015/04/functional-factory-pattern/</guid>
-      <description>&lt;p&gt;The fun part working or explaining functional pattern is word &lt;code&gt;functional&lt;/code&gt; can be used in very &lt;code&gt;fun&lt;/code&gt; way. Just like it is used in title here.&lt;/p&gt;
-
-&lt;p&gt;Now, factory pattern may be the most used pattern in Object Oriented world. Here is code in &lt;code&gt;C#&lt;/code&gt;.&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/omFgPe&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;  
-
-&lt;p&gt;Factory method is basically used to abstract away the object creation. I am not worried how object is created but I am worried about the behavior of the objects that are created.
-Now, lets have a look at &lt;code&gt;F#&lt;/code&gt; equivalent&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/vt23Gc&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;If you can see it is short and simple and providing same result.&lt;/p&gt;
-
-&lt;p&gt;Now, functional programming is not &lt;code&gt;one to one&lt;/code&gt; map with Object Oriented programming. But we can always have similar a concept.&lt;/p&gt;
-
-&lt;p&gt;Factory Pattern simply hiding the object creation. And in F# we are having option type which is helping us to provide concrete definition of product. And that is the reason we can skip the concrete class and have product definition in type.&lt;/p&gt;
-
-&lt;p&gt;I have took examples for this post from &lt;a href=&#34;http://www.dofactory.com/&#34;&gt;Dofactory&lt;/a&gt; and &lt;a href=&#34;http://fssnip.net/authors/Tao+Liu&#34;&gt;Tao Liu&lt;/a&gt; s work. I have made few changes thought to make it as similar as possible. In future post I will try to go into greater detail about respective pattern and also check out patterns that can be absolute when you come to the world of functional programming.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;F# people. Your comments and review are required. Will update the code as per the suggestions. Do provide them. I don&amp;rsquo;t mind adding examples of other functional language if anyone is helping me out.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+      <description>The fun part working or explaining functional pattern is word functional can be used in very fun way. Just like it is used in title here.
+Now, factory pattern may be the most used pattern in Object Oriented world. Here is code in C#.
+ Factory method is basically used to abstract away the object creation. I am not worried how object is created but I am worried about the behavior of the objects that are created.</description>
     </item>
     
     <item>
@@ -839,142 +91,8 @@ Now, lets have a look at &lt;code&gt;F#&lt;/code&gt; equivalent&lt;/p&gt;
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2014/11/typed-hack-of-cloudant-using-fsharp/</guid>
-      <description>&lt;p&gt;There is a continues war between typed and untyped data. But then there is need of finding a middle ground for ever growing application. There is place, a requirement when I feel application should be typed and data store should be untyped. So, I created this little code snippet to access cloudant (a couchbase fork) NOSQL database.&lt;/p&gt;
-
-&lt;p&gt;I was knowing about &lt;a href=&#34;http://cloudant.com&#34;&gt;Cloudant&lt;/a&gt; from long back. Even before IBM bought it. It is indeed a wonderful service and also kinda free for small stuff. I thought this will be best fit for now. (I still don&amp;rsquo;t know why I didn&amp;rsquo;t use Mongodb).&lt;/p&gt;
-
-&lt;p&gt;As there is no need of scary relations ships with database. So, I decided to use this one.&lt;/p&gt;
-
-&lt;p&gt;Now as one problem is solved other started. It is saving data that is in JSON format. That is untyped and F# is statically typed. I have tried few libraries developed in C# but was not happy. So, I thought it is just a HTTP request, why shouldn&amp;rsquo;t I give it as shot to make one of my own helper module? It is may be some what dirty attempt but I got it working what I needed with less than 100 lines. Here is code snippets.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#r &amp;quot;../packages/Http.fs.1.4.0/lib/net40/HttpClient.dll&amp;quot;
-#r &amp;quot;../packages/Newtonsoft.Json.6.0.6/lib/net45/Newtonsoft.Json.dll&amp;quot;
-
-open HttpClient
-open Newtonsoft.Json
-open Newtonsoft.Json.Linq
-
-[&amp;lt;CLIMutableAttribute&amp;gt;]
-type Row&amp;lt;&#39;a&amp;gt; = 
-    { id : string
-      key : string
-      value : &#39;a }
-
-[&amp;lt;CLIMutableAttribute&amp;gt;]
-type ResultSet&amp;lt;&#39;a&amp;gt; = 
-    { total_rows : int
-      offset : int
-      rows : Row&amp;lt;&#39;a&amp;gt; [] }
-
-[&amp;lt;CLIMutableAttribute&amp;gt;]
-type PostResult = 
-    { ok : string
-      id : string
-      rev : string }
-
-[&amp;lt;CLIMutableAttribute&amp;gt;]
-type PostError = 
-    { error : string
-      reason : string }
-
-let cloudantUrl = @&amp;quot;&amp;lt;cloudanturl/databasename/&amp;gt;&amp;quot;
-let username = @&amp;quot;&amp;lt;username&amp;gt;&amp;quot;
-let password = @&amp;quot;&amp;lt;password&amp;gt;&amp;quot;
-
-let private cloudantGet url = 
-    let request = 
-        createRequest Get url
-        |&amp;gt; withBasicAuthentication username password
-        |&amp;gt; withHeader (ContentType &amp;quot;application/json&amp;quot;)
-    request |&amp;gt; getResponseBody
-
-let private cloudantPost url data = 
-    let request = 
-        createRequest Post url
-        |&amp;gt; withBasicAuthentication username password
-        |&amp;gt; withBody data
-        |&amp;gt; withHeader (ContentType &amp;quot;application/json&amp;quot;)
-    request |&amp;gt; getResponseBody
-
-let private checkDataForNewId (data : JObject) = 
-    let removeIdrev (data : JObject) = 
-        data.Remove(&amp;quot;_id&amp;quot;) |&amp;gt; ignore
-        data.Remove(&amp;quot;_rev&amp;quot;) |&amp;gt; ignore
-    if System.String.IsNullOrEmpty(data.[&amp;quot;_id&amp;quot;].ToString()) || System.String.IsNullOrEmpty(data.[&amp;quot;_rev&amp;quot;].ToString()) then 
-        removeIdrev data
-    data
-
-let PostJson&amp;lt;&#39;a&amp;gt; data = 
-    let serializedObject = JObject.FromObject(data) |&amp;gt; checkDataForNewId
-    serializedObject.Add(&amp;quot;$doctype&amp;quot;, JToken.Parse(&amp;quot;&#39;&amp;quot; + data.GetType().Name + &amp;quot;&#39;&amp;quot;))
-    cloudantPost cloudantUrl &amp;lt;| serializedObject.ToString()
-
-let GetJsonByType&amp;lt;&#39;a&amp;gt; = 
-    let resultset = 
-        JsonConvert.DeserializeObject&amp;lt;ResultSet&amp;lt;&#39;a&amp;gt;&amp;gt;
-            (cloudantGet (cloudantUrl + &amp;quot;/_design/Type/_view/&amp;quot; + typeof&amp;lt;&#39;a&amp;gt;.Name))
-    query { 
-        for row in resultset.rows do
-            select row.value
-    }
-
-let GetJsonById&amp;lt;&#39;a&amp;gt; Id = JsonConvert.DeserializeObject&amp;lt;&#39;a&amp;gt;(cloudantGet (cloudantUrl + Id))
-
-[&amp;lt;CLIMutableAttribute&amp;gt;]
-type Person = 
-    { _id : string
-      _rev : string
-      FirstName : string
-      LastName : string }
-
-let newPerson = 
-    { _id = &amp;quot;&amp;quot;
-      _rev = &amp;quot;&amp;quot;
-      FirstName = &amp;quot;Boom&amp;quot;
-      LastName = &amp;quot;Baam&amp;quot; }
-
-let inline isNull (x:^a when ^a : not struct) =
-    obj.ReferenceEquals (x, Unchecked.defaultof&amp;lt;_&amp;gt;)
-
-let findPerson = 
-    query { 
-        for p in GetJsonByType&amp;lt;Person&amp;gt; do
-            where (p.FirstName = &amp;quot;Boom&amp;quot;)
-            select p
-            headOrDefault
-            }
-isNull findPerson    
-GetJsonById&amp;lt;Person&amp;gt; (&amp;quot;3b389dc6b8ee0dcbf7f366faaa59cf42&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In above code below part is just for testing. And even with that code snippet is 98 lines. So, with blank line removed it is even short.&lt;/p&gt;
-
-&lt;p&gt;Now, in cloudant I need to create views so its code is like&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;function(doc) {
-    if (doc.$doctype !== &amp;quot;Person&amp;quot;) return;
-    var copydoc = JSON.parse(JSON.stringify(doc));
-    delete copydoc[&amp;quot;$doctype&amp;quot;];
-    emit(doc._id,copydoc);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I need &lt;code&gt;$doctype&lt;/code&gt; while I am inserting or updating data only, not while reading. So, I am removing it. As I am already filtering based on type.&lt;/p&gt;
-
-&lt;p&gt;In above code two libraries are getting used one is &lt;a href=&#34;https://github.com/relentless/Http.fs&#34;&gt;Http.fs&lt;/a&gt; and the other is &lt;a href=&#34;http://james.newtonking.com/json&#34;&gt;JSON.net&lt;/a&gt; libraries.&lt;/p&gt;
-
-&lt;p&gt;In library as you can see I am not doing anything special. I am inserting data with type information. If new data is there I am removing &lt;code&gt;_id&lt;/code&gt; and &lt;code&gt;_rev&lt;/code&gt; and for simplicity sake I had put &lt;code&gt;_id&lt;/code&gt; and &lt;code&gt;_rev&lt;/code&gt; in all the types I am using to interacting with Cloudant data store.&lt;/p&gt;
-
-&lt;p&gt;So, now whenever I am reading I just need to give type and that will be fetched as collection of that typed records. And once collection came to memory now I have powerful F# to process data. In above code I am using &lt;code&gt;query&lt;/code&gt; expression to do so. It becomes very easy and fun to use. And it is damn fast. At least for now.&lt;/p&gt;
-
-&lt;p&gt;Now, I don&amp;rsquo;t know it if perfect or not. It kinda part functional and part Object Oriented as far as I know. Should I convert this to Type Provider or is it possible or not? I don&amp;rsquo;t know. But one thing is sure I am achieving what I wanted with simplest possible code.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Dear F# community members&lt;/strong&gt; do provide your views on this. And also let me know if it will be use full to make it more mature and push it as nuget package. Or may be a type provider for Cloudant?&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Highly inspired by &lt;a href=&#34;https://twitter.com/dmohl&#34;&gt;Daniel Mohl&amp;rsquo;s&lt;/a&gt; old library &lt;a href=&#34;https://github.com/dmohl/FSharpCouch&#34;&gt;FSharpCouch&lt;/a&gt;. Thank you&amp;hellip; :)&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+      <description>There is a continues war between typed and untyped data. But then there is need of finding a middle ground for ever growing application. There is place, a requirement when I feel application should be typed and data store should be untyped. So, I created this little code snippet to access cloudant (a couchbase fork) NOSQL database.
+I was knowing about Cloudant from long back. Even before IBM bought it. It is indeed a wonderful service and also kinda free for small stuff.</description>
     </item>
     
     <item>
@@ -983,12 +101,9 @@ GetJsonById&amp;lt;Person&amp;gt; (&amp;quot;3b389dc6b8ee0dcbf7f366faaa59cf42&am
       <pubDate>Thu, 29 Aug 2013 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2013/08/i-like-functional-programming/</guid>
-      <description>&lt;p&gt;Because it is good. It is fun to write code in functional language. It takes away unnecessary complexity from my way. It do as problem needed I don&amp;rsquo;t need to act as computer to give instruction to computer for how to do computing.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;And just like this specific blog, it is concise, crisp and like haiku short and sweet.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+      <description>Because it is good. It is fun to write code in functional language. It takes away unnecessary complexity from my way. It do as problem needed I don&amp;rsquo;t need to act as computer to give instruction to computer for how to do computing.
+ And just like this specific blog, it is concise, crisp and like haiku short and sweet.
+ </description>
     </item>
     
   </channel>

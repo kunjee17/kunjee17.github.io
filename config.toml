@@ -1,5 +1,5 @@
 # Tranquilpeak
-# Version : 0.1.4-ALPHA
+# Version : 0.4.3-BETA
 # Author : Thibaud Leprêtre
 
 # I STRONGLY recommend you to use a CDN to speed up loading of pages.
@@ -14,9 +14,10 @@
 
 baseurl = "http://kunjan.in"
 languageCode = "en-us"
+defaultContentLanguage = "en-us"
 title = "Kunjan's Web Space"
 theme = "hugo-tranquilpeak-theme"
-DisqusShortname = "kunjan"
+disqusShortname = "kunjan"
 # googleAnalytics = "UA-37975068-1"
 Paginate = 7
 canonifyurls = true
@@ -36,7 +37,7 @@ publishdir = "."
   job = "Functional Developer... Literally!"
   location = "India"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
-  gravatar_email = "kunjee17@gmail.com"
+  gravatarEmail = "kunjee17@gmail.com"
   # Your profile picture
   # Overwritten by your gravatar image if `author.gravatar` is filled
   picture = "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
@@ -47,45 +48,45 @@ publishdir = "."
 
 # Menu Configuration
 [[menu.main]]
-  weight = 0
+  weight = 1
   identifier = "home"
   name = "Home"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-home\"></i>"
   url = "/"
 [[menu.main]]
-  weight = 1
+  weight = 2
   identifier = "categories"
   name = "Categories"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-bookmark\"></i>"
   url = "/categories"
 [[menu.main]]
-  weight = 2
+  weight = 3
   identifier = "tags"
   name = "Tags"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-tags\"></i>"
   url = "/tags"
 [[menu.main]]
-  weight = 3
+  weight = 4
   identifier = "archives"
   name = "Archives"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-archive\"></i>"
   url = "/archives"
 [[menu.main]]
-  weight = 4
+  weight = 5
   identifier = "about"
   name = "About"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
   url = "/about"
 
 [[menu.main]]
-  weight = 4
+  weight = 6
   identifier = "resume"
   name = "Resume"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
   url = "/resume"
 
 [[menu.links]]
-  weight = 0
+  weight = 1
   identifier = "github"
   name = "GitHub"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-github\"></i>"
@@ -98,7 +99,7 @@ publishdir = "."
 #   url = "https://stackoverflow.com/users/636472/kakawait"
 
 [[menu.misc]]
-  weight = 0
+  weight = 1
   identifier = "rss"
   name = "RSS"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-rss\"></i>"
@@ -108,10 +109,14 @@ publishdir = "."
   # Global keywords configuration. Following keywords will be add to every pages
   # keywords = ["development", "next-gen"]
 
-  # Hide sidebar on all article page to let article take full width to improve reading, and enjoy wide images and cover images. (true: enable, false: disable)
-  clear_reading = true
+  # Syntax highlighter, possible choice between: "highlight.js" (recommanded) and "prism.js" (experimental)
+  # You can comment it to disable syntax highlighting
+  syntaxHighlighter = "highlight.js"
 
-  hierarchical_categories = true
+  # Hide sidebar on all article page to let article take full width to improve reading, and enjoy wide images and cover images. (true: enable, false: disable)
+  clearReading = true
+
+  hierarchicalCategories = true
 
   description = "Personal Blog of Kunjan. Where he writes about programming, poems and other stuff."
 
@@ -128,7 +133,7 @@ publishdir = "."
   #    large sidebar is swiped on all lower screens
   # 5: Display header bar on all screens and large sidebar is swiped on large screen
   # 6: Display header bar on all screens and medium sidebar is swiped
-  sidebar_behavior = 1
+  sidebarBehavior = 1
 
   # Your blog cover picture. I STRONGLY recommend you to use a CDN to speed up loading of pages.
   # There is many free CDN like Cloudinary or you can also use indirectly
@@ -136,21 +141,46 @@ publishdir = "."
   # Current image is on AWS S3 and delivered by AWS CloudFront.
   # Otherwise put your image in folder `static/_images/` (development)  or in `source/assets/images/` if you can't or don't want to build the theme,
   # and use relative url : `your-image.png`
-  cover_image = "cover.jpg"
+  coverImage = "cover.jpg"
 
   # Display an image gallery at the end of a post which have photos variables (false: disabled, true: enabled)
-  image_gallery = true
+  imageGallery = true
 
   # Display thumbnail image of each post on index pages (false: disabled, true: enabled)
-  thumbnail_image = true
+  thumbnailImage = true
   # Display thumbnail image at the right of title in index pages (`right`, `left` or `bottom`)
   # Set this value to `right` if you have old posts to keep the old style on them
   # and define `thumbnailImagePosition` on a post to overwrite this setting
-  thumbnail_image_position = "bottom"
+  thumbnailImagePosition = "bottom"
   # Automatically select the cover image or the first photo from the gallery of a post if there is no thumbnail image as the thumbnail image
   # Set this value to `true` if you have old posts that use the cover image or the first photo as the thumbnail image
   # and set `autoThumbnailImage` to `false` on a post to overwrite this setting
-  auto_thumbnail_image = true
+  autoThumbnailImage = true
+
+  # Your favicon path, default is "/favicon.png"
+  # favicon = "/favicon.png"
+
+  # Header configuration
+  # The link at the right of the header is customizable
+  # You can add a link (as an icon) at the right of the header instead of the author's gravatar image or author's picture.
+  # By default, author's gravatar or author's picture is displayed.
+  #     url: /#search
+  #     icon: search
+  #     class: st-search-show-outputs
+
+  # Custom CSS. Put here your custom CSS files. They are loaded after the theme CSS;
+  # they have to be referred from static root. Example
+  # [[params.customCSS]]
+  #   href = "css/mystyle.css"
+
+  # Custom JS. Put here your custom JS files. They are loaded after the theme JS;
+  # they have to be referred from static root. Example
+  # [[params.customJS]]
+  #   src = "js/myscript.js"
+
+  # Display `Next` on left side of the pagination, and `Prev` on right side one.
+  # If you set this value to `true`, these positions swap.
+  # swapPaginator = true
 
   # Header configuration
   # The link at the right of the header is customizable
@@ -163,3 +193,8 @@ publishdir = "."
     class = ""
     icon = ""
     url = "/about"
+
+
+  # Customize copyright value "© 2017 <CUSTOMIZATION>. All Rights Reserved"
+  # [params.footer]
+  copyright = "<a href=\"https://github.com/kunjee17\">Kunjee</a>"

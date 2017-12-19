@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kunjan&#39;s Web Space</title>
-    <link>http://kunjan.in/tags/book-review/index.xml</link>
-    <description>Recent content on Kunjan&#39;s Web Space</description>
+    <title>Book Review on Kunjan&#39;s Web Space</title>
+    <link>http://kunjan.in/tags/book-review/</link>
+    <description>Recent content in Book Review on Kunjan&#39;s Web Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://kunjan.in/tags/book-review/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Oct 2011 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://kunjan.in/tags/book-review/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Data Structure through C&#43;&#43;</title>
@@ -14,16 +17,8 @@
       <pubDate>Sat, 08 Oct 2011 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2011/10/data-stucture-through-cpp-review/</guid>
-      <description>&lt;p&gt;Whoever is ever being engaged with computer science field, they have to come across the term data structure. Even a simple user, using &lt;a href=&#34;http://google.com/&#34;&gt;Google&lt;/a&gt; , &lt;a href=&#34;http://bing.com/&#34;&gt;Bing&lt;/a&gt; and other search engine, using &lt;a href=&#34;http://facebook.com/&#34;&gt;Facebook&lt;/a&gt; for social networking, they all touched by basic fundamental of computers, called data structure. Also, every Computer Science branch has this as part of curriculum.&lt;/p&gt;
-
-&lt;p&gt;Here is the one of the best book I found for this. Book called &lt;a href=&#34;http://www.bpbonline.com/bookdetail.aspx?id=204&#34;&gt;Data Structure Through C++&lt;/a&gt; , wonderfully written book by Yashvant Kanetkar. This book starts for basic understanding of the subject, necessity of it, and then explains each and every fundamentals of it.&lt;/p&gt;
-
-&lt;p&gt;Yasahvant is always a wonderful writer to read. He is one of that very rare Indian writer who meets the international standard of writing book on computer technology. Also, even with this relatively tough topic, he always take care that write-up stays simple and easy to read.&lt;/p&gt;
-
-&lt;p&gt;Simply speaking whoever want to start with data structure, must go through this book. Or even for a topic or two this book is great. This book suitable for beginners as well as experts who ever want take reference of topics like Link list, stacks, queues etc.&lt;/p&gt;
-
-&lt;p&gt;Winding up here, by saying this is great book to read, if you belong to computer industry you should at least once in life time read this book.&lt;/p&gt;
-</description>
+      <description>Whoever is ever being engaged with computer science field, they have to come across the term data structure. Even a simple user, using Google , Bing and other search engine, using Facebook for social networking, they all touched by basic fundamental of computers, called data structure. Also, every Computer Science branch has this as part of curriculum.
+Here is the one of the best book I found for this. Book called Data Structure Through C++ , wonderfully written book by Yashvant Kanetkar.</description>
     </item>
     
   </channel>

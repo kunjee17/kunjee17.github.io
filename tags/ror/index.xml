@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kunjan&#39;s Web Space</title>
-    <link>http://kunjan.in/tags/ror/index.xml</link>
-    <description>Recent content on Kunjan&#39;s Web Space</description>
+    <title>Ror on Kunjan&#39;s Web Space</title>
+    <link>http://kunjan.in/tags/ror/</link>
+    <description>Recent content in Ror on Kunjan&#39;s Web Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://kunjan.in/tags/ror/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Aug 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://kunjan.in/tags/ror/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Why Ruby on Rails in not only for Ruby on Rails Developers?!</title>
@@ -14,42 +17,8 @@
       <pubDate>Tue, 27 Aug 2013 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2013/08/why-ruby-on-rails-in-not-only-for-ruby-on-rails-developers/</guid>
-      <description>&lt;p&gt;If you ever involved in web development, then you must be knowing the history of it. Once upon a time there is something called &lt;a href=&#34;https://en.wikipedia.org/wiki/CGI_script&#34;&gt;CGI&lt;/a&gt;. And at that moment there are static html pages.&lt;/p&gt;
-
-&lt;p&gt;Only few part of page is dynamic. Then things changed, &lt;a href=&#34;https://en.wikipedia.org/wiki/Active_server_pages&#34;&gt;ASP&lt;/a&gt; came. Server access become so normal and easy. But still there is a lot more work to do. And main issue with them is code is not arranged and coding style is not suitable for big projects.&lt;/p&gt;
-
-&lt;p&gt;One can create dirty few pages but creating sophisticated big project is almost big no no. Same is true with other part of languages too. Languages like &lt;a href=&#34;https://en.wikipedia.org/wiki/Php&#34;&gt;Php&lt;/a&gt; , &lt;a href=&#34;https://en.wikipedia.org/wiki/Java_Server_Pages&#34;&gt;JSP&lt;/a&gt; etc.&lt;/p&gt;
-
-&lt;p&gt;At that moment, something called &lt;a href=&#34;http://rubyonrails.org/&#34;&gt;Ruby on Rails&lt;/a&gt; took birth. It was extracted from &lt;a href=&#34;https://basecamp.com/&#34;&gt;Basecamp&lt;/a&gt;. And then it took the world like anything. Even today it is so popular.&lt;/p&gt;
-
-&lt;p&gt;I am proper Microsoft Developer. And I know Asp.Net MVC(at least my &lt;a href=&#34;http://kunjan.in/pages/resume&#34;&gt;Resume&lt;/a&gt; says so.). I never felt I should learn any other thing than MVC. It is good, better than Web Forms (at least for me). And I know how to do data in and data out.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;What else can be needed???&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The answer is many things. My views are hammered by &lt;a href=&#34;http://wekeroad.com/&#34;&gt;Rob Conery&lt;/a&gt; with one of his video at &lt;a href=&#34;http://www.ndcoslo.com/&#34;&gt;NDC&lt;/a&gt;. Then I thought there is no harm in learning new thing.&lt;/p&gt;
-
-&lt;p&gt;First I start with MVC thing. What things it claims to solve? It provides &lt;a href=&#34;https://en.wikipedia.org/wiki/Separation_of_concerns&#34;&gt;Separation of Concern&lt;/a&gt; in your code. But in any framework it is not strictly imposed. Specially in Asp.Net MVC. Means there is no proper guideline on how things should be. And you can find hell lot of opinion for that. I don&amp;rsquo;t mind any of them but one thing I mind that culture is missing there. Culture that provides starting point. For the new user it will be damn tough to start things.&lt;/p&gt;
-
-&lt;p&gt;If I give a example, in Ruby On Rails things with 7 operation will stay in one controller but in MVC I can do it more than that. I can put every  JSON operation in one controller. One may argue that it is issue on my side but I will say it is issue on our culture side. No one forcing me to do it right things first. Obviously I need freedom to do things in my way but first I like to learn right way of doing things.&lt;/p&gt;
-
-&lt;p&gt;Even though there are many copy of ROR, but culture is not copied properly. And that makes issue sometimes. And that even not allowed to rip the benefit of using MVC. So, it will be like that I am creating controller and writing code in View. Or model is there but I still don&amp;rsquo;t know why?&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Or I can say I don&amp;rsquo;t know how many models are there??? My MVC then became (M^n)VC. And then all that mapping and stuff.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Am I using MVC to make things easy for me or make things even worst for me? This question always bugs me till I learn (I still not no where near good user of ROR) ROR. That helps me a lot to cultured my MVC code. At the end of day ROR is father of all the MVC framework out there.&lt;/p&gt;
-
-&lt;p&gt;You take it .Net, Java, Node or even &lt;a href=&#34;http://www.codinghorror.com/blog/2012/06/the-php-singularity.html&#34;&gt;sucky Php&lt;/a&gt; every damn technology have their version of rails. If you have that much things from rails, then there is no need to shy away from learning it.&lt;/p&gt;
-
-&lt;p&gt;I learned from &lt;a href=&#34;http://tekpub.com/collections/ruby-rails/products/rails3&#34;&gt;Tekpub&lt;/a&gt;, you can also try it. Or you can try &lt;a href=&#34;https://peepcode.com/&#34;&gt;Peepcode&lt;/a&gt; too. Both are quite good at teaching specially rails.&lt;/p&gt;
-
-&lt;p&gt;I am still a .Net developer at least as of now, but still it clears out many things. And with that it is also true that rails is not a silver bullet. If you are creating back end architecture to provide service you can try out different things. Even though rails way works but still you are not bounded.&lt;/p&gt;
-
-&lt;p&gt;But learning is not option I guess. If anyone related to web development must learn or at least once give it shot for &lt;a href=&#34;http://rubyonrails.org/&#34;&gt;Ruby on Rails&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <description>If you ever involved in web development, then you must be knowing the history of it. Once upon a time there is something called CGI. And at that moment there are static html pages.
+Only few part of page is dynamic. Then things changed, ASP came. Server access become so normal and easy. But still there is a lot more work to do. And main issue with them is code is not arranged and coding style is not suitable for big projects.</description>
     </item>
     
   </channel>

@@ -8,14 +8,18 @@
   
 
 
+
+
+
   
 
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.17">
+    <meta name="generator" content="Hugo 0.30.2 with theme Tranquilpeak 0.4.3-BETA">
     <title>Epic Adventure using F#</title>
     <meta name="author" content="Kunjan Dalal">
     <meta name="keywords" content="">
@@ -48,7 +52,7 @@ There is one wonderful coincidence here that both post of 2016 is based on Epic 
     
 
     
-      <meta property="og:image" content="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=640">
+      <meta property="og:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
     
 
     
@@ -58,42 +62,37 @@ There is one wonderful coincidence here that both post of 2016 is based on Epic 
     
 
     
-    <link rel="stylesheet" href="http://kunjan.in/css/style-zfzvxnwixwz6qe7xv3xz1eyvlzc7cdfoxrgduk75zpqxib0hatbphiq9sddx.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
+    <link rel="stylesheet" href="http://kunjan.in/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
     
       
+    
     
   </head>
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="4">
+      <header id="header" data-behavior="">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="http://kunjan.in/">Kunjan&#39;s Web Space</a>
   </div>
   
-    
-      <a class="header-right-picture "
-         href="http://kunjan.in/about">
-    
-    
-    
-      
-        <img class="header-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=90" alt="Author's picture" />
-      
-    
-    </a>
-  
 </header>
 
-      <nav id="sidebar" data-behavior="4">
+      <nav id="sidebar" data-behavior="">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
         <a href="http://kunjan.in/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=110" alt="Author's picture" />
+          <img class="sidebar-profile-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" />
         </a>
         <h4 class="sidebar-profile-name">Kunjan Dalal</h4>
         
@@ -105,18 +104,10 @@ There is one wonderful coincidence here that both post of 2016 is based on Epic 
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="http://kunjan.in/">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-      <span class="sidebar-button-desc">Home</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
       <a class="sidebar-button-link " href="http://kunjan.in/categories">
     
       <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
       <span class="sidebar-button-desc">Categories</span>
     </a>
   </li>
@@ -126,6 +117,7 @@ There is one wonderful coincidence here that both post of 2016 is based on Epic 
       <a class="sidebar-button-link " href="http://kunjan.in/tags">
     
       <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
       <span class="sidebar-button-desc">Tags</span>
     </a>
   </li>
@@ -135,6 +127,7 @@ There is one wonderful coincidence here that both post of 2016 is based on Epic 
       <a class="sidebar-button-link " href="http://kunjan.in/archives">
     
       <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
       <span class="sidebar-button-desc">Archives</span>
     </a>
   </li>
@@ -144,6 +137,7 @@ There is one wonderful coincidence here that both post of 2016 is based on Epic 
       <a class="sidebar-button-link " href="http://kunjan.in/about">
     
       <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
       <span class="sidebar-button-desc">About</span>
     </a>
   </li>
@@ -153,21 +147,35 @@ There is one wonderful coincidence here that both post of 2016 is based on Epic 
       <a class="sidebar-button-link " href="http://kunjan.in/resume">
     
       <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
       <span class="sidebar-button-desc">Resume</span>
     </a>
   </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
 
     </ul>
     <ul class="sidebar-buttons">
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://github.com/kunjee17" target="_blank">
+      <a class="sidebar-button-link " href="https://github.com/kunjee17" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
       <span class="sidebar-button-desc">GitHub</span>
     </a>
   </li>
+
 
     </ul>
     <ul class="sidebar-buttons">
@@ -177,9 +185,11 @@ There is one wonderful coincidence here that both post of 2016 is based on Epic 
       <a class="sidebar-button-link " href="http://kunjan.in/index.xml">
     
       <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
       <span class="sidebar-button-desc">RSS</span>
     </a>
   </li>
+
 
     </ul>
   </div>
@@ -187,7 +197,7 @@ There is one wonderful coincidence here that both post of 2016 is based on Epic 
 
       
 
-      <div id="main" data-behavior="4"
+      <div id="main" data-behavior=""
         class="
                hasCoverMetaIn
                ">
@@ -200,21 +210,25 @@ There is one wonderful coincidence here that both post of 2016 is based on Epic 
       Epic Adventure using F#
     </h1>
   
-  <div class="post-meta">
-  <time itemprop="datePublished" datetime="2016-12-17T00:00:00Z">
-    Dec 17, 2016
-  </time>
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2016-12-17T00:00:00Z">
+        
+   17, 2016
+
+      </time>
+    
+    
   
   
-  
-    <span>in</span>
+    <span></span>
     
       <a class="category-link" href="http://kunjan.in/categories/technical">Technical</a>
     
   
 
-
-</div>
+  </div>
 
 </div>
           
@@ -688,77 +702,70 @@ data sets. For emotions we will be  using <a href="http://saifmohammad.com/WebPa
           <div id="post-footer" class="post-footer main-content-wrap">
             
               
-              
-                <div class="post-footer-tags">
-                  <span class="text-color-light text-small">TAGGED IN</span><br/>
-                  
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small"></span><br/>
+                    
   <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/functional-programming/">Functional Programming</a>
 
   <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/natural-language-processing/">Natural Language Processing</a>
 
   <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/data-science/">Data Science</a>
 
-                </div>
+                  </div>
+                
               
             
-            <div class="post-actions-wrap">
-  <nav>
-    <ul class="post-actions post-action-nav">
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2017/12/indian-chaat-with-fsharp/" data-tooltip="Indian Chaat with F#">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml"></span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2016/04/my-identity/" data-tooltip="My Identity">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr"></span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2017/12/indian-chaat-with-fsharp/" data-tooltip="Indian Chaat with F#">
+          <a class="post-action-btn btn btn--default" href="#">
         
-          <i class="fa fa-angle-left"></i>
-          <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-        </a>
-      </li>
-      <li class="post-action">
-        
-          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2016/04/my-identity/" data-tooltip="My Identity">
-        
-          <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-          <i class="fa fa-angle-right"></i>
+          <i class="fa fa-list"></i>
         </a>
       </li>
     </ul>
-  </nav>
-  <ul class="post-actions post-action-share">
-    <li class="post-action hide-lg hide-md hide-sm">
-      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-        <i class="fa fa-share-alt"></i>
-      </a>
-    </li>
-    <li class="post-action hide-xs">
-      <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fkunjan.in%2f2016%2f12%2fepic-adventure-using-fsharp%2f">
-        <i class="fa fa-google-plus"></i>
-      </a>
-    </li>
-    <li class="post-action hide-xs">
-      <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkunjan.in%2f2016%2f12%2fepic-adventure-using-fsharp%2f">
-        <i class="fa fa-facebook-official"></i>
-      </a>
-    </li>
-    <li class="post-action hide-xs">
-      <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fkunjan.in%2f2016%2f12%2fepic-adventure-using-fsharp%2f">
-        <i class="fa fa-twitter"></i>
-      </a>
-    </li>
-    
-      <li class="post-action">
-        <a class="post-action-btn btn btn--default" href="#disqus_thread">
-          <i class="fa fa-comment-o"></i>
-        </a>
-      </li>
-    
-    <li class="post-action">
-      
-        <a class="post-action-btn btn btn--default" href="#">
-      
-        <i class="fa fa-list"></i>
-      </a>
-    </li>
-  </ul>
-</div>
+  </div>
 
 
             
@@ -772,101 +779,80 @@ data sets. For emotions we will be  using <a href="http://saifmohammad.com/WebPa
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    Copyrights &copy; 2017 Kunjan Dalal. All Rights Reserved.
+    &copy; 2017 Kunjan Dalal. 
   </span>
 </footer>
 
       </div>
-      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-        <div class="post-actions-wrap">
-  <nav>
-    <ul class="post-actions post-action-nav">
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2017/12/indian-chaat-with-fsharp/" data-tooltip="Indian Chaat with F#">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml"></span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2016/04/my-identity/" data-tooltip="My Identity">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr"></span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2017/12/indian-chaat-with-fsharp/" data-tooltip="Indian Chaat with F#">
+          <a class="post-action-btn btn btn--default" href="#">
         
-          <i class="fa fa-angle-left"></i>
-          <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-        </a>
-      </li>
-      <li class="post-action">
-        
-          <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2016/04/my-identity/" data-tooltip="My Identity">
-        
-          <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-          <i class="fa fa-angle-right"></i>
+          <i class="fa fa-list"></i>
         </a>
       </li>
     </ul>
-  </nav>
-  <ul class="post-actions post-action-share">
-    <li class="post-action hide-lg hide-md hide-sm">
-      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-        <i class="fa fa-share-alt"></i>
-      </a>
-    </li>
-    <li class="post-action hide-xs">
-      <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fkunjan.in%2f2016%2f12%2fepic-adventure-using-fsharp%2f">
-        <i class="fa fa-google-plus"></i>
-      </a>
-    </li>
-    <li class="post-action hide-xs">
-      <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkunjan.in%2f2016%2f12%2fepic-adventure-using-fsharp%2f">
-        <i class="fa fa-facebook-official"></i>
-      </a>
-    </li>
-    <li class="post-action hide-xs">
-      <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fkunjan.in%2f2016%2f12%2fepic-adventure-using-fsharp%2f">
-        <i class="fa fa-twitter"></i>
-      </a>
-    </li>
-    
-      <li class="post-action">
-        <a class="post-action-btn btn btn--default" href="#disqus_thread">
-          <i class="fa fa-comment-o"></i>
-        </a>
-      </li>
-    
-    <li class="post-action">
-      
-        <a class="post-action-btn btn btn--default" href="#">
-      
-        <i class="fa fa-list"></i>
-      </a>
-    </li>
-  </ul>
-</div>
+  </div>
 
 
       </div>
-      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+      <div id="share-options-bar" class="share-options-bar" data-behavior="">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
-    <li class="share-option">
-      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fkunjan.in%2f2016%2f12%2fepic-adventure-using-fsharp%2f">
-        <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
-      </a>
-    </li>
-    <li class="share-option">
-      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkunjan.in%2f2016%2f12%2fepic-adventure-using-fsharp%2f">
-        <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
-      </a>
-    </li>
-    <li class="share-option">
-      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fkunjan.in%2f2016%2f12%2fepic-adventure-using-fsharp%2f">
-        <i class="fa fa-twitter"></i><span>Share on Twitter</span>
-      </a>
-    </li>
+    
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
     </div>
+    
     <div id="about">
   <div id="about-card">
     <div id="about-btn-close">
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=110" alt="Author's picture" />
+      <img id="about-card-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" />
     
     <h4 id="about-card-name">Kunjan Dalal</h4>
     
@@ -893,19 +879,18 @@ data sets. For emotions we will be  using <a href="http://saifmohammad.com/WebPa
   <div class="modal">
     <div class="modal-header">
       <span class="close-button"><i class="fa fa-close"></i></span>
-      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
         <span class="searchby-algolia-text text-color-light text-small">by</span>
         <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
       </a>
       <i class="search-icon fa fa-search"></i>
       <form id="algolia-search-form">
         <input type="text" id="algolia-search-input" name="search"
-          class="form-control input--large search-input" placeholder="Search "
-          autofocus="autofocus"/>
+          class="form-control input--large search-input" placeholder="" />
       </form>
     </div>
     <div class="modal-body">
-      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="no-result text-color-light text-center"></div>
       <div class="results">
         
         
@@ -1100,42 +1085,26 @@ Fun part about this pattern is that most of the people including me always use t
     </div>
     <div class="modal-footer">
       <p class="results-count text-medium"
-         data-message-zero="no post found"
-         data-message-one="1 post found"
-         data-message-other="{n} posts found">
-         60 posts found
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         62 posts found
       </p>
     </div>
   </div>
 </div>
     
-  
-    
-    <div id="cover" style="background-image:url('http://kunjan.in/images/cover.jpg');"></div>
-  
-
 
     
-<script src="http://kunjan.in/js/script-lrchyhb5kddxeiejst2qhr1sqb7vhfxkdhrigadzb4moxbk6your91edbeqz.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight').each(function(i, block) {
-    var code = "";
-    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
-      code += "<span class=\"line\">" + line + "</span><br>";
-    });
-    if (code.length > 0) {
-      block.innerHTML = code;  
-    }
-  });
-  $('pre > code').each(function(i, block) {
-    $(this).addClass('codeblock');
-    hljs.highlightBlock(block);
-  });
-});
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="http://kunjan.in/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
 
   
     
@@ -1164,5 +1133,8 @@ $(document).ready(function() {
   
 
 
+
+    
   </body>
 </html>
+

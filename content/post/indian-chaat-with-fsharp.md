@@ -43,7 +43,7 @@ Servicestack is built with C#, and OOP framework. It was good old alternative of
 Take a example here.
 
 Here are DTOs
-```
+```fsharp
     [<CLIMutableAttribute>]
     type Message = {
         Data : string
@@ -68,7 +68,7 @@ Here are DTOs
 
 And here is Service
 
-```
+```fsharp
     type ServerEventsServices() =
         inherit Service()
 

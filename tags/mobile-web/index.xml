@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kunjan&#39;s Web Space</title>
-    <link>http://kunjan.in/tags/mobile-web/index.xml</link>
-    <description>Recent content on Kunjan&#39;s Web Space</description>
+    <title>Mobile Web on Kunjan&#39;s Web Space</title>
+    <link>http://kunjan.in/tags/mobile-web/</link>
+    <description>Recent content in Mobile Web on Kunjan&#39;s Web Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://kunjan.in/tags/mobile-web/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Nov 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://kunjan.in/tags/mobile-web/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Angularjs and the Mess we are in</title>
@@ -14,70 +17,10 @@
       <pubDate>Mon, 02 Nov 2015 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2015/11/angularjs-and-the-mess-we-are-in/</guid>
-      <description>
-
-&lt;p&gt;Who doesn&amp;rsquo;t know &lt;a href=&#34;https://angularjs.org/&#34;&gt;Angularjs&lt;/a&gt;?!? Everyone worked is web, mobile, server, windows, mac, Linux, Google, Microsoft or anyway related to this knows about it. And its fun when people tell me&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;You know about angularjs. Its pretty hot now a days. I&amp;rsquo;m planning to learn it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Oh man&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;Ok I am no expert here in Angularjs. And I prefer not to be expert with any framework. Be it anything. But you know there is another &lt;a href=&#34;https://angular.io/&#34;&gt;Angularjs&lt;/a&gt; from another universe. If you are learning (like seriously) then go for this one.&lt;/p&gt;
-
-&lt;p&gt;But be sure. There is a chance you will be inviting a hell of mess. I have been working with angular since last 3+ year. Either leading a team or part of team. And one thing I learn hard way. You need a discipline when you are working with JavaScript. But you need discipline of delta forces when you are working with angularjs.&lt;/p&gt;
-
-&lt;p&gt;As metioned in site it is a superhero. And like every superhero it also should have responsiblitiy. But angular is abusing JavaScript every way possible. If something is possible that doesn&amp;rsquo;t means we should be doing it. We have damn book called &lt;a href=&#34;http://shop.oreilly.com/product/9780596517748.do&#34;&gt;JavaScript: Good Parts&lt;/a&gt; all about it.&lt;/p&gt;
-
-&lt;p&gt;It called Good Parts means you just use Good Parts and leave bad one alone. But with angular it is like you are leaving in Bar and told not to touch Alcohol. On top of it you have &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.untappdllc.app&amp;amp;hl=en&#34;&gt;untapped&lt;/a&gt; installed in your mobile.&lt;/p&gt;
-
-&lt;p&gt;Why this? Lets take things one by one&lt;/p&gt;
-
-&lt;h2 id=&#34;scope-poor-man-s-global&#34;&gt;Scope - Poor man&amp;rsquo;s global&lt;/h2&gt;
-
-&lt;p&gt;We should not use global. That is proven truth. No, doubt in it. But what about &lt;strong&gt;We love &lt;em&gt;global&lt;/em&gt; so much.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;We got scope then. JSLint can&amp;rsquo;t catch it and we still have it. Now, angular lover may argue that we should not use it. But how can you prevent it from using it. It all comes to putting as rule in project wiki or training. But there is no way to prevent it. At least I don&amp;rsquo;t know one.&lt;/p&gt;
-
-&lt;h2 id=&#34;magical-directives&#34;&gt;Magical- Directives&lt;/h2&gt;
-
-&lt;p&gt;Whenever you start abusing Angularjs people comes up with &lt;code&gt;But we have Directives?!?&lt;/code&gt; that magically solves everything. The problem with that it is hiding too much. Its good if things works out but when it breaks. Oh man. &lt;em&gt;You seriously wish that never happen.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;If you still like Directives try implement two directive on one. It will be too much fun. And pure magic if one directive is created by you and other is created by third third-party.&lt;/p&gt;
-
-&lt;h2 id=&#34;three-musketeers-service-factory-and-provider&#34;&gt;Three musketeers - Service, Factory and Provider&lt;/h2&gt;
-
-&lt;p&gt;I don&amp;rsquo;t know how many times I have searched google with &lt;code&gt;Service vs Factor vs Provider&lt;/code&gt; . Nowadays you don&amp;rsquo;t even have to put angularjs on top of that. If you write above message you will have angularjs answer only. It way too complicated for simple module with helper functions. Aren&amp;rsquo;t we all happy with few base global in age of JQuery that passed in as parameter in modular functions. And now we have DI(Proudly called as Dependancy Injection).&lt;/p&gt;
-
-&lt;h2 id=&#34;wired-di&#34;&gt;Wired - DI&lt;/h2&gt;
-
-&lt;p&gt;It is good thing. A good thing invented from the object-oriented concept. And then it is used almost every where. whether it is needed or not. For the case of Angular it is good we can have module without worrying about modules. Directly available in function. But then what about other libraries we need to created wrapper around it to make angular way. And then have plenty of gulp or grunt plumbing tools so you can save your ass when things minified and combined.&lt;/p&gt;
-
-&lt;h2 id=&#34;grass-is-always-green-on-other-side&#34;&gt;Grass is always green on other side&lt;/h2&gt;
-
-&lt;p&gt;I don&amp;rsquo;t say angular beast we never wanted. But you need to use it carefully. I have seen more than enough projects, new and legacy using angular in all wrong way. It make tough to debug or extend. Every time you got feeling that lets dump it all and make it again. We don&amp;rsquo;t need to learn another framework just learn &lt;code&gt;JavaScript - Good Parts&lt;/code&gt;. And things are all good. But instead most of resources are wasted on teaching Angularjs. With a hope that &lt;strong&gt;Super Hero&lt;/strong&gt; framework will solve every issue we have.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;It is not going to be. It was never going to be. It will never going to be.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;We are the one who gonna solve our issue. Pick your framework wisely and try not to hope so much from it.&lt;/p&gt;
-
-&lt;h2 id=&#34;my-personal-pick&#34;&gt;My Personal Pick&lt;/h2&gt;
-
-&lt;p&gt;If I want to go so hard on my self and don&amp;rsquo;t want any error in my &lt;strong&gt;to be&lt;/strong&gt; big project. I will choose &lt;a href=&#34;http://elm-lang.org&#34;&gt;elm&lt;/a&gt;. It&amp;rsquo;s not framework but a hell of a language with crazy html support.&lt;/p&gt;
-
-&lt;p&gt;If people are coming from JavaScript land to join me then I ll go for &lt;a href=&#34;https://facebook.github.io/react/&#34;&gt;react&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;If there is a need quick two-way binding on a single page then &lt;a href=&#34;http://knockoutjs.com/&#34;&gt;knockout&lt;/a&gt; is a good thing.&lt;/p&gt;
-
-&lt;p&gt;If I want to go fast for small project. And I am the only one working on it at least for now. Or may be some single person working on it. I will go with Angularjs. I don&amp;rsquo;t mind. It is quick and easy.&lt;/p&gt;
-
-&lt;p&gt;Big project. &lt;a href=&#34;http://emberjs.com/&#34;&gt;Ember&lt;/a&gt; is there. But few times I feel it is unnecessary complexity. Two way binding and not much of angular mess &lt;a href=&#34;http://aurelia.io/&#34;&gt;Aurelia&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Above all opinion is derived from my personal experience and not influenced by any one. And it is my own.&lt;/p&gt;
-</description>
+      <description>Who doesn&amp;rsquo;t know Angularjs?!? Everyone worked is web, mobile, server, windows, mac, Linux, Google, Microsoft or anyway related to this knows about it. And its fun when people tell me
+ You know about angularjs. Its pretty hot now a days. I&amp;rsquo;m planning to learn it.
+ Oh man&amp;hellip;
+Ok I am no expert here in Angularjs. And I prefer not to be expert with any framework. Be it anything.</description>
     </item>
     
   </channel>

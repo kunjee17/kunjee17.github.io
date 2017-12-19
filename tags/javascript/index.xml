@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kunjan&#39;s Web Space</title>
-    <link>http://kunjan.in/tags/javascript/index.xml</link>
-    <description>Recent content on Kunjan&#39;s Web Space</description>
+    <title>Javascript on Kunjan&#39;s Web Space</title>
+    <link>http://kunjan.in/tags/javascript/</link>
+    <description>Recent content in Javascript on Kunjan&#39;s Web Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://kunjan.in/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Oct 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://kunjan.in/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Type Casting JavaScript with Typescript</title>
@@ -14,93 +17,7 @@
       <pubDate>Mon, 08 Oct 2012 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2012/10/type-casting-javascript-with-typescript/</guid>
-      <description>&lt;p&gt;Whenever something came from &lt;a href=&#34;https://www.microsoft.com&#34;&gt;Microsoft&lt;/a&gt; or &lt;a href=&#34;https://www.microsoft.com&#34;&gt;Microsoft&lt;/a&gt; employee there is always a buzz… And I still don’t understand why person’s company policies do with person’s attitude or approach of a person. Same happens when &lt;a href=&#34;http://www.typescriptlang.org&#34;&gt;typescript&lt;/a&gt; came. It was just a day old and Open Source People starts bashing it like anything. Comparing with &lt;a href=&#34;http://kunjan.in/archives/coffee-with-coffeescript&#34;&gt;CoffeeScript&lt;/a&gt; , &lt;a href=&#34;http://www.dartlang.org/&#34;&gt;Dart&lt;/a&gt; . Guys, it is also open source and &lt;a href=&#34;https://www.microsoft.com&#34;&gt;Microsoft&lt;/a&gt; in any case not forcing anything. As of now. If you like use it if you don’t just don’t use it.&lt;/p&gt;
-
-&lt;p&gt;In any case it is just a &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;javascript&lt;/a&gt; . There is very positive buzz when &lt;a href=&#34;http://kunjan.in/archives/coffee-with-coffeescript&#34;&gt;CoffeeScript&lt;/a&gt; came. But for &lt;a href=&#34;http://www.typescriptlang.org&#34;&gt;typescript&lt;/a&gt; was not that fortunate.&lt;/p&gt;
-
-&lt;p&gt;It is normal. Even I thought just another things come from &lt;a href=&#34;https://www.microsoft.com&#34;&gt;Microsoft&lt;/a&gt; that is similar to &lt;a href=&#34;http://kunjan.in/archives/coffee-with-coffeescript&#34;&gt;CoffeeScript&lt;/a&gt; . But I was wrong it is far different than &lt;a href=&#34;http://kunjan.in/archives/coffee-with-coffeescript&#34;&gt;CoffeeScript&lt;/a&gt; . I am in long time relationship with typed language like C-*, JAVA and recently fall in love with Ruby like language. So, I kinda like both. I don’t have problem with any. Whenever I am learning &lt;a href=&#34;http://rubyonrails.org/&#34;&gt;Ruby on Rails&lt;/a&gt; I like to code with &lt;a href=&#34;http://kunjan.in/archives/coffee-with-coffeescript&#34;&gt;CoffeeScript&lt;/a&gt; and even I started using with my day to day work in .Net. But there is no symmetry in that. I am missing that. And typescript came to solve that issue. Obviously some people claim that they don’t need good tool but still I wonder how can a person make enterprise level language using notepad.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Check out comments section over this blog :&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.typescriptlang.org&#34;&gt;Typescript&lt;/a&gt; is just provide type to &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;javascript&lt;/a&gt; . And with that it provides tooling support to writing client side code. Nothing else. Even it is not trying to bring good parts of &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;javascript&lt;/a&gt; to you. Like &lt;a href=&#34;http://kunjan.in/archives/coffee-with-coffeescript&#34;&gt;CoffeeScript&lt;/a&gt; . Not forcing anything and also not doing any magic behind. So, you can say it is very near to metal, pure &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;javascript&lt;/a&gt; . And I like and also dislike this thing. I like this because it allows me copy paste and I have it because it also allows bad parts of &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;javascript&lt;/a&gt; to production code. I personally like &lt;a href=&#34;http://kunjan.in/archives/coffee-with-coffeescript&#34;&gt;CoffeeScript&lt;/a&gt; for a reason that it doesn’t allows any bad parts but restrict / force you to write good parts only. Again this is personal view and like. I am not that good with &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;javascript&lt;/a&gt; so I prefer writing code in &lt;a href=&#34;http://kunjan.in/archives/coffee-with-coffeescript&#34;&gt;CoffeeScript&lt;/a&gt; which take care of every other things and emit a beautiful &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;javascript&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;But a person who is good with &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;javascript&lt;/a&gt; or believed to be good with &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;javascript&lt;/a&gt; . &lt;a href=&#34;http://www.typescriptlang.org&#34;&gt;Typescript&lt;/a&gt; is for them. It is wonderful thing which provides complete freedom of &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;javascript&lt;/a&gt; with types to help you out.&lt;br /&gt;
-So, lets check out what the hell &lt;a href=&#34;http://www.typescriptlang.org&#34;&gt;typescript&lt;/a&gt; is.&lt;/p&gt;
-
-&lt;p&gt;I have special relationship with this. Because this is the first language I have read language specification. Huff its nasty. At first shot I haven’t got a single thing. But than when I am in the state of understanding that its just wow. I just loved it. I should have read language specification with Pro Books. I personally insist to visit site and check out &lt;a href=&#34;http://www.typescriptlang.org&#34;&gt;typescript&lt;/a&gt; , a wonderful introduction video is there. And lots of samples are also available too. Also, there is &lt;a href=&#34;http://go.microsoft.com/fwlink/?LinkId=267238&#34;&gt;specification&lt;/a&gt; available. It is nice, must read book.&lt;/p&gt;
-
-&lt;p&gt;If you are lazy genius than you should continue reading. I will try to cover as much possible of &lt;a href=&#34;http://www.typescriptlang.org&#34;&gt;typescript&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;Basically you can just bounce &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;javascript&lt;/a&gt; into &lt;a href=&#34;http://www.typescriptlang.org&#34;&gt;typescript&lt;/a&gt; just like that. It will work because of dynamic data type “any”. But just like dynamic keyword of C# it will not provide intellesense support. But I think its fine it you using some &lt;a href=&#34;http://go.microsoft.com/fwlink/?LinkId=267238&#34;&gt;JQuery&lt;/a&gt; plug in just to do some UI effect or something like that.&lt;/p&gt;
-
-&lt;p&gt;Type script has &lt;strong&gt;module&lt;/strong&gt; keyword to define namespace. In that module you can bounce classes, functions, interface or var. If any of that which is not exported or public in case of functions than that is private to that module. And module is public/global variable. So, everything within that is exported using module pattern. Here is sample directly taken from &lt;a href=&#34;http://www.typescriptlang.org&#34;&gt;typescript&lt;/a&gt; site.&lt;/p&gt;
-
-&lt;p&gt;module Sayings {
-    export class Greeter {
-      greeting: string ;
-      constructor (message: string ) {
-        this .greeting = message;
-      }
-      greet() {
-      return &amp;ldquo;Hello, &amp;rdquo; + this .greeting; }
-      }
-    }
-    var greeter = new Sayings.Greeter( &amp;ldquo;world&amp;rdquo; );
-    var button = document.createElement( &amp;lsquo;button&amp;rsquo; )
-    button.innerText = &amp;ldquo;Say Hello&amp;rdquo;;
-    button.onclick = function () {
-      alert(greeter.greet())
-    }
-    document.body.appendChild(button)&lt;/p&gt;
-
-&lt;p&gt;That will generate java script as shown below.&lt;/p&gt;
-
-&lt;p&gt;var Sayings;
-  ( function (Sayings) {
-    var Greeter = ( function () {
-      function Greeter(message) {
-        this .greeting = message;
-        }
-        Greeter.prototype.greet = function () {
-        return &amp;ldquo;Hello, &amp;rdquo; + this .greeting; };
-        return Greeter; })();
-        Sayings.Greeter = Greeter; })
-        (Sayings || (Sayings = {}));
-        var greeter = new Sayings.Greeter( &amp;ldquo;world&amp;rdquo; );
-        var button = document.createElement( &amp;lsquo;button&amp;rsquo; );
-        button.innerText = &amp;ldquo;Say Hello&amp;rdquo; ;
-        button.onclick = function () {
-          alert(greeter.greet()); };
-        document.body.appendChild(button);&lt;/p&gt;
-
-&lt;p&gt;Lovely I guess. So, this is basic &lt;a href=&#34;http://www.typescriptlang.org&#34;&gt;typescript&lt;/a&gt; , its nothing but a &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;javascript&lt;/a&gt; with class. So, I don’t copy paste more example here, but talk about few things I like about type script. And you can always visit a site to check out. If you have read my &lt;a href=&#34;http://kunjan.in/archives/coffee-with-coffeescript&#34;&gt;coffeescript&lt;/a&gt; article, it was longgggggg… but in that there is lot to cover. If I started writing that much about &lt;a href=&#34;http://www.typescriptlang.org&#34;&gt;typescript&lt;/a&gt; it will be &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;javascript&lt;/a&gt; class only.&lt;/p&gt;
-
-&lt;p&gt;So, here is a small list of things I like about &lt;a href=&#34;http://www.typescriptlang.org&#34;&gt;typescript&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;It provide support for number,string, array and dynamic function&lt;/li&gt;
-&lt;li&gt;Easy to integrate with external java script library&lt;/li&gt;
-&lt;li&gt;one can create or export declaration file to provide intellisense support&lt;/li&gt;
-&lt;li&gt;module, classes, private/public functions are just super awesome as it feels like typed language&lt;/li&gt;
-&lt;li&gt;interface support is there, just another add in to dynamic language to make programming like anything&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://jquery.com/&#34;&gt;JQuery&lt;/a&gt; , JQueryUI, Win8 files are available in samples, I guess best way to learn &lt;a href=&#34;http://jquery.com/&#34;&gt;JQuery&lt;/a&gt; , just fire a command, and be sure that you will not get spelling mistakes&lt;/li&gt;
-&lt;li&gt;AMD and Module pattern is default in build so, there classes are ready use with framework like &lt;a href=&#34;http://www.requirejs.org/&#34;&gt;RequireJS&lt;/a&gt; . //I seriously want this with CoffeeScript&lt;/li&gt;
-&lt;li&gt;Miserable “this” keyword is getting handled nicely&lt;/li&gt;
-&lt;li&gt;Very less change in your written functions and generated &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;javascript&lt;/a&gt; functions. //At some point I don’t like this as it allows bad parts in your functions&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Obviously I don’t like few things about &lt;a href=&#34;http://www.typescriptlang.org&#34;&gt;typescript&lt;/a&gt; too.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;It is allowing bad code, even like comparison operator is not getting corrected like other counterparts.&lt;/li&gt;
-&lt;li&gt;Easy to go wrong as it provides free will to put step out side the boundary as it not force you for that&lt;/li&gt;
-&lt;li&gt;It is not sweet like &lt;a href=&#34;http://kunjan.in/archives/coffee-with-coffeescript&#34;&gt;coffeescript&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Comments and corrections are always welcome. But I strongly recommended not to bash company or new born language. I am not working in Microsoft but we are leaving in free world and &lt;a href=&#34;http://www.typescriptlang.org&#34;&gt;Typescript&lt;/a&gt; is open source under apache license.&lt;/p&gt;
-</description>
+      <description>Whenever something came from Microsoft or Microsoft employee there is always a buzz… And I still don’t understand why person’s company policies do with person’s attitude or approach of a person. Same happens when typescript came. It was just a day old and Open Source People starts bashing it like anything. Comparing with CoffeeScript , Dart . Guys, it is also open source and Microsoft in any case not forcing anything.</description>
     </item>
     
     <item>
@@ -109,18 +26,8 @@ So, lets check out what the hell &lt;a href=&#34;http://www.typescriptlang.org&#
       <pubDate>Mon, 17 Sep 2012 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2012/09/javascript-diary-ii/</guid>
-      <description>&lt;p&gt;In my previous &lt;a href=&#34;http://kunjan.in/archives/java-script-diary-1&#34;&gt;post&lt;/a&gt; I have written about some &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;JavaScript&lt;/a&gt; basics from the point of view of Software Engineering and Architecture. In this post I will stay close to metal. I will talk about few things we should care about &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;JavaScript&lt;/a&gt; language. Things that’s should be or shouldn’t be in the code.&lt;/p&gt;
-
-&lt;p&gt;I am from hard core compile language background. My first company is Game Company where I have built kind of Game Engine and second company I work on C++. Even in third company I was working on web project but most of the time I stay on the server end. So, I have support of managed nature of C Sharp. But in case of &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;JavaScript&lt;/a&gt; it is not true. And many time people makes mistakes what I did. Take &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;JavaScript&lt;/a&gt; as compiled language and work like that only. Obviously its like other programming languages only, its all about if and else but its little bit different. My this post is going to be completed by the video of &lt;a href=&#34;http://channel9.msdn.com/&#34;&gt;Channel9&lt;/a&gt; . Here I am attaching video, too. Please go through the video and checkout what should be taken care while writing &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;JavaScript&lt;/a&gt; . Its 50 minutes long and obviously worth spending 50 minutes.&lt;/p&gt;
-
-&lt;p&gt;Here is the video.&lt;/p&gt;
-
-&lt;iframe style=&#34;height:544px;width:960px&#34; src=&#34;http://channel9.msdn.com/Events/MIX/MIX11/OPN08/player?w=960&amp;h=544&#34; frameBorder=&#34;0&#34; scrolling=&#34;no&#34; &gt;&lt;/iframe&gt;
-
-&lt;p&gt;&lt;strong&gt;So, here is details that are showed in video.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Please go through this. Its worth watching and learning.&lt;/p&gt;
-</description>
+      <description>In my previous post I have written about some JavaScript basics from the point of view of Software Engineering and Architecture. In this post I will stay close to metal. I will talk about few things we should care about JavaScript language. Things that’s should be or shouldn’t be in the code.
+I am from hard core compile language background. My first company is Game Company where I have built kind of Game Engine and second company I work on C++.</description>
     </item>
     
     <item>
@@ -129,68 +36,7 @@ So, lets check out what the hell &lt;a href=&#34;http://www.typescriptlang.org&#
       <pubDate>Wed, 05 Sep 2012 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2012/09/javascript-diary-i/</guid>
-      <description>&lt;p&gt;Long back I have wrote a article on &lt;a href=&#34;http://kunjan.in/archives/coffee-with-coffeescript&#34;&gt;CoffeeScript&lt;/a&gt; . If anyone see closely its all about writing proper Java Script in easy way. But in many cases its not possible that you got chance to write &lt;a href=&#34;http://kunjan.in/archives/coffee-with-coffeescript&#34;&gt;CoffeeScript&lt;/a&gt; . Or if you are learning some library like &lt;a href=&#34;http://knockoutjs.com/&#34;&gt;KnockoutJS&lt;/a&gt; or &lt;a href=&#34;http://backbonejs.org/&#34;&gt;BackboneJS&lt;/a&gt; , also if you are using some framework like &lt;a href=&#34;http://angularjs.org/&#34;&gt;AngularJS&lt;/a&gt; . Than using &lt;a href=&#34;http://kunjan.in/archives/coffee-with-coffeescript&#34;&gt;CoffeeScript&lt;/a&gt; and also using this function to learn than it will be difficult to catch up together. If you are not powerful enough with one of either.&lt;/p&gt;
-
-&lt;p&gt;And as a base rule. Even you are using &lt;a href=&#34;http://kunjan.in/archives/coffee-with-coffeescript&#34;&gt;CoffeeScript&lt;/a&gt; , you are not escaping from &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;JavaScript&lt;/a&gt; . It was there and it will be there for future for sure. So, It is worth learning it. If you have read previous article you must know that I am not that good with &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;JavaScript&lt;/a&gt; . So, I started learning and also thought for note I should put that to a blog. Whatever I learn will document on my blog. So, that will helpful to others and specially for me.&lt;/p&gt;
-
-&lt;p&gt;Most of the guys must be knowing many things. But that’s fine, its again for personal reference.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://vanilla-js.com/&#34;&gt;JavaScript&lt;/a&gt; is very flexible language. And this allows you to write lovely code without worrying about many things. But again this makes issue many times. And every damn time I will end up messing with that flexibility issue. &lt;a href=&#34;https://lh5.googleusercontent.com/-9S0vNlm41AY/URHJtukdwUI/AAAAAAAAArI/blHsaJPrt_c/s800/flexible_4.jpg&#34;&gt; &lt;img src=&#34;https://lh5.googleusercontent.com/-9S0vNlm41AY/URHJtukdwUI/AAAAAAAAArI/blHsaJPrt_c/s800/flexible_4.jpg&#34; alt=&#34;flexible&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;And first thing starts with Global variable. In &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;JavaScript&lt;/a&gt; everything is global by default. So, whenever you are writing any function just like that, they are globally accessible. This is an issue. Just like static variable in any other language. So, don’t write functions just like that. Out anywhere on page. Simple solution of this is self executable anonymous function. That will make everything private. And that’s good at some point at least better than putting everything global. Here everything is private and executed. Just check out the example.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(funciton{ 
-  var dosomething = function (){ 
-  //Here I am doing something 
-  } 
-})(); 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Here do something is completely private. But sometime we need some thing in global. We need to access it from outside. Then there are two patterns for that. Module Pattern and Revealing Module Pattern. I personally prefer Revealing Module Patter. So, I am giving demo for that.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var REVEALING; 
-  REVEALING = ( function () { 
-    var dosomething = function (){ 
-      //Here I am doing something 
-      } 
-      var dosomethingmore = function (){ 
-      // here I am accessing dosomething 
-    function dosomething(); 
-    } 
-  return 
-    {   
-    dosomethingmore:dosomethingmore 
-    //here only one function is exposed 
-    //so it is the only function available outside this namespace 
-    } 
-})(); 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Here one more thing comes in a picture. Namespace, which are not available by default in &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;JavaScript&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;As namespace is not there, we are missing classes too. As &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;JavaScript&lt;/a&gt; is a functional language, it only has functions, also as available as Objects. So, if you like to make things like classes, internally they are functions only. And you also can create constructor based functions too.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var Dosomething = ( 
-  function (){ 
-    function Dosomething(parametername)   
-    this.parametername = parametername; 
-})(); 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So, now we have our lovely constructor with parameter. While calling this we can just do like this&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;var dosomethingobject = new Dosomething( &amp;quot;namehere&amp;quot; );&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;And after that we can call whatever functions we like to call. It will use the parameter. This is also having same benefit as we are getting with parameterized constructor in structured language. So, this small things always helps to write more readable code.&lt;/p&gt;
-
-&lt;p&gt;One another things worth nothing here. It is that we can write anything anywhere in &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;JavaScript&lt;/a&gt; does not mean that we should go for that. Even in &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;JavaScript&lt;/a&gt; Single Responsibility Principal should be followed.&lt;/p&gt;
-
-&lt;p&gt;And also parameter name and function name should be self describing. Just because &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;JavaScript&lt;/a&gt; is giving freedom we just use it like that.&lt;/p&gt;
-
-&lt;p&gt;There are many library and other corner cases that can be consider while development client side JavaScript application. But that will be in next time.&lt;/p&gt;
-
-&lt;p&gt;Till then happy coding…&lt;/p&gt;
-</description>
+      <description>Long back I have wrote a article on CoffeeScript . If anyone see closely its all about writing proper Java Script in easy way. But in many cases its not possible that you got chance to write CoffeeScript . Or if you are learning some library like KnockoutJS or BackboneJS , also if you are using some framework like AngularJS . Than using CoffeeScript and also using this function to learn than it will be difficult to catch up together.</description>
     </item>
     
   </channel>

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kunjan&#39;s Web Space</title>
-    <link>http://kunjan.in/tags/signalr/index.xml</link>
-    <description>Recent content on Kunjan&#39;s Web Space</description>
+    <title>Signalr on Kunjan&#39;s Web Space</title>
+    <link>http://kunjan.in/tags/signalr/</link>
+    <description>Recent content in Signalr on Kunjan&#39;s Web Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://kunjan.in/tags/signalr/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Mar 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://kunjan.in/tags/signalr/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>SignalR &#43; Nancy with F# hosted on Azure</title>
@@ -14,141 +17,8 @@
       <pubDate>Fri, 28 Mar 2014 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2014/03/signalr-nancy-with-fsharp-hosted-on-azure/</guid>
-      <description>&lt;p&gt;What you feel if you meet your favourite actor? Feeling is wonderful right? Now, add the your actress in the mixture. Have you said WOW??? How about director? Still heart is beating?!? How about having dinner with them? Nothing can be better than that.&lt;/p&gt;
-
-&lt;p&gt;I am having kinda same feeling. It is nothing new that &lt;a href=&#34;http://nancyfx.org/&#34;&gt;Nancy&lt;/a&gt; is dancing quite comfortable with &lt;a href=&#34;http://fsharp.org&#34;&gt;F#&lt;/a&gt;. And thanks to Daniel Mohl we are also having &lt;a href=&#34;http://visualstudiogallery.msdn.microsoft.com/b55b8aac-b11a-4a6a-8a77-2153f46f4e2f&#34;&gt;templates&lt;/a&gt; to get started with Nancy and F#.&lt;/p&gt;
-
-&lt;p&gt;Now, I was doing some experiments around it. It was quite good. But how about running it on Owin. hmmm, it works flow less. Nothing more on code side other than few lines here and there. Then I found few projects running &lt;a href=&#34;http://signalr.net/&#34;&gt;SignalR&lt;/a&gt; with F#.&lt;/p&gt;
-
-&lt;p&gt;I knowing Nancy from a long time. But SignalR, I don&amp;rsquo;t know anything about it. The only thing I know is that, it is super awesome.&lt;/p&gt;
-
-&lt;p&gt;So, first task is to run Nancy on Owin.&lt;/p&gt;
-
-&lt;p&gt;Here are simple steps. Using template create a asp.net host with razor project. remove asp.net host and add &lt;a href=&#34;http://www.nuget.org/packages/Nancy.Owin/&#34;&gt;Owin host&lt;/a&gt; using nuget package manager.&lt;/p&gt;
-
-&lt;p&gt;Now we need to add startup file.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type Startup() = 
-    member x.Configuration(app : Owin.IAppBuilder) =  app.UseNancy() |&amp;gt; ignore
-
-
-[&amp;lt;Microsoft.Owin.OwinStartup(typeof&amp;lt;Startup&amp;gt;)&amp;gt;]
-do ()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And add simple Nancy code. The regular one. Nothing fancy.&lt;/p&gt;
-
-&lt;p&gt;There is bootstrap class&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type Bootstrapper() =
-    inherit DefaultNancyBootstrapper()
-    override x.ApplicationStartup(container:TinyIoCContainer, pipelines:IPipelines) = 
-        StaticConfiguration.DisableErrorTraces &amp;lt;- false
-        base.ApplicationStartup(container,pipelines)
-        ignore()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;this is needed to trace the error if anything is there at nancy end.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;And our index module&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type IndexModule() as x =
-    inherit NancyModule()
-    do x.Get.[&amp;quot;/&amp;quot;] &amp;lt;- fun _ -&amp;gt; box x.View.[&amp;quot;Index&amp;quot;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Pretty lame right. But it works.&lt;/p&gt;
-
-&lt;p&gt;Now, add &lt;a href=&#34;http://www.nuget.org/packages/Microsoft.AspNet.SignalR/&#34;&gt;Signalr asp.net host nuget package&lt;/a&gt; to project. As startup file is already there; no need to create one more. Just minor modification will do.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type Startup() = 
-    member x.Configuration(app : Owin.IAppBuilder) =  app.MapSignalR().UseNancy() |&amp;gt; ignore
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;That MapSignalR thing is additionally added. I have just followed Hello World example of real time world. Create a chat application. So, here is the hub to broadcast the message to all users.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type ChatHub() as this = 
-    inherit Hub()
-    member x.send (name : string, msg : string) = this.Clients.All?broadcastMessage (name, msg) |&amp;gt; ignore
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now, copy paste code for html part. Here is code snippet. There is no need to go into detail as of now for JavaScript part.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;div&amp;gt;
-    &amp;lt;p&amp;gt;Here is singnal R working great with Nancy&amp;lt;/p&amp;gt;
-    &amp;lt;div class=&amp;quot;container&amp;quot;&amp;gt;
-        &amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;message&amp;quot; /&amp;gt;
-        &amp;lt;input type=&amp;quot;button&amp;quot; id=&amp;quot;sendmessage&amp;quot; value=&amp;quot;Send&amp;quot; /&amp;gt;
-        &amp;lt;input type=&amp;quot;hidden&amp;quot; id=&amp;quot;displayname&amp;quot; /&amp;gt;
-        &amp;lt;ul id=&amp;quot;discussion&amp;quot;&amp;gt;&amp;lt;/ul&amp;gt;
-    &amp;lt;/div&amp;gt;
-
-&amp;lt;/div&amp;gt;
-&amp;lt;!--Script references. --&amp;gt;
-&amp;lt;!--Reference the jQuery library. --&amp;gt;
-&amp;lt;script src=&amp;quot;Scripts/jquery-1.6.4.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;!--Reference the SignalR library. --&amp;gt;
-&amp;lt;script src=&amp;quot;Scripts/jquery.signalR-2.0.2.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;!--Reference the autogenerated SignalR hub script. --&amp;gt;
-&amp;lt;script src=&amp;quot;signalr/hubs&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;!--Add script to update the page and send messages.--&amp;gt;
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-    $(function () {
-        // Declare a proxy to reference the hub.
-        var chat = $.connection.chatHub;
-        // Create a function that the hub can call to broadcast messages.
-        chat.client.broadcastMessage = function (name, msg) {
-            // Html encode display name and message.
-
-            var encodedName = $(&#39;&amp;lt;div /&amp;gt;&#39;).text(name).html();
-            var encodedMsg = $(&#39;&amp;lt;div /&amp;gt;&#39;).text(msg).html();
-            // Add the message to the page.
-            $(&#39;#discussion&#39;).append(&#39;&amp;lt;li&amp;gt;&amp;lt;strong&amp;gt;&#39; + encodedName
-                + &#39;&amp;lt;/strong&amp;gt;:&amp;amp;nbsp;&amp;amp;nbsp;&#39; + encodedMsg + &#39;&amp;lt;/li&amp;gt;&#39;);
-        };
-        // Get the user name and store it to prepend to messages.
-        $(&#39;#displayname&#39;).val(prompt(&#39;Enter your name:&#39;, &#39;&#39;));
-        // Set initial focus to message input box.
-        $(&#39;#message&#39;).focus();
-        // Start the connection.
-        $.connection.hub.start().done(function () {
-            $(&#39;#sendmessage&#39;).click(function () {
-                // Call the Send method on the hub.
-                chat.server.send($(&#39;#displayname&#39;).val(), $(&#39;#message&#39;).val());
-                // Clear text box and reset focus for next comment.
-                $(&#39;#message&#39;).val(&#39;&#39;).focus();
-            });
-        });
-    });
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now, there is one &amp;ldquo;?&amp;rdquo; thing before broadcastMessage function. That is where dynamic method is getting called. F# do not support dynamic by default but there are many work around available. I personally prefer &lt;a href=&#34;http://www.nuget.org/packages/FSharp.Dynamic/&#34;&gt;Fsharp.dynamic&lt;/a&gt; library. It is better than other code snippets I found over other sites. But that is all personal choice how one like to handle dynamic functions.&lt;/p&gt;
-
-&lt;p&gt;So, it is done. Hit F5 and you are ready to go.&lt;/p&gt;
-
-&lt;p&gt;What is fun of working with Web if I can&amp;rsquo;t publish it. But for now with F# web templates it is not possible. And that is known &lt;a href=&#34;https://github.com/fsharp/FSharpCommunityTemplates/issues/28&#34;&gt;issue&lt;/a&gt;. So, if I like to publish it on cloud like azure I need to give git hooks. That is easiest thing I can think off. But road is still not that smooth.&lt;/p&gt;
-
-&lt;p&gt;Deployment will break with some weird error. I followed &lt;a href=&#34;http://blog.ploeh.dk/2013/08/26/running-a-pure-f-web-api-on-azure-web-sites/&#34;&gt;Mark&amp;rsquo;s article&lt;/a&gt; to make it work.&lt;/p&gt;
-
-&lt;p&gt;Needed to add below lines to .fsproj file after its own import tags.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;Import Project=&amp;quot;$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets&amp;quot; 
-        Condition=&amp;quot;&#39;$(VSToolsPath)&#39; != &#39;&#39;&amp;quot; /&amp;gt;
-&amp;lt;Import Project=&amp;quot;$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v11.0\WebApplications\Microsoft.WebApplication.targets&amp;quot; 
-        Condition=&amp;quot;true&amp;quot; /&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And things are working like anything. No, issues at all.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Nancy |&amp;gt; Razor |&amp;gt; SignalR |&amp;gt; Azure |&amp;gt; F# |&amp;gt; lots of love.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Please give it a shot. If it break somewhere let me know will try to solve it. Any suggestion to make things even better and streamlined are always welcome.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; Here is my &lt;a href=&#34;https://github.com/kunjee17/NancySignalRFSharp&#34;&gt;github repo&lt;/a&gt; with updated code. Project created with web express 2013. Also it is deployed over &lt;a href=&#34;http://nancysignalrfsharp.azurewebsites.net/&#34;&gt;azure&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <description>What you feel if you meet your favourite actor? Feeling is wonderful right? Now, add the your actress in the mixture. Have you said WOW??? How about director? Still heart is beating?!? How about having dinner with them? Nothing can be better than that.
+I am having kinda same feeling. It is nothing new that Nancy is dancing quite comfortable with F#. And thanks to Daniel Mohl we are also having templates to get started with Nancy and F#.</description>
     </item>
     
   </channel>

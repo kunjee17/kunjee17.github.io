@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kunjan&#39;s Web Space</title>
-    <link>http://kunjan.in/tags/design-pattern/index.xml</link>
-    <description>Recent content on Kunjan&#39;s Web Space</description>
+    <title>Design Pattern on Kunjan&#39;s Web Space</title>
+    <link>http://kunjan.in/tags/design-pattern/</link>
+    <description>Recent content in Design Pattern on Kunjan&#39;s Web Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://kunjan.in/tags/design-pattern/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Apr 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://kunjan.in/tags/design-pattern/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Functional Command Pattern</title>
@@ -14,24 +17,9 @@
       <pubDate>Sat, 25 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2015/04/functional-command-pattern/</guid>
-      <description>&lt;p&gt;Command pattern is a pattern which allows executor of the pattern to execute or playback the commands. In most of the application wherever Undo/Redo is implemented this pattern is used.&lt;/p&gt;
-
-&lt;p&gt;Here is C# code.&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/5wmvGN&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;Now, in this code Command Pattern is not in its purest form. As, normally in command pattern we are saving state of outside object. Instead I just returned the result to mock out side object.&lt;/p&gt;
-
-&lt;p&gt;Now have a look at similar F# code. That is doing kinda same thing.&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/htQsqv&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;Here, instead of class I am using functions with the command type. And definition of the command is given as type instead of interface. Now, this is fun with functional programming in general where functions are first class citizen. I can save commands and events like objects only. I don&amp;rsquo;t have to wrap around some classes. This makes code more concise.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Fan of &lt;a href=&#34;http://martinfowler.com/bliki/CQRS.html&#34;&gt;CQRS&lt;/a&gt; and &lt;a href=&#34;http://www.martinfowler.com/eaaDev/EventSourcing.html&#34;&gt;Event Sourcing&lt;/a&gt;; listen up these both design concepts are standing on the shoulders of command pattern.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+      <description>Command pattern is a pattern which allows executor of the pattern to execute or playback the commands. In most of the application wherever Undo/Redo is implemented this pattern is used.
+Here is C# code.
+ Now, in this code Command Pattern is not in its purest form. As, normally in command pattern we are saving state of outside object. Instead I just returned the result to mock out side object.</description>
     </item>
     
     <item>
@@ -40,34 +28,9 @@
       <pubDate>Fri, 24 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2015/04/functional-strategy-pattern/</guid>
-      <description>&lt;p&gt;Another pattern that is widely used in Object Oriented world. And as far as .Net world is concern it is may be most used pattern in wide range of .Net API. And it &lt;em&gt;heavily&lt;/em&gt; used in &lt;em&gt;heavily&lt;/em&gt; used LINQ API.&lt;/p&gt;
-
-&lt;p&gt;So, I guess giving a understanding of that is kinda waste of space. Have a look at C# code.&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/c4qcvo&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;People familiar with LINQ and lovers of Lambda will definitely argue that this is can be replaced by delegates. And for the face I am arguing the same. But for now I have took this sample as a traditional practice.&lt;/p&gt;
-
-&lt;p&gt;Now, have a look at the F# code doing the same.&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/rhn63P&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;Now, it is definitely not &lt;strong&gt;one to one&lt;/strong&gt; replacement as I have did in last few posts. But here I have replaced class with function but we are achieving the same thing.&lt;/p&gt;
-
-&lt;p&gt;Now, what is strategy pattern. As name suggest it is used to provide strategy from the consumer end. It is like I am saying that I want coffee and also I am telling I want cappuccino. And as shown in sample for sorting I am passing sorting strategy also. For example case I haven&amp;rsquo;t passed array else I have to pass array or list and also strategy or how to sort it. It is mainly used when consumer is having control on how to do execution but execution is done by someone else.&lt;/p&gt;
-
-&lt;p&gt;Now, in case of C# and Java8 where lambda is available. So I have this functional behavior there also. But for the fact it is functional programming concept of passing functions around &lt;em&gt;(or some may argue it is object oriented concept in purest form)&lt;/em&gt; and syntax wise it more suitable / human friendly in functional programming language.&lt;/p&gt;
-
-&lt;p&gt;Here is C# example.&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/63PK93&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;It is very much near to F# counter part. Only F# syntax is having less noise.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;It something all togather when this pattern shown in context of Functional Programming. I am just composing functions. But it serves as Strategy Pattern of OOP so I have used that.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+      <description>Another pattern that is widely used in Object Oriented world. And as far as .Net world is concern it is may be most used pattern in wide range of .Net API. And it heavily used in heavily used LINQ API.
+So, I guess giving a understanding of that is kinda waste of space. Have a look at C# code.
+ People familiar with LINQ and lovers of Lambda will definitely argue that this is can be replaced by delegates.</description>
     </item>
     
     <item>
@@ -76,34 +39,9 @@
       <pubDate>Thu, 23 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2015/04/functional-singleton-pattern/</guid>
-      <description>&lt;p&gt;This is my favorite pattern. First pattern I learn. And till date I don&amp;rsquo;t know where to use it. &lt;strong&gt;So, I use everywhere. :P&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;I have mainly used for database connection object and then all JavaScript frameworks are exposing Singleton object only. I can say it is quite useful in case of web.&lt;/p&gt;
-
-&lt;p&gt;Fun part about this pattern is that most of the people including me always use this pattern to show off that we know patterns and we follow it in practice but in most cases that practice starts and stops with Singleton Pattern.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s understand the pattern, as name suggested this pattern is propagating singularity. Object of specific class will be created once and only once but No more. Object creation is totally hidden away from consumer and with static method object will be handed over to consumer. If there is a instance presence it will be handed over else new instance will be created and it will be given to consumer.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s check out the C# code&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/ou8ReI&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;See, simple and easy.&lt;/p&gt;
-
-&lt;p&gt;And now here is F# code. Even simpler and easier&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/EAcx3W&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Look ma no &lt;code&gt;null&lt;/code&gt;. As F# is not allowing null by default in the system there is no need to check it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Instead make constructor private to stop creating object of type and provide same instance of type again and again.&lt;/p&gt;
-
-&lt;p&gt;Now, in current scenarios where garbage collector are so powerful and we are having quite a good amount of hardware to process. Singleton is not used while writing domain/business code. But still it is widely used on API side to expose specific functionality.&lt;/p&gt;
-
-&lt;p&gt;I am still to find relevance in case of functional programming. In functional programming &lt;code&gt;type&lt;/code&gt; is different then &lt;code&gt;class&lt;/code&gt;. In normal cases they don&amp;rsquo;t have behaviors attached with it. So, it reducing the need of this pattern.&lt;/p&gt;
-</description>
+      <description>This is my favorite pattern. First pattern I learn. And till date I don&amp;rsquo;t know where to use it. So, I use everywhere. :P
+I have mainly used for database connection object and then all JavaScript frameworks are exposing Singleton object only. I can say it is quite useful in case of web.
+Fun part about this pattern is that most of the people including me always use this pattern to show off that we know patterns and we follow it in practice but in most cases that practice starts and stops with Singleton Pattern.</description>
     </item>
     
     <item>
@@ -112,29 +50,9 @@
       <pubDate>Wed, 22 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2015/04/functional-factory-pattern/</guid>
-      <description>&lt;p&gt;The fun part working or explaining functional pattern is word &lt;code&gt;functional&lt;/code&gt; can be used in very &lt;code&gt;fun&lt;/code&gt; way. Just like it is used in title here.&lt;/p&gt;
-
-&lt;p&gt;Now, factory pattern may be the most used pattern in Object Oriented world. Here is code in &lt;code&gt;C#&lt;/code&gt;.&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/omFgPe&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;  
-
-&lt;p&gt;Factory method is basically used to abstract away the object creation. I am not worried how object is created but I am worried about the behavior of the objects that are created.
-Now, lets have a look at &lt;code&gt;F#&lt;/code&gt; equivalent&lt;/p&gt;
-
-&lt;iframe width=&#34;100%&#34; height=&#34;475&#34; src=&#34;https://dotnetfiddle.net/Widget/vt23Gc&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;If you can see it is short and simple and providing same result.&lt;/p&gt;
-
-&lt;p&gt;Now, functional programming is not &lt;code&gt;one to one&lt;/code&gt; map with Object Oriented programming. But we can always have similar a concept.&lt;/p&gt;
-
-&lt;p&gt;Factory Pattern simply hiding the object creation. And in F# we are having option type which is helping us to provide concrete definition of product. And that is the reason we can skip the concrete class and have product definition in type.&lt;/p&gt;
-
-&lt;p&gt;I have took examples for this post from &lt;a href=&#34;http://www.dofactory.com/&#34;&gt;Dofactory&lt;/a&gt; and &lt;a href=&#34;http://fssnip.net/authors/Tao+Liu&#34;&gt;Tao Liu&lt;/a&gt; s work. I have made few changes thought to make it as similar as possible. In future post I will try to go into greater detail about respective pattern and also check out patterns that can be absolute when you come to the world of functional programming.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;F# people. Your comments and review are required. Will update the code as per the suggestions. Do provide them. I don&amp;rsquo;t mind adding examples of other functional language if anyone is helping me out.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+      <description>The fun part working or explaining functional pattern is word functional can be used in very fun way. Just like it is used in title here.
+Now, factory pattern may be the most used pattern in Object Oriented world. Here is code in C#.
+ Factory method is basically used to abstract away the object creation. I am not worried how object is created but I am worried about the behavior of the objects that are created.</description>
     </item>
     
     <item>
@@ -143,43 +61,8 @@ Now, lets have a look at &lt;code&gt;F#&lt;/code&gt; equivalent&lt;/p&gt;
       <pubDate>Tue, 21 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2015/04/demystifying-design-pattern-in-a-functional-way/</guid>
-      <description>&lt;p&gt;As functional programming is taking pace in current software development. There is always a question what is the difference and why on the earth I should bother about it.&lt;/p&gt;
-
-&lt;p&gt;Most of the time reason of the question comes because of human nature of resistance towards learning new things. And then there are people who can easily learn new things but even for them unlearning something and re-learning new things is pretty tough. And this makes a problem every time.&lt;/p&gt;
-
-&lt;p&gt;Here I am not saying I am going to explain anything as expert. I am no where near expert and I also faces same problems as above. But I guess new things are always worth trying.&lt;/p&gt;
-
-&lt;p&gt;Now one the things that get projected as &lt;strong&gt;silver bullet&lt;/strong&gt; for every software solutions is &lt;a href=&#34;https://en.wikipedia.org/wiki/Software_design_pattern&#34;&gt;Design Patterns&lt;/a&gt;. Now for the facts they are good, very good. May be best thing that can happen to Object Oriented Programming. But it is showing a concept and most of the time we loose that concept in an implementation.&lt;/p&gt;
-
-&lt;p&gt;If we go into history, there are two ways of solving problem one is &lt;a href=&#34;https://en.wikipedia.org/wiki/Alan_Turing&#34;&gt;Turing&lt;/a&gt; way (OOP) and other is &lt;a href=&#34;https://en.wikipedia.org/wiki/Alonzo_Church&#34;&gt;Church&lt;/a&gt; way (FP). That is it. They both are ways and you can achieve goals both ways.&lt;/p&gt;
-
-&lt;p&gt;Now here comes the personal choice what way you like to choose based on given circumstances. Turing way is good when I have limited resources to process details/data. While Church way is good when I have good number of resources to process details/data.&lt;/p&gt;
-
-&lt;p&gt;For me or I guess for all the people from functional programming community Church ways is a choice. And visible benefit of selecting that is readability and representation of code I am doing. It is more like what I am saying is I am writing. And now it is up to computer to process that. Now, computer need to be that powerful to process almost natural language.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;I am not considering natural / logic language here. It is out of scope of this article, blog and also my brain for now.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;And that is reason it is getting pace now a days. We are having hardware resources to process that. Or may be we can say on reverse way that to utilize this much hardware church based approach is far better. As it is having benefit towards making things simple.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.infoq.com/presentations/Simple-Made-Easy&#34;&gt;I have said simple, I haven&amp;rsquo;t said easy&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Now, here comes the problem. I need to unlearn or relearn the concepts I have learn. And I have made it easy for me after working so hard.&lt;/p&gt;
-
-&lt;p&gt;Practically speaking I don&amp;rsquo;t see any way out. But there is no need to completely unlearn it but may be can be used in some other way. Like the Design Pattern from Object Oriented world.&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;en&#34;&gt;&lt;p&gt;I love this slide from &lt;a href=&#34;https://twitter.com/ScottWlaschin&#34;&gt;@ScottWlaschin&lt;/a&gt; &amp;#39;s talk on FP &amp;quot;patterns&amp;quot; &lt;a href=&#34;http://t.co/8UuwVqlelD&#34;&gt;pic.twitter.com/8UuwVqlelD&lt;/a&gt;&lt;/p&gt;&amp;mdash; Knot, Not Naught! (@jeroldhaas) &lt;a href=&#34;https://twitter.com/jeroldhaas/status/535919819355598848&#34;&gt;November 21, 2014&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;I guess that was easy and simple both. Everything is just a functions. Ok, that is said I am sharing a video everyone in functional programming just loves from &lt;a href=&#34;https://twitter.com/ScottWlaschin&#34;&gt;Scott Wlaschin&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;iframe src=&#34;https://player.vimeo.com/video/113588389&#34; width=&#34;500&#34; height=&#34;281&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href=&#34;https://vimeo.com/113588389&#34;&gt;Functional programming design patterns by Scott Wlaschin&lt;/a&gt; from &lt;a href=&#34;https://vimeo.com/ndcconferences&#34;&gt;NDC Conferences&lt;/a&gt; on &lt;a href=&#34;https://vimeo.com&#34;&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
-
-&lt;p&gt;Now, in coming post I will try to take every pattern one by one and try to demystify it. Obviously in a functional way. And also try to explore some functional patterns also. Stay tuned.&lt;/p&gt;
-</description>
+      <description>As functional programming is taking pace in current software development. There is always a question what is the difference and why on the earth I should bother about it.
+Most of the time reason of the question comes because of human nature of resistance towards learning new things. And then there are people who can easily learn new things but even for them unlearning something and re-learning new things is pretty tough.</description>
     </item>
     
   </channel>

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kunjan&#39;s Web Space</title>
-    <link>http://kunjan.in/tags/opinion/index.xml</link>
-    <description>Recent content on Kunjan&#39;s Web Space</description>
+    <title>Opinion on Kunjan&#39;s Web Space</title>
+    <link>http://kunjan.in/tags/opinion/</link>
+    <description>Recent content in Opinion on Kunjan&#39;s Web Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://kunjan.in/tags/opinion/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Aug 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://kunjan.in/tags/opinion/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Back to Business</title>
@@ -14,37 +17,8 @@
       <pubDate>Wed, 21 Aug 2013 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2013/08/back-to-business/</guid>
-      <description>&lt;p&gt;It have been long that I was doing active blogging. There are multiple reason for that, and on of them is being a lazy ass.&lt;/p&gt;
-
-&lt;p&gt;I changed my blog from &lt;a href=&#34;http://www.orchardproject.net&#34;&gt;Orchard&lt;/a&gt; to &lt;a href=&#34;http://docpad.org/&#34;&gt;Docpad&lt;/a&gt; for almost no reason. I just wanted my few page look different then other pages. And that will little bit more effort if I am going to do it with &lt;a href=&#34;http://www.orchardproject.net&#34;&gt;Orchard&lt;/a&gt;.  So, I check out on net how to do it. I know Rob was using &lt;a href=&#34;http://nestacms.com/&#34;&gt;Nesta&lt;/a&gt; but I am not good with Ruby, at least that much and more over ruby was giving issue on my windows machine. And switching on my VM just to write blog&amp;hellip; Naaaahhh!!!!&lt;/p&gt;
-
-&lt;p&gt;Then I moved to Docpad. I have to loose some of my comments, which was there as part of Orchard system. But it was fine. Only painful thing is I have to do lot more work to just get it up as I wanted. It was not like set up and go using &lt;a href=&#34;http://windows.microsoft.com/en-us/windows-live/essentials&#34;&gt;Windows Essentials&amp;rsquo; Live Writer&lt;/a&gt;. But it is giving me flexibility.&lt;/p&gt;
-
-&lt;p&gt;And in other reason, work load at day job. Things are moving faster then I can plan for. I was trying to learn other languages and tools. Moving out of my comfort zone. So, number of posts are less. Sadly!!!&lt;/p&gt;
-
-&lt;p&gt;I also changed my job and my city, so that transaction do take time, specially leaving city like Bangalore was a bit of a pain on my side. Now, I am out shock, almost!&lt;/p&gt;
-
-&lt;p&gt;But biggest lost I think, is my google juice. My site is not coming on front page if someone  search my name. Luckily I am and I was active on my &lt;a href=&#34;https://twitter.com/kunjee&#34;&gt;twitter&lt;/a&gt; and it point to my site. So, still some juice stays there.&lt;/p&gt;
-
-&lt;p&gt;And I also owe apology to any readers who come to my site while I was modifying details, site was in bad state and I pushed on &lt;a href=&#34;https://www.heroku.com/&#34;&gt;Heroku&lt;/a&gt;, that was total uncool of me. But there were some issue related to domain and I am to lazy to maintain production and master branch at least for my blog. I am the only one using it and I am not so popular; at least as of now.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;But now things are far better than it was before. Site CSS is quite good and contents seems more readable. You can check it  out, comment and share.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Check out blog entries. I am still changing things as I go but there will be no major changes. But do give me your suggestions if any regarding site.&lt;/p&gt;
-
-&lt;p&gt;Things are still come even after this blog&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;New home page design&lt;/li&gt;
-&lt;li&gt;Tags for all blogs&lt;/li&gt;
-&lt;li&gt;Tags/Category pages to jump around&lt;/li&gt;
-&lt;li&gt;search page (damn simple google search, what else?!)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Stay tuned&amp;hellip;&lt;/p&gt;
-</description>
+      <description>It have been long that I was doing active blogging. There are multiple reason for that, and on of them is being a lazy ass.
+I changed my blog from Orchard to Docpad for almost no reason. I just wanted my few page look different then other pages. And that will little bit more effort if I am going to do it with Orchard. So, I check out on net how to do it.</description>
     </item>
     
     <item>
@@ -53,145 +27,7 @@
       <pubDate>Fri, 02 Nov 2012 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2012/11/something-never-changed-guiding-principals-to-software-development/</guid>
-      <description>&lt;p&gt;I am particularly a lazy guy. I don’t work hard, stay back and never show sad face to issue or bug. Obviously many don’t like me for this. But again “who cares?”. But one thing is sure for me, I always ready to learn new things and obviously always work for better code. At the end of day it is just a code, bugs will be there and me too , to solve the issue.&lt;/p&gt;
-
-&lt;p&gt;Here, I mentions new things, but in reality it is not possible all the time that I will get new things. Some time I will get old things to take care off. Or something that never changed. I was reading old articles from &lt;a href=&#34;http://www.hanselman.com&#34;&gt;Hanselman&lt;/a&gt; , now a days he is putting more preference over high quality article. So, his articles are not coming daily basis. So, one day I was wondering towards the &lt;a href=&#34;http://www.hanselman.com/blog/GreatestHits.aspx&#34;&gt;hit series of articles&lt;/a&gt; and I found “ &lt;a href=&#34;http://www.hanselman.com/blog/SomeGuidingPrinciplesForSoftwareDevelopment.aspx&#34;&gt;some guiding principles for software development&lt;/a&gt; ”. And again as per suggestion again from &lt;a href=&#34;http://www.hanselman.com/&#34;&gt;Hanselman&lt;/a&gt; I &lt;a href=&#34;http://www.hanselman.com/blog/InstapaperDeliveredToYourKindleChangesHowYouConsumeWebContentPlusIFTTTBlogsAndMore.aspx&#34;&gt;read later&lt;/a&gt; it.&lt;/p&gt;
-
-&lt;p&gt;Now, I was working on something and just to get refreshed I was checking my &lt;a href=&#34;http://www.instapaper.com&#34;&gt;Instapaper&lt;/a&gt; and found this one. I was reading it. First thing I noticed is that it was written in 2007; even before I was a certified software engineer. As, I normally don’t read historical article that much but I read this. And that surprised me!!! Nothing is changed at all. Principles are same even after 5 years of this articles. And when they written it was there only. And also one thing is not changed too, we are not following most of them… (saying from the personal experience). For a change now a days I tried to follow them…&lt;/p&gt;
-
-&lt;p&gt;So, I thought I should re-write this article in context of current technology. I am also going to put links of tools but this is my personal preference obviously in context of Dot Net only. I start learning &lt;a href=&#34;http://rubyonrails.org/&#34;&gt;Ruby on Rails&lt;/a&gt; but again I am not that good in that.&lt;/p&gt;
-
-&lt;p&gt;A original posts are from &lt;a href=&#34;http://www.cauldwell.net/patrick/blog/ThisIBelieveTheDeveloperEdition.aspx&#34;&gt;Patrick Cauldwell&lt;/a&gt; and &lt;a href=&#34;http://www.hanselman.com/blog/SomeGuidingPrinciplesForSoftwareDevelopment.aspx&#34;&gt;Scott Hanselman&lt;/a&gt; . Be sure to visit the original work.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Our “Guiding Principles”&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Test Driven Development&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;TDD / BDD always give confidence for our own written code. Couple of frameworks available for that. For TDD &lt;a href=&#34;http://www.nunit.org/&#34;&gt;NUnit&lt;/a&gt; and &lt;a href=&#34;http://xunit.codeplex.com/&#34;&gt;XUnit&lt;/a&gt; are there. And for two types of BDD &lt;a href=&#34;http://specflow.org&#34;&gt;Specflow&lt;/a&gt; and &lt;a href=&#34;http://nspec.org/&#34;&gt;NSpec&lt;/a&gt; are there.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Continues Integration&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;This includes testing for complete application and also UI automation using framework like &lt;a href=&#34;http://seleniumhq.org/&#34;&gt;Selenium&lt;/a&gt; (Visit &lt;a href=&#34;http://amirrajan.net/&#34;&gt;Amir Rajan&lt;/a&gt; to check out wonderful video of UI automation)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;I prefer to checkout blog from &lt;a href=&#34;http://amirrajan.net/&#34;&gt;Amir Rajan&lt;/a&gt; and podcast from &lt;a href=&#34;http://www.hanselminutes.com/339/continuous-delivery-with-jez-humble-and-martin-fowler&#34;&gt;hanselminutes&lt;/a&gt; to check this topic.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Unit Tests&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Two kinds of tests&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Unit test is what that test code written by &lt;strong&gt;us,&lt;/strong&gt; so it is not dependent over external entities like SQL or Web Service etc&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Integration test, it dependent on SQL and Web Service like external entities and check our code in reference to over logic&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Automation is equally possible for both type of test&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Again I like to mention post by &lt;a href=&#34;http://amirrajan.net/&#34;&gt;Amir Rajan&lt;/a&gt; which show how to do automation.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;As a thumb rule said by &lt;a href=&#34;http://www.hanselman.com/&#34;&gt;Hanselman&lt;/a&gt; whenever we need to repeat things or even have to do copy paste we should automate things.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;There are many tools available for Visual Studio to automate testing (you need to hack little bit for Express Edition)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;All UI development should follow MVC/ MVP pattern for ease of testing&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://asp.net/mvc&#34;&gt;MVC&lt;/a&gt; is specifically design for better testing support&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Even if you are using Asp.Net Web Forms I strongly recommended &lt;a href=&#34;http://webformsmvp.com/&#34;&gt;MVP&lt;/a&gt; framework to implement to support more code coverage for testing&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Even for &lt;a href=&#34;http://vanilla-js.com/&#34;&gt;Javascript&lt;/a&gt; this is true as many client side frameworks are available like &lt;a href=&#34;http://pivotal.github.com/jasmine/&#34;&gt;Jasmine&lt;/a&gt; and &lt;a href=&#34;http://qunitjs.com/&#34;&gt;Qunit&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Test Coverage&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;90% %2B should be the goal including UI logic written in JavaScript&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Again many tools are available for code coverage so not listing here. NCover is there by Default in Visual Studio higher version&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Buy, Not Build&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Take full advantage of the platform, even if only solves the 80% case (Most of the time we don’t know library functions available that leads to copy of code and rewriting functionalities )&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Don’t write single line of code that you don’t have to (in software engineering one has to be lazy, if you are staying back working you’re a** of, then definitely you are not writing good code)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Take full advantage of .Net 4.0 / .Net 4.5 and also plan – test for Windows 8 (we are working for the future so, it must work on future/current releases of platforms )&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Don’t invent new solution for solved problems (in case of Dot Net &lt;a href=&#34;http://nuget.org/&#34;&gt;nuget&lt;/a&gt; is there, just checkout that your problem is solved by community members, if yes use them and if no solve and share with community… these OSS libraries increase productivity like anything)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Limit compile time dependencies on code you don’t own&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Everything that is now owned by &lt;strong&gt;us&lt;/strong&gt; should be behind interface and a factory method (I also like to mention a wonderful &lt;a href=&#34;http://simpleprogrammer.com/back-to-basics-series/&#34;&gt;article series&lt;/a&gt; to understand concepts like interface)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Define your data contracts in C# (think ‘active records’)&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;All persistence storage should be abstracted using logical interfaces&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Here we can use ORM like &lt;a href=&#34;https://github.com/ServiceStack/ServiceStack.OrmLite&#34;&gt;Ormlite&lt;/a&gt; , &lt;a href=&#34;https://github.com/SamSaffron/dapper-dot-net&#34;&gt;Dapper&lt;/a&gt; , &lt;a href=&#34;http://msdn.microsoft.com/en-us/data/ef.aspx&#34;&gt;EF&lt;/a&gt; and few others to achieve this&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Fewer assemblies are better&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;There should be very good reason for creating a new assembly&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;The assembly is a smallest deployable unit, so it’s not only worth creating a new assembly if it means NOT shipping something else&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Namespace != assembly name. Roll up many namespaces into one physical assembly if they all must be deployed together&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;As a thumb rule again said by &lt;a href=&#34;http://www.hanselman.com/&#34;&gt;Hanselman&lt;/a&gt; , domain driven and / or isolated design is only useful when we have a &lt;strong&gt;VERY&lt;/strong&gt; good knowledge of domains else it just increase number of assemblies to manage&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Only the public interface should be public&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Only make classes and interface public if absolutely necessary&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Testing can be done by using internal visible to attribute&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Good use of internal can avoid public issue for classes and functions&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;If its public, need to provide support for life time&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Also like to mentions a line from &lt;a href=&#34;https://twitter.com/jonskeet&#34;&gt;Jon Skeet&lt;/a&gt; , “Any software/application should be code as we are coding API”&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Authentication&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Authentication should be abstracted from the application.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;We can use &lt;a href=&#34;http://msdn.microsoft.com/en-in/security/aa570351.aspx&#34;&gt;WIF&lt;/a&gt; , and token should be used to talk with other entities like Web Service&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;4.5 version framework (Asp.Net Framework) provides many options for Authentication/ Authorization that can be used here.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tracing&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Think long and hard about trace level&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Use formatted resource strings everywhere for localization (Now a days localization is must for any commercial application, abstraction of that always help in long run)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;For critical, error or warning , your audience is not a developer&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Error Handling&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Error handling is not just putting try / catch everywhere or anywhere that I called error hiding&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Method names are verbs&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;If anything breaks the contract, throw an exception&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;The definition of “Done”(or how do I know when a task is ready for QA?)&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Any significant design decisions have been discussed and approved by &lt;strong&gt;team&lt;/strong&gt; (In agile team takes the decisions, so there is always a scope for saying &lt;strong&gt;NO&lt;/strong&gt; to business guys for new functionalities to implement runtime)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;For each MyClass, there is a corresponding MyClassFixture in the corresponding test assembly, it also includes same for UI part using java script framework&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;MyClassFixture exercise all the functionality of MyClass nothing else, single responsibility is true ever for test classes&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Code coverage of MyClass is =&amp;gt;90% , excluding only lines you are confident are unreasonable to test&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;No compiler &lt;strong&gt;warning&lt;/strong&gt; are generated by new code (warnings are equally important like error, you can ignore if you are doing POC or college project. In Visual Studio warnings are generated after completing code analysis. It should be on all the time and personally I prefer to set not to allow ‘run’ if warning is there)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Before committing anything to source control, update to get all recent changes, and make sure all unit and integration tests pass&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Compiling with warnings as errors will flush out any place you forgot documentation comments, which must be included for any new code&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This is just a try to list our frameworks and new technology with this g/old guiding principals. Do let me know if anything is there to CRUD for this list.&lt;/p&gt;
-
-&lt;p&gt;This list in my &lt;strong&gt;learn by heart&lt;/strong&gt; part. Basically these points force to do good software practice.&lt;/p&gt;
-</description>
+      <description>I am particularly a lazy guy. I don’t work hard, stay back and never show sad face to issue or bug. Obviously many don’t like me for this. But again “who cares?”. But one thing is sure for me, I always ready to learn new things and obviously always work for better code. At the end of day it is just a code, bugs will be there and me too , to solve the issue.</description>
     </item>
     
     <item>
@@ -200,52 +36,8 @@
       <pubDate>Sun, 04 Dec 2011 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2011/12/di-of-fdi-foreign-direct-investment/</guid>
-      <description>&lt;p&gt;It has been a week or so, every day news paper and news channel are full with news of &lt;a href=&#34;http://bit.ly/s18yeT&#34;&gt;FDI in India&lt;/a&gt; . Even Facebook is not taking a step back and speak in favor of both side. &lt;a href=&#34;http://en.wikipedia.org/wiki/Foreign_direct_investment&#34;&gt;FDI&lt;/a&gt; in retails should be allowed or not.&lt;/p&gt;
-
-&lt;p&gt;I am not a politician, so as engineer I will do data analysis of FDI in India. now, for the sake of example we consider that FDI is allowed in retail market (PS : I personally think that it is going to be allowed) . And great retail players welcomed, in India. Just like east India company. Now, dollars come in and they directly go to farmers to take products. Ohk… now here framers get a BIT more price as they skip mediators. Now, they are the immediate victims of FDI.&lt;/p&gt;
-
-&lt;p&gt;We have around 125 corers people and also have internal dependencies in chain management system. Now, for the sake of two end users, big brother will element man small chains and put one big heavy chain. Here, we can advocate that even a one big chain need many persons to work properly. So, we can say that it will generate more employment. We WILL discuss this specific topic afterwards, service v/s self employment.&lt;/p&gt;
-
-&lt;p&gt;Now, after first victim is down. We have a classis competition of dollars v/s rupees, its just like &lt;a href=&#34;http://en.wikipedia.org/wiki/Goliath&#34;&gt;David v/s Goliath&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://lh5.googleusercontent.com/-UOYX0j4d74Y/URHJr5nw2nI/AAAAAAAAAqg/bmKB4tSWmoY/s144/david-and-goliath-sumo-version_thumb_2456faf3-4b48-4d31-8a4d-440692818ef1.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;They come with dollar back up, give best employment. Buy land at high price. Market go boom. And smile on the face of everyone, at least for a while. Yeah, some brokers and &lt;strong&gt;independent&lt;/strong&gt; businessmen, who were there in chain will not be happy. But who cares. Even from the era of non-violence and &lt;a href=&#34;http://en.wikipedia.org/wiki/Mohandas_Karamchand_Gandhi&#34;&gt;Gandhiji&lt;/a&gt; we also learn one more thing to serve others. Specially &lt;a href=&#34;http://en.wikipedia.org/wiki/Culture_of_the_United_Kingdom&#34;&gt;British Culture&lt;/a&gt; and Foreigners. Sorry to some die hard fan of &lt;a href=&#34;http://en.wikipedia.org/wiki/Mohandas_Karamchand_Gandhi&#34;&gt;Gandhiji&lt;/a&gt; but its true. He is there in direct or indirect reason of our slavery even after our so called freedom.&lt;/p&gt;
-
-&lt;p&gt;Now back to FDI.&lt;/p&gt;
-
-&lt;p&gt;We are getting things at low price. But missing one basic element of our shopping. Relationship with our merchant. So, here we are loosing personal guarantee of shop keeper. We have professional warranty of brand but what on grains???!!!! No one is saving seasonal vegetables for you. If you are lucky you get your favorite vegetables or if not you have to go with whatever is left there. But who cares !!! you are getting vegetables at lower prize.&lt;/p&gt;
-
-&lt;p&gt;So, As an engineer and a little bit selfish person I should be happy???????&lt;/p&gt;
-
-&lt;p&gt;Nope!!!&lt;/p&gt;
-
-&lt;p&gt;Why??? Now, consider a case of my favorite fruit Mango. And I love specific type of &lt;a href=&#34;http://en.wikipedia.org/wiki/Mango&#34;&gt;Mango called Kesar&lt;/a&gt; ** and that also specifically from &lt;a href=&#34;http://meet-kesarmango.blogspot.com/&#34;&gt;Talala Gir area&lt;/a&gt; . Now, big brother is going to buy bulk from farmers. And going to sell at lower price. I don’t think so. They sell poor and small pieces of Mangos in India and better will go out side to be sold in foreign currency. I don’t think problem in this too, as we also get used to that. Just like we get used to poor quality of every international brand. We are so good and non-violent people at the end. We are from the country of Great Mahatma Gandhiji. (PS: yes, we are from the country of Gandhiji, but still Gujarat is the only dry state ???!!!! why don’t other states are following our great leader ???!!!)&lt;/p&gt;
-
-&lt;p&gt;So, now its time for us to suffer. Poor quality food, grains and vegetables. …. No problem at all, most of the metros are not getting good quality food even now.&lt;/p&gt;
-
-&lt;p&gt;So, time passes and we survived and life go on. All the small business men are vanished, cleared, wiped out. No competition at all. Now, big brother can increase price. And yet again we don’t mind. Yaar, we are good people na, at the max we will do some rally and that also non-violently. And our minister comment that “ &lt;a href=&#34;http://www.dnaindia.com/india/report_i-m-no-astrologer-can-t-predict-fall-in-prices-says-sharad-pawar_1333724&#34;&gt;I am not astrologer, how can I say what will going to happen in future&lt;/a&gt; .” And some remember &lt;a href=&#34;http://en.wikipedia.org/wiki/Bhagat_Singh&#34;&gt;Bhagat Singh&lt;/a&gt; and &lt;a href=&#34;http://articles.timesofindia.indiatimes.com/2011-11-25/india/30440409_1_anti-graft-protester-sharad-pawar&#34;&gt;hit a slap&lt;/a&gt; . But that also ended with &lt;strong&gt;BANDH&lt;/strong&gt; in oppose of that slap. It is fine we are in India…&lt;/p&gt;
-
-&lt;p&gt;Now, only one person is laughing and laughing laud our own the big brother. But still we will going to celebrate, as big brother will be in the list of Forbes richest person, give lecture at IIMs and comment that India is his favorite market. Why not??? he is selling every good product at high rate in foreign country and getting price of garbage in India. Double profit.&lt;/p&gt;
-
-&lt;p&gt;Next big step, investment in farming. If everything is his, then why not farms. And government also welcome that, as they bring new technology to India (PS: what the hell, as don’t know anything about farming ???!!!!) . Obviously this will increase more employment , now farmers are employees too. And banned chemicals are welcomed to India, which increase growth for at least two years. So, time for some smiles now. But then farms are gone, quality goods are gone. And we left with dry land.&lt;/p&gt;
-
-&lt;p&gt;No problem, we will &lt;strong&gt;Import&lt;/strong&gt; . And government will give subsidy in that. So, now India back to square one. Just it were at the time of 1857 (PS: Many so called urban and modern public don’t know this number, please &lt;a href=&#34;http://bit.ly/vhOUwG&#34;&gt;google&lt;/a&gt; it.)&lt;/p&gt;
-
-&lt;p&gt;Still we have one smiling face of big brother. And books of him “How to Become a Millionaire” for future management students.&lt;/p&gt;
-
-&lt;p&gt;Now, one topic I have left in the starting service v/s self employment. Now, first thing I am doing job and I am not opposing it. But self employment is also just like that. You are employed if you are earning enough as per your requirement and caliber. Serving some big brother will never make you jolly good fellow. In simple situation if some person is earning 3Rs as profit, he will give 1Rs as salary. Now, this 2Rs will made him more rich every time he earns.&lt;/p&gt;
-
-&lt;p&gt;If we take retail sector as per example, a person of transport is earning 12,000Rs per month. Now, there are 10 persons for specific city. So, total earning goes to 1,20,000. Now, big brother hire some around 5 persons and give 15,000Rs salary. So, total earning goes to 75,000Rs. Now, salary is higher for whom, those got the job. But for 5 persons, 10 persons loses their job and employment. And there is movement of only 75,000Rs instead of 1,20,000Rs. Now, a person from commerce background can explain the importance of the “movement of money”.&lt;/p&gt;
-
-&lt;p&gt;And one more thing is here to consider. If you or me go to some other country and earn some money, first thing we will do is to send money to our country. Same will be done by the big brother. Profit will be sent to his country. In history we were not poor, but now we are still a developing country. Even at this stage can we afford to send profit to some other country ???? I don’t think so. I guess.&lt;/p&gt;
-
-&lt;p&gt;At the end still we have some happiness left. Big Brother is smiling and yes we have few more to join party. Our minister, AKA, sultan, Prince of country and his mom… Who are getting money for welcoming big brother and also take a part of profit as tax. And every one knows now in which country our tax is going ???!!!! (PS: As per &lt;a href=&#34;http://en.wikipedia.org/wiki/Chanakya&#34;&gt;Chankya&lt;/a&gt; tax should be taken in a way honey bee take honey from flowers)&lt;/p&gt;
-
-&lt;p&gt;I was so proud for my analytical and mathematical skills, but don’t have answer to this. If you have, please share… Do comment.&lt;/p&gt;
-
-&lt;p&gt;(PS Are we going to be slaved again??? Is this the time where we should start asking question to us, our belief ??? Is this the time for change from the root, from the start???!!!!)&lt;/p&gt;
-</description>
+      <description>It has been a week or so, every day news paper and news channel are full with news of FDI in India . Even Facebook is not taking a step back and speak in favor of both side. FDI in retails should be allowed or not.
+I am not a politician, so as engineer I will do data analysis of FDI in India. now, for the sake of example we consider that FDI is allowed in retail market (PS : I personally think that it is going to be allowed) .</description>
     </item>
     
     <item>
@@ -254,22 +46,8 @@
       <pubDate>Mon, 10 Oct 2011 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2011/10/snapshot-of-steve-jobs/</guid>
-      <description>&lt;p&gt;I was reading article on &lt;a href=&#34;http://online.wsj.com/article/SB10001424052970203633104576620972142056528.html&#34;&gt;Wall Street Journal&lt;/a&gt; , about Steve Jobs. It was wonderful article taken by Ralph, at time of starting phase of apple.&lt;/p&gt;
-
-&lt;p&gt;It was the time of change, if any one is familiar with the history of&amp;nbsp; computer world, must know the era of changing. When companies like Microsoft and Apple started and change the rule of game. They change the way of thinking that computer should be big and for co-operate work only. Computer should be good at calculation only, that black screen just calculate and give desire output to management. Person of industry wearing suits and showing standers.&lt;/p&gt;
-
-&lt;p&gt;Than hippy like guys arrived, who break all the rule, and drive world to new future. Right now I want&amp;nbsp; to talk about &lt;a href=&#34;http://www.apple.com/stevejobs/&#34;&gt;Steve Jobs&lt;/a&gt; . Who just left us, leaving behind the a legacy of change and revolution.&lt;/p&gt;
-
-&lt;p&gt;Every paragraph of article just showing attitude of Steve, never say never attitude, non-compromising mentality. Courage to take risk, and most important confidence in his own self.&lt;/p&gt;
-
-&lt;p&gt;This thing is completely opposite to Indian mentality, where we learn to compromise from the starting. Every time we are forced to change our self as per society. Many of us, just do something for the sake of doing. Earning money is important than earning credit. Confidence is just a short term certificate which we get at college as college result.&lt;/p&gt;
-
-&lt;p&gt;I am not saying, I am different. But I can say, I am trying to be different. And one of person behind this is &lt;a href=&#34;http://www.apple.com/stevejobs/&#34;&gt;Steve Jobs&lt;/a&gt; . I know about him from my college days, but start understanding him after college. Whenever I fill down and out I hear him or read him, which always motivates me to move on.&lt;/p&gt;
-
-&lt;p&gt;He is the person with still nerve. No matter whatever it takes, he will achieve what he want. I never seen a person like him. He is gem of crown of silicon-valley. Its not only he done for him self but inspire person like Mark who created &lt;a href=&#34;http://facebook.com/&#34;&gt;Facebook&lt;/a&gt; , bill gates of &lt;a href=&#34;http://microsoft.com/&#34;&gt;Microsoft&lt;/a&gt; and others.&lt;/p&gt;
-
-&lt;p&gt;Its not he hadn&amp;rsquo;t face downfall, everyone does in lifetime, but how he reacts is the real thing matters. I personally recommended that everyone directly or indirectly related to computer industry must watch movie Pirates of Silicon-Valley and go through the life of him. Also, can found video of him on &lt;a href=&#34;http://youtube.com/&#34;&gt;YouTube&lt;/a&gt; .&lt;/p&gt;
-</description>
+      <description>I was reading article on Wall Street Journal , about Steve Jobs. It was wonderful article taken by Ralph, at time of starting phase of apple.
+It was the time of change, if any one is familiar with the history of&amp;nbsp; computer world, must know the era of changing. When companies like Microsoft and Apple started and change the rule of game. They change the way of thinking that computer should be big and for co-operate work only.</description>
     </item>
     
   </channel>

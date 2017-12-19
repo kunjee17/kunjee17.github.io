@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kunjan&#39;s Web Space</title>
-    <link>http://kunjan.in/tags/vim/index.xml</link>
-    <description>Recent content on Kunjan&#39;s Web Space</description>
+    <title>Vim on Kunjan&#39;s Web Space</title>
+    <link>http://kunjan.in/tags/vim/</link>
+    <description>Recent content in Vim on Kunjan&#39;s Web Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://kunjan.in/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Aug 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://kunjan.in/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>VIM for me?</title>
@@ -14,36 +17,8 @@
       <pubDate>Thu, 22 Aug 2013 00:00:00 +0000</pubDate>
       
       <guid>http://kunjan.in/2013/08/vim-for-me/</guid>
-      <description>&lt;p&gt;I want confess that, my whole career I was and I am working with Visual Studio. Not a big fan, but it was good or I must say it is good. I don&amp;rsquo;t think any other IDE is doing as much thing as visual studio is doing.&lt;/p&gt;
-
-&lt;p&gt;And with few add-ons (even if you exclude &lt;a href=&#34;https://www.jetbrains.com/resharper/&#34;&gt;ReSharper&lt;/a&gt;) it is like wow. As full time web developer I like the tools, that always there to solve my issue.&lt;/p&gt;
-
-&lt;p&gt;But my love for languages like C# is far more than that. Give me my language and I can do wonders. And I also love OSS work and people doing OSS work in .net. One of my favourite project is &lt;a href=&#34;http://servicestack.net/&#34;&gt;Servicestack&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Now, here is the point, when a conversation with &lt;a href=&#34;https://twitter.com/demisbellot&#34;&gt;Demis&lt;/a&gt;, creator of  &lt;a href=&#34;http://servicestack.net/&#34;&gt;Servicestack&lt;/a&gt; made me thinking.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Am I going to far with my affection for tools? Am I doing it &lt;em&gt;wrong&lt;/em&gt;? Am I going in &lt;em&gt;wrong&lt;/em&gt; direction?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Here is the &lt;a href=&#34;https://twitter.com/kunjee/status/344894343066296321&#34;&gt;twitter conversation&lt;/a&gt;. And I agreed if I don&amp;rsquo; learn new things I am not doing justification to my old tools. How can I say that Visual Studio is good if I haven&amp;rsquo;t tried &lt;a href=&#34;http://www.sublimetext.com/&#34;&gt;Sublimetext&lt;/a&gt; or &lt;a href=&#34;http://www.vim.org/&#34;&gt;VIM&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I have tried &lt;a href=&#34;http://www.sublimetext.com/&#34;&gt;Sublimetext&lt;/a&gt; and pretty much impressed. It is my basic tools to edit web stuff or I am doing something with my blog. It is fast, light weigh with awesome plug ins; almost for every language.&lt;/p&gt;
-
-&lt;p&gt;Now, I am trying for &lt;a href=&#34;http://www.vim.org/&#34;&gt;VIM&lt;/a&gt;, I am starting with &lt;a href=&#34;http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/&#34;&gt;tutorial&lt;/a&gt; suggested by &lt;a href=&#34;https://twitter.com/amirrajan&#34;&gt;Amir Rajan&lt;/a&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Even if there is a slightest chance that your daily work is C# and you are thinking what you are doing with &lt;a href=&#34;http://www.vim.org/&#34;&gt;VIM&lt;/a&gt;; think &lt;strong&gt;again&lt;/strong&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/amirrajan&#34;&gt;Amir Rajan&lt;/a&gt; did wonderful &lt;a href=&#34;http://vimeo.com/72745278&#34;&gt;video&lt;/a&gt;, how things work with C#.&lt;/p&gt;
-
-&lt;p&gt;Have a look at it&lt;/p&gt;
-
-&lt;p&gt;&lt;iframe src=&#34;http://player.vimeo.com/video/72745278&#34; width=&#34;500&#34; height=&#34;313&#34; frameborder=&#34;0&#34; webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href=&#34;http://vimeo.com/72745278&#34;&gt;Coding out loud: C#, TDD, NSpec and VIM&lt;/a&gt; from &lt;a href=&#34;http://vimeo.com/user19333001&#34;&gt;Amir Rajan&lt;/a&gt; on &lt;a href=&#34;https://vimeo.com&#34;&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
-
-&lt;p&gt;It is like learning new thing. Lets see how far it will go. Will check it out and write about my experience in follow up post.&lt;/p&gt;
-</description>
+      <description>I want confess that, my whole career I was and I am working with Visual Studio. Not a big fan, but it was good or I must say it is good. I don&amp;rsquo;t think any other IDE is doing as much thing as visual studio is doing.
+And with few add-ons (even if you exclude ReSharper) it is like wow. As full time web developer I like the tools, that always there to solve my issue.</description>
     </item>
     
   </channel>
