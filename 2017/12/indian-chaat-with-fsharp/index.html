@@ -281,7 +281,7 @@
 
 
     [&lt;CLIMutableAttribute&gt;]
-    type OutPutMessages = {
+    type OutputMessages = {
         Data : Message []
     }
 
@@ -291,7 +291,7 @@
         UserId : int
         Created : DateTime
         Message : Message
-    } with interface IReturn&lt;OutPutMessages&gt;
+    } with interface IReturn&lt;OutputMessages&gt;
 
 </code></pre>
 
@@ -340,8 +340,8 @@
     | ChangeColor of SpanCls
     | PreparePost
     | PostMessage of InputMessage
-    | SuccessMessages of OutPutMessages
-    | SSESuccessMessages of OutPutMessages
+    | SuccessMessages of OutputMessages
+    | SSESuccessMessages of OutputMessages
     | Failed of exn
 
 </code></pre>
@@ -448,7 +448,7 @@
             model,postCmd
         | PostMessage pm -&gt;
             let msgPost (msg : InputMessage) =
-            client.post (msg :&gt; IReturn&lt;OutPutMessages&gt;)
+            client.post (msg :&gt; IReturn&lt;OutputMessages&gt;)
             let helloCmd (msg: InputMessage) =
             Cmd.ofPromise msgPost msg SuccessMessages Failed
             let msgCmd = helloCmd pm
@@ -486,22 +486,22 @@ let [&lt;Import(&quot;*&quot;,&quot;./../Imports/IndianChaat.dtos&quot;)&gt;] dt
 
 <p>So, now you have typed client library with typed dtos for you. Here are the Dtos</p>
 
-<pre><code class="language-fsharp">type [&lt;AllowNullLiteral&gt;] OutPutMessages =
+<pre><code class="language-fsharp">type [&lt;AllowNullLiteral&gt;] OutputMessages =
     abstract data: ResizeArray&lt;Message&gt; with get, set
 
-type [&lt;AllowNullLiteral&gt;] OutPutMessagesStatic =
-    [&lt;Emit &quot;new $0($1...)&quot;&gt;] abstract Create: unit -&gt; OutPutMessages
+type [&lt;AllowNullLiteral&gt;] OutputMessagesStatic =
+    [&lt;Emit &quot;new $0($1...)&quot;&gt;] abstract Create: unit -&gt; OutputMessages
 
 type [&lt;AllowNullLiteral&gt;] Message =
     abstract data: string with get, set
     abstract color: string with get, set
 
 type [&lt;AllowNullLiteral&gt;] InputMessage =
-    inherit IReturn&lt;OutPutMessages&gt;
+    inherit IReturn&lt;OutputMessages&gt;
     abstract userId: float with get, set
     abstract created: string with get, set
     abstract message: Message with get, set
-    abstract createResponse: unit -&gt; OutPutMessages
+    abstract createResponse: unit -&gt; OutputMessages
     abstract getTypeName: unit -&gt; string
 
 type [&lt;AllowNullLiteral&gt;] InputMessageStatic =
@@ -565,7 +565,7 @@ type [&lt;AllowNullLiteral&gt;] InputMessageStatic =
                 // &quot;onLeave&quot; ==&gt; fun (msg: ServerEventLeave) -&gt; printfn &quot;onLeave: %A&quot; msg.displayName
                 // &quot;onUpdate&quot; ==&gt; fun (msg : ServerEventUpdate) -&gt; printfn &quot;onUpdate %A&quot; msg.displayName
                 &quot;onMessage&quot; ==&gt; fun (msg: ServerEventMessage) -&gt; printfn &quot;onMessage %A&quot; msg.json
-                &quot;chat&quot; ==&gt; fun (msg : OutPutMessages) -&gt;
+                &quot;chat&quot; ==&gt; fun (msg : OutputMessages) -&gt;
                                 msg |&gt; (SSESuccessMessages &gt;&gt; dispatch)
             ] |&gt; Some |&gt; Some
 
@@ -733,7 +733,7 @@ Complete code for this you can find at my <a href="https://github.com/kunjee17/i
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2017 Kunjan Dalal. All Rights Reserved
+    &copy; 2018 Kunjan Dalal. All Rights Reserved
   </span>
 </footer>
 
@@ -1065,6 +1065,10 @@ Fun part about this pattern is that most of the people including me always use t
 
 <script src="http://kunjan.in/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/fsharp.min.js"></script>
+  
 
 
 <script>

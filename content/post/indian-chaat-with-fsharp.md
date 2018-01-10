@@ -60,7 +60,7 @@ Here are DTOs
 
 
     [<CLIMutableAttribute>]
-    type OutPutMessages = {
+    type OutputMessages = {
         Data : Message []
     }
 
@@ -70,7 +70,7 @@ Here are DTOs
         UserId : int
         Created : DateTime
         Message : Message
-    } with interface IReturn<OutPutMessages>
+    } with interface IReturn<OutputMessages>
 
 ```
 
@@ -123,8 +123,8 @@ Elmish architecture has three main parts. **Model -> View -> Update**
     | ChangeColor of SpanCls
     | PreparePost
     | PostMessage of InputMessage
-    | SuccessMessages of OutPutMessages
-    | SSESuccessMessages of OutPutMessages
+    | SuccessMessages of OutputMessages
+    | SSESuccessMessages of OutputMessages
     | Failed of exn
 
 ```
@@ -233,7 +233,7 @@ Normally I skip the view part. As html is not that interesting. But this is diff
             model,postCmd
         | PostMessage pm ->
             let msgPost (msg : InputMessage) =
-            client.post (msg :> IReturn<OutPutMessages>)
+            client.post (msg :> IReturn<OutputMessages>)
             let helloCmd (msg: InputMessage) =
             Cmd.ofPromise msgPost msg SuccessMessages Failed
             let msgCmd = helloCmd pm
@@ -270,22 +270,22 @@ You can generate typescript dtos using *@servicestack\cli*'s command `ts-ref <ur
 So, now you have typed client library with typed dtos for you. Here are the Dtos
 
 ```fsharp
-type [<AllowNullLiteral>] OutPutMessages =
+type [<AllowNullLiteral>] OutputMessages =
     abstract data: ResizeArray<Message> with get, set
 
-type [<AllowNullLiteral>] OutPutMessagesStatic =
-    [<Emit "new $0($1...)">] abstract Create: unit -> OutPutMessages
+type [<AllowNullLiteral>] OutputMessagesStatic =
+    [<Emit "new $0($1...)">] abstract Create: unit -> OutputMessages
 
 type [<AllowNullLiteral>] Message =
     abstract data: string with get, set
     abstract color: string with get, set
 
 type [<AllowNullLiteral>] InputMessage =
-    inherit IReturn<OutPutMessages>
+    inherit IReturn<OutputMessages>
     abstract userId: float with get, set
     abstract created: string with get, set
     abstract message: Message with get, set
-    abstract createResponse: unit -> OutPutMessages
+    abstract createResponse: unit -> OutputMessages
     abstract getTypeName: unit -> string
 
 type [<AllowNullLiteral>] InputMessageStatic =
@@ -348,7 +348,7 @@ And here is code on client side.
                 // "onLeave" ==> fun (msg: ServerEventLeave) -> printfn "onLeave: %A" msg.displayName
                 // "onUpdate" ==> fun (msg : ServerEventUpdate) -> printfn "onUpdate %A" msg.displayName
                 "onMessage" ==> fun (msg: ServerEventMessage) -> printfn "onMessage %A" msg.json
-                "chat" ==> fun (msg : OutPutMessages) ->
+                "chat" ==> fun (msg : OutputMessages) ->
                                 msg |> (SSESuccessMessages >> dispatch)
             ] |> Some |> Some
 
