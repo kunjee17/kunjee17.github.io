@@ -6,10 +6,20 @@
     <description>Recent content in Functional on Kunjan&#39;s Web Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://kunjan.in/tags/functional/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Opinionated Fable - Architecture &amp; Performance</title>
+      <link>http://kunjan.in/2018/03/opinionated-fable-architecture-and-performance/</link>
+      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://kunjan.in/2018/03/opinionated-fable-architecture-and-performance/</guid>
+      <description>There can&amp;rsquo;t be better time for writing this blog. As Fable 2.0 is on the horizon it would be good to see what 1.0 already can do. And I can also wish few things to be added to 2.0.
+I have chosen Fable after evaluating couple of options like TypeScript-React-Redux, Elm, Aurelia, Angular. One thing I was pretty much sure that I wanted static typing in my project. Because I did have first hand experience with big fat Angular application built using JavaScript.</description>
+    </item>
     
     <item>
       <title>Indian Chaat with F#</title>
