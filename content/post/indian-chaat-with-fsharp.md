@@ -1,6 +1,6 @@
 ---
 
-title: "Indian Chaat with F#"
+title: "Reactive Chat application using ServiceStack and Fable in F#"
 slug : "indian-chaat-with-FSharp"
 
 date: 2017-12-17

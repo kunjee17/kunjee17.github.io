@@ -1,5 +1,5 @@
 ---
-title: "Epic Adventure using F#"
+title: "Sentiment Analysis of Mahabharata using F#"
 keywords:
 -
 slug: "epic-adventure-using-fsharp"

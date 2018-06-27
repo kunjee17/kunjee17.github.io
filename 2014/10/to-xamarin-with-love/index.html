@@ -22,26 +22,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.42.1 with theme Tranquilpeak 0.4.3-BETA">
-    <title>Duffer&#39;s guide for windows 8 installation</title>
+    <title>To Xamarin with Love</title>
     <meta name="author" content="Kunjan Dalal">
-    <meta name="keywords" content="guide, windows">
+    <meta name="keywords" content="">
 
     <link rel="icon" href="http://kunjan.in/favicon.png">
     
 
     
-    <meta name="description" content="Oops, I used “Duffer” instead of “Dummy” because I am one of it.
-I installed OS nearly 8 times to get what I wanted from Windows 8. I brought new Dell Ultra book and first thing I have done is to install consumer preview, second thing installing VS2012. And I meet my first issue, it is not allowed so I need to use trial version, so another format and new OS in.">
-    <meta property="og:description" content="Oops, I used “Duffer” instead of “Dummy” because I am one of it.
-I installed OS nearly 8 times to get what I wanted from Windows 8. I brought new Dell Ultra book and first thing I have done is to install consumer preview, second thing installing VS2012. And I meet my first issue, it is not allowed so I need to use trial version, so another format and new OS in.">
+    <meta name="description" content="Xamarin Evolve just concluded. And there no best time to write this post. And for the fact I am not writing anything new or even anything related to announcements that happened there. I am writing this because recently I got chance to work with android using Java. And experience was not at all good. And reason is not so surprisingly Java.
+I am will not explain anything instead I just copy paste three code snippets.">
+    <meta property="og:description" content="Xamarin Evolve just concluded. And there no best time to write this post. And for the fact I am not writing anything new or even anything related to announcements that happened there. I am writing this because recently I got chance to work with android using Java. And experience was not at all good. And reason is not so surprisingly Java.
+I am will not explain anything instead I just copy paste three code snippets.">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Duffer&#39;s guide for windows 8 installation">
-    <meta property="og:url" content="/2012/10/duffers-guide-for-windows-installation/">
+    <meta property="og:title" content="To Xamarin with Love">
+    <meta property="og:url" content="/2014/10/to-xamarin-with-love/">
     <meta property="og:site_name" content="Kunjan&#39;s Web Space">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Kunjan&#39;s Web Space">
-    <meta name="twitter:description" content="Oops, I used “Duffer” instead of “Dummy” because I am one of it.
-I installed OS nearly 8 times to get what I wanted from Windows 8. I brought new Dell Ultra book and first thing I have done is to install consumer preview, second thing installing VS2012. And I meet my first issue, it is not allowed so I need to use trial version, so another format and new OS in.">
+    <meta name="twitter:description" content="Xamarin Evolve just concluded. And there no best time to write this post. And for the fact I am not writing anything new or even anything related to announcements that happened there. I am writing this because recently I got chance to work with android using Java. And experience was not at all good. And reason is not so surprisingly Java.
+I am will not explain anything instead I just copy paste three code snippets.">
     
       <meta name="twitter:creator" content="@kunjee">
     
@@ -219,15 +219,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Duffer&#39;s guide for windows 8 installation
+      To Xamarin with Love
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2012-10-29T00:00:00Z">
+      <time itemprop="datePublished" datetime="2014-10-10T00:00:00Z">
         
-  October 29, 2012
+  October 10, 2014
 
       </time>
     
@@ -246,23 +246,140 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Oops, I used “Duffer” instead of “Dummy” because I am one of it.</p>
+              <p><a href="https://evolve.xamarin.com/">Xamarin Evolve</a> just concluded. And there no best time to write this post. And for the fact I am not writing anything new or even anything related to announcements that happened there. I am writing this because recently I got chance to work with android using Java. And experience was not at all good. And reason is not so surprisingly Java.</p>
 
-<p>I installed OS nearly 8 times to get what I wanted from Windows 8. I brought new Dell Ultra book and first thing I have done is to install consumer preview, second thing installing VS2012. And I meet my first issue, it is not allowed so I need to use trial version, so another format and new OS in.</p>
+<p>I am will not explain anything instead I just copy paste three code snippets. All are doing same thing but they are all in different languages. Now, for the people who think that language doesn&rsquo;t make any difference; this post is for them. Here I am not including any frameworks like Reactive UI or Xamarin.Forms. If I include them then this competition will be one sided. (Xamarin Sided)</p>
 
-<p>Here, I have made another mistake to install it in SSD, I thought I put OS there and all other things in other drive. As, at that point of time I really don’t know why on the earth that 32 GB SSD is there. It is fast but what I do with that. As, it was not showing at the time, when default Windows 7 was there. OK, it goes as per plan and my system things got better and better but my drive got screwed big time. Always I need to watch that is it full or not.</p>
+<p><strong><em>Code Snippet in Java</em></strong></p>
 
-<p>Than I got mail that Pro version is available. Wow, I just loved that news. So, first thing first learn about SSD and I got wonderful <a href="http://www.overclock.net/t/1227655/how-to-set-up-intel-smart-response-technology-ssd-caching">article</a> written by Sean. Ok, now I know that SSD for caching only. Here, issue again that I need to order first as direct download of ISO is not available. Damn is seriously don’t like this.</p>
+<pre><code>public class MainActivity extends Activity {
 
-<p>To, do that I need to reinstall Windows 7 and then I started the process using <a href="http://windows.microsoft.com/en-IN/windows/upgrade-offer">upgrade wizard</a> . I ordered my brand new Windows 8 Pro and started downloading. Then there is wizard come that give me option to create a ISO for that. I selected that. And then I have created my boot USB.</p>
+    int count = 0;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setEvents();
+    }
 
-<p>Ok, things seems good up till now. But when I change my mode to SATA ACHI to RAID, drive is not showing up only. I installed in ACHI and try to change again but giving me error that drive where windows is locked. Just feeling like I am road end. Then I have done some Google, but sadly couldn’t found any perfect solution. That keep me thinking how to give them driver even before installing of windows.</p>
+    private void setEvents() {
+        final Button mybutton = (Button) this.findViewById(R.id.myButton);
+        mybutton.setOnClickListener(new OnClickListener() {
 
-<p>Now, time came where one should trust books and basics instead of Google God. Drivers are sys files which allows you to load hardware, it is not exe, out file its below that which contains definition of the hardware. So, I went to dell site and download drivers. I extracted on my other machine, put it on USB from where I am installing OS. At the time of installation I clicked load drivers, unchecked for singed drivers only check-box and I got the list of drivers available. I selected the RAID one and magic works. Drive list arrives to complete the installation. Later things is kids stuff, next next and Windows 8 up and running. [NOTE: You need key to do the installation. I don’t find trial option in there. ]</p>
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                mybutton.setText(String.valueOf(count));
+            }
+        });
 
-<p>Now, time to use SSD, just install all the application from Dell [In case of other vendors use your respective site or Intel site] and you will get Rapid Storage software running, just enable Caching there for your hard disk using SSD. Its done. A cool OS is ready to use.</p>
+        final TextView seekbarView = (TextView) this.findViewById(R.id.seekbarTextView);
+        SeekBar seekbar = (SeekBar) this.findViewById(R.id.seekBar1);
+        seekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            int progresssed = 0;
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+                seekbarView.setText(String.valueOf(progresssed));
+            }
 
-<p>Download aaps, Visual Studio are running. Its done. Enjoy the change.</p>
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,
+                    boolean fromUser) {
+                // TODO Auto-generated method stub
+                progresssed = progress;
+            }
+        });
+
+        CheckBox checkbox = (CheckBox) this.findViewById(R.id.checkBox1);
+        checkbox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // TODO Auto-generated method stub
+                Log.i(&quot;info&quot;,&quot;Checkbox is &quot; + String.valueOf(isChecked));
+            }
+        });
+    }
+
+
+
+}
+</code></pre>
+
+<p><strong><em>Code Snippet in C#</em></strong></p>
+
+<pre><code>[Activity (Label = &quot;XamarinBlog&quot;, MainLauncher = true, Icon = &quot;@drawable/icon&quot;)]
+    public class MainActivity : Activity
+    {
+        int count = 1;
+
+        protected override void OnCreate (Bundle bundle)
+        {
+            base.OnCreate (bundle);
+
+            // Set our view from the &quot;main&quot; layout resource
+            SetContentView (Resource.Layout.Main);
+            var button = this.FindViewById&lt;Button&gt; (Resource.Id.myButton);
+            button.Click += (sender, e) =&gt; {
+                button.Text = String.Format(&quot;{0} clicks&quot;,count);
+                count++;
+            };
+
+            var seekbarTextView = this.FindViewById&lt;TextView&gt; (Resource.Id.seekbarTextView);
+            var seekbar = this.FindViewById&lt;SeekBar&gt; (Resource.Id.seekBar1);
+            seekbar.ProgressChanged += (sender, e) =&gt; {
+                seekbarTextView.Text = String.Format(&quot;The value of seekbar is {0}&quot;, e.Progress);
+            };
+
+            var checkbox = this.FindViewById&lt;CheckBox&gt; (Resource.Id.checkBox1);
+
+            checkbox.CheckedChange += (sender, e) =&gt; {
+                Console.WriteLine(&quot;Checked changed!&quot;);
+            };
+        }
+    }
+</code></pre>
+
+<p><strong><em>Code Snippet in F#</em></strong></p>
+
+<pre><code>[&lt;Activity(Label = &quot;XamarinBlog&quot;, MainLauncher = true)&gt;]
+type MainActivity() = 
+    inherit Activity()
+    let mutable count : int = 1
+    override this.OnCreate(bundle) = 
+        base.OnCreate(bundle)
+        // Set our view from the &quot;main&quot; layout resource
+        this.SetContentView(Resource_Layout.Main)
+        // Get our button from the layout resource, and attach an event to it
+        let button = this.FindViewById&lt;Button&gt;(Resource_Id.myButton)
+        button.Click.Add(fun args -&gt; 
+            button.Text &lt;- sprintf &quot;%d clicks!&quot; count
+            count &lt;- count + 1)
+        let seekbarTextView = this.FindViewById&lt;TextView&gt;(Resource_Id.seekbarTextView)
+        let seekbar = this.FindViewById&lt;SeekBar&gt;(Resource_Id.seekBar1)
+        seekbar.ProgressChanged.Add
+            (fun args -&gt; seekbarTextView.Text &lt;- sprintf &quot;The value of seekbar is %A&quot; args.Progress)
+
+        let checkbox = this.FindViewById&lt;CheckBox&gt;(Resource_Id.checkBox1)
+        checkbox.CheckedChange.Add(fun args -&gt; printfn &quot;Check changed&quot;)
+</code></pre>
+
+<p>Hope you can see what I am trying to say here. I can become a good typist by writing code in Java but defiantly not good programmer. I don&rsquo;t know from which planet Java has incorporated it&rsquo;s Object Oriented model.</p>
+
+<p>Xamarin is solving many problems by supporting C# and F# for android development.</p>
+
+<blockquote>
+<p>&lt;3&lt;3&lt;3 Xamarin</p>
+</blockquote>
+
+<p><em>You can also compare code between C# and F# but don&rsquo;t tell anyone as right now I am bashing Java in this post. :P</em></p>
 
               
             </div>
@@ -277,6 +394,12 @@ if (!doNotTrack) {
                     
   <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/dotnet/">DotNet</a>
 
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/oss/">OSS</a>
+
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/functional-programming/">Functional Programming</a>
+
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/mobile/">Mobile</a>
+
                   </div>
                 
               
@@ -288,7 +411,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2012/11/something-never-changed-guiding-principals-to-software-development/" data-tooltip="Something Never Changed!!! Guiding Principles to Software Development">
+                <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2014/11/sails-sailing-seamlessly-on-azure-web-sites/" data-tooltip="Sails sailing seamlessly on Azure Web Sites">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -296,7 +419,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2012/10/type-casting-javascript-with-typescript/" data-tooltip="Type Casting JavaScript with Typescript">
+                <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2014/10/web-programming-and-fsharp-still-a-far-cry/" data-tooltip="Web programming and F# still a Far Cry?">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -356,7 +479,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2012/11/something-never-changed-guiding-principals-to-software-development/" data-tooltip="Something Never Changed!!! Guiding Principles to Software Development">
+                <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2014/11/sails-sailing-seamlessly-on-azure-web-sites/" data-tooltip="Sails sailing seamlessly on Azure Web Sites">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -364,7 +487,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2012/10/type-casting-javascript-with-typescript/" data-tooltip="Type Casting JavaScript with Typescript">
+                <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2014/10/web-programming-and-fsharp-still-a-far-cry/" data-tooltip="Web programming and F# still a Far Cry?">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -697,9 +820,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'http:\/\/kunjan.in\/2012\/10\/duffers-guide-for-windows-installation\/';
+          this.page.url = 'http:\/\/kunjan.in\/2014\/10\/to-xamarin-with-love\/';
           
-            this.page.identifier = '\/2012\/10\/duffers-guide-for-windows-installation\/'
+            this.page.identifier = '\/2014\/10\/to-xamarin-with-love\/'
           
         };
         (function() {
