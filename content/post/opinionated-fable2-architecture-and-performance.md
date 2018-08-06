@@ -190,7 +190,7 @@ export function InfoModel$$$get_Empty() {
 
 In Fable we need to use something called `[<Pojo>]` attribute in code. It is removed in Fable 2. No more dancing around module and type.
 
-In Fable `[<Pojo>]` is used like this and generate below JavaScript. That is default in Fable 2. A request I put in old blog and very much granted in latest Fable 2
+In Fable `[<Pojo>]` is used like this and generate below JavaScript. That is default in Fable 2. A request I had in old blog and very much granted in latest Fable 2
 
 ```fsharp
 open FSharp.Core
@@ -215,7 +215,7 @@ type InfoModel = {
 
 ```
 
-In above code, usage will not change. Even `InfoModel.Empty` will work as it is. How about JavaScript? Does it change?
+In javascript it looks like
 
 ```javascript
 export const InfoModelModule = function (__exports) {
@@ -230,9 +230,41 @@ export const InfoModelModule = function (__exports) {
 }({});
 ```
 
-Less than the code we wrote using F#. And people says **F# is concise language**. Fable is doing awesome job generating concise JavaScript.
+Now let's see how it looks in Fable 2
 
-> Fable 2.0 Wish : I wish all type should be `Pojo` by default. And if someone like to use F# types then they can use it with help of attribute, something like `NoPojo`.
+```fsharp
+type InfoModel = {
+        FirstName : string
+        LastName : string
+        DOB : string
+        Gender : string
+        IsValid : bool
+    } with static member Empty = {
+            FirstName = "Don"
+            LastName = "Syme"
+            DOB = "unknown"
+            Gender = "male"
+            IsValid = true
+        }
+```
+
+And here is generated code
+
+```javascript
+import { declare, Record } from "fable-core/Types";
+export const InfoModel = declare(function InfoModel(arg1, arg2, arg3, arg4, arg5) {
+  this.FirstName = arg1;
+  this.LastName = arg2;
+  this.DOB = arg3;
+  this.Gender = arg4;
+  this.IsValid = arg5;
+}, Record);
+export function InfoModel$$$get_Empty() {
+  return new InfoModel("Don", "Syme", "unknown", "male", true);
+}
+```
+
+No `pojo` and no `modules`. Pure types and still get the same result as above. Can't ask more.
 
 ## Lenses and Spectacles
 
@@ -844,7 +876,7 @@ export const combinedValidation = CurriedLambda($var7 => bind(function (s_1) {
 }($var7)));
 ```
 
-and here is Fable 2 code
+and here in case of Fable 2
 
 ```javascript
 import { reverse } from "fable-core/List";
@@ -1366,7 +1398,7 @@ Try this
 type [<StringEnum>]Page = Info | Contact
 ```
 
-It will be removed generated code. As it will directly compare string when and if required.
+Page part will be removed from generated code. As it will directly compare string when and if required.
 
 
 ## Old Habits Die Hard

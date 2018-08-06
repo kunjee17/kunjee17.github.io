@@ -419,7 +419,7 @@ export function InfoModel$$$get_Empty() {
 
 <p>In Fable we need to use something called <code>[&lt;Pojo&gt;]</code> attribute in code. It is removed in Fable 2. No more dancing around module and type.</p>
 
-<p>In Fable <code>[&lt;Pojo&gt;]</code> is used like this and generate below JavaScript. That is default in Fable 2. A request I put in old blog and very much granted in latest Fable 2</p>
+<p>In Fable <code>[&lt;Pojo&gt;]</code> is used like this and generate below JavaScript. That is default in Fable 2. A request I had in old blog and very much granted in latest Fable 2</p>
 
 <pre><code class="language-fsharp">open FSharp.Core
 open Fable.Core
@@ -443,7 +443,7 @@ type InfoModel = {
 
 </code></pre>
 
-<p>In above code, usage will not change. Even <code>InfoModel.Empty</code> will work as it is. How about JavaScript? Does it change?</p>
+<p>In javascript it looks like</p>
 
 <pre><code class="language-javascript">export const InfoModelModule = function (__exports) {
   const Empty = __exports.Empty = {
@@ -457,11 +457,39 @@ type InfoModel = {
 }({});
 </code></pre>
 
-<p>Less than the code we wrote using F#. And people says <strong>F# is concise language</strong>. Fable is doing awesome job generating concise JavaScript.</p>
+<p>Now let&rsquo;s see how it looks in Fable 2</p>
 
-<blockquote>
-<p>Fable 2.0 Wish : I wish all type should be <code>Pojo</code> by default. And if someone like to use F# types then they can use it with help of attribute, something like <code>NoPojo</code>.</p>
-</blockquote>
+<pre><code class="language-fsharp">type InfoModel = {
+        FirstName : string
+        LastName : string
+        DOB : string
+        Gender : string
+        IsValid : bool
+    } with static member Empty = {
+            FirstName = &quot;Don&quot;
+            LastName = &quot;Syme&quot;
+            DOB = &quot;unknown&quot;
+            Gender = &quot;male&quot;
+            IsValid = true
+        }
+</code></pre>
+
+<p>And here is generated code</p>
+
+<pre><code class="language-javascript">import { declare, Record } from &quot;fable-core/Types&quot;;
+export const InfoModel = declare(function InfoModel(arg1, arg2, arg3, arg4, arg5) {
+  this.FirstName = arg1;
+  this.LastName = arg2;
+  this.DOB = arg3;
+  this.Gender = arg4;
+  this.IsValid = arg5;
+}, Record);
+export function InfoModel$$$get_Empty() {
+  return new InfoModel(&quot;Don&quot;, &quot;Syme&quot;, &quot;unknown&quot;, &quot;male&quot;, true);
+}
+</code></pre>
+
+<p>No <code>pojo</code> and no <code>modules</code>. Pure types and still get the same result as above. Can&rsquo;t ask more.</p>
 
 <h2 id="lenses-and-spectacles">Lenses and Spectacles</h2>
 
@@ -1064,7 +1092,7 @@ export const combinedValidation = CurriedLambda($var7 =&gt; bind(function (s_1) 
 }($var7)));
 </code></pre>
 
-<p>and here is Fable 2 code</p>
+<p>and here in case of Fable 2</p>
 
 <pre><code class="language-javascript">import { reverse } from &quot;fable-core/List&quot;;
 import { Result } from &quot;fable-core/Option&quot;;
@@ -1581,7 +1609,7 @@ export const Model = declare(function Model(arg1, arg2) {
 <pre><code class="language-fsharp">type [&lt;StringEnum&gt;]Page = Info | Contact
 </code></pre>
 
-<p>It will be removed generated code. As it will directly compare string when and if required.</p>
+<p>Page part will be removed from generated code. As it will directly compare string when and if required.</p>
 
 <h2 id="old-habits-die-hard">Old Habits Die Hard</h2>
 
