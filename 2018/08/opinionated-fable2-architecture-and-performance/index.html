@@ -1,0 +1,2069 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.42.1 with theme Tranquilpeak 0.4.3-BETA">
+    <title>Opinionated Fable2 - Architecture &amp; Performance</title>
+    <meta name="author" content="Kunjan Dalal">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="http://kunjan.in/favicon.png">
+    
+
+    
+    <meta name="description" content="Nothing can be more beautiful if you wish come. And It seems Fable2 did made my wish true in most of the cases. Let&rsquo;s revisit my old blog and check what is got improved and changed. So, goal of this blog is it should be same as old blog, but it should be smaller. Because of new and shiny Fable2.
+ Fable 2 is currently in beta but as per blog it is very much working.">
+    <meta property="og:description" content="Nothing can be more beautiful if you wish come. And It seems Fable2 did made my wish true in most of the cases. Let&rsquo;s revisit my old blog and check what is got improved and changed. So, goal of this blog is it should be same as old blog, but it should be smaller. Because of new and shiny Fable2.
+ Fable 2 is currently in beta but as per blog it is very much working.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Opinionated Fable2 - Architecture &amp; Performance">
+    <meta property="og:url" content="/2018/08/opinionated-fable2-architecture-and-performance/">
+    <meta property="og:site_name" content="Kunjan&#39;s Web Space">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Kunjan&#39;s Web Space">
+    <meta name="twitter:description" content="Nothing can be more beautiful if you wish come. And It seems Fable2 did made my wish true in most of the cases. Let&rsquo;s revisit my old blog and check what is got improved and changed. So, goal of this blog is it should be same as old blog, but it should be smaller. Because of new and shiny Fable2.
+ Fable 2 is currently in beta but as per blog it is very much working.">
+    
+      <meta name="twitter:creator" content="@kunjee">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="http://kunjan.in/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-37975068-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="http://kunjan.in/">Kunjan&#39;s Web Space</a>
+  </div>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="http://kunjan.in/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Kunjan Dalal</h4>
+        
+          <h5 class="sidebar-profile-bio"><em>All idea, opinion are my own and don&rsquo;t reflect opinion of my current or any former employer.</em></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/resume">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">Resume</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/kunjee17" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://kunjan.in/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Opinionated Fable2 - Architecture &amp; Performance
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-08-06T00:00:00Z">
+        
+  August 6, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="http://kunjan.in/categories/technical">Technical</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p>Nothing can be more beautiful if you wish come. And It seems <a href="http://fable.io/blog/Introducing-2-0-beta.html">Fable2</a> did made my wish true in most of the cases. Let&rsquo;s revisit my old <a href="http://kunjan.in/2018/03/opinionated-fable-architecture-and-performance/">blog</a> and check what is got improved and changed. So, goal of this blog is it should be same as old blog, but it should be smaller. Because of new and shiny Fable2.</p>
+
+<blockquote>
+<p>Fable 2 is currently in beta but as per blog it is very much working. So, let&rsquo;s begin</p>
+</blockquote>
+
+<p><img src="https://media.giphy.com/media/3o6wrrzLj2DxNRzvQk/giphy.gif" alt="2" /></p>
+
+<h1 id="performance">Performance</h1>
+
+<h2 id="line-of-code">Line of Code</h2>
+
+<p>Fable 2 is having great improvement in code generation. Now, generated code is having better tree shaking story and also less reflection. Let&rsquo;s have a look at old and new code&hellip;</p>
+
+<h2 id="f-types">F# Types</h2>
+
+<p>Let&rsquo;s start with simple F# types. What is there in Fable and What is not with Fable 2</p>
+
+<p>Let&rsquo;s take a simple example</p>
+
+<pre><code class="language-fsharp">type InfoModel = {
+        FirstName : string
+        LastName : string
+        DOB : string
+        Gender : string
+        IsValid : bool
+    }
+</code></pre>
+
+<blockquote>
+<p>PS: I&rsquo;m using <a href="http://fable.io/repl/">Fable REPL</a> and <a href="http://fable.io/repl2/">Fable 2 REPL</a> for testing out the code. It is great way you can see what our F# code is doing. It will generate <em>hell</em> pretty JavaScript.</p>
+</blockquote>
+
+<p>Let&rsquo;s see the generated JavaScript for Fable</p>
+
+<pre><code class="language-javascript">import { setType } from &quot;fable-core/Symbol&quot;;
+import _Symbol from &quot;fable-core/Symbol&quot;;
+import { compareRecords, equalsRecords } from &quot;fable-core/Util&quot;;
+export class InfoModel {
+  constructor(firstName, lastName, dOB, gender, isValid) {
+    this.FirstName = firstName;
+    this.LastName = lastName;
+    this.DOB = dOB;
+    this.Gender = gender;
+    this.IsValid = isValid;
+  }
+
+  [_Symbol.reflection]() {
+    return {
+      type: &quot;Test.InfoModel&quot;,
+      interfaces: [&quot;FSharpRecord&quot;, &quot;System.IEquatable&quot;, &quot;System.IComparable&quot;],
+      properties: {
+        FirstName: &quot;string&quot;,
+        LastName: &quot;string&quot;,
+        DOB: &quot;string&quot;,
+        Gender: &quot;string&quot;,
+        IsValid: &quot;boolean&quot;
+      }
+    };
+  }
+
+  Equals(other) {
+    return equalsRecords(this, other);
+  }
+
+  CompareTo(other) {
+    return compareRecords(this, other) | 0;
+  }
+
+}
+setType(&quot;Test.InfoModel&quot;, InfoModel);
+</code></pre>
+
+<p>And here is for Fable 2</p>
+
+<pre><code class="language-javascript">import { declare, Record } from &quot;fable-core/Types&quot;;
+export const InfoModel = declare(function InfoModel(arg1, arg2, arg3, arg4, arg5) {
+  this.FirstName = arg1;
+  this.LastName = arg2;
+  this.DOB = arg3;
+  this.Gender = arg4;
+  this.IsValid = arg5;
+}, Record);
+
+</code></pre>
+
+<p>Now that is <strong>Crazy</strong> improvement.</p>
+
+<p>Let&rsquo;s add some more code in there.</p>
+
+<pre><code class="language-fsharp">type InfoModel = {
+        FirstName : string
+        LastName : string
+        DOB : string
+        Gender : string
+        IsValid : bool
+    } with
+        static member Empty = {
+            FirstName = &quot;Don&quot;
+            LastName = &quot;Syme&quot;
+            DOB = &quot;unknown&quot;
+            Gender = &quot;male&quot;
+            IsValid = true
+        }
+</code></pre>
+
+<p>A typical F# way of writing Record Type or Model.</p>
+
+<p>and here is JavaScript code for Fable</p>
+
+<pre><code class="language-javascript">import { setType } from &quot;fable-core/Symbol&quot;;
+import _Symbol from &quot;fable-core/Symbol&quot;;
+import { compareRecords, equalsRecords } from &quot;fable-core/Util&quot;;
+export class InfoModel {
+  constructor(firstName, lastName, dOB, gender, isValid) {
+    this.FirstName = firstName;
+    this.LastName = lastName;
+    this.DOB = dOB;
+    this.Gender = gender;
+    this.IsValid = isValid;
+  }
+
+  [_Symbol.reflection]() {
+    return {
+      type: &quot;Test.InfoModel&quot;,
+      interfaces: [&quot;FSharpRecord&quot;, &quot;System.IEquatable&quot;, &quot;System.IComparable&quot;],
+      properties: {
+        FirstName: &quot;string&quot;,
+        LastName: &quot;string&quot;,
+        DOB: &quot;string&quot;,
+        Gender: &quot;string&quot;,
+        IsValid: &quot;boolean&quot;
+      }
+    };
+  }
+
+  Equals(other) {
+    return equalsRecords(this, other);
+  }
+
+  CompareTo(other) {
+    return compareRecords(this, other) | 0;
+  }
+
+  static get Empty() {
+    return new InfoModel(&quot;Don&quot;, &quot;Syme&quot;, &quot;unknown&quot;, &quot;male&quot;, true);
+  }
+
+}
+setType(&quot;Test.InfoModel&quot;, InfoModel);
+</code></pre>
+
+<p>And here is code for Fable 2</p>
+
+<pre><code class="language-javascript">import { declare, Record } from &quot;fable-core/Types&quot;;
+export const InfoModel = declare(function InfoModel(arg1, arg2, arg3, arg4, arg5) {
+  this.FirstName = arg1;
+  this.LastName = arg2;
+  this.DOB = arg3;
+  this.Gender = arg4;
+  this.IsValid = arg5;
+}, Record);
+export function InfoModel$$$get_Empty() {
+  return new InfoModel(&quot;Don&quot;, &quot;Syme&quot;, &quot;unknown&quot;, &quot;male&quot;, true);
+}
+</code></pre>
+
+<p><img src="https://media.giphy.com/media/l4pTdcifPZLpDjL1e/giphy.gif" alt="love" /></p>
+
+<p>In Fable we need to use something called <code>[&lt;Pojo&gt;]</code> attribute in code. It is removed in Fable 2. No more dancing around module and type.</p>
+
+<p>In Fable <code>[&lt;Pojo&gt;]</code> is used like this and generate below JavaScript. That is default in Fable 2. A request I put in old blog and very much granted in latest Fable 2</p>
+
+<pre><code class="language-fsharp">open FSharp.Core
+open Fable.Core
+
+[&lt;Pojo&gt;]
+type InfoModel = {
+        FirstName : string
+        LastName : string
+        DOB : string
+        Gender : string
+        IsValid : bool
+    }
+    module InfoModel =
+        let Empty = {
+            FirstName = &quot;Don&quot;
+            LastName = &quot;Syme&quot;
+            DOB = &quot;unknown&quot;
+            Gender = &quot;male&quot;
+            IsValid = true
+        }
+
+</code></pre>
+
+<p>In above code, usage will not change. Even <code>InfoModel.Empty</code> will work as it is. How about JavaScript? Does it change?</p>
+
+<pre><code class="language-javascript">export const InfoModelModule = function (__exports) {
+  const Empty = __exports.Empty = {
+    FirstName: &quot;Don&quot;,
+    LastName: &quot;Syme&quot;,
+    DOB: &quot;unknown&quot;,
+    Gender: &quot;male&quot;,
+    IsValid: true
+  };
+  return __exports;
+}({});
+</code></pre>
+
+<p>Less than the code we wrote using F#. And people says <strong>F# is concise language</strong>. Fable is doing awesome job generating concise JavaScript.</p>
+
+<blockquote>
+<p>Fable 2.0 Wish : I wish all type should be <code>Pojo</code> by default. And if someone like to use F# types then they can use it with help of attribute, something like <code>NoPojo</code>.</p>
+</blockquote>
+
+<h2 id="lenses-and-spectacles">Lenses and Spectacles</h2>
+
+<p>Above <em>InfoModel</em> is perfect to represent view. But what about validation. It is not holding any property to hold domain details. So, Let&rsquo;s write that and see the generated code.</p>
+
+<pre><code class="language-fsharp">open FSharp.Core
+open Fable.Core
+
+[&lt;Pojo&gt;]
+type Validate = {
+    IsValid : bool
+    ErrMsg : string
+}
+
+    module Validate =
+        let Success = {
+            IsValid = true
+            ErrMsg = &quot;&quot;
+        }
+        let Failure (msg : string) = {
+            IsValid = false
+            ErrMsg = msg
+        }
+
+        let InitialValidate = {
+            IsValid = true
+            ErrMsg = &quot;&quot;
+        }
+
+[&lt;Pojo&gt;]
+type InfoModel = {
+        FirstName : string
+        LastName : string
+        DOB : string
+        Gender : string
+        IsValid : bool
+    }
+    module InfoModel =
+        let Empty = {
+            FirstName = &quot;Don&quot;
+            LastName = &quot;Syme&quot;
+            DOB = &quot;unknown&quot;
+            Gender = &quot;male&quot;
+            IsValid = true
+        }
+
+[&lt;Pojo&gt;]
+type InfoErrorModel = {
+    FirstName : Validate
+    LastName : Validate
+    DOB : Validate
+    Gender : Validate
+}
+    module InfoErrorModel =
+        let Empty = {
+            FirstName = Validate.InitialValidate
+            LastName = Validate.InitialValidate
+            DOB = Validate.InitialValidate
+            Gender = Validate.InitialValidate
+        }
+
+[&lt;Pojo&gt;]
+type Model = {
+    InfoModel : InfoModel
+    InfoErrorModel : InfoErrorModel
+}
+    module Model =
+        let Empty = {
+            InfoModel = InfoModel.Empty
+            InfoErrorModel = InfoErrorModel.Empty
+        }
+
+</code></pre>
+
+<p>As we can see it is very typical kind domain modelish code. Typical F# - DDD 101 thing. I will explain domain model in separate section but let&rsquo;s first see the generated JavaScript code.</p>
+
+<pre><code class="language-javascript">export const ValidateModule = function (__exports) {
+  const Success = __exports.Success = {
+    IsValid: true,
+    ErrMsg: &quot;&quot;
+  };
+
+  const Failure = __exports.Failure = function (msg) {
+    return {
+      IsValid: false,
+      ErrMsg: msg
+    };
+  };
+
+  const InitialValidate = __exports.InitialValidate = {
+    IsValid: true,
+    ErrMsg: &quot;&quot;
+  };
+  return __exports;
+}({});
+export const InfoModelModule = function (__exports) {
+  const Empty = __exports.Empty = {
+    FirstName: &quot;Don&quot;,
+    LastName: &quot;Syme&quot;,
+    DOB: &quot;unknown&quot;,
+    Gender: &quot;male&quot;,
+    IsValid: true
+  };
+  return __exports;
+}({});
+export const InfoErrorModelModule = function (__exports) {
+  const Empty_1 = __exports.Empty = {
+    FirstName: ValidateModule.InitialValidate,
+    LastName: ValidateModule.InitialValidate,
+    DOB: ValidateModule.InitialValidate,
+    Gender: ValidateModule.InitialValidate
+  };
+  return __exports;
+}({});
+export const ModelModule = function (__exports) {
+  const Empty_2 = __exports.Empty = {
+    InfoModel: InfoModelModule.Empty,
+    InfoErrorModel: InfoErrorModelModule.Empty
+  };
+  return __exports;
+}({});
+</code></pre>
+
+<p>Let&rsquo;s see how Fable 2 will improve the F# and JavaScript code.</p>
+
+<pre><code class="language-fsharp">type Validate = {
+    IsValid : bool
+    ErrMsg : string
+}
+  with 
+    static member Success = {
+        IsValid = true
+        ErrMsg = &quot;&quot;
+    }
+    static member Failure (msg : string) = {
+        IsValid = false
+        ErrMsg = msg
+    }
+
+    static member InitialValidate = {
+        IsValid = true
+        ErrMsg = &quot;&quot;
+    }
+
+type InfoModel = {
+        FirstName : string
+        LastName : string
+        DOB : string
+        Gender : string
+        IsValid : bool
+    }
+    with static member Empty = {
+            FirstName = &quot;Don&quot;
+            LastName = &quot;Syme&quot;
+            DOB = &quot;unknown&quot;
+            Gender = &quot;male&quot;
+            IsValid = true
+        }
+
+type InfoErrorModel = {
+    FirstName : Validate
+    LastName : Validate
+    DOB : Validate
+    Gender : Validate
+}
+    with static member Empty = {
+            FirstName = Validate.InitialValidate
+            LastName = Validate.InitialValidate
+            DOB = Validate.InitialValidate
+            Gender = Validate.InitialValidate
+        }
+
+type Model = {
+    InfoModel : InfoModel
+    InfoErrorModel : InfoErrorModel
+}
+    with static member Empty = {
+            InfoModel = InfoModel.Empty
+            InfoErrorModel = InfoErrorModel.Empty
+        }
+</code></pre>
+
+<p>and generated javascript is</p>
+
+<pre><code class="language-javascript">import { declare, Record } from &quot;fable-core/Types&quot;;
+export const Validate = declare(function Validate(arg1, arg2) {
+  this.IsValid = arg1;
+  this.ErrMsg = arg2;
+}, Record);
+export function Validate$$$get_Success() {
+  return new Validate(true, &quot;&quot;);
+}
+export function Validate$$$Failure$$Z721C83C5(msg) {
+  return new Validate(false, msg);
+}
+export function Validate$$$get_InitialValidate() {
+  return new Validate(true, &quot;&quot;);
+}
+export const InfoModel = declare(function InfoModel(arg1, arg2, arg3, arg4, arg5) {
+  this.FirstName = arg1;
+  this.LastName = arg2;
+  this.DOB = arg3;
+  this.Gender = arg4;
+  this.IsValid = arg5;
+}, Record);
+export function InfoModel$$$get_Empty() {
+  return new InfoModel(&quot;Don&quot;, &quot;Syme&quot;, &quot;unknown&quot;, &quot;male&quot;, true);
+}
+export const InfoErrorModel = declare(function InfoErrorModel(arg1, arg2, arg3, arg4) {
+  this.FirstName = arg1;
+  this.LastName = arg2;
+  this.DOB = arg3;
+  this.Gender = arg4;
+}, Record);
+export function InfoErrorModel$$$get_Empty() {
+  return new InfoErrorModel(Validate$$$get_InitialValidate(), Validate$$$get_InitialValidate(), Validate$$$get_InitialValidate(), Validate$$$get_InitialValidate());
+}
+export const Model = declare(function Model(arg1, arg2) {
+  this.InfoModel = arg1;
+  this.InfoErrorModel = arg2;
+}, Record);
+export function Model$$$get_Empty() {
+  return new Model(InfoModel$$$get_Empty(), InfoErrorModel$$$get_Empty());
+}
+</code></pre>
+
+<p>Generated javascript is little less readable but code is more concise. Until it is everything is in English, I am ok with that.</p>
+
+<blockquote>
+<p>I still hold the opinion of avoiding <code>aether</code> here. If you need that then there is a need to revisit what you are doing. Specifically for Elmish part. Else lences are very much ok in most of the <code>server</code> side code. But still use it with caution.</p>
+</blockquote>
+
+<h2 id="domain-domain-domain">Domain Domain Domain</h2>
+
+<p>Just like everyone in Functional Domain, I am big fan of Domain Driven Design and <a href="https://fsharpforfunandprofit.com/ddd/">Scott W</a>. It makes things more easier to represent. What is use of Fable if I can&rsquo;t use it in front end. And Fable did generate way too much javascript code. Let&rsquo;s see how Fable 2 do in this case.</p>
+
+<p>Simple string testing</p>
+
+<pre><code class="language-fsharp">type Name private(s : string) =
+    member __.Name = s
+    static member Create(s: string) =
+        if (s &lt;&gt; &quot;&quot; || s &lt;&gt; null) then Ok s
+        else Error &quot;Invalid String&quot;
+</code></pre>
+
+<p>converts to</p>
+
+<pre><code class="language-javascript">import { setType } from &quot;fable-core/Symbol&quot;;
+import _Symbol from &quot;fable-core/Symbol&quot;;
+import Result from &quot;fable-core/Result&quot;;
+export class Name {
+  [_Symbol.reflection]() {
+    return {
+      type: &quot;Test.Name&quot;,
+      properties: {
+        Name: &quot;string&quot;
+      }
+    };
+  }
+
+  constructor(s) {
+    this.s = s;
+  }
+
+  get Name() {
+    return this.s;
+  }
+
+  static Create(s) {
+    if (s !== &quot;&quot; ? true : s != null) {
+      return new Result(0, s);
+    } else {
+      return new Result(1, &quot;Invalid String&quot;);
+    }
+  }
+
+}
+setType(&quot;Test.Name&quot;, Name);
+</code></pre>
+
+<p>In case of Fable 2</p>
+
+<pre><code class="language-javascript">import { Result } from &quot;fable-core/Option&quot;;
+import { declare } from &quot;fable-core/Types&quot;;
+export const Name = declare(function Name(s$$1) {
+  const $this$$1 = this;
+  $this$$1.s = s$$1;
+});
+
+function Name$$$$002Ector$$Z721C83C5(s$$1) {
+  return this != null ? Name.call(this, s$$1) : new Name(s$$1);
+}
+
+export function Name$$get_Name(__) {
+  return __.s;
+}
+export function Name$$$Create$$Z721C83C5(s) {
+  if (s !== &quot;&quot; ? true : s !== null) {
+    return new Result(0, &quot;Ok&quot;, s);
+  } else {
+    return new Result(1, &quot;Error&quot;, &quot;Invalid String&quot;);
+  }
+}
+</code></pre>
+
+<p><img src="https://media.giphy.com/media/DyvyiFFXF1Yli/giphy.gif" alt="No words" /></p>
+
+<p>Let&rsquo;s try it another way</p>
+
+<pre><code class="language-fsharp">type Name = private | Name of string
+    with
+    member this.String = let (Name s) = this in s
+    static member Create(s : string)=
+        if (s &lt;&gt; &quot;&quot; || s &lt;&gt; null ) then Ok s
+        else Error &quot;Invalid string&quot;
+</code></pre>
+
+<p>converts to</p>
+
+<pre><code class="language-javascript">import { setType } from &quot;fable-core/Symbol&quot;;
+import _Symbol from &quot;fable-core/Symbol&quot;;
+import { compareUnions, equals } from &quot;fable-core/Util&quot;;
+import Result from &quot;fable-core/Result&quot;;
+
+class Name {
+  constructor(tag, data) {
+    this.tag = tag | 0;
+    this.data = data;
+  }
+
+  [_Symbol.reflection]() {
+    return {
+      type: &quot;Test.Name&quot;,
+      interfaces: [&quot;FSharpUnion&quot;, &quot;System.IEquatable&quot;, &quot;System.IComparable&quot;],
+      cases: [[&quot;Name&quot;, &quot;string&quot;]]
+    };
+  }
+
+  Equals(other) {
+    return this === other || this.tag === other.tag &amp;&amp; equals(this.data, other.data);
+  }
+
+  CompareTo(other) {
+    return compareUnions(this, other) | 0;
+  }
+
+  get String() {
+    return this.data;
+  }
+
+  static Create(s) {
+    if (s !== &quot;&quot; ? true : s != null) {
+      return new Result(0, s);
+    } else {
+      return new Result(1, &quot;Invalid string&quot;);
+    }
+  }
+
+}
+
+setType(&quot;Test.Name&quot;, Name);
+</code></pre>
+
+<p>And in case of Fable 2</p>
+
+<pre><code class="language-javascript">import { Result } from &quot;fable-core/Option&quot;;
+import { declare, Union } from &quot;fable-core/Types&quot;;
+export const Name = declare(function Name(tag, name, ...fields) {
+  Union.call(this, tag, name, ...fields);
+}, Union);
+export function Name$$get_String(this$) {
+  const s$$1 = this$.fields[0];
+  return s$$1;
+}
+export function Name$$$Create$$Z721C83C5(s) {
+  if (s !== &quot;&quot; ? true : s !== null) {
+    return new Result(0, &quot;Ok&quot;, s);
+  } else {
+    return new Result(1, &quot;Error&quot;, &quot;Invalid string&quot;);
+  }
+}
+</code></pre>
+
+<p><img src="https://media.giphy.com/media/xT77XWum9yH7zNkFW0/giphy.gif" alt="claps" /></p>
+
+<blockquote>
+<p>There is a detailed explanation in my old blog that how DDD is different in case of server and client. That holds true even now so you can always check that out.</p>
+</blockquote>
+
+<h2 id="london-rail">London Rail</h2>
+
+<p>How <a href="https://fsharpforfunandprofit.com/rop/">ROP</a> gonna stand in case of Fable 2. Does that got improved also?</p>
+
+<p>Here is code directly copy - pasted from site with simple example</p>
+
+<pre><code class="language-fsharp">open FSharp.Core
+open Fable.Core
+open System
+
+// convert a single value into a two-track result
+let succeed x =
+    Ok x
+
+// convert a single value into a two-track result
+let fail (x) =
+    Error x
+
+// apply either a success function or failure function
+let either successFunc failureFunc twoTrackInput =
+    match twoTrackInput with
+    | Ok s -&gt; successFunc s
+    | Error f -&gt; failureFunc f
+
+// convert a switch function into a two-track function
+let bind f =
+    either f fail
+
+// pipe a two-track value into a switch function
+let (&gt;&gt;=) x f =
+    bind f x
+
+// compose two switches into another switch
+let (&gt;=&gt;) s1 s2 =
+    s1 &gt;&gt; bind s2
+
+// convert a one-track function into a switch
+let switch f =
+    f &gt;&gt; succeed
+
+// convert a one-track function into a two-track function
+let map f =
+    either (f &gt;&gt; succeed) fail
+
+// convert a dead-end function into a one-track function
+let tee f x =
+    f x; x
+
+// convert a one-track function into a switch with exception handling
+let tryCatch f exnHandler x =
+    try
+        f x |&gt; succeed
+    with
+    | ex -&gt; exnHandler ex |&gt; fail
+
+// convert two one-track functions into a two-track function
+let doubleMap successFunc failureFunc =
+    either (successFunc &gt;&gt; succeed) (failureFunc &gt;&gt; fail)
+
+// add two switches in parallel
+let plus addSuccess addFailure switch1 switch2 x =
+    match (switch1 x),(switch2 x) with
+    | Ok s1, Ok s2 -&gt; Ok (addSuccess s1 s2)
+    | Error f1, Ok _  -&gt; Error f1
+    | Ok _ ,Error f2 -&gt; Error f2
+    | Error f1,Error f2 -&gt; Error (addFailure f1 f2)
+
+let collect errorFn xs =
+    xs |&gt; Seq.fold (fun res next -&gt;
+                        match res, next with
+                        | Ok r, Ok i -&gt; Ok (i::r)
+                        | Ok _, Error m | Error m, Ok _ -&gt; Error m
+                        | Error m, Error n -&gt; Error (errorFn m n)
+    ) (Ok []) |&gt; map List.rev
+
+let validation1 (s:string) = if (String.IsNullOrEmpty(s)) then Error &quot;String should not be empty&quot; else Ok s
+
+let validation2 (s:string) = if (s.Length &gt; 50) then Error &quot;Can't be more than 50&quot; else Ok s
+
+let combinedValidation = validation1 &gt;&gt; bind validation2
+</code></pre>
+
+<p>And here is Javascript code.</p>
+
+<pre><code class="language-javascript">import Result from &quot;fable-core/Result&quot;;
+import CurriedLambda from &quot;fable-core/CurriedLambda&quot;;
+import { reverse } from &quot;fable-core/List&quot;;
+import List from &quot;fable-core/List&quot;;
+import { fold } from &quot;fable-core/Seq&quot;;
+import { isNullOrEmpty } from &quot;fable-core/String&quot;;
+export function succeed(x) {
+  return new Result(0, x);
+}
+export function fail(x) {
+  return new Result(1, x);
+}
+export function either(successFunc, failureFunc, twoTrackInput) {
+  if (twoTrackInput.tag === 1) {
+    return failureFunc(twoTrackInput.data);
+  } else {
+    return successFunc(twoTrackInput.data);
+  }
+}
+export function bind(f) {
+  var failureFunc;
+  return CurriedLambda((failureFunc = function (x) {
+    return fail(x);
+  }, function (twoTrackInput) {
+    return either(f, failureFunc, twoTrackInput);
+  }));
+}
+export function op_GreaterGreaterEquals(x, f) {
+  return bind(f)(x);
+}
+export function op_GreaterEqualsGreater(s1, s2) {
+  return CurriedLambda($var1 =&gt; bind(s2)(s1($var1)));
+}
+
+function _switch(f) {
+  return CurriedLambda($var2 =&gt; function (x) {
+    return succeed(x);
+  }(f($var2)));
+}
+
+export { _switch as switch };
+export function map(f) {
+  var successFunc;
+  var failureFunc;
+  return CurriedLambda((successFunc = $var3 =&gt; function (x) {
+    return succeed(x);
+  }(f($var3)), failureFunc = function (x_1) {
+    return fail(x_1);
+  }, function (twoTrackInput) {
+    return either(successFunc, failureFunc, twoTrackInput);
+  }));
+}
+export function tee(f, x) {
+  f(x);
+  return x;
+}
+export function tryCatch(f, exnHandler, x) {
+  try {
+    return succeed(f(x));
+  } catch (ex) {
+    return fail(exnHandler(ex));
+  }
+}
+export function doubleMap(successFunc, failureFunc) {
+  var successFunc_1;
+  var failureFunc_1;
+  return CurriedLambda((successFunc_1 = $var4 =&gt; function (x) {
+    return succeed(x);
+  }(successFunc($var4)), failureFunc_1 = $var5 =&gt; function (x_1) {
+    return fail(x_1);
+  }(failureFunc($var5)), function (twoTrackInput) {
+    return either(successFunc_1, failureFunc_1, twoTrackInput);
+  }));
+}
+export function plus(addSuccess, addFailure, switch1, switch2, x) {
+  const matchValue = [switch1(x), switch2(x)];
+
+  if (matchValue[0].tag === 1) {
+    if (matchValue[1].tag === 1) {
+      return new Result(1, addFailure(matchValue[0].data, matchValue[1].data));
+    } else {
+      return new Result(1, matchValue[0].data);
+    }
+  } else if (matchValue[1].tag === 1) {
+    return new Result(1, matchValue[1].data);
+  } else {
+    return new Result(0, addSuccess(matchValue[0].data, matchValue[1].data));
+  }
+}
+export function collect(errorFn, xs) {
+  return map(function (list) {
+    return reverse(list);
+  })(fold(function (res, next) {
+    const matchValue = [res, next];
+    const $var6 = matchValue[0].tag === 1 ? matchValue[1].tag === 1 ? [2, matchValue[0].data, matchValue[1].data] : [1, matchValue[0].data] : matchValue[1].tag === 1 ? [1, matchValue[1].data] : [0, matchValue[1].data, matchValue[0].data];
+
+    switch ($var6[0]) {
+      case 0:
+        return new Result(0, new List($var6[1], $var6[2]));
+
+      case 1:
+        return new Result(1, $var6[1]);
+
+      case 2:
+        return new Result(1, errorFn($var6[1], $var6[2]));
+    }
+  }, new Result(0, new List()), xs));
+}
+export function validation1(s) {
+  if (isNullOrEmpty(s)) {
+    return new Result(1, &quot;String should not be empty&quot;);
+  } else {
+    return new Result(0, s);
+  }
+}
+export function validation2(s) {
+  if (s.length &gt; 50) {
+    return new Result(1, &quot;Can't be more than 50&quot;);
+  } else {
+    return new Result(0, s);
+  }
+}
+export const combinedValidation = CurriedLambda($var7 =&gt; bind(function (s_1) {
+  return validation2(s_1);
+})(function (s) {
+  return validation1(s);
+}($var7)));
+</code></pre>
+
+<p>and here is Fable 2 code</p>
+
+<pre><code class="language-javascript">import { reverse } from &quot;fable-core/List&quot;;
+import { Result } from &quot;fable-core/Option&quot;;
+import { fold } from &quot;fable-core/Seq&quot;;
+import { isNullOrEmpty } from &quot;fable-core/String&quot;;
+import { L } from &quot;fable-core/Types&quot;;
+export function succeed(x$$13) {
+  return new Result(0, &quot;Ok&quot;, x$$13);
+}
+export function fail(x$$12) {
+  return new Result(1, &quot;Error&quot;, x$$12);
+}
+export function either(successFunc$$3, failureFunc$$4, twoTrackInput$$3) {
+  if (twoTrackInput$$3.tag === 1) {
+    const f$$6 = twoTrackInput$$3.fields[0];
+    return failureFunc$$4(f$$6);
+  } else {
+    const s$$4 = twoTrackInput$$3.fields[0];
+    return successFunc$$3(s$$4);
+  }
+}
+export function bind(f$$5) {
+  return function (twoTrackInput$$2) {
+    return either(f$$5, fail, twoTrackInput$$2);
+  };
+}
+export function op_GreaterGreaterEquals(x$$10, f$$4) {
+  return bind(f$$4)(x$$10);
+}
+export function op_GreaterEqualsGreater(s1$$1, s2$$1) {
+  return function ($arg$$6) {
+    return bind(s2$$1)(s1$$1($arg$$6));
+  };
+}
+export function switch$(f$$3) {
+  return function ($arg$$5) {
+    return succeed(f$$3($arg$$5));
+  };
+}
+export function map(f$$2) {
+  return function (twoTrackInput$$1) {
+    return either(function successFunc$$2($arg$$4) {
+      return succeed(f$$2($arg$$4));
+    }, fail, twoTrackInput$$1);
+  };
+}
+export function tee(f$$1, x$$6) {
+  f$$1(x$$6);
+  return x$$6;
+}
+export function tryCatch(f, exnHandler, x$$3) {
+  try {
+    return succeed(f(x$$3));
+  } catch (ex) {
+    return fail(exnHandler(ex));
+  }
+}
+export function doubleMap(successFunc, failureFunc) {
+  return function (twoTrackInput) {
+    return either(function successFunc$$1($arg$$3) {
+      return succeed(successFunc($arg$$3));
+    }, function failureFunc$$1($arg$$2) {
+      return fail(failureFunc($arg$$2));
+    }, twoTrackInput);
+  };
+}
+export function plus(addSuccess, addFailure, switch1, switch2, x) {
+  const matchValue$$1 = [switch1(x), switch2(x)];
+
+  if (matchValue$$1[0].tag === 1) {
+    if (matchValue$$1[1].tag === 1) {
+      return new Result(1, &quot;Error&quot;, addFailure(matchValue$$1[0].fields[0], matchValue$$1[1].fields[0]));
+    } else {
+      return new Result(1, &quot;Error&quot;, matchValue$$1[0].fields[0]);
+    }
+  } else if (matchValue$$1[1].tag === 1) {
+    return new Result(1, &quot;Error&quot;, matchValue$$1[1].fields[0]);
+  } else {
+    return new Result(0, &quot;Ok&quot;, addSuccess(matchValue$$1[0].fields[0], matchValue$$1[1].fields[0]));
+  }
+}
+export function collect(errorFn, xs) {
+  return map(reverse)(fold(function folder(res, next) {
+    const matchValue = [res, next];
+    var $target$$9, i, r, m, m$$1, n;
+
+    if (matchValue[0].tag === 1) {
+      if (matchValue[1].tag === 1) {
+        $target$$9 = 2;
+        m$$1 = matchValue[0].fields[0];
+        n = matchValue[1].fields[0];
+      } else {
+        $target$$9 = 1;
+        m = matchValue[0].fields[0];
+      }
+    } else if (matchValue[1].tag === 1) {
+      $target$$9 = 1;
+      m = matchValue[1].fields[0];
+    } else {
+      $target$$9 = 0;
+      i = matchValue[1].fields[0];
+      r = matchValue[0].fields[0];
+    }
+
+    switch ($target$$9) {
+      case 0:
+        {
+          return new Result(0, &quot;Ok&quot;, L(i, r));
+          break;
+        }
+
+      case 1:
+        {
+          return new Result(1, &quot;Error&quot;, m);
+          break;
+        }
+
+      case 2:
+        {
+          return new Result(1, &quot;Error&quot;, errorFn(m$$1, n));
+          break;
+        }
+    }
+  }, new Result(0, &quot;Ok&quot;, L()), xs));
+}
+export function validation1(s$$3) {
+  if (isNullOrEmpty(s$$3)) {
+    return new Result(1, &quot;Error&quot;, &quot;String should not be empty&quot;);
+  } else {
+    return new Result(0, &quot;Ok&quot;, s$$3);
+  }
+}
+export function validation2(s$$2) {
+  if (s$$2.length &gt; 50) {
+    return new Result(1, &quot;Error&quot;, &quot;Can't be more than 50&quot;);
+  } else {
+    return new Result(0, &quot;Ok&quot;, s$$2);
+  }
+}
+export function combinedValidation($arg$$1) {
+  return bind(validation2)(validation1($arg$$1));
+}
+</code></pre>
+
+<p><em>Similar code</em>. I guess that is the reason having simple pure functions is always good thing for application. So, not much of an visible improvement in this part.</p>
+
+<h2 id="slice-and-dice">Slice and Dice</h2>
+
+<p>Fable 2 is no good without Elmish. Let&rsquo;s give it a shot to Elmish example.</p>
+
+<p>This is Fable code.</p>
+
+<pre><code class="language-fsharp">[&lt;Pojo&gt;]
+type Validate = {
+    IsValid : bool
+    ErrMsg : string
+}
+
+module Validate =
+    let Success = {
+        IsValid = true
+        ErrMsg = &quot;&quot;
+    }
+    let Failure (msg : string) = {
+        IsValid = false
+        ErrMsg = msg
+    }
+
+    let InitialValidate = {
+        IsValid = true
+        ErrMsg = &quot;&quot;
+    }
+
+[&lt;Pojo&gt;]
+type InfoModel = {
+    FirstName : string
+    FirstNameErr : Validate
+    LastName : string
+    LastNameErr : Validate
+    DOB : string
+    DOBErr : Validate
+    Gender : string
+    GenderErr : Validate
+    IsValid : bool
+}
+
+[&lt;Pojo&gt;]
+type ContactModel = {
+    Mobile : string
+    MobileErr : Validate
+    Home : string
+    HomeErr : Validate
+    Office : string
+    OfficeErr : Validate
+    Email : string
+    EmailErr : Validate
+    Email2 : string
+    Email2Err : Validate
+    IsValid : bool
+}
+
+[&lt;Pojo&gt;]
+type Model = {
+    Info : InfoModel
+    Contact : ContactModel
+}
+</code></pre>
+
+<p>In Fable 2 it would be written like this</p>
+
+<pre><code class="language-fsharp">type Validate = {
+    IsValid : bool
+    ErrMsg : string
+} with
+
+    static member Success = {
+        IsValid = true
+        ErrMsg = &quot;&quot;
+    }
+    static member Failure (msg : string) = {
+        IsValid = false
+        ErrMsg = msg
+    }
+
+    static member InitialValidate = {
+        IsValid = true
+        ErrMsg = &quot;&quot;
+    }
+
+type InfoModel = {
+    FirstName : string
+    FirstNameErr : Validate
+    LastName : string
+    LastNameErr : Validate
+    DOB : string
+    DOBErr : Validate
+    Gender : string
+    GenderErr : Validate
+    IsValid : bool
+}
+
+type ContactModel = {
+    Mobile : string
+    MobileErr : Validate
+    Home : string
+    HomeErr : Validate
+    Office : string
+    OfficeErr : Validate
+    Email : string
+    EmailErr : Validate
+    Email2 : string
+    Email2Err : Validate
+    IsValid : bool
+}
+
+type Model = {
+    Info : InfoModel
+    Contact : ContactModel
+}
+</code></pre>
+
+<p>Here consider we have two pages <code>Info</code> and <code>Contact</code>. And then we have update method to update them. Pretty straight forward.</p>
+
+<blockquote>
+<p>Until we have around 20 pages or 50 components on same page</p>
+</blockquote>
+
+<p>For the first time I felt what is slowness while typing in simple html input box. Things just dragged like we are typing in WPF application on Windows 98 machine.</p>
+
+<p>Let&rsquo;s understand what is happening over here. Here model is holding information required for <code>Views</code>. Now, even though Info view is active it is having information about Contact also. This makes model quite big. Specifically if there are three or four level deep models. Deep model make things easy to understand but quite difficult to update. Deeper and Bigger the model is, slower the update of property is. Now, in ELM / Elmish architecture we rely on model extensively for what we can see on view. Even simple typing into input required us to update model. And then there is validation and other stuff going on.</p>
+
+<p>It also present another weird problem. When we start the application, there is a need to initialize the models. So, for big application one need to set all models at the start. To do that we need to fire up too many request to server. For a sec; we consider that would be <code>OK</code> in the era of cloud but it can&rsquo;t resolve the issue of dependent types. If some property is dependent on other than we can&rsquo;t have them at the start and we can&rsquo;t initialize the model.</p>
+
+<blockquote>
+<p>No model, No view.</p>
+</blockquote>
+
+<p><strong>What is the alternative to this fat model?</strong></p>
+
+<p>Slim <code>Union Type</code> - Here is above code written differently using Fable</p>
+
+<pre><code class="language-fsharp">open FSharp.Core
+open Fable.Core
+open System
+
+[&lt;Pojo&gt;]
+type Validate = {
+    IsValid : bool
+    ErrMsg : string
+}
+
+module Validate =
+    let Success = {
+        IsValid = true
+        ErrMsg = &quot;&quot;
+    }
+    let Failure (msg : string) = {
+        IsValid = false
+        ErrMsg = msg
+    }
+
+    let InitialValidate = {
+        IsValid = true
+        ErrMsg = &quot;&quot;
+    }
+
+[&lt;Pojo&gt;]
+type InfoModel = {
+    FirstName : string
+    FirstNameErr : Validate
+    LastName : string
+    LastNameErr : Validate
+    DOB : string
+    DOBErr : Validate
+    Gender : string
+    GenderErr : Validate
+    IsValid : bool
+}
+
+[&lt;Pojo&gt;]
+type ContactModel = {
+    Mobile : string
+    MobileErr : Validate
+    Home : string
+    HomeErr : Validate
+    Office : string
+    OfficeErr : Validate
+    Email : string
+    EmailErr : Validate
+    Email2 : string
+    Email2Err : Validate
+    IsValid : bool
+}
+
+type Page = Info = 0  | Contact = 1
+
+type PageModel = Info of InfoModel | Contact of ContactModel
+
+[&lt;Pojo&gt;]
+type Model = {
+    Page : Page
+    PageModel : PageModel
+}
+</code></pre>
+
+<p>Here is generated code for second option</p>
+
+<pre><code class="language-javascript">import { setType } from &quot;fable-core/Symbol&quot;;
+import _Symbol from &quot;fable-core/Symbol&quot;;
+import { compareUnions, equals, Any } from &quot;fable-core/Util&quot;;
+export const ValidateModule = function (__exports) {
+  const Success = __exports.Success = {
+    IsValid: true,
+    ErrMsg: &quot;&quot;
+  };
+
+  const Failure = __exports.Failure = function (msg) {
+    return {
+      IsValid: false,
+      ErrMsg: msg
+    };
+  };
+
+  const InitialValidate = __exports.InitialValidate = {
+    IsValid: true,
+    ErrMsg: &quot;&quot;
+  };
+  return __exports;
+}({});
+export class PageModel {
+  constructor(tag, data) {
+    this.tag = tag | 0;
+    this.data = data;
+  }
+
+  [_Symbol.reflection]() {
+    return {
+      type: &quot;Test.PageModel&quot;,
+      interfaces: [&quot;FSharpUnion&quot;, &quot;System.IEquatable&quot;, &quot;System.IComparable&quot;],
+      cases: [[&quot;Info&quot;, Any], [&quot;Contact&quot;, Any]]
+    };
+  }
+
+  Equals(other) {
+    return this === other || this.tag === other.tag &amp;&amp; equals(this.data, other.data);
+  }
+
+  CompareTo(other) {
+    return compareUnions(this, other) | 0;
+  }
+
+}
+setType(&quot;Test.PageModel&quot;, PageModel);
+</code></pre>
+
+<p>Let&rsquo;s check Fable 2 option</p>
+
+<pre><code class="language-fsharp">open FSharp.Core
+open Fable.Core
+open System
+
+type Validate = {
+    IsValid : bool
+    ErrMsg : string
+}with
+    static member Success = {
+        IsValid = true
+        ErrMsg = &quot;&quot;
+    }
+    static member Failure (msg : string) = {
+        IsValid = false
+        ErrMsg = msg
+    }
+
+    static member InitialValidate = {
+        IsValid = true
+        ErrMsg = &quot;&quot;
+    }
+
+type InfoModel = {
+    FirstName : string
+    FirstNameErr : Validate
+    LastName : string
+    LastNameErr : Validate
+    DOB : string
+    DOBErr : Validate
+    Gender : string
+    GenderErr : Validate
+    IsValid : bool
+}
+
+type ContactModel = {
+    Mobile : string
+    MobileErr : Validate
+    Home : string
+    HomeErr : Validate
+    Office : string
+    OfficeErr : Validate
+    Email : string
+    EmailErr : Validate
+    Email2 : string
+    Email2Err : Validate
+    IsValid : bool
+}
+
+type Page = Info | Contact
+
+type PageModel = Info of InfoModel | Contact of ContactModel
+
+type Model = {
+    Page : Page
+    PageModel : PageModel
+}
+</code></pre>
+
+<p>and here is generated javascript</p>
+
+<pre><code class="language-javascript">import { Union, declare, Record } from &quot;fable-core/Types&quot;;
+export const Validate = declare(function Validate(arg1, arg2) {
+  this.IsValid = arg1;
+  this.ErrMsg = arg2;
+}, Record);
+export function Validate$$$get_Success() {
+  return new Validate(true, &quot;&quot;);
+}
+export function Validate$$$Failure$$Z721C83C5(msg) {
+  return new Validate(false, msg);
+}
+export function Validate$$$get_InitialValidate() {
+  return new Validate(true, &quot;&quot;);
+}
+export const InfoModel = declare(function InfoModel(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9) {
+  this.FirstName = arg1;
+  this.FirstNameErr = arg2;
+  this.LastName = arg3;
+  this.LastNameErr = arg4;
+  this.DOB = arg5;
+  this.DOBErr = arg6;
+  this.Gender = arg7;
+  this.GenderErr = arg8;
+  this.IsValid = arg9;
+}, Record);
+export const ContactModel = declare(function ContactModel(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11) {
+  this.Mobile = arg1;
+  this.MobileErr = arg2;
+  this.Home = arg3;
+  this.HomeErr = arg4;
+  this.Office = arg5;
+  this.OfficeErr = arg6;
+  this.Email = arg7;
+  this.EmailErr = arg8;
+  this.Email2 = arg9;
+  this.Email2Err = arg10;
+  this.IsValid = arg11;
+}, Record);
+export const Page = declare(function Page(tag, name, ...fields) {
+  Union.call(this, tag, name, ...fields);
+}, Union);
+export const PageModel = declare(function PageModel(tag, name, ...fields) {
+  Union.call(this, tag, name, ...fields);
+}, Union);
+export const Model = declare(function Model(arg1, arg2) {
+  this.Page = arg1;
+  this.PageModel = arg2;
+}, Record);
+</code></pre>
+
+<p>Here is you can see, I don&rsquo;t have to define Union as Enum just to get optimized JavaScript.</p>
+
+<p>You want to save few more lines</p>
+
+<p>Try this</p>
+
+<pre><code class="language-fsharp">type [&lt;StringEnum&gt;]Page = Info | Contact
+</code></pre>
+
+<p>It will be removed generated code. As it will directly compare string when and if required.</p>
+
+<h2 id="old-habits-die-hard">Old Habits Die Hard</h2>
+
+<p>JS interop is working as it was working earlier. And so do the my personal favorite Fulma.</p>
+
+<h2 id="shameless-plug">Shameless Plug</h2>
+
+<p><img src="https://media.giphy.com/media/xUOrw5LIxb8S9X1LGg/giphy.gif" alt="sign me up" /></p>
+
+<p>After working with many big and small consulting companies; on various projects ranging from dotnet web to node js, single page application to cross platform mobile application. I decided to go solo. There were hiccups in start but I do survive for almost a year. Not only survive but started my own consulting company <a href="https://fuzzycloud.in/">Fuzzy Cloud</a>.</p>
+
+<p>So, I am looking for new assignment. If anyone is interested for work or do training with me, please contact me. I know we are so small compare to other friends from Europe and USA but still we do share same love for F# and functional programming in general. And I am always ready for challenging assignments.</p>
+
+<p>Love to have feedback about this article and will update if there is any addition or changes required.</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/oss/">OSS</a>
+
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/fsharp/">FSharp</a>
+
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/fable/">Fable</a>
+
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/functional/">Functional</a>
+
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/functional-web/">Functional Web</a>
+
+  <a class="tag tag--primary tag--small" href="http://kunjan.in/tags/dotnetcore/">Dotnetcore</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2018/03/opinionated-fable-architecture-and-performance/" data-tooltip="Opinionated Fable - Architecture &amp; Performance">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Kunjan Dalal. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="http://kunjan.in/2018/03/opinionated-fable-architecture-and-performance/" data-tooltip="Opinionated Fable - Architecture &amp; Performance">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/3d7c012bb27ad7b2f40976c5edc58968?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Kunjan Dalal</h4>
+    
+      <div id="about-card-bio"><em>All idea, opinion are my own and don&rsquo;t reflect opinion of my current or any former employer.</em></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Functional Developer&hellip; Literally!
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        India
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2018/08/opinionated-fable2-architecture-and-performance/">
+                <h3 class="media-heading">Opinionated Fable2 - Architecture &amp; Performance</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Nothing can be more beautiful if you wish come. And It seems Fable2 did made my wish true in most of the cases. Let&rsquo;s revisit my old blog and check what is got improved and changed. So, goal of this blog is it should be same as old blog, but it should be smaller. Because of new and shiny Fable2.
+ Fable 2 is currently in beta but as per blog it is very much working.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2018/03/opinionated-fable-architecture-and-performance/">
+                <h3 class="media-heading">Opinionated Fable - Architecture &amp; Performance</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">There can&rsquo;t be better time for writing this blog. As Fable 2.0 is on the horizon it would be good to see what 1.0 already can do. And I can also wish few things to be added to 2.0.
+I have chosen Fable after evaluating couple of options like TypeScript-React-Redux, Elm, Aurelia, Angular. One thing I was pretty much sure that I wanted static typing in my project. Because I did have first hand experience with big fat Angular application built using JavaScript.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2017/12/indian-chaat-with-fsharp/">
+                <h3 class="media-heading">Reactive Chat application using ServiceStack and Fable in F#</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Here is my Birthday blog post, as a part of FSAdvent - 2017. Just like previous two years, I hope you will enjoy this one too. Comments and corrections are very much welcomed.
+ Why Chaat? and What is Chaat? If anyone wanted to show real time application, then Chat is kind of to-do list of that type of applications. Now Functional Chat is a very limited title and can&rsquo;t show all the things I wanted to show.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2016/12/epic-adventure-using-fsharp/">
+                <h3 class="media-heading">Sentiment Analysis of Mahabharata using F#</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">This article is part of FSAdvent 2016 calendar.
+This my second post of 2016. Sadly not much of writing this year. So, I need to cover up by this little longish post. So, grab your favorite coffee / tea before getting started.
+There is one wonderful coincidence here that both post of 2016 is based on Epic Mahabharata. If anyone interested in poem like things do check out my another post.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2016/04/my-identity/">
+                <h3 class="media-heading">My Identity</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Few words dedicated to people who made me who I am right now, my teachers. I know few of them personally and few others I am yet to meet in person. But they are still there always for me. Guiding me and helping me whenever and wherever I need. Words are not enough to say Thanks but still here with my small try
+Here is original Gujarati Version
+જેને કોઈ ઓળખની જરૂર નથી</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/12/1729/">
+                <h3 class="media-heading">1729</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">This post is part of F# Advent calender. Thanks Sergey Tihon for arranging this and giving me chance.
+ First I like to clarify that this was not my original choice for FSAdvent calender. I was going to write long post about web, AKKA, api and real time system. My current working area. But this time&rsquo;s calender entries are reaching new level and dimension. And recent post from Evelina Gabasova is kind of reason behind change.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/11/reactive-services-with-servicestack-and-fsharp/">
+                <h3 class="media-heading">Reactive Services with Servicestack and F#</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Reactive word is not new nowadays. If you want your library to get limelight, use reactive word in the name any way possible and it will definitely get initial attention. Reactive word is appropriate for things that follows reactive manifesto. That is true for now. And there are many variant of libraries on server and client to fulfil this.
+Let&rsquo;s start from the start of web.
+We were having old web were we used to do post event of page.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/11/azure-web-sites-with-paket/">
+                <h3 class="media-heading">Azure web sites with Paket</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Whoever worked with Microsoft Shop knows about nuget. It is package manager for anything and everything related to .Net. And it is getting better and better with versions coming in. But again it is nowhere near maturity needed to work with projects having many small projects. Things get cranky soon.
+Now, there is better option as per my opinion called Paket. Very easy to get started. And so damn reliable. Couple of more command to learn but I guess it is ok.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/11/angularjs-and-the-mess-we-are-in/">
+                <h3 class="media-heading">Angularjs and the Mess we are in</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Who doesn&rsquo;t know Angularjs?!? Everyone worked is web, mobile, server, windows, mac, Linux, Google, Microsoft or anyway related to this knows about it. And its fun when people tell me
+ You know about angularjs. Its pretty hot now a days. I&rsquo;m planning to learn it.
+ Oh man&hellip;
+Ok I am no expert here in Angularjs. And I prefer not to be expert with any framework. Be it anything.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://kunjan.in/2015/04/functional-command-pattern/">
+                <h3 class="media-heading">Functional Command Pattern</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Command pattern is a pattern which allows executor of the pattern to execute or playback the commands. In most of the application wherever Undo/Redo is implemented this pattern is used.
+Here is C# code.
+ Now, in this code Command Pattern is not in its purest form. As, normally in command pattern we are saving state of outside object. Instead I just returned the result to mock out side object.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         64 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('http://kunjan.in/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="http://kunjan.in/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/fsharp.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'http:\/\/kunjan.in\/2018\/08\/opinionated-fable2-architecture-and-performance\/';
+          
+            this.page.identifier = '\/2018\/08\/opinionated-fable2-architecture-and-performance\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'kunjan';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

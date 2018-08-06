@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Kunjan&#39;s Web Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://kunjan.in/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Opinionated Fable2 - Architecture &amp; Performance</title>
+      <link>http://kunjan.in/2018/08/opinionated-fable2-architecture-and-performance/</link>
+      <pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://kunjan.in/2018/08/opinionated-fable2-architecture-and-performance/</guid>
+      <description>Nothing can be more beautiful if you wish come. And It seems Fable2 did made my wish true in most of the cases. Let&amp;rsquo;s revisit my old blog and check what is got improved and changed. So, goal of this blog is it should be same as old blog, but it should be smaller. Because of new and shiny Fable2.
+ Fable 2 is currently in beta but as per blog it is very much working.</description>
+    </item>
     
     <item>
       <title>Opinionated Fable - Architecture &amp; Performance</title>
