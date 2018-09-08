@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://kunjan.in/2018/08/elmish-xamarin-forms-from-fable-point-of-view/</loc>
+    <lastmod>2018-08-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://kunjan.in/2018/08/opinionated-fable2-architecture-and-performance/</loc>
     <lastmod>2018-08-06T00:00:00+00:00</lastmod>
   </url>
@@ -409,6 +414,12 @@
   </url>
   
   <url>
+    <loc>http://kunjan.in/tags/elmish/</loc>
+    <lastmod>2018-08-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://kunjan.in/tags/fable/</loc>
     <lastmod>2018-08-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -515,13 +526,13 @@
   </url>
   
   <url>
-    <loc>http://kunjan.in/tags/poem/</loc>
+    <loc>http://kunjan.in/categories/poem/</loc>
     <lastmod>2016-04-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://kunjan.in/categories/poem/</loc>
+    <loc>http://kunjan.in/tags/poem/</loc>
     <lastmod>2016-04-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -601,6 +612,12 @@
   <url>
     <loc>http://kunjan.in/tags/web/</loc>
     <lastmod>2015-11-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://kunjan.in/tags/xamarin/</loc>
+    <lastmod>2018-08-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
