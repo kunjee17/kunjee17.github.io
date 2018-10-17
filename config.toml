@@ -21,7 +21,7 @@ disqusShortname = "kunjan"
 googleAnalytics = "UA-37975068-1"
 Paginate = 7
 canonifyurls = true
-publishdir = "."
+publishdir = "./public"
 
 [permalinks]
   post = "/:year/:month/:slug/"
@@ -108,7 +108,7 @@ publishdir = "."
 [params]
   # Global keywords configuration. Following keywords will be add to every pages
   # keywords = ["development", "next-gen"]
-  # FSharp syntax hightlighting 
+  # FSharp syntax hightlighting
   customJS = ["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/fsharp.min.js"]
   # Syntax highlighter, possible choice between: "highlight.js" (recommanded) and "prism.js" (experimental)
   # You can comment it to disable syntax highlighting
