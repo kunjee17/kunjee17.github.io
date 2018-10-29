@@ -1,7 +1,7 @@
 ---
 
-title: "Monday Machine Learning"
-slug : "monday-machine-learning"
+title: "Machine Learning Monday"
+slug : "machine-learning-monday"
 
 date: 2018-10-29
 categories:
