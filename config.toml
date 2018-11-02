@@ -109,7 +109,7 @@ publishdir = "./public"
   # Global keywords configuration. Following keywords will be add to every pages
   # keywords = ["development", "next-gen"]
   # FSharp syntax hightlighting
-  customJS = ["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/fsharp.min.js"]
+  customJS = ["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/fsharp.min.js", "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/dockerfile.min.js", "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/typescript.min.js"]
   # Syntax highlighter, possible choice between: "highlight.js" (recommanded) and "prism.js" (experimental)
   # You can comment it to disable syntax highlighting
   syntaxHighlighter = "highlight.js"
