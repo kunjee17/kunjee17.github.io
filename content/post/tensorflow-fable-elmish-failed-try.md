@@ -13,6 +13,7 @@ tags:
 - Functional
 - Functional Web
 - Dotnetcore
+- FsAdvent
 ---
 
 I don't know I should be writing this or not. But I am giving it a go. This article is part of [FsAdvent](https://sergeytihon.com/2018/10/22/f-advent-calendar-in-english-2018/) calender.
