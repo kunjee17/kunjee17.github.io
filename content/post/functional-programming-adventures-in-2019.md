@@ -78,7 +78,7 @@ I am still going to try a few more months if I get good work in F#. Else I need 
 In 2019 I will try to speak at more conferences. As of now *F# exchange* is top of my mind. Please suggest good conference if you think they are good and don't mind fresh speakers.
 
 ## Languages
-Because of my for history I never liked English that much. Also, never bothered about it. But I guess need to improve on that. Also, want to learn German as well. People says it is very close to Sanskrit. May be I can learn both. If you know how to get started with German better than Google search then please let me know.
+Because of my for history I never liked English that much. Also, never bothered about it. But I guess I need to improve on that. Also, want to learn German as well. People says it is very close to Sanskrit. May be I can learn both. If you know how to get started with German better than Google search then please let me know.
 
 > If someone is confused about history and English they can read about [Bengal Famine 1943](https://en.wikipedia.org/wiki/Bengal_famine_of_1943) a very recent incident.
 
