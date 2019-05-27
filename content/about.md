@@ -5,7 +5,7 @@ I am Kunjan (*a.k.a. Kunjee for friends and tweeps*). Failed poet, mathematics e
 
 > Partially natural ambidextrous, a proper south paw and a true Sagittarius.
 
-I am also Founder of [Fuzzy Cloud](https://fuzzycloud.in/), Speaker / OSS Contributor. I maintained awesome OSS (Open Source Software) project called [awesome-fable](https://github.com/kunjee17/awesome-fable) and few other not so famous ones. I love softwares in mobile, web and everything around it. Especially if those are in Functional Programming. Currently I am focusing more on Machine Learning and Data Science from the Functional Programming point of view.
+I am also Founder of [Fuzzy Cloud](https://fuzzycloud.in/), Speaker and OSS Contributor. I maintained awesome OSS (Open Source Software) project called [awesome-fable](https://github.com/kunjee17/awesome-fable) and few other not so famous ones. I love softwares in mobile, web and everything around it. Especially if those are in Functional Programming. Currently I am focusing more on Machine Learning and Data Science from the Functional Programming point of view.
 
 It has been 11+ years in Software Industry writing code, being blogger, talking food, running marathon sprint and run, occasionally doing MMA and few other things after that.
 
