@@ -2,7 +2,7 @@
 title: "Kind of Resume"
 ---
 
-It has been more than 7 years in Software Industry. I have worked on various technologies and also on various domains.
+It has been more than 11+ years in Software Industry. I have worked on various technologies and also on various domains.
 
 It will rather too long to write down every project I worked on. So, here is brief detail of things I know and wanted to work on in near future.
 
