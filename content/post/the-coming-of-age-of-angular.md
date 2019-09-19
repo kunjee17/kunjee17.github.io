@@ -15,6 +15,8 @@ keywords:
 - Angularjs
 
 thumbnailImage: images/angular.png
+
+draft : true
 ---
 
 I have learned [AngularJS](https://angularjs.org/) since it's inception. As far as I have learn from the best. Paid for [Tekpub](https://www.pluralsight.com/newsroom/press-releases/pluralsight-acquires-tekpub--third-acquisition-in-3-months-) subscription to learn Angular and other things. Have worked extensively to horn my angular skills.
