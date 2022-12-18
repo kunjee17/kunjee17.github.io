@@ -17,7 +17,7 @@ languageCode = "en-us"
 defaultContentLanguage = "en-us"
 title = "Kunjan's Web Space"
 theme = "hugo-tranquilpeak-theme"
-disqusShortname = "kunjan"
+
 
 googleAnalytics = "UA-37975068-1"
 Paginate = 7
@@ -111,10 +111,12 @@ url = "/index.xml"
 # keywords = ["development", "next-gen"]
 # FSharp syntax hightlighting
 customJS = [
-  "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/fsharp.min.js",
-  "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/dockerfile.min.js",
-  "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/typescript.min.js",
+  "//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js",
+  "//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/fsharp.min.js"
 ]
+
+
+
 # Syntax highlighter, possible choice between: "highlight.js" (recommanded) and "prism.js" (experimental)
 # You can comment it to disable syntax highlighting
 syntaxHighlighter = "highlight.js"
@@ -200,6 +202,10 @@ class = ""
 icon = ""
 url = "/about"
 
+[params.comment.disqus]
+enable=true
+disqusShortname = "kunjan"
+
 
 # Customize copyright value "© 2017 <CUSTOMIZATION>. All Rights Reserved"
 [params.footer]
@@ -211,6 +217,3 @@ defaultMarkdownHandler = "goldmark"
 [markup.goldmark.renderer]
 hardWraps = true
 
-
-[params.comment.disqus]
-enable = true
