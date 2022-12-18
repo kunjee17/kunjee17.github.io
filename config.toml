@@ -166,7 +166,7 @@ thumbnailImagePosition = "bottom"
 autoThumbnailImage = true
 
 # Your favicon path, default is "/favicon.png"
-# favicon = "/favicon.png"
+favicon = "/favicon.png"
 
 # Header configuration
 # The link at the right of the header is customizable
