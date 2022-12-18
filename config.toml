@@ -18,6 +18,7 @@ defaultContentLanguage = "en-us"
 title = "Kunjan's Web Space"
 theme = "hugo-tranquilpeak-theme"
 disqusShortname = "kunjan"
+
 googleAnalytics = "UA-37975068-1"
 Paginate = 7
 canonifyurls = true
@@ -209,3 +210,7 @@ copyright = "<a href=\"https://github.com/kunjee17\">Kunjan Dalal (kunjee)</a>"
 defaultMarkdownHandler = "goldmark"
 [markup.goldmark.renderer]
 hardWraps = true
+
+
+[params.comment.disqus]
+enable = true
