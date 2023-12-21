@@ -1,0 +1,18 @@
+---
+title: "New F# from the eyes of old libraries"
+slug: "new-fsharp-from-the-eyes-of-old-libraries"
+
+date: 2022-12-17
+categories:
+  - Technical
+tags:
+  - OSS
+  - FSharp
+  - Fable
+  - Functional
+  - Functional Web
+  - Dotnetcore
+---
+
+Recently new F# version released. I always wondered what can new to be added to already beautiful language but they always able to broght rabbit out of the hat. Here is a blog post of long list of features that is added in latest F#. 
+
