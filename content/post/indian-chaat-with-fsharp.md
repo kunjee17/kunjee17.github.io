@@ -24,9 +24,9 @@ tags:
 
 If anyone wanted to show `real time` application, then `Chat` is kind of `to-do list` of that type of applications. Now **Functional Chat** is a very limited title and can't show all the things I wanted to show. So, I have selected [Chaat](https://www.google.com/search?biw=1920&bih=940&tbm=isch&sa=1&ei=sdMzWrLMKYn9vgSBhpz4DA&q=Indian+Chaat&oq=Indian+Chaat&gs_l=psy-ab.3..0l10.3694.16984.0.17138.15.13.1.0.0.0.297.1972.0j4j5.9.0....0...1c.1.64.psy-ab..5.10.1991...0i67k1.0.IJpHl8f_YYA) word a spin of version of `Chat` word.
 
-Here also I am showing a little diverted version of [SAFE]((https://safe-stack.github.io/)). So, title is kind of more suitable.
+Here also I am showing a little diverted version of [SAFE](https://safe-stack.github.io/). So, title is kind of more suitable.
 
-One thing is very unique to Indian Chaat that there is no uniqueness in it. You change the city, order same thing and you will get a different version of it, and that is the heart of it.  
+One thing is very unique to Indian Chaat that there is no uniqueness in it. You change the city, order same thing and you will get a different version of it, and that is the heart of it.
 
 Currently that is possible with *dotnet core* . Be it on any OS, using any editor/IDE, using any Framework and still things work.
 
@@ -340,7 +340,7 @@ And here is code on client side.
 
 ```fsharp
     let subscribe =
-        let socketSubscription dispatch = 
+        let socketSubscription dispatch =
             let eventSourceOptions = createEmpty<IEventSourceOptions>
             eventSourceOptions.handlers <- createObj [
                 // "onConnect" ==> fun (sub : ServerEventConnect) -> printfn "onConnect: %A" sub.displayName
