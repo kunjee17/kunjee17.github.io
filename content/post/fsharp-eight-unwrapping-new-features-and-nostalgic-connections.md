@@ -1,7 +1,7 @@
 ---
 title: "F# 8: Unwrapping New Features and Nostalgic Connections"
 slug: "fsharp-eight-unwrapping-new-features-and-nostalgic-connections"
-
+toc : true
 date: 2023-12-17
 categories:
   - Technical
@@ -21,17 +21,17 @@ You can dive into the extensive list of changes in the [official announcement bl
 
 
 
-## The "Fun" Removal  
+## The "Fun" Removal
 
 One of the notable changes is the removal of the need to write fun in default cases. It not only improves readability but also, alas, takes away the popular joke among F# enthusiasts that F# is "fun" to use—a small price to pay for clarity.
 
-#### Before 
+#### Before
 ```fsharp
 type Person = {Name : string; Age : int}
 let people = [ {Name = "Joe"; Age = 20} ; {Name = "Will"; Age = 30} ; {Name = "Joe"; Age = 51}]
 
-let beforeThisFeature = 
-    people 
+let beforeThisFeature =
+    people
     |> List.distinctBy (fun x -> x.Name)
     |> List.groupBy (fun x -> x.Age)
     |> List.map (fun (x,y) -> y)
@@ -40,14 +40,14 @@ let beforeThisFeature =
 
 ```
 
-#### After 
+#### After
 
 ```fsharp
 type Person = {Name : string; Age : int}
 let people = [ {Name = "Joe"; Age = 20} ; {Name = "Will"; Age = 30} ; {Name = "Joe"; Age = 51}]
 
-let possibleNow = 
-    people 
+let possibleNow =
+    people
     |> List.distinctBy _.Name
     |> List.groupBy _.Age
     |> List.map snd
@@ -73,19 +73,19 @@ xs.map(fun x -> x + 1)
 No more `pipes` but hey, `dots` are in!
 
 
-## Nested Records 
+## Nested Records
 
 Nested record updates used to be a workout, but not anymore. F# 8 comes to the rescue with a concise syntax.
 
-#### Before 
+#### Before
 
 ```fsharp
 type SteeringWheel = { Type: string }
 type CarInterior = { Steering: SteeringWheel; Seats: int }
 type Car = { Interior: CarInterior; ExteriorColor: string option }
 
-let beforeThisFeature x = 
-    { x with Interior = { x.Interior with 
+let beforeThisFeature x =
+    { x with Interior = { x.Interior with
                             Steering = {x.Interior.Steering with Type = "yoke"}
                             Seats = 5
                         }
@@ -93,7 +93,7 @@ let beforeThisFeature x =
 
 ```
 
-#### After 
+#### After
 
 ```fsharp
 let withTheFeature x = { x with Interior.Steering.Type = "yoke"; Interior.Seats = 5 }
@@ -108,7 +108,7 @@ open FSharpPlus
 open FSharpPlus.Lens
 
 // From Mauricio Scheffer: https://gist.github.com/mausch/4260932
-type Person = 
+type Person =
     { Name: string
       DateOfBirth: DateTime }
 
@@ -123,9 +123,9 @@ module Page =
     let inline _contents f p =
         f p.Contents <&> fun x -> {p with Contents = x}
 
-type Book = 
+type Book =
     { Title: string
-      Author: Person 
+      Author: Person
       Pages: Page list }
 
 module Book =
@@ -143,11 +143,11 @@ module Book =
 let rayuela =
     { Book.Title = "Rayuela"
       Author = { Person.Name = "Julio Cortázar"
-                 DateOfBirth = DateTime(1914, 8, 26) } 
+                 DateOfBirth = DateTime(1914, 8, 26) }
       Pages = [
         { Contents = "Once upon a time" }
         { Contents = "The End"} ] }
-    
+
 // read book author name:
 let authorName1 = view Book._authorName rayuela
 //  you can also write the read operation as:
