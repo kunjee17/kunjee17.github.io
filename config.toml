@@ -76,12 +76,6 @@ name = "Resume"
 pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
 url = "/resume"
 
-[[menu.main]]
-weight = 70
-name = "GitHub"
-pre = "<i class=\"sidebar-button-icon fa fa-lg fa-github\"></i>"
-pageref = "https://github.com/kunjee17"
-
 [params]
 since = "2011"          # Site creation time          # 站点建立时间
 homeFullContent = false # if false, show post summaries on home page. Otherwise show full content.
