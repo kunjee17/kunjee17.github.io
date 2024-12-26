@@ -33,4 +33,4 @@ First I will be doing one to one map between C# and F# code. Just to get familia
 Install template, create new project with MVC5 and Web API option. Hit F5 and it is done. You are up and running. 
 
 Feeling great?!? It is just started. 
-![roller coaster ride](/images/rollercoasterride.gif)
+![roller coaster ride](/img/rollercoasterride.gif)

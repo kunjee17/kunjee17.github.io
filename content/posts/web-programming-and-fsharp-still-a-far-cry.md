@@ -26,11 +26,11 @@ I thought there is a issue with nuget or updated [tool chain of F#](http://blogs
 
 I knew about [paket](http://fsprojects.github.io/Paket/). Either due to some bug or feature it just worked for start. Then I added [emberjs](http://emberjs.com/) via [nuget package](http://www.nuget.org/packages/EmberJS/). And got folder render error. Which is very *typical* to F# projects. I know how to solve it. I normally always keep F# project file open in different text editor for this kinda issues. So, I move few include line here and there to keep same folder in order and solve the issue. Then I added few more JS libs and paket install gives same issue again. 
 
-![](/images/double_facepalm.jpg)
+![](/img/double_facepalm.jpg)
 
 Now, all these issues were not enough that azure deployment is not completed without a little hack I have mentioned in my previous [blog](/2014/03/signalr-nancy-azure-with-fsharp/). For the face last update should solved this issue but it is not working. May be feature is not completed or may be it is just me.
 
-And above complete exercise took more than 7 hours and I deleted and added project more than 5 times just to make it work. Just to make the damn ***Hello World*** work. That is it. Nothing more and nothing less. I was exactly feeling like ![](/images/rockypunched.jpeg).
+And above complete exercise took more than 7 hours and I deleted and added project more than 5 times just to make it work. Just to make the damn ***Hello World*** work. That is it. Nothing more and nothing less. I was exactly feeling like ![](/img/rockypunched.jpeg).
 
 After that I changed project structure again and put a C# project as front and F# as library project. Just to make nuget happy. And also the Azure happy. As I don't want to mess around project files and want to write some code. I guess that is more important then hacking around tool chain. 
 

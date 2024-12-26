@@ -61,6 +61,6 @@ Do have a look.
 
 So, what are we waiting for?
 
-![rock](/images/rock.gif)
+![rock](/img/rock.gif)
 
 lets rock. 

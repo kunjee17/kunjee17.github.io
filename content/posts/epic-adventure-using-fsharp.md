@@ -85,14 +85,14 @@ Go ahead and try for other books also. If you are feeling lazy you can check out
 
 For Terms:
 
-![](/images/mahabharata/terms.png)
+![](/img/mahabharata/terms.png)
 
 
 For Unique Terms:
-![](/images/mahabharata/uniqueterms.png)
+![](/img/mahabharata/uniqueterms.png)
 
 For Unique Terms per Terms
-![](/images/mahabharata/utbyterms.png)
+![](/img/mahabharata/utbyterms.png)
 
 What next? Let's do the sentiment analysis of all this books and compare them with each others.
 
@@ -143,10 +143,10 @@ data sets. For emotions we will be  using [this](http://saifmohammad.com/WebPage
 Here are what they look like.
 
 Emotion Lexicon:
-![](/images/mahabharata/sentiment.png)
+![](/img/mahabharata/sentiment.png)
 
 And Word with Ratings:
-![](/images/mahabharata/posneg.png)
+![](/img/mahabharata/posneg.png)
 
 
 Traditional way to pull data out of CSV file is `for -> for -> for` loops. But we are in F# land, we will be using csv Type Provider. Let's pull data out of CSV and shape it in types.
@@ -396,20 +396,20 @@ You can find book wise graphs [here](http://kunjan.in/mahabharata/bookwise-senti
 
 Book Wise:
 
-![](/images/mahabharata/karnaparv.png)
+![](/img/mahabharata/karnaparv.png)
 
-![](/images/mahabharata/mahaprasthanikaparv.png)
+![](/img/mahabharata/mahaprasthanikaparv.png)
 
-![](/images/mahabharata/shalyaparv.png)
+![](/img/mahabharata/shalyaparv.png)
 
 
 Sentiment Wise:
 
-![](/images/mahabharata/anger.png)
+![](/img/mahabharata/anger.png)
 
-![](/images/mahabharata/joy.png)
+![](/img/mahabharata/joy.png)
 
-![](/images/mahabharata/trust.png)
+![](/img/mahabharata/trust.png)
 
 
 Same can be done for positive and negative word set. (DYI for you.)
@@ -421,11 +421,11 @@ One thing needed to be understand here. Data set are created by human, code is w
 
 Check out word frequency graph [here](http://kunjan.in/mahabharata/word-frequency). Pick any graph. Here I am taking three graphs to compare.
 
-![](/images/mahabharata/w1.png)
+![](/img/mahabharata/w1.png)
 
-![](/images/mahabharata/w2.png)
+![](/img/mahabharata/w2.png)
 
-![](/images/mahabharata/w3.png)
+![](/img/mahabharata/w3.png)
 
 
 "Great" would be always first. And "Fire" will come in last five always. In normal western literature "Great" word used as adverb for person or thing. But in Indian or Mahabharata context they use it to address someone. Like
@@ -474,10 +474,10 @@ In Mahabharata, Krishna narrate Gita to Arjuna in middle of war field; empowerin
 I like to close with few of my favourite picture describing war moments of Mahabharata
 
 **Krishna narrating Gita to Arjuna**
-![](/images/mahabharata/m1.jpg)
+![](/img/mahabharata/m1.jpg)
 
 **Krishna driving Arjuna in war field**
-![](/images/mahabharata/m3.jpg)
+![](/img/mahabharata/m3.jpg)
 
 **Krishna, Arjuna and Bhisma three great warriors but helpless in front of time (situation)**
-![](/images/mahabharata/m2.jpg)
+![](/img/mahabharata/m2.jpg)

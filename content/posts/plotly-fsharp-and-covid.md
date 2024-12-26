@@ -58,7 +58,7 @@ Chart.Scatter(covidPlotData, StyleParam.Mode.Lines_Markers)
 
 Here how it looks once cell is executed.
 
-![](/images/covid_analysis/covidplotdata.png)
+![](/img/covid_analysis/covidplotdata.png)
 
 As you can see the three waves in CoVid cases. The second wave was the worst of all.
 
@@ -77,11 +77,11 @@ let vaccinationPlotData = vaccinationData.WeeklyVaccination |> Array.map(fun x -
 Chart.Scatter(vaccinationPlotData, StyleParam.Mode.Lines_Markers)
 ```
 
-You can find dashboard json file [here](/images/covid_analysis/dashboard_export.json) or take latest from [https://dashboard.cowin.gov.in/](https://dashboard.cowin.gov.in/).
+You can find dashboard json file [here](/img/covid_analysis/dashboard_export.json) or take latest from [https://dashboard.cowin.gov.in/](https://dashboard.cowin.gov.in/).
 
 Here how result looks like when cell is executed.
 
-![](/images/covid_analysis/vaccinationplotdata.png)
+![](/img/covid_analysis/vaccinationplotdata.png)
 
 There are too many questions of Vaccination, just like there are questions of the earth being flat. Let's answer the first question and leave the second one for next time.
 
@@ -115,7 +115,7 @@ let confirmedCasesByWeeks =
 
 Here how it looks once cell is executed.
 
-![](/images/covid_analysis/vaccination_covidcases.png)
+![](/img/covid_analysis/vaccination_covidcases.png)
 
 As you can see in the graph, vaccination is keeping the covid number as down as much as possible. One can surely conclude that vaccine works and in the case of India, both vaccines are indigenous.
 
