@@ -1,6 +1,12 @@
+# netlify.toml
+
 [build]
-publish = "public"
-command = "hugo --gc --minify"
+  command = "hugo mod get -u && hugo --gc --minify -b $URL"
+  publish = "public"
 
 [build.environment]
-HUGO_VERSION = "0.124.0"
+  HUGO_VERSION = "0.140.1"
+  NODE_ENV = "production"
+
+[context.production.environment]
+  HUGO_ENV = "production"

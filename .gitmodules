@@ -1,6 +1,0 @@
-[submodule "themes/hugo-tranquilpeak-theme"]
-	path = themes/hugo-tranquilpeak-theme
-	url = https://github.com/kakawait/hugo-tranquilpeak-theme.git
-[submodule "themes/jane"]
-	path = themes/jane
-	url = https://github.com/xianmin/hugo-theme-jane.git
