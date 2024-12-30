@@ -1,6 +1,6 @@
 ---
 title: "Modern State Management with Zustand and Jotai"
-date: 2024-12-26
+date: 2024-12-29
 categories:
 - Technical
 tags:

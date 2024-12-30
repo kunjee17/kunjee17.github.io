@@ -104,7 +104,7 @@ No theoretical fluff - just battle-tested approaches that we use in production a
 
 ## Pricing 
 
-10999 INR / person
+11999 INR / person
 
 > Pricing are subject to Terms and conditions mentioned [here](/terms-conditions-training)
 

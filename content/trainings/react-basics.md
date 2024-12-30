@@ -1,6 +1,6 @@
 ---
 title: "React Basics"
-date: 2024-12-26
+date: 2024-12-25
 categories:
 - Technical
 tags:

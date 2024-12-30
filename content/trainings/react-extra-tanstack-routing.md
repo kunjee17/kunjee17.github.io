@@ -1,6 +1,6 @@
 ---
 title: "TanStack Router Masterclass"
-date: 2024-12-26
+date: 2024-12-30
 categories:
 - Technical
 tags:

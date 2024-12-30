@@ -1,6 +1,6 @@
 ---
 title: "React Week: Comprehensive React Development Bootcamp"
-date: 2024-12-26
+date: 2024-12-30
 categories:
 - Technical
 tags:

@@ -1,6 +1,6 @@
 ---
 title: "Remix Fundamentals for React Developers"
-date: 2024-12-26
+date: 2024-12-28
 categories:
 - Technical
 tags:
