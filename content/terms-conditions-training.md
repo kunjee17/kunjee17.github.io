@@ -39,3 +39,54 @@ Neither party shall be liable for any failure to perform its obligations where s
 ### Feedback and Satisfaction
 - At the end of the training, participants are encouraged to provide feedback to help improve future sessions. The client may request a summary of the feedback collected.
 - In the event of serious dissatisfaction, the client should communicate this within 36 hours after the training session, and the trainer will work to address the concerns, potentially offering additional follow-up sessions or partial refunds, subject to agreement.
+
+## Colleges and Training Institutions 
+
+- Maximum no of students can go upto 150 given proper infrastructure. 
+- Flat 30 % discount on pricing for colleges and 20 % discount for training institutions 
+
+## Infrastructure Requirements
+
+### Technical Setup
+- High-speed internet connection capable of supporting video conferencing
+- Laptops/computers with:
+  - Ability to run Node.js development environment
+  - Modern code editor (VS Code, Cursor, WebStorm, or Vim)
+  - Operating System: Linux, MacOS, or Windows with WSL
+  - Modern web browser (Chrome, Firefox, or Edge)
+- Working microphone for each participant
+- Projector or large display screen with HDMI/VGA connectivity
+- Power outlets accessible to all participants
+
+### Room Setup
+- Well-lit room suitable for projection
+- Adequate table space for laptops
+- Proper ventilation and temperature control
+- Seating arrangement allowing trainer movement for individual assistance 
+
+## Pricing Policy
+- All published prices are subject to change without prior notice
+- The final price will be confirmed at the time of booking
+- Published prices on the website or any other medium are for reference only
+- Special pricing and discounts cannot be combined unless explicitly stated
+
+## Week-Long Training Terms
+- Week-long trainings (5 days) require 50% advance payment to confirm booking
+- Higher pricing applies for weekday trainings due to business hour commitment
+- Cancellation policy for week-long trainings:
+  - 75% refund if cancelled 3 weeks prior
+  - No refund for cancellations within 3 weeks
+  - Rescheduling requests will be considered case by case
+- For trainer-arranged venues: Lunch and refreshments included
+- For corporate/institutional venues: Lunch and refreshments to be arranged by the host
+- Post-training support for 2 weeks
+- For corporate bookings, customized terms may apply
+
+## Regular Training Terms
+- Standard payment terms apply as mentioned in Payment Terms section
+- Regular weekend training sessions follow standard cancellation policy
+
+## Institutional Pricing
+- College and institutional discounts are subject to verification and approval
+- Special batch size considerations for educational institutions
+- Custom scheduling options available for academic calendars 
