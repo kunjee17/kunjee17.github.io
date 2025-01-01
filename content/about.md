@@ -1,21 +1,19 @@
 ---
 title: "Brief Introduction About Me"
-date: 2019-05-23
+date: 2024-03-21
 ---
 
-I am Kunjan (_a.k.a. Kunjee for friends and tweeps_). Failed poet, mathematics enthusiastic, functional programming evangelist and the last person standing in queue of alpha nerds.
+I am Kunjan (_a.k.a. Kunjee for friends and tweeps_). Failed poet, mathematics enthusiast, functional programming evangelist, and software architecture expert with 17+ years of industry experience.
 
 > Partially natural ambidextrous, a proper south paw and a true Sagittarius.
 
-I am also Founder of [Fuzzy Cloud](https://fuzzycloud.in/), Speaker and OSS Contributor. I maintained awesome OSS (Open Source Software) project called [awesome-fable](https://github.com/kunjee17/awesome-fable) and few other not so famous ones. I love softwares in mobile, web and everything around it. Especially if those are in Functional Programming. Currently I am focusing more on Machine Learning and Data Science from the Functional Programming point of view.
+I am the Founder of [Fuzzy Cloud](https://fuzzycloud.in/), a frequent conference speaker, and an active OSS Contributor. I maintain several open source projects including [awesome-fable](https://github.com/kunjee17/awesome-fable) and contribute to various Rust ecosystem projects like actix and juniper. My expertise spans mobile, web, and cloud technologies, with a particular focus on Functional Programming, WebAssembly, and modern web frameworks.
 
-It has been 16+ years in Software Industry writing code, being blogger, talking food, running marathon sprint and run, occasionally doing MMA and few other things after that.
-
-I am consultant for hire, specifically if you like error free code in Functional Programming.
+Currently seeking roles as Principal Software Engineer, Software Architect, or CTO positions where I can leverage my extensive experience in building scalable, maintainable systems using modern technologies.
 
 You can contact me via email - [personal](mailto:contact@kunjan.in) or [professional](mailto:kunjan.dalal@fuzzycloud.in) .
 
-## My talk and PodCast
+## Selected Talks and Appearances
 
 - [Scaling Elm / Fable Elmish Application](https://www.youtube.com/watch?v=P8LPIpDGcFg)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/P8LPIpDGcFg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
