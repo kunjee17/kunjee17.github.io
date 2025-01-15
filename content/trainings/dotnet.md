@@ -8,8 +8,8 @@ tags:
 - Backend
 - .NET
 - AI
-- C#
-- F#
+- CSharp
+- FSharp
 ---
 
 ## Duration 
