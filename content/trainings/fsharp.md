@@ -6,7 +6,7 @@ categories:
 tags:
 - OSS
 - Backend
-- F#
+- FSharp
 - Frontend
 - Functional Programming
 ---
