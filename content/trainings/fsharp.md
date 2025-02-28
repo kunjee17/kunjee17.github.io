@@ -7,6 +7,7 @@ tags:
 - OSS
 - Backend
 - F#
+- Frontend
 - Functional Programming
 ---
 
