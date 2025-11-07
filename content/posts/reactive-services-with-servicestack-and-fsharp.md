@@ -1,8 +1,8 @@
 ---
 title: "Reactive Services with Servicestack and F#"
 keywords:
-- 
-
+- servicestack
+slug: "reactive-services-with-servicestack-and-fsharp"
 date: 2015-11-30
 categories:
 - Technical
@@ -11,8 +11,6 @@ tags:
 - OSS
 - Functional Programming
 - Functional Web
-
-slug: "reactive-services-with-servicestack-and-fsharp"
 ---
 
 Reactive word is not new nowadays. If you want your library to get limelight, use reactive word in the name any way possible and it will definitely get initial attention. Reactive word is appropriate for things that follows [reactive manifesto](http://www.reactivemanifesto.org/). That is true for now. And there are many variant of libraries on server and client to fulfil this.

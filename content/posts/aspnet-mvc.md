@@ -4,7 +4,7 @@ title: "Asp.Net MVC5 with F#"
 keywords:
 - Asp.Net
 - MVC5
-
+slug: "aspnet-mvc5-with-fsharp"
 date: 2014-02-06
 categories:
 - Technical

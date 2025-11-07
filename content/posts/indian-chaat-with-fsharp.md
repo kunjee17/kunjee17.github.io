@@ -1,7 +1,7 @@
 ---
 
 title: "Reactive Chat application using ServiceStack and Fable in F#"
-slug : "indian-chaat-with-FSharp"
+slug : "indian-chaat-with-fsharp"
 
 date: 2017-12-17
 categories:

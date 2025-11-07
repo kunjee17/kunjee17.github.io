@@ -1,7 +1,7 @@
 ---
 
 title: "Domain Driven Marten with F#"
-slug : "domain-driven-marten-with-FSharp"
+slug : "domain-driven-marten-with-fsharp"
 
 date: 2017-10-07
 categories:

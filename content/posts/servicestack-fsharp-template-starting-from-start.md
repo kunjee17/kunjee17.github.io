@@ -2,7 +2,7 @@
 
 title: "Servicestack F# template. Starting from the Start"
 keywords:
-- 
+- servicestack
 slug: "servicestack-fsharp-template-starting-from-start"
 date: 2014-02-14
 categories:
