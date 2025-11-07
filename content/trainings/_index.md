@@ -8,7 +8,7 @@ cascade:
 ---
 
 ## Welcome to My Training Programs
-{{< lead >}}
+
 With over 17 years of software industry experience, I offer specialized corporate workshops and courses focused on modern technologies like React, TypeScript, and more. My hands-on training sessions are designed for both beginners and experienced developers looking to enhance their skills.
 
 ### Why Choose My Training Programs?
@@ -24,6 +24,5 @@ I'm now extending my training programs specifically to companies in the Indian s
 My mission is to give back to the tech community by sharing knowledge and experience with the next generation of developers. After years of hoping others would step up to train upcoming talent, I've decided to lead by example.
 
 Browse through my training modules below to find the perfect program for your team's needs.
-{{< /lead >}}
 
 ---

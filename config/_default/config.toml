@@ -1,22 +1,71 @@
 # -- Site Configuration --
-# Refer to the theme docs for more details about each of these parameters.
-# https://jpanther.github.io/congo/docs/getting-started/
+# Hugo Paper Theme Configuration
+# https://github.com/nanxiaobei/hugo-paper
 
 baseURL = "https://kunjan.in/"
 defaultContentLanguage = "en"
 languageCode = "en"
+title = "Kunjee's Tech Space"
+summaryLength = 0
 
-# Google Analytics (GA4) - Replace with your Measurement ID (e.g., "G-XXXXXXXXXX")
+# Google Analytics (GA4)
 googleAnalytics = "G-F3VMNQ2JFV"
 
 enableRobotsTXT = true
-summaryLength = 0
 
 [pagination]
   pagerSize = 10
 
 [permalinks]
-posts = "/:year/:month/:slug"
+  posts = "/:year/:month/:slug"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS"]
+
+# Markup configuration
+[goldmark]
+[goldmark.renderer]
+  unsafe = true
+
+[highlight]
+  noClasses = false
+
+[tableOfContents]
+  startLevel = 2
+  endLevel = 4
+
+# Paper Theme Parameters
+[params]
+  # Color style: linen, wheat, gray, light
+  color = "linen"
+  
+  # Header social icons
+  github = "kunjee17"
+  linkedin = "kunjee17"
+  rss = true
+  
+  # Home page profile
+  avatar = "kunjee17@gmail.com"
+  name = "Kunjan Dalal (AKA Kunjee)"
+  bio = "All idea, opinion are my own and don't reflect opinion of my current or any former employer."
+  
+  # Misc
+  disableHLJS = false
+  disablePostNavigation = false
+  monoDarkIcon = false
+  appleTouchIcon = "apple-touch-icon.png"
+
+# Language configuration
+[languages.en]
+  languageCode = "en"
+  languageName = "English"
+  languageDirection = "ltr"
+  weight = 1
+  title = "Kunjee's Tech Space"
+  
+  [languages.en.params]
+    description = "A space where I write all about tech, programming, and other things that interest me."
