@@ -11,10 +11,9 @@ tags:
 - Functional Programming
 - Mobile
 
-title: To Xamarin with Love
+
 metadescription: A lame comparison between Xamarin tools and Native Android Tools  
 layout: post
-category: Technical,DotNet,OSS,Functional Programming, Mobile
 ---
 
 [Xamarin Evolve](https://evolve.xamarin.com/) just concluded. And there no best time to write this post. And for the fact I am not writing anything new or even anything related to announcements that happened there. I am writing this because recently I got chance to work with android using Java. And experience was not at all good. And reason is not so surprisingly Java.

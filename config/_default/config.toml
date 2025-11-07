@@ -6,6 +6,9 @@ baseURL = "https://kunjan.in/"
 defaultContentLanguage = "en"
 languageCode = "en"
 
+# Google Analytics (GA4) - Replace with your Measurement ID (e.g., "G-XXXXXXXXXX")
+googleAnalytics = "G-F3VMNQ2JFV"
+
 enableRobotsTXT = true
 summaryLength = 0
 
