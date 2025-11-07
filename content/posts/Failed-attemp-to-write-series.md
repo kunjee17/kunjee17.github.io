@@ -2,7 +2,8 @@
 
 title: "Failed attempt to write series, again!"
 keywords:
-- 
+- servicestack
+- fsharp
 slug: "failed-attempt-to-write-series-again"
 date: 2014-03-24
 categories:

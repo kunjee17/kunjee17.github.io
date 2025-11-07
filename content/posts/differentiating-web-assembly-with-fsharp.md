@@ -1,7 +1,8 @@
 ---
 title: "Differentiating Web Assembly with F#"
 keywords:
--
+- Web Assembly
+- FSharp
 slug: "differentiating-web-assembly-with-fsharp"
 date: 2020-12-17
 categories:

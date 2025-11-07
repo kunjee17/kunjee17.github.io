@@ -2,7 +2,7 @@
 
 title: "Shades of F#"
 keywords:
--
+- F#
 slug: "shades-of-fsharp"
 date: 2019-10-27
 categories:

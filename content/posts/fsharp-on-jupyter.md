@@ -2,7 +2,7 @@
 
 title: "F# on Jupyter"
 keywords:
--
+- jupyter
 slug: "fsharp-on-jupyter"
 date: 2019-12-17
 categories:

@@ -2,7 +2,7 @@
 
 title: "Thanks to wonderful community"
 keywords:
--
+- Story
 
 date: 2014-04-25
 categories:
