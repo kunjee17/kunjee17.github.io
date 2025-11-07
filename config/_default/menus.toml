@@ -16,11 +16,6 @@
   weight = 10
 
 [[main]]
-  name = "Training"
-  pageRef = "trainings"
-  weight = 15
-
-[[main]]
   name = "Categories"
   pageRef = "categories"
   weight = 20
