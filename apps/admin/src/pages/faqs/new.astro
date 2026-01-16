@@ -1,7 +1,5 @@
 ---
-import AdminLayout from "../../components/layout/AdminLayout.astro";
-import { Save, X as Cancel } from "@lucide/astro";
-import { createFAQ, getAllPosts, getAllPages } from "../../lib/db";
+import { createFAQ, getAllPages, getAllPosts } from "../../lib/db";
 
 if (Astro.request.method === "POST") {
 	const formData = await Astro.request.formData();
@@ -26,8 +24,8 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const [posts, pages] = await Promise.all([getAllPosts(), getAllPages()]);
-const error = Astro.url.searchParams.get("error");
+const [_posts, _pages] = await Promise.all([getAllPosts(), getAllPages()]);
+const _error = Astro.url.searchParams.get("error");
 ---
 
 <AdminLayout title="New FAQ">

@@ -7,7 +7,6 @@
 		"dev": "astro dev",
 		"build": "astro build --remote",
 		"preview": "astro preview",
-		"lint": "biome check .",
 		"db:push": "astro db push",
 		"db:verify": "astro db verify",
 		"check-types": "astro check"

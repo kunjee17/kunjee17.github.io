@@ -1,10 +1,13 @@
 ---
-import AdminLayout from "../../components/layout/AdminLayout.astro";
-import { Save, X as Cancel } from "@lucide/astro";
 import { getMedia, updateMedia } from "../../lib/db";
 
 const { id } = Astro.params;
-const media = await getMedia(id || "");
+
+if (!id) {
+	return Astro.redirect("/media?error=not_found", 302);
+}
+
+const media = await getMedia(id);
 
 if (!media) {
 	return Astro.redirect("/media?error=not_found", 302);
@@ -23,7 +26,7 @@ if (Astro.request.method === "POST") {
 	const heightStr = formData.get("height")?.toString();
 
 	try {
-		await updateMedia(id!, {
+		await updateMedia(id, {
 			filename,
 			url,
 			mimeType,
@@ -41,8 +44,8 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const updated = Astro.url.searchParams.get("updated") === "true";
-const error = Astro.url.searchParams.get("error");
+const _updated = Astro.url.searchParams.get("updated") === "true";
+const _error = Astro.url.searchParams.get("error");
 ---
 
 <AdminLayout title={`Edit Media - ${media.filename}`}>

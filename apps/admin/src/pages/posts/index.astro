@@ -1,8 +1,10 @@
 ---
-import AdminLayout from "../../components/layout/AdminLayout.astro";
-import { Plus, Edit, Trash2, Eye, EyeOff } from "@lucide/astro";
-import { getAllPosts, getTagsForPost, getCategoriesForPost, deletePost } from "../../lib/db";
-import { format } from "date-fns";
+import {
+	deletePost,
+	getAllPosts,
+	getCategoriesForPost,
+	getTagsForPost,
+} from "../../lib/db";
 
 // Handle delete action
 if (Astro.request.method === "POST") {
@@ -22,7 +24,7 @@ if (Astro.request.method === "POST") {
 }
 
 const posts = await getAllPosts();
-const postsWithRelations = await Promise.all(
+const _postsWithRelations = await Promise.all(
 	posts.map(async (post) => {
 		const [tags, categories] = await Promise.all([
 			getTagsForPost(post.id),
@@ -33,12 +35,12 @@ const postsWithRelations = await Promise.all(
 			tags,
 			categories,
 		};
-	})
+	}),
 );
 
-const deleted = Astro.url.searchParams.get("deleted") === "true";
-const created = Astro.url.searchParams.get("created") === "true";
-const error = Astro.url.searchParams.get("error");
+const _deleted = Astro.url.searchParams.get("deleted") === "true";
+const _created = Astro.url.searchParams.get("created") === "true";
+const _error = Astro.url.searchParams.get("error");
 ---
 
 <AdminLayout title="Posts">

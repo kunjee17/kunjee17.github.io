@@ -1,10 +1,20 @@
 ---
-import AdminLayout from "../../components/layout/AdminLayout.astro";
-import { Save, X as Cancel } from "@lucide/astro";
-import { getTag, updateTag, getPostsByTag, validateSlugFormat, checkTagNameExists, checkTagSlugExists } from "../../lib/db";
+import {
+	checkTagNameExists,
+	checkTagSlugExists,
+	getPostsByTag,
+	getTag,
+	updateTag,
+	validateSlugFormat,
+} from "../../lib/db";
 
 const { id } = Astro.params;
-const tag = await getTag(id || "");
+
+if (!id) {
+	return Astro.redirect("/tags?error=not_found", 302);
+}
+
+const tag = await getTag(id);
 
 if (!tag) {
 	return Astro.redirect("/tags?error=not_found", 302);
@@ -35,7 +45,7 @@ if (Astro.request.method === "POST") {
 			return Astro.redirect(`/tags/${id}?error=slug_exists`, 302);
 		}
 
-		await updateTag(id!, { name, slug, description });
+		await updateTag(id, { name, slug, description });
 		return Astro.redirect(`/tags/${id}?updated=true`, 302);
 	} catch (error) {
 		console.error("Error updating tag:", error);
@@ -53,15 +63,16 @@ if (Astro.request.method === "POST") {
 }
 
 // Get posts using this tag
-const posts = await getPostsByTag(id!);
+const _posts = await getPostsByTag(id);
 
-const updated = Astro.url.searchParams.get("updated") === "true";
-const error = Astro.url.searchParams.get("error");
-const errorMessages: Record<string, string> = {
+const _updated = Astro.url.searchParams.get("updated") === "true";
+const _error = Astro.url.searchParams.get("error");
+const _errorMessages: Record<string, string> = {
 	name_required: "Tag name is required.",
 	name_exists: "A tag with this name already exists.",
 	slug_exists: "A tag with this slug already exists.",
-	invalid_slug: "Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
+	invalid_slug:
+		"Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
 	update_failed: "Failed to update tag. Please try again.",
 };
 ---

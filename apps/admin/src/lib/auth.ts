@@ -3,12 +3,26 @@
  * Simple password-based authentication using environment variable
  */
 
+type CookieStore = {
+	get: (name: string) => { value: string } | undefined;
+	set: (
+		name: string,
+		value: string,
+		options?: {
+			httpOnly?: boolean;
+			secure?: boolean;
+			sameSite?: "lax" | "strict" | "none";
+			maxAge?: number;
+			path?: string;
+		},
+	) => void;
+	delete: (name: string, options?: { path?: string }) => void;
+};
+
 /**
  * Check if user is authenticated by verifying session cookie
  */
-export function isAuthenticated(
-	cookies: Readonly<Record<string, any>>,
-): boolean {
+export function isAuthenticated(cookies: CookieStore): boolean {
 	const sessionCookie = cookies.get("admin-session");
 	return sessionCookie?.value === "authenticated";
 }
@@ -16,7 +30,7 @@ export function isAuthenticated(
 /**
  * Set authenticated session cookie
  */
-export function setAuthCookie(cookies: any): void {
+export function setAuthCookie(cookies: CookieStore): void {
 	cookies.set("admin-session", "authenticated", {
 		httpOnly: true,
 		secure: import.meta.env.PROD,
@@ -29,7 +43,7 @@ export function setAuthCookie(cookies: any): void {
 /**
  * Clear authentication session cookie
  */
-export function clearAuthCookie(cookies: any): void {
+export function clearAuthCookie(cookies: CookieStore): void {
 	cookies.delete("admin-session", {
 		path: "/",
 	});

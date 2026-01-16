@@ -1,11 +1,16 @@
 ---
-import AdminLayout from "../../components/layout/AdminLayout.astro";
-import { Save, X as Cancel } from "@lucide/astro";
-import MarkdownEditor from "../../components/ui/MarkdownEditor.astro";
-import { createPost, getAllTags, getAllCategories, getFirstAuthor, generateSlug, validateSlugFormat, checkPostSlugExists } from "../../lib/db";
+import {
+	checkPostSlugExists,
+	createPost,
+	generateSlug,
+	getAllCategories,
+	getAllTags,
+	getFirstAuthor,
+	validateSlugFormat,
+} from "../../lib/db";
 
 // Load data for form
-const [tags, categories, author] = await Promise.all([
+const [_tags, _categories, author] = await Promise.all([
 	getAllTags(),
 	getAllCategories(),
 	getFirstAuthor(),
@@ -62,21 +67,21 @@ if (Astro.request.method === "POST") {
 
 	if (createdAtStr) {
 		createdAt = new Date(createdAtStr);
-		if (isNaN(createdAt.getTime())) {
+		if (Number.isNaN(createdAt.getTime())) {
 			return Astro.redirect("/posts/new?error=invalid_created_date", 302);
 		}
 	}
 
 	if (publishedAtStr) {
 		publishedAt = new Date(publishedAtStr);
-		if (isNaN(publishedAt.getTime())) {
+		if (Number.isNaN(publishedAt.getTime())) {
 			return Astro.redirect("/posts/new?error=invalid_published_date", 302);
 		}
 	}
 
 	if (expiryDateStr) {
 		expiryDate = new Date(expiryDateStr);
-		if (isNaN(expiryDate.getTime())) {
+		if (Number.isNaN(expiryDate.getTime())) {
 			return Astro.redirect("/posts/new?error=invalid_expiry_date", 302);
 		}
 	}
@@ -90,7 +95,10 @@ if (Astro.request.method === "POST") {
 	const categoryIds = formData.getAll("categoryIds").map((id) => id.toString());
 	const keywordsStr = formData.get("keywords")?.toString();
 	const keywords = keywordsStr
-		? keywordsStr.split(",").map((k) => k.trim()).filter((k) => k.length > 0)
+		? keywordsStr
+				.split(",")
+				.map((k) => k.trim())
+				.filter((k) => k.length > 0)
 		: undefined;
 
 	// SEO
@@ -101,7 +109,10 @@ if (Astro.request.method === "POST") {
 	const twitterCard = formData.get("twitterCard")?.toString()?.trim();
 	const schemaType = formData.get("schemaType")?.toString()?.trim();
 	const sitemapPriorityStr = formData.get("sitemapPriority")?.toString();
-	const sitemapChangefreq = formData.get("sitemapChangefreq")?.toString()?.trim();
+	const sitemapChangefreq = formData
+		.get("sitemapChangefreq")
+		?.toString()
+		?.trim();
 
 	// Validate URLs
 	if (canonicalUrl && !isValidUrl(canonicalUrl)) {
@@ -116,7 +127,11 @@ if (Astro.request.method === "POST") {
 	let sitemapPriority: number | undefined;
 	if (sitemapPriorityStr) {
 		sitemapPriority = parseFloat(sitemapPriorityStr);
-		if (isNaN(sitemapPriority) || sitemapPriority < 0 || sitemapPriority > 1) {
+		if (
+			Number.isNaN(sitemapPriority) ||
+			sitemapPriority < 0 ||
+			sitemapPriority > 1
+		) {
 			return Astro.redirect("/posts/new?error=invalid_sitemap_priority", 302);
 		}
 	}
@@ -125,7 +140,10 @@ if (Astro.request.method === "POST") {
 	const url = formData.get("url")?.toString()?.trim();
 	const aliasesStr = formData.get("aliases")?.toString();
 	const aliases = aliasesStr
-		? aliasesStr.split(",").map((a) => a.trim()).filter((a) => a.length > 0)
+		? aliasesStr
+				.split(",")
+				.map((a) => a.trim())
+				.filter((a) => a.length > 0)
 		: undefined;
 
 	if (url && !isValidUrlPath(url)) {
@@ -191,12 +209,13 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const error = Astro.url.searchParams.get("error");
-const errorMessages: Record<string, string> = {
+const _error = Astro.url.searchParams.get("error");
+const _errorMessages: Record<string, string> = {
 	title_required: "Post title is required.",
 	content_required: "Post content is required.",
 	slug_exists: "A post with this slug already exists.",
-	invalid_slug: "Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
+	invalid_slug:
+		"Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
 	invalid_canonical_url: "Invalid canonical URL format.",
 	invalid_og_image_url: "Invalid Open Graph image URL format.",
 	invalid_url: "Invalid URL format. URL must start with / and be a valid path.",

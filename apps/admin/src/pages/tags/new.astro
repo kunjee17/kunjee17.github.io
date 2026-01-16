@@ -1,7 +1,11 @@
 ---
-import AdminLayout from "../../components/layout/AdminLayout.astro";
-import { Save, X as Cancel } from "@lucide/astro";
-import { createTag, generateSlug, validateSlugFormat, checkTagNameExists, checkTagSlugExists } from "../../lib/db";
+import {
+	checkTagNameExists,
+	checkTagSlugExists,
+	createTag,
+	generateSlug,
+	validateSlugFormat,
+} from "../../lib/db";
 
 if (Astro.request.method === "POST") {
 	const formData = await Astro.request.formData();
@@ -46,12 +50,13 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const error = Astro.url.searchParams.get("error");
-const errorMessages: Record<string, string> = {
+const _error = Astro.url.searchParams.get("error");
+const _errorMessages: Record<string, string> = {
 	name_required: "Tag name is required.",
 	name_exists: "A tag with this name already exists.",
 	slug_exists: "A tag with this slug already exists.",
-	invalid_slug: "Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
+	invalid_slug:
+		"Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
 	create_failed: "Error creating tag. Please try again.",
 };
 ---

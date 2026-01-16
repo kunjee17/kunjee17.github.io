@@ -2,13 +2,13 @@
 // Shared service functions for admin operations
 
 import type {
-	NavigationItem,
 	FormState,
-	UIState,
+	MigrationFile,
+	NavigationItem,
 	Notification,
 	RebuildOption,
-	MigrationFile,
 	SocialMediaPost,
+	UIState,
 } from "@repo/dtos";
 
 /**
@@ -80,7 +80,7 @@ export function createRebuildOption(
  * Migration service - placeholder for content migration logic
  */
 export async function migrateContent(
-	files: MigrationFile[],
+	_files: MigrationFile[],
 ): Promise<{ success: boolean; message: string }> {
 	// TODO: Implement content migration logic
 	return {
@@ -93,14 +93,14 @@ export async function migrateContent(
  * Social media service - placeholder for social media operations
  */
 export async function generateSocialPosts(
-	content: string,
+	_content: string,
 ): Promise<SocialMediaPost[]> {
 	// TODO: Implement social media post generation
 	return [];
 }
 
 export async function scheduleSocialPost(
-	post: SocialMediaPost,
+	_post: SocialMediaPost,
 ): Promise<{ success: boolean; message: string }> {
 	// TODO: Implement social media post scheduling
 	return {

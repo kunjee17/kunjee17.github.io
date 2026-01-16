@@ -1,13 +1,12 @@
 ---
-import AdminLayout from "../../components/layout/AdminLayout.astro";
-import { Save, X as Cancel } from "@lucide/astro";
 import { createMedia } from "../../lib/db";
 
 if (Astro.request.method === "POST") {
 	const formData = await Astro.request.formData();
 	const filename = formData.get("filename")?.toString() || "";
 	const url = formData.get("url")?.toString() || "";
-	const storageProvider = formData.get("storageProvider")?.toString() || "local";
+	const storageProvider =
+		formData.get("storageProvider")?.toString() || "local";
 	const mimeType = formData.get("mimeType")?.toString();
 	const sizeStr = formData.get("size")?.toString();
 	const altText = formData.get("altText")?.toString();
@@ -36,7 +35,7 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const error = Astro.url.searchParams.get("error");
+const _error = Astro.url.searchParams.get("error");
 ---
 
 <AdminLayout title="Upload Media">

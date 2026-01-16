@@ -1,14 +1,11 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Sidebar from "./Sidebar.astro";
-import Navbar from "./Navbar.astro";
-
 interface Props {
 	title: string;
 	description?: string;
 }
 
-const { title, description } = Astro.props;
+// biome-ignore lint/correctness/noUnusedVariables: Used in template below
+const { title, description }: Props = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>

@@ -5,15 +5,20 @@
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev",
-		"lint": "turbo run lint",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"lint:fix:unsafe": "biome check --unsafe --write .",
 		"format": "biome format --write .",
+		"format:check": "biome format .",
 		"check-types": "turbo run check-types",
 		"db:push": "turbo run db:push",
 		"db:verify": "turbo run db:verify",
-		"db:copy": "node scripts/copy-db.js"
+		"db:copy": "node scripts/copy-db.js",
+		"prepare": "husky"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.11",
+		"husky": "^9.1.7",
 		"turbo": "^2.7.4",
 		"typescript": "5.9.2"
 	},

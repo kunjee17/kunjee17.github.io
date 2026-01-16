@@ -1,8 +1,5 @@
 ---
-import AdminLayout from "../../components/layout/AdminLayout.astro";
-import { Plus, Edit, Trash2, Eye, EyeOff } from "@lucide/astro";
-import { getAllPages, deletePage } from "../../lib/db";
-import { format } from "date-fns";
+import { deletePage, getAllPages } from "../../lib/db";
 
 // Handle delete action
 if (Astro.request.method === "POST") {
@@ -21,10 +18,10 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const pages = await getAllPages();
-const deleted = Astro.url.searchParams.get("deleted") === "true";
-const created = Astro.url.searchParams.get("created") === "true";
-const error = Astro.url.searchParams.get("error");
+const _pages = await getAllPages();
+const _deleted = Astro.url.searchParams.get("deleted") === "true";
+const _created = Astro.url.searchParams.get("created") === "true";
+const _error = Astro.url.searchParams.get("error");
 ---
 
 <AdminLayout title="Pages">

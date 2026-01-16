@@ -2,32 +2,28 @@
 
 // AstroDB type declarations - these are virtual modules provided by Astro at build time
 declare module "astro:db" {
-	export function defineDb(config: {
-		tables: Record<string, any>;
-	}): any;
+	type TableDefinition = {
+		columns: Record<string, unknown>;
+	};
 
-	export function defineTable(config: {
-		columns: Record<string, any>;
-	}): any;
+	export function defineDb<T extends Record<string, TableDefinition>>(config: {
+		tables: T;
+	}): { tables: T };
+
+	export function defineTable<T extends Record<string, unknown>>(config: {
+		columns: T;
+	}): TableDefinition & { columns: T };
 
 	export const column: {
 		text: (options?: {
 			primaryKey?: boolean;
 			unique?: boolean;
 			optional?: boolean;
-			references?: () => any;
-		}) => any;
-		date: (options?: {
-			optional?: boolean;
-		}) => any;
-		boolean: (options?: {
-			default?: boolean;
-		}) => any;
-		number: (options?: {
-			optional?: boolean;
-		}) => any;
-		json: (options?: {
-			optional?: boolean;
-		}) => any;
+			references?: () => unknown;
+		}) => unknown;
+		date: (options?: { optional?: boolean }) => unknown;
+		boolean: (options?: { default?: boolean }) => unknown;
+		number: (options?: { optional?: boolean }) => unknown;
+		json: (options?: { optional?: boolean }) => unknown;
 	};
 }

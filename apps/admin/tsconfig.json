@@ -9,6 +9,12 @@
 			"@lib": ["./src/lib/*"]
 		}
 	},
-	"include": ["**/*.ts", "**/*.tsx", "**/*.astro", ".astro/types.d.ts", ".astro/integrations/**/*.d.ts"],
+	"include": [
+		"**/*.ts",
+		"**/*.tsx",
+		"**/*.astro",
+		".astro/types.d.ts",
+		".astro/integrations/**/*.d.ts"
+	],
 	"exclude": ["node_modules"]
 }

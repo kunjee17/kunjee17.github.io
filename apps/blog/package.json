@@ -7,7 +7,6 @@
 		"dev": "astro dev",
 		"build": "astro build --remote",
 		"preview": "astro preview",
-		"lint": "biome check .",
 		"check-types": "astro check"
 	},
 	"dependencies": {

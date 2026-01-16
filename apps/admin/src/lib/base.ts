@@ -1,8 +1,8 @@
 // Base setup file for Alpine.js and Lucide icons
 // Centralized imports and initialization
 
-import Alpine from "alpinejs";
 import persist from "@alpinejs/persist";
+import Alpine from "alpinejs";
 
 // Initialize Alpine.js with persist plugin
 Alpine.plugin(persist);
@@ -21,34 +21,34 @@ Alpine.start();
 
 // Export commonly used Lucide icons
 export {
-	Home,
-	FileText,
+	AlertCircle,
 	BookOpen,
-	Upload,
-	Share2,
-	Settings,
-	Plus,
-	Edit,
-	Trash,
-	Menu,
-	X,
-	Save,
-	Search,
-	Filter,
 	Calendar,
-	Tag,
-	Image,
-	Link,
+	Check,
+	ChevronLeft,
+	ChevronRight,
+	Edit,
 	Eye,
 	EyeOff,
-	LogOut,
-	ChevronRight,
-	ChevronLeft,
-	MoreVertical,
-	Check,
-	AlertCircle,
+	FileText,
+	Filter,
+	Home,
+	Image,
 	Info,
+	Link,
 	Loader2,
+	LogOut,
+	Menu,
+	MoreVertical,
+	Plus,
+	Save,
+	Search,
+	Settings,
+	Share2,
+	Tag,
+	Trash,
+	Upload,
+	X,
 } from "lucide";
 
 // Export Alpine instance for global access

@@ -1,10 +1,20 @@
 ---
-import AdminLayout from "../../components/layout/AdminLayout.astro";
-import { Save, X as Cancel } from "@lucide/astro";
-import { getCategory, updateCategory, getPostsByCategory, validateSlugFormat, checkCategoryNameExists, checkCategorySlugExists } from "../../lib/db";
+import {
+	checkCategoryNameExists,
+	checkCategorySlugExists,
+	getCategory,
+	getPostsByCategory,
+	updateCategory,
+	validateSlugFormat,
+} from "../../lib/db";
 
 const { id } = Astro.params;
-const category = await getCategory(id || "");
+
+if (!id) {
+	return Astro.redirect("/categories?error=not_found", 302);
+}
+
+const category = await getCategory(id);
 
 if (!category) {
 	return Astro.redirect("/categories?error=not_found", 302);
@@ -31,11 +41,15 @@ if (Astro.request.method === "POST") {
 			return Astro.redirect(`/categories/${id}?error=name_exists`, 302);
 		}
 
-		if (slug && slug !== category.slug && (await checkCategorySlugExists(slug, id))) {
+		if (
+			slug &&
+			slug !== category.slug &&
+			(await checkCategorySlugExists(slug, id))
+		) {
 			return Astro.redirect(`/categories/${id}?error=slug_exists`, 302);
 		}
 
-		await updateCategory(id!, { name, slug, description });
+		await updateCategory(id, { name, slug, description });
 		return Astro.redirect(`/categories/${id}?updated=true`, 302);
 	} catch (error) {
 		console.error("Error updating category:", error);
@@ -53,15 +67,16 @@ if (Astro.request.method === "POST") {
 }
 
 // Get posts in this category
-const posts = await getPostsByCategory(id!);
+const _posts = await getPostsByCategory(id);
 
-const updated = Astro.url.searchParams.get("updated") === "true";
-const error = Astro.url.searchParams.get("error");
-const errorMessages: Record<string, string> = {
+const _updated = Astro.url.searchParams.get("updated") === "true";
+const _error = Astro.url.searchParams.get("error");
+const _errorMessages: Record<string, string> = {
 	name_required: "Category name is required.",
 	name_exists: "A category with this name already exists.",
 	slug_exists: "A category with this slug already exists.",
-	invalid_slug: "Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
+	invalid_slug:
+		"Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
 	update_failed: "Failed to update category. Please try again.",
 };
 ---

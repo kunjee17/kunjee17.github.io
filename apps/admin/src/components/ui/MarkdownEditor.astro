@@ -8,7 +8,20 @@ interface Props {
 	class?: string;
 }
 
-const { id, name, value = "", placeholder = "Start typing markdown...", required = false, class: className = "" } = Astro.props;
+const {
+	// biome-ignore lint/correctness/noUnusedVariables: Used in template and script
+	id,
+	// biome-ignore lint/correctness/noUnusedVariables: Used in template
+	name,
+	// biome-ignore lint/correctness/noUnusedVariables: Used in template and script
+	value = "",
+	// biome-ignore lint/correctness/noUnusedVariables: Used in template
+	placeholder = "Start typing markdown...",
+	// biome-ignore lint/correctness/noUnusedVariables: Used in template
+	required = false,
+	// biome-ignore lint/correctness/noUnusedVariables: Used in template
+	class: className = "",
+}: Props = Astro.props;
 ---
 
 <div class={`markdown-editor-wrapper ${className}`}>

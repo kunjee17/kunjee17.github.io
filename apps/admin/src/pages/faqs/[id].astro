@@ -1,10 +1,13 @@
 ---
-import AdminLayout from "../../components/layout/AdminLayout.astro";
-import { Save, X as Cancel } from "@lucide/astro";
-import { getFAQ, updateFAQ, getAllPosts, getAllPages } from "../../lib/db";
+import { getAllPages, getAllPosts, getFAQ, updateFAQ } from "../../lib/db";
 
 const { id } = Astro.params;
-const faq = await getFAQ(id || "");
+
+if (!id) {
+	return Astro.redirect("/faqs?error=not_found", 302);
+}
+
+const faq = await getFAQ(id);
 
 if (!faq) {
 	return Astro.redirect("/faqs?error=not_found", 302);
@@ -19,7 +22,7 @@ if (Astro.request.method === "POST") {
 	const orderStr = formData.get("order")?.toString();
 
 	try {
-		await updateFAQ(id!, {
+		await updateFAQ(id, {
 			question,
 			answer,
 			blogPostId: blogPostId || undefined,
@@ -33,9 +36,9 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const [posts, pages] = await Promise.all([getAllPosts(), getAllPages()]);
-const updated = Astro.url.searchParams.get("updated") === "true";
-const error = Astro.url.searchParams.get("error");
+const [_posts, _pages] = await Promise.all([getAllPosts(), getAllPages()]);
+const _updated = Astro.url.searchParams.get("updated") === "true";
+const _error = Astro.url.searchParams.get("error");
 ---
 
 <AdminLayout title={`Edit FAQ - ${faq.question}`}>

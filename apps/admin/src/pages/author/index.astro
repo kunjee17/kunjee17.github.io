@@ -1,8 +1,12 @@
 ---
-import AdminLayout from "../../components/layout/AdminLayout.astro";
-import { Save } from "@lucide/astro";
-import { getFirstAuthor, createAuthor, updateAuthor, getPostsByAuthor, validateSlugFormat, checkAuthorSlugExists, generateSlug } from "../../lib/db";
-import { format } from "date-fns";
+import {
+	checkAuthorSlugExists,
+	createAuthor,
+	getFirstAuthor,
+	getPostsByAuthor,
+	updateAuthor,
+	validateSlugFormat,
+} from "../../lib/db";
 
 let author = await getFirstAuthor();
 
@@ -49,17 +53,24 @@ if (Astro.request.method === "POST") {
 	if (socialLinksStr) {
 		try {
 			const parsed = JSON.parse(socialLinksStr);
-			if (typeof parsed !== "object" || Array.isArray(parsed) || parsed === null) {
+			if (
+				typeof parsed !== "object" ||
+				Array.isArray(parsed) ||
+				parsed === null
+			) {
 				return Astro.redirect("/author?error=invalid_social_links_format", 302);
 			}
 			// Validate that all values are strings
-			for (const [key, value] of Object.entries(parsed)) {
+			for (const [_key, value] of Object.entries(parsed)) {
 				if (typeof value !== "string") {
-					return Astro.redirect("/author?error=invalid_social_links_values", 302);
+					return Astro.redirect(
+						"/author?error=invalid_social_links_values",
+						302,
+					);
 				}
 			}
 			socialLinks = parsed;
-		} catch (parseError) {
+		} catch (_parseError) {
 			return Astro.redirect("/author?error=invalid_social_links_json", 302);
 		}
 	}
@@ -126,20 +137,23 @@ function isValidUrl(urlString: string): boolean {
 author = await getFirstAuthor();
 
 // Get posts by this author
-const posts = author ? await getPostsByAuthor(author.id) : [];
+const _posts = author ? await getPostsByAuthor(author.id) : [];
 
-const updated = Astro.url.searchParams.get("updated") === "true";
-const error = Astro.url.searchParams.get("error");
-const errorMessages: Record<string, string> = {
+const _updated = Astro.url.searchParams.get("updated") === "true";
+const _error = Astro.url.searchParams.get("error");
+const _errorMessages: Record<string, string> = {
 	name_required: "Author name is required.",
 	slug_required: "Slug is required.",
 	slug_exists: "An author with this slug already exists.",
-	invalid_slug: "Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
+	invalid_slug:
+		"Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
 	invalid_email: "Invalid email format.",
 	invalid_profile_picture_url: "Invalid profile picture URL format.",
 	invalid_website_url: "Invalid website URL format.",
-	invalid_social_links_json: "Invalid JSON format in social links. Please check your JSON syntax.",
-	invalid_social_links_format: "Social links must be a JSON object (not an array or null).",
+	invalid_social_links_json:
+		"Invalid JSON format in social links. Please check your JSON syntax.",
+	invalid_social_links_format:
+		"Social links must be a JSON object (not an array or null).",
 	invalid_social_links_values: "All social link values must be strings.",
 	save_failed: "Failed to save author. Please try again.",
 };

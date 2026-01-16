@@ -3,9 +3,9 @@
  * Copy database file from admin to blog app
  * Cross-platform script using Node.js
  */
-import { copyFileSync, existsSync } from "fs";
-import { fileURLToPath } from "url";
-import { dirname, join, resolve } from "path";
+import { copyFileSync, existsSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

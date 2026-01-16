@@ -1,6 +1,6 @@
-import { defineConfig } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
 import db from "@astrojs/db";
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({

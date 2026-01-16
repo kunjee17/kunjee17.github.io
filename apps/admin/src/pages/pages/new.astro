@@ -1,8 +1,10 @@
 ---
-import AdminLayout from "../../components/layout/AdminLayout.astro";
-import { Save, X as Cancel } from "@lucide/astro";
-import MarkdownEditor from "../../components/ui/MarkdownEditor.astro";
-import { createPage, generateSlug, validateSlugFormat, checkPageSlugExists } from "../../lib/db";
+import {
+	checkPageSlugExists,
+	createPage,
+	generateSlug,
+	validateSlugFormat,
+} from "../../lib/db";
 
 // Handle form submission
 if (Astro.request.method === "POST") {
@@ -43,14 +45,14 @@ if (Astro.request.method === "POST") {
 
 	if (publishedAtStr) {
 		publishedAt = new Date(publishedAtStr);
-		if (isNaN(publishedAt.getTime())) {
+		if (Number.isNaN(publishedAt.getTime())) {
 			return Astro.redirect("/pages/new?error=invalid_published_date", 302);
 		}
 	}
 
 	if (expiryDateStr) {
 		expiryDate = new Date(expiryDateStr);
-		if (isNaN(expiryDate.getTime())) {
+		if (Number.isNaN(expiryDate.getTime())) {
 			return Astro.redirect("/pages/new?error=invalid_expiry_date", 302);
 		}
 	}
@@ -59,12 +61,18 @@ if (Astro.request.method === "POST") {
 
 	const keywordsStr = formData.get("keywords")?.toString();
 	const keywords = keywordsStr
-		? keywordsStr.split(",").map((k) => k.trim()).filter((k) => k.length > 0)
+		? keywordsStr
+				.split(",")
+				.map((k) => k.trim())
+				.filter((k) => k.length > 0)
 		: undefined;
 
 	const aliasesStr = formData.get("aliases")?.toString();
 	const aliases = aliasesStr
-		? aliasesStr.split(",").map((a) => a.trim()).filter((a) => a.length > 0)
+		? aliasesStr
+				.split(",")
+				.map((a) => a.trim())
+				.filter((a) => a.length > 0)
 		: undefined;
 
 	const type = formData.get("type")?.toString()?.trim();
@@ -114,12 +122,13 @@ function isValidUrlPath(path: string): boolean {
 	return /^\/[^\s]*$/.test(path);
 }
 
-const error = Astro.url.searchParams.get("error");
-const errorMessages: Record<string, string> = {
+const _error = Astro.url.searchParams.get("error");
+const _errorMessages: Record<string, string> = {
 	title_required: "Page title is required.",
 	content_required: "Page content is required.",
 	slug_exists: "A page with this slug already exists.",
-	invalid_slug: "Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
+	invalid_slug:
+		"Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
 	invalid_url: "Invalid URL format. URL must start with / and be a valid path.",
 	invalid_published_date: "Invalid published date format.",
 	invalid_expiry_date: "Invalid expiry date format.",

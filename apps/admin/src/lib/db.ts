@@ -1,5 +1,20 @@
 // Database helper functions for admin panel
-import { db, BlogPosts, Pages, Tags, Categories, Author, Media, FAQs, BlogPostTags, BlogPostCategories, BlogPostReferences, eq, desc, sql } from "astro:db";
+import {
+	Author,
+	BlogPostCategories,
+	BlogPostReferences,
+	BlogPosts,
+	BlogPostTags,
+	Categories,
+	db,
+	desc,
+	eq,
+	FAQs,
+	Media,
+	Pages,
+	sql,
+	Tags,
+} from "astro:db";
 import { v4 as uuidv4 } from "uuid";
 
 // Helper to generate slug from title
@@ -14,7 +29,10 @@ export function generateSlug(title: string): string {
 
 // Helper to calculate word count
 export function calculateWordCount(content: string): number {
-	return content.trim().split(/\s+/).filter((word) => word.length > 0).length;
+	return content
+		.trim()
+		.split(/\s+/)
+		.filter((word) => word.length > 0).length;
 }
 
 // Helper to calculate reading time (average 200 words per minute)
@@ -29,7 +47,10 @@ export function validateSlugFormat(slug: string): boolean {
 	return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug);
 }
 
-export async function checkTagNameExists(name: string, excludeId?: string): Promise<boolean> {
+export async function checkTagNameExists(
+	name: string,
+	excludeId?: string,
+): Promise<boolean> {
 	const query = db.select().from(Tags).where(eq(Tags.name, name)).limit(1);
 	const results = await query;
 	if (excludeId) {
@@ -38,7 +59,10 @@ export async function checkTagNameExists(name: string, excludeId?: string): Prom
 	return results.length > 0;
 }
 
-export async function checkTagSlugExists(slug: string, excludeId?: string): Promise<boolean> {
+export async function checkTagSlugExists(
+	slug: string,
+	excludeId?: string,
+): Promise<boolean> {
 	const query = db.select().from(Tags).where(eq(Tags.slug, slug)).limit(1);
 	const results = await query;
 	if (excludeId) {
@@ -47,8 +71,15 @@ export async function checkTagSlugExists(slug: string, excludeId?: string): Prom
 	return results.length > 0;
 }
 
-export async function checkCategoryNameExists(name: string, excludeId?: string): Promise<boolean> {
-	const query = db.select().from(Categories).where(eq(Categories.name, name)).limit(1);
+export async function checkCategoryNameExists(
+	name: string,
+	excludeId?: string,
+): Promise<boolean> {
+	const query = db
+		.select()
+		.from(Categories)
+		.where(eq(Categories.name, name))
+		.limit(1);
 	const results = await query;
 	if (excludeId) {
 		return results.some((cat) => cat.id !== excludeId);
@@ -56,8 +87,15 @@ export async function checkCategoryNameExists(name: string, excludeId?: string):
 	return results.length > 0;
 }
 
-export async function checkCategorySlugExists(slug: string, excludeId?: string): Promise<boolean> {
-	const query = db.select().from(Categories).where(eq(Categories.slug, slug)).limit(1);
+export async function checkCategorySlugExists(
+	slug: string,
+	excludeId?: string,
+): Promise<boolean> {
+	const query = db
+		.select()
+		.from(Categories)
+		.where(eq(Categories.slug, slug))
+		.limit(1);
 	const results = await query;
 	if (excludeId) {
 		return results.some((cat) => cat.id !== excludeId);
@@ -65,7 +103,10 @@ export async function checkCategorySlugExists(slug: string, excludeId?: string):
 	return results.length > 0;
 }
 
-export async function checkAuthorSlugExists(slug: string, excludeId?: string): Promise<boolean> {
+export async function checkAuthorSlugExists(
+	slug: string,
+	excludeId?: string,
+): Promise<boolean> {
 	const query = db.select().from(Author).where(eq(Author.slug, slug)).limit(1);
 	const results = await query;
 	if (excludeId) {
@@ -74,7 +115,10 @@ export async function checkAuthorSlugExists(slug: string, excludeId?: string): P
 	return results.length > 0;
 }
 
-export async function checkPageSlugExists(slug: string, excludeId?: string): Promise<boolean> {
+export async function checkPageSlugExists(
+	slug: string,
+	excludeId?: string,
+): Promise<boolean> {
 	const query = db.select().from(Pages).where(eq(Pages.slug, slug)).limit(1);
 	const results = await query;
 	if (excludeId) {
@@ -83,8 +127,15 @@ export async function checkPageSlugExists(slug: string, excludeId?: string): Pro
 	return results.length > 0;
 }
 
-export async function checkPostSlugExists(slug: string, excludeId?: string): Promise<boolean> {
-	const query = db.select().from(BlogPosts).where(eq(BlogPosts.slug, slug)).limit(1);
+export async function checkPostSlugExists(
+	slug: string,
+	excludeId?: string,
+): Promise<boolean> {
+	const query = db
+		.select()
+		.from(BlogPosts)
+		.where(eq(BlogPosts.slug, slug))
+		.limit(1);
 	const results = await query;
 	if (excludeId) {
 		return results.some((post: { id: string }) => post.id !== excludeId);
@@ -98,7 +149,11 @@ export async function getAllPosts() {
 }
 
 export async function getPost(id: string) {
-	const posts = await db.select().from(BlogPosts).where(eq(BlogPosts.id, id)).limit(1);
+	const posts = await db
+		.select()
+		.from(BlogPosts)
+		.where(eq(BlogPosts.id, id))
+		.limit(1);
 	return posts[0] || null;
 }
 
@@ -205,8 +260,8 @@ export async function createPost(data: {
 				db.insert(BlogPostTags).values({
 					blogPostId: id,
 					tagId,
-				})
-			)
+				}),
+			),
 		);
 	}
 
@@ -217,8 +272,8 @@ export async function createPost(data: {
 				db.insert(BlogPostCategories).values({
 					blogPostId: id,
 					categoryId,
-				})
-			)
+				}),
+			),
 		);
 	}
 
@@ -256,7 +311,7 @@ export async function updatePost(
 		weight?: number;
 		tagIds?: string[];
 		categoryIds?: string[];
-	}
+	},
 ) {
 	const updateData: Record<string, unknown> = {
 		updatedAt: new Date(),
@@ -270,24 +325,34 @@ export async function updatePost(
 	if (data.content !== undefined) {
 		updateData.content = data.content;
 		updateData.wordCount = calculateWordCount(data.content);
-		updateData.readingTime = calculateReadingTime(updateData.wordCount as number);
+		updateData.readingTime = calculateReadingTime(
+			updateData.wordCount as number,
+		);
 	}
 	if (data.authorId !== undefined) updateData.authorId = data.authorId;
 	if (data.publishedAt !== undefined) updateData.publishedAt = data.publishedAt;
 	if (data.expiryDate !== undefined) updateData.expiryDate = data.expiryDate;
 	if (data.draft !== undefined) updateData.draft = data.draft;
 	if (data.featured !== undefined) updateData.featured = data.featured;
-	if (data.keywords !== undefined) updateData.keywords = data.keywords ? JSON.stringify(data.keywords) : null;
-	if (data.canonicalUrl !== undefined) updateData.canonicalUrl = data.canonicalUrl;
+	if (data.keywords !== undefined)
+		updateData.keywords = data.keywords ? JSON.stringify(data.keywords) : null;
+	if (data.canonicalUrl !== undefined)
+		updateData.canonicalUrl = data.canonicalUrl;
 	if (data.metaRobots !== undefined) updateData.metaRobots = data.metaRobots;
 	if (data.ogImage !== undefined) updateData.ogImage = data.ogImage;
 	if (data.ogType !== undefined) updateData.ogType = data.ogType;
 	if (data.twitterCard !== undefined) updateData.twitterCard = data.twitterCard;
 	if (data.schemaType !== undefined) updateData.schemaType = data.schemaType;
-	if (data.schemaJson !== undefined) updateData.schemaJson = data.schemaJson ? JSON.stringify(data.schemaJson) : null;
-	if (data.sitemapPriority !== undefined) updateData.sitemapPriority = data.sitemapPriority;
-	if (data.sitemapChangefreq !== undefined) updateData.sitemapChangefreq = data.sitemapChangefreq;
-	if (data.aliases !== undefined) updateData.aliases = data.aliases ? JSON.stringify(data.aliases) : null;
+	if (data.schemaJson !== undefined)
+		updateData.schemaJson = data.schemaJson
+			? JSON.stringify(data.schemaJson)
+			: null;
+	if (data.sitemapPriority !== undefined)
+		updateData.sitemapPriority = data.sitemapPriority;
+	if (data.sitemapChangefreq !== undefined)
+		updateData.sitemapChangefreq = data.sitemapChangefreq;
+	if (data.aliases !== undefined)
+		updateData.aliases = data.aliases ? JSON.stringify(data.aliases) : null;
 	if (data.url !== undefined) updateData.url = data.url;
 	if (data.type !== undefined) updateData.type = data.type;
 	if (data.layout !== undefined) updateData.layout = data.layout;
@@ -306,8 +371,8 @@ export async function updatePost(
 					db.insert(BlogPostTags).values({
 						blogPostId: id,
 						tagId,
-					})
-				)
+					}),
+				),
 			);
 		}
 	}
@@ -315,7 +380,9 @@ export async function updatePost(
 	// Handle categories
 	if (data.categoryIds !== undefined) {
 		// Delete existing categories
-		await db.delete(BlogPostCategories).where(eq(BlogPostCategories.blogPostId, id));
+		await db
+			.delete(BlogPostCategories)
+			.where(eq(BlogPostCategories.blogPostId, id));
 		// Insert new categories
 		if (data.categoryIds.length > 0) {
 			await Promise.all(
@@ -323,8 +390,8 @@ export async function updatePost(
 					db.insert(BlogPostCategories).values({
 						blogPostId: id,
 						categoryId,
-					})
-				)
+					}),
+				),
 			);
 		}
 	}
@@ -333,9 +400,15 @@ export async function updatePost(
 export async function deletePost(id: string) {
 	// Delete relationships first
 	await db.delete(BlogPostTags).where(eq(BlogPostTags.blogPostId, id));
-	await db.delete(BlogPostCategories).where(eq(BlogPostCategories.blogPostId, id));
-	await db.delete(BlogPostReferences).where(eq(BlogPostReferences.fromPostId, id));
-	await db.delete(BlogPostReferences).where(eq(BlogPostReferences.toPostId, id));
+	await db
+		.delete(BlogPostCategories)
+		.where(eq(BlogPostCategories.blogPostId, id));
+	await db
+		.delete(BlogPostReferences)
+		.where(eq(BlogPostReferences.fromPostId, id));
+	await db
+		.delete(BlogPostReferences)
+		.where(eq(BlogPostReferences.toPostId, id));
 	await db.delete(FAQs).where(eq(FAQs.blogPostId, id));
 	// Delete post
 	await db.delete(BlogPosts).where(eq(BlogPosts.id, id));
@@ -366,7 +439,11 @@ export async function getTagsForPost(postId: string) {
 	return results;
 }
 
-export async function createTag(data: { name: string; slug?: string; description?: string }) {
+export async function createTag(data: {
+	name: string;
+	slug?: string;
+	description?: string;
+}) {
 	const id = uuidv4();
 	const slug = data.slug || generateSlug(data.name);
 	await db.insert(Tags).values({
@@ -379,7 +456,10 @@ export async function createTag(data: { name: string; slug?: string; description
 	return id;
 }
 
-export async function updateTag(id: string, data: { name?: string; slug?: string; description?: string }) {
+export async function updateTag(
+	id: string,
+	data: { name?: string; slug?: string; description?: string },
+) {
 	const updateData: Record<string, unknown> = {};
 	if (data.name !== undefined) updateData.name = data.name;
 	if (data.slug !== undefined) updateData.slug = data.slug;
@@ -414,7 +494,7 @@ export async function getTagsWithPostCounts() {
 		.leftJoin(BlogPostTags, eq(Tags.id, BlogPostTags.tagId))
 		.groupBy(Tags.id)
 		.orderBy(Tags.name);
-	
+
 	return results.map((tag) => ({
 		...tag,
 		postCount: Number(tag.postCount) || 0,
@@ -441,7 +521,11 @@ export async function getAllCategories() {
 }
 
 export async function getCategory(id: string) {
-	const categories = await db.select().from(Categories).where(eq(Categories.id, id)).limit(1);
+	const categories = await db
+		.select()
+		.from(Categories)
+		.where(eq(Categories.id, id))
+		.limit(1);
 	return categories[0] || null;
 }
 
@@ -460,7 +544,11 @@ export async function getCategoriesForPost(postId: string) {
 	return results;
 }
 
-export async function createCategory(data: { name: string; slug?: string; description?: string }) {
+export async function createCategory(data: {
+	name: string;
+	slug?: string;
+	description?: string;
+}) {
 	const id = uuidv4();
 	const slug = data.slug || generateSlug(data.name);
 	await db.insert(Categories).values({
@@ -473,7 +561,10 @@ export async function createCategory(data: { name: string; slug?: string; descri
 	return id;
 }
 
-export async function updateCategory(id: string, data: { name?: string; slug?: string; description?: string }) {
+export async function updateCategory(
+	id: string,
+	data: { name?: string; slug?: string; description?: string },
+) {
 	const updateData: Record<string, unknown> = {};
 	if (data.name !== undefined) updateData.name = data.name;
 	if (data.slug !== undefined) updateData.slug = data.slug;
@@ -482,7 +573,9 @@ export async function updateCategory(id: string, data: { name?: string; slug?: s
 }
 
 export async function deleteCategory(id: string) {
-	await db.delete(BlogPostCategories).where(eq(BlogPostCategories.categoryId, id));
+	await db
+		.delete(BlogPostCategories)
+		.where(eq(BlogPostCategories.categoryId, id));
 	await db.delete(Categories).where(eq(Categories.id, id));
 }
 
@@ -505,10 +598,13 @@ export async function getCategoriesWithPostCounts() {
 			postCount: sql<number>`count(${BlogPostCategories.categoryId})`,
 		})
 		.from(Categories)
-		.leftJoin(BlogPostCategories, eq(Categories.id, BlogPostCategories.categoryId))
+		.leftJoin(
+			BlogPostCategories,
+			eq(Categories.id, BlogPostCategories.categoryId),
+		)
 		.groupBy(Categories.id)
 		.orderBy(Categories.name);
-	
+
 	return results.map((category) => ({
 		...category,
 		postCount: Number(category.postCount) || 0,
@@ -544,7 +640,11 @@ export async function getPostsByAuthor(authorId: string) {
 
 // Author
 export async function getAuthor(id: string) {
-	const authors = await db.select().from(Author).where(eq(Author.id, id)).limit(1);
+	const authors = await db
+		.select()
+		.from(Author)
+		.where(eq(Author.id, id))
+		.limit(1);
 	return authors[0] || null;
 }
 
@@ -592,7 +692,7 @@ export async function updateAuthor(
 		email?: string;
 		website?: string;
 		socialLinks?: Record<string, string>;
-	}
+	},
 ) {
 	const updateData: Record<string, unknown> = {
 		updatedAt: new Date(),
@@ -601,10 +701,14 @@ export async function updateAuthor(
 	if (data.name !== undefined) updateData.name = data.name;
 	if (data.bio !== undefined) updateData.bio = data.bio;
 	if (data.credentials !== undefined) updateData.credentials = data.credentials;
-	if (data.profilePicture !== undefined) updateData.profilePicture = data.profilePicture;
+	if (data.profilePicture !== undefined)
+		updateData.profilePicture = data.profilePicture;
 	if (data.email !== undefined) updateData.email = data.email;
 	if (data.website !== undefined) updateData.website = data.website;
-	if (data.socialLinks !== undefined) updateData.socialLinks = data.socialLinks ? JSON.stringify(data.socialLinks) : null;
+	if (data.socialLinks !== undefined)
+		updateData.socialLinks = data.socialLinks
+			? JSON.stringify(data.socialLinks)
+			: null;
 	await db.update(Author).set(updateData).where(eq(Author.id, id));
 }
 
@@ -681,7 +785,7 @@ export async function updatePage(
 		type?: string;
 		layout?: string;
 		weight?: number;
-	}
+	},
 ) {
 	const updateData: Record<string, unknown> = {
 		updatedAt: new Date(),
@@ -695,8 +799,10 @@ export async function updatePage(
 	if (data.publishedAt !== undefined) updateData.publishedAt = data.publishedAt;
 	if (data.expiryDate !== undefined) updateData.expiryDate = data.expiryDate;
 	if (data.draft !== undefined) updateData.draft = data.draft;
-	if (data.keywords !== undefined) updateData.keywords = data.keywords ? JSON.stringify(data.keywords) : null;
-	if (data.aliases !== undefined) updateData.aliases = data.aliases ? JSON.stringify(data.aliases) : null;
+	if (data.keywords !== undefined)
+		updateData.keywords = data.keywords ? JSON.stringify(data.keywords) : null;
+	if (data.aliases !== undefined)
+		updateData.aliases = data.aliases ? JSON.stringify(data.aliases) : null;
 	if (data.url !== undefined) updateData.url = data.url;
 	if (data.type !== undefined) updateData.type = data.type;
 	if (data.layout !== undefined) updateData.layout = data.layout;
@@ -761,7 +867,7 @@ export async function updateMedia(
 		caption?: string;
 		width?: number;
 		height?: number;
-	}
+	},
 ) {
 	const updateData: Record<string, unknown> = {};
 	if (data.filename !== undefined) updateData.filename = data.filename;
@@ -791,11 +897,19 @@ export async function getFAQ(id: string) {
 }
 
 export async function getFAQsForPost(postId: string) {
-	return await db.select().from(FAQs).where(eq(FAQs.blogPostId, postId)).orderBy(FAQs.order, FAQs.createdAt);
+	return await db
+		.select()
+		.from(FAQs)
+		.where(eq(FAQs.blogPostId, postId))
+		.orderBy(FAQs.order, FAQs.createdAt);
 }
 
 export async function getFAQsForPage(pageId: string) {
-	return await db.select().from(FAQs).where(eq(FAQs.pageId, pageId)).orderBy(FAQs.order, FAQs.createdAt);
+	return await db
+		.select()
+		.from(FAQs)
+		.where(eq(FAQs.pageId, pageId))
+		.orderBy(FAQs.order, FAQs.createdAt);
 }
 
 export async function createFAQ(data: {
@@ -819,7 +933,16 @@ export async function createFAQ(data: {
 	return id;
 }
 
-export async function updateFAQ(id: string, data: { blogPostId?: string; pageId?: string; question?: string; answer?: string; order?: number }) {
+export async function updateFAQ(
+	id: string,
+	data: {
+		blogPostId?: string;
+		pageId?: string;
+		question?: string;
+		answer?: string;
+		order?: number;
+	},
+) {
 	const updateData: Record<string, unknown> = {
 		updatedAt: new Date(),
 	};
@@ -878,15 +1001,19 @@ export async function deleteReference(id: string) {
 
 // Dashboard stats
 export async function getDashboardStats() {
-	const [posts, pages, tags, categories, media, faqs, drafts] = await Promise.all([
-		db.select({ count: sql<number>`count(*)` }).from(BlogPosts),
-		db.select({ count: sql<number>`count(*)` }).from(Pages),
-		db.select({ count: sql<number>`count(*)` }).from(Tags),
-		db.select({ count: sql<number>`count(*)` }).from(Categories),
-		db.select({ count: sql<number>`count(*)` }).from(Media),
-		db.select({ count: sql<number>`count(*)` }).from(FAQs),
-		db.select({ count: sql<number>`count(*)` }).from(BlogPosts).where(eq(BlogPosts.draft, true)),
-	]);
+	const [posts, pages, tags, categories, media, faqs, drafts] =
+		await Promise.all([
+			db.select({ count: sql<number>`count(*)` }).from(BlogPosts),
+			db.select({ count: sql<number>`count(*)` }).from(Pages),
+			db.select({ count: sql<number>`count(*)` }).from(Tags),
+			db.select({ count: sql<number>`count(*)` }).from(Categories),
+			db.select({ count: sql<number>`count(*)` }).from(Media),
+			db.select({ count: sql<number>`count(*)` }).from(FAQs),
+			db
+				.select({ count: sql<number>`count(*)` })
+				.from(BlogPosts)
+				.where(eq(BlogPosts.draft, true)),
+		]);
 
 	return {
 		posts: posts[0]?.count || 0,

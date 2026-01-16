@@ -1,13 +1,19 @@
 ---
-import AdminLayout from "../../components/layout/AdminLayout.astro";
-import { Save, X as Cancel } from "@lucide/astro";
-import MarkdownEditor from "../../components/ui/MarkdownEditor.astro";
-import { getPage, updatePage, generateSlug, validateSlugFormat, checkPageSlugExists } from "../../lib/db";
-import { format } from "date-fns";
+import {
+	checkPageSlugExists,
+	generateSlug,
+	getPage,
+	updatePage,
+	validateSlugFormat,
+} from "../../lib/db";
 
 const { id } = Astro.params;
 
-const page = await getPage(id || "");
+if (!id) {
+	return Astro.redirect("/pages?error=not_found", 302);
+}
+
+const page = await getPage(id);
 
 if (!page) {
 	return Astro.redirect("/pages?error=not_found", 302);
@@ -18,7 +24,8 @@ if (Astro.request.method === "POST") {
 	const formData = await Astro.request.formData();
 
 	const title = (formData.get("title")?.toString() || "").trim();
-	const slug = (formData.get("slug")?.toString() || "").trim() || generateSlug(title);
+	const slug =
+		(formData.get("slug")?.toString() || "").trim() || generateSlug(title);
 	const linkTitle = formData.get("linkTitle")?.toString()?.trim();
 	const description = formData.get("description")?.toString()?.trim();
 	const summary = formData.get("summary")?.toString()?.trim();
@@ -51,14 +58,14 @@ if (Astro.request.method === "POST") {
 
 	if (publishedAtStr) {
 		publishedAt = new Date(publishedAtStr);
-		if (isNaN(publishedAt.getTime())) {
+		if (Number.isNaN(publishedAt.getTime())) {
 			return Astro.redirect(`/pages/${id}?error=invalid_published_date`, 302);
 		}
 	}
 
 	if (expiryDateStr) {
 		expiryDate = new Date(expiryDateStr);
-		if (isNaN(expiryDate.getTime())) {
+		if (Number.isNaN(expiryDate.getTime())) {
 			return Astro.redirect(`/pages/${id}?error=invalid_expiry_date`, 302);
 		}
 	}
@@ -67,12 +74,18 @@ if (Astro.request.method === "POST") {
 
 	const keywordsStr = formData.get("keywords")?.toString();
 	const keywords = keywordsStr
-		? keywordsStr.split(",").map((k) => k.trim()).filter((k) => k.length > 0)
+		? keywordsStr
+				.split(",")
+				.map((k) => k.trim())
+				.filter((k) => k.length > 0)
 		: undefined;
 
 	const aliasesStr = formData.get("aliases")?.toString();
 	const aliases = aliasesStr
-		? aliasesStr.split(",").map((a) => a.trim()).filter((a) => a.length > 0)
+		? aliasesStr
+				.split(",")
+				.map((a) => a.trim())
+				.filter((a) => a.length > 0)
 		: undefined;
 
 	const type = formData.get("type")?.toString()?.trim();
@@ -85,7 +98,7 @@ if (Astro.request.method === "POST") {
 			return Astro.redirect(`/pages/${id}?error=slug_exists`, 302);
 		}
 
-		await updatePage(id!, {
+		await updatePage(id, {
 			title,
 			slug,
 			linkTitle,
@@ -122,29 +135,38 @@ function isValidUrlPath(path: string): boolean {
 	return /^\/[^\s]*$/.test(path);
 }
 
-function formatDateTimeLocal(date: Date | null | undefined): string {
+function _formatDateTimeLocal(date: Date | null | undefined): string {
 	if (!date) return "";
 	const d = new Date(date);
 	d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
 	return d.toISOString().slice(0, 16);
 }
 
-const updated = Astro.url.searchParams.get("updated") === "true";
-const error = Astro.url.searchParams.get("error");
-const created = Astro.url.searchParams.get("created") === "true";
-const errorMessages: Record<string, string> = {
+const _updated = Astro.url.searchParams.get("updated") === "true";
+const _error = Astro.url.searchParams.get("error");
+const _created = Astro.url.searchParams.get("created") === "true";
+const _errorMessages: Record<string, string> = {
 	title_required: "Page title is required.",
 	content_required: "Page content is required.",
 	slug_exists: "A page with this slug already exists.",
-	invalid_slug: "Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
+	invalid_slug:
+		"Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
 	invalid_url: "Invalid URL format. URL must start with / and be a valid path.",
 	invalid_published_date: "Invalid published date format.",
 	invalid_expiry_date: "Invalid expiry date format.",
 	update_failed: "Failed to update page. Please try again.",
 };
 
-const keywords = page.keywords ? (typeof page.keywords === "string" ? JSON.parse(page.keywords) : page.keywords) : [];
-const aliases = page.aliases ? (typeof page.aliases === "string" ? JSON.parse(page.aliases) : page.aliases) : [];
+const _keywords = page.keywords
+	? typeof page.keywords === "string"
+		? JSON.parse(page.keywords)
+		: page.keywords
+	: [];
+const _aliases = page.aliases
+	? typeof page.aliases === "string"
+		? JSON.parse(page.aliases)
+		: page.aliases
+	: [];
 ---
 
 <AdminLayout title={`Edit Page - ${page.title}`}>

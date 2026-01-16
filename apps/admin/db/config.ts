@@ -1,7 +1,7 @@
 // Shared AstroDB configuration
 // Used by both blog and admin apps
 
-import { defineDb, defineTable, column } from "astro:db";
+import { column, defineDb, defineTable } from "astro:db";
 
 // Tags table (Hugo taxonomy - normalized for querying and taxonomy pages)
 export const Tags = defineTable({
