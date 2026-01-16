@@ -54,7 +54,7 @@ export async function checkTagNameExists(
 	const query = db.select().from(Tags).where(eq(Tags.name, name)).limit(1);
 	const results = await query;
 	if (excludeId) {
-		return results.some((tag) => tag.id !== excludeId);
+		return results.some((tag: { id: string }) => tag.id !== excludeId);
 	}
 	return results.length > 0;
 }
@@ -66,7 +66,7 @@ export async function checkTagSlugExists(
 	const query = db.select().from(Tags).where(eq(Tags.slug, slug)).limit(1);
 	const results = await query;
 	if (excludeId) {
-		return results.some((tag) => tag.id !== excludeId);
+		return results.some((tag: { id: string }) => tag.id !== excludeId);
 	}
 	return results.length > 0;
 }
@@ -82,7 +82,7 @@ export async function checkCategoryNameExists(
 		.limit(1);
 	const results = await query;
 	if (excludeId) {
-		return results.some((cat) => cat.id !== excludeId);
+		return results.some((cat: { id: string }) => cat.id !== excludeId);
 	}
 	return results.length > 0;
 }
@@ -98,7 +98,7 @@ export async function checkCategorySlugExists(
 		.limit(1);
 	const results = await query;
 	if (excludeId) {
-		return results.some((cat) => cat.id !== excludeId);
+		return results.some((cat: { id: string }) => cat.id !== excludeId);
 	}
 	return results.length > 0;
 }
@@ -495,7 +495,7 @@ export async function getTagsWithPostCounts() {
 		.groupBy(Tags.id)
 		.orderBy(Tags.name);
 
-	return results.map((tag) => ({
+	return results.map((tag: { id: string; slug: string; name: string; description: string | null; createdAt: Date; postCount: number | null }) => ({
 		...tag,
 		postCount: Number(tag.postCount) || 0,
 	}));
@@ -605,7 +605,7 @@ export async function getCategoriesWithPostCounts() {
 		.groupBy(Categories.id)
 		.orderBy(Categories.name);
 
-	return results.map((category) => ({
+	return results.map((category: { id: string; slug: string; name: string; description: string | null; createdAt: Date; postCount: number | null }) => ({
 		...category,
 		postCount: Number(category.postCount) || 0,
 	}));

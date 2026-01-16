@@ -31,8 +31,10 @@ if (Astro.request.method === "POST") {
 }
 
 // Get error and logout messages from query params
-const _error = Astro.url.searchParams.get("error");
-const _loggedOut = Astro.url.searchParams.get("loggedOut");
+const error = Astro.url.searchParams.get("error");
+const loggedOut = Astro.url.searchParams.get("loggedOut");
+
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Login - Admin Panel">

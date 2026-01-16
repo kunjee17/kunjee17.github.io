@@ -1,9 +1,11 @@
 ---
 import { getAllPosts, getDashboardStats } from "../lib/db";
+import { format } from "date-fns";
+import AdminLayout from "../components/layout/AdminLayout.astro";
 
-const _stats = await getDashboardStats();
+const stats = await getDashboardStats();
 const recentPosts = await getAllPosts();
-const _recentPostsList = recentPosts.slice(0, 5);
+const recentPostsList = recentPosts.slice(0, 5);
 ---
 
 <AdminLayout title="Dashboard">

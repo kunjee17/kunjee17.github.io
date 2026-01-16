@@ -26,6 +26,8 @@ coverage
 out/
 build
 dist
+.astro/
+!.astro/types.d.ts
 
 
 # Debug
@@ -40,6 +42,12 @@ yarn-error.log*
 # Database files
 *.db
 *.db-journal
+*.db-shm
+*.db-wal
+**/*.db
+**/*.db-journal
+**/*.db-shm
+**/*.db-wal
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/turbo,node,windows,linux,macos,visualstudiocode

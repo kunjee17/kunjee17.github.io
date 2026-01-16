@@ -26,6 +26,21 @@ declare module "astro:db" {
 		number: (options?: { optional?: boolean }) => unknown;
 		json: (options?: { optional?: boolean }) => unknown;
 	};
+
+	// Database query functions
+	export const db: {
+		select: () => {
+			from: (table: TableDefinition) => {
+				where: (condition: unknown) => {
+					limit: (count: number) => Promise<unknown[]>;
+				};
+			};
+		};
+	};
+
+	export function eq(column: unknown, value: unknown): unknown;
+	export function desc(column: unknown): unknown;
+	export function sql(template: TemplateStringsArray, ...values: unknown[]): unknown;
 }
 
 interface ImportMetaEnv {
