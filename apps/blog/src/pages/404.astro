@@ -1,0 +1,325 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+	title="404 - Page Not Found"
+	description="Oops! The page you're looking for doesn't exist. Play some Snake while you figure out where you wanted to go."
+>
+	<div class="content-wrapper py-12">
+		<div class="max-w-3xl mx-auto text-center">
+			<!-- Error Message -->
+			<div class="mb-12">
+				<h1 class="text-display text-7xl font-bold mb-4">404</h1>
+				<p class="text-2xl mb-2">Well, this is awkward.</p>
+				<p class="text-xl opacity-80">
+					The page you're looking for doesn't exist. It might have been moved, deleted, or maybe it
+					never existed in the first place.
+				</p>
+			</div>
+
+			<!-- Snake Game Card -->
+			<div class="card bg-base-200 shadow-lg">
+				<div class="card-body">
+					<h2 class="card-title text-display text-2xl mb-4 justify-center">
+						🐍 Play Snake While You Think
+					</h2>
+
+					<p class="text-sm opacity-70 mb-4">
+						Use arrow keys or WASD to move. Don't hit the walls or yourself!
+					</p>
+
+					<!-- Game Canvas -->
+					<div class="flex justify-center mb-4">
+						<canvas
+							id="snakeCanvas"
+							width="400"
+							height="400"
+							class="border-2 border-base-300 rounded-lg bg-base-100"
+						></canvas>
+					</div>
+
+					<!-- Game Info -->
+					<div class="flex justify-between items-center mb-4">
+						<div>
+							<span class="text-lg font-semibold">Score: </span>
+							<span id="score" class="text-2xl font-bold text-primary">0</span>
+						</div>
+						<div>
+							<span class="text-lg font-semibold">High Score: </span>
+							<span id="highScore" class="text-2xl font-bold text-accent">0</span>
+						</div>
+					</div>
+
+					<div class="flex gap-4 justify-center">
+						<button id="startButton" class="btn btn-primary">
+							Start Game
+						</button>
+						<button id="resetButton" class="btn btn-outline">
+							Reset
+						</button>
+					</div>
+
+					<p id="gameOver" class="text-error font-semibold mt-4 hidden">
+						Game Over! Press Start to play again.
+					</p>
+				</div>
+			</div>
+
+			<!-- Navigation Buttons -->
+			<div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="/" class="btn btn-lg btn-primary">
+					Go Home
+				</a>
+				<a href="/writing" class="btn btn-lg btn-outline">
+					Read Writing
+				</a>
+				<a href="/services" class="btn btn-lg btn-outline">
+					View Services
+				</a>
+			</div>
+		</div>
+	</div>
+</BaseLayout>
+
+<script>
+	// Snake Game Implementation
+	const canvas = document.getElementById("snakeCanvas") as HTMLCanvasElement;
+	const ctx = canvas.getContext("2d")!;
+	const scoreElement = document.getElementById("score")!;
+	const highScoreElement = document.getElementById("highScore")!;
+	const gameOverElement = document.getElementById("gameOver")!;
+	const startButton = document.getElementById("startButton")!;
+	const resetButton = document.getElementById("resetButton")!;
+
+	const gridSize = 20;
+	const tileCount = canvas.width / gridSize;
+
+	let snake = [{ x: 10, y: 10 }];
+	let velocity = { x: 0, y: 0 };
+	let food = { x: 15, y: 15 };
+	let score = 0;
+	let highScore = parseInt(localStorage.getItem("snakeHighScore") || "0");
+	let gameLoop: number | null = null;
+	let gameRunning = false;
+
+	highScoreElement.textContent = highScore.toString();
+
+	function drawGame() {
+		// Clear canvas
+		ctx.fillStyle = "oklch(var(--b1))";
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+		// Move snake
+		const head = { x: snake[0].x + velocity.x, y: snake[0].y + velocity.y };
+
+		// Check wall collision
+		if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
+			endGame();
+			return;
+		}
+
+		// Check self collision
+		if (snake.some((segment) => segment.x === head.x && segment.y === head.y)) {
+			endGame();
+			return;
+		}
+
+		snake.unshift(head);
+
+		// Check food collision
+		if (head.x === food.x && head.y === food.y) {
+			score++;
+			scoreElement.textContent = score.toString();
+
+			if (score > highScore) {
+				highScore = score;
+				highScoreElement.textContent = highScore.toString();
+				localStorage.setItem("snakeHighScore", highScore.toString());
+			}
+
+			// Generate new food
+			food = {
+				x: Math.floor(Math.random() * tileCount),
+				y: Math.floor(Math.random() * tileCount),
+			};
+		} else {
+			snake.pop();
+		}
+
+		// Draw snake
+		ctx.fillStyle = "oklch(var(--p))";
+		snake.forEach((segment, index) => {
+			ctx.fillRect(
+				segment.x * gridSize + 1,
+				segment.y * gridSize + 1,
+				gridSize - 2,
+				gridSize - 2
+			);
+
+			// Draw eyes on head
+			if (index === 0) {
+				ctx.fillStyle = "oklch(var(--b1))";
+				const eyeSize = 3;
+				const eyeOffset = 5;
+
+				if (velocity.x === 1) {
+					// Right
+					ctx.fillRect(
+						segment.x * gridSize + gridSize - eyeOffset,
+						segment.y * gridSize + 5,
+						eyeSize,
+						eyeSize
+					);
+					ctx.fillRect(
+						segment.x * gridSize + gridSize - eyeOffset,
+						segment.y * gridSize + gridSize - 8,
+						eyeSize,
+						eyeSize
+					);
+				} else if (velocity.x === -1) {
+					// Left
+					ctx.fillRect(segment.x * gridSize + 2, segment.y * gridSize + 5, eyeSize, eyeSize);
+					ctx.fillRect(
+						segment.x * gridSize + 2,
+						segment.y * gridSize + gridSize - 8,
+						eyeSize,
+						eyeSize
+					);
+				} else if (velocity.y === 1) {
+					// Down
+					ctx.fillRect(segment.x * gridSize + 5, segment.y * gridSize + gridSize - 5, eyeSize, eyeSize);
+					ctx.fillRect(
+						segment.x * gridSize + gridSize - 8,
+						segment.y * gridSize + gridSize - 5,
+						eyeSize,
+						eyeSize
+					);
+				} else if (velocity.y === -1) {
+					// Up
+					ctx.fillRect(segment.x * gridSize + 5, segment.y * gridSize + 2, eyeSize, eyeSize);
+					ctx.fillRect(segment.x * gridSize + gridSize - 8, segment.y * gridSize + 2, eyeSize, eyeSize);
+				}
+				ctx.fillStyle = "oklch(var(--p))";
+			}
+		});
+
+		// Draw food
+		ctx.fillStyle = "oklch(var(--a))";
+		ctx.fillRect(food.x * gridSize + 2, food.y * gridSize + 2, gridSize - 4, gridSize - 4);
+	}
+
+	function startGame() {
+		if (gameRunning) return;
+
+		gameRunning = true;
+		gameOverElement.classList.add("hidden");
+		startButton.textContent = "Pause";
+
+		if (gameLoop === null) {
+			gameLoop = setInterval(drawGame, 100);
+		}
+	}
+
+	function pauseGame() {
+		if (!gameRunning) return;
+
+		gameRunning = false;
+		startButton.textContent = "Resume";
+
+		if (gameLoop !== null) {
+			clearInterval(gameLoop);
+			gameLoop = null;
+		}
+	}
+
+	function endGame() {
+		gameRunning = false;
+		gameOverElement.classList.remove("hidden");
+		startButton.textContent = "Start Game";
+
+		if (gameLoop !== null) {
+			clearInterval(gameLoop);
+			gameLoop = null;
+		}
+	}
+
+	function resetGame() {
+		snake = [{ x: 10, y: 10 }];
+		velocity = { x: 0, y: 0 };
+		food = { x: 15, y: 15 };
+		score = 0;
+		scoreElement.textContent = "0";
+		gameOverElement.classList.add("hidden");
+		startButton.textContent = "Start Game";
+
+		if (gameLoop !== null) {
+			clearInterval(gameLoop);
+			gameLoop = null;
+		}
+
+		gameRunning = false;
+
+		// Draw initial state
+		ctx.fillStyle = "oklch(var(--b1))";
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+		ctx.fillStyle = "oklch(var(--p))";
+		ctx.fillRect(snake[0].x * gridSize + 1, snake[0].y * gridSize + 1, gridSize - 2, gridSize - 2);
+		ctx.fillStyle = "oklch(var(--a))";
+		ctx.fillRect(food.x * gridSize + 2, food.y * gridSize + 2, gridSize - 4, gridSize - 4);
+	}
+
+	// Event listeners
+	startButton.addEventListener("click", () => {
+		if (gameRunning) {
+			pauseGame();
+		} else {
+			startGame();
+		}
+	});
+
+	resetButton.addEventListener("click", resetGame);
+
+	// Keyboard controls
+	document.addEventListener("keydown", (e) => {
+		if (!gameRunning) return;
+
+		switch (e.key) {
+			case "ArrowUp":
+			case "w":
+			case "W":
+				if (velocity.y === 0) {
+					velocity = { x: 0, y: -1 };
+				}
+				e.preventDefault();
+				break;
+			case "ArrowDown":
+			case "s":
+			case "S":
+				if (velocity.y === 0) {
+					velocity = { x: 0, y: 1 };
+				}
+				e.preventDefault();
+				break;
+			case "ArrowLeft":
+			case "a":
+			case "A":
+				if (velocity.x === 0) {
+					velocity = { x: -1, y: 0 };
+				}
+				e.preventDefault();
+				break;
+			case "ArrowRight":
+			case "d":
+			case "D":
+				if (velocity.x === 0) {
+					velocity = { x: 1, y: 0 };
+				}
+				e.preventDefault();
+				break;
+		}
+	});
+
+	// Draw initial state
+	resetGame();
+</script>

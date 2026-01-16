@@ -1,0 +1,51 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getAllCategories } from "@lib/db";
+
+const categories = await getAllCategories();
+---
+
+<BaseLayout
+	title="Categories - Kunjan Dalal"
+	description="Browse blog posts by category. Topics include architecture, systems, AI/RAG, and more."
+>
+	<section class="hero bg-base-200 py-20">
+		<div class="hero-content text-center">
+			<div class="max-w-3xl">
+				<h1 class="text-display text-5xl font-bold mb-4">Categories</h1>
+				<p class="text-xl opacity-80">
+					Browse articles by category
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<div class="content-wrapper py-12">
+		{
+			categories.length > 0 ? (
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					{categories.map((category) => (
+						<a href={`/categories/${category.slug}`} class="card bg-base-100 shadow-sm hover:shadow-lg transition-shadow">
+							<div class="card-body">
+								<h2 class="card-title text-display text-2xl">{category.name}</h2>
+								{category.description && (
+									<p class="opacity-80 text-sm">{category.description}</p>
+								)}
+								<div class="card-actions justify-between items-center mt-4">
+									<span class="badge badge-primary">{category.count} {category.count === 1 ? "post" : "posts"}</span>
+									<span class="link link-primary text-sm">View posts →</span>
+								</div>
+							</div>
+						</a>
+					))}
+				</div>
+			) : (
+				<div class="text-center py-20">
+					<p class="text-xl opacity-80">
+						No categories available yet.
+					</p>
+				</div>
+			)
+		}
+	</div>
+</BaseLayout>

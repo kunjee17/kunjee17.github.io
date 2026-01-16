@@ -3,11 +3,187 @@
 @import "@fontsource-variable/fraunces";
 @import "@fontsource/satisfy";
 
-/* Custom styles */
-@plugin "daisyui" {
-	themes:
-		light --default,
-		dark --prefersdark;
+@plugin "daisyui";
+@plugin "@tailwindcss/typography";
+
+/* Custom DaisyUI Theme Variables */
+@theme {
+	--color-primary: #2563eb;
+	--color-primary-content: #ffffff;
+	--color-secondary: #7c3aed;
+	--color-secondary-content: #ffffff;
+	--color-accent: #f59e0b;
+	--color-accent-content: #ffffff;
+	--color-neutral: #1f2937;
+	--color-neutral-content: #f3f4f6;
+	--color-base-100: #ffffff;
+	--color-base-200: #f9fafb;
+	--color-base-300: #f3f4f6;
+	--color-base-content: #1f2937;
+	--color-info: #3b82f6;
+	--color-success: #10b981;
+	--color-warning: #f59e0b;
+	--color-error: #ef4444;
 }
 
-@plugin "@tailwindcss/typography";
+@media (prefers-color-scheme: dark) {
+	@theme {
+		--color-primary: #3b82f6;
+		--color-primary-content: #ffffff;
+		--color-secondary: #8b5cf6;
+		--color-secondary-content: #ffffff;
+		--color-accent: #fbbf24;
+		--color-accent-content: #111827;
+		--color-neutral: #f3f4f6;
+		--color-neutral-content: #111827;
+		--color-base-100: #111827;
+		--color-base-200: #1f2937;
+		--color-base-300: #374151;
+		--color-base-content: #f3f4f6;
+		--color-info: #60a5fa;
+		--color-success: #34d399;
+		--color-warning: #fbbf24;
+		--color-error: #f87171;
+	}
+}
+
+/* Typography System */
+.text-display {
+	font-family: 'Fraunces Variable', serif;
+	font-weight: 600;
+}
+
+.text-body {
+	font-family: 'Figtree Variable', sans-serif;
+}
+
+.text-script {
+	font-family: 'Satisfy', cursive;
+}
+
+/* Custom Utilities */
+.content-wrapper {
+	@apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.prose-custom {
+	@apply prose prose-lg prose-slate dark:prose-invert max-w-none;
+}
+
+.prose-custom :is(h1, h2, h3, h4, h5, h6) {
+	font-family: 'Fraunces Variable', serif;
+	font-weight: 600;
+}
+
+.prose-custom p {
+	font-family: 'Figtree Variable', sans-serif;
+	line-height: 1.75;
+}
+
+.prose-custom a {
+	color: var(--color-primary);
+	text-decoration: none;
+}
+
+.prose-custom a:hover {
+	text-decoration: underline;
+}
+
+.prose-custom code {
+	color: var(--color-accent);
+	background-color: var(--color-base-200);
+	padding: 0.125rem 0.25rem;
+	border-radius: 0.25rem;
+}
+
+.prose-custom pre {
+	background-color: var(--color-base-300);
+	border: 1px solid color-mix(in srgb, var(--color-base-content) 10%, transparent);
+}
+
+/* Smooth transitions */
+* {
+	@apply transition-colors duration-200;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+	@apply outline-2 outline-offset-2 outline-primary;
+}
+
+/* Navigation - Active link styles */
+.nav-link.active {
+	color: var(--color-primary);
+	font-weight: 600;
+}
+
+/* Pagefind Search UI customization */
+.pagefind-ui {
+	--pagefind-ui-primary: oklch(var(--p));
+	--pagefind-ui-text: oklch(var(--bc));
+	--pagefind-ui-background: oklch(var(--b1));
+	--pagefind-ui-border: oklch(var(--b3));
+	--pagefind-ui-tag: oklch(var(--b2));
+	--pagefind-ui-border-width: 1px;
+	--pagefind-ui-border-radius: 0.5rem;
+	--pagefind-ui-font: "Figtree Variable", sans-serif;
+}
+
+.pagefind-ui__search-input {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	border: 1px solid var(--color-base-300);
+	border-radius: 0.5rem;
+	background-color: var(--color-base-100);
+	color: var(--color-base-content);
+}
+
+.pagefind-ui__result {
+	background-color: var(--color-base-100);
+	border-radius: 0.5rem;
+	padding: 1rem;
+	box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	transition: box-shadow 0.2s;
+}
+
+.pagefind-ui__result:hover {
+	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.pagefind-ui-container {
+	display: none;
+}
+
+.pagefind-ui-container.active {
+	display: block;
+	position: fixed;
+	inset: 0;
+	z-index: 50;
+	background-color: color-mix(in srgb, var(--color-base-100) 95%, transparent);
+	backdrop-filter: blur(4px);
+	padding: 1rem;
+	overflow-y: auto;
+}
+
+/* AdSense container styles */
+.adsense-container {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+}
+
+.adsense-in-article {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+
+.adsense-sidebar {
+	position: sticky;
+	top: 6rem;
+}
+
+.adsense-footer {
+	margin-top: 2rem;
+}

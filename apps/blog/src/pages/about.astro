@@ -1,0 +1,256 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import { getAuthor } from "@lib/db";
+
+const author = await getAuthor();
+---
+
+<PageLayout
+	title="About - Kunjan Dalal"
+	description="Failed poet, mathematics enthusiast, functional programming evangelist, and software architect with 17+ years of experience building production systems."
+	hero={{
+		title: "Builder → Architect → Consultant",
+		subtitle: "17+ years of building, breaking, and fixing systems",
+	}}
+>
+	<!-- Main Story -->
+	<section class="mb-16">
+		{
+			author?.profilePicture && (
+				<div class="float-right ml-8 mb-4">
+					<div class="avatar">
+						<div class="w-48 h-48 rounded-lg shadow-lg">
+							<img src={author.profilePicture} alt={author.name} />
+						</div>
+					</div>
+				</div>
+			)
+		}
+
+		<div class="prose-custom">
+			<p class="text-xl font-semibold mb-6">
+				I am Kunjan (<em>a.k.a. Kunjee for friends and tweeps</em>). Failed poet, mathematics
+				enthusiast, functional programming evangelist, and software architecture expert with 17+
+				years of industry experience.
+			</p>
+
+			<blockquote>
+				Partially natural ambidextrous, a proper south paw and a true Sagittarius.
+			</blockquote>
+
+			<p>
+				I am the Founder of{" "}
+				<a href="https://fuzzycloud.in/" target="_blank" rel="noopener">
+					Fuzzy Cloud
+				</a>, a frequent conference speaker, and an active OSS Contributor. I maintain several open
+				source projects including{" "}
+				<a href="https://github.com/kunjee17/awesome-fable" target="_blank" rel="noopener">
+					awesome-fable
+				</a>{" "}
+				and contribute to various Rust ecosystem projects like actix and juniper.
+			</p>
+
+			<p>
+				My expertise spans mobile, web, and cloud technologies, with a particular focus on Functional
+				Programming, WebAssembly, and modern web frameworks. I've worked across startups, enterprises,
+				and consulting projects — building systems that handle real users, real money, and real
+				problems.
+			</p>
+		</div>
+	</section>
+
+	<!-- Philosophy -->
+	<section class="mb-16">
+		<h2 class="text-display text-3xl font-bold mb-8">What drives me</h2>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+			<div class="card bg-base-200">
+				<div class="card-body">
+					<h3 class="card-title text-display">Pragmatic Over Perfect</h3>
+					<p class="opacity-80">
+						I care about solutions that work in production, not academic perfection. Trade-offs are
+						inevitable — the art is knowing which ones to make.
+					</p>
+				</div>
+			</div>
+
+			<div class="card bg-base-200">
+				<div class="card-body">
+					<h3 class="card-title text-display">Cost Consciousness</h3>
+					<p class="opacity-80">
+						Every architectural decision has a cost — in money, complexity, or maintenance burden. I
+						optimize for long-term cost, not just initial development speed.
+					</p>
+				</div>
+			</div>
+
+			<div class="card bg-base-200">
+				<div class="card-body">
+					<h3 class="card-title text-display">Boring Reliability</h3>
+					<p class="opacity-80">
+						The best systems are boring. They use proven technologies, have clear failure modes, and
+						don't wake you up at 3 AM with mysterious errors.
+					</p>
+				</div>
+			</div>
+
+			<div class="card bg-base-200">
+				<div class="card-body">
+					<h3 class="card-title text-display">Learning Through Building</h3>
+					<p class="opacity-80">
+						I've learned more from production failures than from any book or course. Experience beats
+						theory every time.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Selected Talks -->
+	<section class="mb-16">
+		<h2 class="text-display text-3xl font-bold mb-8">Selected Talks and Appearances</h2>
+
+		<div class="space-y-8">
+			<!-- Scaling Elm / Fable -->
+			<div class="card bg-base-200">
+				<div class="card-body">
+					<h3 class="card-title text-display mb-4">
+						<a
+							href="https://www.youtube.com/watch?v=P8LPIpDGcFg"
+							target="_blank"
+							rel="noopener"
+							class="link link-primary"
+						>
+							Scaling Elm / Fable Elmish Application
+						</a>
+					</h3>
+
+					<div class="aspect-video">
+						<iframe
+							width="100%"
+							height="100%"
+							src="https://www.youtube.com/embed/P8LPIpDGcFg"
+							frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+						></iframe>
+					</div>
+				</div>
+			</div>
+
+			<!-- WTF# Elmish -->
+			<div class="card bg-base-200">
+				<div class="card-body">
+					<h3 class="card-title text-display mb-4">
+						<a
+							href="https://wtfsharp.net/wtf-is-elmish"
+							target="_blank"
+							rel="noopener"
+							class="link link-primary"
+						>
+							WTF# Elmish
+						</a>
+					</h3>
+
+					<iframe
+						width="100%"
+						height="150"
+						scrolling="no"
+						frameborder="no"
+						src="https://fireside.fm/s/vuYLdIIb+-tviGFwq/iframe"
+					></iframe>
+				</div>
+			</div>
+
+			<!-- Skills Matter -->
+			<div class="card bg-base-200">
+				<div class="card-body">
+					<h3 class="card-title text-display">
+						<a
+							href="https://skillsmatter.com/skillscasts/13429-from-concept-to-creation-in-a-week-with-fabulous#video"
+							target="_blank"
+							rel="noopener"
+							class="link link-primary"
+						>
+							From Concept to Creation in a Week with Fabulous
+						</a>
+					</h3>
+					<p class="opacity-80">Skills Matter presentation on rapid mobile app development.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Open Source -->
+	<section class="mb-16">
+		<h2 class="text-display text-3xl font-bold mb-8">Open Source Contributions</h2>
+
+		<div class="prose-custom">
+			<p>I maintain and contribute to various open source projects:</p>
+
+			<ul>
+				<li>
+					<strong>
+						<a href="https://github.com/kunjee17/awesome-fable" target="_blank" rel="noopener">
+							awesome-fable
+						</a>
+					</strong>{" "}
+					- Curated list of Fable resources
+				</li>
+				<li>
+					<strong>Rust ecosystem</strong> - Contributions to actix, juniper, and other Rust projects
+				</li>
+				<li>
+					<strong>F# ecosystem</strong> - Various Fable and F# libraries
+				</li>
+			</ul>
+
+			<p>
+				Check out my{" "}
+				<a href="https://github.com/kunjee17" target="_blank" rel="noopener">
+					GitHub profile
+				</a>{" "}
+				for more.
+			</p>
+		</div>
+	</section>
+
+	<!-- Timeline -->
+	<section class="mb-16">
+		<h2 class="text-display text-3xl font-bold mb-8">Journey</h2>
+
+		<div class="prose-custom">
+			<p>
+				Started as a developer, evolved into an architect, and now consulting with companies building
+				serious systems. Along the way, I've:
+			</p>
+
+			<ul>
+				<li>Built mobile apps used by millions</li>
+				<li>Designed systems processing billions of transactions</li>
+				<li>Architected healthcare and legal tech platforms</li>
+				<li>Integrated AI/RAG systems for production use</li>
+				<li>Mentored teams across multiple countries</li>
+				<li>Spoken at conferences worldwide</li>
+			</ul>
+
+			<p>Every project taught me something. Every failure made me better.</p>
+		</div>
+	</section>
+
+	<!-- Contact CTA -->
+	<section class="text-center bg-base-200 rounded-lg p-12">
+		<h2 class="text-display text-3xl font-bold mb-4">Let's work together</h2>
+		<p class="text-xl opacity-80 mb-8">
+			Interested in consulting, speaking engagements, or just want to chat about systems?
+		</p>
+		<div class="flex gap-4 justify-center flex-wrap">
+			<a href="/contact" class="btn btn-primary btn-lg">
+				Get in touch
+			</a>
+			<a href="/services" class="btn btn-outline btn-lg">
+				View services
+			</a>
+		</div>
+	</section>
+</PageLayout>

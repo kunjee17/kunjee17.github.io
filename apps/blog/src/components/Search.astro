@@ -1,0 +1,53 @@
+---
+// Pagefind Search Component
+// This component is included in the layout and initializes Pagefind search
+---
+
+<div id="pagefind-search" class="pagefind-ui-container"></div>
+
+<script>
+	// Initialize Pagefind after page load
+	if (typeof window !== "undefined") {
+		// Listen for search button clicks
+		document.addEventListener("click", (e) => {
+			const target = e.target as HTMLElement;
+			if (target.id === "search-button" || target.closest("#search-button")) {
+				e.preventDefault();
+				const container = document.getElementById("pagefind-search");
+				if (container) {
+					container.classList.toggle("active");
+					
+					// Focus the search input
+					setTimeout(() => {
+						const input = container.querySelector("input") as HTMLInputElement;
+						input?.focus();
+					}, 100);
+				}
+			}
+		});
+
+		// Close search on Escape key
+		document.addEventListener("keydown", (e) => {
+			if (e.key === "Escape") {
+				const container = document.getElementById("pagefind-search");
+				if (container && container.classList.contains("active")) {
+					container.classList.remove("active");
+				}
+			}
+		});
+
+		// Close search when clicking outside
+		document.addEventListener("click", (e) => {
+			const container = document.getElementById("pagefind-search");
+			const target = e.target as HTMLElement;
+			if (
+				container &&
+				container.classList.contains("active") &&
+				!container.contains(target) &&
+				!target.closest("#search-button")
+			) {
+				container.classList.remove("active");
+			}
+		});
+	}
+</script>

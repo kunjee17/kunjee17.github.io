@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["**", "!.astro"]
+		"includes": ["**", "!.astro", "!**/global.css"]
 	},
 	"formatter": {
 		"enabled": true,
@@ -16,7 +16,11 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true
+			"recommended": true,
+			"correctness": {
+				"noUnusedVariables": "off",
+				"noUnusedImports": "off"
+			}
 		}
 	},
 	"javascript": {

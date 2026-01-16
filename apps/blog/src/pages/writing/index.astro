@@ -1,0 +1,98 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { groupPostsByTheme } from "@lib/content";
+import { getPublishedPosts } from "@lib/db";
+
+// Get all published posts
+const posts = await getPublishedPosts();
+
+// Group posts by theme
+const groupedPosts = groupPostsByTheme(
+	posts.map((post) => ({
+		id: post.id,
+		title: post.title,
+		slug: post.slug,
+	})),
+);
+
+// Create a map for easy lookup
+const _postsMap = new Map(posts.map((p) => [p.id, p]));
+---
+
+<BaseLayout
+	title="Writing - Kunjan Dalal"
+	description="Essays on architecture, systems, trade-offs, and lessons from building production systems. No fluff, just experience."
+>
+	<!-- Hero -->
+	<section class="hero bg-base-200 py-20">
+		<div class="hero-content text-center">
+			<div class="max-w-3xl">
+				<h1 class="text-display text-5xl font-bold mb-4">Writing</h1>
+				<p class="text-xl opacity-80">
+					Essays on architecture, systems, trade-offs, and lessons from production.
+				</p>
+				<p class="text-lg opacity-70 mt-4">
+					No marketing fluff. No hype. Just hard-earned experience and pragmatic opinions.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<div class="content-wrapper py-12">
+		<!-- Theme-based sections -->
+		{
+			Object.entries(groupedPosts).map(([theme, themePosts]) => (
+				<section class="mb-16">
+					<h2 class="text-display text-3xl font-bold mb-8 border-b border-base-300 pb-4">
+						{theme}
+					</h2>
+
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+						{themePosts.map((themePost) => {
+							const post = postsMap.get(themePost.id);
+							if (!post) return null;
+
+							return (
+								<PostCard
+									title={post.linkTitle || post.title}
+									slug={post.slug}
+									summary={post.summary || ""}
+									readingTime={post.readingTime || undefined}
+									wordCount={post.wordCount || undefined}
+									showDate={false}
+								/>
+							);
+						})}
+					</div>
+				</section>
+			))
+		}
+
+		<!-- No posts message -->
+		{
+			posts.length === 0 && (
+				<div class="text-center py-20">
+					<p class="text-xl opacity-80">
+						No posts published yet. Check back soon!
+					</p>
+				</div>
+			)
+		}
+
+		<!-- Browse by taxonomy -->
+		<section class="mt-20 pt-12 border-t border-base-300">
+			<div class="text-center mb-8">
+				<h2 class="text-display text-2xl font-bold mb-4">Browse by topic</h2>
+			</div>
+
+			<div class="flex flex-wrap gap-4 justify-center">
+				<a href="/categories" class="btn btn-outline">
+					Browse Categories
+				</a>
+				<a href="/tags" class="btn btn-outline">
+					Browse Tags
+				</a>
+			</div>
+		</section>
+	</div>
+</BaseLayout>

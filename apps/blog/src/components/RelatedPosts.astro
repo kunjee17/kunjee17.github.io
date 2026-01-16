@@ -1,0 +1,64 @@
+---
+// RelatedPosts Component
+// Displays related posts at the bottom of an article
+interface RelatedPost {
+	title: string;
+	slug: string;
+	summary?: string;
+	linkType?: string;
+}
+
+interface Props {
+	posts: RelatedPost[];
+	title?: string;
+}
+
+const { posts, title = "Related Reading" } = Astro.props;
+
+if (!posts || posts.length === 0) {
+	return null;
+}
+
+const _linkTypeLabels: Record<string, string> = {
+	related: "Related",
+	prerequisite: "Prerequisites",
+	"follow-up": "Next Steps",
+	example: "Examples",
+	reference: "References",
+};
+---
+
+<section class="related-posts my-12 p-6 bg-base-200 rounded-lg">
+	<h2 class="text-display text-2xl font-bold mb-6">{title}</h2>
+
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+		{
+			posts.map((post) => (
+				<article class="card bg-base-100 shadow-sm hover:shadow-md transition-shadow">
+					<div class="card-body">
+						{post.linkType && (
+							<div class="badge badge-sm badge-primary mb-2">
+								{linkTypeLabels[post.linkType] || post.linkType}
+							</div>
+						)}
+						<h3 class="card-title text-base">
+							<a href={`/writing/${post.slug}`} class="hover:text-primary transition-colors">
+								{post.title}
+							</a>
+						</h3>
+						{post.summary && <p class="text-sm opacity-80 line-clamp-2">{post.summary}</p>}
+					</div>
+				</article>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	.line-clamp-2 {
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+</style>

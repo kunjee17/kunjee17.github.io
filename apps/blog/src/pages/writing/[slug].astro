@@ -1,0 +1,96 @@
+---
+import PostLayout from "@layouts/PostLayout.astro";
+import { markdownToHtml } from "@lib/content";
+import { getPostBySlug, getPublishedPosts } from "@lib/db";
+import { generateBlogPostingSchema } from "@lib/seo";
+
+export async function getStaticPaths() {
+	const posts = await getPublishedPosts();
+
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+	}));
+}
+
+const { slug } = Astro.params;
+
+// Get post with all related data
+const postData = await getPostBySlug(slug);
+
+if (!postData) {
+	return Astro.redirect("/404");
+}
+
+const { post, author, tags, categories, faqs, relatedPosts } = postData;
+
+// Generate schema.org JSON-LD
+const schemaJson = author
+	? generateBlogPostingSchema(
+			{
+				title: post.title,
+				description: post.description || "",
+				content: post.content,
+				publishedAt: post.publishedAt || undefined,
+				updatedAt: post.updatedAt,
+				ogImage: post.ogImage || undefined,
+				keywords: post.keywords as string[] | undefined,
+			},
+			{
+				name: author.name,
+				website: author.website || undefined,
+				profilePicture: author.profilePicture || undefined,
+			},
+			Astro.url.href,
+		)
+	: undefined;
+
+// Convert markdown to HTML
+const _htmlContent = markdownToHtml(post.content);
+---
+
+<PostLayout
+	post={{
+		title: post.title,
+		slug: post.slug,
+		description: post.description || undefined,
+		content: post.content,
+		ogImage: post.ogImage || undefined,
+		canonicalUrl: post.canonicalUrl || undefined,
+		keywords: post.keywords as string[] | undefined,
+		publishedAt: post.publishedAt || undefined,
+		updatedAt: post.updatedAt,
+		readingTime: post.readingTime || undefined,
+		wordCount: post.wordCount || undefined,
+		schemaJson: schemaJson || post.schemaJson,
+	}}
+	author={
+		author
+			? {
+					name: author.name,
+					bio: author.bio || undefined,
+					credentials: author.credentials || undefined,
+					profilePicture: author.profilePicture || undefined,
+					website: author.website || undefined,
+			  }
+			: {
+					name: "Kunjan Dalal",
+					website: "https://kunjan.in",
+			  }
+	}
+	tags={tags.map((tag) => ({ name: tag.name, slug: tag.slug }))}
+	categories={categories.map((cat) => ({ name: cat.name, slug: cat.slug }))}
+	faqs={faqs.map((faq) => ({
+		question: faq.question,
+		answer: faq.answer,
+		order: faq.order || undefined,
+	}))}
+	relatedPosts={relatedPosts.map((rp) => ({
+		title: rp.title,
+		slug: rp.slug,
+		summary: rp.summary || undefined,
+		linkType: rp.linkType || undefined,
+	}))}
+>
+	<!-- Render markdown content -->
+	<div set:html={htmlContent} />
+</PostLayout>

@@ -1,24 +1,122 @@
 ---
+import "@styles/global.css";
+import AdSense from "@components/AdSense.astro";
+import Footer from "@components/Footer.astro";
+import GoogleAnalytics from "@components/GoogleAnalytics.astro";
+import Navigation from "@components/Navigation.astro";
+import SEO from "@components/SEO.astro";
+import Search from "@components/Search.astro";
+
 interface Props {
 	title: string;
 	description?: string;
+	ogImage?: string;
+	canonicalUrl?: string;
+	keywords?: string[];
+	article?: boolean;
+	publishedTime?: Date;
+	modifiedTime?: Date;
+	author?: {
+		name: string;
+		url?: string;
+	};
+	schemaJson?: object;
 }
 
-// biome-ignore lint/correctness/noUnusedVariables: Used in template below
-const { title, description }: Props = Astro.props;
+const {
+	title,
+	description,
+	ogImage,
+	canonicalUrl,
+	keywords,
+	article,
+	publishedTime,
+	modifiedTime,
+	author,
+	schemaJson,
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description || title} />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <slot />
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- SEO Meta Tags -->
+		<SEO
+			title={title}
+			description={description}
+			ogImage={ogImage}
+			canonicalUrl={canonicalUrl}
+			keywords={keywords}
+			article={article}
+			publishedTime={publishedTime}
+			modifiedTime={modifiedTime}
+			author={author}
+			schemaJson={schemaJson}
+		/>
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/gif" href="/favicon.gif" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+		<!-- Preload critical fonts -->
+		<link rel="preload" href="/@fontsource-variable/figtree/index.css" as="style" />
+		<link rel="preload" href="/@fontsource-variable/fraunces/index.css" as="style" />
+
+		<!-- Google Analytics -->
+		<GoogleAnalytics />
+
+		<!-- Google AdSense -->
+		<AdSense />
+	</head>
+
+	<body class="min-h-screen flex flex-col">
+		<!-- Navigation -->
+		<Navigation />
+
+		<!-- Main Content -->
+		<main class="flex-1">
+			<slot />
+		</main>
+
+		<!-- Footer -->
+		<Footer />
+
+		<!-- Search Modal -->
+		<Search />
+
+		<!-- Pagefind UI -->
+		<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+		<script is:inline src="/pagefind/pagefind-ui.js"></script>
+		<script>
+			window.addEventListener("DOMContentLoaded", () => {
+				const searchContainer = document.getElementById("pagefind-search");
+				if (searchContainer) {
+					new PagefindUI({
+						element: searchContainer,
+						showImages: false,
+						showSubResults: true,
+						excerptLength: 30,
+					});
+				}
+			});
+		</script>
+	</body>
 </html>
+
+<style is:global>
+	/* Smooth scroll behavior */
+	html {
+		scroll-behavior: smooth;
+	}
+
+	/* Better text rendering */
+	body {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+	}
+</style>

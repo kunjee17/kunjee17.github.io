@@ -1,11 +1,207 @@
 ---
-// biome-ignore lint/correctness/noUnusedImports: Used in template below
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getAuthor, getFeaturedPosts } from "@lib/db";
+
+// Get featured posts and author info
+const featuredPosts = await getFeaturedPosts();
+const author = await getAuthor();
 ---
 
-<BaseLayout title="Kunjan - Architect & System Builder">
-  <main>
-    <h1>Welcome to kunjan.in</h1>
-    <p>Personal consulting + authority site</p>
-  </main>
+<BaseLayout
+	title="Kunjan Dalal - Architect & System Builder"
+	description="Software architect and consultant specializing in production systems, AI/RAG integration, and pragmatic architecture. Building systems that actually work."
+>
+	<!-- Hero Section -->
+	<section class="hero min-h-[90vh] bg-gradient-to-br from-base-100 via-base-200 to-base-100">
+		<div class="hero-content text-center">
+			<div class="max-w-4xl">
+				<h1 class="text-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
+					I architect systems that <span class="text-primary">run in production</span>
+				</h1>
+				<p class="text-xl md:text-2xl mb-4 opacity-80">
+					Architecture · AI/RAG · Full-stack · LegalTech/Healthcare
+				</p>
+				<p class="text-lg mb-8 opacity-70 max-w-2xl mx-auto">
+					Building production-grade systems with boring reliability, pragmatic trade-offs, and a deep understanding of what actually costs you money at 3 AM.
+				</p>
+
+				<!-- CTAs -->
+				<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+					<a href="/services" class="btn btn-primary btn-lg">
+						Work with me
+					</a>
+					<a href="/writing" class="btn btn-outline btn-lg">
+						Read my writing
+					</a>
+					<a
+						href="https://topmate.io/kunjan_dalal"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="btn btn-ghost btn-lg"
+					>
+						Book a session
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Services Overview -->
+	<section class="content-wrapper py-20">
+		<div class="text-center mb-12">
+			<h2 class="text-display text-4xl font-bold mb-4">What I do</h2>
+			<p class="text-xl opacity-80 max-w-2xl mx-auto">
+				I help companies build systems that survive contact with reality.
+			</p>
+		</div>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+			<!-- Consulting & Architecture -->
+			<div class="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow">
+				<div class="card-body">
+					<h3 class="card-title text-display text-2xl">Consulting & Architecture</h3>
+					<p class="opacity-80">
+						System design, architecture reviews, and technical strategy. I help you make decisions that won't haunt you in production.
+					</p>
+					<div class="card-actions justify-end mt-4">
+						<a href="/services" class="link link-primary">Learn more →</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Full-stack Delivery -->
+			<div class="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow">
+				<div class="card-body">
+					<h3 class="card-title text-display text-2xl">Full-stack Delivery</h3>
+					<p class="opacity-80">
+						Mobile, web, cloud. From concept to production. I build systems that are maintainable, scalable, and actually solve the problem.
+					</p>
+					<div class="card-actions justify-end mt-4">
+						<a href="/services" class="link link-primary">Learn more →</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- AI & RAG Integration -->
+			<div class="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow">
+				<div class="card-body">
+					<h3 class="card-title text-display text-2xl">AI & RAG Integration</h3>
+					<p class="opacity-80">
+						Practical AI integration, RAG systems, and LLM applications. No hype, just proven patterns that work in production.
+					</p>
+					<div class="card-actions justify-end mt-4">
+						<a href="/services" class="link link-primary">Learn more →</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- System Reviews -->
+			<div class="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow">
+				<div class="card-body">
+					<h3 class="card-title text-display text-2xl">System Reviews & Audits</h3>
+					<p class="opacity-80">
+						Architecture audits, code reviews, and performance analysis. Find problems before they find you.
+					</p>
+					<div class="card-actions justify-end mt-4">
+						<a href="/services" class="link link-primary">Learn more →</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Selected Writing -->
+	{
+		featuredPosts.length > 0 && (
+			<section class="bg-base-200 py-20">
+				<div class="content-wrapper">
+					<div class="text-center mb-12">
+						<h2 class="text-display text-4xl font-bold mb-4">Selected Writing</h2>
+						<p class="text-xl opacity-80">
+							Essays on architecture, systems, trade-offs, and lessons from production.
+						</p>
+					</div>
+
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+						{featuredPosts.slice(0, 3).map((post) => (
+							<PostCard
+								title={post.linkTitle || post.title}
+								slug={post.slug}
+								summary={post.summary || ""}
+								readingTime={post.readingTime || undefined}
+								wordCount={post.wordCount || undefined}
+								showDate={false}
+							/>
+						))}
+					</div>
+
+					<div class="text-center mt-12">
+						<a href="/writing" class="btn btn-outline btn-lg">
+							View all writing →
+						</a>
+					</div>
+				</div>
+			</section>
+		)
+	}
+
+	<!-- About Blurb -->
+	{
+		author && (
+			<section class="content-wrapper py-20">
+				<div class="max-w-4xl mx-auto">
+					<div class="flex flex-col md:flex-row gap-8 items-center">
+						{author.profilePicture && (
+							<div class="avatar">
+								<div class="w-48 h-48 rounded-full shadow-lg">
+									<img src={author.profilePicture} alt={author.name} />
+								</div>
+							</div>
+						)}
+
+						<div class="flex-1">
+							<h2 class="text-display text-3xl font-bold mb-4">About Me</h2>
+							{author.bio && <p class="text-lg opacity-80 mb-4">{author.bio}</p>}
+							<p class="text-lg opacity-80 mb-4">
+								I'm the founder of <a
+									href="https://fuzzycloud.in"
+									target="_blank"
+									rel="noopener"
+									class="link link-primary"
+								>
+									Fuzzy Cloud
+								</a>, a frequent conference speaker, and an active OSS contributor. With 17+ years of industry experience, I've built, broken, paid for, fixed, and lived with systems across mobile, web, and cloud.
+							</p>
+							<p class="text-lg opacity-80 mb-6">
+								I care about cost, failure modes, and boring reliability. Architecture through experience, not theory.
+							</p>
+							<a href="/about" class="btn btn-outline">
+								More about me →
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		)
+	}
+
+	<!-- Final CTA -->
+	<section class="hero bg-base-200 py-20">
+		<div class="hero-content text-center">
+			<div class="max-w-3xl">
+				<h2 class="text-display text-4xl font-bold mb-6">Ready to work together?</h2>
+				<p class="text-xl opacity-80 mb-8">
+					Let's build something that actually works in production.
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a href="/services" class="btn btn-primary btn-lg">
+						View services
+					</a>
+					<a href="/contact" class="btn btn-outline btn-lg">
+						Get in touch
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
 </BaseLayout>

@@ -1,0 +1,87 @@
+---
+// SEO Component
+// Comprehensive SEO meta tags, Open Graph, Twitter Cards, and JSON-LD
+interface Props {
+	title: string;
+	description?: string;
+	ogImage?: string;
+	canonicalUrl?: string;
+	keywords?: string[];
+	article?: boolean;
+	publishedTime?: Date;
+	modifiedTime?: Date;
+	author?: {
+		name: string;
+		url?: string;
+	};
+	schemaJson?: object;
+}
+
+const {
+	title,
+	description = "Kunjan Dalal - Architect & System Builder. Consulting on architecture, AI/RAG, full-stack systems, and production reliability.",
+	ogImage = "/og-default.png",
+	canonicalUrl,
+	keywords = [],
+	article = false,
+	publishedTime,
+	modifiedTime,
+	author,
+	schemaJson,
+} = Astro.props;
+
+const siteName = "Kunjan Dalal";
+const siteUrl = "https://kunjan.in";
+const fullCanonicalUrl = canonicalUrl || `${siteUrl}${Astro.url.pathname}`;
+const fullOgImage = ogImage.startsWith("http")
+	? ogImage
+	: `${siteUrl}${ogImage}`;
+
+// Default schema for the site
+const defaultSchema = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "Kunjan Dalal",
+	url: siteUrl,
+	jobTitle: "Software Architect & Consultant",
+	description:
+		"Software architect and consultant specializing in system design, AI/RAG integration, and production-grade applications.",
+	sameAs: [
+		"https://github.com/kunjee17",
+		"https://twitter.com/kunjee",
+		"https://linkedin.com/in/kunjandalal",
+	],
+};
+
+const schema = schemaJson || defaultSchema;
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+{keywords.length > 0 && <meta name="keywords" content={keywords.join(", ")} />}
+<link rel="canonical" href={fullCanonicalUrl} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={article ? "article" : "website"} />
+<meta property="og:url" content={fullCanonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullOgImage} />
+<meta property="og:site_name" content={siteName} />
+
+{article && publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}
+{article && modifiedTime && <meta property="article:modified_time" content={modifiedTime.toISOString()} />}
+{article && author && <meta property="article:author" content={author.name} />}
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={fullCanonicalUrl} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={fullOgImage} />
+<meta name="twitter:creator" content="@kunjee" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

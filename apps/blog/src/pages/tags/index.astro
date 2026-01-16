@@ -1,0 +1,60 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getAllTags } from "@lib/db";
+
+const tags = await getAllTags();
+
+// Calculate tag sizes based on count
+const maxCount = Math.max(...tags.map((t) => t.count), 1);
+const minCount = Math.min(...tags.map((t) => t.count), 1);
+
+function getTagSize(count: number): string {
+	const normalized = (count - minCount) / (maxCount - minCount || 1);
+	if (normalized > 0.75) return "text-3xl";
+	if (normalized > 0.5) return "text-2xl";
+	if (normalized > 0.25) return "text-xl";
+	return "text-base";
+}
+---
+
+<BaseLayout
+	title="Tags - Kunjan Dalal"
+	description="Browse blog posts by tag. Explore topics across architecture, programming, systems, and more."
+>
+	<section class="hero bg-base-200 py-20">
+		<div class="hero-content text-center">
+			<div class="max-w-3xl">
+				<h1 class="text-display text-5xl font-bold mb-4">Tags</h1>
+				<p class="text-xl opacity-80">
+					Explore topics across all posts
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<div class="content-wrapper py-12">
+		{
+			tags.length > 0 ? (
+				<div class="flex flex-wrap gap-4 justify-center">
+					{tags.map((tag) => (
+						<a
+							href={`/tags/${tag.slug}`}
+							class:list={[
+								"badge badge-lg hover:badge-primary transition-colors",
+								getTagSize(tag.count),
+							]}
+						>
+							{tag.name} ({tag.count})
+						</a>
+					))}
+				</div>
+			) : (
+				<div class="text-center py-20">
+					<p class="text-xl opacity-80">
+						No tags available yet.
+					</p>
+				</div>
+			)
+		}
+	</div>
+</BaseLayout>

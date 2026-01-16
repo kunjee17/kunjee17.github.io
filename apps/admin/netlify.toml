@@ -1,0 +1,16 @@
+[build]
+  base = "apps/admin"
+  command = "pnpm install && pnpm turbo build --filter=admin"
+  publish = "apps/admin/dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Functions configuration is handled automatically by @astrojs/netlify adapter
+# Functions will be generated in .netlify/functions-internal during build
+
+# Redirects and headers can be added here if needed
+# [[redirects]]
+#   from = "/old-path"
+#   to = "/new-path"
+#   status = 301

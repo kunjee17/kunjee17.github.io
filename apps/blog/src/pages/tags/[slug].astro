@@ -1,0 +1,76 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getAllTags, getPostsByTag } from "@lib/db";
+
+export async function getStaticPaths() {
+	const tags = await getAllTags();
+
+	return tags.map((tag) => ({
+		params: { slug: tag.slug },
+	}));
+}
+
+const { slug } = Astro.params;
+
+const { tag, posts } = await getPostsByTag(slug);
+
+if (!tag) {
+	return Astro.redirect("/404");
+}
+---
+
+<BaseLayout
+	title={`${tag.name} - Tags - Kunjan Dalal`}
+	description={tag.description || `Browse all posts tagged with ${tag.name}.`}
+>
+	<section class="hero bg-base-200 py-20">
+		<div class="hero-content text-center">
+			<div class="max-w-3xl">
+				<div class="breadcrumbs text-sm mb-4 justify-center">
+					<ul>
+						<li><a href="/writing">Writing</a></li>
+						<li><a href="/tags">Tags</a></li>
+						<li>{tag.name}</li>
+					</ul>
+				</div>
+				<h1 class="text-display text-5xl font-bold mb-4">#{tag.name}</h1>
+				{
+					tag.description && (
+						<p class="text-xl opacity-80">{tag.description}</p>
+					)
+				}
+				<p class="text-lg opacity-70 mt-4">
+					{posts.length} {posts.length === 1 ? "post" : "posts"}
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<div class="content-wrapper py-12">
+		{
+			posts.length > 0 ? (
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					{posts.map((post) => (
+						<PostCard
+							title={post.linkTitle || post.title}
+							slug={post.slug}
+							summary={post.summary || ""}
+							readingTime={post.readingTime || undefined}
+							wordCount={post.wordCount || undefined}
+							showDate={false}
+						/>
+					))}
+				</div>
+			) : (
+				<div class="text-center py-20">
+					<p class="text-xl opacity-80">
+						No posts with this tag yet.
+					</p>
+					<a href="/writing" class="btn btn-outline mt-8">
+						Browse all posts
+					</a>
+				</div>
+			)
+		}
+	</div>
+</BaseLayout>

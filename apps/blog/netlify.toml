@@ -1,0 +1,40 @@
+[build]
+  base = "apps/blog"
+  command = "pnpm install && pnpm turbo build --filter=blog"
+  publish = "apps/blog/dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# 301 Redirects for SEO preservation
+# Old blog structure to new writing structure
+[[redirects]]
+  from = "/posts"
+  to = "/writing"
+  status = 301
+
+[[redirects]]
+  from = "/posts/*"
+  to = "/writing/:splat"
+  status = 301
+
+# Date-based URLs to clean URLs (preserve old links)
+[[redirects]]
+  from = "/:year/:month/:slug"
+  to = "/writing/:slug"
+  status = 301
+
+# Resume page to About
+[[redirects]]
+  from = "/resume"
+  to = "/about"
+  status = 301
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"

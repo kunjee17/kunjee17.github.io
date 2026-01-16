@@ -495,10 +495,19 @@ export async function getTagsWithPostCounts() {
 		.groupBy(Tags.id)
 		.orderBy(Tags.name);
 
-	return results.map((tag: { id: string; slug: string; name: string; description: string | null; createdAt: Date; postCount: number | null }) => ({
-		...tag,
-		postCount: Number(tag.postCount) || 0,
-	}));
+	return results.map(
+		(tag: {
+			id: string;
+			slug: string;
+			name: string;
+			description: string | null;
+			createdAt: Date;
+			postCount: number | null;
+		}) => ({
+			...tag,
+			postCount: Number(tag.postCount) || 0,
+		}),
+	);
 }
 
 export async function getPostsByTag(tagId: string) {
@@ -605,10 +614,19 @@ export async function getCategoriesWithPostCounts() {
 		.groupBy(Categories.id)
 		.orderBy(Categories.name);
 
-	return results.map((category: { id: string; slug: string; name: string; description: string | null; createdAt: Date; postCount: number | null }) => ({
-		...category,
-		postCount: Number(category.postCount) || 0,
-	}));
+	return results.map(
+		(category: {
+			id: string;
+			slug: string;
+			name: string;
+			description: string | null;
+			createdAt: Date;
+			postCount: number | null;
+		}) => ({
+			...category,
+			postCount: Number(category.postCount) || 0,
+		}),
+	);
 }
 
 export async function getPostsByCategory(categoryId: string) {

@@ -1,0 +1,45 @@
+---
+// Google AdSense Component
+// Add your AdSense client ID here
+const ADSENSE_CLIENT_ID = import.meta.env.PUBLIC_ADSENSE_CLIENT_ID || "";
+
+interface Props {
+	slot?: "in-article" | "sidebar" | "footer";
+	slotId?: string;
+}
+
+const { slot = "in-article", slotId = "" } = Astro.props;
+
+// Only load in production
+const isProd = import.meta.env.PROD;
+---
+
+{
+	isProd && ADSENSE_CLIENT_ID && (
+		<>
+			{!slotId ? (
+				// Auto ads script (loads once globally)
+				<script
+					async
+					src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
+					crossorigin="anonymous"
+				/>
+			) : (
+				// Display ad unit
+				<div class:list={["adsense-container", `adsense-${slot}`]}>
+					<ins
+						class="adsbygoogle"
+						style="display:block"
+						data-ad-client={ADSENSE_CLIENT_ID}
+						data-ad-slot={slotId}
+						data-ad-format="auto"
+						data-full-width-responsive="true"
+					/>
+					<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>
+			)}
+		</>
+	)
+}

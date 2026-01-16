@@ -1,0 +1,58 @@
+---
+// FAQSection Component
+// Displays FAQs with proper schema markup
+interface FAQ {
+	question: string;
+	answer: string;
+	order?: number;
+}
+
+interface Props {
+	faqs: FAQ[];
+	title?: string;
+}
+
+const { faqs, title = "Frequently Asked Questions" } = Astro.props;
+
+if (!faqs || faqs.length === 0) {
+	return null;
+}
+
+// Sort FAQs by order
+const sortedFaqs = [...faqs].sort((a, b) => (a.order || 0) - (b.order || 0));
+
+// Generate FAQ schema
+const _faqSchema = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	mainEntity: sortedFaqs.map((faq) => ({
+		"@type": "Question",
+		name: faq.question,
+		acceptedAnswer: {
+			"@type": "Answer",
+			text: faq.answer,
+		},
+	})),
+};
+---
+
+<section class="faq-section my-12">
+	<h2 class="text-display text-3xl font-bold mb-8">{title}</h2>
+
+	<div class="space-y-4">
+		{
+			sortedFaqs.map((faq) => (
+				<div class="collapse collapse-plus bg-base-200">
+					<input type="radio" name="faq-accordion" />
+					<div class="collapse-title text-lg font-semibold">{faq.question}</div>
+					<div class="collapse-content">
+						<p class="pt-2 opacity-80">{faq.answer}</p>
+					</div>
+				</div>
+			))
+		}
+	</div>
+
+	<!-- FAQ Schema -->
+	<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</section>

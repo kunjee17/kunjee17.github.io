@@ -40,7 +40,10 @@ declare module "astro:db" {
 
 	export function eq(column: unknown, value: unknown): unknown;
 	export function desc(column: unknown): unknown;
-	export function sql(template: TemplateStringsArray, ...values: unknown[]): unknown;
+	export function sql(
+		template: TemplateStringsArray,
+		...values: unknown[]
+	): unknown;
 }
 
 interface ImportMetaEnv {
