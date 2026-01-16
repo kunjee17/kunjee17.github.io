@@ -1,0 +1,33 @@
+{
+	"name": "blog",
+	"version": "0.1.0",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build --remote",
+		"preview": "astro preview",
+		"lint": "biome check .",
+		"check-types": "astro check"
+	},
+	"dependencies": {
+		"@astrojs/db": "^0.18.3",
+		"@fontsource-variable/figtree": "^5.2.10",
+		"@fontsource-variable/fraunces": "^5.2.9",
+		"@fontsource/satisfy": "^5.2.7",
+		"@lucide/astro": "^0.562.0",
+		"@repo/dtos": "workspace:*",
+		"@repo/services": "workspace:*",
+		"@tailwindcss/vite": "^4.1.18",
+		"astro": "^5.16.8",
+		"daisyui": "^5.5.14",
+		"tailwindcss": "^4.1.18"
+	},
+	"devDependencies": {
+		"@astrojs/check": "^0.9.6",
+		"@repo/typescript-config": "workspace:*",
+		"@tailwindcss/typography": "^0.5.19",
+		"@types/node": "^25.0.5",
+		"typescript": "^5.9.3"
+	}
+}

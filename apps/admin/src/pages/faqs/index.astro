@@ -1,0 +1,132 @@
+---
+import AdminLayout from "../../components/layout/AdminLayout.astro";
+import { Plus, Edit, Trash2 } from "@lucide/astro";
+import { getAllFAQs, deleteFAQ, getAllPosts, getAllPages } from "../../lib/db";
+
+if (Astro.request.method === "POST") {
+	const formData = await Astro.request.formData();
+	const action = formData.get("action");
+	const faqId = formData.get("faqId")?.toString();
+
+	if (action === "delete" && faqId) {
+		try {
+			await deleteFAQ(faqId);
+			return Astro.redirect("/faqs?deleted=true", 302);
+		} catch (error) {
+			console.error("Error deleting FAQ:", error);
+			return Astro.redirect("/faqs?error=delete_failed", 302);
+		}
+	}
+}
+
+const faqs = await getAllFAQs();
+const [allPosts, allPages] = await Promise.all([getAllPosts(), getAllPages()]);
+
+const deleted = Astro.url.searchParams.get("deleted") === "true";
+const error = Astro.url.searchParams.get("error");
+---
+
+<AdminLayout title="FAQs">
+	<div class="space-y-6">
+		<div class="flex items-center justify-between">
+			<h1 class="text-3xl font-bold">FAQs</h1>
+			<a href="/faqs/new" class="btn btn-primary">
+				<Plus class="size-5" />
+				New FAQ
+			</a>
+		</div>
+
+		{deleted && (
+			<div class="alert alert-success">
+				<span>FAQ deleted successfully.</span>
+			</div>
+		)}
+
+		{error && (
+			<div class="alert alert-error">
+				<span>Error: {error === "delete_failed" ? "Failed to delete FAQ" : error}</span>
+			</div>
+		)}
+
+		<div class="card bg-base-100 shadow">
+			<div class="card-body">
+				<div class="overflow-x-auto">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Question</th>
+								<th>Answer</th>
+								<th>Associated</th>
+								<th>Order</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{faqs.length === 0 ? (
+								<tr>
+									<td colspan="5" class="text-center text-base-content/60">
+										No FAQs yet. Create your first FAQ!
+									</td>
+								</tr>
+							) : (
+								faqs.map((faq) => {
+									const post = faq.blogPostId ? allPosts.find((p) => p.id === faq.blogPostId) : null;
+									const page = faq.pageId ? allPages.find((p) => p.id === faq.pageId) : null;
+									return (
+										<tr>
+											<td class="font-medium">{faq.question}</td>
+											<td>
+												<div class="max-w-md truncate text-sm text-base-content/60">
+													{faq.answer}
+												</div>
+											</td>
+											<td>
+												{post ? (
+													<a href={`/posts/${post.id}`} class="link link-primary text-sm">
+														Post: {post.title}
+													</a>
+												) : page ? (
+													<a href={`/pages/${page.id}`} class="link link-primary text-sm">
+														Page: {page.title}
+													</a>
+												) : (
+													<span class="text-base-content/40">—</span>
+												)}
+											</td>
+											<td>
+												<span class="badge badge-outline">{faq.order || 0}</span>
+											</td>
+											<td>
+												<div class="flex gap-2">
+													<a
+														href={`/faqs/${faq.id}`}
+														class="btn btn-sm btn-ghost"
+														title="Edit"
+													>
+														<Edit class="size-4" />
+													</a>
+													<form method="POST" class="inline">
+														<input type="hidden" name="action" value="delete" />
+														<input type="hidden" name="faqId" value={faq.id} />
+														<button
+															type="submit"
+															class="btn btn-sm btn-ghost text-error"
+															title="Delete"
+															onclick="return confirm('Are you sure you want to delete this FAQ?')"
+														>
+															<Trash2 class="size-4" />
+														</button>
+													</form>
+												</div>
+											</td>
+										</tr>
+									);
+								})
+							)}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</AdminLayout>

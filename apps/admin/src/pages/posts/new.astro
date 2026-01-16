@@ -1,0 +1,724 @@
+---
+import AdminLayout from "../../components/layout/AdminLayout.astro";
+import { Save, X as Cancel } from "@lucide/astro";
+import MarkdownEditor from "../../components/ui/MarkdownEditor.astro";
+import { createPost, getAllTags, getAllCategories, getFirstAuthor, generateSlug, validateSlugFormat, checkPostSlugExists } from "../../lib/db";
+
+// Load data for form
+const [tags, categories, author] = await Promise.all([
+	getAllTags(),
+	getAllCategories(),
+	getFirstAuthor(),
+]);
+
+// Helper function to validate URLs
+function isValidUrl(urlString: string): boolean {
+	try {
+		const url = new URL(urlString);
+		return url.protocol === "http:" || url.protocol === "https:";
+	} catch {
+		return false;
+	}
+}
+
+// Helper function to validate URL path format
+function isValidUrlPath(path: string): boolean {
+	return /^\/[^\s]*$/.test(path);
+}
+
+// Handle form submission
+if (Astro.request.method === "POST") {
+	const formData = await Astro.request.formData();
+
+	// Parse form data
+	const title = (formData.get("title")?.toString() || "").trim();
+	const slugInput = formData.get("slug")?.toString()?.trim();
+	const slug = slugInput || generateSlug(title);
+	const linkTitle = formData.get("linkTitle")?.toString()?.trim();
+	const description = formData.get("description")?.toString()?.trim();
+	const summary = formData.get("summary")?.toString()?.trim();
+	const content = (formData.get("content")?.toString() || "").trim();
+
+	// Validation
+	if (!title) {
+		return Astro.redirect("/posts/new?error=title_required", 302);
+	}
+
+	if (!content) {
+		return Astro.redirect("/posts/new?error=content_required", 302);
+	}
+
+	if (!validateSlugFormat(slug)) {
+		return Astro.redirect("/posts/new?error=invalid_slug", 302);
+	}
+
+	// Dates
+	const createdAtStr = formData.get("createdAt")?.toString();
+	const publishedAtStr = formData.get("publishedAt")?.toString();
+	const expiryDateStr = formData.get("expiryDate")?.toString();
+	let createdAt: Date | undefined;
+	let publishedAt: Date | undefined;
+	let expiryDate: Date | undefined;
+
+	if (createdAtStr) {
+		createdAt = new Date(createdAtStr);
+		if (isNaN(createdAt.getTime())) {
+			return Astro.redirect("/posts/new?error=invalid_created_date", 302);
+		}
+	}
+
+	if (publishedAtStr) {
+		publishedAt = new Date(publishedAtStr);
+		if (isNaN(publishedAt.getTime())) {
+			return Astro.redirect("/posts/new?error=invalid_published_date", 302);
+		}
+	}
+
+	if (expiryDateStr) {
+		expiryDate = new Date(expiryDateStr);
+		if (isNaN(expiryDate.getTime())) {
+			return Astro.redirect("/posts/new?error=invalid_expiry_date", 302);
+		}
+	}
+
+	// Status flags
+	const draft = formData.get("draft") === "on";
+	const featured = formData.get("featured") === "on";
+
+	// Taxonomies
+	const tagIds = formData.getAll("tagIds").map((id) => id.toString());
+	const categoryIds = formData.getAll("categoryIds").map((id) => id.toString());
+	const keywordsStr = formData.get("keywords")?.toString();
+	const keywords = keywordsStr
+		? keywordsStr.split(",").map((k) => k.trim()).filter((k) => k.length > 0)
+		: undefined;
+
+	// SEO
+	const canonicalUrl = formData.get("canonicalUrl")?.toString()?.trim();
+	const metaRobots = formData.get("metaRobots")?.toString()?.trim();
+	const ogImage = formData.get("ogImage")?.toString()?.trim();
+	const ogType = formData.get("ogType")?.toString()?.trim();
+	const twitterCard = formData.get("twitterCard")?.toString()?.trim();
+	const schemaType = formData.get("schemaType")?.toString()?.trim();
+	const sitemapPriorityStr = formData.get("sitemapPriority")?.toString();
+	const sitemapChangefreq = formData.get("sitemapChangefreq")?.toString()?.trim();
+
+	// Validate URLs
+	if (canonicalUrl && !isValidUrl(canonicalUrl)) {
+		return Astro.redirect("/posts/new?error=invalid_canonical_url", 302);
+	}
+
+	if (ogImage && !isValidUrl(ogImage)) {
+		return Astro.redirect("/posts/new?error=invalid_og_image_url", 302);
+	}
+
+	// Validate sitemap priority
+	let sitemapPriority: number | undefined;
+	if (sitemapPriorityStr) {
+		sitemapPriority = parseFloat(sitemapPriorityStr);
+		if (isNaN(sitemapPriority) || sitemapPriority < 0 || sitemapPriority > 1) {
+			return Astro.redirect("/posts/new?error=invalid_sitemap_priority", 302);
+		}
+	}
+
+	// URL management
+	const url = formData.get("url")?.toString()?.trim();
+	const aliasesStr = formData.get("aliases")?.toString();
+	const aliases = aliasesStr
+		? aliasesStr.split(",").map((a) => a.trim()).filter((a) => a.length > 0)
+		: undefined;
+
+	if (url && !isValidUrlPath(url)) {
+		return Astro.redirect("/posts/new?error=invalid_url", 302);
+	}
+
+	// Template
+	const type = formData.get("type")?.toString()?.trim();
+	const layout = formData.get("layout")?.toString()?.trim();
+	const weightStr = formData.get("weight")?.toString();
+
+	// Author
+	const authorId = formData.get("authorId")?.toString() || author?.id;
+
+	try {
+		// Check for duplicate slug
+		if (await checkPostSlugExists(slug)) {
+			return Astro.redirect("/posts/new?error=slug_exists", 302);
+		}
+
+		// Create post
+		const postId = await createPost({
+			title,
+			slug,
+			linkTitle,
+			description,
+			summary,
+			content,
+			createdAt,
+			publishedAt,
+			expiryDate,
+			draft,
+			featured,
+			keywords,
+			canonicalUrl,
+			metaRobots,
+			ogImage,
+			ogType,
+			twitterCard,
+			schemaType,
+			sitemapPriority,
+			sitemapChangefreq,
+			aliases,
+			url,
+			type,
+			layout,
+			weight: weightStr ? parseInt(weightStr, 10) : undefined,
+			authorId,
+			tagIds: tagIds.length > 0 ? tagIds : undefined,
+			categoryIds: categoryIds.length > 0 ? categoryIds : undefined,
+		});
+
+		return Astro.redirect(`/posts/${postId}?created=true`, 302);
+	} catch (error) {
+		console.error("Error creating post:", error);
+		// Check if it's a database constraint error
+		if (error instanceof Error && error.message.includes("UNIQUE")) {
+			if (error.message.includes("slug")) {
+				return Astro.redirect("/posts/new?error=slug_exists", 302);
+			}
+		}
+		return Astro.redirect("/posts/new?error=create_failed", 302);
+	}
+}
+
+const error = Astro.url.searchParams.get("error");
+const errorMessages: Record<string, string> = {
+	title_required: "Post title is required.",
+	content_required: "Post content is required.",
+	slug_exists: "A post with this slug already exists.",
+	invalid_slug: "Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
+	invalid_canonical_url: "Invalid canonical URL format.",
+	invalid_og_image_url: "Invalid Open Graph image URL format.",
+	invalid_url: "Invalid URL format. URL must start with / and be a valid path.",
+	invalid_created_date: "Invalid created date format.",
+	invalid_published_date: "Invalid published date format.",
+	invalid_expiry_date: "Invalid expiry date format.",
+	invalid_sitemap_priority: "Sitemap priority must be between 0.0 and 1.0.",
+	create_failed: "Error creating post. Please try again.",
+};
+---
+
+<AdminLayout title="New Post">
+	<div class="space-y-6">
+		<h1 class="text-3xl font-bold">New Post</h1>
+
+		{error && (
+			<div class="alert alert-error">
+				<span>{errorMessages[error] || "Error creating post. Please try again."}</span>
+			</div>
+		)}
+
+		<form method="POST" class="space-y-6">
+			{/* Basic Information */}
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">Basic Information</h2>
+					<div class="space-y-4">
+						<div class="form-control">
+							<label class="label" for="title">
+								<span class="label-text">Title *</span>
+							</label>
+							<input
+								type="text"
+								id="title"
+								name="title"
+								placeholder="Post title"
+								class="input input-bordered w-full"
+								required
+							/>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="slug">
+								<span class="label-text">Slug</span>
+								<span class="label-text-alt">Auto-generated from title if empty</span>
+							</label>
+							<input
+								type="text"
+								id="slug"
+								name="slug"
+								placeholder="post-slug"
+								class="input input-bordered w-full"
+							/>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="linkTitle">
+								<span class="label-text">Link Title</span>
+								<span class="label-text-alt">Shorter version for links</span>
+							</label>
+							<input
+								type="text"
+								id="linkTitle"
+								name="linkTitle"
+								placeholder="Short title"
+								class="input input-bordered w-full"
+							/>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="description">
+								<span class="label-text">Description</span>
+								<span class="label-text-alt">SEO meta description</span>
+							</label>
+							<textarea
+								id="description"
+								name="description"
+								placeholder="Brief description for SEO"
+								class="textarea textarea-bordered w-full"
+								rows="2"
+							></textarea>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="summary">
+								<span class="label-text">Summary</span>
+								<span class="label-text-alt">Content teaser (different from description)</span>
+							</label>
+							<textarea
+								id="summary"
+								name="summary"
+								placeholder="Content summary or teaser"
+								class="textarea textarea-bordered w-full"
+								rows="3"
+							></textarea>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="content">
+								<span class="label-text">Content *</span>
+								<span class="label-text-alt">WYSIWYG Markdown Editor</span>
+							</label>
+							<MarkdownEditor
+								id="content"
+								name="content"
+								placeholder="Start typing your markdown content..."
+								required={true}
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{/* Taxonomies */}
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">Taxonomies</h2>
+					<div class="space-y-4">
+						<div class="form-control">
+							<label class="label" for="tagIds">
+								<span class="label-text">Tags</span>
+							</label>
+							<select
+								id="tagIds"
+								name="tagIds"
+								class="select select-bordered w-full"
+								multiple
+								size="5"
+							>
+								{tags.map((tag) => (
+									<option value={tag.id}>{tag.name}</option>
+								))}
+							</select>
+							<label class="label">
+								<span class="label-text-alt">Hold Ctrl/Cmd to select multiple</span>
+							</label>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="categoryIds">
+								<span class="label-text">Categories</span>
+							</label>
+							<select
+								id="categoryIds"
+								name="categoryIds"
+								class="select select-bordered w-full"
+								multiple
+								size="5"
+							>
+								{categories.map((cat) => (
+									<option value={cat.id}>{cat.name}</option>
+								))}
+							</select>
+							<label class="label">
+								<span class="label-text-alt">Hold Ctrl/Cmd to select multiple</span>
+							</label>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="keywords">
+								<span class="label-text">Keywords</span>
+								<span class="label-text-alt">Comma-separated for SEO</span>
+							</label>
+							<input
+								type="text"
+								id="keywords"
+								name="keywords"
+								placeholder="keyword1, keyword2, keyword3"
+								class="input input-bordered w-full"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{/* Author & Dates */}
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">Author & Dates</h2>
+					<div class="space-y-4">
+						{author && (
+							<div class="form-control">
+								<label class="label" for="authorId">
+									<span class="label-text">Author</span>
+								</label>
+								<select id="authorId" name="authorId" class="select select-bordered w-full">
+									<option value={author.id} selected>
+										{author.name}
+									</option>
+								</select>
+							</div>
+						)}
+
+						<div class="form-control">
+							<label class="label" for="createdAt">
+								<span class="label-text">Created Date</span>
+							</label>
+							<input
+								type="datetime-local"
+								id="createdAt"
+								name="createdAt"
+								class="input input-bordered w-full"
+							/>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="publishedAt">
+								<span class="label-text">Published Date</span>
+								<span class="label-text-alt">For scheduling</span>
+							</label>
+							<input
+								type="datetime-local"
+								id="publishedAt"
+								name="publishedAt"
+								class="input input-bordered w-full"
+							/>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="expiryDate">
+								<span class="label-text">Expiry Date</span>
+							</label>
+							<input
+								type="datetime-local"
+								id="expiryDate"
+								name="expiryDate"
+								class="input input-bordered w-full"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{/* Status & Flags */}
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">Status & Flags</h2>
+					<div class="space-y-4">
+						<div class="form-control">
+							<label class="label cursor-pointer">
+								<span class="label-text">Draft</span>
+								<input
+									type="checkbox"
+									name="draft"
+									class="checkbox checkbox-primary"
+									checked
+								/>
+							</label>
+						</div>
+
+						<div class="form-control">
+							<label class="label cursor-pointer">
+								<span class="label-text">Featured</span>
+								<input
+									type="checkbox"
+									name="featured"
+									class="checkbox checkbox-primary"
+								/>
+							</label>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="weight">
+								<span class="label-text">Weight</span>
+								<span class="label-text-alt">Lower = higher priority</span>
+							</label>
+							<input
+								type="number"
+								id="weight"
+								name="weight"
+								class="input input-bordered w-full"
+								placeholder="0"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{/* SEO Metadata */}
+			<div class="collapse collapse-arrow bg-base-100 shadow">
+				<input type="checkbox" />
+				<div class="collapse-title text-xl font-medium">SEO Metadata</div>
+				<div class="collapse-content">
+					<div class="space-y-4 pt-4">
+						<div class="form-control">
+							<label class="label" for="canonicalUrl">
+								<span class="label-text">Canonical URL</span>
+							</label>
+							<input
+								type="url"
+								id="canonicalUrl"
+								name="canonicalUrl"
+								placeholder="https://example.com/canonical-url"
+								class="input input-bordered w-full"
+							/>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="metaRobots">
+								<span class="label-text">Meta Robots</span>
+							</label>
+							<select id="metaRobots" name="metaRobots" class="select select-bordered w-full">
+								<option value="">Default (index, follow)</option>
+								<option value="index, follow">index, follow</option>
+								<option value="noindex, follow">noindex, follow</option>
+								<option value="index, nofollow">index, nofollow</option>
+								<option value="noindex, nofollow">noindex, nofollow</option>
+							</select>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="ogImage">
+								<span class="label-text">Open Graph Image URL</span>
+							</label>
+							<input
+								type="url"
+								id="ogImage"
+								name="ogImage"
+								placeholder="https://example.com/image.jpg"
+								class="input input-bordered w-full"
+							/>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="ogType">
+								<span class="label-text">Open Graph Type</span>
+							</label>
+							<select id="ogType" name="ogType" class="select select-bordered w-full">
+								<option value="">Default</option>
+								<option value="article">article</option>
+								<option value="website">website</option>
+							</select>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="twitterCard">
+								<span class="label-text">Twitter Card Type</span>
+							</label>
+							<select id="twitterCard" name="twitterCard" class="select select-bordered w-full">
+								<option value="">Default</option>
+								<option value="summary">summary</option>
+								<option value="summary_large_image">summary_large_image</option>
+							</select>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="schemaType">
+								<span class="label-text">Schema.org Type</span>
+							</label>
+							<select id="schemaType" name="schemaType" class="select select-bordered w-full">
+								<option value="">None</option>
+								<option value="Article">Article</option>
+								<option value="BlogPosting">BlogPosting</option>
+								<option value="FAQPage">FAQPage</option>
+							</select>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="sitemapPriority">
+								<span class="label-text">Sitemap Priority</span>
+								<span class="label-text-alt">0.0 to 1.0</span>
+							</label>
+							<input
+								type="range"
+								id="sitemapPriority"
+								name="sitemapPriority"
+								min="0"
+								max="1"
+								step="0.1"
+								value="0.5"
+								class="range range-primary"
+							/>
+							<div class="w-full flex justify-between text-xs px-2">
+								<span>0.0</span>
+								<span>0.5</span>
+								<span>1.0</span>
+							</div>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="sitemapChangefreq">
+								<span class="label-text">Sitemap Change Frequency</span>
+							</label>
+							<select
+								id="sitemapChangefreq"
+								name="sitemapChangefreq"
+								class="select select-bordered w-full"
+							>
+								<option value="">Default</option>
+								<option value="always">always</option>
+								<option value="hourly">hourly</option>
+								<option value="daily">daily</option>
+								<option value="weekly">weekly</option>
+								<option value="monthly">monthly</option>
+								<option value="yearly">yearly</option>
+								<option value="never">never</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{/* URL Management */}
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">URL Management</h2>
+					<div class="space-y-4">
+						<div class="form-control">
+							<label class="label" for="url">
+								<span class="label-text">Custom URL Override</span>
+							</label>
+							<input
+								type="text"
+								id="url"
+								name="url"
+								placeholder="/custom/url"
+								class="input input-bordered w-full"
+							/>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="aliases">
+								<span class="label-text">Aliases</span>
+								<span class="label-text-alt">Comma-separated redirect URLs</span>
+							</label>
+							<input
+								type="text"
+								id="aliases"
+								name="aliases"
+								placeholder="/old-url1, /old-url2"
+								class="input input-bordered w-full"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{/* Template Selection */}
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">Template Selection</h2>
+					<div class="space-y-4">
+						<div class="form-control">
+							<label class="label" for="type">
+								<span class="label-text">Type</span>
+							</label>
+							<input
+								type="text"
+								id="type"
+								name="type"
+								placeholder="post"
+								class="input input-bordered w-full"
+							/>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="layout">
+								<span class="label-text">Layout</span>
+							</label>
+							<input
+								type="text"
+								id="layout"
+								name="layout"
+								placeholder="post"
+								class="input input-bordered w-full"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card-actions justify-end">
+				<a href="/posts" class="btn btn-ghost">
+					<Cancel class="size-5" />
+					Cancel
+				</a>
+				<button type="submit" class="btn btn-primary">
+					<Save class="size-5" />
+					Save Post
+				</button>
+			</div>
+		</form>
+	</div>
+</AdminLayout>
+
+<script>
+	// Auto-generate slug from title
+	function generateSlug(text: string): string {
+		return text
+			.toLowerCase()
+			.trim()
+			.replace(/[^\w\s-]/g, "")
+			.replace(/[\s_-]+/g, "-")
+			.replace(/^-+|-+$/g, "");
+	}
+
+	const titleInput = document.getElementById("title") as HTMLInputElement;
+	const slugInput = document.getElementById("slug") as HTMLInputElement;
+	let lastAutoGeneratedSlug = "";
+
+	if (titleInput && slugInput) {
+		// Store initial slug value to detect manual edits
+		let slugManuallyEdited = false;
+		const originalSlug = slugInput.value;
+
+		titleInput.addEventListener("input", () => {
+			if (!slugManuallyEdited) {
+				const autoSlug = generateSlug(titleInput.value);
+				slugInput.value = autoSlug;
+				lastAutoGeneratedSlug = autoSlug;
+			}
+		});
+
+		slugInput.addEventListener("input", () => {
+			// Check if user manually edited the slug
+			const currentSlug = slugInput.value;
+			if (currentSlug !== lastAutoGeneratedSlug && currentSlug !== originalSlug) {
+				slugManuallyEdited = true;
+			} else if (currentSlug === "" || currentSlug === generateSlug(titleInput.value)) {
+				// Reset if cleared or matches auto-generated value
+				slugManuallyEdited = false;
+			}
+		});
+	}
+</script>

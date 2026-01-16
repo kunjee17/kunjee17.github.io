@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+	isAuthenticated,
+	setAuthCookie,
+	clearAuthCookie,
+	validatePassword,
+} from "../lib/auth";
+
+// Handle logout query param
+if (Astro.url.searchParams.get("logout") === "true") {
+	clearAuthCookie(Astro.cookies);
+	return Astro.redirect("/login?loggedOut=true", 302);
+}
+
+// Check if already authenticated
+if (isAuthenticated(Astro.cookies)) {
+	return Astro.redirect("/", 302);
+}
+
+// Handle POST request (login form submission)
+if (Astro.request.method === "POST") {
+	const formData = await Astro.request.formData();
+	const password = formData.get("password")?.toString() || "";
+
+	if (validatePassword(password)) {
+		setAuthCookie(Astro.cookies);
+		return Astro.redirect("/", 302);
+	} else {
+		return Astro.redirect("/login?error=invalid", 302);
+	}
+}
+
+// Get error and logout messages from query params
+const error = Astro.url.searchParams.get("error");
+const loggedOut = Astro.url.searchParams.get("loggedOut");
+---
+
+<BaseLayout title="Login - Admin Panel">
+	<div class="flex min-h-screen items-center justify-center bg-base-200">
+		<div class="card w-full max-w-md bg-base-100 shadow-xl">
+			<div class="card-body">
+				<h2 class="card-title justify-center text-2xl">Admin Login</h2>
+				
+				{loggedOut === "true" && (
+					<div class="alert alert-success mb-4">
+						<span>You have been logged out successfully.</span>
+					</div>
+				)}
+				
+				{error === "invalid" && (
+					<div class="alert alert-error mb-4">
+						<span>Invalid password. Please try again.</span>
+					</div>
+				)}
+				
+				<form method="POST" class="space-y-4">
+					<div class="form-control">
+						<label class="label" for="password">
+							<span class="label-text">Password</span>
+						</label>
+						<input
+							type="password"
+							id="password"
+							name="password"
+							placeholder="Enter password"
+							class="input input-bordered w-full"
+							required
+							autofocus
+						/>
+					</div>
+					<div class="card-actions">
+						<button type="submit" class="btn btn-primary w-full">
+							Login
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</BaseLayout>

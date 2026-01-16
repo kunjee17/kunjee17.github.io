@@ -1,0 +1,94 @@
+---
+interface Props {
+	id: string;
+	name: string;
+	value?: string;
+	placeholder?: string;
+	required?: boolean;
+	class?: string;
+}
+
+const { id, name, value = "", placeholder = "Start typing markdown...", required = false, class: className = "" } = Astro.props;
+---
+
+<div class={`markdown-editor-wrapper ${className}`}>
+	<textarea
+		id={id}
+		name={name}
+		placeholder={placeholder}
+		required={required}
+		class="hidden"
+		value={value}
+	></textarea>
+	<div id={`${id}-editor`} class="min-h-[400px] border border-base-300 rounded-lg p-4 prose prose-sm max-w-none bg-base-100"></div>
+</div>
+
+<script define:vars={{ id, value }}>
+	// Dynamic import for Milkdown - works with both Crepe and core API
+	if (typeof window !== "undefined") {
+		(async () => {
+			const editorId = `${id}-editor`;
+			const editorElement = document.getElementById(editorId);
+			const textarea = document.getElementById(id);
+
+			if (!editorElement || !textarea) return;
+
+			try {
+				// Try using Crepe first (if available)
+				const { Crepe } = await import("@milkdown/crepe");
+				await import("@milkdown/crepe/lib/style.css");
+
+				const crepe = new Crepe({
+					target: editorElement,
+					value: value || textarea.value || "",
+					onChange: (markdown) => {
+						textarea.value = markdown;
+						textarea.dispatchEvent(new Event("input", { bubbles: true }));
+					},
+				});
+
+				// Initialize with existing value
+				if (value || textarea.value) {
+					crepe.setMarkdown(value || textarea.value);
+				}
+
+				// Sync on form submit
+				const form = textarea.closest("form");
+				if (form) {
+					form.addEventListener("submit", () => {
+						textarea.value = crepe.getMarkdown();
+					});
+				}
+
+				// Cleanup
+				window.addEventListener("beforeunload", () => {
+					if (crepe && typeof crepe.destroy === "function") {
+						crepe.destroy();
+					}
+				});
+			} catch (error) {
+				console.error("Error initializing Milkdown editor:", error);
+				// Fallback to regular textarea if Milkdown fails
+				editorElement.style.display = "none";
+				textarea.classList.remove("hidden");
+				textarea.classList.add("textarea", "textarea-bordered", "h-64", "w-full", "font-mono");
+			}
+		})();
+	}
+</script>
+
+<style>
+	.markdown-editor-wrapper {
+		width: 100%;
+	}
+
+	.markdown-editor-wrapper .milkdown {
+		outline: none;
+		min-height: 400px;
+	}
+
+	/* Ensure prose styles work well */
+	.markdown-editor-wrapper .prose {
+		max-width: 100%;
+	}
+</style>

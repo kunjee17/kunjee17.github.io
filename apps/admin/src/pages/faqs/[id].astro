@@ -1,0 +1,140 @@
+---
+import AdminLayout from "../../components/layout/AdminLayout.astro";
+import { Save, X as Cancel } from "@lucide/astro";
+import { getFAQ, updateFAQ, getAllPosts, getAllPages } from "../../lib/db";
+
+const { id } = Astro.params;
+const faq = await getFAQ(id || "");
+
+if (!faq) {
+	return Astro.redirect("/faqs?error=not_found", 302);
+}
+
+if (Astro.request.method === "POST") {
+	const formData = await Astro.request.formData();
+	const question = formData.get("question")?.toString() || "";
+	const answer = formData.get("answer")?.toString() || "";
+	const blogPostId = formData.get("blogPostId")?.toString();
+	const pageId = formData.get("pageId")?.toString();
+	const orderStr = formData.get("order")?.toString();
+
+	try {
+		await updateFAQ(id!, {
+			question,
+			answer,
+			blogPostId: blogPostId || undefined,
+			pageId: pageId || undefined,
+			order: orderStr ? parseInt(orderStr, 10) : undefined,
+		});
+		return Astro.redirect(`/faqs/${id}?updated=true`, 302);
+	} catch (error) {
+		console.error("Error updating FAQ:", error);
+		return Astro.redirect(`/faqs/${id}?error=update_failed`, 302);
+	}
+}
+
+const [posts, pages] = await Promise.all([getAllPosts(), getAllPages()]);
+const updated = Astro.url.searchParams.get("updated") === "true";
+const error = Astro.url.searchParams.get("error");
+---
+
+<AdminLayout title={`Edit FAQ - ${faq.question}`}>
+	<div class="space-y-6">
+		<h1 class="text-3xl font-bold">Edit FAQ</h1>
+
+		{updated && (
+			<div class="alert alert-success">
+				<span>FAQ updated successfully!</span>
+			</div>
+		)}
+
+		{error && (
+			<div class="alert alert-error">
+				<span>Error: {error === "update_failed" ? "Failed to update FAQ" : error}</span>
+			</div>
+		)}
+
+		<form method="POST" class="card bg-base-100 shadow">
+			<div class="card-body space-y-4">
+				<div class="form-control">
+					<label class="label" for="question">
+						<span class="label-text">Question *</span>
+					</label>
+					<input
+						type="text"
+						id="question"
+						name="question"
+						value={faq.question}
+						class="input input-bordered w-full"
+						required
+					/>
+				</div>
+
+				<div class="form-control">
+					<label class="label" for="answer">
+						<span class="label-text">Answer *</span>
+					</label>
+					<textarea
+						id="answer"
+						name="answer"
+						class="textarea textarea-bordered w-full"
+						rows="4"
+						required
+					>{faq.answer}</textarea>
+				</div>
+
+				<div class="form-control">
+					<label class="label" for="blogPostId">
+						<span class="label-text">Associated Post</span>
+					</label>
+					<select id="blogPostId" name="blogPostId" class="select select-bordered w-full">
+						<option value="">None</option>
+						{posts.map((post) => (
+							<option value={post.id} selected={faq.blogPostId === post.id}>
+								{post.title}
+							</option>
+						))}
+					</select>
+				</div>
+
+				<div class="form-control">
+					<label class="label" for="pageId">
+						<span class="label-text">Associated Page</span>
+					</label>
+					<select id="pageId" name="pageId" class="select select-bordered w-full">
+						<option value="">None</option>
+						{pages.map((page) => (
+							<option value={page.id} selected={faq.pageId === page.id}>
+								{page.title}
+							</option>
+						))}
+					</select>
+				</div>
+
+				<div class="form-control">
+					<label class="label" for="order">
+						<span class="label-text">Order</span>
+					</label>
+					<input
+						type="number"
+						id="order"
+						name="order"
+						value={faq.order || ""}
+						class="input input-bordered w-full"
+					/>
+				</div>
+
+				<div class="card-actions justify-end">
+					<a href="/faqs" class="btn btn-ghost">
+						<Cancel class="size-5" />
+						Cancel
+					</a>
+					<button type="submit" class="btn btn-primary">
+						<Save class="size-5" />
+						Update FAQ
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</AdminLayout>

@@ -1,0 +1,197 @@
+---
+import AdminLayout from "../../components/layout/AdminLayout.astro";
+import { Save, X as Cancel } from "@lucide/astro";
+import { getTag, updateTag, getPostsByTag, validateSlugFormat, checkTagNameExists, checkTagSlugExists } from "../../lib/db";
+
+const { id } = Astro.params;
+const tag = await getTag(id || "");
+
+if (!tag) {
+	return Astro.redirect("/tags?error=not_found", 302);
+}
+
+if (Astro.request.method === "POST") {
+	const formData = await Astro.request.formData();
+	const name = (formData.get("name")?.toString() || "").trim();
+	const slug = formData.get("slug")?.toString()?.trim();
+	const description = formData.get("description")?.toString()?.trim();
+
+	// Validation
+	if (!name) {
+		return Astro.redirect(`/tags/${id}?error=name_required`, 302);
+	}
+
+	if (slug && !validateSlugFormat(slug)) {
+		return Astro.redirect(`/tags/${id}?error=invalid_slug`, 302);
+	}
+
+	try {
+		// Check for duplicates (excluding current tag)
+		if (name !== tag.name && (await checkTagNameExists(name, id))) {
+			return Astro.redirect(`/tags/${id}?error=name_exists`, 302);
+		}
+
+		if (slug && slug !== tag.slug && (await checkTagSlugExists(slug, id))) {
+			return Astro.redirect(`/tags/${id}?error=slug_exists`, 302);
+		}
+
+		await updateTag(id!, { name, slug, description });
+		return Astro.redirect(`/tags/${id}?updated=true`, 302);
+	} catch (error) {
+		console.error("Error updating tag:", error);
+		// Check if it's a database constraint error
+		if (error instanceof Error && error.message.includes("UNIQUE")) {
+			if (error.message.includes("name")) {
+				return Astro.redirect(`/tags/${id}?error=name_exists`, 302);
+			}
+			if (error.message.includes("slug")) {
+				return Astro.redirect(`/tags/${id}?error=slug_exists`, 302);
+			}
+		}
+		return Astro.redirect(`/tags/${id}?error=update_failed`, 302);
+	}
+}
+
+// Get posts using this tag
+const posts = await getPostsByTag(id!);
+
+const updated = Astro.url.searchParams.get("updated") === "true";
+const error = Astro.url.searchParams.get("error");
+const errorMessages: Record<string, string> = {
+	name_required: "Tag name is required.",
+	name_exists: "A tag with this name already exists.",
+	slug_exists: "A tag with this slug already exists.",
+	invalid_slug: "Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
+	update_failed: "Failed to update tag. Please try again.",
+};
+---
+
+<AdminLayout title={`Edit Tag - ${tag.name}`}>
+	<div class="space-y-6">
+		<h1 class="text-3xl font-bold">Edit Tag</h1>
+
+		{updated && (
+			<div class="alert alert-success">
+				<span>Tag updated successfully!</span>
+			</div>
+		)}
+
+		{error && (
+			<div class="alert alert-error">
+				<span>{errorMessages[error] || `Error: ${error}`}</span>
+			</div>
+		)}
+
+		<form method="POST" class="card bg-base-100 shadow">
+			<div class="card-body space-y-4">
+				<div class="form-control">
+					<label class="label" for="name">
+						<span class="label-text">Name *</span>
+					</label>
+					<input
+						type="text"
+						id="name"
+						name="name"
+						value={tag.name}
+						class="input input-bordered w-full"
+						required
+					/>
+				</div>
+
+				<div class="form-control">
+					<label class="label" for="slug">
+						<span class="label-text">Slug</span>
+					</label>
+					<input
+						type="text"
+						id="slug"
+						name="slug"
+						value={tag.slug}
+						class="input input-bordered w-full"
+					/>
+				</div>
+
+				<div class="form-control">
+					<label class="label" for="description">
+						<span class="label-text">Description</span>
+					</label>
+					<textarea
+						id="description"
+						name="description"
+						class="textarea textarea-bordered w-full"
+						rows="3"
+					>{tag.description || ""}</textarea>
+				</div>
+
+				<div class="card-actions justify-end">
+					<a href="/tags" class="btn btn-ghost">
+						<Cancel class="size-5" />
+						Cancel
+					</a>
+					<button type="submit" class="btn btn-primary">
+						<Save class="size-5" />
+						Update Tag
+					</button>
+				</div>
+			</div>
+		</form>
+
+		{posts.length > 0 && (
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">Posts using this tag ({posts.length})</h2>
+					<ul class="list-disc list-inside space-y-1">
+						{posts.map((post) => (
+							<li>
+								<a href={`/posts/${post.id}`} class="link link-primary">
+									{post.title}
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		)}
+	</div>
+</AdminLayout>
+
+<script>
+	// Auto-generate slug from name
+	function generateSlug(text: string): string {
+		return text
+			.toLowerCase()
+			.trim()
+			.replace(/[^\w\s-]/g, "")
+			.replace(/[\s_-]+/g, "-")
+			.replace(/^-+|-+$/g, "");
+	}
+
+	const nameInput = document.getElementById("name") as HTMLInputElement;
+	const slugInput = document.getElementById("slug") as HTMLInputElement;
+
+	if (nameInput && slugInput) {
+		// Store initial slug value to detect manual edits
+		let slugManuallyEdited = false;
+		const originalSlug = slugInput.value;
+		let lastAutoGeneratedSlug = originalSlug;
+
+		nameInput.addEventListener("input", () => {
+			if (!slugManuallyEdited) {
+				const autoSlug = generateSlug(nameInput.value);
+				slugInput.value = autoSlug;
+				lastAutoGeneratedSlug = autoSlug;
+			}
+		});
+
+		slugInput.addEventListener("input", () => {
+			// Check if user manually edited the slug
+			const currentSlug = slugInput.value;
+			if (currentSlug !== lastAutoGeneratedSlug && currentSlug !== originalSlug) {
+				slugManuallyEdited = true;
+			} else if (currentSlug === "" || currentSlug === generateSlug(nameInput.value)) {
+				// Reset if cleared or matches auto-generated value
+				slugManuallyEdited = false;
+			}
+		});
+	}
+</script>

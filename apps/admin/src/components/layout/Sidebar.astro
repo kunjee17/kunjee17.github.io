@@ -1,0 +1,92 @@
+---
+import {
+	House,
+	FileText,
+	BookOpen,
+	Upload,
+	Share2,
+	Settings,
+	Tag,
+	FolderTree,
+	User,
+	Image,
+	HelpCircle,
+} from "@lucide/astro";
+---
+
+<aside class="drawer-side">
+	<label for="admin-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+	<ul class="menu bg-base-200 min-h-full w-80 p-4 text-base-content">
+		<li class="mb-4">
+			<a href="/" class="text-lg font-bold">
+				Admin Panel
+			</a>
+		</li>
+		<li>
+			<a href="/">
+				<House size={20} />
+				Dashboard
+			</a>
+		</li>
+		<li>
+			<a href="/posts">
+				<FileText size={20} />
+				Posts
+			</a>
+		</li>
+		<li>
+			<a href="/pages">
+				<BookOpen size={20} />
+				Pages
+			</a>
+		</li>
+		<li>
+			<a href="/tags">
+				<Tag size={20} />
+				Tags
+			</a>
+		</li>
+		<li>
+			<a href="/categories">
+				<FolderTree size={20} />
+				Categories
+			</a>
+		</li>
+		<li>
+			<a href="/author">
+				<User size={20} />
+				Author
+			</a>
+		</li>
+		<li>
+			<a href="/media">
+				<Image size={20} />
+				Media
+			</a>
+		</li>
+		<li>
+			<a href="/faqs">
+				<HelpCircle size={20} />
+				FAQs
+			</a>
+		</li>
+		<li>
+			<a href="/migrate">
+				<Upload size={20} />
+				Migrate
+			</a>
+		</li>
+		<li>
+			<a href="/social">
+				<Share2 size={20} />
+				Social
+			</a>
+		</li>
+		<li>
+			<a href="/settings">
+				<Settings size={20} />
+				Settings
+			</a>
+		</li>
+	</ul>
+</aside>

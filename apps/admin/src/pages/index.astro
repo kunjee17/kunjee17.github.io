@@ -1,0 +1,151 @@
+---
+import AdminLayout from "../components/layout/AdminLayout.astro";
+import { getDashboardStats, getAllPosts } from "../lib/db";
+import { format } from "date-fns";
+
+const stats = await getDashboardStats();
+const recentPosts = await getAllPosts();
+const recentPostsList = recentPosts.slice(0, 5);
+---
+
+<AdminLayout title="Dashboard">
+	<div class="space-y-6">
+		<h1 class="text-3xl font-bold">Dashboard</h1>
+		
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">Posts</h2>
+					<p class="text-2xl font-bold">{stats.posts}</p>
+					<div class="card-actions justify-end">
+						<a href="/posts" class="btn btn-sm btn-primary">View All</a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">Pages</h2>
+					<p class="text-2xl font-bold">{stats.pages}</p>
+					<div class="card-actions justify-end">
+						<a href="/pages" class="btn btn-sm btn-primary">View All</a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">Drafts</h2>
+					<p class="text-2xl font-bold">{stats.drafts}</p>
+					<div class="card-actions justify-end">
+						<a href="/posts" class="btn btn-sm btn-ghost">View</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">Tags</h2>
+					<p class="text-2xl font-bold">{stats.tags}</p>
+					<div class="card-actions justify-end">
+						<a href="/tags" class="btn btn-sm btn-primary">View All</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">Categories</h2>
+					<p class="text-2xl font-bold">{stats.categories}</p>
+					<div class="card-actions justify-end">
+						<a href="/categories" class="btn btn-sm btn-primary">View All</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">Media</h2>
+					<p class="text-2xl font-bold">{stats.media}</p>
+					<div class="card-actions justify-end">
+						<a href="/media" class="btn btn-sm btn-primary">View All</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">FAQs</h2>
+					<p class="text-2xl font-bold">{stats.faqs}</p>
+					<div class="card-actions justify-end">
+						<a href="/faqs" class="btn btn-sm btn-primary">View All</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="card bg-base-100 shadow">
+			<div class="card-body">
+				<h2 class="card-title">Quick Actions</h2>
+				<div class="flex flex-wrap gap-2">
+					<a href="/posts/new" class="btn btn-primary">New Post</a>
+					<a href="/pages/new" class="btn btn-secondary">New Page</a>
+					<a href="/tags/new" class="btn btn-accent">New Tag</a>
+					<a href="/categories/new" class="btn btn-accent">New Category</a>
+					<a href="/media/new" class="btn btn-accent">Upload Media</a>
+					<a href="/faqs/new" class="btn btn-accent">New FAQ</a>
+					<a href="/migrate" class="btn btn-ghost">Migrate Content</a>
+				</div>
+			</div>
+		</div>
+
+		{recentPostsList.length > 0 && (
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">Recent Posts</h2>
+					<div class="overflow-x-auto">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Title</th>
+									<th>Status</th>
+									<th>Date</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								{recentPostsList.map((post) => (
+									<tr>
+										<td>
+											<a href={`/posts/${post.id}`} class="link link-primary">
+												{post.title}
+											</a>
+										</td>
+										<td>
+											{post.draft ? (
+												<span class="badge badge-warning">Draft</span>
+											) : (
+												<span class="badge badge-success">Published</span>
+											)}
+										</td>
+										<td>
+											{format(
+												new Date(post.publishedAt || post.createdAt),
+												"MMM d, yyyy"
+											)}
+										</td>
+										<td>
+											<a href={`/posts/${post.id}`} class="btn btn-sm btn-ghost">
+												Edit
+											</a>
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		)}
+	</div>
+</AdminLayout>

@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Sidebar from "./Sidebar.astro";
+import Navbar from "./Navbar.astro";
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+	<div class="drawer lg:drawer-open">
+		<input id="admin-drawer" type="checkbox" class="drawer-toggle" />
+		<div class="drawer-content flex flex-col">
+			<Navbar />
+			<main class="flex-1 p-4 lg:p-8">
+				<slot />
+			</main>
+		</div>
+		<Sidebar />
+	</div>
+</BaseLayout>

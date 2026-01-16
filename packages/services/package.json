@@ -1,0 +1,21 @@
+{
+	"name": "@repo/services",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"main": "./src/index.ts",
+	"types": "./src/index.ts",
+	"scripts": {
+		"lint": "biome check .",
+		"check-types": "tsc --noEmit"
+	},
+	"devDependencies": {
+		"@repo/typescript-config": "workspace:*",
+		"@types/node": "^25.0.5",
+		"typescript": "^5.9.3"
+	},
+	"dependencies": {
+		"date-fns": "^4.1.0",
+		"remeda": "^2.33.1"
+	}
+}

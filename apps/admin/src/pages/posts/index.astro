@@ -1,0 +1,258 @@
+---
+import AdminLayout from "../../components/layout/AdminLayout.astro";
+import { Plus, Edit, Trash2, Eye, EyeOff } from "@lucide/astro";
+import { getAllPosts, getTagsForPost, getCategoriesForPost, deletePost } from "../../lib/db";
+import { format } from "date-fns";
+
+// Handle delete action
+if (Astro.request.method === "POST") {
+	const formData = await Astro.request.formData();
+	const action = formData.get("action");
+	const postId = formData.get("postId")?.toString();
+
+	if (action === "delete" && postId) {
+		try {
+			await deletePost(postId);
+			return Astro.redirect("/posts?deleted=true", 302);
+		} catch (error) {
+			console.error("Error deleting post:", error);
+			return Astro.redirect("/posts?error=delete_failed", 302);
+		}
+	}
+}
+
+const posts = await getAllPosts();
+const postsWithRelations = await Promise.all(
+	posts.map(async (post) => {
+		const [tags, categories] = await Promise.all([
+			getTagsForPost(post.id),
+			getCategoriesForPost(post.id),
+		]);
+		return {
+			...post,
+			tags,
+			categories,
+		};
+	})
+);
+
+const deleted = Astro.url.searchParams.get("deleted") === "true";
+const created = Astro.url.searchParams.get("created") === "true";
+const error = Astro.url.searchParams.get("error");
+---
+
+<AdminLayout title="Posts">
+	<div class="space-y-6">
+		<div class="flex items-center justify-between">
+			<h1 class="text-3xl font-bold">Posts</h1>
+			<a href="/posts/new" class="btn btn-primary">
+				<Plus class="size-5" />
+				New Post
+			</a>
+		</div>
+
+		{deleted && (
+			<div class="alert alert-success">
+				<span>Post deleted successfully.</span>
+			</div>
+		)}
+
+		{created && (
+			<div class="alert alert-success">
+				<span>Post created successfully.</span>
+			</div>
+		)}
+
+		{error && (
+			<div class="alert alert-error">
+				<span>Error: {error === "delete_failed" ? "Failed to delete post" : error}</span>
+			</div>
+		)}
+		
+		<div class="card bg-base-100 shadow">
+			<div class="card-body">
+				<div class="form-control mb-4">
+					<input
+						type="text"
+						id="search-input"
+						placeholder="Search posts by title, description, tags, or categories..."
+						class="input input-bordered w-full"
+					/>
+				</div>
+				<div class="overflow-x-auto">
+					<table class="table" id="posts-table">
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th>Status</th>
+								<th>Featured</th>
+								<th>Tags</th>
+								<th>Categories</th>
+								<th>Date</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{postsWithRelations.length === 0 ? (
+								<tr>
+									<td colspan="7" class="text-center py-12">
+										<div class="flex flex-col items-center justify-center gap-4">
+											<div class="text-base-content/40 text-lg">
+												No posts yet
+											</div>
+											<p class="text-base-content/60 text-sm max-w-md">
+												Posts are your main blog content. Create your first post to start sharing your thoughts and ideas!
+											</p>
+											<a href="/posts/new" class="btn btn-primary mt-2">
+												<Plus class="size-5" />
+												Create Your First Post
+											</a>
+										</div>
+									</td>
+								</tr>
+							) : (
+								postsWithRelations.map((post) => (
+									<tr>
+										<td>
+											<div class="font-medium">{post.title}</div>
+											{post.description && (
+												<div class="text-sm text-base-content/60 line-clamp-1">
+													{post.description}
+												</div>
+											)}
+										</td>
+										<td>
+											{post.draft ? (
+												<span class="badge badge-warning">
+													<EyeOff class="size-3" />
+													Draft
+												</span>
+											) : (
+												<span class="badge badge-success">
+													<Eye class="size-3" />
+													Published
+												</span>
+											)}
+										</td>
+										<td>
+											{post.featured && (
+												<span class="badge badge-primary">Featured</span>
+											)}
+										</td>
+										<td>
+											{post.tags.length > 0 ? (
+												<div class="flex flex-wrap gap-1">
+													{post.tags.slice(0, 2).map((tag) => (
+														<span class="badge badge-outline badge-sm">
+															{tag.name}
+														</span>
+													))}
+													{post.tags.length > 2 && (
+														<span class="badge badge-outline badge-sm">
+															+{post.tags.length - 2}
+														</span>
+													)}
+												</div>
+											) : (
+												<span class="text-base-content/40">—</span>
+											)}
+										</td>
+										<td>
+											{post.categories.length > 0 ? (
+												<div class="flex flex-wrap gap-1">
+													{post.categories.slice(0, 1).map((cat) => (
+														<span class="badge badge-secondary badge-sm">
+															{cat.name}
+														</span>
+													))}
+													{post.categories.length > 1 && (
+														<span class="badge badge-secondary badge-sm">
+															+{post.categories.length - 1}
+														</span>
+													)}
+												</div>
+											) : (
+												<span class="text-base-content/40">—</span>
+											)}
+										</td>
+										<td>
+											<div class="text-sm">
+												{post.publishedAt
+													? format(new Date(post.publishedAt), "MMM d, yyyy")
+													: format(new Date(post.createdAt), "MMM d, yyyy")}
+											</div>
+											{post.wordCount && (
+												<div class="text-xs text-base-content/60">
+													{post.wordCount} words
+													{post.readingTime && ` • ${post.readingTime} min read`}
+												</div>
+											)}
+										</td>
+										<td>
+											<div class="flex gap-2">
+												<a
+													href={`/posts/${post.id}`}
+													class="btn btn-sm btn-ghost"
+													title="Edit"
+												>
+													<Edit class="size-4" />
+												</a>
+												<form method="POST" class="inline">
+													<input type="hidden" name="action" value="delete" />
+													<input type="hidden" name="postId" value={post.id} />
+													<button
+														type="submit"
+														class="btn btn-sm btn-ghost text-error"
+														title="Delete"
+														onclick="return confirm('Are you sure you want to delete this post?')"
+													>
+														<Trash2 class="size-4" />
+													</button>
+												</form>
+											</div>
+										</td>
+									</tr>
+								))
+							)}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</AdminLayout>
+
+<script>
+	const searchInput = document.getElementById("search-input") as HTMLInputElement;
+	const table = document.getElementById("posts-table");
+	const tableRows = table?.querySelectorAll("tbody tr");
+
+	if (searchInput && tableRows) {
+		searchInput.addEventListener("input", () => {
+			const searchTerm = searchInput.value.toLowerCase().trim();
+
+			tableRows.forEach((row) => {
+				const cells = row.querySelectorAll("td");
+				let matches = false;
+
+				// Search in title/description (index 0), tags (index 3), categories (index 4)
+				if (cells.length >= 5) {
+					const titleCellText = cells[0]?.textContent?.toLowerCase() || "";
+					const tagsCellText = cells[3]?.textContent?.toLowerCase() || "";
+					const categoriesCellText = cells[4]?.textContent?.toLowerCase() || "";
+					
+					if (titleCellText.includes(searchTerm) || tagsCellText.includes(searchTerm) || categoriesCellText.includes(searchTerm)) {
+						matches = true;
+					}
+				}
+
+				// Show/hide row based on match
+				if (matches || searchTerm === "") {
+					(row as HTMLElement).style.display = "";
+				} else {
+					(row as HTMLElement).style.display = "none";
+				}
+			});
+		});
+	}
+</script>

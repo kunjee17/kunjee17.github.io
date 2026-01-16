@@ -1,0 +1,209 @@
+---
+import AdminLayout from "../../components/layout/AdminLayout.astro";
+import { Save, X as Cancel } from "@lucide/astro";
+import { getMedia, updateMedia } from "../../lib/db";
+
+const { id } = Astro.params;
+const media = await getMedia(id || "");
+
+if (!media) {
+	return Astro.redirect("/media?error=not_found", 302);
+}
+
+if (Astro.request.method === "POST") {
+	const formData = await Astro.request.formData();
+	const filename = formData.get("filename")?.toString();
+	const url = formData.get("url")?.toString();
+	const mimeType = formData.get("mimeType")?.toString();
+	const sizeStr = formData.get("size")?.toString();
+	const altText = formData.get("altText")?.toString();
+	const title = formData.get("title")?.toString();
+	const caption = formData.get("caption")?.toString();
+	const widthStr = formData.get("width")?.toString();
+	const heightStr = formData.get("height")?.toString();
+
+	try {
+		await updateMedia(id!, {
+			filename,
+			url,
+			mimeType,
+			size: sizeStr ? parseInt(sizeStr, 10) : undefined,
+			altText,
+			title,
+			caption,
+			width: widthStr ? parseInt(widthStr, 10) : undefined,
+			height: heightStr ? parseInt(heightStr, 10) : undefined,
+		});
+		return Astro.redirect(`/media/${id}?updated=true`, 302);
+	} catch (error) {
+		console.error("Error updating media:", error);
+		return Astro.redirect(`/media/${id}?error=update_failed`, 302);
+	}
+}
+
+const updated = Astro.url.searchParams.get("updated") === "true";
+const error = Astro.url.searchParams.get("error");
+---
+
+<AdminLayout title={`Edit Media - ${media.filename}`}>
+	<div class="space-y-6">
+		<h1 class="text-3xl font-bold">Edit Media</h1>
+
+		{updated && (
+			<div class="alert alert-success">
+				<span>Media updated successfully!</span>
+			</div>
+		)}
+
+		{error && (
+			<div class="alert alert-error">
+				<span>Error: {error === "update_failed" ? "Failed to update media" : error}</span>
+			</div>
+		)}
+
+		<div class="card bg-base-100 shadow">
+			<div class="card-body">
+				{media.mimeType?.startsWith("image/") && (
+					<figure class="mb-4">
+						<img src={media.url} alt={media.altText || media.filename} class="max-w-full h-auto rounded" />
+					</figure>
+				)}
+			</div>
+		</div>
+
+		<form method="POST" class="card bg-base-100 shadow">
+			<div class="card-body space-y-4">
+				<div class="form-control">
+					<label class="label" for="filename">
+						<span class="label-text">Filename *</span>
+					</label>
+					<input
+						type="text"
+						id="filename"
+						name="filename"
+						value={media.filename}
+						class="input input-bordered w-full"
+						required
+					/>
+				</div>
+
+				<div class="form-control">
+					<label class="label" for="url">
+						<span class="label-text">URL *</span>
+					</label>
+					<input
+						type="url"
+						id="url"
+						name="url"
+						value={media.url}
+						class="input input-bordered w-full"
+						required
+					/>
+				</div>
+
+				<div class="form-control">
+					<label class="label" for="mimeType">
+						<span class="label-text">MIME Type</span>
+					</label>
+					<input
+						type="text"
+						id="mimeType"
+						name="mimeType"
+						value={media.mimeType || ""}
+						class="input input-bordered w-full"
+					/>
+				</div>
+
+				<div class="form-control">
+					<label class="label" for="size">
+						<span class="label-text">Size (bytes)</span>
+					</label>
+					<input
+						type="number"
+						id="size"
+						name="size"
+						value={media.size || ""}
+						class="input input-bordered w-full"
+					/>
+				</div>
+
+				<div class="divider">SEO Fields</div>
+
+				<div class="form-control">
+					<label class="label" for="altText">
+						<span class="label-text">Alt Text</span>
+					</label>
+					<input
+						type="text"
+						id="altText"
+						name="altText"
+						value={media.altText || ""}
+						class="input input-bordered w-full"
+					/>
+				</div>
+
+				<div class="form-control">
+					<label class="label" for="title">
+						<span class="label-text">Title</span>
+					</label>
+					<input
+						type="text"
+						id="title"
+						name="title"
+						value={media.title || ""}
+						class="input input-bordered w-full"
+					/>
+				</div>
+
+				<div class="form-control">
+					<label class="label" for="caption">
+						<span class="label-text">Caption</span>
+					</label>
+					<textarea
+						id="caption"
+						name="caption"
+						class="textarea textarea-bordered w-full"
+						rows="2"
+					>{media.caption || ""}</textarea>
+				</div>
+
+				<div class="form-control">
+					<label class="label" for="width">
+						<span class="label-text">Width (px)</span>
+					</label>
+					<input
+						type="number"
+						id="width"
+						name="width"
+						value={media.width || ""}
+						class="input input-bordered w-full"
+					/>
+				</div>
+
+				<div class="form-control">
+					<label class="label" for="height">
+						<span class="label-text">Height (px)</span>
+					</label>
+					<input
+						type="number"
+						id="height"
+						name="height"
+						value={media.height || ""}
+						class="input input-bordered w-full"
+					/>
+				</div>
+
+				<div class="card-actions justify-end">
+					<a href="/media" class="btn btn-ghost">
+						<Cancel class="size-5" />
+						Cancel
+					</a>
+					<button type="submit" class="btn btn-primary">
+						<Save class="size-5" />
+						Update Media
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</AdminLayout>

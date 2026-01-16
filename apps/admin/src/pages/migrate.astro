@@ -1,0 +1,41 @@
+---
+import AdminLayout from "../components/layout/AdminLayout.astro";
+import { Upload } from "@lucide/astro";
+---
+
+<AdminLayout title="Content Migration">
+	<div class="space-y-6">
+		<h1 class="text-3xl font-bold">Content Migration</h1>
+		
+		<div class="card bg-base-100 shadow">
+			<div class="card-body">
+				<p class="mb-4">
+					Upload markdown files from your Hugo site to migrate content to AstroDB.
+				</p>
+				<form class="space-y-4">
+					<div class="form-control">
+						<label class="label" for="files">
+							<span class="label-text">Markdown Files</span>
+						</label>
+						<input
+							type="file"
+							id="files"
+							name="files"
+							accept=".md,.markdown"
+							multiple
+							class="file-input file-input-bordered w-full"
+							required
+						/>
+					</div>
+					
+					<div class="card-actions justify-end">
+						<button type="submit" class="btn btn-primary">
+							<Upload class="size-5" />
+							Upload & Migrate
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</AdminLayout>

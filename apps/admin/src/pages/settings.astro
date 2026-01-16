@@ -1,0 +1,67 @@
+---
+import AdminLayout from "../components/layout/AdminLayout.astro";
+import { Save } from "@lucide/astro";
+---
+
+<AdminLayout title="Settings">
+	<div class="space-y-6">
+		<h1 class="text-3xl font-bold">Settings</h1>
+		
+		<div class="card bg-base-100 shadow">
+			<div class="card-body">
+				<h2 class="card-title">General Settings</h2>
+				<form class="space-y-4">
+					<div class="form-control">
+						<label class="label" for="siteName">
+							<span class="label-text">Site Name</span>
+						</label>
+						<input
+							type="text"
+							id="siteName"
+							name="siteName"
+							placeholder="Site name"
+							class="input input-bordered w-full"
+						/>
+					</div>
+					
+					<div class="form-control">
+						<label class="label" for="siteUrl">
+							<span class="label-text">Site URL</span>
+						</label>
+						<input
+							type="url"
+							id="siteUrl"
+							name="siteUrl"
+							placeholder="https://example.com"
+							class="input input-bordered w-full"
+						/>
+					</div>
+					
+					<div class="card-actions justify-end">
+						<button type="submit" class="btn btn-primary">
+							<Save class="size-5" />
+							Save Settings
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<div class="card bg-base-100 shadow">
+			<div class="card-body">
+				<h2 class="card-title">Rebuild Settings</h2>
+				<div class="space-y-4">
+					<div class="form-control">
+						<label class="label cursor-pointer">
+							<span class="label-text">Immediate Publish</span>
+							<input type="checkbox" class="toggle toggle-primary" checked />
+						</label>
+					</div>
+					<p class="text-sm text-base-content/60">
+						When enabled, changes will trigger an immediate rebuild via Netlify build hook.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</AdminLayout>

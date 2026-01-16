@@ -1,0 +1,101 @@
+---
+import AdminLayout from "../../components/layout/AdminLayout.astro";
+import { Plus, Edit, Trash2 } from "@lucide/astro";
+import { getAllMedia, deleteMedia } from "../../lib/db";
+import { format } from "date-fns";
+
+if (Astro.request.method === "POST") {
+	const formData = await Astro.request.formData();
+	const action = formData.get("action");
+	const mediaId = formData.get("mediaId")?.toString();
+
+	if (action === "delete" && mediaId) {
+		try {
+			await deleteMedia(mediaId);
+			return Astro.redirect("/media?deleted=true", 302);
+		} catch (error) {
+			console.error("Error deleting media:", error);
+			return Astro.redirect("/media?error=delete_failed", 302);
+		}
+	}
+}
+
+const media = await getAllMedia();
+const deleted = Astro.url.searchParams.get("deleted") === "true";
+const error = Astro.url.searchParams.get("error");
+---
+
+<AdminLayout title="Media">
+	<div class="space-y-6">
+		<div class="flex items-center justify-between">
+			<h1 class="text-3xl font-bold">Media</h1>
+			<a href="/media/new" class="btn btn-primary">
+				<Plus class="size-5" />
+				Upload Media
+			</a>
+		</div>
+
+		{deleted && (
+			<div class="alert alert-success">
+				<span>Media deleted successfully.</span>
+			</div>
+		)}
+
+		{error && (
+			<div class="alert alert-error">
+				<span>Error: {error === "delete_failed" ? "Failed to delete media" : error}</span>
+			</div>
+		)}
+
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+			{media.length === 0 ? (
+				<div class="col-span-full text-center text-base-content/60 py-8">
+					No media yet. Upload your first file!
+				</div>
+			) : (
+				media.map((item) => (
+					<div class="card bg-base-100 shadow">
+						<figure>
+							{item.mimeType?.startsWith("image/") ? (
+								<img src={item.url} alt={item.altText || item.filename} class="h-48 w-full object-cover" />
+							) : (
+								<div class="h-48 w-full bg-base-200 flex items-center justify-center">
+									<span class="text-4xl">📄</span>
+								</div>
+							)}
+						</figure>
+						<div class="card-body">
+							<h2 class="card-title text-sm">{item.filename}</h2>
+							{item.title && <p class="text-xs text-base-content/60">{item.title}</p>}
+							<div class="text-xs text-base-content/60 space-y-1">
+								{item.size && <div>Size: {(item.size / 1024).toFixed(2)} KB</div>}
+								<div>Uploaded: {format(new Date(item.uploadedAt), "MMM d, yyyy")}</div>
+								{item.width && item.height && (
+									<div>
+										{item.width} × {item.height}
+									</div>
+								)}
+							</div>
+							<div class="card-actions justify-end mt-2">
+								<a href={`/media/${item.id}`} class="btn btn-sm btn-ghost">
+									<Edit class="size-4" />
+								</a>
+								<form method="POST" class="inline">
+									<input type="hidden" name="action" value="delete" />
+									<input type="hidden" name="mediaId" value={item.id} />
+									<button
+										type="submit"
+										class="btn btn-sm btn-ghost text-error"
+										onclick="return confirm('Are you sure you want to delete this media?')"
+									>
+										<Trash2 class="size-4" />
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				))
+			)}
+		</div>
+	</div>
+</AdminLayout>

@@ -1,0 +1,414 @@
+---
+import AdminLayout from "../../components/layout/AdminLayout.astro";
+import { Save } from "@lucide/astro";
+import { getFirstAuthor, createAuthor, updateAuthor, getPostsByAuthor, validateSlugFormat, checkAuthorSlugExists, generateSlug } from "../../lib/db";
+import { format } from "date-fns";
+
+let author = await getFirstAuthor();
+
+if (Astro.request.method === "POST") {
+	const formData = await Astro.request.formData();
+	const slug = (formData.get("slug")?.toString() || "").trim();
+	const name = (formData.get("name")?.toString() || "").trim();
+	const bio = formData.get("bio")?.toString()?.trim();
+	const credentials = formData.get("credentials")?.toString()?.trim();
+	const profilePicture = formData.get("profilePicture")?.toString()?.trim();
+	const email = formData.get("email")?.toString()?.trim();
+	const website = formData.get("website")?.toString()?.trim();
+	const socialLinksStr = formData.get("socialLinks")?.toString()?.trim();
+
+	// Validation
+	if (!name) {
+		return Astro.redirect("/author?error=name_required", 302);
+	}
+
+	if (!slug) {
+		return Astro.redirect("/author?error=slug_required", 302);
+	}
+
+	if (!validateSlugFormat(slug)) {
+		return Astro.redirect("/author?error=invalid_slug", 302);
+	}
+
+	// Validate email format if provided
+	if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+		return Astro.redirect("/author?error=invalid_email", 302);
+	}
+
+	// Validate URL format if provided
+	if (profilePicture && !isValidUrl(profilePicture)) {
+		return Astro.redirect("/author?error=invalid_profile_picture_url", 302);
+	}
+
+	if (website && !isValidUrl(website)) {
+		return Astro.redirect("/author?error=invalid_website_url", 302);
+	}
+
+	// Validate and parse social links JSON
+	let socialLinks: Record<string, string> | undefined;
+	if (socialLinksStr) {
+		try {
+			const parsed = JSON.parse(socialLinksStr);
+			if (typeof parsed !== "object" || Array.isArray(parsed) || parsed === null) {
+				return Astro.redirect("/author?error=invalid_social_links_format", 302);
+			}
+			// Validate that all values are strings
+			for (const [key, value] of Object.entries(parsed)) {
+				if (typeof value !== "string") {
+					return Astro.redirect("/author?error=invalid_social_links_values", 302);
+				}
+			}
+			socialLinks = parsed;
+		} catch (parseError) {
+			return Astro.redirect("/author?error=invalid_social_links_json", 302);
+		}
+	}
+
+	try {
+		// Check for duplicate slug (if updating and slug changed, or if creating)
+		if (author && slug !== author.slug) {
+			if (await checkAuthorSlugExists(slug, author.id)) {
+				return Astro.redirect("/author?error=slug_exists", 302);
+			}
+		} else if (!author) {
+			if (await checkAuthorSlugExists(slug)) {
+				return Astro.redirect("/author?error=slug_exists", 302);
+			}
+		}
+
+		if (author) {
+			await updateAuthor(author.id, {
+				slug,
+				name,
+				bio,
+				credentials,
+				profilePicture,
+				email,
+				website,
+				socialLinks,
+			});
+		} else {
+			await createAuthor({
+				slug,
+				name,
+				bio,
+				credentials,
+				profilePicture,
+				email,
+				website,
+				socialLinks,
+			});
+		}
+		return Astro.redirect("/author?updated=true", 302);
+	} catch (error) {
+		console.error("Error saving author:", error);
+		// Check if it's a database constraint error
+		if (error instanceof Error && error.message.includes("UNIQUE")) {
+			if (error.message.includes("slug")) {
+				return Astro.redirect("/author?error=slug_exists", 302);
+			}
+		}
+		return Astro.redirect("/author?error=save_failed", 302);
+	}
+}
+
+// Helper function to validate URLs
+function isValidUrl(urlString: string): boolean {
+	try {
+		const url = new URL(urlString);
+		return url.protocol === "http:" || url.protocol === "https:";
+	} catch {
+		return false;
+	}
+}
+
+// Reload author after potential update
+author = await getFirstAuthor();
+
+// Get posts by this author
+const posts = author ? await getPostsByAuthor(author.id) : [];
+
+const updated = Astro.url.searchParams.get("updated") === "true";
+const error = Astro.url.searchParams.get("error");
+const errorMessages: Record<string, string> = {
+	name_required: "Author name is required.",
+	slug_required: "Slug is required.",
+	slug_exists: "An author with this slug already exists.",
+	invalid_slug: "Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
+	invalid_email: "Invalid email format.",
+	invalid_profile_picture_url: "Invalid profile picture URL format.",
+	invalid_website_url: "Invalid website URL format.",
+	invalid_social_links_json: "Invalid JSON format in social links. Please check your JSON syntax.",
+	invalid_social_links_format: "Social links must be a JSON object (not an array or null).",
+	invalid_social_links_values: "All social link values must be strings.",
+	save_failed: "Failed to save author. Please try again.",
+};
+---
+
+<AdminLayout title="Author">
+	<div class="space-y-6">
+		<h1 class="text-3xl font-bold">Author</h1>
+
+		{updated && (
+			<div class="alert alert-success">
+				<span>Author updated successfully!</span>
+			</div>
+		)}
+
+		{error && (
+			<div class="alert alert-error">
+				<span>{errorMessages[error] || `Error: ${error}`}</span>
+			</div>
+		)}
+
+		<form method="POST" class="space-y-6">
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">Author Information</h2>
+					<div class="space-y-4">
+						<div class="form-control">
+							<label class="label" for="name">
+								<span class="label-text">Name *</span>
+							</label>
+							<input
+								type="text"
+								id="name"
+								name="name"
+								value={author?.name || ""}
+								class="input input-bordered w-full"
+								required
+							/>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="slug">
+								<span class="label-text">Slug *</span>
+								<span class="label-text-alt">Auto-generated from name if empty</span>
+							</label>
+							<input
+								type="text"
+								id="slug"
+								name="slug"
+								value={author?.slug || ""}
+								class="input input-bordered w-full"
+								required
+							/>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="bio">
+								<span class="label-text">Bio</span>
+							</label>
+							<textarea
+								id="bio"
+								name="bio"
+								class="textarea textarea-bordered w-full"
+								rows="4"
+							>{author?.bio || ""}</textarea>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="credentials">
+								<span class="label-text">Credentials</span>
+							</label>
+							<textarea
+								id="credentials"
+								name="credentials"
+								class="textarea textarea-bordered w-full"
+								rows="3"
+							>{author?.credentials || ""}</textarea>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="profilePicture">
+								<span class="label-text">Profile Picture URL</span>
+							</label>
+							<input
+								type="url"
+								id="profilePicture"
+								name="profilePicture"
+								value={author?.profilePicture || ""}
+								class="input input-bordered w-full"
+							/>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="email">
+								<span class="label-text">Email</span>
+							</label>
+							<input
+								type="email"
+								id="email"
+								name="email"
+								value={author?.email || ""}
+								class="input input-bordered w-full"
+							/>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="website">
+								<span class="label-text">Website</span>
+							</label>
+							<input
+								type="url"
+								id="website"
+								name="website"
+								value={author?.website || ""}
+								class="input input-bordered w-full"
+							/>
+						</div>
+
+						<div class="form-control">
+							<label class="label" for="socialLinks">
+								<span class="label-text">Social Links</span>
+								<span class="label-text-alt" id="social-links-status"></span>
+							</label>
+							<textarea
+								id="socialLinks"
+								name="socialLinks"
+								class="textarea textarea-bordered w-full font-mono text-sm"
+								rows="6"
+								placeholder='{\n  "twitter": "https://twitter.com/username",\n  "linkedin": "https://linkedin.com/in/username",\n  "github": "https://github.com/username"\n}'
+							>{author?.socialLinks ? (typeof author.socialLinks === "string" ? author.socialLinks : JSON.stringify(author.socialLinks, null, 2)) : ""}</textarea>
+							<label class="label">
+								<span class="label-text-alt">JSON object with platform names as keys and URLs as values</span>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card-actions justify-end">
+				<button type="submit" class="btn btn-primary">
+					<Save class="size-5" />
+					Save Author
+				</button>
+			</div>
+		</form>
+
+		{author && (
+			<div class="text-sm text-base-content/60">
+				<div>Created: {format(new Date(author.createdAt), "PPpp")}</div>
+				<div>Updated: {format(new Date(author.updatedAt), "PPpp")}</div>
+			</div>
+		)}
+
+		{posts.length > 0 && (
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">Posts by this author ({posts.length})</h2>
+					<ul class="list-disc list-inside space-y-1">
+						{posts.map((post) => (
+							<li>
+								<a href={`/posts/${post.id}`} class="link link-primary">
+									{post.title}
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		)}
+	</div>
+</AdminLayout>
+
+<script>
+	// Auto-generate slug from name
+	function generateSlug(text: string): string {
+		return text
+			.toLowerCase()
+			.trim()
+			.replace(/[^\w\s-]/g, "")
+			.replace(/[\s_-]+/g, "-")
+			.replace(/^-+|-+$/g, "");
+	}
+
+	const nameInput = document.getElementById("name") as HTMLInputElement;
+	const slugInput = document.getElementById("slug") as HTMLInputElement;
+
+	if (nameInput && slugInput) {
+		// Store initial slug value to detect manual edits
+		let slugManuallyEdited = false;
+		const originalSlug = slugInput.value;
+		let lastAutoGeneratedSlug = originalSlug;
+
+		nameInput.addEventListener("input", () => {
+			if (!slugManuallyEdited) {
+				const autoSlug = generateSlug(nameInput.value);
+				slugInput.value = autoSlug;
+				lastAutoGeneratedSlug = autoSlug;
+			}
+		});
+
+		slugInput.addEventListener("input", () => {
+			// Check if user manually edited the slug
+			const currentSlug = slugInput.value;
+			if (currentSlug !== lastAutoGeneratedSlug && currentSlug !== originalSlug) {
+				slugManuallyEdited = true;
+			} else if (currentSlug === "" || currentSlug === generateSlug(nameInput.value)) {
+				// Reset if cleared or matches auto-generated value
+				slugManuallyEdited = false;
+			}
+		});
+	}
+
+	// Social Links JSON validation
+	const socialLinksInput = document.getElementById("socialLinks") as HTMLTextAreaElement;
+	const socialLinksStatus = document.getElementById("social-links-status");
+
+	if (socialLinksInput && socialLinksStatus) {
+		function validateSocialLinksJson(value: string): { valid: boolean; message: string } {
+			if (!value.trim()) {
+				return { valid: true, message: "Optional" };
+			}
+
+			try {
+				const parsed = JSON.parse(value);
+				
+				if (typeof parsed !== "object" || Array.isArray(parsed) || parsed === null) {
+					return { valid: false, message: "Must be an object" };
+				}
+
+				// Validate that all values are strings
+				for (const [key, val] of Object.entries(parsed)) {
+					if (typeof val !== "string") {
+						return { valid: false, message: `Value for "${key}" must be a string` };
+					}
+				}
+
+				return { valid: true, message: "Valid JSON" };
+			} catch (error) {
+				if (error instanceof SyntaxError) {
+					return { valid: false, message: "Invalid JSON syntax" };
+				}
+				return { valid: false, message: "Invalid format" };
+			}
+		}
+
+		function updateSocialLinksStatus() {
+			const value = socialLinksInput.value;
+			const validation = validateSocialLinksJson(value);
+			
+			socialLinksStatus.textContent = validation.message;
+			
+			if (value.trim()) {
+				if (validation.valid) {
+					socialLinksStatus.className = "label-text-alt text-success";
+					socialLinksInput.classList.remove("textarea-error");
+					socialLinksInput.classList.add("textarea-success");
+				} else {
+					socialLinksStatus.className = "label-text-alt text-error";
+					socialLinksInput.classList.remove("textarea-success");
+					socialLinksInput.classList.add("textarea-error");
+				}
+			} else {
+				socialLinksStatus.className = "label-text-alt";
+				socialLinksInput.classList.remove("textarea-error", "textarea-success");
+			}
+		}
+
+		socialLinksInput.addEventListener("input", updateSocialLinksStatus);
+		// Validate on page load
+		updateSocialLinksStatus();
+	}
+</script>

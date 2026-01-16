@@ -1,0 +1,47 @@
+---
+import AdminLayout from "../components/layout/AdminLayout.astro";
+import { Share2, Calendar } from "@lucide/astro";
+---
+
+<AdminLayout title="Social Media">
+	<div class="space-y-6">
+		<h1 class="text-3xl font-bold">Social Media</h1>
+		
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">
+						<Share2 class="size-5" />
+						Generate Posts
+					</h2>
+					<p>Generate social media posts from your blog content.</p>
+					<div class="card-actions justify-end">
+						<button class="btn btn-primary">Generate</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="card bg-base-100 shadow">
+				<div class="card-body">
+					<h2 class="card-title">
+						<Calendar class="size-5" />
+						Scheduled Posts
+					</h2>
+					<p>View and manage scheduled social media posts.</p>
+					<div class="card-actions justify-end">
+						<button class="btn btn-secondary">View Schedule</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="card bg-base-100 shadow">
+			<div class="card-body">
+				<h2 class="card-title">Recent Posts</h2>
+				<div class="text-center text-base-content/60">
+					No social media posts yet.
+				</div>
+			</div>
+		</div>
+	</div>
+</AdminLayout>

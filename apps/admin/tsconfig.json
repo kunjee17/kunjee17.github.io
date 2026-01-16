@@ -1,0 +1,14 @@
+{
+	"extends": "@repo/typescript-config/astro",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"],
+			"@components": ["./src/components/*"],
+			"@layouts": ["./src/layouts/*"],
+			"@lib": ["./src/lib/*"]
+		}
+	},
+	"include": ["**/*.ts", "**/*.tsx", "**/*.astro", ".astro/types.d.ts", ".astro/integrations/**/*.d.ts"],
+	"exclude": ["node_modules"]
+}

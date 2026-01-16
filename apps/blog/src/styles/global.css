@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@import "@fontsource-variable/figtree";
+@import "@fontsource-variable/fraunces";
+@import "@fontsource/satisfy";
+
+/* Custom styles */
+@plugin "daisyui" {
+	themes:
+		light --default,
+		dark --prefersdark;
+}
+
+@plugin "@tailwindcss/typography";

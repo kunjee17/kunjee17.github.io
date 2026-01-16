@@ -1,0 +1,199 @@
+---
+import AdminLayout from "../../components/layout/AdminLayout.astro";
+import { Plus, Edit, Trash2, Eye, EyeOff } from "@lucide/astro";
+import { getAllPages, deletePage } from "../../lib/db";
+import { format } from "date-fns";
+
+// Handle delete action
+if (Astro.request.method === "POST") {
+	const formData = await Astro.request.formData();
+	const action = formData.get("action");
+	const pageId = formData.get("pageId")?.toString();
+
+	if (action === "delete" && pageId) {
+		try {
+			await deletePage(pageId);
+			return Astro.redirect("/pages?deleted=true", 302);
+		} catch (error) {
+			console.error("Error deleting page:", error);
+			return Astro.redirect("/pages?error=delete_failed", 302);
+		}
+	}
+}
+
+const pages = await getAllPages();
+const deleted = Astro.url.searchParams.get("deleted") === "true";
+const created = Astro.url.searchParams.get("created") === "true";
+const error = Astro.url.searchParams.get("error");
+---
+
+<AdminLayout title="Pages">
+	<div class="space-y-6">
+		<div class="flex items-center justify-between">
+			<h1 class="text-3xl font-bold">Pages</h1>
+			<a href="/pages/new" class="btn btn-primary">
+				<Plus class="size-5" />
+				New Page
+			</a>
+		</div>
+
+		{deleted && (
+			<div class="alert alert-success">
+				<span>Page deleted successfully.</span>
+			</div>
+		)}
+
+		{created && (
+			<div class="alert alert-success">
+				<span>Page created successfully.</span>
+			</div>
+		)}
+
+		{error && (
+			<div class="alert alert-error">
+				<span>Error: {error === "delete_failed" ? "Failed to delete page" : error}</span>
+			</div>
+		)}
+		
+		<div class="card bg-base-100 shadow">
+			<div class="card-body">
+				<div class="form-control mb-4">
+					<input
+						type="text"
+						id="search-input"
+						placeholder="Search pages by title, slug, or description..."
+						class="input input-bordered w-full"
+					/>
+				</div>
+				<div class="overflow-x-auto">
+					<table class="table" id="pages-table">
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th>Slug</th>
+								<th>Status</th>
+								<th>Date</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{pages.length === 0 ? (
+								<tr>
+									<td colspan="5" class="text-center py-12">
+										<div class="flex flex-col items-center justify-center gap-4">
+											<div class="text-base-content/40 text-lg">
+												No pages yet
+											</div>
+											<p class="text-base-content/60 text-sm max-w-md">
+												Pages are standalone content pieces like About, Contact, or custom landing pages. Create your first page to get started!
+											</p>
+											<a href="/pages/new" class="btn btn-primary mt-2">
+												<Plus class="size-5" />
+												Create Your First Page
+											</a>
+										</div>
+									</td>
+								</tr>
+							) : (
+								pages.map((page) => (
+									<tr>
+										<td>
+											<div class="font-medium">{page.title}</div>
+											{page.description && (
+												<div class="text-sm text-base-content/60 line-clamp-1">
+													{page.description}
+												</div>
+											)}
+										</td>
+										<td>
+											<code class="text-xs">{page.slug}</code>
+										</td>
+										<td>
+											{page.draft ? (
+												<span class="badge badge-warning">
+													<EyeOff class="size-3" />
+													Draft
+												</span>
+											) : (
+												<span class="badge badge-success">
+													<Eye class="size-3" />
+													Published
+												</span>
+											)}
+										</td>
+										<td>
+											<div class="text-sm">
+												{page.publishedAt
+													? format(new Date(page.publishedAt), "MMM d, yyyy")
+													: format(new Date(page.createdAt), "MMM d, yyyy")}
+											</div>
+										</td>
+										<td>
+											<div class="flex gap-2">
+												<a
+													href={`/pages/${page.id}`}
+													class="btn btn-sm btn-ghost"
+													title="Edit"
+												>
+													<Edit class="size-4" />
+												</a>
+												<form method="POST" class="inline">
+													<input type="hidden" name="action" value="delete" />
+													<input type="hidden" name="pageId" value={page.id} />
+													<button
+														type="submit"
+														class="btn btn-sm btn-ghost text-error"
+														title="Delete"
+														onclick="return confirm('Are you sure you want to delete this page?')"
+													>
+														<Trash2 class="size-4" />
+													</button>
+												</form>
+											</div>
+										</td>
+									</tr>
+								))
+							)}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</AdminLayout>
+
+<script>
+	const searchInput = document.getElementById("search-input") as HTMLInputElement;
+	const table = document.getElementById("pages-table");
+	const tableRows = table?.querySelectorAll("tbody tr");
+
+	if (searchInput && tableRows) {
+		searchInput.addEventListener("input", () => {
+			const searchTerm = searchInput.value.toLowerCase().trim();
+
+			tableRows.forEach((row) => {
+				const cells = row.querySelectorAll("td");
+				let matches = false;
+
+				// Search in title, slug, and description columns (first 2 columns contain title/description, 2nd has slug)
+				// Title cell (index 0) contains title and description
+				// Slug cell (index 1)
+				if (cells.length >= 2) {
+					const titleCellText = cells[0]?.textContent?.toLowerCase() || "";
+					const slugCellText = cells[1]?.textContent?.toLowerCase() || "";
+					
+					if (titleCellText.includes(searchTerm) || slugCellText.includes(searchTerm)) {
+						matches = true;
+					}
+				}
+
+				// Show/hide row based on match
+				if (matches || searchTerm === "") {
+					(row as HTMLElement).style.display = "";
+				} else {
+					(row as HTMLElement).style.display = "none";
+				}
+			});
+		});
+	}
+</script>
