@@ -31,7 +31,8 @@ Navigate to: **Site settings → Environment variables**
 Add or verify the following variables:
 
 - `SUPER_ADMIN_PASSWORD` - Required for admin authentication
-- Any AstroDB-related environment variables if needed
+- `DATABASE_URL` or `TURSO_DATABASE_URL` - Database connection URL (for production)
+- `TURSO_AUTH_TOKEN` - Turso authentication token (for production)
 
 ### Node Version
 
@@ -60,7 +61,9 @@ Update the following:
 
 Navigate to: **Site settings → Environment variables**
 
-Add any AstroDB-related environment variables if needed.
+Add database-related environment variables if needed:
+- `DATABASE_URL` or `TURSO_DATABASE_URL` - Database connection URL (for production)
+- `TURSO_AUTH_TOKEN` - Turso authentication token (for production)
 
 ### Node Version
 
@@ -98,6 +101,7 @@ These files are automatically detected by Netlify when the base directory is set
 The monorepo uses pnpm workspaces with shared packages:
 - `@repo/services` - Shared services
 - `@repo/dtos` - Shared data transfer objects
+- `@repo/orm` - Shared Drizzle ORM schema and queries
 - `@repo/typescript-config` - Shared TypeScript configuration
 
 These are automatically resolved during the build process via pnpm workspace dependencies.

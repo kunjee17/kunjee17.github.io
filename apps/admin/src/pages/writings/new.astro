@@ -1,7 +1,10 @@
 ---
+import { X as Cancel, Save } from "@lucide/astro";
+import AdminLayout from "@/components/layout/AdminLayout.astro";
+import MarkdownEditor from "@/components/ui/MarkdownEditor.astro";
 import {
-	checkPostSlugExists,
-	createPost,
+	checkWritingSlugExists,
+	createWriting,
 	generateSlug,
 	getAllCategories,
 	getAllTags,
@@ -10,7 +13,7 @@ import {
 } from "../../lib/queries";
 
 // Load data for form
-const [_tags, _categories, author] = await Promise.all([
+const [tags, categories, author] = await Promise.all([
 	getAllTags(),
 	getAllCategories(),
 	getFirstAuthor(),
@@ -160,12 +163,12 @@ if (Astro.request.method === "POST") {
 
 	try {
 		// Check for duplicate slug
-		if (await checkPostSlugExists(slug)) {
+		if (await checkWritingSlugExists(slug)) {
 			return Astro.redirect("/posts/new?error=slug_exists", 302);
 		}
 
 		// Create post
-		const postId = await createPost({
+		const postId = await createWriting({
 			title,
 			slug,
 			linkTitle,
@@ -209,11 +212,11 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const _error = Astro.url.searchParams.get("error");
-const _errorMessages: Record<string, string> = {
-	title_required: "Post title is required.",
-	content_required: "Post content is required.",
-	slug_exists: "A post with this slug already exists.",
+const error = Astro.url.searchParams.get("error");
+const errorMessages: Record<string, string> = {
+	title_required: "Writing title is required.",
+	content_required: "Writing content is required.",
+	slug_exists: "A writing with this slug already exists.",
 	invalid_slug:
 		"Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
 	invalid_canonical_url: "Invalid canonical URL format.",
@@ -223,13 +226,13 @@ const _errorMessages: Record<string, string> = {
 	invalid_published_date: "Invalid published date format.",
 	invalid_expiry_date: "Invalid expiry date format.",
 	invalid_sitemap_priority: "Sitemap priority must be between 0.0 and 1.0.",
-	create_failed: "Error creating post. Please try again.",
+	create_failed: "Error creating writing. Please try again.",
 };
 ---
 
-<AdminLayout title="New Post">
+<AdminLayout title="New Writing">
 	<div class="space-y-6">
-		<h1 class="text-3xl font-bold">New Post</h1>
+		<h1 class="text-3xl font-bold">New Writing</h1>
 
 		{error && (
 			<div class="alert alert-error">

@@ -5,15 +5,12 @@
 	"private": true,
 	"scripts": {
 		"dev": "astro dev",
-		"build": "astro build --remote",
+		"build": "astro build",
 		"preview": "astro preview",
-		"db:push": "astro db push",
-		"db:verify": "astro db verify",
 		"check-types": "astro check"
 	},
 	"dependencies": {
 		"@alpinejs/persist": "^3.15.3",
-		"@astrojs/db": "^0.18.3",
 		"@astrojs/netlify": "^6.6.3",
 		"@fontsource-variable/figtree": "^5.2.10",
 		"@fontsource-variable/fraunces": "^5.2.9",
@@ -31,7 +28,11 @@
 		"remeda": "^2.33.1",
 		"simple-notify": "^1.0.6",
 		"typebox": "^1.0.77",
-		"uuid": "^13.0.0"
+		"uuid": "^13.0.0",
+		"@libsql/client": "^0.17.0",
+		"@tursodatabase/database": "^0.4.3",
+		"dotenv": "^17.2.3",
+		"drizzle-orm": "1.0.0-beta.11-05230d9"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.6",
@@ -42,6 +43,8 @@
 		"@types/alpinejs__persist": "^3.13.4",
 		"@types/node": "^25.0.5",
 		"daisyui": "^5.5.14",
+		"drizzle-kit": "1.0.0-beta.11-05230d9",
+		"tsx": "^4.21.0",
 		"tailwindcss": "^4.1.18",
 		"typescript": "^5.9.3"
 	}

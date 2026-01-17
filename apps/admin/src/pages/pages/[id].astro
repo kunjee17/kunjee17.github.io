@@ -5,6 +5,7 @@ import { X as Cancel, Save } from "@lucide/astro";
 import { format } from "date-fns";
 import {
 	checkPageSlugExists,
+	formatDateTimeLocal,
 	generateSlug,
 	getPage,
 	updatePage,
@@ -137,13 +138,6 @@ if (Astro.request.method === "POST") {
 function isValidUrlPath(path: string): boolean {
 	// URL path should start with / and be a valid path
 	return /^\/[^\s]*$/.test(path);
-}
-
-function _formatDateTimeLocal(date: Date | null | undefined): string {
-	if (!date) return "";
-	const d = new Date(date);
-	d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
-	return d.toISOString().slice(0, 16);
 }
 
 const updated = Astro.url.searchParams.get("updated") === "true";

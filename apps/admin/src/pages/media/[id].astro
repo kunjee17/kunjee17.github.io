@@ -1,4 +1,6 @@
 ---
+import { X as Cancel, Save } from "@lucide/astro";
+import AdminLayout from "@/components/layout/AdminLayout.astro";
 import { getMedia, updateMedia } from "../../lib/queries";
 
 const { id } = Astro.params;
@@ -44,8 +46,8 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const _updated = Astro.url.searchParams.get("updated") === "true";
-const _error = Astro.url.searchParams.get("error");
+const updated = Astro.url.searchParams.get("updated") === "true";
+const error = Astro.url.searchParams.get("error");
 ---
 
 <AdminLayout title={`Edit Media - ${media.filename}`}>

@@ -1,11 +1,13 @@
 ---
-import { createFAQ, getAllPages, getAllPosts } from "../../lib/queries";
+import { X as Cancel, Save } from "@lucide/astro";
+import AdminLayout from "@/components/layout/AdminLayout.astro";
+import { createFAQ, getAllPages, getAllWritings } from "../../lib/queries";
 
 if (Astro.request.method === "POST") {
 	const formData = await Astro.request.formData();
 	const question = formData.get("question")?.toString() || "";
 	const answer = formData.get("answer")?.toString() || "";
-	const blogPostId = formData.get("blogPostId")?.toString();
+	const writingId = formData.get("writingId")?.toString();
 	const pageId = formData.get("pageId")?.toString();
 	const orderStr = formData.get("order")?.toString();
 
@@ -13,7 +15,7 @@ if (Astro.request.method === "POST") {
 		await createFAQ({
 			question,
 			answer,
-			blogPostId: blogPostId || undefined,
+			writingId: writingId || undefined,
 			pageId: pageId || undefined,
 			order: orderStr ? parseInt(orderStr, 10) : undefined,
 		});
@@ -24,8 +26,8 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const [_posts, _pages] = await Promise.all([getAllPosts(), getAllPages()]);
-const _error = Astro.url.searchParams.get("error");
+const [writings, pages] = await Promise.all([getAllWritings(), getAllPages()]);
+const error = Astro.url.searchParams.get("error");
 ---
 
 <AdminLayout title="New FAQ">
@@ -75,8 +77,8 @@ const _error = Astro.url.searchParams.get("error");
 					</label>
 					<select id="blogPostId" name="blogPostId" class="select select-bordered w-full">
 						<option value="">None</option>
-						{posts.map((post) => (
-							<option value={post.id}>{post.title}</option>
+						{writings.map((writing) => (
+							<option value={writing.id}>{writing.title}</option>
 						))}
 					</select>
 				</div>

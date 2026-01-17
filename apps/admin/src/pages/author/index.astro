@@ -1,9 +1,12 @@
 ---
+import { Save } from "@lucide/astro";
+import { format } from "date-fns";
+import AdminLayout from "@/components/layout/AdminLayout.astro";
 import {
 	checkAuthorSlugExists,
 	createAuthor,
 	getFirstAuthor,
-	getPostsByAuthor,
+	getWritingsByAuthor,
 	updateAuthor,
 	validateSlugFormat,
 } from "../../lib/queries";
@@ -137,11 +140,11 @@ function isValidUrl(urlString: string): boolean {
 author = await getFirstAuthor();
 
 // Get posts by this author
-const _posts = author ? await getPostsByAuthor(author.id) : [];
+const writings = author ? await getWritingsByAuthor(author.id) : [];
 
-const _updated = Astro.url.searchParams.get("updated") === "true";
-const _error = Astro.url.searchParams.get("error");
-const _errorMessages: Record<string, string> = {
+const updated = Astro.url.searchParams.get("updated") === "true";
+const error = Astro.url.searchParams.get("error");
+const errorMessages: Record<string, string> = {
 	name_required: "Author name is required.",
 	slug_required: "Slug is required.",
 	slug_exists: "An author with this slug already exists.",
@@ -163,17 +166,21 @@ const _errorMessages: Record<string, string> = {
 	<div class="space-y-6">
 		<h1 class="text-3xl font-bold">Author</h1>
 
-		{updated && (
-			<div class="alert alert-success">
-				<span>Author updated successfully!</span>
-			</div>
-		)}
+		{
+			updated && (
+				<div class="alert alert-success">
+					<span>Author updated successfully!</span>
+				</div>
+			)
+		}
 
-		{error && (
-			<div class="alert alert-error">
-				<span>{errorMessages[error] || `Error: ${error}`}</span>
-			</div>
-		)}
+		{
+			error && (
+				<div class="alert alert-error">
+					<span>{errorMessages[error] || `Error: ${error}`}</span>
+				</div>
+			)
+		}
 
 		<form method="POST" class="space-y-6">
 			<div class="card bg-base-100 shadow">
@@ -197,7 +204,9 @@ const _errorMessages: Record<string, string> = {
 						<div class="form-control">
 							<label class="label" for="slug">
 								<span class="label-text">Slug *</span>
-								<span class="label-text-alt">Auto-generated from name if empty</span>
+								<span class="label-text-alt"
+									>Auto-generated from name if empty</span
+								>
 							</label>
 							<input
 								type="text"
@@ -217,8 +226,8 @@ const _errorMessages: Record<string, string> = {
 								id="bio"
 								name="bio"
 								class="textarea textarea-bordered w-full"
-								rows="4"
-							>{author?.bio || ""}</textarea>
+								rows="4">{author?.bio || ""}</textarea
+							>
 						</div>
 
 						<div class="form-control">
@@ -229,13 +238,15 @@ const _errorMessages: Record<string, string> = {
 								id="credentials"
 								name="credentials"
 								class="textarea textarea-bordered w-full"
-								rows="3"
-							>{author?.credentials || ""}</textarea>
+								rows="3">{author?.credentials || ""}</textarea
+							>
 						</div>
 
 						<div class="form-control">
 							<label class="label" for="profilePicture">
-								<span class="label-text">Profile Picture URL</span>
+								<span class="label-text"
+									>Profile Picture URL</span
+								>
 							</label>
 							<input
 								type="url"
@@ -275,7 +286,9 @@ const _errorMessages: Record<string, string> = {
 						<div class="form-control">
 							<label class="label" for="socialLinks">
 								<span class="label-text">Social Links</span>
-								<span class="label-text-alt" id="social-links-status"></span>
+								<span
+									class="label-text-alt"
+									id="social-links-status"></span>
 							</label>
 							<textarea
 								id="socialLinks"
@@ -283,9 +296,23 @@ const _errorMessages: Record<string, string> = {
 								class="textarea textarea-bordered w-full font-mono text-sm"
 								rows="6"
 								placeholder='{\n  "twitter": "https://twitter.com/username",\n  "linkedin": "https://linkedin.com/in/username",\n  "github": "https://github.com/username"\n}'
-							>{author?.socialLinks ? (typeof author.socialLinks === "string" ? author.socialLinks : JSON.stringify(author.socialLinks, null, 2)) : ""}</textarea>
+								>{
+									author?.socialLinks
+										? typeof author.socialLinks === "string"
+											? author.socialLinks
+											: JSON.stringify(
+													author.socialLinks,
+													null,
+													2,
+												)
+										: ""
+								}</textarea
+							>
 							<label class="label">
-								<span class="label-text-alt">JSON object with platform names as keys and URLs as values</span>
+								<span class="label-text-alt"
+									>JSON object with platform names as keys and
+									URLs as values</span
+								>
 							</label>
 						</div>
 					</div>
@@ -300,29 +327,42 @@ const _errorMessages: Record<string, string> = {
 			</div>
 		</form>
 
-		{author && (
-			<div class="text-sm text-base-content/60">
-				<div>Created: {format(new Date(author.createdAt), "PPpp")}</div>
-				<div>Updated: {format(new Date(author.updatedAt), "PPpp")}</div>
-			</div>
-		)}
-
-		{posts.length > 0 && (
-			<div class="card bg-base-100 shadow">
-				<div class="card-body">
-					<h2 class="card-title">Posts by this author ({posts.length})</h2>
-					<ul class="list-disc list-inside space-y-1">
-						{posts.map((post) => (
-							<li>
-								<a href={`/posts/${post.id}`} class="link link-primary">
-									{post.title}
-								</a>
-							</li>
-						))}
-					</ul>
+		{
+			author && (
+				<div class="text-sm text-base-content/60">
+					<div>
+						Created: {format(new Date(author.createdAt), "PPpp")}
+					</div>
+					<div>
+						Updated: {format(new Date(author.updatedAt), "PPpp")}
+					</div>
 				</div>
-			</div>
-		)}
+			)
+		}
+
+		{
+			writings.length > 0 && (
+				<div class="card bg-base-100 shadow">
+					<div class="card-body">
+						<h2 class="card-title">
+							Posts by this author ({writings.length})
+						</h2>
+						<ul class="list-disc list-inside space-y-1">
+							{writings.map((writing) => (
+								<li>
+									<a
+										href={`/writings/${writing.id}`}
+										class="link link-primary"
+									>
+										{writing.title}
+									</a>
+								</li>
+							))}
+						</ul>
+					</div>
+				</div>
+			)
+		}
 	</div>
 </AdminLayout>
 
@@ -357,9 +397,15 @@ const _errorMessages: Record<string, string> = {
 		slugInput.addEventListener("input", () => {
 			// Check if user manually edited the slug
 			const currentSlug = slugInput.value;
-			if (currentSlug !== lastAutoGeneratedSlug && currentSlug !== originalSlug) {
+			if (
+				currentSlug !== lastAutoGeneratedSlug &&
+				currentSlug !== originalSlug
+			) {
 				slugManuallyEdited = true;
-			} else if (currentSlug === "" || currentSlug === generateSlug(nameInput.value)) {
+			} else if (
+				currentSlug === "" ||
+				currentSlug === generateSlug(nameInput.value)
+			) {
 				// Reset if cleared or matches auto-generated value
 				slugManuallyEdited = false;
 			}
@@ -367,26 +413,38 @@ const _errorMessages: Record<string, string> = {
 	}
 
 	// Social Links JSON validation
-	const socialLinksInput = document.getElementById("socialLinks") as HTMLTextAreaElement;
+	const socialLinksInput = document.getElementById(
+		"socialLinks",
+	) as HTMLTextAreaElement;
 	const socialLinksStatus = document.getElementById("social-links-status");
 
 	if (socialLinksInput && socialLinksStatus) {
-		function validateSocialLinksJson(value: string): { valid: boolean; message: string } {
+		function validateSocialLinksJson(value: string): {
+			valid: boolean;
+			message: string;
+		} {
 			if (!value.trim()) {
 				return { valid: true, message: "Optional" };
 			}
 
 			try {
 				const parsed = JSON.parse(value);
-				
-				if (typeof parsed !== "object" || Array.isArray(parsed) || parsed === null) {
+
+				if (
+					typeof parsed !== "object" ||
+					Array.isArray(parsed) ||
+					parsed === null
+				) {
 					return { valid: false, message: "Must be an object" };
 				}
 
 				// Validate that all values are strings
 				for (const [key, val] of Object.entries(parsed)) {
 					if (typeof val !== "string") {
-						return { valid: false, message: `Value for "${key}" must be a string` };
+						return {
+							valid: false,
+							message: `Value for "${key}" must be a string`,
+						};
 					}
 				}
 
@@ -402,22 +460,28 @@ const _errorMessages: Record<string, string> = {
 		function updateSocialLinksStatus() {
 			const value = socialLinksInput.value;
 			const validation = validateSocialLinksJson(value);
-			
-			socialLinksStatus.textContent = validation.message;
-			
-			if (value.trim()) {
-				if (validation.valid) {
-					socialLinksStatus.className = "label-text-alt text-success";
-					socialLinksInput.classList.remove("textarea-error");
-					socialLinksInput.classList.add("textarea-success");
+			if (socialLinksStatus) {
+				socialLinksStatus.textContent = validation.message;
+
+				if (value.trim()) {
+					if (validation.valid) {
+						socialLinksStatus.className =
+							"label-text-alt text-success";
+						socialLinksInput.classList.remove("textarea-error");
+						socialLinksInput.classList.add("textarea-success");
+					} else {
+						socialLinksStatus.className =
+							"label-text-alt text-error";
+						socialLinksInput.classList.remove("textarea-success");
+						socialLinksInput.classList.add("textarea-error");
+					}
 				} else {
-					socialLinksStatus.className = "label-text-alt text-error";
-					socialLinksInput.classList.remove("textarea-success");
-					socialLinksInput.classList.add("textarea-error");
+					socialLinksStatus.className = "label-text-alt";
+					socialLinksInput.classList.remove(
+						"textarea-error",
+						"textarea-success",
+					);
 				}
-			} else {
-				socialLinksStatus.className = "label-text-alt";
-				socialLinksInput.classList.remove("textarea-error", "textarea-success");
 			}
 		}
 

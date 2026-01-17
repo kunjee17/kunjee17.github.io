@@ -5,7 +5,7 @@ import {
 	checkCategoryNameExists,
 	checkCategorySlugExists,
 	getCategory,
-	getPostsByCategory,
+	getWritingsByCategory,
 	updateCategory,
 	validateSlugFormat,
 } from "../../lib/queries";
@@ -69,7 +69,7 @@ if (Astro.request.method === "POST") {
 }
 
 // Get posts in this category
-const posts = await getPostsByCategory(id);
+const writings = await getWritingsByCategory(id);
 
 const updated = Astro.url.searchParams.get("updated") === "true";
 const error = Astro.url.searchParams.get("error");
@@ -153,15 +153,15 @@ const errorMessages: Record<string, string> = {
 			</div>
 		</form>
 
-		{posts.length > 0 && (
+		{writings.length > 0 && (
 			<div class="card bg-base-100 shadow">
 				<div class="card-body">
-					<h2 class="card-title">Posts in this category ({posts.length})</h2>
+					<h2 class="card-title">Posts in this category ({writings.length})</h2>
 					<ul class="list-disc list-inside space-y-1">
-						{posts.map((post) => (
+						{writings.map((writing) => (
 							<li>
-								<a href={`/posts/${post.id}`} class="link link-primary">
-									{post.title}
+								<a href={`/writings/${writing.id}`} class="link link-primary">
+									{writing.title}
 								</a>
 							</li>
 						))}

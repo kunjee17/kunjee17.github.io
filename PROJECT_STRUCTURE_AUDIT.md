@@ -49,28 +49,14 @@ The project follows a well-organized Turborepo monorepo structure with clear sep
 
 ### 🔴 **Critical Issues**
 
-#### 1. **Database Schema Duplication** 🔴
-**Issue**: Identical `db/config.ts` files exist in both `apps/blog/db/` and `apps/admin/db/`
+#### 1. **Database Schema Duplication** ✅ RESOLVED
+**Status**: ✅ FIXED - Migrated to Drizzle ORM in `@repo/orm`
 
-**Impact**: 
-- Code duplication (217 lines duplicated)
-- Risk of schema drift between apps
-- Maintenance burden (changes must be made in two places)
-
-**Recommendation**: 
-- Move to `packages/db/` or `packages/schema/`
-- Create a shared package: `@repo/db` or `@repo/schema`
-- Both apps should import from the shared package
-
-**Example Structure**:
-```
-packages/
-  └── db/
-      ├── package.json
-      ├── tsconfig.json
-      └── src/
-          └── config.ts  # Shared schema
-```
+**Solution**: 
+- Schema and queries consolidated in `packages/orm/`
+- Single source of truth for database schema
+- Both apps import from `@repo/orm`
+- Uses Drizzle ORM for better type safety and ORM features
 
 #### 2. **Missing .astro in .gitignore** 🔴
 **Issue**: `.astro` build cache directory not ignored

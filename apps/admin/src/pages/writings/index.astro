@@ -3,10 +3,10 @@ import AdminLayout from "@components/layout/AdminLayout.astro";
 import { Edit, Eye, EyeOff, Plus, Trash2 } from "@lucide/astro";
 import { format } from "date-fns";
 import {
-	deletePost,
-	getAllPosts,
-	getCategoriesForPost,
-	getTagsForPost,
+	deleteWriting,
+	getAllWritings,
+	getCategoriesForWriting,
+	getTagsForWriting,
 } from "../../lib/queries";
 
 // Handle delete action
@@ -17,7 +17,7 @@ if (Astro.request.method === "POST") {
 
 	if (action === "delete" && postId) {
 		try {
-			await deletePost(postId);
+			await deleteWriting(postId);
 			return Astro.redirect("/writings?deleted=true", 302);
 		} catch (error) {
 			console.error("Error deleting post:", error);
@@ -26,15 +26,15 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const writings = await getAllPosts();
+const writings = await getAllWritings();
 const writingsWithRelations = await Promise.all(
-	writings.map(async (post) => {
+	writings.map(async (writing) => {
 		const [tags, categories] = await Promise.all([
-			getTagsForPost(post.id),
-			getCategoriesForPost(post.id),
+			getTagsForWriting(writing.id),
+			getCategoriesForWriting(writing.id),
 		]);
 		return {
-			...post,
+			...writing,
 			tags,
 			categories,
 		};

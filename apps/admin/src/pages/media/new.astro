@@ -1,4 +1,6 @@
 ---
+import { X as Cancel, Save } from "@lucide/astro";
+import AdminLayout from "@/components/layout/AdminLayout.astro";
 import { createMedia } from "../../lib/queries";
 
 if (Astro.request.method === "POST") {
@@ -35,7 +37,7 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const _error = Astro.url.searchParams.get("error");
+const error = Astro.url.searchParams.get("error");
 ---
 
 <AdminLayout title="Upload Media">

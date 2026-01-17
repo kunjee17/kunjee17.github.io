@@ -7,7 +7,7 @@ This project consists of two interconnected applications built with Astro in a T
 1. **Personal Blog (kunjan.in)** - A static site repositioned as a personal consulting + authority site
 2. **Admin Panel** - A dynamic content management system for managing blog content, social media, and AI-powered features
 
-Both applications share AstroDB as the data layer, with the blog reading from it at build time and the admin writing to it.
+Both applications share Drizzle ORM as the data layer, with the blog reading from it at build time and the admin writing to it.
 
 ---
 
@@ -38,7 +38,7 @@ Transform from a developer blog/learning journal into a **personal consulting + 
 - **Framework**: Astro 5.16.6
 - **Styling**: TailwindCSS 4.1.18 + DaisyUI 5.5.14
 - **Typography**: @tailwindcss/typography 0.5.19
-- **Database**: AstroDB (read at build time)
+- **Database**: Drizzle ORM with SQLite/Turso (read at build time)
 - **Hosting**: Netlify (static site generation)
 - **Analytics**: Google Analytics
 - **Fonts**: 

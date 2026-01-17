@@ -1,4 +1,3 @@
-import db from "@astrojs/db";
 import netlify from "@astrojs/netlify";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
@@ -7,15 +6,12 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
 	output: "server",
 	adapter: netlify(),
-	integrations: [
-		db({
-			mode: "web",
-		}),
-	],
+	integrations: [],
 	vite: {
 		plugins: [tailwindcss()],
 		ssr: {
-			noExternal: ["@repo/services", "@repo/dtos"], // Monorepo packages
+			// Let workspace packages be external - pnpm will resolve them correctly
+			// This reduces file handle usage during build
 		},
 		resolve: {
 			alias: {

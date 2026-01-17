@@ -1,4 +1,3 @@
-import db from "@astrojs/db";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
@@ -8,15 +7,13 @@ import pagefind from "astro-pagefind";
 export default defineConfig({
 	site: "https://kunjan.in",
 	output: "static",
-	integrations: [
-		db({
-			mode: "web",
-		}),
-		pagefind(),
-		sitemap(),
-	],
+	integrations: [pagefind(), sitemap()],
 	vite: {
 		plugins: [tailwindcss()],
+		ssr: {
+			// Let workspace packages be external - pnpm will resolve them correctly
+			// This reduces file handle usage during build
+		},
 		resolve: {
 			alias: {
 				"@components": "/src/components",

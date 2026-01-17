@@ -1,13 +1,12 @@
 ---
 // Footer Component
 // Quick links, social links, and copyright
-import { Author, db } from "astro:db";
+import { getAuthor } from "@lib/db";
 
 // Get author info for social links
 let author = null;
 try {
-	const authors = await db.select().from(Author).limit(1);
-	author = authors[0];
+	author = await getAuthor();
 } catch (_error) {
 	console.log("Author data not available yet");
 }

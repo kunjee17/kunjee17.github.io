@@ -1,30 +1,35 @@
 ---
+import AdminLayout from "@components/layout/AdminLayout.astro";
+import { X as Cancel, Save } from "@lucide/astro";
+import { format } from "date-fns";
+import MarkdownEditor from "@/components/ui/MarkdownEditor.astro";
 import {
-	checkPostSlugExists,
+	checkWritingSlugExists,
+	formatDateTimeLocal,
 	generateSlug,
 	getAllCategories,
 	getAllTags,
 	getFirstAuthor,
-	getPostWithRelations,
-	updatePost,
+	getWritingWithRelations,
+	updateWriting,
 	validateSlugFormat,
 } from "../../lib/queries";
 
 const { id } = Astro.params;
 
 if (!id) {
-	return Astro.redirect("/posts?error=not_found", 302);
+	return Astro.redirect("/writings?error=not_found", 302);
 }
 
-// Load post data
-const post = await getPostWithRelations(id);
+// Load writing data
+const writing = await getWritingWithRelations(id);
 
-if (!post) {
-	return Astro.redirect("/posts?error=not_found", 302);
+if (!writing) {
+	return Astro.redirect("/writings?error=not_found", 302);
 }
 
 // Load form data
-const [_tags, _categories, author] = await Promise.all([
+const [tags, categories, author] = await Promise.all([
 	getAllTags(),
 	getAllCategories(),
 	getFirstAuthor(),
@@ -60,15 +65,15 @@ if (Astro.request.method === "POST") {
 
 	// Validation
 	if (!title) {
-		return Astro.redirect(`/posts/${id}?error=title_required`, 302);
+		return Astro.redirect(`/writings/${id}?error=title_required`, 302);
 	}
 
 	if (!content) {
-		return Astro.redirect(`/posts/${id}?error=content_required`, 302);
+		return Astro.redirect(`/writings/${id}?error=content_required`, 302);
 	}
 
 	if (!validateSlugFormat(slug)) {
-		return Astro.redirect(`/posts/${id}?error=invalid_slug`, 302);
+		return Astro.redirect(`/writings/${id}?error=invalid_slug`, 302);
 	}
 
 	// Dates
@@ -80,14 +85,17 @@ if (Astro.request.method === "POST") {
 	if (publishedAtStr) {
 		publishedAt = new Date(publishedAtStr);
 		if (Number.isNaN(publishedAt.getTime())) {
-			return Astro.redirect(`/posts/${id}?error=invalid_published_date`, 302);
+			return Astro.redirect(
+				`/writings/${id}?error=invalid_published_date`,
+				302,
+			);
 		}
 	}
 
 	if (expiryDateStr) {
 		expiryDate = new Date(expiryDateStr);
 		if (Number.isNaN(expiryDate.getTime())) {
-			return Astro.redirect(`/posts/${id}?error=invalid_expiry_date`, 302);
+			return Astro.redirect(`/writings/${id}?error=invalid_expiry_date`, 302);
 		}
 	}
 
@@ -121,11 +129,11 @@ if (Astro.request.method === "POST") {
 
 	// Validate URLs
 	if (canonicalUrl && !isValidUrl(canonicalUrl)) {
-		return Astro.redirect(`/posts/${id}?error=invalid_canonical_url`, 302);
+		return Astro.redirect(`/writings/${id}?error=invalid_canonical_url`, 302);
 	}
 
 	if (ogImage && !isValidUrl(ogImage)) {
-		return Astro.redirect(`/posts/${id}?error=invalid_og_image_url`, 302);
+		return Astro.redirect(`/writings/${id}?error=invalid_og_image_url`, 302);
 	}
 
 	// Validate sitemap priority
@@ -137,7 +145,10 @@ if (Astro.request.method === "POST") {
 			sitemapPriority < 0 ||
 			sitemapPriority > 1
 		) {
-			return Astro.redirect(`/posts/${id}?error=invalid_sitemap_priority`, 302);
+			return Astro.redirect(
+				`/writings/${id}?error=invalid_sitemap_priority`,
+				302,
+			);
 		}
 	}
 
@@ -152,7 +163,7 @@ if (Astro.request.method === "POST") {
 		: undefined;
 
 	if (url && !isValidUrlPath(url)) {
-		return Astro.redirect(`/posts/${id}?error=invalid_url`, 302);
+		return Astro.redirect(`/writings/${id}?error=invalid_url`, 302);
 	}
 
 	// Template
@@ -165,12 +176,12 @@ if (Astro.request.method === "POST") {
 
 	try {
 		// Check for duplicate slug (if slug changed)
-		if (slug !== post.slug && (await checkPostSlugExists(slug, id))) {
-			return Astro.redirect(`/posts/${id}?error=slug_exists`, 302);
+		if (slug !== writing.slug && (await checkWritingSlugExists(slug, id))) {
+			return Astro.redirect(`/writings/${id}?error=slug_exists`, 302);
 		}
 
-		// Update post
-		await updatePost(id, {
+		// Update writing
+		await updateWriting(id, {
 			title,
 			slug,
 			linkTitle,
@@ -200,34 +211,26 @@ if (Astro.request.method === "POST") {
 			categoryIds: categoryIds.length > 0 ? categoryIds : undefined,
 		});
 
-		return Astro.redirect(`/posts/${id}?updated=true`, 302);
+		return Astro.redirect(`/writings/${id}?updated=true`, 302);
 	} catch (error) {
-		console.error("Error updating post:", error);
+		console.error("Error updating writing:", error);
 		// Check if it's a database constraint error
 		if (error instanceof Error && error.message.includes("UNIQUE")) {
 			if (error.message.includes("slug")) {
-				return Astro.redirect(`/posts/${id}?error=slug_exists`, 302);
+				return Astro.redirect(`/writings/${id}?error=slug_exists`, 302);
 			}
 		}
-		return Astro.redirect(`/posts/${id}?error=update_failed`, 302);
+		return Astro.redirect(`/writings/${id}?error=update_failed`, 302);
 	}
 }
 
-// Format dates for datetime-local inputs
-function _formatDateTimeLocal(date: Date | null | undefined): string {
-	if (!date) return "";
-	const d = new Date(date);
-	d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
-	return d.toISOString().slice(0, 16);
-}
-
-const _updated = Astro.url.searchParams.get("updated") === "true";
-const _error = Astro.url.searchParams.get("error");
-const _created = Astro.url.searchParams.get("created") === "true";
-const _errorMessages: Record<string, string> = {
-	title_required: "Post title is required.",
-	content_required: "Post content is required.",
-	slug_exists: "A post with this slug already exists.",
+const updated = Astro.url.searchParams.get("updated") === "true";
+const error = Astro.url.searchParams.get("error");
+const created = Astro.url.searchParams.get("created") === "true";
+const errorMessages: Record<string, string> = {
+	title_required: "Writing title is required.",
+	content_required: "Writing content is required.",
+	slug_exists: "A writing with this slug already exists.",
 	invalid_slug:
 		"Slug format is invalid. Use only lowercase letters, numbers, and hyphens.",
 	invalid_canonical_url: "Invalid canonical URL format.",
@@ -236,37 +239,38 @@ const _errorMessages: Record<string, string> = {
 	invalid_published_date: "Invalid published date format.",
 	invalid_expiry_date: "Invalid expiry date format.",
 	invalid_sitemap_priority: "Sitemap priority must be between 0.0 and 1.0.",
-	update_failed: "Failed to update post. Please try again.",
+	update_failed: "Failed to update writing. Please try again.",
 };
 
 // Parse JSON fields
-const _keywords = post.keywords
-	? typeof post.keywords === "string"
-		? JSON.parse(post.keywords)
-		: post.keywords
+const keywords = writing.keywords
+	? typeof writing.keywords === "string"
+		? JSON.parse(writing.keywords)
+		: writing.keywords
 	: [];
-const _aliases = post.aliases
-	? typeof post.aliases === "string"
-		? JSON.parse(post.aliases)
-		: post.aliases
+const aliases = writing.aliases
+	? typeof writing.aliases === "string"
+		? JSON.parse(writing.aliases)
+		: writing.aliases
 	: [];
-const _selectedTagIds = post.tags?.map((t) => t.id) || [];
-const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
+const selectedTagIds = writing.tagIds?.map((tagId) => tagId) || [];
+const selectedCategoryIds =
+	writing.categoryIds?.map((categoryId) => categoryId) || [];
 ---
 
-<AdminLayout title={`Edit Post - ${post.title}`}>
+<AdminLayout title={`Edit Writing - ${writing.title}`}>
 	<div class="space-y-6">
-		<h1 class="text-3xl font-bold">Edit Post</h1>
+		<h1 class="text-3xl font-bold">Edit Writing</h1>
 
 		{created && (
 			<div class="alert alert-success">
-				<span>Post created successfully!</span>
+				<span>Writing created successfully!</span>
 			</div>
 		)}
 
 		{updated && (
 			<div class="alert alert-success">
-				<span>Post updated successfully!</span>
+				<span>Writing updated successfully!</span>
 			</div>
 		)}
 
@@ -290,7 +294,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 								type="text"
 								id="title"
 								name="title"
-								value={post.title}
+								value={writing.title}
 								class="input input-bordered w-full"
 								required
 							/>
@@ -304,7 +308,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 								type="text"
 								id="slug"
 								name="slug"
-								value={post.slug}
+								value={writing.slug}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -317,7 +321,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 								type="text"
 								id="linkTitle"
 								name="linkTitle"
-								value={post.linkTitle || ""}
+								value={writing.linkTitle || ""}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -331,7 +335,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 								name="description"
 								class="textarea textarea-bordered w-full"
 								rows="2"
-							>{post.description || ""}</textarea>
+							>{writing.description || ""}</textarea>
 						</div>
 
 						<div class="form-control">
@@ -343,7 +347,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 								name="summary"
 								class="textarea textarea-bordered w-full"
 								rows="3"
-							>{post.summary || ""}</textarea>
+							>{writing.summary || ""}</textarea>
 						</div>
 
 						<div class="form-control">
@@ -354,7 +358,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 							<MarkdownEditor
 								id="content"
 								name="content"
-								value={post.content}
+								value={writing.content}
 								required={true}
 							/>
 						</div>
@@ -438,7 +442,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 									<span class="label-text">Author</span>
 								</label>
 								<select id="authorId" name="authorId" class="select select-bordered w-full">
-									<option value={author.id} selected={post.authorId === author.id}>
+									<option value={author.id} selected={writing.authorId === author.id}>
 										{author.name}
 									</option>
 								</select>
@@ -453,7 +457,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 								type="datetime-local"
 								id="publishedAt"
 								name="publishedAt"
-								value={formatDateTimeLocal(post.publishedAt)}
+								value={formatDateTimeLocal(writing.publishedAt)}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -466,18 +470,18 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 								type="datetime-local"
 								id="expiryDate"
 								name="expiryDate"
-								value={formatDateTimeLocal(post.expiryDate)}
+								value={formatDateTimeLocal(writing.expiryDate)}
 								class="input input-bordered w-full"
 							/>
 						</div>
 
 						<div class="text-sm text-base-content/60">
-							<div>Created: {format(new Date(post.createdAt), "PPpp")}</div>
-							<div>Updated: {format(new Date(post.updatedAt), "PPpp")}</div>
-							{post.wordCount && (
+							<div>Created: {format(new Date(writing.createdAt), "PPpp")}</div>
+							<div>Updated: {format(new Date(writing.updatedAt), "PPpp")}</div>
+							{writing.wordCount && (
 								<div>
-									Word Count: {post.wordCount} words
-									{post.readingTime && ` • Reading Time: ${post.readingTime} min`}
+									Word Count: {writing.wordCount} words
+									{writing.readingTime && ` • Reading Time: ${writing.readingTime} min`}
 								</div>
 							)}
 						</div>
@@ -497,7 +501,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 									type="checkbox"
 									name="draft"
 									class="checkbox checkbox-primary"
-									checked={post.draft}
+									checked={writing.draft}
 								/>
 							</label>
 						</div>
@@ -509,7 +513,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 									type="checkbox"
 									name="featured"
 									class="checkbox checkbox-primary"
-									checked={post.featured}
+									checked={writing.featured}
 								/>
 							</label>
 						</div>
@@ -522,7 +526,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 								type="number"
 								id="weight"
 								name="weight"
-								value={post.weight || ""}
+								value={writing.weight || ""}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -544,7 +548,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 								type="url"
 								id="canonicalUrl"
 								name="canonicalUrl"
-								value={post.canonicalUrl || ""}
+								value={writing.canonicalUrl || ""}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -555,18 +559,18 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 							</label>
 							<select id="metaRobots" name="metaRobots" class="select select-bordered w-full">
 								<option value="">Default (index, follow)</option>
-								<option value="index, follow" selected={post.metaRobots === "index, follow"}>
+								<option value="index, follow" selected={writing.metaRobots === "index, follow"}>
 									index, follow
 								</option>
-								<option value="noindex, follow" selected={post.metaRobots === "noindex, follow"}>
+								<option value="noindex, follow" selected={writing.metaRobots === "noindex, follow"}>
 									noindex, follow
 								</option>
-								<option value="index, nofollow" selected={post.metaRobots === "index, nofollow"}>
+								<option value="index, nofollow" selected={writing.metaRobots === "index, nofollow"}>
 									index, nofollow
 								</option>
 								<option
 									value="noindex, nofollow"
-									selected={post.metaRobots === "noindex, nofollow"}
+									selected={writing.metaRobots === "noindex, nofollow"}
 								>
 									noindex, nofollow
 								</option>
@@ -581,7 +585,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 								type="url"
 								id="ogImage"
 								name="ogImage"
-								value={post.ogImage || ""}
+								value={writing.ogImage || ""}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -592,10 +596,10 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 							</label>
 							<select id="ogType" name="ogType" class="select select-bordered w-full">
 								<option value="">Default</option>
-								<option value="article" selected={post.ogType === "article"}>
+								<option value="article" selected={writing.ogType === "article"}>
 									article
 								</option>
-								<option value="website" selected={post.ogType === "website"}>
+								<option value="website" selected={writing.ogType === "website"}>
 									website
 								</option>
 							</select>
@@ -607,12 +611,12 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 							</label>
 							<select id="twitterCard" name="twitterCard" class="select select-bordered w-full">
 								<option value="">Default</option>
-								<option value="summary" selected={post.twitterCard === "summary"}>
+								<option value="summary" selected={writing.twitterCard === "summary"}>
 									summary
 								</option>
 								<option
 									value="summary_large_image"
-									selected={post.twitterCard === "summary_large_image"}
+									selected={writing.twitterCard === "summary_large_image"}
 								>
 									summary_large_image
 								</option>
@@ -625,13 +629,13 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 							</label>
 							<select id="schemaType" name="schemaType" class="select select-bordered w-full">
 								<option value="">None</option>
-								<option value="Article" selected={post.schemaType === "Article"}>
+								<option value="Article" selected={writing.schemaType === "Article"}>
 									Article
 								</option>
-								<option value="BlogPosting" selected={post.schemaType === "BlogPosting"}>
+								<option value="BlogPosting" selected={writing.schemaType === "BlogPosting"}>
 									BlogPosting
 								</option>
-								<option value="FAQPage" selected={post.schemaType === "FAQPage"}>
+								<option value="FAQPage" selected={writing.schemaType === "FAQPage"}>
 									FAQPage
 								</option>
 							</select>
@@ -649,7 +653,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 								min="0"
 								max="1"
 								step="0.1"
-								value={post.sitemapPriority || 0.5}
+								value={writing.sitemapPriority || 0.5}
 								class="range range-primary"
 							/>
 							<div class="w-full flex justify-between text-xs px-2">
@@ -669,25 +673,25 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 								class="select select-bordered w-full"
 							>
 								<option value="">Default</option>
-								<option value="always" selected={post.sitemapChangefreq === "always"}>
+								<option value="always" selected={writing.sitemapChangefreq === "always"}>
 									always
 								</option>
-								<option value="hourly" selected={post.sitemapChangefreq === "hourly"}>
+								<option value="hourly" selected={writing.sitemapChangefreq === "hourly"}>
 									hourly
 								</option>
-								<option value="daily" selected={post.sitemapChangefreq === "daily"}>
+								<option value="daily" selected={writing.sitemapChangefreq === "daily"}>
 									daily
 								</option>
-								<option value="weekly" selected={post.sitemapChangefreq === "weekly"}>
+								<option value="weekly" selected={writing.sitemapChangefreq === "weekly"}>
 									weekly
 								</option>
-								<option value="monthly" selected={post.sitemapChangefreq === "monthly"}>
+								<option value="monthly" selected={writing.sitemapChangefreq === "monthly"}>
 									monthly
 								</option>
-								<option value="yearly" selected={post.sitemapChangefreq === "yearly"}>
+								<option value="yearly" selected={writing.sitemapChangefreq === "yearly"}>
 									yearly
 								</option>
-								<option value="never" selected={post.sitemapChangefreq === "never"}>
+								<option value="never" selected={writing.sitemapChangefreq === "never"}>
 									never
 								</option>
 							</select>
@@ -709,7 +713,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 								type="text"
 								id="url"
 								name="url"
-								value={post.url || ""}
+								value={writing.url || ""}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -743,7 +747,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 								type="text"
 								id="type"
 								name="type"
-								value={post.type || ""}
+								value={writing.type || ""}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -756,7 +760,7 @@ const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 								type="text"
 								id="layout"
 								name="layout"
-								value={post.layout || ""}
+								value={writing.layout || ""}
 								class="input input-bordered w-full"
 							/>
 						</div>

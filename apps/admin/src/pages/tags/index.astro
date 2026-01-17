@@ -1,8 +1,7 @@
 ---
 import AdminLayout from "@components/layout/AdminLayout.astro";
-import { Edit, Eye, EyeOff, Plus, Trash2 } from "@lucide/astro";
-import { format } from "date-fns";
-import { deleteTag, getTagsWithPostCounts } from "../../lib/queries";
+import { Edit, Plus, Trash2 } from "@lucide/astro";
+import { deleteTag, getTagsWithWritingCounts } from "../../lib/queries";
 
 // Handle delete action
 if (Astro.request.method === "POST") {
@@ -21,7 +20,7 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const tagsWithCounts = await getTagsWithPostCounts();
+const tagsWithCounts = await getTagsWithWritingCounts();
 
 const deleted = Astro.url.searchParams.get("deleted") === "true";
 const created = Astro.url.searchParams.get("created") === "true";
@@ -110,7 +109,7 @@ const error = Astro.url.searchParams.get("error");
 											)}
 										</td>
 										<td>
-											<span class="badge badge-outline">{tag.postCount}</span>
+											<span class="badge badge-outline">{tag.writingCount}</span>
 										</td>
 										<td>
 											<div class="flex gap-2">

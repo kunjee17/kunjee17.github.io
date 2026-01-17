@@ -13,7 +13,6 @@
 		"check-types": "astro check"
 	},
 	"dependencies": {
-		"@astrojs/db": "^0.18.3",
 		"@astrojs/sitemap": "^3.7.0",
 		"@fontsource-variable/figtree": "^5.2.10",
 		"@fontsource-variable/fraunces": "^5.2.9",
@@ -25,12 +24,18 @@
 		"astro": "^5.16.8",
 		"astro-pagefind": "^1.8.5",
 		"daisyui": "^5.5.14",
+		"@libsql/client": "^0.17.0",
+		"@tursodatabase/database": "^0.4.3",
+		"dotenv": "^17.2.3",
+		"drizzle-orm": "1.0.0-beta.11-05230d9",
 		"tailwindcss": "^4.1.18"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.6",
 		"@repo/typescript-config": "workspace:*",
 		"@tailwindcss/typography": "^0.5.19",
+		"drizzle-kit": "1.0.0-beta.11-05230d9",
+		"tsx": "^4.21.0",
 		"@types/node": "^25.0.5",
 		"typescript": "^5.9.3"
 	}

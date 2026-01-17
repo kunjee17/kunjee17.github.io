@@ -1,9 +1,11 @@
 ---
+import { Edit, Plus, Trash2 } from "@lucide/astro";
+import AdminLayout from "@/components/layout/AdminLayout.astro";
 import {
 	deleteFAQ,
 	getAllFAQs,
 	getAllPages,
-	getAllPosts,
+	getAllWritings,
 } from "../../lib/queries";
 
 if (Astro.request.method === "POST") {
@@ -22,14 +24,14 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const _faqs = await getAllFAQs();
-const [_allPosts, _allPages] = await Promise.all([
-	getAllPosts(),
+const faqs = await getAllFAQs();
+const [allWritings, allPages] = await Promise.all([
+	getAllWritings(),
 	getAllPages(),
 ]);
 
-const _deleted = Astro.url.searchParams.get("deleted") === "true";
-const _error = Astro.url.searchParams.get("error");
+const deleted = Astro.url.searchParams.get("deleted") === "true";
+const error = Astro.url.searchParams.get("error");
 ---
 
 <AdminLayout title="FAQs">
@@ -76,7 +78,7 @@ const _error = Astro.url.searchParams.get("error");
 								</tr>
 							) : (
 								faqs.map((faq) => {
-									const post = faq.blogPostId ? allPosts.find((p) => p.id === faq.blogPostId) : null;
+									const writing = faq.writingId ? allWritings.find((w) => w.id === faq.writingId) : null;
 									const page = faq.pageId ? allPages.find((p) => p.id === faq.pageId) : null;
 									return (
 										<tr>
@@ -87,9 +89,9 @@ const _error = Astro.url.searchParams.get("error");
 												</div>
 											</td>
 											<td>
-												{post ? (
-													<a href={`/posts/${post.id}`} class="link link-primary text-sm">
-														Post: {post.title}
+												{writing ? (
+													<a href={`/writings/${writing.id}`} class="link link-primary text-sm">
+														Writing: {writing.title}
 													</a>
 												) : page ? (
 													<a href={`/pages/${page.id}`} class="link link-primary text-sm">

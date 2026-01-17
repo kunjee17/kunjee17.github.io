@@ -7,6 +7,16 @@
 			"inputs": ["$TURBO_DEFAULT$", ".env*"],
 			"outputs": ["dist/**", ".astro/**", "!.astro/cache/**"]
 		},
+		"build:packages": {
+			"dependsOn": [],
+			"outputs": ["dist/**"]
+		},
+		"db:generate": {
+			"cache": false
+		},
+		"db:migrate": {
+			"cache": false
+		},
 		"lint": {
 			"dependsOn": ["^lint"]
 		},

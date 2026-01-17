@@ -1,8 +1,10 @@
 ---
 import AdminLayout from "@components/layout/AdminLayout.astro";
-import { Edit, Eye, EyeOff, Plus, Trash2 } from "@lucide/astro";
-import { format } from "date-fns";
-import { deleteCategory, getCategoriesWithPostCounts } from "../../lib/queries";
+import { Edit, Plus, Trash2 } from "@lucide/astro";
+import {
+	deleteCategory,
+	getCategoriesWithWritingCounts,
+} from "../../lib/queries";
 
 if (Astro.request.method === "POST") {
 	const formData = await Astro.request.formData();
@@ -20,7 +22,7 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const categoriesWithCounts = await getCategoriesWithPostCounts();
+const categoriesWithCounts = await getCategoriesWithWritingCounts();
 
 const deleted = Astro.url.searchParams.get("deleted") === "true";
 const created = Astro.url.searchParams.get("created") === "true";
@@ -95,26 +97,26 @@ const error = Astro.url.searchParams.get("error");
 									</td>
 								</tr>
 							) : (
-								categoriesWithCounts.map((cat) => (
+								categoriesWithCounts.map((category) => (
 									<tr>
-										<td class="font-medium">{cat.name}</td>
+										<td class="font-medium">{category.name}</td>
 										<td>
-											<code class="text-xs">{cat.slug}</code>
+											<code class="text-xs">{category.slug}</code>
 										</td>
 										<td>
-											{cat.description ? (
-												<span class="text-sm">{cat.description}</span>
+											{category.description ? (
+												<span class="text-sm">{category.description}</span>
 											) : (
 												<span class="text-base-content/40">—</span>
 											)}
 										</td>
 										<td>
-											<span class="badge badge-secondary">{cat.postCount}</span>
+											<span class="badge badge-secondary">{category.writingCount}</span>
 										</td>
 										<td>
 											<div class="flex gap-2">
 												<a
-													href={`/categories/${cat.id}`}
+													href={`/categories/${category.id}`}
 													class="btn btn-sm btn-ghost"
 													title="Edit"
 												>
@@ -122,7 +124,7 @@ const error = Astro.url.searchParams.get("error");
 												</a>
 												<form method="POST" class="inline">
 													<input type="hidden" name="action" value="delete" />
-													<input type="hidden" name="categoryId" value={cat.id} />
+													<input type="hidden" name="categoryId" value={category.id} />
 													<button
 														type="submit"
 														class="btn btn-sm btn-ghost text-error"

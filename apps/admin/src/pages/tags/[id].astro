@@ -4,8 +4,8 @@ import { X as Cancel, Save } from "@lucide/astro";
 import {
 	checkTagNameExists,
 	checkTagSlugExists,
-	getPostsByTag,
 	getTag,
+	getWritingsByTag,
 	updateTag,
 	validateSlugFormat,
 } from "../../lib/queries";
@@ -65,7 +65,7 @@ if (Astro.request.method === "POST") {
 }
 
 // Get posts using this tag
-const posts = await getPostsByTag(id);
+const writings = await getWritingsByTag(id);
 
 const updated = Astro.url.searchParams.get("updated") === "true";
 const error = Astro.url.searchParams.get("error");
@@ -149,15 +149,15 @@ const errorMessages: Record<string, string> = {
 			</div>
 		</form>
 
-		{posts.length > 0 && (
+		{writings.length > 0 && (
 			<div class="card bg-base-100 shadow">
 				<div class="card-body">
-					<h2 class="card-title">Posts using this tag ({posts.length})</h2>
+					<h2 class="card-title">Posts using this tag ({writings.length})</h2>
 					<ul class="list-disc list-inside space-y-1">
-						{posts.map((post) => (
+						{writings.map((writing) => (
 							<li>
-								<a href={`/posts/${post.id}`} class="link link-primary">
-									{post.title}
+								<a href={`/writings/${writing.id}`} class="link link-primary">
+									{writing.title}
 								</a>
 							</li>
 						))}

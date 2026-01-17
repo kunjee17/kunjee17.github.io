@@ -1,10 +1,11 @@
 ---
 import AdminLayout from "@components/layout/AdminLayout.astro";
-import { getAllPosts, getDashboardStats } from "../lib/queries";
+import { format } from "date-fns";
+import { getAllWritings, getDashboardStats } from "../lib/queries";
 
 const stats = await getDashboardStats();
-const recentPosts = await getAllPosts();
-const recentPostsList = recentPosts.slice(0, 5);
+const recentWritings = await getAllWritings();
+const recentWritingsList = recentWritings.slice(0, 5);
 ---
 
 <AdminLayout title="Dashboard">
@@ -14,10 +15,10 @@ const recentPostsList = recentPosts.slice(0, 5);
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
 			<div class="card bg-base-100 shadow">
 				<div class="card-body">
-					<h2 class="card-title">Posts</h2>
-					<p class="text-2xl font-bold">{stats.posts}</p>
+					<h2 class="card-title">Writings</h2>
+					<p class="text-2xl font-bold">{stats.writings}</p>
 					<div class="card-actions justify-end">
-						<a href="/posts" class="btn btn-sm btn-primary">View All</a>
+						<a href="/writings" class="btn btn-sm btn-primary">View All</a>
 					</div>
 				</div>
 			</div>
@@ -37,7 +38,7 @@ const recentPostsList = recentPosts.slice(0, 5);
 					<h2 class="card-title">Drafts</h2>
 					<p class="text-2xl font-bold">{stats.drafts}</p>
 					<div class="card-actions justify-end">
-						<a href="/posts" class="btn btn-sm btn-ghost">View</a>
+						<a href="/writings" class="btn btn-sm btn-ghost">View</a>
 					</div>
 				</div>
 			</div>
@@ -87,7 +88,7 @@ const recentPostsList = recentPosts.slice(0, 5);
 			<div class="card-body">
 				<h2 class="card-title">Quick Actions</h2>
 				<div class="flex flex-wrap gap-2">
-					<a href="/posts/new" class="btn btn-primary">New Post</a>
+					<a href="/writings/new" class="btn btn-primary">New Writing</a>
 					<a href="/pages/new" class="btn btn-secondary">New Page</a>
 					<a href="/tags/new" class="btn btn-accent">New Tag</a>
 					<a href="/categories/new" class="btn btn-accent">New Category</a>
@@ -98,10 +99,10 @@ const recentPostsList = recentPosts.slice(0, 5);
 			</div>
 		</div>
 
-		{recentPostsList.length > 0 && (
+		{recentWritingsList.length > 0 && (
 			<div class="card bg-base-100 shadow">
 				<div class="card-body">
-					<h2 class="card-title">Recent Posts</h2>
+					<h2 class="card-title">Recent Writings</h2>
 					<div class="overflow-x-auto">
 						<table class="table">
 							<thead>
@@ -113,15 +114,15 @@ const recentPostsList = recentPosts.slice(0, 5);
 								</tr>
 							</thead>
 							<tbody>
-								{recentPostsList.map((post) => (
+								{recentWritingsList.map((writing) => (
 									<tr>
 										<td>
-											<a href={`/posts/${post.id}`} class="link link-primary">
-												{post.title}
+											<a href={`/writings/${writing.id}`} class="link link-primary">
+												{writing.title}
 											</a>
 										</td>
 										<td>
-											{post.draft ? (
+											{writing.draft ? (
 												<span class="badge badge-warning">Draft</span>
 											) : (
 												<span class="badge badge-success">Published</span>
@@ -129,12 +130,12 @@ const recentPostsList = recentPosts.slice(0, 5);
 										</td>
 										<td>
 											{format(
-												new Date(post.publishedAt || post.createdAt),
+												new Date(writing.publishedAt || writing.createdAt),
 												"MMM d, yyyy"
 											)}
 										</td>
 										<td>
-											<a href={`/posts/${post.id}`} class="btn btn-sm btn-ghost">
+											<a href={`/writings/${writing.id}`} class="btn btn-sm btn-ghost">
 												Edit
 											</a>
 										</td>

@@ -4,6 +4,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "turbo run build",
+		"build:packages": "turbo run build --filter='@repo/*'",
 		"dev": "turbo run dev",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
@@ -11,9 +12,8 @@
 		"format": "biome format --write .",
 		"format:check": "biome format .",
 		"check-types": "turbo run check-types",
+		"db:generate": "turbo run db:generate",
 		"db:push": "turbo run db:push",
-		"db:verify": "turbo run db:verify",
-		"db:copy": "node scripts/copy-db.js",
 		"prepare": "husky"
 	},
 	"devDependencies": {

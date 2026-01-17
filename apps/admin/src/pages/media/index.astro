@@ -1,4 +1,7 @@
 ---
+import { Edit, Plus, Trash2 } from "@lucide/astro";
+import { format } from "date-fns";
+import AdminLayout from "@/components/layout/AdminLayout.astro";
 import { deleteMedia, getAllMedia } from "../../lib/queries";
 
 if (Astro.request.method === "POST") {
@@ -17,9 +20,9 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const _media = await getAllMedia();
-const _deleted = Astro.url.searchParams.get("deleted") === "true";
-const _error = Astro.url.searchParams.get("error");
+const media = await getAllMedia();
+const deleted = Astro.url.searchParams.get("deleted") === "true";
+const error = Astro.url.searchParams.get("error");
 ---
 
 <AdminLayout title="Media">
