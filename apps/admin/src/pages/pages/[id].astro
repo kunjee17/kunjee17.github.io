@@ -1,11 +1,15 @@
 ---
+import AdminLayout from "@components/layout/AdminLayout.astro";
+import MarkdownEditor from "@components/ui/MarkdownEditor.astro";
+import { X as Cancel, Save } from "@lucide/astro";
+import { format } from "date-fns";
 import {
 	checkPageSlugExists,
 	generateSlug,
 	getPage,
 	updatePage,
 	validateSlugFormat,
-} from "../../lib/db";
+} from "../../lib/queries";
 
 const { id } = Astro.params;
 
@@ -142,10 +146,10 @@ function _formatDateTimeLocal(date: Date | null | undefined): string {
 	return d.toISOString().slice(0, 16);
 }
 
-const _updated = Astro.url.searchParams.get("updated") === "true";
-const _error = Astro.url.searchParams.get("error");
-const _created = Astro.url.searchParams.get("created") === "true";
-const _errorMessages: Record<string, string> = {
+const updated = Astro.url.searchParams.get("updated") === "true";
+const error = Astro.url.searchParams.get("error");
+const created = Astro.url.searchParams.get("created") === "true";
+const errorMessages: Record<string, string> = {
 	title_required: "Page title is required.",
 	content_required: "Page content is required.",
 	slug_exists: "A page with this slug already exists.",
@@ -157,12 +161,12 @@ const _errorMessages: Record<string, string> = {
 	update_failed: "Failed to update page. Please try again.",
 };
 
-const _keywords = page.keywords
+const keywords = page.keywords
 	? typeof page.keywords === "string"
 		? JSON.parse(page.keywords)
 		: page.keywords
 	: [];
-const _aliases = page.aliases
+const aliases = page.aliases
 	? typeof page.aliases === "string"
 		? JSON.parse(page.aliases)
 		: page.aliases

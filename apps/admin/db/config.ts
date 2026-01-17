@@ -43,8 +43,8 @@ export const Author = defineTable({
 	},
 });
 
-// Blog posts table
-export const BlogPosts = defineTable({
+// Writings table
+export const Writings = defineTable({
 	columns: {
 		id: column.text({ primaryKey: true }),
 		slug: column.text({ unique: true }),
@@ -93,30 +93,30 @@ export const BlogPosts = defineTable({
 	},
 });
 
-// Junction table: BlogPosts <-> Tags (many-to-many)
-export const BlogPostTags = defineTable({
+// Junction table: Writings <-> Tags (many-to-many)
+export const WritingTags = defineTable({
 	columns: {
-		blogPostId: column.text({ references: () => BlogPosts.columns.id }),
+		writingId: column.text({ references: () => Writings.columns.id }),
 		tagId: column.text({ references: () => Tags.columns.id }),
 	},
 });
 
-// Junction table: BlogPosts <-> Categories (many-to-many)
-export const BlogPostCategories = defineTable({
+// Junction table: Writings <-> Categories (many-to-many)
+export const WritingCategories = defineTable({
 	columns: {
-		blogPostId: column.text({ references: () => BlogPosts.columns.id }),
+		writingId: column.text({ references: () => Writings.columns.id }),
 		categoryId: column.text({ references: () => Categories.columns.id }),
 	},
 });
 
-// Internal linking table: BlogPosts -> BlogPosts (for SEO and content relationships)
-// Supports explicit internal links between posts for better SEO and user navigation
-export const BlogPostReferences = defineTable({
+// Internal linking table: Writings -> Writings (for SEO and content relationships)
+// Supports explicit internal links between writings for better SEO and user navigation
+export const WritingReferences = defineTable({
 	columns: {
 		id: column.text({ primaryKey: true }),
-		fromPostId: column.text({ references: () => BlogPosts.columns.id }), // Source post
-		toPostId: column.text({ references: () => BlogPosts.columns.id }), // Referenced post
-		anchorText: column.text({ optional: true }), // Custom anchor text for the link (if not provided, use post title)
+		fromWritingId: column.text({ references: () => Writings.columns.id }), // Source writing
+		toWritingId: column.text({ references: () => Writings.columns.id }), // Referenced writing
+		anchorText: column.text({ optional: true }), // Custom anchor text for the link (if not provided, use writing title)
 		linkType: column.text({ optional: true }), // Type: 'related', 'reference', 'prerequisite', 'follow-up', 'series'
 		weight: column.number({ optional: true }), // Order/priority (lower = higher priority, shown first)
 		createdAt: column.date(),
@@ -177,10 +177,10 @@ export const Media = defineTable({
 export const FAQs = defineTable({
 	columns: {
 		id: column.text({ primaryKey: true }),
-		blogPostId: column.text({
-			references: () => BlogPosts.columns.id,
+		writingId: column.text({
+			references: () => Writings.columns.id,
 			optional: true,
-		}), // Optional: link to blog post
+		}), // Optional: link to writing
 		pageId: column.text({ references: () => Pages.columns.id, optional: true }), // Optional: link to page
 		question: column.text(), // FAQ question
 		answer: column.text(), // FAQ answer
@@ -205,10 +205,10 @@ export default defineDb({
 		Tags,
 		Categories,
 		Author,
-		BlogPosts,
-		BlogPostTags,
-		BlogPostCategories,
-		BlogPostReferences,
+		Writings,
+		WritingTags,
+		WritingCategories,
+		WritingReferences,
 		Pages,
 		Media,
 		FAQs,

@@ -1,15 +1,29 @@
 ---
 import {
 	checkPostSlugExists,
-	createPost,
 	generateSlug,
 	getAllCategories,
 	getAllTags,
 	getFirstAuthor,
+	getPostWithRelations,
+	updatePost,
 	validateSlugFormat,
-} from "../../lib/db";
+} from "../../lib/queries";
 
-// Load data for form
+const { id } = Astro.params;
+
+if (!id) {
+	return Astro.redirect("/posts?error=not_found", 302);
+}
+
+// Load post data
+const post = await getPostWithRelations(id);
+
+if (!post) {
+	return Astro.redirect("/posts?error=not_found", 302);
+}
+
+// Load form data
 const [_tags, _categories, author] = await Promise.all([
 	getAllTags(),
 	getAllCategories(),
@@ -37,8 +51,8 @@ if (Astro.request.method === "POST") {
 
 	// Parse form data
 	const title = (formData.get("title")?.toString() || "").trim();
-	const slugInput = formData.get("slug")?.toString()?.trim();
-	const slug = slugInput || generateSlug(title);
+	const slug =
+		(formData.get("slug")?.toString() || "").trim() || generateSlug(title);
 	const linkTitle = formData.get("linkTitle")?.toString()?.trim();
 	const description = formData.get("description")?.toString()?.trim();
 	const summary = formData.get("summary")?.toString()?.trim();
@@ -46,43 +60,34 @@ if (Astro.request.method === "POST") {
 
 	// Validation
 	if (!title) {
-		return Astro.redirect("/posts/new?error=title_required", 302);
+		return Astro.redirect(`/posts/${id}?error=title_required`, 302);
 	}
 
 	if (!content) {
-		return Astro.redirect("/posts/new?error=content_required", 302);
+		return Astro.redirect(`/posts/${id}?error=content_required`, 302);
 	}
 
 	if (!validateSlugFormat(slug)) {
-		return Astro.redirect("/posts/new?error=invalid_slug", 302);
+		return Astro.redirect(`/posts/${id}?error=invalid_slug`, 302);
 	}
 
 	// Dates
-	const createdAtStr = formData.get("createdAt")?.toString();
 	const publishedAtStr = formData.get("publishedAt")?.toString();
 	const expiryDateStr = formData.get("expiryDate")?.toString();
-	let createdAt: Date | undefined;
 	let publishedAt: Date | undefined;
 	let expiryDate: Date | undefined;
-
-	if (createdAtStr) {
-		createdAt = new Date(createdAtStr);
-		if (Number.isNaN(createdAt.getTime())) {
-			return Astro.redirect("/posts/new?error=invalid_created_date", 302);
-		}
-	}
 
 	if (publishedAtStr) {
 		publishedAt = new Date(publishedAtStr);
 		if (Number.isNaN(publishedAt.getTime())) {
-			return Astro.redirect("/posts/new?error=invalid_published_date", 302);
+			return Astro.redirect(`/posts/${id}?error=invalid_published_date`, 302);
 		}
 	}
 
 	if (expiryDateStr) {
 		expiryDate = new Date(expiryDateStr);
 		if (Number.isNaN(expiryDate.getTime())) {
-			return Astro.redirect("/posts/new?error=invalid_expiry_date", 302);
+			return Astro.redirect(`/posts/${id}?error=invalid_expiry_date`, 302);
 		}
 	}
 
@@ -116,11 +121,11 @@ if (Astro.request.method === "POST") {
 
 	// Validate URLs
 	if (canonicalUrl && !isValidUrl(canonicalUrl)) {
-		return Astro.redirect("/posts/new?error=invalid_canonical_url", 302);
+		return Astro.redirect(`/posts/${id}?error=invalid_canonical_url`, 302);
 	}
 
 	if (ogImage && !isValidUrl(ogImage)) {
-		return Astro.redirect("/posts/new?error=invalid_og_image_url", 302);
+		return Astro.redirect(`/posts/${id}?error=invalid_og_image_url`, 302);
 	}
 
 	// Validate sitemap priority
@@ -132,7 +137,7 @@ if (Astro.request.method === "POST") {
 			sitemapPriority < 0 ||
 			sitemapPriority > 1
 		) {
-			return Astro.redirect("/posts/new?error=invalid_sitemap_priority", 302);
+			return Astro.redirect(`/posts/${id}?error=invalid_sitemap_priority`, 302);
 		}
 	}
 
@@ -147,7 +152,7 @@ if (Astro.request.method === "POST") {
 		: undefined;
 
 	if (url && !isValidUrlPath(url)) {
-		return Astro.redirect("/posts/new?error=invalid_url", 302);
+		return Astro.redirect(`/posts/${id}?error=invalid_url`, 302);
 	}
 
 	// Template
@@ -159,20 +164,19 @@ if (Astro.request.method === "POST") {
 	const authorId = formData.get("authorId")?.toString() || author?.id;
 
 	try {
-		// Check for duplicate slug
-		if (await checkPostSlugExists(slug)) {
-			return Astro.redirect("/posts/new?error=slug_exists", 302);
+		// Check for duplicate slug (if slug changed)
+		if (slug !== post.slug && (await checkPostSlugExists(slug, id))) {
+			return Astro.redirect(`/posts/${id}?error=slug_exists`, 302);
 		}
 
-		// Create post
-		const postId = await createPost({
+		// Update post
+		await updatePost(id, {
 			title,
 			slug,
 			linkTitle,
 			description,
 			summary,
 			content,
-			createdAt,
 			publishedAt,
 			expiryDate,
 			draft,
@@ -196,20 +200,30 @@ if (Astro.request.method === "POST") {
 			categoryIds: categoryIds.length > 0 ? categoryIds : undefined,
 		});
 
-		return Astro.redirect(`/posts/${postId}?created=true`, 302);
+		return Astro.redirect(`/posts/${id}?updated=true`, 302);
 	} catch (error) {
-		console.error("Error creating post:", error);
+		console.error("Error updating post:", error);
 		// Check if it's a database constraint error
 		if (error instanceof Error && error.message.includes("UNIQUE")) {
 			if (error.message.includes("slug")) {
-				return Astro.redirect("/posts/new?error=slug_exists", 302);
+				return Astro.redirect(`/posts/${id}?error=slug_exists`, 302);
 			}
 		}
-		return Astro.redirect("/posts/new?error=create_failed", 302);
+		return Astro.redirect(`/posts/${id}?error=update_failed`, 302);
 	}
 }
 
+// Format dates for datetime-local inputs
+function _formatDateTimeLocal(date: Date | null | undefined): string {
+	if (!date) return "";
+	const d = new Date(date);
+	d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+	return d.toISOString().slice(0, 16);
+}
+
+const _updated = Astro.url.searchParams.get("updated") === "true";
 const _error = Astro.url.searchParams.get("error");
+const _created = Astro.url.searchParams.get("created") === "true";
 const _errorMessages: Record<string, string> = {
 	title_required: "Post title is required.",
 	content_required: "Post content is required.",
@@ -219,21 +233,46 @@ const _errorMessages: Record<string, string> = {
 	invalid_canonical_url: "Invalid canonical URL format.",
 	invalid_og_image_url: "Invalid Open Graph image URL format.",
 	invalid_url: "Invalid URL format. URL must start with / and be a valid path.",
-	invalid_created_date: "Invalid created date format.",
 	invalid_published_date: "Invalid published date format.",
 	invalid_expiry_date: "Invalid expiry date format.",
 	invalid_sitemap_priority: "Sitemap priority must be between 0.0 and 1.0.",
-	create_failed: "Error creating post. Please try again.",
+	update_failed: "Failed to update post. Please try again.",
 };
+
+// Parse JSON fields
+const _keywords = post.keywords
+	? typeof post.keywords === "string"
+		? JSON.parse(post.keywords)
+		: post.keywords
+	: [];
+const _aliases = post.aliases
+	? typeof post.aliases === "string"
+		? JSON.parse(post.aliases)
+		: post.aliases
+	: [];
+const _selectedTagIds = post.tags?.map((t) => t.id) || [];
+const _selectedCategoryIds = post.categories?.map((c) => c.id) || [];
 ---
 
-<AdminLayout title="New Post">
+<AdminLayout title={`Edit Post - ${post.title}`}>
 	<div class="space-y-6">
-		<h1 class="text-3xl font-bold">New Post</h1>
+		<h1 class="text-3xl font-bold">Edit Post</h1>
+
+		{created && (
+			<div class="alert alert-success">
+				<span>Post created successfully!</span>
+			</div>
+		)}
+
+		{updated && (
+			<div class="alert alert-success">
+				<span>Post updated successfully!</span>
+			</div>
+		)}
 
 		{error && (
 			<div class="alert alert-error">
-				<span>{errorMessages[error] || "Error creating post. Please try again."}</span>
+				<span>{errorMessages[error] || `Error: ${error}`}</span>
 			</div>
 		)}
 
@@ -251,7 +290,7 @@ const _errorMessages: Record<string, string> = {
 								type="text"
 								id="title"
 								name="title"
-								placeholder="Post title"
+								value={post.title}
 								class="input input-bordered w-full"
 								required
 							/>
@@ -260,13 +299,12 @@ const _errorMessages: Record<string, string> = {
 						<div class="form-control">
 							<label class="label" for="slug">
 								<span class="label-text">Slug</span>
-								<span class="label-text-alt">Auto-generated from title if empty</span>
 							</label>
 							<input
 								type="text"
 								id="slug"
 								name="slug"
-								placeholder="post-slug"
+								value={post.slug}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -274,13 +312,12 @@ const _errorMessages: Record<string, string> = {
 						<div class="form-control">
 							<label class="label" for="linkTitle">
 								<span class="label-text">Link Title</span>
-								<span class="label-text-alt">Shorter version for links</span>
 							</label>
 							<input
 								type="text"
 								id="linkTitle"
 								name="linkTitle"
-								placeholder="Short title"
+								value={post.linkTitle || ""}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -288,29 +325,25 @@ const _errorMessages: Record<string, string> = {
 						<div class="form-control">
 							<label class="label" for="description">
 								<span class="label-text">Description</span>
-								<span class="label-text-alt">SEO meta description</span>
 							</label>
 							<textarea
 								id="description"
 								name="description"
-								placeholder="Brief description for SEO"
 								class="textarea textarea-bordered w-full"
 								rows="2"
-							></textarea>
+							>{post.description || ""}</textarea>
 						</div>
 
 						<div class="form-control">
 							<label class="label" for="summary">
 								<span class="label-text">Summary</span>
-								<span class="label-text-alt">Content teaser (different from description)</span>
 							</label>
 							<textarea
 								id="summary"
 								name="summary"
-								placeholder="Content summary or teaser"
 								class="textarea textarea-bordered w-full"
 								rows="3"
-							></textarea>
+							>{post.summary || ""}</textarea>
 						</div>
 
 						<div class="form-control">
@@ -321,7 +354,7 @@ const _errorMessages: Record<string, string> = {
 							<MarkdownEditor
 								id="content"
 								name="content"
-								placeholder="Start typing your markdown content..."
+								value={post.content}
 								required={true}
 							/>
 						</div>
@@ -346,7 +379,9 @@ const _errorMessages: Record<string, string> = {
 								size="5"
 							>
 								{tags.map((tag) => (
-									<option value={tag.id}>{tag.name}</option>
+									<option value={tag.id} selected={selectedTagIds.includes(tag.id)}>
+										{tag.name}
+									</option>
 								))}
 							</select>
 							<label class="label">
@@ -366,7 +401,9 @@ const _errorMessages: Record<string, string> = {
 								size="5"
 							>
 								{categories.map((cat) => (
-									<option value={cat.id}>{cat.name}</option>
+									<option value={cat.id} selected={selectedCategoryIds.includes(cat.id)}>
+										{cat.name}
+									</option>
 								))}
 							</select>
 							<label class="label">
@@ -377,13 +414,12 @@ const _errorMessages: Record<string, string> = {
 						<div class="form-control">
 							<label class="label" for="keywords">
 								<span class="label-text">Keywords</span>
-								<span class="label-text-alt">Comma-separated for SEO</span>
 							</label>
 							<input
 								type="text"
 								id="keywords"
 								name="keywords"
-								placeholder="keyword1, keyword2, keyword3"
+								value={Array.isArray(keywords) ? keywords.join(", ") : ""}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -402,7 +438,7 @@ const _errorMessages: Record<string, string> = {
 									<span class="label-text">Author</span>
 								</label>
 								<select id="authorId" name="authorId" class="select select-bordered w-full">
-									<option value={author.id} selected>
+									<option value={author.id} selected={post.authorId === author.id}>
 										{author.name}
 									</option>
 								</select>
@@ -410,26 +446,14 @@ const _errorMessages: Record<string, string> = {
 						)}
 
 						<div class="form-control">
-							<label class="label" for="createdAt">
-								<span class="label-text">Created Date</span>
-							</label>
-							<input
-								type="datetime-local"
-								id="createdAt"
-								name="createdAt"
-								class="input input-bordered w-full"
-							/>
-						</div>
-
-						<div class="form-control">
 							<label class="label" for="publishedAt">
 								<span class="label-text">Published Date</span>
-								<span class="label-text-alt">For scheduling</span>
 							</label>
 							<input
 								type="datetime-local"
 								id="publishedAt"
 								name="publishedAt"
+								value={formatDateTimeLocal(post.publishedAt)}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -442,8 +466,20 @@ const _errorMessages: Record<string, string> = {
 								type="datetime-local"
 								id="expiryDate"
 								name="expiryDate"
+								value={formatDateTimeLocal(post.expiryDate)}
 								class="input input-bordered w-full"
 							/>
+						</div>
+
+						<div class="text-sm text-base-content/60">
+							<div>Created: {format(new Date(post.createdAt), "PPpp")}</div>
+							<div>Updated: {format(new Date(post.updatedAt), "PPpp")}</div>
+							{post.wordCount && (
+								<div>
+									Word Count: {post.wordCount} words
+									{post.readingTime && ` • Reading Time: ${post.readingTime} min`}
+								</div>
+							)}
 						</div>
 					</div>
 				</div>
@@ -461,7 +497,7 @@ const _errorMessages: Record<string, string> = {
 									type="checkbox"
 									name="draft"
 									class="checkbox checkbox-primary"
-									checked
+									checked={post.draft}
 								/>
 							</label>
 						</div>
@@ -473,6 +509,7 @@ const _errorMessages: Record<string, string> = {
 									type="checkbox"
 									name="featured"
 									class="checkbox checkbox-primary"
+									checked={post.featured}
 								/>
 							</label>
 						</div>
@@ -480,14 +517,13 @@ const _errorMessages: Record<string, string> = {
 						<div class="form-control">
 							<label class="label" for="weight">
 								<span class="label-text">Weight</span>
-								<span class="label-text-alt">Lower = higher priority</span>
 							</label>
 							<input
 								type="number"
 								id="weight"
 								name="weight"
+								value={post.weight || ""}
 								class="input input-bordered w-full"
-								placeholder="0"
 							/>
 						</div>
 					</div>
@@ -508,7 +544,7 @@ const _errorMessages: Record<string, string> = {
 								type="url"
 								id="canonicalUrl"
 								name="canonicalUrl"
-								placeholder="https://example.com/canonical-url"
+								value={post.canonicalUrl || ""}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -519,10 +555,21 @@ const _errorMessages: Record<string, string> = {
 							</label>
 							<select id="metaRobots" name="metaRobots" class="select select-bordered w-full">
 								<option value="">Default (index, follow)</option>
-								<option value="index, follow">index, follow</option>
-								<option value="noindex, follow">noindex, follow</option>
-								<option value="index, nofollow">index, nofollow</option>
-								<option value="noindex, nofollow">noindex, nofollow</option>
+								<option value="index, follow" selected={post.metaRobots === "index, follow"}>
+									index, follow
+								</option>
+								<option value="noindex, follow" selected={post.metaRobots === "noindex, follow"}>
+									noindex, follow
+								</option>
+								<option value="index, nofollow" selected={post.metaRobots === "index, nofollow"}>
+									index, nofollow
+								</option>
+								<option
+									value="noindex, nofollow"
+									selected={post.metaRobots === "noindex, nofollow"}
+								>
+									noindex, nofollow
+								</option>
 							</select>
 						</div>
 
@@ -534,7 +581,7 @@ const _errorMessages: Record<string, string> = {
 								type="url"
 								id="ogImage"
 								name="ogImage"
-								placeholder="https://example.com/image.jpg"
+								value={post.ogImage || ""}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -545,8 +592,12 @@ const _errorMessages: Record<string, string> = {
 							</label>
 							<select id="ogType" name="ogType" class="select select-bordered w-full">
 								<option value="">Default</option>
-								<option value="article">article</option>
-								<option value="website">website</option>
+								<option value="article" selected={post.ogType === "article"}>
+									article
+								</option>
+								<option value="website" selected={post.ogType === "website"}>
+									website
+								</option>
 							</select>
 						</div>
 
@@ -556,8 +607,15 @@ const _errorMessages: Record<string, string> = {
 							</label>
 							<select id="twitterCard" name="twitterCard" class="select select-bordered w-full">
 								<option value="">Default</option>
-								<option value="summary">summary</option>
-								<option value="summary_large_image">summary_large_image</option>
+								<option value="summary" selected={post.twitterCard === "summary"}>
+									summary
+								</option>
+								<option
+									value="summary_large_image"
+									selected={post.twitterCard === "summary_large_image"}
+								>
+									summary_large_image
+								</option>
 							</select>
 						</div>
 
@@ -567,9 +625,15 @@ const _errorMessages: Record<string, string> = {
 							</label>
 							<select id="schemaType" name="schemaType" class="select select-bordered w-full">
 								<option value="">None</option>
-								<option value="Article">Article</option>
-								<option value="BlogPosting">BlogPosting</option>
-								<option value="FAQPage">FAQPage</option>
+								<option value="Article" selected={post.schemaType === "Article"}>
+									Article
+								</option>
+								<option value="BlogPosting" selected={post.schemaType === "BlogPosting"}>
+									BlogPosting
+								</option>
+								<option value="FAQPage" selected={post.schemaType === "FAQPage"}>
+									FAQPage
+								</option>
 							</select>
 						</div>
 
@@ -585,7 +649,7 @@ const _errorMessages: Record<string, string> = {
 								min="0"
 								max="1"
 								step="0.1"
-								value="0.5"
+								value={post.sitemapPriority || 0.5}
 								class="range range-primary"
 							/>
 							<div class="w-full flex justify-between text-xs px-2">
@@ -605,13 +669,27 @@ const _errorMessages: Record<string, string> = {
 								class="select select-bordered w-full"
 							>
 								<option value="">Default</option>
-								<option value="always">always</option>
-								<option value="hourly">hourly</option>
-								<option value="daily">daily</option>
-								<option value="weekly">weekly</option>
-								<option value="monthly">monthly</option>
-								<option value="yearly">yearly</option>
-								<option value="never">never</option>
+								<option value="always" selected={post.sitemapChangefreq === "always"}>
+									always
+								</option>
+								<option value="hourly" selected={post.sitemapChangefreq === "hourly"}>
+									hourly
+								</option>
+								<option value="daily" selected={post.sitemapChangefreq === "daily"}>
+									daily
+								</option>
+								<option value="weekly" selected={post.sitemapChangefreq === "weekly"}>
+									weekly
+								</option>
+								<option value="monthly" selected={post.sitemapChangefreq === "monthly"}>
+									monthly
+								</option>
+								<option value="yearly" selected={post.sitemapChangefreq === "yearly"}>
+									yearly
+								</option>
+								<option value="never" selected={post.sitemapChangefreq === "never"}>
+									never
+								</option>
 							</select>
 						</div>
 					</div>
@@ -631,7 +709,7 @@ const _errorMessages: Record<string, string> = {
 								type="text"
 								id="url"
 								name="url"
-								placeholder="/custom/url"
+								value={post.url || ""}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -639,13 +717,12 @@ const _errorMessages: Record<string, string> = {
 						<div class="form-control">
 							<label class="label" for="aliases">
 								<span class="label-text">Aliases</span>
-								<span class="label-text-alt">Comma-separated redirect URLs</span>
 							</label>
 							<input
 								type="text"
 								id="aliases"
 								name="aliases"
-								placeholder="/old-url1, /old-url2"
+								value={Array.isArray(aliases) ? aliases.join(", ") : ""}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -666,7 +743,7 @@ const _errorMessages: Record<string, string> = {
 								type="text"
 								id="type"
 								name="type"
-								placeholder="post"
+								value={post.type || ""}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -679,7 +756,7 @@ const _errorMessages: Record<string, string> = {
 								type="text"
 								id="layout"
 								name="layout"
-								placeholder="post"
+								value={post.layout || ""}
 								class="input input-bordered w-full"
 							/>
 						</div>
@@ -694,7 +771,7 @@ const _errorMessages: Record<string, string> = {
 				</a>
 				<button type="submit" class="btn btn-primary">
 					<Save class="size-5" />
-					Save Post
+					Update Post
 				</button>
 			</div>
 		</form>
@@ -714,12 +791,12 @@ const _errorMessages: Record<string, string> = {
 
 	const titleInput = document.getElementById("title") as HTMLInputElement;
 	const slugInput = document.getElementById("slug") as HTMLInputElement;
-	let lastAutoGeneratedSlug = "";
 
 	if (titleInput && slugInput) {
 		// Store initial slug value to detect manual edits
 		let slugManuallyEdited = false;
 		const originalSlug = slugInput.value;
+		let lastAutoGeneratedSlug = originalSlug;
 
 		titleInput.addEventListener("input", () => {
 			if (!slugManuallyEdited) {

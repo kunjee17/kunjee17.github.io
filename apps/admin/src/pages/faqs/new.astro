@@ -1,5 +1,5 @@
 ---
-import { createFAQ, getAllPages, getAllPosts } from "../../lib/db";
+import { createFAQ, getAllPages, getAllPosts } from "../../lib/queries";
 
 if (Astro.request.method === "POST") {
 	const formData = await Astro.request.formData();

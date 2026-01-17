@@ -1,11 +1,13 @@
 ---
+import AdminLayout from "@components/layout/AdminLayout.astro";
+import { X as Cancel, Save } from "@lucide/astro";
 import {
 	checkCategoryNameExists,
 	checkCategorySlugExists,
 	createCategory,
 	generateSlug,
 	validateSlugFormat,
-} from "../../lib/db";
+} from "../../lib/queries";
 
 if (Astro.request.method === "POST") {
 	const formData = await Astro.request.formData();
@@ -50,8 +52,8 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const _error = Astro.url.searchParams.get("error");
-const _errorMessages: Record<string, string> = {
+const error = Astro.url.searchParams.get("error");
+const errorMessages: Record<string, string> = {
 	name_required: "Category name is required.",
 	name_exists: "A category with this name already exists.",
 	slug_exists: "A category with this slug already exists.",

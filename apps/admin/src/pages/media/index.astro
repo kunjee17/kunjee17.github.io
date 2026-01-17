@@ -1,5 +1,5 @@
 ---
-import { deleteMedia, getAllMedia } from "../../lib/db";
+import { deleteMedia, getAllMedia } from "../../lib/queries";
 
 if (Astro.request.method === "POST") {
 	const formData = await Astro.request.formData();

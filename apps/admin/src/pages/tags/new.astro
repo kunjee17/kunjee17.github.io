@@ -1,11 +1,13 @@
 ---
+import AdminLayout from "@components/layout/AdminLayout.astro";
+import { X as Cancel, Save } from "@lucide/astro";
 import {
 	checkTagNameExists,
 	checkTagSlugExists,
 	createTag,
 	generateSlug,
 	validateSlugFormat,
-} from "../../lib/db";
+} from "../../lib/queries";
 
 if (Astro.request.method === "POST") {
 	const formData = await Astro.request.formData();
@@ -50,8 +52,8 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const _error = Astro.url.searchParams.get("error");
-const _errorMessages: Record<string, string> = {
+const error = Astro.url.searchParams.get("error");
+const errorMessages: Record<string, string> = {
 	name_required: "Tag name is required.",
 	name_exists: "A tag with this name already exists.",
 	slug_exists: "A tag with this slug already exists.",

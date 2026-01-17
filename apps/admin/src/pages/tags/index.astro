@@ -1,5 +1,8 @@
 ---
-import { deleteTag, getTagsWithPostCounts } from "../../lib/db";
+import AdminLayout from "@components/layout/AdminLayout.astro";
+import { Edit, Eye, EyeOff, Plus, Trash2 } from "@lucide/astro";
+import { format } from "date-fns";
+import { deleteTag, getTagsWithPostCounts } from "../../lib/queries";
 
 // Handle delete action
 if (Astro.request.method === "POST") {
@@ -18,11 +21,11 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const _tagsWithCounts = await getTagsWithPostCounts();
+const tagsWithCounts = await getTagsWithPostCounts();
 
-const _deleted = Astro.url.searchParams.get("deleted") === "true";
-const _created = Astro.url.searchParams.get("created") === "true";
-const _error = Astro.url.searchParams.get("error");
+const deleted = Astro.url.searchParams.get("deleted") === "true";
+const created = Astro.url.searchParams.get("created") === "true";
+const error = Astro.url.searchParams.get("error");
 ---
 
 <AdminLayout title="Tags">

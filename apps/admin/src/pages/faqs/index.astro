@@ -1,5 +1,10 @@
 ---
-import { deleteFAQ, getAllFAQs, getAllPages, getAllPosts } from "../../lib/db";
+import {
+	deleteFAQ,
+	getAllFAQs,
+	getAllPages,
+	getAllPosts,
+} from "../../lib/queries";
 
 if (Astro.request.method === "POST") {
 	const formData = await Astro.request.formData();

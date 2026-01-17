@@ -1,10 +1,13 @@
 ---
+import AdminLayout from "@components/layout/AdminLayout.astro";
+import { Edit, Eye, EyeOff, Plus, Trash2 } from "@lucide/astro";
+import { format } from "date-fns";
 import {
 	deletePost,
 	getAllPosts,
 	getCategoriesForPost,
 	getTagsForPost,
-} from "../../lib/db";
+} from "../../lib/queries";
 
 // Handle delete action
 if (Astro.request.method === "POST") {
@@ -15,17 +18,17 @@ if (Astro.request.method === "POST") {
 	if (action === "delete" && postId) {
 		try {
 			await deletePost(postId);
-			return Astro.redirect("/posts?deleted=true", 302);
+			return Astro.redirect("/writings?deleted=true", 302);
 		} catch (error) {
 			console.error("Error deleting post:", error);
-			return Astro.redirect("/posts?error=delete_failed", 302);
+			return Astro.redirect("/writings?error=delete_failed", 302);
 		}
 	}
 }
 
-const posts = await getAllPosts();
-const _postsWithRelations = await Promise.all(
-	posts.map(async (post) => {
+const writings = await getAllPosts();
+const writingsWithRelations = await Promise.all(
+	writings.map(async (post) => {
 		const [tags, categories] = await Promise.all([
 			getTagsForPost(post.id),
 			getCategoriesForPost(post.id),
@@ -38,16 +41,16 @@ const _postsWithRelations = await Promise.all(
 	}),
 );
 
-const _deleted = Astro.url.searchParams.get("deleted") === "true";
-const _created = Astro.url.searchParams.get("created") === "true";
-const _error = Astro.url.searchParams.get("error");
+const deleted = Astro.url.searchParams.get("deleted") === "true";
+const created = Astro.url.searchParams.get("created") === "true";
+const error = Astro.url.searchParams.get("error");
 ---
 
-<AdminLayout title="Posts">
+<AdminLayout title="Writings">
 	<div class="space-y-6">
 		<div class="flex items-center justify-between">
-			<h1 class="text-3xl font-bold">Posts</h1>
-			<a href="/posts/new" class="btn btn-primary">
+			<h1 class="text-3xl font-bold">Writings</h1>
+			<a href="/writings/new" class="btn btn-primary">
 				<Plus class="size-5" />
 				New Post
 			</a>
@@ -95,7 +98,7 @@ const _error = Astro.url.searchParams.get("error");
 							</tr>
 						</thead>
 						<tbody>
-							{postsWithRelations.length === 0 ? (
+							{writingsWithRelations.length === 0 ? (
 								<tr>
 									<td colspan="7" class="text-center py-12">
 										<div class="flex flex-col items-center justify-center gap-4">
@@ -105,7 +108,7 @@ const _error = Astro.url.searchParams.get("error");
 											<p class="text-base-content/60 text-sm max-w-md">
 												Posts are your main blog content. Create your first post to start sharing your thoughts and ideas!
 											</p>
-											<a href="/posts/new" class="btn btn-primary mt-2">
+											<a href="/writings/new" class="btn btn-primary mt-2">
 												<Plus class="size-5" />
 												Create Your First Post
 											</a>
@@ -113,18 +116,18 @@ const _error = Astro.url.searchParams.get("error");
 									</td>
 								</tr>
 							) : (
-								postsWithRelations.map((post) => (
+								writingsWithRelations.map((writing) => (
 									<tr>
 										<td>
-											<div class="font-medium">{post.title}</div>
-											{post.description && (
+											<div class="font-medium">{writing.title}</div>
+											{writing.description && (
 												<div class="text-sm text-base-content/60 line-clamp-1">
-													{post.description}
+													{writing.description}
 												</div>
 											)}
 										</td>
 										<td>
-											{post.draft ? (
+											{writing.draft ? (
 												<span class="badge badge-warning">
 													<EyeOff class="size-3" />
 													Draft
@@ -137,21 +140,21 @@ const _error = Astro.url.searchParams.get("error");
 											)}
 										</td>
 										<td>
-											{post.featured && (
+											{writing.featured && (
 												<span class="badge badge-primary">Featured</span>
 											)}
 										</td>
 										<td>
-											{post.tags.length > 0 ? (
+											{writing.tags.length > 0 ? (
 												<div class="flex flex-wrap gap-1">
-													{post.tags.slice(0, 2).map((tag) => (
+													{writing.tags.slice(0, 2).map((tag) => (
 														<span class="badge badge-outline badge-sm">
 															{tag.name}
 														</span>
 													))}
-													{post.tags.length > 2 && (
+													{writing.tags.length > 2 && (
 														<span class="badge badge-outline badge-sm">
-															+{post.tags.length - 2}
+															+{writing.tags.length - 2}
 														</span>
 													)}
 												</div>
@@ -160,16 +163,16 @@ const _error = Astro.url.searchParams.get("error");
 											)}
 										</td>
 										<td>
-											{post.categories.length > 0 ? (
+											{writing.categories.length > 0 ? (
 												<div class="flex flex-wrap gap-1">
-													{post.categories.slice(0, 1).map((cat) => (
+													{writing.categories.slice(0, 1).map((cat) => (
 														<span class="badge badge-secondary badge-sm">
 															{cat.name}
 														</span>
 													))}
-													{post.categories.length > 1 && (
+													{writing.categories.length > 1 && (
 														<span class="badge badge-secondary badge-sm">
-															+{post.categories.length - 1}
+															+{writing.categories.length - 1}
 														</span>
 													)}
 												</div>
@@ -179,21 +182,21 @@ const _error = Astro.url.searchParams.get("error");
 										</td>
 										<td>
 											<div class="text-sm">
-												{post.publishedAt
-													? format(new Date(post.publishedAt), "MMM d, yyyy")
-													: format(new Date(post.createdAt), "MMM d, yyyy")}
+												{writing.publishedAt
+													? format(new Date(writing.publishedAt), "MMM d, yyyy")
+													: format(new Date(writing.createdAt), "MMM d, yyyy")}
 											</div>
-											{post.wordCount && (
+											{writing.wordCount && (
 												<div class="text-xs text-base-content/60">
-													{post.wordCount} words
-													{post.readingTime && ` • ${post.readingTime} min read`}
+													{writing.wordCount} words
+													{writing.readingTime && ` • ${writing.readingTime} min read`}
 												</div>
 											)}
 										</td>
 										<td>
 											<div class="flex gap-2">
 												<a
-													href={`/posts/${post.id}`}
+													href={`/writings/${writing.id}`}
 													class="btn btn-sm btn-ghost"
 													title="Edit"
 												>
@@ -201,7 +204,7 @@ const _error = Astro.url.searchParams.get("error");
 												</a>
 												<form method="POST" class="inline">
 													<input type="hidden" name="action" value="delete" />
-													<input type="hidden" name="postId" value={post.id} />
+													<input type="hidden" name="postId" value={writing.id} />
 													<button
 														type="submit"
 														class="btn btn-sm btn-ghost text-error"

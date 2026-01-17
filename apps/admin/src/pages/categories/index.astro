@@ -1,5 +1,8 @@
 ---
-import { deleteCategory, getCategoriesWithPostCounts } from "../../lib/db";
+import AdminLayout from "@components/layout/AdminLayout.astro";
+import { Edit, Eye, EyeOff, Plus, Trash2 } from "@lucide/astro";
+import { format } from "date-fns";
+import { deleteCategory, getCategoriesWithPostCounts } from "../../lib/queries";
 
 if (Astro.request.method === "POST") {
 	const formData = await Astro.request.formData();
@@ -17,11 +20,11 @@ if (Astro.request.method === "POST") {
 	}
 }
 
-const _categoriesWithCounts = await getCategoriesWithPostCounts();
+const categoriesWithCounts = await getCategoriesWithPostCounts();
 
-const _deleted = Astro.url.searchParams.get("deleted") === "true";
-const _created = Astro.url.searchParams.get("created") === "true";
-const _error = Astro.url.searchParams.get("error");
+const deleted = Astro.url.searchParams.get("deleted") === "true";
+const created = Astro.url.searchParams.get("created") === "true";
+const error = Astro.url.searchParams.get("error");
 ---
 
 <AdminLayout title="Categories">

@@ -7,12 +7,9 @@ import {
 	BlogPostTags,
 	Categories,
 	db,
-	desc,
-	eq,
 	FAQs,
 	Media,
 	Pages,
-	sql,
 	Tags,
 } from "astro:db";
 import { v4 as uuidv4 } from "uuid";

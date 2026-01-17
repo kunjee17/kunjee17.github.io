@@ -1,7 +1,7 @@
 [build]
-  base = "apps/admin"
+  base = "."
   command = "pnpm install && pnpm turbo build --filter=admin"
-  publish = "apps/admin/dist"
+  publish = "dist"
 
 [build.environment]
   NODE_VERSION = "18"
