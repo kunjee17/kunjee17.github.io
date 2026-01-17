@@ -1,9 +1,10 @@
 ---
+import WritingCard from "@components/WritingCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { getAuthor, getFeaturedPosts } from "@lib/db";
+import { getAuthor, getFeaturedWritings } from "@lib/db";
 
 // Get featured posts and author info
-const featuredPosts = await getFeaturedPosts();
+const featuredWritings = await getFeaturedWritings();
 const author = await getAuthor();
 ---
 
@@ -30,7 +31,7 @@ const author = await getAuthor();
 					<a href="/services" class="btn btn-primary btn-lg">
 						Work with me
 					</a>
-					<a href="/writing" class="btn btn-outline btn-lg">
+					<a href="/writings" class="btn btn-outline btn-lg">
 						Read my writing
 					</a>
 					<a
@@ -112,7 +113,7 @@ const author = await getAuthor();
 
 	<!-- Selected Writing -->
 	{
-		featuredPosts.length > 0 && (
+		featuredWritings.length > 0 && (
 			<section class="bg-base-200 py-20">
 				<div class="content-wrapper">
 					<div class="text-center mb-12">
@@ -123,20 +124,20 @@ const author = await getAuthor();
 					</div>
 
 					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-						{featuredPosts.slice(0, 3).map((post) => (
-							<PostCard
-								title={post.linkTitle || post.title}
-								slug={post.slug}
-								summary={post.summary || ""}
-								readingTime={post.readingTime || undefined}
-								wordCount={post.wordCount || undefined}
+						{featuredWritings.slice(0, 3).map((writing) => (
+							<WritingCard
+								title={writing.linkTitle || writing.title}
+								slug={writing.slug}
+								summary={writing.summary || ""}
+								readingTime={writing.readingTime || undefined}
+								wordCount={writing.wordCount || undefined}
 								showDate={false}
 							/>
 						))}
 					</div>
 
 					<div class="text-center mt-12">
-						<a href="/writing" class="btn btn-outline btn-lg">
+						<a href="/writings" class="btn btn-outline btn-lg">
 							View all writing →
 						</a>
 					</div>

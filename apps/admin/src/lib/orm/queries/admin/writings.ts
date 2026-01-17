@@ -134,8 +134,6 @@ export async function createWriting(data: {
 	sitemapChangefreq?: string;
 	aliases?: string[];
 	url?: string;
-	type?: string;
-	layout?: string;
 	weight?: number;
 	tagIds?: string[];
 	categoryIds?: string[];
@@ -176,8 +174,6 @@ export async function createWriting(data: {
 		authorId: data.authorId || null,
 		aliases: stringifyJson(data.aliases),
 		url: data.url || null,
-		type: data.type || null,
-		layout: data.layout || null,
 		weight: data.weight || null,
 	};
 
@@ -239,8 +235,6 @@ export async function updateWriting(
 		sitemapChangefreq?: string;
 		aliases?: string[];
 		url?: string;
-		type?: string;
-		layout?: string;
 		weight?: number;
 		tagIds?: string[];
 		categoryIds?: string[];
@@ -291,8 +285,6 @@ export async function updateWriting(
 	if (data.aliases !== undefined)
 		updateData.aliases = stringifyJson(data.aliases);
 	if (data.url !== undefined) updateData.url = data.url || null;
-	if (data.type !== undefined) updateData.type = data.type || null;
-	if (data.layout !== undefined) updateData.layout = data.layout || null;
 	if (data.weight !== undefined) updateData.weight = data.weight || null;
 
 	await db.update(writings).set(updateData).where(eq(writings.id, id));

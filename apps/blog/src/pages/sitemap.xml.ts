@@ -1,7 +1,11 @@
 // Sitemap Generation
 // Dynamic sitemap with all posts, pages, and static routes
 
-import { getAllCategories, getAllPostsForSitemap, getAllTags } from "@lib/db";
+import {
+	getAllCategories,
+	getAllTags,
+	getAllWritingsForSitemap,
+} from "@lib/db";
 import type { APIRoute } from "astro";
 
 const siteUrl = "https://kunjan.in";
@@ -12,7 +16,7 @@ const staticPages = [
 	{ url: "/services", priority: 0.9, changefreq: "monthly" },
 	{ url: "/about", priority: 0.8, changefreq: "monthly" },
 	{ url: "/contact", priority: 0.8, changefreq: "monthly" },
-	{ url: "/writing", priority: 0.9, changefreq: "daily" },
+	{ url: "/writings", priority: 0.9, changefreq: "daily" },
 	{ url: "/categories", priority: 0.7, changefreq: "weekly" },
 	{ url: "/tags", priority: 0.7, changefreq: "weekly" },
 ];
@@ -20,7 +24,7 @@ const staticPages = [
 export const GET: APIRoute = async () => {
 	try {
 		// Get all posts
-		const posts = await getAllPostsForSitemap();
+		const writings = await getAllWritingsForSitemap();
 
 		// Get all categories and tags
 		const categories = await getAllCategories();
@@ -38,13 +42,13 @@ ${staticPages
   </url>`,
 	)
 	.join("\n")}
-${posts
+${writings
 	.map(
-		(post) => `  <url>
-    <loc>${siteUrl}/writing/${post.slug}</loc>
-    <lastmod>${(post.updatedAt || post.publishedAt)?.toISOString()}</lastmod>
-    <changefreq>${post.sitemapChangefreq || "monthly"}</changefreq>
-    <priority>${post.sitemapPriority || 0.6}</priority>
+		(writing) => `  <url>
+    <loc>${siteUrl}/writings/${writing.slug}</loc>
+    <lastmod>${(writing.updatedAt || writing.publishedAt)?.toISOString()}</lastmod>
+    <changefreq>${writing.sitemapChangefreq || "monthly"}</changefreq>
+    <priority>${writing.sitemapPriority || 0.6}</priority>
   </url>`,
 	)
 	.join("\n")}

@@ -1,9 +1,16 @@
 ---
 import AdminLayout from "@components/layout/AdminLayout.astro";
-import { Edit, Plus, Trash2 } from "@lucide/astro";
-import { deleteTag, getTagsWithWritingCounts } from "../../lib/queries";
+import { Edit, Plus, Trash2, Upload } from "@lucide/astro";
+import {
+	checkTagNameExists,
+	checkTagSlugExists,
+	createTag,
+	deleteTag,
+	generateSlug,
+	getTagsWithWritingCounts,
+} from "../../lib/queries";
 
-// Handle delete action
+// Handle POST actions (delete and bulk_create)
 if (Astro.request.method === "POST") {
 	const formData = await Astro.request.formData();
 	const action = formData.get("action");
@@ -18,6 +25,67 @@ if (Astro.request.method === "POST") {
 			return Astro.redirect("/tags?error=delete_failed", 302);
 		}
 	}
+
+	if (action === "bulk_create") {
+		const tagsInput = formData.get("tags")?.toString() || "";
+
+		if (!tagsInput.trim()) {
+			return Astro.redirect("/tags?error=bulk_empty", 302);
+		}
+
+		// Parse comma-separated tags
+		const tagNames = tagsInput
+			.split(",")
+			.map((name) => name.trim())
+			.filter((name) => name.length > 0);
+
+		if (tagNames.length === 0) {
+			return Astro.redirect("/tags?error=bulk_empty", 302);
+		}
+
+		let createdCount = 0;
+		let skippedCount = 0;
+		const errors: string[] = [];
+
+		for (const tagName of tagNames) {
+			try {
+				// Check if tag already exists
+				const nameExists = await checkTagNameExists(tagName);
+				const slug = generateSlug(tagName);
+				const slugExists = await checkTagSlugExists(slug);
+
+				if (nameExists || slugExists) {
+					skippedCount++;
+					continue;
+				}
+
+				// Create tag with defaults (auto-generated slug, no description)
+				await createTag({
+					name: tagName,
+					slug: slug,
+					description: undefined,
+				});
+				createdCount++;
+			} catch (error) {
+				console.error(`Error creating tag "${tagName}":`, error);
+				errors.push(tagName);
+			}
+		}
+
+		// Build redirect URL with results
+		const params = new URLSearchParams();
+		if (createdCount > 0) {
+			params.set("bulk_created", createdCount.toString());
+		}
+		if (skippedCount > 0) {
+			params.set("bulk_skipped", skippedCount.toString());
+		}
+		if (errors.length > 0) {
+			params.set("bulk_errors", errors.length.toString());
+		}
+
+		return Astro.redirect(`/tags?${params.toString()}`, 302);
+	}
 }
 
 const tagsWithCounts = await getTagsWithWritingCounts();
@@ -25,6 +93,9 @@ const tagsWithCounts = await getTagsWithWritingCounts();
 const deleted = Astro.url.searchParams.get("deleted") === "true";
 const created = Astro.url.searchParams.get("created") === "true";
 const error = Astro.url.searchParams.get("error");
+const bulkCreated = Astro.url.searchParams.get("bulk_created");
+const bulkSkipped = Astro.url.searchParams.get("bulk_skipped");
+const bulkErrors = Astro.url.searchParams.get("bulk_errors");
 ---
 
 <AdminLayout title="Tags">
@@ -51,9 +122,79 @@ const error = Astro.url.searchParams.get("error");
 
 		{error && (
 			<div class="alert alert-error">
-				<span>Error: {error === "delete_failed" ? "Failed to delete tag" : error}</span>
+				<span>
+					Error:{" "}
+					{error === "delete_failed"
+						? "Failed to delete tag"
+						: error === "bulk_empty"
+							? "Please enter at least one tag name"
+							: error}
+				</span>
 			</div>
 		)}
+
+		{bulkCreated && (
+			<div class="alert alert-success">
+				<span>
+					Successfully created {bulkCreated} tag{bulkCreated !== "1" ? "s" : ""}.
+					{bulkSkipped &&
+						` ${bulkSkipped} tag${bulkSkipped !== "1" ? "s" : ""} skipped (already exist).`}
+					{bulkErrors &&
+						` ${bulkErrors} tag${bulkErrors !== "1" ? "s" : ""} failed to create.`}
+				</span>
+			</div>
+		)}
+
+		<!-- Bulk Upload Section -->
+		<div class="card bg-base-100 shadow">
+			<div class="card-body">
+				<div class="flex items-center justify-between mb-4">
+					<h2 class="text-xl font-semibold">Bulk Upload Tags</h2>
+					<button
+						type="button"
+						class="btn btn-sm btn-ghost"
+						id="toggle-bulk-upload"
+						onclick="toggleBulkUpload()"
+					>
+						<Upload class="size-4" />
+						<span id="toggle-text">Hide</span>
+					</button>
+				</div>
+				<form
+					method="POST"
+					id="bulk-upload-form"
+					class="space-y-4"
+					onsubmit="return confirm('Are you sure you want to create these tags?')"
+				>
+					<input type="hidden" name="action" value="bulk_create" />
+					<div class="form-control">
+						<label class="label" for="tags">
+							<span class="label-text">Comma-separated Tags</span>
+							<span class="label-text-alt">Enter tag names separated by commas</span>
+						</label>
+						<textarea
+							id="tags"
+							name="tags"
+							placeholder="e.g., JavaScript, TypeScript, React, Next.js"
+							class="textarea textarea-bordered w-full"
+							rows="4"
+							required
+						></textarea>
+						<label class="label">
+							<span class="label-text-alt">
+								Tags will be created with auto-generated slugs. Duplicates will be skipped.
+							</span>
+						</label>
+					</div>
+					<div class="card-actions justify-end">
+						<button type="submit" class="btn btn-primary">
+							<Upload class="size-5" />
+							Create Tags
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
 
 		<div class="card bg-base-100 shadow">
 			<div class="card-body">
@@ -175,5 +316,15 @@ const error = Astro.url.searchParams.get("error");
 				}
 			});
 		});
+	}
+
+	// Toggle bulk upload form
+	function toggleBulkUpload() {
+		const form = document.getElementById("bulk-upload-form");
+		const toggleText = document.getElementById("toggle-text");
+		if (form && toggleText) {
+			const isHidden = form.classList.toggle("hidden");
+			toggleText.textContent = isHidden ? "Show" : "Hide";
+		}
 	}
 </script>

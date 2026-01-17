@@ -1,6 +1,6 @@
 // Blog queries for Writings (published posts)
 
-import { and, desc, eq } from "drizzle-orm";
+import { and, desc, eq, gt, isNull, or } from "drizzle-orm";
 import { db } from "../../db/client";
 import {
 	author,
@@ -14,24 +14,36 @@ import {
 } from "../../schema/tables";
 
 /**
- * Get all published writings (not drafts)
+ * Get all published writings (not drafts and not expired)
  */
 export async function getPublishedWritings() {
+	const now = new Date();
 	return await db
 		.select()
 		.from(writings)
-		.where(eq(writings.draft, false))
+		.where(
+			and(
+				eq(writings.draft, false),
+				or(isNull(writings.expiryDate), gt(writings.expiryDate, now)),
+			),
+		)
 		.orderBy(desc(writings.publishedAt));
 }
 
 /**
- * Get a single writing by slug with all related data
+ * Get a single writing by slug with all related data (excludes expired posts)
  */
 export async function getWritingBySlug(slug: string) {
+	const now = new Date();
 	const results = await db
 		.select()
 		.from(writings)
-		.where(eq(writings.slug, slug))
+		.where(
+			and(
+				eq(writings.slug, slug),
+				or(isNull(writings.expiryDate), gt(writings.expiryDate, now)),
+			),
+		)
 		.limit(1);
 
 	if (results.length === 0) {
@@ -84,7 +96,7 @@ export async function getWritingBySlug(slug: string) {
 		.where(eq(faqs.writingId, writing?.id ?? ""))
 		.orderBy(faqs.order);
 
-	// Get related writings
+	// Get related writings (exclude expired)
 	const relatedResults = await db
 		.select()
 		.from(writingReferences)
@@ -93,6 +105,7 @@ export async function getWritingBySlug(slug: string) {
 			and(
 				eq(writingReferences.fromWritingId, writing?.id ?? ""),
 				eq(writings.draft, false),
+				or(isNull(writings.expiryDate), gt(writings.expiryDate, now)),
 			),
 		)
 		.orderBy(writingReferences.weight);
@@ -114,13 +127,20 @@ export async function getWritingBySlug(slug: string) {
 }
 
 /**
- * Get featured writings for homepage
+ * Get featured writings for homepage (exclude expired)
  */
 export async function getFeaturedWritings() {
+	const now = new Date();
 	return await db
 		.select()
 		.from(writings)
-		.where(and(eq(writings.draft, false), eq(writings.featured, true)))
+		.where(
+			and(
+				eq(writings.draft, false),
+				eq(writings.featured, true),
+				or(isNull(writings.expiryDate), gt(writings.expiryDate, now)),
+			),
+		)
 		.orderBy(desc(writings.publishedAt))
 		.limit(5);
 }
@@ -141,6 +161,7 @@ export async function getWritingsByCategory(categorySlug: string) {
 
 	const category = categoryResults[0];
 
+	const now = new Date();
 	const writingResults = await db
 		.select()
 		.from(writingCategories)
@@ -149,6 +170,7 @@ export async function getWritingsByCategory(categorySlug: string) {
 			and(
 				eq(writingCategories.categoryId, category?.id ?? ""),
 				eq(writings.draft, false),
+				or(isNull(writings.expiryDate), gt(writings.expiryDate, now)),
 			),
 		)
 		.orderBy(desc(writings.publishedAt));
@@ -175,11 +197,18 @@ export async function getWritingsByTag(tagSlug: string) {
 
 	const tag = tagResults[0];
 
+	const now = new Date();
 	const writingResults = await db
 		.select()
 		.from(writingTags)
 		.innerJoin(writings, eq(writingTags.writingId, writings.id))
-		.where(and(eq(writingTags.tagId, tag?.id ?? ""), eq(writings.draft, false)))
+		.where(
+			and(
+				eq(writingTags.tagId, tag?.id ?? ""),
+				eq(writings.draft, false),
+				or(isNull(writings.expiryDate), gt(writings.expiryDate, now)),
+			),
+		)
 		.orderBy(desc(writings.publishedAt));
 
 	return {
@@ -189,9 +218,10 @@ export async function getWritingsByTag(tagSlug: string) {
 }
 
 /**
- * Get related writings for a given writing ID
+ * Get related writings for a given writing ID (exclude expired)
  */
 export async function getRelatedWritings(writingId: string) {
+	const now = new Date();
 	const relatedResults = await db
 		.select()
 		.from(writingReferences)
@@ -200,6 +230,7 @@ export async function getRelatedWritings(writingId: string) {
 			and(
 				eq(writingReferences.fromWritingId, writingId),
 				eq(writings.draft, false),
+				or(isNull(writings.expiryDate), gt(writings.expiryDate, now)),
 			),
 		)
 		.orderBy(writingReferences.weight);
@@ -212,9 +243,10 @@ export async function getRelatedWritings(writingId: string) {
 }
 
 /**
- * Get all writings for sitemap generation
+ * Get all writings for sitemap generation (exclude expired)
  */
 export async function getAllWritingsForSitemap() {
+	const now = new Date();
 	return await db
 		.select({
 			slug: writings.slug,
@@ -224,6 +256,11 @@ export async function getAllWritingsForSitemap() {
 			sitemapChangefreq: writings.sitemapChangefreq,
 		})
 		.from(writings)
-		.where(eq(writings.draft, false))
+		.where(
+			and(
+				eq(writings.draft, false),
+				or(isNull(writings.expiryDate), gt(writings.expiryDate, now)),
+			),
+		)
 		.orderBy(desc(writings.publishedAt));
 }

@@ -1,7 +1,7 @@
 ---
 // RelatedPosts Component
 // Displays related posts at the bottom of an article
-interface RelatedPost {
+interface RelatedWriting {
 	title: string;
 	slug: string;
 	summary?: string;
@@ -9,17 +9,17 @@ interface RelatedPost {
 }
 
 interface Props {
-	posts: RelatedPost[];
+	writings: RelatedWriting[];
 	title?: string;
 }
 
-const { posts, title = "Related Reading" } = Astro.props;
+const { writings, title = "Related Reading" } = Astro.props;
 
-if (!posts || posts.length === 0) {
+if (!writings || writings.length === 0) {
 	return null;
 }
 
-const _linkTypeLabels: Record<string, string> = {
+const linkTypeLabels: Record<string, string> = {
 	related: "Related",
 	prerequisite: "Prerequisites",
 	"follow-up": "Next Steps",
@@ -33,20 +33,20 @@ const _linkTypeLabels: Record<string, string> = {
 
 	<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 		{
-			posts.map((post) => (
+			writings.map((writing) => (
 				<article class="card bg-base-100 shadow-sm hover:shadow-md transition-shadow">
 					<div class="card-body">
-						{post.linkType && (
+						{writing.linkType && (
 							<div class="badge badge-sm badge-primary mb-2">
-								{linkTypeLabels[post.linkType] || post.linkType}
+								{linkTypeLabels[writing.linkType] || writing.linkType}
 							</div>
 						)}
 						<h3 class="card-title text-base">
-							<a href={`/writing/${post.slug}`} class="hover:text-primary transition-colors">
-								{post.title}
+							<a href={`/writings/${writing.slug}`} class="hover:text-primary transition-colors">
+								{writing.title}
 							</a>
 						</h3>
-						{post.summary && <p class="text-sm opacity-80 line-clamp-2">{post.summary}</p>}
+						{writing.summary && <p class="text-sm opacity-80 line-clamp-2">{writing.summary}</p>}
 					</div>
 				</article>
 			))

@@ -1,6 +1,7 @@
 ---
+import WritingCard from "@components/WritingCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { getAllCategories, getPostsByCategory } from "@lib/db";
+import { getAllCategories, getWritingsByCategory } from "@lib/db";
 
 export async function getStaticPaths() {
 	const categories = await getAllCategories();
@@ -12,7 +13,7 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 
-const { category, posts } = await getPostsByCategory(slug);
+const { category, writings } = await getWritingsByCategory(slug);
 
 if (!category) {
 	return Astro.redirect("/404");
@@ -28,7 +29,7 @@ if (!category) {
 			<div class="max-w-3xl">
 				<div class="breadcrumbs text-sm mb-4 justify-center">
 					<ul>
-						<li><a href="/writing">Writing</a></li>
+						<li><a href="/writings">Writing</a></li>
 						<li><a href="/categories">Categories</a></li>
 						<li>{category.name}</li>
 					</ul>
@@ -40,7 +41,7 @@ if (!category) {
 					)
 				}
 				<p class="text-lg opacity-70 mt-4">
-					{posts.length} {posts.length === 1 ? "post" : "posts"}
+					{writings.length} {writings.length === 1 ? "writing" : "writings"}
 				</p>
 			</div>
 		</div>
@@ -48,15 +49,15 @@ if (!category) {
 
 	<div class="content-wrapper py-12">
 		{
-			posts.length > 0 ? (
+			writings.length > 0 ? (
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-					{posts.map((post) => (
-						<PostCard
-							title={post.linkTitle || post.title}
-							slug={post.slug}
-							summary={post.summary || ""}
-							readingTime={post.readingTime || undefined}
-							wordCount={post.wordCount || undefined}
+					{writings.map((writing) => (
+						<WritingCard
+							title={writing.linkTitle || writing.title}
+							slug={writing.slug}
+							summary={writing.summary || ""}
+							readingTime={writing.readingTime || undefined}
+							wordCount={writing.wordCount || undefined}
 							showDate={false}
 						/>
 					))}
@@ -64,10 +65,10 @@ if (!category) {
 			) : (
 				<div class="text-center py-20">
 					<p class="text-xl opacity-80">
-						No posts in this category yet.
+						No writings in this category yet.
 					</p>
-					<a href="/writing" class="btn btn-outline mt-8">
-						Browse all posts
+					<a href="/writings" class="btn btn-outline mt-8">
+						Browse all writings
 					</a>
 				</div>
 			)

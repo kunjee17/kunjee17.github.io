@@ -23,13 +23,13 @@ const {
 	publishedAt,
 } = Astro.props;
 
-const _postUrl = `/writing/${slug}`;
+const writingUrl = `/writings/${slug}`;
 ---
 
 <article class="card bg-base-100 shadow-sm hover:shadow-md transition-shadow duration-300">
 	<div class="card-body">
 		<h3 class="card-title text-display">
-			<a href={postUrl} class="hover:text-primary transition-colors">
+			<a href={writingUrl} class="hover:text-primary transition-colors">
 				{title}
 			</a>
 		</h3>

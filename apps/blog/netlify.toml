@@ -7,21 +7,32 @@
   NODE_VERSION = "18"
 
 # 301 Redirects for SEO preservation
-# Old blog structure to new writing structure
+# Old blog structure to new writings structure
 [[redirects]]
   from = "/posts"
-  to = "/writing"
+  to = "/writings"
   status = 301
 
 [[redirects]]
   from = "/posts/*"
-  to = "/writing/:splat"
+  to = "/writings/:splat"
   status = 301
 
 # Date-based URLs to clean URLs (preserve old links)
 [[redirects]]
   from = "/:year/:month/:slug"
-  to = "/writing/:slug"
+  to = "/writings/:slug"
+  status = 301
+
+# Legacy /writing redirects to /writings for consistency
+[[redirects]]
+  from = "/writing"
+  to = "/writings"
+  status = 301
+
+[[redirects]]
+  from = "/writing/*"
+  to = "/writings/:splat"
   status = 301
 
 # Resume page to About

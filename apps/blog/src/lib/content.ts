@@ -79,8 +79,8 @@ export function generateExcerpt(content: string, length: number = 150): string {
 /**
  * Group posts by category/theme
  */
-export function groupPostsByTheme(
-	posts: Array<{
+export function groupWritingsByTheme(
+	writings: Array<{
 		id: string;
 		title: string;
 		slug: string;
@@ -104,42 +104,42 @@ export function groupPostsByTheme(
 		Other: [],
 	};
 
-	posts.forEach((post) => {
+	writings.forEach((writing) => {
 		let categorized = false;
 
 		// Check categories
-		if (post.categories) {
-			post.categories.forEach((cat) => {
+		if (writing.categories) {
+			writing.categories.forEach((cat) => {
 				const catName = cat.name.toLowerCase();
 
 				if (catName.includes("architecture")) {
-					themes.Architecture.push(post);
+					themes.Architecture?.push(writing);
 					categorized = true;
 				} else if (
 					catName.includes("ai") ||
 					catName.includes("rag") ||
 					catName.includes("machine learning")
 				) {
-					themes["AI & RAG Systems"].push(post);
+					themes["AI & RAG Systems"]?.push(writing);
 					categorized = true;
 				} else if (
 					catName.includes("legal") ||
 					catName.includes("healthcare")
 				) {
-					themes["LegalTech / Healthcare"].push(post);
+					themes["LegalTech / Healthcare"]?.push(writing);
 					categorized = true;
 				} else if (
 					catName.includes("leadership") ||
 					catName.includes("management")
 				) {
-					themes["Tech Leadership"].push(post);
+					themes["Tech Leadership"]?.push(writing);
 					categorized = true;
 				} else if (
 					catName.includes("functional") ||
 					catName.includes("fsharp") ||
 					catName.includes("f#")
 				) {
-					themes["Functional Programming"].push(post);
+					themes["Functional Programming"]?.push(writing);
 					categorized = true;
 				}
 			});
@@ -147,36 +147,36 @@ export function groupPostsByTheme(
 
 		// Check title for keywords if not categorized
 		if (!categorized) {
-			const title = post.title.toLowerCase();
+			const title = writing.title.toLowerCase();
 
 			if (
 				title.includes("architecture") ||
 				title.includes("system") ||
 				title.includes("design")
 			) {
-				themes.Architecture.push(post);
+				themes.Architecture?.push(writing);
 			} else if (
 				title.includes("cost") ||
 				title.includes("scale") ||
 				title.includes("reliability") ||
 				title.includes("performance")
 			) {
-				themes["Cost, Scale & Reliability"].push(post);
+				themes["Cost, Scale & Reliability"]?.push(writing);
 			} else if (
 				title.includes("f#") ||
 				title.includes("fsharp") ||
 				title.includes("functional")
 			) {
-				themes["Functional Programming"].push(post);
+				themes["Functional Programming"]?.push(writing);
 			} else {
-				themes.Other.push(post);
+				themes.Other?.push(writing);
 			}
 		}
 	});
 
 	// Remove empty themes
 	return Object.fromEntries(
-		Object.entries(themes).filter(([_, posts]) => posts.length > 0),
+		Object.entries(themes).filter(([_, writings]) => writings.length > 0),
 	);
 }
 

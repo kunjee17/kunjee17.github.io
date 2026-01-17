@@ -5,6 +5,7 @@
 	"private": true,
 	"scripts": {
 		"copy:pagefind:dev": "pnpm dlx shx cp -r dist/pagefind public/",
+		"dev:astro": "astro dev",
 		"dev": "pnpm build:pagefind && pnpm copy:pagefind:dev && pnpm dev:astro",
 		"build:astro": "astro build",
 		"build:pagefind": "pnpm dlx pagefind --site dist",

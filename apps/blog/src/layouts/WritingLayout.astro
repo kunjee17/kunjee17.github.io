@@ -2,11 +2,11 @@
 import AdSense from "@components/AdSense.astro";
 import AuthorByline from "@components/AuthorByline.astro";
 import FAQSection from "@components/FAQSection.astro";
-import RelatedPosts from "@components/RelatedPosts.astro";
+import RelatedWritings from "@components/RelatedWritings.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
-	post: {
+	writing: {
 		title: string;
 		slug: string;
 		description?: string;
@@ -30,7 +30,7 @@ interface Props {
 	tags?: { name: string; slug: string }[];
 	categories?: { name: string; slug: string }[];
 	faqs?: { question: string; answer: string; order?: number }[];
-	relatedPosts?: {
+	relatedWritings?: {
 		title: string;
 		slug: string;
 		summary?: string;
@@ -39,45 +39,45 @@ interface Props {
 }
 
 const {
-	post,
+	writing,
 	author,
 	tags = [],
 	categories = [],
 	faqs = [],
-	relatedPosts = [],
+	relatedWritings = [],
 } = Astro.props;
 ---
 
 <BaseLayout
-	title={post.title}
-	description={post.description}
-	ogImage={post.ogImage}
-	canonicalUrl={post.canonicalUrl}
-	keywords={post.keywords}
+	title={writing.title}
+	description={writing.description}
+	ogImage={writing.ogImage}
+	canonicalUrl={writing.canonicalUrl}
+	keywords={writing.keywords}
 	article={true}
-	publishedTime={post.publishedAt}
-	modifiedTime={post.updatedAt}
+	publishedTime={writing.publishedAt}
+	modifiedTime={writing.updatedAt}
 	author={{ name: author.name, url: author.website }}
-	schemaJson={post.schemaJson}
+	schemaJson={writing.schemaJson}
 >
 	<article class="content-wrapper py-12">
 		<!-- Hero Section -->
 		<header class="mb-12 max-w-4xl mx-auto">
-			<h1 class="text-display text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
+			<h1 class="text-display text-4xl md:text-5xl font-bold mb-4">{writing.title}</h1>
 
-			{post.description && <p class="text-xl opacity-80 mb-6">{post.description}</p>}
+			{writing.description && <p class="text-xl opacity-80 mb-6">{writing.description}</p>}
 
 			<!-- Meta info -->
 			<div class="flex gap-4 text-sm opacity-70 mb-6">
-				{post.readingTime && <span>{post.readingTime} min read</span>}
-				{post.wordCount && <span>{post.wordCount.toLocaleString()} words</span>}
+				{writing.readingTime && <span>{writing.readingTime} min read</span>}
+				{writing.wordCount && <span>{writing.wordCount.toLocaleString()} words</span>}
 			</div>
 
 			<!-- Author byline -->
 			<AuthorByline
 				author={author}
-				publishedAt={post.publishedAt}
-				modifiedAt={post.updatedAt}
+				publishedAt={writing.publishedAt}
+				modifiedAt={writing.updatedAt}
 			/>
 		</header>
 
@@ -127,7 +127,7 @@ const {
 			{faqs.length > 0 && <FAQSection faqs={faqs} />}
 
 			<!-- Related Posts -->
-			{relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />}
+			{relatedWritings.length > 0 && <RelatedWritings writings={relatedWritings} />}
 
 			<!-- Social Share Buttons -->
 			<div class="my-12 pt-8 border-t border-base-300">
@@ -135,7 +135,7 @@ const {
 				<div class="flex gap-4">
 					<button
 						class="btn btn-sm btn-outline"
-						onclick={`window.open('https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(Astro.url.href)}', '_blank', 'width=600,height=400')`}
+						onclick={`window.open('https://twitter.com/intent/tweet?text=${encodeURIComponent(writing.title)}&url=${encodeURIComponent(Astro.url.href)}', '_blank', 'width=600,height=400')`}
 					>
 						<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
 							<path

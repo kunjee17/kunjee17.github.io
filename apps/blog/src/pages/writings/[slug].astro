@@ -1,0 +1,96 @@
+---
+import WritingLayout from "@layouts/WritingLayout.astro";
+import { markdownToHtml } from "@lib/content";
+import { getPublishedWritings, getWritingBySlug } from "@lib/db";
+import { generateBlogPostingSchema } from "@lib/seo";
+
+export async function getStaticPaths() {
+	const writings = await getPublishedWritings();
+
+	return writings.map((writing) => ({
+		params: { slug: writing.slug },
+	}));
+}
+
+const { slug } = Astro.params;
+
+// Get post with all related data
+const writingData = await getWritingBySlug(slug);
+
+if (!writingData || !writingData.writing) {
+	return Astro.redirect("/404");
+}
+const { writing, author, tags, categories, faqs, relatedWritings } =
+	writingData;
+
+// Generate schema.org JSON-LD
+const schemaJson = author
+	? generateBlogPostingSchema(
+			{
+				title: writing.title,
+				description: writing.description || "",
+				content: writing.content,
+				publishedAt: writing.publishedAt || undefined,
+				updatedAt: writing.updatedAt,
+				ogImage: writing.ogImage || undefined,
+				keywords: writing.keywords?.split(",") || undefined,
+			},
+			{
+				name: author.name,
+				website: author.website || undefined,
+				profilePicture: author.profilePicture || undefined,
+			},
+			Astro.url.href,
+		)
+	: undefined;
+
+// Convert markdown to HTML
+const htmlContent = markdownToHtml(writing.content);
+---
+
+<WritingLayout
+	writing={{
+		title: writing.title,
+		slug: writing.slug,
+		description: writing.description || undefined,
+		content: writing.content,
+		ogImage: writing.ogImage || undefined,
+		canonicalUrl: writing.canonicalUrl || undefined,
+		keywords: writing.keywords?.split(",") || undefined,
+		publishedAt: writing.publishedAt || undefined,
+		updatedAt: writing.updatedAt,
+		readingTime: writing.readingTime || undefined,
+		wordCount: writing.wordCount || undefined,
+		schemaJson: schemaJson,
+	}}
+	author={
+		author
+			? {
+					name: author.name,
+					bio: author.bio || undefined,
+					credentials: author.credentials || undefined,
+					profilePicture: author.profilePicture || undefined,
+					website: author.website || undefined,
+			  }
+			: {
+					name: "Kunjan Dalal",
+					website: "https://kunjan.in",
+			  }
+	}
+	tags={tags.map((tag) => ({ name: tag.name, slug: tag.slug }))}
+	categories={categories.map((cat) => ({ name: cat.name, slug: cat.slug }))}
+	faqs={faqs.map((faq) => ({
+		question: faq.question,
+		answer: faq.answer,
+		order: faq.order || undefined,
+	}))}
+	relatedWritings={relatedWritings.map((rw) => ({
+		title: rw.title,
+		slug: rw.slug,
+		summary: rw.summary || undefined,
+		linkType: rw.linkType || undefined,
+	}))}
+>
+	<!-- Render markdown content -->
+	<div set:html={htmlContent} />
+</WritingLayout>

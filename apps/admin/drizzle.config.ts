@@ -9,7 +9,7 @@ const databaseUrl = process.env.DATABASE_URL || process.env.TURSO_DATABASE_URL;
 const databaseAuthToken = process.env.TURSO_AUTH_TOKEN;
 
 export default defineConfig({
-	schema: "./src/schema/tables.ts",
+	schema: "./src/lib/orm/schema/tables.ts",
 	out: "./drizzle",
 	dialect: "turso",
 	dbCredentials: {

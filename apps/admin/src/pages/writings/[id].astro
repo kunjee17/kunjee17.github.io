@@ -166,9 +166,6 @@ if (Astro.request.method === "POST") {
 		return Astro.redirect(`/writings/${id}?error=invalid_url`, 302);
 	}
 
-	// Template
-	const type = formData.get("type")?.toString()?.trim();
-	const layout = formData.get("layout")?.toString()?.trim();
 	const weightStr = formData.get("weight")?.toString();
 
 	// Author
@@ -203,8 +200,6 @@ if (Astro.request.method === "POST") {
 			sitemapChangefreq,
 			aliases,
 			url,
-			type,
-			layout,
 			weight: weightStr ? parseInt(weightStr, 10) : undefined,
 			authorId,
 			tagIds: tagIds.length > 0 ? tagIds : undefined,
@@ -727,40 +722,6 @@ const selectedCategoryIds =
 								id="aliases"
 								name="aliases"
 								value={Array.isArray(aliases) ? aliases.join(", ") : ""}
-								class="input input-bordered w-full"
-							/>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			{/* Template Selection */}
-			<div class="card bg-base-100 shadow">
-				<div class="card-body">
-					<h2 class="card-title">Template Selection</h2>
-					<div class="space-y-4">
-						<div class="form-control">
-							<label class="label" for="type">
-								<span class="label-text">Type</span>
-							</label>
-							<input
-								type="text"
-								id="type"
-								name="type"
-								value={writing.type || ""}
-								class="input input-bordered w-full"
-							/>
-						</div>
-
-						<div class="form-control">
-							<label class="label" for="layout">
-								<span class="label-text">Layout</span>
-							</label>
-							<input
-								type="text"
-								id="layout"
-								name="layout"
-								value={writing.layout || ""}
 								class="input input-bordered w-full"
 							/>
 						</div>

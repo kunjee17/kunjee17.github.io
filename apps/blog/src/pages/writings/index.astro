@@ -1,22 +1,23 @@
 ---
+import WritingCard from "@components/WritingCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { groupPostsByTheme } from "@lib/content";
-import { getPublishedPosts } from "@lib/db";
+import { groupWritingsByTheme } from "@lib/content";
+import { getPublishedWritings } from "@lib/db";
 
-// Get all published posts
-const posts = await getPublishedPosts();
+// Get all published writings
+const writings = await getPublishedWritings();
 
 // Group posts by theme
-const groupedPosts = groupPostsByTheme(
-	posts.map((post) => ({
-		id: post.id,
-		title: post.title,
-		slug: post.slug,
+const groupedWritings = groupWritingsByTheme(
+	writings.map((writing) => ({
+		id: writing.id,
+		title: writing.title,
+		slug: writing.slug,
 	})),
 );
 
 // Create a map for easy lookup
-const _postsMap = new Map(posts.map((p) => [p.id, p]));
+const writingsMap = new Map(writings.map((writing) => [writing.id, writing]));
 ---
 
 <BaseLayout
@@ -41,24 +42,24 @@ const _postsMap = new Map(posts.map((p) => [p.id, p]));
 	<div class="content-wrapper py-12">
 		<!-- Theme-based sections -->
 		{
-			Object.entries(groupedPosts).map(([theme, themePosts]) => (
+			Object.entries(groupedWritings).map(([theme, themeWritings]) => (
 				<section class="mb-16">
 					<h2 class="text-display text-3xl font-bold mb-8 border-b border-base-300 pb-4">
 						{theme}
 					</h2>
 
 					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-						{themePosts.map((themePost) => {
-							const post = postsMap.get(themePost.id);
-							if (!post) return null;
+						{themeWritings.map((themeWriting) => {
+							const writing = writingsMap.get(themeWriting.id);
+							if (!writing) return null;
 
 							return (
-								<PostCard
-									title={post.linkTitle || post.title}
-									slug={post.slug}
-									summary={post.summary || ""}
-									readingTime={post.readingTime || undefined}
-									wordCount={post.wordCount || undefined}
+								<WritingCard
+									title={writing.linkTitle || writing.title}
+									slug={writing.slug}
+									summary={writing.summary || ""}
+									readingTime={writing.readingTime || undefined}
+									wordCount={writing.wordCount || undefined}
 									showDate={false}
 								/>
 							);
@@ -70,10 +71,10 @@ const _postsMap = new Map(posts.map((p) => [p.id, p]));
 
 		<!-- No posts message -->
 		{
-			posts.length === 0 && (
+			writings.length === 0 && (
 				<div class="text-center py-20">
 					<p class="text-xl opacity-80">
-						No posts published yet. Check back soon!
+						No writings published yet. Check back soon!
 					</p>
 				</div>
 			)

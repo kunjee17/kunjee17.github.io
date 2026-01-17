@@ -153,9 +153,6 @@ if (Astro.request.method === "POST") {
 		return Astro.redirect("/posts/new?error=invalid_url", 302);
 	}
 
-	// Template
-	const type = formData.get("type")?.toString()?.trim();
-	const layout = formData.get("layout")?.toString()?.trim();
 	const weightStr = formData.get("weight")?.toString();
 
 	// Author
@@ -191,24 +188,22 @@ if (Astro.request.method === "POST") {
 			sitemapChangefreq,
 			aliases,
 			url,
-			type,
-			layout,
 			weight: weightStr ? parseInt(weightStr, 10) : undefined,
 			authorId,
 			tagIds: tagIds.length > 0 ? tagIds : undefined,
 			categoryIds: categoryIds.length > 0 ? categoryIds : undefined,
 		});
 
-		return Astro.redirect(`/posts/${postId}?created=true`, 302);
+		return Astro.redirect(`/writings/${postId}?created=true`, 302);
 	} catch (error) {
 		console.error("Error creating post:", error);
 		// Check if it's a database constraint error
 		if (error instanceof Error && error.message.includes("UNIQUE")) {
 			if (error.message.includes("slug")) {
-				return Astro.redirect("/posts/new?error=slug_exists", 302);
+				return Astro.redirect("/writings/new?error=slug_exists", 302);
 			}
 		}
-		return Astro.redirect("/posts/new?error=create_failed", 302);
+		return Astro.redirect("/writings/new?error=create_failed", 302);
 	}
 }
 
@@ -656,48 +651,14 @@ const errorMessages: Record<string, string> = {
 				</div>
 			</div>
 
-			{/* Template Selection */}
-			<div class="card bg-base-100 shadow">
-				<div class="card-body">
-					<h2 class="card-title">Template Selection</h2>
-					<div class="space-y-4">
-						<div class="form-control">
-							<label class="label" for="type">
-								<span class="label-text">Type</span>
-							</label>
-							<input
-								type="text"
-								id="type"
-								name="type"
-								placeholder="post"
-								class="input input-bordered w-full"
-							/>
-						</div>
-
-						<div class="form-control">
-							<label class="label" for="layout">
-								<span class="label-text">Layout</span>
-							</label>
-							<input
-								type="text"
-								id="layout"
-								name="layout"
-								placeholder="post"
-								class="input input-bordered w-full"
-							/>
-						</div>
-					</div>
-				</div>
-			</div>
-
 			<div class="card-actions justify-end">
-				<a href="/posts" class="btn btn-ghost">
+				<a href="/writings" class="btn btn-ghost">
 					<Cancel class="size-5" />
 					Cancel
 				</a>
 				<button type="submit" class="btn btn-primary">
 					<Save class="size-5" />
-					Save Post
+					Save Writing
 				</button>
 			</div>
 		</form>
